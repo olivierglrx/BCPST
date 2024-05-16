@@ -1,0 +1,1127 @@
+\documentclass[a4paper, 11pt,reqno]{article}
+\input{macro/package.tex}
+\input{macro/environement}
+\input{macro/header.tex}
+\input{macro/newcommand.tex}
+\geometry{hmargin=1.0cm, vmargin=2.5cm}
+
+
+\newcommand{\type}{TD }
+\excludecomment{correction}
+%\newcommand{\type}{Correction TD }
+
+
+\begin{document}
+
+\title{\type  : Applications linéaires }
+% debut
+
+
+
+\vspace{0.2cm}
+
+%------------------------------------------------
+%-------------------------------------------------
+%------------------------------------------------
+%-------------------------------------------------
+%-------------------------------------------------
+%debut
+%--------------------------------------------------
+%-------------------------------------------------
+%------------------------------------------------
+
+
+\noindent\section{\large{Applications lin\'eaires}}
+%-----------------------------------------------
+%-------------------------------------------------
+%------------------------------------------------
+\begin{exercice}  \;
+	Dans chacun des cas suivants, dire si l'application $f$ de $E$ dans $F$ est une application lin\'eaire.
+	\begin{enumerate}
+		\begin{minipage}[t]{0.45\textwidth}
+			\item $f(x,y)=(x-y,x,2x+y)$
+			\item $f(x,y)=(y,x^2)$
+			\item $f(x)=|x|$
+		\end{minipage}
+		\quad
+		\begin{minipage}[t]{0.45\textwidth}
+			\item $f(x,y,z,w,t)=(y+t,0,2x-3y+1)$
+			%\item $f(x,y,z)=(y,0,x+z,3x+y-2z)$
+			\item $f(x,y)=(x+y,\sqrt{x^2+y^2})$
+			\item $f(x,y)=(\sin{(x+y)},x)$
+		\end{minipage}
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \;
+	\textbf{Dans chacun des cas suivants, dire si l'application $f$ de $E$ dans $F$ est une application lin\'eaire.}
+	\begin{enumerate}
+		%---------
+		\item $\mathbf{f(x,y)=(x-y,x,2x+y)}$ : soient $u=(x,y) \in \R^2$, $v=(x',y') \in \R^2$ et $\lambda \in \R$. Montrons que $f(\lambda u + v) = \lambda f(u) + f(v)$. On a :
+		      $$\begin{array}{rcl}
+				      f(\lambda u + v) & = & f(\lambda x + x', \lambda y + y') \vsec                                                      \\
+				                       & = & (\lambda x + x' - (\lambda y + y'), \lambda x + x', 2(\lambda x + x') + \lambda y + y')\vsec \\
+				                       & = & \lambda (x-y,x,2x+y) + (x'-y',x',2x'+y') = \lambda f(u) + f(v)
+			      \end{array}$$
+		      On a donc \fbox{$f \in \cL(\R^2,\R^3)$}.
+		      %---------
+		\item $\mathbf{f(x,y)=(y,x^2)}$ : on se doute que $f$ n'est pas une application lin\'eaire \`a cause de la pr\'esence du $x^2$ dans son expression. On cherche alors un contre-exemple.
+		      Si on prend par exemple $u=(1,0)$ et $\lambda=2$, on obtient: $f(\lambda u)=f( (2,0))=(0,4)$ alors que $\lambda f(u)=2\times (0,1)=(0,2)$. Ainsi, $f(\lambda u)\not=\lambda f(u)$ et donc \fbox{$f$ n'est pas une application lin\'eaire}.
+		      %---------
+		\item $\mathbf{f(x)=|x|}$ : prenons $u=1$ et $\lambda = -1$, on obtient $f(\lambda u) = f(-1)=|-1| = 1$, tandis que $\lambda f(u) = - f(1) = -1$. Ainsi, $f(\lambda u)\not=\lambda f(u)$ et donc \fbox{$f$ n'est pas une application lin\'eaire}.
+		      %---------
+		\item $\mathbf{f(x,y,z,w,t)=(y+t,0,2x-3y+1)}$ : on remarque que $f((0,0,0,0,0))=(0,0,1)\not= 0_{\R^3}$. Ainsi l'application \fbox{$f$ n'est pas une application lin\'eaire}.
+		      %---------
+		      %\item $\mathbf{f(x,y,z)=(y,0,x+z,3x+y-2z)}$
+		      %---------
+		\item $\mathbf{f(x,y)=(x+y,\sqrt{x^2+y^2})}$ : prenons $u=(1,1)$ et $\lambda = -1$, on obtient $f(\lambda u) = f(-1,-1)=(-2,\sqrt{2})$, tandis que $\lambda f(u) = - f(1,1) = -(2,\sqrt{2}) = (-2, -\sqrt{2})$. Ainsi, $f(\lambda u)\not=\lambda f(u)$ et donc \fbox{$f$ n'est pas une application lin\'eaire}.
+		      %---------
+		\item $\mathbf{f(x,y)=(\sin{(x+y)},x)}$ : prenons $u=\ddp\left(\frac{\pi}{2},0\right)$ et $\lambda = 2$, on obtient $f(\lambda u) = f\ddp\left(\pi,0\right)=(0,\pi)$, tandis que $\lambda f(u) = 2 f\ddp\left(\frac{\pi}{2},0\right) = 2\ddp\left(1,\frac{\pi}{2}\right) = (2, \pi)$. Ainsi, $f(\lambda u)\not=\lambda f(u)$ et \fbox{$f$ n'est pas une application lin\'eaire}.
+		      %---------
+	\end{enumerate}
+\end{correction}
+%-------------------------------------------------
+%------------------------------------------------
+\begin{exercice}
+Soit $f\in\LL (\R^p,\R^n)$. Montrer que l'application $g$ est lin\'eaire avec $g$ d\'efinie par
+$$\forall (x_1,\dots,x_p,y)\in\R^{p+1},\quad g(x_1,\dots,x_p,y)=y(1,2,\dots,n)+2f(x_1,\dots,x_p).$$
+\end{exercice}
+\begin{correction}
+Soit $f\in\cL (\R^p,\R^n)$. Montrer que l'application $g$ est lin\'eaire avec $g$ d\'efinie par
+$$\forall (x_1,\dots,x_p,y)\in\R^{p+1},\quad g(x_1,\dots,x_p,y)=y(1,2,\dots,n)+2f(x_1,\dots,x_p).$$
+\end{correction}
+%-------------------------------------------------
+%------------------------------------------------
+\begin{exercice}  \;
+	Pour quelles valeurs du param\`etre r\'eel $m$ l'application $f$ est-elle lin\'eaire avec $f$ d\'efinie par
+	$$\forall (x,y,z)\in\R^3,\quad f(x,y,z)=\left(x-m+4(y-m)+5(z-m),2(x+2m)+5(y+m)+7z, 3x+6y+9z+3m\right).$$
+\end{exercice}
+\begin{correction}  \;
+	\textbf{Pour quelles valeurs du param\`etre r\'eel $m$ l'application $f$ est-elle lin\'eaire avec $f$ d\'efinie par}
+	$$\mathbf{\forall (x,y,z)\in\R^3,\quad f(x,y,z)=\left(x-m+4(y-m)+5(z-m),2(x+2m)+5(y+m)+7z, 3x+6y+9z+3m\right).}$$
+	Il faut tout d'abord que l'on ait $f(0,0,0) = (0,0,0)$. Or on a : $f(0,0,0)=(-10m,9m,3m)$. Il est donc n\'ecessaire d'avoir $m=0$.\\
+	Pour $m=0$, on a alors $f(x,y,z) = (x+4y+5z, 2x +5y+7z, 3x+6y+9z)$. V\'erifions que cette application est lin\?eaire : on prend $u=(x,y,z) \in \R^3$, $v=(x',y',z') \in \R^3$ et $\lambda \in \R$. On veut montrer que $f(\lambda u + v) = \lambda f(u) + f(v)$. On a :
+	$$\begin{array}{rcl}
+			f(\lambda u + v) & = & f(\lambda x + x', \lambda y + y', \lambda z + z') \vsec                                                                                                                   \\
+			                 & = & (\lambda x + x'+4(\lambda y + y')+5(\lambda z + z'), 2(\lambda x + x') +5(\lambda y + y')+7(\lambda z + z'), 3(\lambda x + x')+6(\lambda y + y')+9(\lambda z + z')) \vsec \\
+			                 & = & \lambda (x+4y+5z, 2x +5y+7z, 3x+6y+9z) + (x'+4y'+5z', 2x' +5y'+7z', 3x'+6y'+9z')
+		\end{array}$$
+	On a donc $f$ lin\'eaire si $m=0$. On en d\'eduit :  \fbox{$f \in \cL(\R^3,\R^3) \Leftrightarrow m=0$}.
+\end{correction}
+%-------------------------------------------------
+%-------------------------------------------------
+%------------------------------------------------
+%-------------------------------------------------
+%-------------------------------------------------
+%--------------------------------------------------
+
+
+% 
+\vspace*{0.5cm}
+
+\noindent\section{\large{Noyau, image, injectivit\'e, surjectivit\'e, isomorphisme}}
+%-----------------------------------------------
+%-------------------------------------------------
+
+%------------------------------------------------
+\begin{exercice}  \;
+	Pour chacune des applications lin\'eaires suivantes (on ne demande pas ici de v\'erifier qu'elles sont bien lin\'eaires), d\'ecrire l'image et le noyau. En d\'eduire si elles sont injectives, surjectives. D\'eterminer celles qui sont des isomorphismes, des automorphismes.
+	\begin{enumerate}
+		\begin{minipage}[t]{0.45\textwidth}
+			\item $f(x,y,z)=(x-2y+z,x+y-2z,-2x+y+z)$
+			\item  $f(x,y)=(4x+y,x-y,2x+3y)$
+			\item $f(x,y,z)=(2x+y+z, x-y+2z, x+5y-4z)$
+		\end{minipage}
+		\quad
+		\begin{minipage}[t]{0.45\textwidth}
+			\item $f(x,y,z)=(y,0,x+z,3x+y-2z)$
+			\item $f(x,y)=(2x-3y, x-y, x+2y)$
+			\item $f(x,y,z)= (z,x-y,y+z)$
+			%\item $f(x,y,z,t)= (-y,my,x-mz-t,y)$ avec $m$ param\`etre r\'eel
+		\end{minipage}
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \;
+	\textbf{Pour chacune des applications lin\'eaires suivantes (on ne demande pas ici de v\'erifier qu'elles sont bien lin\'eaires), d\'ecrire l'image et le noyau. En d\'eduire si elles sont injectives, surjectives. D\'eterminer celles qui sont des isomorphismes, des automorphismes.}
+	\begin{enumerate}
+		%-----
+		%\item $f(x,y,z)=(x-2y+3z, 2x+y-2z)$
+		%-----
+		\item $\mathbf{f(x,y,z)=(x-2y+z,x+y-2z,-2x+y+z)}$. On a $f \in \cL(\R^3)$, donc $f$ est bien un isomorphisme.
+		      \begin{itemize}
+			      \item[$\bullet$] Recherche du noyau : on a :
+			            $$u\in\ker f  \Leftrightarrow  f(u)=0_{\R^2} \Leftrightarrow  \left\lbrace
+				            \begin{array}{rcrcrcl}
+					            x   & - & 2y & + & z  & = & 0 \\
+					            x   & + & y  & - & 2z & = & 0 \\
+					            -2x & + & y  & + & z  & = & 0
+				            \end{array} \right.
+				            \Leftrightarrow
+				            \left\lbrace \begin{array}{lll}
+					            x & = & z\vsec \\
+					            y & = & z
+				            \end{array} \right.$$
+			            Ainsi: \fbox{$\ker f=\left\lbrace z(1,1,1),\ z\in\R\right\rbrace=\vect ((1,1,1))$}. La famille $((1,1,1))$ est ainsi une famille g\'en\'eratrice de $\ker f$. Comme $(1,1,1)$ est un vecteur non nul, la famille $((1,1,1))$ est une famille libre et ainsi c'est une base de $\ker f$ et $\dim \ker f=1$. On a donc $\ker f \not= \{0_{\R^3}\}$, et donc \fbox{$f$ n'est pas injective}, on en d\'eduit que ce n'est pas un automorphisme.
+			      \item[$\bullet$] Recherche de l'image : on a deux m\'ethodes possibles.
+			            \begin{itemize}
+				            \item[$\star$] M\'ethode $1$ : on cherche les conditions sur $(X,Y,Z)$ pour qu'il appartienne \`a $\im f$. Pour cela, on cherche les conditions pour qu'il existe $(x,y,z) \in \R^3$ tel que $(X,Y,Z) = f(x,y,z)$, donc on r\'esout :
+				                  $$\left\lbrace
+					                  \begin{array}{rcrcrcl}
+						                  x   & - & 2y & + & z  & = & X \\
+						                  x   & + & y  & - & 2z & = & Y \\
+						                  -2x & + & y  & + & z  & = & Z
+					                  \end{array} \right.
+					                  \Leftrightarrow
+					                  \left\lbrace \begin{array}{rcrcrcl}
+						                  x & - & 2y  & + & z  & = & X\vsec   \\
+						                    &   & 3 y & - & 3z & = & Y-X\vsec \\
+						                    &   &     &   & 0  & = & X+Y+Z=0
+					                  \end{array} \right.$$
+				                  On en d\'eduit que $\im f = \{ (X,Y,Z) \in \R^3, X+Y+Z=0\}$. On met ensuite $\im f$ sous forme vectorielle, et on obtient \fbox{$\im f = \vect ((-1,1,0),(-1,0,1))$}. Les vecteurs $(-1,1,0),(-1,0,1)$ \'etant non colin\'eaires, ils forment une famille libre et g\'en\'eratrice de $\im f$, donc une base de $\im f$ est donn\'ee par $((-1,1,0),(-1,0,1))$, et $\dim \im f = 2$. On en d\'eduit que $\im f \not= \R^3$, donc \fbox{$f$ n'est pas surjective}.
+				            \item[$\star$] M\'ethode $2$ : on conna\^it une forme param\'etrique de $\im f$, car $\im f = \{(x-2y+z,x+y-2z,-2x+y+z), (x,y,z) \in \R^3\}$, donc on a $\im f = \vect((1,1,-2),(-2,1,1),(1,-2,1))$. Attention, les vecteurs que l'on trouve ne forment g\'en\'eralement pas une famille libre ! C'est le cas ici, car $(1,-2,1)=-(1,1,-2)-(-2,1,1)$. Les deux vecteurs restants $(1,1,-2),(-2,1,1)$ \'etant non colin\'eaires, ils forment une famille libre et g\'en\'eratrice de $\im f$, donc une base de $\im f$. On conclut de la m\^eme fa\c con.
+			            \end{itemize}
+		      \end{itemize}
+		      %-----
+		\item  $\mathbf{f(x,y)=(4x+y,x-y,2x+3y)}$. On a $f \in \cL(\R^2,\R^3)$, donc $f$ n'est pas un isomorphisme. On trouve de plus \fbox{$\ker f = \{(0,0)\}$} et \fbox{$\im f = \vect((4,1,2),(1,-1,3))$}. On a $\ker f =\{0_{\R^2}\}$, donc \fbox{$f$ est injective}, et $\im f \not= \R^3$, donc \fbox{$f$ n'est pas surjective}. On en d\'eduit que $f$ n'est pas un automorphisme.
+		      %-----
+		\item $\mathbf{f(x,y,z)=(2x+y+z, x-y+2z, x+5y-4z)}$. On a $f \in \cL(\R^3)$, donc $f$ est un isomorphisme. On trouve de plus \fbox{$\ker f = \vect((-1,1,1))$} et \fbox{$\im f = \vect((2,1,1),(1,-1,5))$}. On a $\ker f \not=\{0_{\R^3}\}$, donc \fbox{$f$ n'est pas injective}, et $\im f \not= \R^3$, donc \fbox{$f$ n'est pas surjective}. On en d\'eduit que $f$ n'est pas un automorphisme.
+		      %-----
+		\item $\mathbf{f(x,y,z)=(y,0,x+z,3x+y-2z)}$. On a $f \in \cL(\R^3,\R^4)$, donc $f$ n'est pas un isomorphisme. On trouve de plus \fbox{$\ker f = \{(0,0,0)\}$} et \fbox{$\im f = \vect((0,0,1,3),(1,0,0,1),(0,0,1,-2))$}. On a $\ker f =\{0_{\R^3}\}$, donc \fbox{$f$ est injective}, et $\im f \not= \R^4$, donc \fbox{$f$ n'est pas surjective}. On en d\'eduit que $f$ n'est pas un automorphisme.
+		      %-----
+		      %\item $f(x,y,z)=( x-y+z,x+2y-z,2x+z )$
+		      %-----
+		\item $\mathbf{f(x,y,z)= (z,x-y,y+z)}$. On a $f \in \cL(\R^3,\R^3)$, donc $f$ est un isomorphisme. On trouve de plus \fbox{$\ker f = \{(0,0,0)\}$} et \fbox{$\im f = \R^3$}. On a $\ker f =\{0_{\R^3}\}$, donc \fbox{$f$ est injective}, et $\im f = \R^3$, donc \fbox{$f$ est surjective}. On en d\'eduit que $f$ est un automorphisme.
+		      %-----
+	\end{enumerate}
+\end{correction}
+%-------------------------------------------------
+%------------------------------------------------
+\begin{exercice}  \;
+	Soit $E$ un espace vectoriel.
+	\begin{enumerate}
+		\item Soit $f\in\cL (E)$ tel que: $f^3-3f-2Id_{E}=0_{\cL(E)}$. Prouver que $f$ est un automorphisme de $E$ et exprimer $f^{-1}$ en fonction de $f$.
+		\item Soit $g$ un endomorphisme de $E$ tel que: $g^3-g^2=0_{\cL(E)}$  et tel que $g\not= Id_E$. Montrer que $g$ n'est pas bijectif.
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \;
+	\textbf{Soit $E$ un espace vectoriel.}
+	\begin{enumerate}
+		\item \textbf{Soit $f\in\cL (E)$ tel que: $f^3-3f-2Id_{E}=0_{\cL(E)}$. Prouver que $f$ est un automorphisme de $E$ et exprimer $f^{-1}$ en fonction de $f$.}\\
+		      On a : $\ddp f^3-3f-2Id_{E}=0_{\cL(E)} \Leftrightarrow f^3-3f=2Id_E  \Leftrightarrow \frac{1}{2} (f^2-3 Id_E)\circ f = Id_E$. On a donc trouv\'e une application $g$ v\'erifiant $g \circ f = Id_E$ : $f$ est un automorphisme de $E$, et on a : \fbox{$f^{-1} = \ddp \frac{1}{2} (f^2-3 Id_E)$}.
+		\item \textbf{Soit $g$ un endomorphisme de $E$ tel que: $g^3-g^2=0_{\cL(E)}$ et tel que $g\not= Id_E$. Montrer que $g$ n'est pas bijectif.}\\
+		      On a : $g^3-g^2=0_{\cL(E)}  \Leftrightarrow g^2\circ(g-Id_E) = 0_{\cL(E)}$. Raisonnons par l'absurde : supposons que $g$ est bijective. On a alors $g^{-1}\circ g^{-1} \circ g^2\circ(g-Id_E) = 0_{\cL(E)}$, soit $g=Id_E$. Ceci n'est pas possible d'apr\`es l'\'enonc\'e. On a donc montr\'e que \fbox{$g$ n'est pas bijectif}.
+	\end{enumerate}
+\end{correction}
+%-------------------------------------------------
+%------------------------------------------------
+\begin{exercice}  \;
+	Soit l'application $f$ d\'efinie par: $f(x,y,z)=(3y-2z,-x,4y+3z)$. Montrer que $f$ est un automorphisme de $\R^3$ et d\'eterminer sa r\'eciproque.
+\end{exercice}
+\begin{correction}  \;
+	\textbf{Soit l'application $f$ d\'efinie par: $f(x,y,z)=(3y-2z,-x,4y+3z)$. Montrer que $f$ est un automorphisme de $\R^3$ et d\'eterminer sa r\'eciproque.}\\
+	On commence par montrer que $f$ est lin\'eaire : soient $u=(x,y,z) \in \R^3$, $v=(x',y',z') \in \R^3$ et $\lambda \in \R$. Montrons que $f(\lambda u + v) = \lambda f(u) + f(v)$. On a :
+	$$\begin{array}{rcl}
+			f(\lambda u + v) & = & f(\lambda x + x', \lambda y + y', \lambda z + z') \vsec                                               \\
+			                 & = & (3( \lambda y + y') -2(\lambda z + z'),-(\lambda x + x'),4 ( \lambda y + y')+3(\lambda z + z')) \vsec \\
+			                 & = & \lambda (3y-2z,-x,4y+3z) + (3y'-2z',-x',4y'+3z') = \lambda f(u) + f(v)
+		\end{array}$$
+	De plus, on a $f : \R^3 \to \R^3$, donc \fbox{$f \in \cL(\R^3)$}.\\
+	Montrons que $f$ est bijective. Soit $(X,Y,Z) \in \R^3$, montrons qu'il existe un unique ant\'ec\'edent de $(X,Y,Z)$ par $f$, c'est-\`a-dire un unique $(x,y,z) \in \R^3$ tel que $f(x,y,z) = (X,Y,Z)$. On r\'esout le syst\`eme associ\'e :
+	$$\left\{ \begin{array}{rcrcrcl}
+			   &  & 3y & - & 2z & = & X\vsec  \\
+			-x &  &    &   &    & = & Y \vsec \\
+			   &  & 4y & + & 3z & = & Z
+		\end{array} \right.
+		\; \Leftrightarrow \;
+		\left\{ \begin{array}{rcl}
+			x & = & -Y\vsec                       \\
+			y & = & \ddp \frac{1}{17}(3X+2Z)\vsec \\
+			z & = & \ddp \frac{1}{17}(3Z-4X)
+		\end{array} \right. $$
+	Ce syst\`eme admet une unique solution, donc $f$ est bijective : c'est donc un automorphisme de $E$, et on a \fbox{$f^{-1}(x,y,z) = \left(-y,\ddp \frac{1}{17}(3x+2z), \ddp \frac{1}{17}(3z-4x)\right)$}.
+\end{correction}
+%-------------------------------------------------
+
+
+
+%-------------------------------------------------
+%--------------------------------------------------
+%-------------------------------------------------
+%------------------------------------------------
+% 
+\vspace*{1cm}
+
+\noindent\section{\large{Applications lin\'eaires et matrices}}
+%-----------------------------------------------
+%-------------------------------------------------
+%------------------------------------------------
+
+%------------------------------------------------
+\begin{exercice}  \;
+	Soient les vecteurs $u=(1,1)$, $v=(2,-1)$ et $w=(1,4)$.
+	\begin{enumerate}
+		\item Montrer que $(u,v)$ est une base de $\R^2$.
+		\item D\'eterminer les coordonn\'ees du vecteur $w$ dans la base $(u,v)$.
+		\item Montrer qu'il existe une unique application lin\'eaire $f:\ \R^2\rightarrow \R^2$ telle que $f(u)=(2,1)$ et $f(v)=(1,-1).$ D\'eterminer $f(x,y)$.
+		\item Pour quelles valeurs du param\`etre r\'eel $a$ existe-t-il une application lin\'eaire $g:\ \R^2\rightarrow \R^2$ telle que: $g(u)=(2,1)\qquad g(v)=(1,-1)\qquad g(w)=(5,a) ?$
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \;
+	\textbf{Soient les vecteurs $u=(1,1)$, $v=(2,-1)$ et $w=(1,4)$.}
+	\begin{enumerate}
+		\item \textbf{Montrer que $(u,v)$ est une base de $\R^2$.}\\
+		      Comme on sait que $\dim\R^2=2$ et que la famille de vecteurs $(u,v)$ a deux vecteurs, il suffit de montrer que cette famille est libre pour qu'elle soit une base de $\R^2$. Comme les deux vecteurs $u$ et $v$ ne sont pas colin\'eaires, la famille $(u,v)$ est libre et ainsi \fbox{c'est une base de $\R^2$}.
+		\item \textbf{D\'eterminer les coordonn\'ees du vecteur $w$ dans la base $(u,v)$.}\\
+		      On cherche $(a,b)\in\R^2$ tels que: $w=au+bv$. On doit donc r\'esoudre le syst\`eme lin\'eaire suivant: $\left\lbrace \begin{array}{lll} a+2b=1\\a-b=4 \end{array}\right.$. La r\'esolution donne: $w=3u-v$, donc \fbox{$M_{(u,v)}(w) = \left(\begin{array}{r} 3\\-1\end{array}\right)$}.
+		\item \textbf{Montrer qu'il existe une unique application lin\'eaire $f:\ \R^2\rightarrow \R^2$ telle que $f(u)=(2,1)$ et $f(v)=(1,-1).$ D\'eterminer $f(x,y)$.}\\
+		      On sait qu'une application lin\'eaire est enti\`erement d\'etermin\'ee par l'image des vecteurs d'une base. Donc comme $(u,v)$ est une base de $\R^2$, il existe bien une unique application lin\'eaire $f$ v\'erifiant $f(u)=(2,1)$ et $f(v)=(1,-1).$\\
+		      On sait de plus qu'il existe $a,b,c,d$ tels que $f(x,y) = (ax+by, cx+dy)$. On a donc : $f(u) = (2,1) \Leftrightarrow (a+b,c+d)=(2,1)$ et $(2a-b,2c-d)=(1,-1)$. On r\'esout le syt\`eme associ\'e, et on obtient $a=b=d=1$ et $c=0$, soit \fbox{$f(x,y) = (x+y,y)$}.
+		\item \textbf{Pour quelles valeurs du param\`etre r\'eel $a$ existe-t-il une application lin\'eaire $g:\ \R^2\rightarrow \R^2$ telle que: $f(u)=(2,1)\qquad f(v)=(1,-1)\qquad f(w)=(5,a) ?$}\\
+		      Par le m\^eme raisonnement que ci-dessus, on sait qu'il existe une unique application lin\'eaire $g$ enti\`erement d\'etermin\'ee par la donn\'ee de $g(u)$ et de $g(v)$ car $(u,v)$ base de $\R^2$. De plus, on sait que l'on a:  $w=3u-v$. Comme $g$ est lin\'eaire, on a: $g(w)=g(3u-v)=3g(u)-g(v)=3(2,1)-(1,-1)=(5,4)$. Ainsi, pour que $g$ soit lin\'eaire, on doit avoir: \fbox{$a=4$}.
+	\end{enumerate}
+\end{correction}
+%------------------------------------------------
+%------------------------------------------------
+
+\begin{exercice}  \;
+	On consid\`ere $f$ et $g$ deux endomorphismes de $\R^2$ de matrices relativement \`a la base canonique $M=\left(\begin{array}{ll} 2&-4\\1&-2 \end{array}\right)$ et
+	$N=\left(\begin{array}{ll} 0&1\\0&0 \end{array}\right)$.
+	\begin{enumerate}
+		\item D\'eterminer les matrices de $f\circ f$, $g\circ g$, $g\circ f$ et $f\circ g$.
+		\item Montrer que $\ker f=\im f$ et donner une base de $\im f$. Donner sans calcul une base de $\im g$.
+		\item On pose $h=f+g$. Calculer la matrice de $h\circ h$. Conclusion ?
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \;
+	\textbf{On consid\`ere $f$ et $g$ deux endomorphismes de $\R^2$ de matrices relativement \`a la base canonique $M=\left(\begin{array}{ll} 2&-4\\1&-2 \end{array}\right)$ et
+		$N=\left(\begin{array}{ll} 0&1\\0&0 \end{array}\right)$.}
+	\begin{enumerate}
+		\item \textbf{D\'eterminer les matrices de $f\circ f$, $g\circ g$, $g\circ f$ et $f\circ g$.}\\
+		      La matrice de $f\circ f$ est la matrice $M^2=\left(\begin{array}{ll} 0&0\\0&0 \end{array}\right)$, celle de $g\circ g$ est $N^2=\left(\begin{array}{rr} 0&0\\0&0 \end{array}\right)$, celle de $g\circ f$ est $NM = \left(\begin{array}{rr} 1&-2\\0&0 \end{array}\right)$ et celle de $f \circ g$ est $MN = \left(\begin{array}{ll} 0&2\\0&1 \end{array}\right)$.
+		\item \textbf{Montrer que $\ker f=\im f$ et donner une base de $\im f$. Donner sans calcul une base de $\im g$.}\\
+		      Montrons que  $\im f \subset \ker f$ : soit $v \in \im f$. Alors il existe $v \in \R^2$ tel que $v =f(u)$. Donc on a $f(v) = f(f(u)) = f^2(u)$. Or on a montr\'e \`a la question pr\'ec\'edente que $f^2(u) = 0_{\R^2}$. Donc $f(v) = 0_{\R^2}$ et $v \in \ker f$. Donc on a bien $\im f \subset \ker f$. Il suffit alors de montrer que ces deux espaces vectoriels ont la m\^eme dimension. On calcule le rang de $f$ :
+		      $$\rg f = \rg M =  \rg \left(\begin{array}{rr} 2&-4\\0&0 \end{array}\right) = 1.$$
+		      De plus, d'apr\`es le th\'eor\`eme du rang, on a $\dim \R^2 = \rg f + \dim \ker f$, soit $\dim \ker f = 2- \rg f = 1$. On a donc bien $\dim \im f = \dim \ker f = 1$, et donc finalement \fbox{$\ker f=\im f$}.\\
+		      On sait que $\dim \im f = 1$, et que $\im f$ est engendr\'e par les colonnes de $M$, soit $\im f = \vect ((2,1),(-4,-2))$. Il suffit donc de choisir un vecteur non nul parmi les deux colonnes pour avoir une base de $\im f$. On a ainsi \fbox{$((2,1))$ est une base de $\im f$}.\\
+		      On sait que $\im g$ est engendr\'e par les colonnes de $N$, soit $\im f = \vect ((0,0),(1,0)) = \vect((1,0))$. Donc $((1,0))$ est une famille g\'en\'eratrice et libre de $\im g$, donc \fbox{$((0,1))$ est une base de $\im g$}.
+		\item \textbf{On pose $h=f+g$. Calculer la matrice de $h\circ h$. Conclusion ?}\\
+		      On a $h\circ h = (f+g)\circ (f+g) = f^2+f\circ g + g \circ f + g \circ g$, donc la matrice de $h^2$ est $M^2+MN+NM+N^2$. D'apr\`es la question 1), la matrice de $h^2$ est donc $\left(\begin{array}{rr} 1&0\\0&1 \end{array}\right) = I_3$. L'application $h^2$ est donc l'application identit\'e : $Id_{\R^2}$.
+	\end{enumerate}
+\end{correction}
+%-------------------------------------------------
+%------------------------------------------------
+\begin{exercice}  \;
+	Soit $(e_1,e_2,e_3)$ une base de $\R^3$ et $\lambda$ un r\'eel. D\'emontrer que la donn\'ee de
+	$$f(e_1)=e_1+e_2\quad f(e_2)=e_1-e_2\quad f(e_3)=e_1+\lambda e_3$$
+	d\'efinit un endomorphisme de $\R^3$. Comment choisir $\lambda$ pour que $f$ soit surjective ? Injective ? Comment choisir $\lambda$ pour que $f$ soit un automorphisme ?
+\end{exercice}
+\begin{correction}  \;
+	\textbf{Soit $\mathbf{(e_1,e_2,e_3)}$ une base de $\R^3$ et $\lambda$ un r\'eel. D\'emontrer que la donn\'ee de
+		$\mathbf{f(e_1)=e_1+e_2\quad f(e_2)=e_1-e_2\quad f(e_3)=e_1+\lambda e_3}$
+		d\'efinit un endomorphisme de $\R^3$. Comment choisir $\lambda$ pour que $f$ soit surjective ? Injective ? Comment choisir $\lambda$ pour que $f$ soit un automorphisme ? }\\
+	L'image des vecteurs d'une base d\'efinit de fa\c con unique une application lin\'eaire. On a de plus $f : \R^3 \to \R^3$, donc \fbox{$ f \in \cL(\R^3)$}.\\
+	La matrice associ\'ee \`a $f$ dans la base $(e_1,e_2,e_3)$ est donn\'ee par $M_\lambda \left(\begin{array}{rrr} 1 & 1 & 1 \\1 & -1 & 0\\0 & 0 &\lambda\end{array}\right)$. Calculons son rang :
+	$$\rg M_\lambda = \rg \left(\begin{array}{rrr} 1 & 1 & 1 \\0 & -2 & -1\\0 & 0 &\lambda\end{array}\right) \begin{array}{l} \\ L_2-L_1\\\end{array}$$
+	On a alors deux possibilit\'es : si $\lambda =0$, on a $\rg M_\lambda = 2$, et si $\lambda\not =0$, on a $\rg M_\lambda = 3$. Or on sait que $f$ est surjective si et seulement si $\rg M_\lambda = 3$. Il faut donc choisir $\lambda\not=0$. De plus, comme $f$ est un endomorphisme, on a \'equivalence entre bijectivit\'e, surjectivit\'e et injectivit\'e. On a donc \fbox{$f$ surjective $\Leftrightarrow$ $f$ injective $\Leftrightarrow$ $f$ bijective $\Leftrightarrow \lambda \not=0$}.
+\end{correction}
+%-------------------------------------------------
+%------------------------------------------------
+\begin{exercice}  \;
+	Soit $E=\R^3$ et $(e_1,e_2,e_3)$ la base canonique de $E$. Soit $f$ l'endomorphisme de $E$ d\'efini par $f(e_1)=2e_2+3e_3$, $f(e_2)=(2e_1-5e_2-8e_3)$ et $f(e_3)=(-e_1+4e_2+6e_3)$.
+	\begin{enumerate}
+		\item Donner l'expression de $f(x,y,z)$
+		\item D\'eterminer $\ker (f-Id_E)$ et en donner une base et la dimension.
+		\item D\'eterminer $\ker (f^2+Id_E)$ et en donner une base et la dimension.
+		\item Montrer que $\ker (f-Id_E)\cap \ker (f^2+Id_E)=\lbrace 0_E\rbrace$.
+		\item Montrer que la r\'eunion des deux bases pr\'ec\'edentes constitue une base de $E$. Trouver l'image par $f^2$ des vecteurs de cette base.
+	\end{enumerate}
+\end{exercice}
+\begin{correction}   \;
+	\textbf{Soit $E=\R^3$ et $(e_1,e_2,e_3)$ la base canonique de $E$. Soit $f$ l'endomorphisme de $E$ d\'efini par $f(e_1)=2e_2+3e_3$, $f(e_2)=2e_1-5e_2-8e_3$ et $f(e_3)=-e_1+4e_2+6e_3$.}
+	\begin{enumerate}
+		\item \textbf{Donner l'expression de $f(x,y,z)$.}\\
+		      On a $f(x,y,z) = f(xe_1+ye_2+ze_3)$. Or $f$ est lin\'eaire, donc on en d\'eduit :
+		      $$\begin{array}{rcl}
+				      f(x,y,z) & = & x f(e_1) + y f(e_2) + z f(e_3)\vsec                         \\
+				               & = & x(2e_2+3e_3) + y (2e_1-5e_2-8e_3) + z (-e_1+4e_2+6e_3)\vsec \\
+				               & = & (2y-z) e_1 + (2x-5y+4z) e_2 + (3x-8y+6z)e_3
+			      \end{array}$$
+		      On a donc finalement \fbox{$f(x,y,z) = (2y-z,2x-5y+4z,3x-8y+6z)$}.\\
+		      Une autre possibilit\'e pour montrer ce r\'esultat serait de passer par la matrice associ\'ee \`a $f$.
+		\item \textbf{D\'eterminer $\ker (f-Id_E)$ et en donner une base et la dimension.}\\
+		      On cherche les vecteurs $u$ tels que $(f-Id_E)(u) = 0_E$, c'est-\`a-dire, on veut r\'esoudre $f(x,y,z) = (x,y,z)$. En passant aux coordonn\'ees, on obtient :
+		      $$\left\{ \begin{array}{rcl}
+				      2y-z     & = & x\vsec  \\
+				      2x-5y+4z & = & y \vsec \\
+				      3x-8y+6z & = & z
+			      \end{array} \right.
+			      \; \Leftrightarrow \;
+			      \left\{ \begin{array}{rcrcrcl}
+				      - x & + & 2y & - & z  & = & 0\vsec  \\
+				      2x  & - & 6y & + & 4z & = & 0 \vsec \\
+				      3x  & - & 8y & + & 5z & = & 0
+			      \end{array} \right.
+			      \; \Leftrightarrow \;
+			      \left\{ \begin{array}{rcl}
+				      x & = & z\vsec \\
+				      y & = & z
+			      \end{array} \right.$$
+		      On a donc \fbox{$\ker(f-Id_E) = \vect((1,1,1))$}. La famille $((1,1,1))$ est g\'en\'eratrice et libre (car un seul vecteur non nul), c'est donc une base de $\ker(f-Id_E)$. On en d\'eduit : \fbox{$\dim \ker(f-Id_E) = 1$}.
+		\item \textbf{D\'eterminer $\ker (f^2+Id_E)$ et en donner une base et la dimension.}\\
+		      On cherche les vecteurs $u$ tels que $(f^2+Id_E)(u) = 0_E$, c'est-\`a-dire, on veut r\'esoudre $f^2(x,y,z) + (x,y,z) = 0_E$. On commence par calculer $f^2$ :\\
+		      $$\hspace*{-1cm} \begin{array}{rcl}
+				      f^2(x,y,z) & = & (2(2x-5y+4z) - (3x-8y+6z), 2(2y-z) - 5(2x-5y+4z)+ 4(3x-8y+6z), \vsec \\
+				                 &   & \hspace*{5cm} 3(2y-z)-8(2x-5y+4z)+6(3x-8y+6z))\vsec                  \\
+				                 & = & (x -2y +2z, 2x -3y +2z, 2x-2y+z)
+			      \end{array}$$
+		      On peut \'egalement passer par la matrice associ\'ee \`a $f$ (ce qui est souvent plus rapide). On doit donc r\'esoudre :
+		      $$\left\{ \begin{array}{rcl}
+				      x -2y +2z + x  & = & 0\vsec  \\
+				      2x -3y +2z + y & = & 0 \vsec \\
+				      2x-2y+z +z     & = & 0
+			      \end{array} \right.
+			      \; \Leftrightarrow \;
+			      \left\{ \begin{array}{rcrcrcl}
+				      2 x & - & 2y & + & 2z & = & 0\vsec  \\
+				      2x  & - & 2y & + & 2z & = & 0 \vsec \\
+				      2x  & - & 2y & + & 2z & = & 0
+			      \end{array} \right.
+			      \; \Leftrightarrow \;
+			      \left\{ \begin{array}{rcl}
+				      x & = & y-z
+			      \end{array} \right.$$
+		      On a donc \fbox{$\ker(f^2+Id_E) = \vect((1,1,0),(-1,0,1))$}. La famille $((1,1,0),(-1,0,1))$ est g\'en\'eratrice et libre (car les deux vecteurs ne sont pas colin\'eaires), c'est donc une base de $\ker(f^2+Id_E)$. On en d\'eduit : \fbox{$\dim \ker(f^2+Id_E) = 2$}.
+		\item \textbf{Montrer que $\ker (f-Id_E)\cap \ker (f^2+Id_E)=\lbrace 0_E\rbrace$.}\\
+		      Soit $(x,y,z) \in \ker (f-Id_E)\cap \ker (f^2+Id_E)$. On a alors :
+		      $$\left\{ \begin{array}{rcrcrcl}
+				      x & = & z\vsec \\
+				      y & = & z\vsec \\
+				      x & = & y-z
+			      \end{array} \right.
+			      \; \Leftrightarrow \;
+			      x=y=z=0.$$
+		      On a donc \fbox{$\ker (f-Id_E)\cap \ker (f^2+Id_E)=\lbrace 0_E\rbrace$}.
+		\item \textbf{Montrer que la r\'eunion des deux bases pr\'ec\'edentes constitue une base de $E$. Trouver l'image par $f^2$ des vecteurs de cette base.}\\
+		      Montrons que $((1,1,1),(1,1,0),(-1,0,1))$ est une base de $E$. Comme $\dim E =3$, il suffit de montrer que cette famille est libre. Soient $(\lambda_1,\lambda_2, \lambda_3)\in \R^3$ tels que :
+		      $$\lambda_1 (1,1,1) + \lambda_2 (1,1,0) + \lambda_3 (-1,0,1) = 0_E.$$
+		      On a alors $\lambda_1 (1,1,1) \in \ker (f-Id_E)$ par d\'efinition, et de plus, comme on a : $\lambda_1 (1,1,1) = - \lambda_2 (1,1,0) - \lambda_3 (-1,0,1)$, on a \'egalement $\lambda_1 (1,1,1) \in \ker (f^2+Id_E)$. D'apr\`es la question pr\'ec\'edente, on a donc $\lambda_1 (1,1,1) =0_E$, soit $\lambda_1=0$. On en d\'eduit que $\lambda_2 (1,1,0) + \lambda_3 (-1,0,1) = 0_E$, ce qui implique $\lambda_2=\lambda_3=0$ car $((1,1,0),(-1,0,1))$ est une famille libre. Donc finalement $((1,1,1),(1,1,0),(-1,0,1))$ est une famille libre de $3$ \'el\'ements dans un espace de dimension $3$, c'est donc \fbox{une base de $E$}.\\
+		      On a $(1,1,0)$ et $(-1,0,1)$ dans $\ker (f^2+Id_E)$, donc $f^2(1,1,0) = -(1,1,0)$, et $f^2(-1,0,1) = -(-1,0,1)$. De plus, $(1,1,1) \in \ker (f-Id_E)$, donc $f^2(1,1,1) = f(1,1,1) = (1,1,1)$. On en d\'eduit que la matrice de $f^2$ dans la base $((1,1,1),(1,1,0),(-1,0,1))$ est donn\'ee par $\left(\begin{array}{rrr} 1 & 0 & 0 \\0 & -1 & 0\\0 & 0 &-1\end{array}\right)$. On dit que $f^2$ est diagonalisable : on peut trouver une base dans laquelle sa matrice aasoci\'ee est diagonale.
+	\end{enumerate}
+\end{correction}
+%-------------------------------------------------
+%------------------------------------------------
+\begin{exercice}  \;
+	On consid\`ere l'application lin\'eaire d\'efinie par
+	$$\forall (x,y,z)\in\R^3,\quad f(x,y,z)=(2y-3z, -2x+4y-5z,z).$$
+	\begin{enumerate}
+		\item On note $\cB=(e_1,e_2,e_3)$ la base canonique de $\R^3$. D\'eterminer la matrice $M$ de $f$ relativement \`a $\cB$.
+		\item On pose : $f_1=(-1,1,1)$, $f_2=(1,1,0)$ et $f_3=(1,0,0).$ Montrer que la famille $\mathcal{C}=(f_1,f_2,f_3)$ est une base de $\R^3$ et d\'eterminer la matrice $N$ de $f$ relativement \`a la base $\mathcal{C}$.
+		\item On appelle matrice de passage d'une base $\cB$ dans une base $\cB'$ la matrice $P_{\cB\to\cB'} = M_{\cB',\cB}(Id_{\R^3})$. Si un vecteur $u$ a pour vecteur coordonn\'ees $X$ dans $\cB$ et $X'$ dans $\cB'$, on a $X=PX'$.\\
+		      D\'eterminer $P=P_{\cB\to\mathcal{C}}$ matrice de passage de la base canonique \`a la base $\mathcal{C}$.\item V\'erifier que: $PNP^{-1}=M$. Retrouver ce r\'esultat sans calcul (remarquer que: $P^{-1}=P_{\mathcal{C} \to \cB}$).
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \;
+	\textbf{On consid\`ere l'application lin\'eaire d\'efinie par}
+	$$\mathbf{\forall (x,y,z)\in\R^3,\quad f(x,y,z)=(2y-3z, -2x+4y-5z,z).}$$
+	\begin{enumerate}
+		\item \textbf{On note $\cB=(e_1,e_2,e_3)$ la base canonique de $\R^3$. D\'eterminer la matrice $M$ de $f$ relative \`a $\cB$.}\\
+		      On a $f(e_1)=f(1,0,0) = (0,-2,0)$, $f(e_2)=f(0,1,0) = (2,4,0)$ et $f(e_3)=f(0,0,1) = (-3,-5,1)$. On en d\'eduit : \fbox{$M=M_{\cB}(f)=\left(\begin{array}{rrr} 0&2&-3\\-2&4&-5\\0&0&1 \end{array}\right)$}.
+		      %---
+		\item \textbf{On pose : $f_1=(-1,1,1)$, $f_2=(1,1,0)$ et $f_3=(1,0,0).$ Montrer que la famille $\mathcal{C}=(f_1,f_2,f_3)$ est une base de $\R^3$ et d\'eterminer la matrice $N$ de $f$ relativement \`a la base $\mathcal{C}$.}\\
+		      Comme on sait que $\dim \R^3=3$ et que la famille de vecteurs $\mathcal{C}$ a trois vecteurs, il suffit de montrer qu'elle est libre pour que cela soit une base de $\R^3$. Montrons donc qu'elle est libre. Soit $(a,b,c)\in\R^3$ tel que: $af_1+bf_2+cf_3=0_{\R^3}$. La r\'esolution de ce syst\`eme lin\'eaire donne bien $a=b=c=0$. Ainsi, la famille $\mathcal{C}$ est bien libre et \fbox{c'est donc bien une base de $\R^3$}.\\
+		      Pour trouver la matrice de $f$ relativement \`a la base $\mathcal{C}$, on commence par calculer $f(f_1)=f(-1,1,1)=(-1,1,1)$, $f(f_2)=f(1,1,0)=(2,2,0)$ et $f(f_3)=f(1,0,0) =(0,-2,0)$. Il faut ensuite calculer les coordonn\'ees de ces vecteurs, non plus dans la base canonique mais dans la base $\mathcal{C}=(f_1,f_2,f_3)$. On trouve $f(f_1) = f_1$ et $f(f_2)=2f_2$, donc $M_\mathcal{C}(f(f_1))= \left(\begin{array}{c} 1\\0\\0\end{array}\right)$ et $M_\mathcal{C}(f(f_1))= \left(\begin{array}{c} 0\\2\\0\end{array}\right)$ .\\
+		      Pour le troisi\`eme c'est moins facile : on cherche $(a,b,c)\in\R^3$ tel que $f(f_3)=af_1+bf_2+cf_3$ c'est-\`a-dire: $(0,-2,0)=af_1+bf_2+cf_3$.  La r\'esolution donne: $M_\mathcal{C}(f(f_1))= \left(\begin{array}{r} 0\\-2\\2\end{array}\right)$.\\
+		      Ainsi, on obtient:
+		      \fbox{$N=M_{\mathcal{C}}(f)=\left(\begin{array}{rrr} 1&0&0\\0&2&-2\\0&0&2 \end{array}\right)$}.\\
+		      On remarque que la matrice obtenue est triangulaire sup\'erieure, ce qui simplifie beaucoup de calculs.
+		      %------
+		\item \textbf{On appelle matrice de passage d'une base $\cB$ dans une base $\cB'$ la matrice $P_{\cB\to\cB'} = M_{\cB',\cB}(Id_{\R^3})$. D\'eterminer $P=P_{\cB\to\mathcal{C}}$ matrice de passage de la base canonique \`a la base $\mathcal{C}$.}\\% et calculer $P_{\mathcal{C}\to\cB}$.}\\
+		      On cherche la matrice de l'application identit\'e $(x,y,z) \mapsto (x,y,z)$ relativement aux bases $\mathcal{C}$ et $\cB$. Autrement dit, il suffit de trouver les coordonn\'ees des vecteurs de la base $\mathcal{C}$ dans la base $\cB$. On obtient \fbox{$P=P_{\cB\to\mathcal{C}} = \left(\begin{array}{rrr} -1&1&1\\1&1&0\\1&0&0 \end{array}\right)$}.
+		      %-----
+		\item \textbf{V\'erifier que: $PNP^{-1}=M$. Retrouver ce r\'esultat sans calcul (remarquer que $P^{-1}=P_{\mathcal{C} \to \cB}$).}\\
+		      On calcule tout d'abord $P^{-1}$ \`a l'aide de la m\'ethode du pivot de Gauss. On obtient : $P^{-1}= \left(\begin{array}{rrr} 0&0&1\\0&1&-1\\1&-1&2 \end{array}\right)$. Puis, en effectuant les deux produits de matrices, on obtient bien :
+		      $$P^{-1} M P = \left(\begin{array}{rrr} 0&0&1\\0&1&-1\\1&-1&2 \end{array}\right) \times \left(\begin{array}{rrr} 0&2&-3\\-2&4&-5\\0&0&1 \end{array}\right) \times  \left(\begin{array}{rrr} -1&1&1\\1&1&0\\1&0&0 \end{array}\right)  = \left(\begin{array}{rrr} 1&0&0\\0&2&-2\\0&0&2 \end{array}\right),$$
+		      soit \fbox{$P^{-1} M P=N$}.\\
+		      On retrouve ce r\'esultat facilement en consid\'erant un vecteur $u$ quelconque de matrice de coordonn\'ees $X$ dans $\cB$ et $X'$ dans $\mathcal{C}$. Notons $Y=MX$ la matrice des coordonn\'ees de $f(u)$ dans $\cB$ et $Y'=NY$  la matrice des coordonn\'ees de $f(u)$ dans $\mathcal{C}$. Par d\'efinition de la matrice de passage, on a  $X=P X'$ et $Y=PY'$. On en d\'eduit :
+		      $$P^{-1} M P X' = P^{-1} M X = P^{-1} Y = Y'= NX'.$$
+		      Donc pour tout vecteur $X'$, on a $P^{-1} M P X' = NX'$, donc on a bien $P^{-1}MP=N$.
+	\end{enumerate}
+\end{correction}
+%-------------------------------------------------
+%------------------------------------------------
+\begin{exercice}  \;
+	\begin{enumerate}
+		\item Soit $n\in\N^{\star}$ et $f\in\cL(\R^n)$ d\'efinie par
+		      $$\forall (x_1,\dots, x_n)\in\R^n,\ f(x_1,\dots, x_n)=(x_1+\dots+x_n, x_2+\dots+x_n,\dots,x_n).$$
+		      Montrer que $f$ est bijective et donner l'expression analytique de sa r\'eciproque.
+		\item En d\'eduire que la matrice $M=\left(\begin{array}{llll} 1&\cdots&\cdots&1 \\ 0&\ddots& &\vdots \\ \vdots&\ddots&\ddots&\vdots\\ 0&\cdots&0&1        \end{array}\right)\in\mathcal{M}_n(\R)$ est inversible et donner son inverse.
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \;
+	\begin{enumerate}
+		\item \textbf{Soit $n\in\N^{\star}$ et $f\in\cL(\R^n)$ d\'efinie par}
+		      $$\mathbf{\forall (x_1,\dots, x_n)\in\R^n,\ f(x_1,\dots, x_n)=(x_1+\dots+x_n, x_2+\dots+x_n,\dots,x_n).}$$
+		      \textbf{Montrer que $f$ est bijective et donner l'expression analytique de sa r\'eciproque.}\\
+		      Soit $(y_1,\ldots,y_n)\in \R^n$. On cherche \`a montrer qu'il existe un unique $(x_1,\ldots,x_n) \in \R^n$ tel que $ f(x_1,\dots, x_n)=(y_1,\ldots,y_n)$. On r\'esout donc :\\
+		      $$\left\{\begin{array}{rcl}
+				      x_1 + x_2 + \ldots x_n & = & y_1\vsec     \\
+				      x_2 + \ldots x_n       & = & y_2\vsec     \\
+				      \vdots                                    \\
+				      x_{n-1}+x_n            & = & y_{n-1}\vsec \\
+				      x_n                    & = & y_n
+			      \end{array} \right.
+			      \Leftrightarrow
+			      \left\{\begin{array}{rcll}
+				      x_1     & = & y_1-y_2     & \mathbf{L_{1} \leftrightarrow L_{1}-L_2}\vsec     \\
+				      x_2     & = & y_2-y_3     & \mathbf{L_{2} \leftrightarrow L_{2}-L_3}\vsec     \\
+				      \vdots                                                                        \\
+				      x_{n-1} & = & y_{n-1}-y_n & \mathbf{L_{n-1} \leftrightarrow L_{n-1}-L_n}\vsec \\
+				      x_n     & = & y_n
+			      \end{array} \right.
+		      $$
+		      On en d\'eduit que $f$ est bijective, et que \textbf{$f^{-1}(y_1, \ldots, y_n) = (y_1-y_2, y_2-y_3, \ldots, y_{n-1}-y_n, y_n)$}.
+		\item \textbf{En d\'eduire que la matrice $M=\left(\begin{array}{llll} 1&\cdots&\cdots&1 \\ 0&\ddots& &\vdots \\ \vdots&\ddots&\ddots&\vdots\\ 0&\cdots&0&1        \end{array}\right)\in\mathcal{M}_n(\R)$ est inversible et donner son inverse.}\\
+		      La matrice $M$ est la matrice de $f$ dans la base canonique. Comme $f$ est bijective, \textbf{$M$ est inversible}. De plus, $M^{-1}$ est la matrice de $f^{-1}$ dans la base canonique. La question pr\'ec\'edente donne donc $M^{-1}= \left(\begin{array}{rrrrrr} 1& -1 & 0 & \cdots&0 \\0 & \ddots& \ddots & \ddots & \vdots\\ \vdots&\ddots&\ddots&\ddots&0\\ \vdots& & \ddots & \ddots & -1\\ 0&\cdots&\cdots& 0&1        \end{array}\right)$
+		      % \\ 0 & 1& -1 & \ddots& &\vdots \\
+	\end{enumerate}
+\end{correction}
+%-------------------------------------------------
+%------------------------------------------------
+\begin{exercice}  \;
+	Soit $h\in\cL(\R^3)$ d\'efini par: $h(x,y,z)= ( -2x+y+2z, -x+y+z, -2x+y+2z  )$.
+	\begin{enumerate}
+		\item Donner la matrice associ\'ee \`a $f$ relativement \`a la base canonique de $\R^3$.
+		\item D\'eterminer une base de $\ker h$. Quel est le rang de $h$ ? Donner une base de $\im h$.
+		\item D\'eterminer la matrice de $h^2=h\circ h$. Quel est le rang de $h^2$ ? Son noyau ? Son image ?
+		\item Calculer $h^n$ pour $n\in\N$.
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \;
+	\textbf{Soit $h\in\cL(\R^3)$ d\'efini par: $h(x,y,z)= ( -2x+y+2z, -x+y+z, -2x+y+2z  )$.}
+	\begin{enumerate}
+		\item \textbf{Donner la matrice associ\'ee \`a $f$ relativement \`a la base canonique de $\R^3$. }\\
+		      Soit $(e_1,e_2,e_3)$ la base canonique de $\R^2$. On calcule $f(1,0,0), f(0,1,0)$ et $f(0,0,1)$, et on met le r\'esultat en colonnes. On obtient \fbox{$M_{\cB}(h) = \left(\begin{array}{rrr}
+						      -2 & 1 & 2 \\
+						      -1 & 1 & 1 \\
+						      -2 & 1 & 2
+					      \end{array} \right)$}.
+		\item \textbf{D\'eterminer une base de $\ker h$. Quel est le rang de $h$ ? Donner une base de $\im h$.}\\
+		      Soit $(x,y,z) \in \R^3$,
+		      $$ (x,y,z) \in \ker h \Longleftrightarrow M_{\cB}(h) \left(\begin{array}{rrr} x \\ y \\ z \end{array} \right) =  \left(\begin{array}{r} 0 \\ 0 \\ 0 \end{array} \right)
+			      \Longleftrightarrow
+			      \left\{ \begin{array}{l}
+				      -2x+y+2z = 0 \\
+				      -x+y+z = 0   \\
+				      -2x+y+2z = 0
+			      \end{array}\right.
+			      %	\underset{\substack{L_3 \leftarrow L_3 - L_1 \\ L_2 \leftarrow 2L_2-L_1}}{\Longleftrightarrow}
+			      %	\left\{ \begin{array}{l}
+			      %		-2x+y+2z = 0 \\
+			      %		y = 0 \\
+			      %		0 = 0 
+			      %	\end{array}\right.
+			      \Longleftrightarrow
+			      \left\{ \begin{array}{l}
+				      x=z   \\
+				      y = 0 \\
+			      \end{array}\right.$$
+		      donc $\ker h = \{ (z, 0 , z ), z \in \R \}$, soit \fbox{$\ker h  = \vect((1,0,1))$}.\\
+		      Ainsi d'apr\`es le th\'eor\`eme du rang $\rg(h) = \dim(\R^3) - \dim(\ker(h))$, soit \fbox{$\rg (h)=2$}.\\
+		      Or $\im(h)= \vect( f(e_1), f(e_2) ,f(e_3)) = \vect(( -2,-1,-2),(1,1,1),(2,1,2)) = \vect((1,1,1),(2,1,2))$, donc $((1,1,1),(2,1,2))$ est une famille g\'en\'eratrice de $\im(h)$ a deux \'el\'ements, donc c'est une base de $\im(h)$.
+		\item \textbf{D\'eterminer la matrice de $h^2=h\circ h$. Quel est le rang de $h^2$ ? Son noyau ? Son image ?}\\
+		      On a : $ M_{\cB}(h^2) = \left(M_{\cB}(h) \right)^2 = \left(\begin{array}{rrr}
+					      -1 & 1 & 1 \\
+					      -1 & 1 & 1 \\
+					      -1 & 1 & 1
+				      \end{array} \right). $\\
+		      Donc $\im(h^2) = \vect((-1,-1,-1),(1,1,1),(1,1,1))$, soit \fbox{$\im f = Vect((1,1,1))$}, donc \fbox{$\rg(h^2)=1$} et apr\`es calculs \fbox{$\ker(h^2) = Vect( (1,1,0),(1,0,1) )$}.
+		\item \textbf{Calculer $h^n$ pour $n\in\N$.}\\
+		      On a : $ M_{\cB}(h^3) = M_{\cB}(h) M_{\cB}(h^2)  = \left(\begin{array}{rrr}
+					      -1 & 1 & 1 \\
+					      -1 & 1 & 1 \\
+					      -1 & 1 & 1
+				      \end{array} \right).$\\
+		      Donc $h^3=h^2$. On montre alors par r\'ecurrence que \fbox{pour tout $n\geq 2$, $h^n=h^2$}.
+	\end{enumerate}
+\end{correction}
+%-------------------------------------------------
+%------------------------------------------------
+\begin{exercice}  \;
+	On note $f$ l'endomorphisme de $\R^3$ d\'efini par sa matrice relativement \`a la base canonique: \\
+	$A=\left(\begin{array}{rrr} 1&4&2\\ 0&-3&-2\\ 0&4&3 \end{array}\right)$. On pose $u_1=(1,-1,1)$, $u_2=(1,0,0)$ et $u_3=(0,-1,2)$. Montrer que $\cB=(u_1,u_2,u_3)$ est une base de $\R^3$ et donner la matrice de $f$ relativement \`a cette base. Que remarquez-vous ?
+\end{exercice}
+\begin{correction}  \;
+	%\begin{enumerate}
+	%\item 
+	\textbf{On note $f$ l'endomorphisme de $\R^3$ d\'efini par sa matrice relativement \`a la base canonique:
+		$A=\left(\begin{array}{rrr} 1&4&2\\ 0&-3&-2\\ 0&4&3 \end{array}\right)$. On pose $u_1=(1,-1,1)$, $u_2=(1,0,0)$ et $u_3=(0,-1,2)$. Montrer que $\cB=(u_1,u_2,u_3)$ est une base de $\R^3$ et donner la matrice de $f$ relativement \`a cette base. Que remarquez-vous ?}\\
+	On montre que $(u_1,u_2,u_3)$ est une famille libre de $3$ \'el\'ements dans $\R^3$ de dimension $3$, donc c'est une base de $\R^3$.\\
+	On calcule alors $f(u_1)$ en calculant $A \left(\begin{array}{r} 1\\ -1\\ 1 \end{array}\right)$. On obtient $f(u_1) =  (-1 , 1 , -1) = -u_1$. De m\^eme, on a $f(u_2) = (1,0,0) = u_2$ et $f(u_3) =  (0 , -1 , 2 ) = u_3$. On en d\'eduit que $M_{\cB}(f) =  \left(\begin{array}{rrr}
+				-1 & 0 & 0 \\
+				0  & 1 & 0 \\
+				0  & 0 & 1
+			\end{array} \right)$. On remarque que la matrice de $f$ dans la base $\cB$ est diagonale : on dit que $f$ est diagonalisable.
+	%\item On note $g$ l'endomorphisme de $\R^3$ d\'efini par sa matrice relativement \`a la base canonique: 
+	%$A=\left(\begin{array}{lll} 3&-3&-2\\ -2&1&2\\ 3&-2&-2 \end{array}\right)$. On pose $v_1=(1,0,1)$, $v_2=(0,1,-1)$ et $v_3=(1,-1,1)$. Montrer que $\cB=(v_1,v_2,v_3)$ est une base de $\R^3$ et donner la matrice de $g$ relativement \`a cette base. Que remarquez-vous ?
+	%\end{enumerate}
+\end{correction}
+%-------------------------------------------------
+%------------------------------------------------
+\begin{exercice}  \;
+	Soit $M=\ddp\frac{1}{2}\left(\begin{array}{rrr} 1&-1&-1\\-2&0&-2\\1&1&3 \end{array}\right)$ et $f$ l'application lin\'eaire canoniquement associ\'ee \`a $M$.
+	\begin{enumerate}
+		\item Soit $u=(1,2,-1)$. Montrer que $(u)$ est une base de $\ker f$.
+		\item Soient $v=(1,0,-1)$ et $w=(1,-1,0)$. Calculer $f(v)$ et $f(w)$.
+		\item Montrer que $(u,v,w)$ est une base de $\R^3$ et donner la matrice de $f$ relativement \`a cette base.
+		\item Montrer que $\im f=\ker (f-Id_{\R^3})$.
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \;
+	\textbf{Soit $M=\ddp\frac{1}{2}\left(\begin{array}{rrr} 1&-1&-1\\-2&0&-2\\1&1&3 \end{array}\right)$ et $f\in\cL(\R^3)$ l'application lin\'eaire canoniquement associ\'ee \`a $M$.}
+	%\item \item Nous avons $M \begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \\ -1\end{pmatrix}$ et $M \begin{pmatrix} 1 \\ -1 \\ 0 \end{pmatrix} = \begin{pmatrix} 1 \\ -1 \\ 0\end{pmatrix}$, donc $f(v)=v$ et $f(w)=w$.
+	%\item Pour montrer que la famille $(u,v,w)$ est une base de $\R^3$, il suffit de v\'erifier que cette famille est libre car elle a trois \'el\'ements dans $\R^3$ : pour vous.
+	%
+	%Nous avons $Mat_{(u,v,w)}(f) = \begin{pmatrix}
+	%	0 & 0 & 0 \\
+	%	0 & 1 & 0 \\
+	%	0 & 0 & 1
+	%\end{pmatrix}$.
+	%\item Nous avons $Im(f) = Vect(f(u),f(v),f(w)) = Vect(v,w)$. Et $Mat_{(u,v,w)}(f-Id) = \begin{pmatrix}
+	%	-1 & 0 & 0 \\
+	%	0 & 0 & 0 \\
+	%	0 & 0 & 0
+	%\end{pmatrix}$, donc $\ker (f-Id_{\R^3}) = \{xu+yv+zw : (x,y,z) \in \R^3, x= 0 \} = Vect(v,w) = Im(f)$.
+	\begin{enumerate}
+		\item \textbf{Soit $u=(1,2,-1)$. Montrer que $(u)$ est une base de $\ker f$.}\\
+		      On calcule $M \left(\begin{array}{r} 1 \\ 2 \\ -1 \end{array}\right)$, et on obtient $\left(\begin{array}{r} 0 \\ 0 \\ 0\end{array}\right)$. Donc $f(u)=0_{\R^3}$, i.e. $u \in \ker(f)$. Calculons \`a pr\'esent le rang de la matrice $M$ \`a l'aide du pivot de Gauss :
+		      $$ rg(M) = rg \left(\begin{array}{rrr}
+					      1  & -1 & -1 \\
+					      -2 & 0  & -2 \\
+					      1  & 1  & 3
+				      \end{array}\right)
+			      \underset{\substack{ L_2 \leftarrow L_2 + 2L_1 \\  L_3 \leftarrow L_3-L_1}}{=}
+			      rg \left(\begin{array}{rrr}
+					      1 & -1 & -1 \\
+					      0 & -2 & -4 \\
+					      0 & 2  & 4
+				      \end{array}\right)
+			      \underset{ L_3 \leftarrow L_3 + L_2 }{=}
+			      rg \left(\begin{array}{rrr}
+					      1 & -1 & -1 \\
+					      0 & -2 & -4 \\
+					      0 & 0  & 0
+				      \end{array}\right) = 2 .$$
+		      Ainsi d'apr\`es le th\'eor\`eme du rang $rg(f) + \dim(\ker(f)) = \dim(\R^3)$, donc $\dim(\ker(f)) = 3-rg(M) = 1$. La famille $(u)$ est donc une famille libre \`a un seul \'el\'ement dans $\ker(f)$ qui est de dimension $1$, donc \fbox{$(u)$ est une base de $\ker(f)$.}
+		\item \textbf{Soient $v=(1,0,-1)$ et $w=(1,-1,0)$. Calculer $f(v)$ et $f(w)$.}\\
+		      On a : $M \left(\begin{array}{r} 1 \\ 0 \\ -1 \end{array}\right) = \left(\begin{array}{rrr}1 \\ 0 \\ -1\end{array}\right)$ et $M \left(\begin{array}{r} 1 \\ -1 \\ 0 \end{array}\right) =\left(\begin{array}{r} 1 \\ -1 \\ 0 \end{array}\right)$, donc \fbox{$f(v)=v$ et $f(w)=w$}.
+		\item \textbf{Montrer que $(u,v,w)$ est une base de $\R^3$ et donner la matrice de $f$ relativement \`a cette base.}\\
+		      On a une famille de $3$ \'el\'ements dans un espace de dimension $3$ : il suffit de montrer qu'elle est libre (\`a faire). On a donc \fbox{$(u,v,w)$ est une base de $\R^3$}.
+		\item \textbf{Montrer que $\im f=\ker (f-Id_{\R^3})$.}\\
+		      D'apr\`es la question 2), on a $v=f(v)$, et $w=f(w)$ donc $v$ et $w$ sont dans $\im f$. De plus, ces $2$ vecteurs forment une famille libre  (car ils sont non colin\'eaires) dans un espace de dimension $2$ puisque $\rg f =2$ : donc $(u,v)$ est une base de $\im f$.\\
+		      De plus, on a $f(v)-v=0_{\R^3}$ et $f(w)-w=0_{\R^3}$, donc $v$ et $w$ sont dans $\ker (f-Id_{\R^3})$. On a donc $\im f \in \ker(f-Id_{\R^3})$.\\
+		      Pour montrer l'\'egalit\'e, il suffit de montrer que ces deux espaces sont de m\^eme dimension. On calcule de rang de $f-Id_{\R^3}$, soit celui de $M-I_3$ :
+		      $$ rg(M-I_3) = rg(2M-2I_3) = rg \left(\begin{array}{rrr}
+					      -1 & -1 & -1 \\
+					      -2 & -2 & -2 \\
+					      1  & 1  & 1
+				      \end{array}\right)
+			      =
+			      rg \left(\begin{array}{rrr}
+					      -1 & -1 & -1 \\
+					      0  & 0  & 0  \\
+					      0  & 0  & 0
+				      \end{array}\right) = 1.$$
+		      Le th\'eor\`eme du rang donne alors $\dim \ker(f-Id_{\R^3}) = 3 - \rg(f-Id_{\R^3}) = 2$. Donc on a bien \fbox{$\im f=\ker (f-Id_{\R^3})$}.
+	\end{enumerate}
+\end{correction}
+%-------------------------------------------------
+%------------------------------------------------
+\begin{exercice}  \;
+	Soit $E=\R^3$ et $f\in\cL(\R^3)$ dont la matrice associ\'ee \`a la base canonique est
+	$$A=\left(\begin{array}{rrr} 4&-1&5\\ -2&-1&-1\\ -4&1&-5 \end{array}\right).$$
+	\begin{enumerate}
+		\item D\'eterminer une base de $\ker f$ et une base de $\im f$.
+		\item D\'eterminer une base de $\ker f^2$ et une base de $\im f^2$.
+		\item D\'eterminer $A^3$. Que peut-on en d\'eduire pour $\ker f^3$ et $\im f^3$ ?
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \;
+	%\begin{enumerate}
+	% \item 
+	\textbf{Soit $E=\R^3$ et $f\in\cL(\R^3)$ dont la matrice associ\'ee \`a la base canonique est }
+	$$A=\left(\begin{array}{rrr} 4&-1&5\\ -2&-1&-1\\ -4&1&-5 \end{array}\right).$$
+	\begin{enumerate}
+		\item \textbf{D\'eterminer une base de $\ker f$ et une base de $\im f$.}\\
+		      Soit $(x,y,z) \in \R^3$,
+		      $$ (x,y,z) \in \ker f \Longleftrightarrow A \left(\begin{array}{r} x \\ y \\ z \end{array} \right) = \left(\begin{array}{r} 0 \\ 0 \\ 0 \end{array} \right)
+			      \Longleftrightarrow
+			      \left\{ \begin{array}{l}
+				      4x-y+5z = 0 \\
+				      -2x-y-z = 0 \\
+				      -4x+y-5z = 0
+			      \end{array}\right.
+			      %	\underset{\substack{L_3 \leftarrow L_3 + L_1 \\ L_2 \leftarrow 2L_2+L_1}}{\Longleftrightarrow}
+			      %	\left\{ \begin{array}{l}
+			      %		4x-y+5z = 0 \\
+			      %		-3y-3z = 0 \\
+			      %		0 = 0 
+			      %	\end{array}\right.
+			      \Longleftrightarrow
+			      \left\{ \begin{array}{l}
+				      y=-z    \\
+				      2x= -3z \\
+			      \end{array}\right.$$
+		      donc $\ker f = \{ \left( \ddp -\frac{3}{2} z, -z , z \right) : z \in \R \}$, soit \fbox{$\ker f = \vect((3,2,-2))$}. Ainsi $\dim(\ker f)=1$ et par le th\'eor\`eme du rang, $\dim(\im f)=3-=2$. Or $\im(f) = \vect((4,-2,-4),(-1,-1,1),(5,-1,-5))$ et $((4,-2,-4),(-1,-1,1))$ est une famille libre de $\im f$ car constitu\'ee de deux vecteurs non colin\'eaires ; elle a deux \'el\'ements et $\dim(\im f)=2$ donc \fbox{$((4,-2,-4),(-1,-1,1))$ est une base de $\im f$}.
+		\item \textbf{D\'eterminer une base de $\ker f^2$ et une base de $\im f^2$.}\\
+		      On a : $ M(f^2) = A^2 = \left(\begin{array}{rrr}
+					      -2 & 2  & -4 \\
+					      -2 & 2  & -4 \\
+					      2  & -2 & 4
+				      \end{array} \right) $,
+		      donc $\im(f^2) = \vect((-2,-2,2),(2,2,-2),(-4,-4,4))$, soit \fbox{$\im f=\vect((1,1,-1))$}. D'apr\`es le th\'eor\`eme du rang, $\dim(\ker(f^2)) = \dim(\R^3) - \rg(f)=3-1 = 2$. Apr\`es calculs, nous trouvons que \fbox{$\ker(f^2)= \vect((1,1,0),(0,2,1))$.}
+		\item \textbf{D\'eterminer $A^3$. Que peut-on en d\'eduire pour $\ker f^3$ et $\im f^3$ ?}\\
+		      On a : $  A^3 = A A^2 =  \left(\begin{array}{rrr}
+					      4  & -4 & 8  \\
+					      4  & -4 & 8  \\
+					      -4 & 4  & -8
+				      \end{array} \right) = -2 A^2. $
+		      Ainsi \fbox{$\ker(f^2)=\ker(f^3)$} et \fbox{$\im(f^2)=\im(f^3)$}.
+	\end{enumerate}
+	%\item Soit $f\in\cL(\R^n)$ telle que sa matrice relativement \`a la base canonique de $\R^n$ est $T=(t_{ij})_{(i,j)\in\intent{ 1,n}^2}$ avec
+	%$$\forall (i,j)\in\intent{ 1,n}^2,\quad t_{ij}=1\ \hbox{si}\ j=i+1\quad \hbox{et}\quad t_{ij}=0\ \hbox{sinon}.$$
+	%D\'eterminer les puissances de $T$, leur noyau et leur image.
+	%\end{enumerate}
+\end{correction}
+%------------------------------------------------
+
+
+
+
+
+
+%------------------------------------------------
+\vspace{1cm}
+% 
+\noindent\section{\large{Applications lin\'eaires et rang}}
+%-----------------------------------------------
+%-------------------------------------------------
+%------------------------------------------------
+\begin{exercice}  \;
+	Soit $E$ un espace vectoriel de dimension 3 et $\cB=(e_1,e_2,e_3)$ une base de $E$. Soit $f\in\cL(E)$ telle que: $f(e_1)=e_1-2e_2+e_3$, $f(e_2)=-2e_1+3e_2+e_3$ et $f(e_3)=-2e_2+6e_3$.
+	\begin{enumerate}
+		\item \'Ecrire la matrice de $f$ relativement \`a la base $\cB$.
+		\item D\'eterminer le rang de $f$, une base et la dimension de son noyau, une base de l'image.
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \;
+	\textbf{Soit $E$ un espace vectoriel de dimension 3 et $\cB=(e_1,e_2,e_3)$ une base de $E$. Soit $f\in\cL(E)$ telle que: $f(e_1)=e_1-2e_2+e_3$, $f(e_2)=-2e_1+3e_2+e_3$ et $f(e_3)=-2e_2+6e_3$. }
+	\begin{enumerate}
+		\item \textbf{\'Ecrire la matrice de $f$ relativement \`a la base $\cB$.}\\
+		      On a d\'ej\`a les images des vecteurs de $\cB$ dans la base $\cB$, on obtient donc \fbox{$Mat_{\cB}(f) = \left(\begin{array}{rrr}
+						      1  & -2 & 0  \\
+						      -2 & 3  & -2 \\
+						      1  & 1  & 6
+					      \end{array}\right)$}.
+		\item \textbf{D\'eterminer le rang de $f$, une base et la dimension de son noyau, une base de l'image.}\\
+		      Calculons le rang de la matrice pr\'ec\'edente \`a l'aide du pivot de Gauss :
+		      $$ rg(f) = rg\left(\begin{array}{rrr}
+					      1  & -2 & 0  \\
+					      -2 & 3  & -2 \\
+					      1  & 1  & 6
+				      \end{array}\right)
+			      \underset{\substack{ L_2 \leftarrow L_2 + 2L_1 \\  L_3 \leftarrow L_3-L_1}}{=}
+			      rg\left(\begin{array}{rrr}
+					      1 & -2 & 0  \\
+					      0 & -1 & -2 \\
+					      0 & 3  & 6
+				      \end{array}\right)
+			      \underset{ L_3 \leftarrow L_3 + 3L_2 }{=}
+			      rg\left(\begin{array}{rrr}
+					      1 & -2 & 0  \\
+					      0 & -1 & -2 \\
+					      0 & 0  & 0
+				      \end{array}\right) = 2 .$$
+		      Ainsi d'apr\`es le th\'eor\`eme du rang, $\dim(\ker(f)) = \dim(\R^3) - rg(f) = 3-2 = 1$, or $u=4e_1 +2e_2 -e_3 \in \ker(f)$, donc \fbox{$(u)$ est une base de $\ker(f)$}. Nous avons $\im(f) = Vect(f(e_1),f(e_2),f(e_3)))$, or $f(e_1)=e_1-2e_2+e_3$ et $f(e_2)=-2e_1+3e_2+e_3$ constituent une famille libre de $\im(f)$ qui est de dimension $2$, donc \fbox{$(f(e_1),f(e_2))$ est une base de $\im(f)$}.
+
+	\end{enumerate}
+\end{correction}
+%-------------------------------------------------
+%------------------------------------------------
+\begin{exercice}  \;
+	Pour chacune des matrices suivantes, on note $f$ l'application lin\'eaire canoniquement associ\'e. Donner le rang, une base et la dimension du noyau et de l'image de $f$. On pr\'ecisera lorsque $f$ est injective, surjective ou un automorphisme ou isomorphisme.
+	$$A=\left(\begin{array}{rrr} 1&2&1 \\ -3&1&4 \\ -3&4&-5    \end{array}\right)\
+		B=\left(\begin{array}{rrrr} 1&1&1&1 \\ 1&0&0&0 \\ 1&1&0&0 \\ 1&0&1&0    \end{array}\right)\
+		C=\left(\begin{array}{rrr} 4&2&0 \\ -1&2&-3 \\ 10&0&12    \end{array}\right) \
+		D=\left(\begin{array}{rrr} 1&1&0 \\ 1&0&1 \\ 0&1&1    \end{array}\right)\
+		E=\left(\begin{array}{rrr} -3&4&0 \\ -2&4&7 \\ 1&0&-7 \\-1&4&0    \end{array}\right)$$
+	$$F=\left(\begin{array}{rrr} 3&1&2\\ -1&0&1\\ 1&1&0  \end{array}\right)\quad G=\left(\begin{array}{rrrr} 2&1&1&3\\ -1&-2&1&0\\ 2&3&-1&1  \end{array}\right)\quad
+		H=\left(\begin{array}{rrr} 1&2&1\\ 2&3&1\\ -1&-2&1\\ 2&4&-1  \end{array}\right).$$
+\end{exercice}
+\begin{correction}   \;
+	\textbf{Pour chacune des matrices suivantes, on note $f$ l'application lin\'eaire canoniquement associ\'e. Donner le rang, une base et la dimension du noyau et de l'image de $f$. On pr\'ecisera lorsque $f$ est injective, surjective ou un automorphisme ou isomorphisme.}
+	$$A=\left(\begin{array}{rrr} 1&2&1 \\ -3&1&4 \\ -3&4&-5    \end{array}\right)\
+		B=\left(\begin{array}{rrrr} 1&1&1&1 \\ 1&0&0&0 \\ 1&1&0&0 \\ 1&0&1&0    \end{array}\right)\
+		C=\left(\begin{array}{rrr} 4&2&0 \\ -1&2&-3 \\ 10&0&12    \end{array}\right) \
+		D=\left(\begin{array}{rrr} 1&1&0 \\ 1&0&1 \\ 0&1&1    \end{array}\right)\
+		E=\left(\begin{array}{rrr} -3&4&0 \\ -2&4&7 \\ 1&0&-7 \\-1&4&0    \end{array}\right)$$
+	$$F=\left(\begin{array}{rrr} 3&1&2\\ -1&0&1\\ 1&1&0  \end{array}\right)\quad G=\left(\begin{array}{rrrr} 2&1&1&3\\ -1&-2&1&0\\ 2&3&-1&1  \end{array}\right)\quad
+		H=\left(\begin{array}{rrr} 1&2&1\\ 2&3&1\\ -1&-2&1\\ 2&4&-1  \end{array}\right).$$
+	Je ne donne ici que les r\'eponses :
+	\begin{enumerate}
+		\item On a $\rg (f_A) = 3$, $\ker (f_A) = \{0_{\R^3}\}$, $\im (f_A) = \R^3$ (la base canonique de $\R^3$ est donc une base de $\im (f_A)$), donc $f_A$ est un automorphisme de $\R^3$.
+		\item On a $\rg (f_B) = 4$, $\ker (f_B) = \{0_{\R^4}\}$, $\im (f_B) = \R^4$ (la base canonique de $\R^4$ est donc une base de $\im (f_B)$), donc $f_B$ est un automorphisme de $\R^4$.
+		\item On a $\rg (f_C) = 3$, $\ker (f_C) = \{0_{\R^3}\}$, $\im (f_C) = \R^3$ (la base canonique de $\R^3$ est donc une base de $\im (f_C)$), donc $f_C$ est un automorphisme de $\R^3$.
+		\item On a $\rg (f_D) = 3$, $\ker (f_D) = \{0_{\R^3}\}$, $\im (f_D) = \R^3$ (la base canonique de $\R^3$ est donc une base de $\im (f_D)$), donc $f_D$ est un automorphisme de $\R^3$.
+		\item On a $\rg (f_E) = 3$, $\ker (f_E) = \{0_{\R^3}\}$, $\im (f_E) = \vect((-3,-2,1,-1),(4,4,0,4),(0,7,-7,0))$, donc $f_E$ est injective, mais n'est pas surjective.
+		\item On a $\rg(f_F)=3$ et $\im(f_F)\subset \R^3$, donc par \'egalit\'e des dimensions, \fbox{$\im(f_F)=\R^3$}. Par le th\'eor\`eme du rang, $\dim(\ker(f_F)) = \dim(\R^3)-\rg(f_F)= 3 - 3 = 0$, donc \fbox{$\ker(f_F)=\{0_{\R^3}\}$}, et $f_F$ est un automorphisme de $\R^3$.\\
+		\item On a $\rg(f_G)=2$, et $\im(f_G)=\vect((2,-1,2),(1,-2,3),(1,1,-1),(3,0,1))$. Or $((1,-2,3),(1,1,-1))$ est une famille libre de $\im(f_G)$ car elle est compos\'ee de deux vecteurs non-colin\'eaires : comme elle a deux \'el\'ements et que $\dim(\im(f_G))=2$, c'est une base de $\im(f_G)$, donc \fbox{$\im(f_G)=\vect((1,-2,3),(1,1,-1))$}. Par le th\'eor\`eme du rang, $\dim(\ker(f_G))= \dim(\R^4) - \rg(f_G)= 4-2 =2$. Apr\`es calculs, on trouve \fbox{$\ker(f_G)= \vect((1,-1,-1,0), (-2,1,0,1)  )$}. Donc $f_G$ n'est ni injective, ni surjective.\\
+		\item On a $\rg(f_H)=3$, et donc \fbox{$\im(f_H)=\vect((1,2,-1,2),(2,3,-2,4),(1,1,1,-1))$}. D'apr\`es le th\'eor\`eme du rang, $\dim(\ker(f_H))=\dim(\R^3) - \rg(f_H) = 3-3=0$ donc \fbox{$\ker(f_H)=\{0_{\R^3}\}$}. Donc $f_H$ est injective, mais non surjective.
+	\end{enumerate}
+\end{correction}
+%-------------------------------------------------
+%------------------------------------------------
+\begin{exercice}
+Donner le rang des matrices suivantes. Lorsque c'est possible, les inverser.
+$$A=\left(\begin{array}{rrr} 0&1&0\\ 0&0&1\\ 1&0&0  \end{array}\right)\quad B=\left(\begin{array}{lll} 1&0&1\\ 2&-1&2\\ -1&-1&-1  \end{array}\right)\quad
+C=\left(\begin{array}{llll} 1&1&1&2\\ 1&1&1&2\\ 1&1&1&2\\ 1&1&1&2  \end{array}\right)\quad D=\left(\begin{array}{lll} 0&1&1\\ 1&0&1\\ 1&1&0  \end{array}\right)\quad E=\left(\begin{array}{lll} 1&a&b\\ b&1&a\\ a&b&1  \end{array}\right).$$
+\end{exercice}
+\begin{correction}
+Donner le rang des matrices suivantes. Lorsque c'est possible, les inverser.
+$$A=\left(\begin{array}{rrr} 0&1&0\\ 0&0&1\\ 1&0&0  \end{array}\right)\quad B=\left(\begin{array}{lll} 1&0&1\\ 2&-1&2\\ -1&-1&-1  \end{array}\right)\quad
+C=\left(\begin{array}{llll} 1&1&1&2\\ 1&1&1&2\\ 1&1&1&2\\ 1&1&1&2  \end{array}\right)\quad D=\left(\begin{array}{lll} 0&1&1\\ 1&0&1\\ 1&1&0  \end{array}\right)\quad E=\left(\begin{array}{lll} 1&a&b\\ b&1&a\\ a&b&1  \end{array}\right).$$
+\end{correction}
+%-------------------------------------------------
+%------------------------------------------------
+\begin{exercice}  \;
+	D\'eterminer le noyau et l'image des applications lin\'eaires canoniquement associ\'ee aux matrices suivantes (on a le droit de r\'efl\'echir avant de se lancer dans des calculs...)
+	$$A=\left(\begin{array}{l} 0\\ 1\\ 1\\0  \end{array}\right)\quad B=\left(\begin{array}{llll} 1&2&3&4 \end{array}\right)\quad
+		C=\left(\begin{array}{llll} 0&1&2&0\\ 1&0&1&0\\ 0&1&2&0  \end{array}\right)\quad
+		D=\left(\begin{array}{lll} 1&2&3\\ 4&5&6\\ 1&0&0  \end{array}\right)\quad E=\left(\begin{array}{ll} 1&2\\ 3&4\\ 5&6  \end{array}\right).$$
+\end{exercice}
+\begin{correction}  \;
+	\textbf{D\'eterminer le noyau et l'image des applications lin\'eaires canoniquement associ\'ee aux matrices suivantes (on a le droit de r\'efl\'echir avant de se lancer dans des calculs...)}
+	$$A=\left(\begin{array}{l} 0\\ 1\\ 1\\0  \end{array}\right)\quad B=\left(\begin{array}{llll} 1&2&3&4 \end{array}\right)\quad
+		C=\left(\begin{array}{llll} 0&1&2&0\\ 1&0&1&0\\ 0&1&2&0  \end{array}\right)\quad
+		D=\left(\begin{array}{lll} 1&2&3\\ 4&5&6\\ 1&0&0  \end{array}\right)\quad E=\left(\begin{array}{ll} 1&2\\ 3&4\\ 5&6  \end{array}\right).$$
+	\begin{itemize}
+		\item[$\bullet$] Pour $A$ : on a $f \in \cL(\R,\R^4)$. Or \fbox{$\im f = \vect((0,1,1,0))$}, donc $\rg f = 1$. De plus, d'apr\`es le th\'eor\`eme du rang, $\dim \ker f = \dim(\R) - \rg f = 0$, donc \fbox{$\ker f = \{0_{\R^3}\}$}.
+		\item[$\bullet$] Pour $B$ : on a $f \in \cL(\R^4,\R)$. Or $\rg A = 1$, et $\im f = \vect((1),(2),(3),(4))$, donc \fbox{$\im f = \vect((1))$}. De plus, d'apr\`es le th\'eor\`eme du rang, $\dim \ker f = \dim(\R^4) - \rg f = 3$. On r\'esout alors $x+2y+3z+4t=0$, et on trouve : \fbox{$\ker f = \vect((-2,1,0,0),(-3,0,1,0),(-4,0,0,1))$}.
+		\item[$\bullet$] Pour $C$ : on a $f \in \cL(\R^4,\R^3)$. Or $\rg f = \rg \left(\begin{array}{llll}  1&0&1&0\\ 0&1&2&0\\  0&0&0&0 \end{array}\right) = 2$, et $\im f = \vect((0,1,0),(1,0,1),(2,1,2),(0,0,0))$. Comme $((0,1,0),(1,0,1))$ est une famille libre de $2$ \'el\'ements dans $\im f$ de dimension $2$, on a donc \fbox{$\im f = \vect((0,1,0),(1,0,1))$}. De plus, d'apr\`es le th\'eor\`eme du rang, $\dim \ker f = \dim(\R^4) - \rg f = 2$, et apr\`es calculs, on trouve \fbox{$\ker f = \vect((-1,-2,1,0),(0,0,0,1))$}.
+		\item[$\bullet$] Pour $D$ : on a $f \in \cL(\R^3)$. Par la m\'ethode du pivot de Gauss, on trouve $\rg f=3=\dim \R^3$, donc \fbox{$\im f = \R^3$} et d'apr\`es le th\'eor\`eme du rang, $\dim \ker f = \dim(\R^3) - \rg f = 0$, donc \fbox{$\ker f = \{0_{\R^3}\}$}.
+		\item[$\bullet$] Pour $E$ : on a $f \in \cL(\R^2, \R^3)$. Par la m\'ethode du pivot de Gauss, on trouve $\rg f=2$, donc \fbox{$\im f = \vect((1,3,5),(2,4,6))$} et d'apr\`es le th\'eor\`eme du rang, $\dim \ker f = \dim(\R^2) - \rg f = 0$, donc \fbox{$\ker f = \{0_{\R^2}\}$}.
+	\end{itemize}
+\end{correction}
+%-------------------------------------------------
+%------------------------------------------------
+\begin{exercice}
+Soit $f$ l'endomorphisme de $\R^3$ dont la matrice dans la base canonique est
+$$A=\left(\begin{array}{ccc} 2&-1&-1\\-1&2&-1\\-1&-1&2    \end{array}\right).$$
+\begin{enumerate}
+\item D\'eterminer le rang de $f$ et une base et la dimension de $\im{(f)}$ et $\ker{(f)}$. On note $\mathcal{B}_1$ une base de l'image et $\mathcal{B}_2$ une base du noyau.
+\item D\'emontrer que $\mathcal{B}=\mathcal{B}_1\cup\mathcal{B}_2$ est une base de $\R^3$.
+\item \'Ecrire la matrice de $f$ dans la base $\mathcal{B}$.
+\end{enumerate}
+\end{exercice}
+\begin{correction}
+Soit $f$ l'endomorphisme de $\R^3$ dont la matrice dans la base canonique est
+$$A=\left(\begin{array}{ccc} 2&-1&-1\\-1&2&-1\\-1&-1&2    \end{array}\right).$$
+\begin{enumerate}
+\item D\'eterminer le rang de $f$ et une base et la dimension de $\im{(f)}$ et $\ker{(f)}$. On note $\mathcal{B}_1$ une base de l'image et $\mathcal{B}_2$ une base du noyau.
+\item D\'emontrer que $\mathcal{B}=\mathcal{B}_1\cup\mathcal{B}_2$ est une base de $\R^3$.
+\item \'Ecrire la matrice de $f$ dans la base $\mathcal{B}$.
+\end{enumerate}
+\end{correction}
+%-------------------------------------------------
+%------------------------------------------------
+
+\begin{exercice}  \;
+	Soit $A=\left(\begin{array}{lll}  0&1&1\\ 1&0&1\\ 1&1&0 \end{array}\right)$ et $f$ l'endomorphisme canoniquement associ\'e \`a $A$.
+	\begin{enumerate}
+		\item Calculer le rang de $f$. En d\'eduire le noyau et l'image de $f$.
+		\item $f$ est-elle bijective ? Si oui, d\'eterminer $f^{-1}$.
+		\item D\'eterminer les valeurs de $\lambda$ pour lesquelles $f-\lambda Id_{\R^3}$ n'est pas injective. Pour chacune de ces valeurs, d\'eterminer $\ker (f-\lambda Id_{\R^3})$.
+		\item D\'eterminer pour tout $n\in\N$: $(f+Id_{\R^3})^n$.
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \;
+	\textbf{Soit $A=\left(\begin{array}{lll}  0&1&1\\ 1&0&1\\ 1&1&0 \end{array}\right)$ et $f$ canoniquement associ\'e \`a $A$.}
+	\begin{enumerate}
+		\item \textbf{Calculer le rang de $f$. En d\'eduire le noyau et l'image de $f$.}\\
+		      D\'eterminons le rang de $f$ \`a l'aide du pivot du Gauss sur $A$ :
+		      $$ \rg(f) = \rg(A) = rg\left(\begin{array}{rrr}
+					      0 & 1 & 1 \\
+					      1 & 0 & 1 \\
+					      1 & 1 & 0
+				      \end{array}\right)
+			      \underset{  L_2 \leftarrow L_2-L_3}{=}
+			      rg\left(\begin{array}{rrr}
+					      0 & 1  & 1 \\
+					      0 & -1 & 1 \\
+					      1 & 1  & 0
+				      \end{array}\right)
+			      \underset{ L_1 \leftarrow L_1 + L_2 }{=}
+			      rg\left(\begin{array}{rrr}
+					      0 & 0  & 2 \\
+					      0 & -1 & 1 \\
+					      1 & 1  & 0
+				      \end{array}\right) = 3 .$$
+		      Donc $\dim(\im f)=3$ et $\im(f) \subset \R^3$, donc \fbox{$\im(f) = \R^3$} et par le th\'eor\`eme du rang $\dim(\ker f) = \dim(\R^3)-\rg(f)=3-3=0$, donc \fbox{$\ker(f)=\{0_{\R^3}\}$}.
+		\item \textbf{$f$ est-elle bijective ? Si oui, d\'eterminer $f^{-1}$.}\\
+		      Comme $\ker(f)=\{0_{\R^3}\}$, $f$ est injective, et comme $f$ est un endomorphisme d'un espace vectoriel de dimension finie, \fbox{$f$ est bijective}. De plus, la matrice de $f^{-1}$ est donn\'ee par $A^{-1}$. Apr\`es calcul, on obtient : $A^{-1} = \ddp \frac{1}{2} \left(\begin{array}{rrr}  -1&1&1\\ 1&-1&1\\ 1&1&-1 \end{array}\right)$, donc \fbox{$f^{-1}(x,y,z)=\ddp \frac{1}{2} (-x+y+z,x-y+z,x+y-z)$}.
+		      %-----
+		\item \textbf{D\'eterminer les valeurs de $\lambda$ pour lesquelles $f-\lambda Id_{\R^3}$ n'est pas injective. Pour chacune de ces valeurs, d\'eterminer $\ker (f-\lambda Id_{\R^3})$.}\\
+		      \begin{itemize}
+			      \item[$\bullet$] D\'eterminons les valeurs de $\lambda$ tel que le rang de $f-\lambda Id$ soit diff\'erent de $3$ (car alors par le th\'eor\`eme du rang $\dim(\ker(f-\lambda Id))\geq 1$) :
+			            $$ \begin{array}{ccl}
+					            \rg(f-\lambda Id) = \rg(A-\lambda I_3) & =                                             & \rg\left(\begin{array}{rrr}
+							                                                                                                              -\lambda & 1        & 1        \\
+							                                                                                                              1        & -\lambda & 1        \\
+							                                                                                                              1        & 1        & -\lambda
+						                                                                                                              \end{array}\right) \\
+					                                                   & \underset{\substack{L_2 \leftarrow L_2 - L_3                                            \\ L_1 \leftarrow L_1+\lambda L_3}}{=}&
+					            \rg\left(\begin{array}{rrr}
+							                     0 & 1 + \lambda & 1 - \lambda^2 \\
+							                     0 & -1-\lambda  & 1+\lambda     \\
+							                     1 & 1           & -\lambda
+						                     \end{array}\right)                                                                                         \\
+					                                                   & \underset{ L_1 \leftarrow L_1+\lambda L_2}{=} &
+					            \rg\left(\begin{array}{rrr}
+							                     0 & 0          & 2 +\lambda - \lambda^2 \\
+							                     0 & -1-\lambda & 1+\lambda              \\
+							                     1 & 1          & -\lambda
+						                     \end{array}\right).
+				            \end{array}$$
+			            Ainsi $\rg(f-\lambda Id)\not=3$ si et seulement si $-1-\lambda = 0$ ou $2 +\lambda - \lambda^2 = 0$, c'est-\`a-dire si et seulement si \fbox{$\lambda = -1$ ou $\lambda = 2$}.
+			      \item[$\bullet$] Calcul de $\ker(f+Id)$ : on a $u(x,y,z) \in \ker(f+Id) \Leftrightarrow  \left( \begin{array}{rrr}
+						            1 & 1 & 1 \\
+						            1 & 1 & 1 \\
+						            1 & 1 & 1
+					            \end{array} \right) \left( \begin{array}{c} x \\ y \\ z \end{array}\right) = \left( \begin{array}{c} 0\\ 0 \\ 0 \end{array}\right) \Leftrightarrow x+y+z = 0 \Leftrightarrow x = -y-z$.\\
+			            Ainsi, on a : \fbox{$\ker(f+Id) = \{(-y-z,y,z), (y,z) \in \R^2\} = \vect((-1,1,0),(-1,0,1))$}.
+			      \item[$\bullet$] Calcul de $\ker(f-2Id)$ : on a $u(x,y,z) \in \ker(f-2Id) \Leftrightarrow  \left( \begin{array}{rrr}
+						            -2 & 1  & 1  \\
+						            1  & -2 & 1  \\
+						            1  & 1  & -2
+					            \end{array} \right) \left( \begin{array}{c} x \\ y \\ z \end{array}\right) = \left( \begin{array}{c} 0\\ 0 \\ 0 \end{array}\right)$, soit :
+			            $$\begin{array}{rcl}
+					            \left\{ \begin{array}{rcrcrcr}
+						                    -2 x & + & y  & + & z   & = & 0\vsec \\
+						                    x    & - & 2y & + & z   & = & 0\vsec \\
+						                    x    & + & y  & - & 2 z & = & 0
+					                    \end{array}\right.
+					             & \Leftrightarrow &
+					            \left\{ \begin{array}{rcrcrcr}
+						                    x    & + & y  & - & 2 z & = & 0\vsec \\
+						                    x    & - & 2y & + & z   & = & 0\vsec \\
+						                    -2 x & + & y  & + & z   & = & 0
+					                    \end{array}\right.\vsec                      \\
+					             & \Leftrightarrow &
+					            \left\{ \begin{array}{rcrcrcrl}
+						                    x & + & y  & - & 2 z & = & 0\vsec                         \\
+						                      & - & 3y & + & 3z  & = & 0      & \mathbf{L_2-L_1}\vsec \\
+						                      &   & 3y & - & 3z  & = & 0      & \mathbf{L_3+2L_1}
+					                    \end{array}\right.\vsec \\
+					             & \Leftrightarrow &
+					            \left\{ \begin{array}{rcrcrcrl}
+						                    x & + & y  & - & 2 z & = & 0\vsec                    \\
+						                      & - & 3y & + & 3z  & = & 0      & \vsec            \\
+						                      &   &    &   & 0   & = & 0      & \mathbf{L_3+L_2}
+					                    \end{array}\right.
+					            \; \Leftrightarrow \;
+					            \left\{ \begin{array}{rcrcrcrl}
+						                    x & = & z\vsec \\
+						                    y & = & z
+					                    \end{array}\right.\vsec                                   \\
+				            \end{array}$$
+			            Ainsi, on a : \fbox{$\ker(f+Id) = \{(z,z,z), z \in \R\} = \vect((1,1,1))$}.
+		      \end{itemize}
+		      %----
+		\item \textbf{D\'eterminer pour tout $n\in\N$: $(f+Id_{\R^3})^n$.}\\
+		      On a : $M(f+Id) = \left( \begin{array}{rrr}
+					      1 & 1 & 1 \\
+					      1 & 1 & 1 \\
+					      1 & 1 & 1
+				      \end{array} \right)$, donc $(f+Id)^2 = 3 (f+Id)$ et on montre par r\'ecurrence que pour tout $n\in \N^*$ on a : \fbox{$(f+Id)^n = 3^{n-1}(f+Id)$}.
+	\end{enumerate}
+\end{correction}
+%------------------------------------------------
+%-------------------------------------------------
+%------------------------------------------------
+%-------------------------------------------------
+%-------------------------------------------------
+%--------------------------------------------------
+%-------------------------------------------------
+%------------------------------------------------
+\vspace{1cm}
+
+\noindent\section{\large{Exercices plus abstraits}}
+%-----------------------------------------------
+%-------------------------------------------------
+%------------------------------------------------
+\begin{exercice}  \;
+	Soient $f$ et $g$ deux endomorphismes d'un espace vectoriel $E$.
+	\begin{enumerate}
+		\item Montrer que $\im (g\circ f)\subset \im g$ et $\ker f\subset \ker (g\circ f)$.
+		\item Montrer que: $g\circ f=0_{\cL (E)}\Leftrightarrow \im f \subset \ker g$.
+		      %\item Montrer que: $\ker g\cap \im f=f\left(  \ker (g\circ f)\right)$
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \;
+	\textbf{Soient $f$ et $g$ deux endomorphismes d'un espace vectoriel $E$.}
+	\begin{enumerate}
+		\item \textbf{Montrer que $\im (g\circ f)\subset \im g$ et $\ker f\subset \ker (g\circ f)$.}\\
+		      Soit $v\in \im (g\circ f)$ : il existe $u \in E$ tel que $v=g\circ f (u)$, donc $v= g(f(u))$ avec $f(u) \in E$ car $f \in \cL(E)$. On a donc $v \in \im f$, et donc \fbox{$\im (g\circ f)\subset \im g$}.\\
+		      Soit $u \in \ker f$ : on a alors $f(u)=0_{E}$. Donc $g \circ f(u) = g(0_{E})=0_E$ car $f \in \cL(E)$. On a donc $u \in \ker (g \circ f)$, soit \fbox{$\ker f\subset \ker (g\circ f)$}
+		\item \textbf{Montrer que: $g\circ f=0_{\cL (E)}\Leftrightarrow \im f \subset \ker g$.}\\
+		      On raisonne par double implication :
+		      \begin{itemize}
+			      \item[$\bullet$] Montrons que $g\circ f=0_{\cL (E)} \Rightarrow \im f \subset \ker g$.\\
+			            On suppose $g\circ f=0_{\cL (E)}$. Soit $v \in \im f$, montrons que $v \in \ker g$. On a $v \in \im f$, donc il existe $u\in E$ tel que $v=f(u)$, donc $g(v)=g\circ f(u) = 0_E$ car $g\circ f=0_{\cL (E)}$. Donc $v \in \ker g$, et donc $\im f \subset \ker g$.
+			      \item[$\bullet$] Montrons que $\im f \subset \ker g \Rightarrow g\circ f=0_{\cL (E)}$.\\
+			            On suppose $\im f \subset \ker g$. On a alors, pour tout $u \in E$ : $g\circ f(u) =0_E$, car $f(u) \in \im f$, et $\im f \subset \ker g$, donc $f(u) \in \ker g$. Donc $g\circ f=0_{\cL (E)}$.
+		      \end{itemize}
+		      On a donc bien \fbox{$g\circ f=0_{\cL (E)}\Leftrightarrow \im f \subset \ker g$}.
+		      %\item Montrer que: $\ker g\cap \im f=f\left(  \ker (g\circ f)\right)$
+	\end{enumerate}
+\end{correction}
+%-------------------------------------------------
+%------------------------------------------------
+\begin{exercice}  \;
+	Soient $E$ et $F$ deux espaces vectoriels, soit $f\in\cL(E,F)$ et soit $(x_1,\dots, x_r)$ une famille de vecteurs de $E$. Montrer que
+	\begin{enumerate}
+		\item Si $\left( f(x_1),\dots, f(x_r)   \right)$ est libre, alors $(x_1,\dots x_r)$ est libre.
+		\item Si $(x_1,\dots, x_r)$ est libre et $f$ injective, alors $\left( f(x_1),\dots, f(x_r)      \right)$ est libre.
+		\item Si $(x_1,\dots x_r)$ est une famille g\'en\'eratrice de $E$ et $f$ surjective, alors $\left( f(x_1),\dots, f(x_r)   \right)$ est une famille g\'en\'eratrice de $F$.
+		\item Si $\left( f(x_1),\dots, f(x_r)   \right)$ est une famille g\'en\'eratrice de $F$ et $f$ injective alors $(x_1,\dots, x_r)$ est une famille g\'en\'eratrice de $E$.
+		\item $f$ est bijective si et seulement si l'image de toute base de $E$ par $f$ est une base de $F$.
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \;
+	\textbf{Soient $E$ et $F$ deux espaces vectoriels, soit $f\in\cL(E,F)$ et soit $(x_1,\dots, x_r)$ une famille de vecteurs de $E$. Montrer que :}
+	\begin{enumerate}
+		\item \textbf{Si $\left( f(x_1),\dots, f(x_r)   \right)$ est libre, alors $(x_1,\dots x_r)$ est libre.}\\
+		      Raisonnons par contrapos\'ee : on suppose que  $(x_1,\dots x_r)$ est li\'ee. Alors il existe $(\lambda1, \ldots, \lambda_r) \in \bK^r$ non tous nuls tels que $\lambda_1 u_1+ \ldots +\lambda_r u_r = 0_E$. Comme $f \in \cL(E,F)$, on en d\'eduit : $\lambda_1 f(u_1) + \ldots + \lambda_r f(u_r) = 0_F$, donc la famille $\left( f(x_1),\dots, f(x_r)   \right)$ est li\'ee.\\
+		      On a donc montr\'e par contrapos\'ee que \fbox{$\left( f(x_1),\dots, f(x_r)   \right)$ libre $\Rightarrow$ $(x_1,\dots x_r)$ libre}.
+		\item \textbf{Si $(x_1,\dots, x_r)$ est libre et $f$ injective, alors $\left( f(x_1),\dots, f(x_r)      \right)$ est libre.}\\
+		      Raisonnons par l'absurde : on suppose que $(x_1,\dots, x_r)$ est libre et $f$ injective, et que $\left( f(x_1),\dots, f(x_r)      \right)$ est li\'ee. Il existe alors $(\lambda1, \ldots, \lambda_r) \in \bK^r$ non tous nuls tels que $\lambda_1 f(u_1) + \ldots + \lambda_r f(u_r) = 0_F$. Comme $f \in \cL(E,F)$, on a alors $f( \lambda_1 u_1+ \ldots +\lambda_r u_r) = 0_F$. Or $f$ est injective, donc n\'ecessairement $\lambda_1 u_1+ \ldots +\lambda_r u_r = 0_E$. Mais ceci est impossible puisque $(x_1,\dots, x_r)$ est libre.\\
+		      On a donc montr\'e par l'absurde que \fbox{($(x_1,\dots, x_r)$ libre et $f$ injective) $\Rightarrow $ $\left( f(x_1),\dots, f(x_r)      \right)$ libre}.
+		\item \textbf{Si $(x_1,\dots x_r)$ est une famille g\'en\'eratrice de $E$ et $f$ surjective, alors $\left( f(x_1),\dots, f(x_r)   \right)$ est une famille g\'en\'eratrice de $F$.}\\
+		      Supposons que $(x_1,\dots x_r)$ est une famille g\'en\'eratrice de $E$ et $f$ surjective. Comme $f$ est surjective, pour tout $v\in F$, il existe $u \in E$ tel que $v=f(u)$. Or  $(x_1,\dots x_r)$ est une  famille g\'en\'eratrice de $E$, donc  il existe $(\lambda1, \ldots, \lambda_r) \in \bK^r$ tels que $u= \lambda_1 u_1+ \ldots +\lambda_r u_r $. Comme $f \in \cL(E,F)$, on a alors : $v=\lambda_1 f(u_1) + \ldots + \lambda_r f(u_r)$, donc $v$ s'exprime comme combinaison lin\'eaire de $\left( f(x_1),\dots, f(x_r)   \right)$. On a donc \fbox{$\left( f(x_1),\dots, f(x_r)   \right)$ est une famille g\'en\'eratrice de $F$}.
+		\item \textbf{Si $\left( f(x_1),\dots, f(x_r)   \right)$ est une famille g\'en\'eratrice de $F$ et $f$ injective alors $(x_1,\dots, x_r)$ est une famille g\'en\'eratrice de $E$.}\\
+		      Supposons  $\left( f(x_1),\dots, f(x_r)   \right)$ est une famille g\'en\'eratrice de $F$ et $f$ injective. Soit $u \in E$, on a alors $f(u) \in F$. Or  $\left( f(x_1),\dots, f(x_r)   \right)$ est une famille g\'en\'eratrice de $F$, donc il existe $(\lambda1, \ldots, \lambda_r) \in \bK^r$ tels que $f(u) = \lambda_1 f(u_1) + \ldots + \lambda_r f(u_r)$. Or $f \in \cL(E,F)$, donc $f(u) = f(\lambda_1 u_1+ \ldots +\lambda_r u_r)$. De plus, $f$ est injective, donc on a n\'ecessairement $u=\lambda_1 u_1+ \ldots +\lambda_r u_r$, donc $u$ s'exprime comme combinaison lin\'eaire de $(x_1,\dots, x_r)$. On a donc \fbox{$(x_1,\dots, x_r)$ est une famille g\'en\'eratrice de $E$}.
+		\item \textbf{$f$ est bijective si et seulement si l'image de toute base de $E$ par $f$ est une base de $F$.}\\
+		      On raisonne par double implication :
+		      \begin{itemize}
+			      \item[$\bullet$] On suppose que $f$ est bijective. Soit $(e_1,\ldots, e_n)$ une base de $E$. Montrons que $(f(e_1), \ldots, f(e_n))$ est une base de $F$. Comme $f$ est injective, d'apr\`es la question 2) on a $(f(e_1), \ldots, f(e_n))$ qui est une famille libre de $F$. De plus, comme $f$ est surjective, d'apr\`es la question 3) on a $(f(e_1), \ldots, f(e_n))$ qui est une famille g\'en\'eratrice de $F$. Donc $(f(e_1), \ldots, f(e_n))$ est une base de $F$.
+			      \item[$\bullet$] On suppose que l'image de toute base de $E$ par $f$ est une base de $F$. Montrons que $f$ est bijective.
+			            \begin{itemize}
+				            \item[$\star$] On a alors n\'ecessairement $f$ surjective, puisque pour toute base $(e_1,\ldots, e_n)$  de $E$, $(f(e_1), \ldots, f(e_n))$ est une base de $F$. Donc pour tout $v \in F$, il existe $(\lambda1, \ldots, \lambda_n) \in \bK^n$ tels que $v=\lambda_1 f(e_1)+ \ldots +\lambda_n f(e_n)$. Comme $f \in \cL(E,F)$, on a alors $v = f\left(\lambda_1 e_1+ \ldots +\lambda_n e_n\right)$, donc $v \in \im f$. Donc $f$ est surjective.
+				            \item[$\star$] Montrons que $f$ est injective. Raisonnons par l'absurde : on suppose que $f$ n'est pas injective. Il existe $u \not = 0_E$ tel que $f(u) = 0_F$. Soit  $(e_1,\ldots, e_n)$ une base de $E$. Il existe alors $(\lambda1, \ldots, \lambda_n) \in \bK^n$ non tous nuls tels que $u=\lambda_1 e_1+ \ldots +\lambda_n e_n$. Comme $f \in \cL(E,F)$, on a alors $f(u) = \lambda_1 f(e_1)+ \ldots +\lambda_n f(e_n)=0_F$, ce qui est impossible puisque par hypoth\`ese, $(f(e_1), \ldots, f(e_n))$ est une base de $F$.
+			            \end{itemize}
+		      \end{itemize}
+		      On a donc montr\'e que \fbox{$f$ est bijective si et seulement si l'image de toute base de $E$ par $f$ est une base de $F$}.
+	\end{enumerate}
+\end{correction}
+%-------------------------------------------------
+%------------------------------------------------
+\begin{exercice}  \;
+	Soient $f$ et $g$ deux endomorphismes d'un espace vectoriel $E$ tels que $g\circ f=f\circ g$. Montrer que $\ker f$ et $\im f$ sont stables par $g$.
+\end{exercice}
+\begin{correction}  \;
+	\textbf{Soient $f$ et $g$ deux endomorphismes d'un espace vectoriel $E$ tels que $g\circ f=f\circ g$. Montrer que $\ker f$ et $\im f$ sont stables par $g$.}\\
+	Soit $u \in \ker(f)$, montrons que $g(u) \in \ker(f)$ : $f(g(u))=g(f(u))=g(0_E)=0_E$. Donc $g(\ker(f)) \subset \ker(f)$, et \fbox{$\ker(f)$ est stable par $g$}.\\
+	Soit $u \in \im(f)$ alors il existe $v\in E$ tel que $f(v)=u$. Montrons que $g(u) \in \im (f)$ : $g(u)=g(f(v)) = f(g(v)) \in \im (f)$. Donc $g(\im (f)) \subset \im (f)$, et \fbox{$\im (f)$ est stable par $g$}.
+\end{correction}
+%-------------------------------------------------
+%------------------------------------------------
+\begin{exercice}  \;
+	Soit $f\in\cL(E,F)$. Montrer que, pour tout $\lambda\in\R^{\star}$, on a: $\im (\lambda f)=\im f$ et $\ker (\lambda f)=\ker f$.
+\end{exercice}
+\begin{correction}  \;
+	\textbf{Soit $f\in\cL(E,F)$. Montrer que, pour tout $\lambda\in\R^{\star}$, on a: $\im (\lambda f)=\im f$ et $\ker (\lambda f)=\ker f$. }\\
+	On a  :
+	$$\begin{array}{rcll}
+			v \in \im (f) & \Leftrightarrow & \exists \, u \in E \textmd{ tel que } v = f(u)\vsec                                                                                 \\
+			              & \Leftrightarrow & \exists \, u' \in E \textmd{ tel que } v = f(\lambda u') & \textmd{ en prenant } u'=\ddp \frac{u}{\lambda} \; (\lambda \not=0)\vsec \\
+			              & \Leftrightarrow & \exists \, u' \in E \textmd{ tel que } v = \lambda f(u') & \textmd{ car $f$ est lin\'eaire} \vsec                                   \\
+			              & \Leftrightarrow & v \in \im (\lambda f) .
+		\end{array}$$
+	Donc on a \fbox{ $\im (\lambda f)=\im f$}.\\
+	De m\^eme, on a :
+	$$\begin{array}{rcll}
+			v \in \ker (\lambda f) & \Leftrightarrow & \lambda f(u) = 0_F\vsec                                       \\
+			                       & \Leftrightarrow & f(u) = 0_F              & \textmd{ car } \lambda \not=0 \vsec \\
+			                       & \Leftrightarrow & v \in \ker (f) .
+		\end{array}$$
+	Donc \fbox{$\ker (\lambda f)=\ker f$}.
+\end{correction}
+%-------------------------------------------------
+%------------------------------------------------
+\begin{exercice}  \;
+	Soit $f\in\cL(E)$. On pose $f\circ f=f^2$. Montrer que
+	$$\ker (f^2)=\ker f \Leftrightarrow \ker f \cap \im f =\lbrace 0_E\rbrace.$$
+\end{exercice}
+\begin{correction}  \;
+	\textbf{Soit $f\in\cL(E)$. On pose $f\circ f=f^2$. Montrer que :} $\ker (f^2)=\ker f \Leftrightarrow \ker f \cap \im f =\lbrace 0_E\rbrace.$\\
+	On raisonne par double implication :
+	\begin{itemize}
+		\item[$\bullet$] On suppose que $\ker (f^2)=\ker f $. Soit $v \in  \ker f \cap \im f$. Il existe alors  $u \in E$ tel que $v=f(u)$. De plus, $f(v) = 0_E$, donc $f^2(u) = 0_E$, soit $u \in \ker (f^2)$. Or $\ker (f^2)=\ker f $, donc $u \in \ker f$. On a donc $f(u) = 0_E$, soit $v=0_E$. Donc $ker f \cap \im f =\lbrace 0_E\rbrace$.
+		\item[$\bullet$] On suppose $ker f \cap \im f =\lbrace 0_E\rbrace$. Montrons que $\ker (f^2)=\ker f $ par double inclusion.
+		      \begin{itemize}
+			      \item[$\star$] On a toujours $\ker f \subset \ker (f^2) $. En effet, soit $u \in \ker f$, on a alors $f(u)=0_E$, donc $f^2(u)=f(0_E)=0_E$, donc $u \in \ker (f^2)$.
+			      \item[$\star$] Montrons que $\ker (f^2)\subset \ker f $. Soit $u \in \ker(f^2)$. On a alors $f^2(u) = 0_E$, soit $f(f(u))=0_E$. Soit $v=f(u)$. On a alors $v \in \im f$, et de plus $f(v) = 0_E$ donc $v \in \ker f$. On a donc $v=0_E$ car $ker f \cap \im f =\lbrace 0_E\rbrace$, et donc $f(u)=0_E$, soit $u \in \ker f$.
+		      \end{itemize}
+	\end{itemize}
+	On a donc bien \fbox{$\ker (f^2)=\ker f \Leftrightarrow \ker f \cap \im f =\lbrace 0_E\rbrace$}.
+\end{correction}
+%-------------------------------------------------
+%------------------------------------------------
+\begin{exercice}  \;
+	Soit $E=\R^n$ et soit $f\in\cL(E)$ telle que, pour tout $u\in E$, la famille $(u,f(u))$ soit li\'ee.
+	\begin{enumerate}
+		\item Soit $(e_1,\dots, e_n)$ la base canonique de $\R^n$. Montrer qu'il existe $\lambda\in\R$ tel que: $\forall i\in\intent{ 1,n}$, $f(e_i)=\lambda e_i$.
+		      (On pourra consid\'erer $e_1+e_i$).
+		\item Montrer que $f$ est soit identiquement nulle, soit une homoth\'etie vectorielle.
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \;
+	\textbf{Soit $E=\R^n$ et soit $f\in\cL(E)$ telle que, pour tout $u\in E$, la famille $(u,f(u))$ soit li\'ee.}
+	\begin{enumerate}
+		\item \textbf{Soit $(e_1,\dots, e_n)$ la base canonique de $\R^n$. Montrer qu'il existe $\lambda\in\R$ tel que: $\forall i\in\intent{ 1,n}$, $f(e_i)=\lambda e_i$. (On pourra consid\'erer $e_1+e_i$).}\\
+		      On sait que pour tout $i$, la famille $(e_i,f(e_i))$ est li\'ee, donc il existe $\lambda_i \in \R$ tel que $f(e_i) = \lambda_i e_i$. Attention que ce n'est pas exactement ce qu'il faut montrer ! Dans l'\'enonc\'e, le $\lambda$ est d\'efini en premier, et ne doit donc pas d\'ependre de $i$ : il faut montrer que $\lambda_i$ ne d\'epend pas de $i$.\\
+		      On a $f(e_1+e_i)= f(e_1)+f(e_i) = \lambda_1 e_1+ \lambda_i e_i$. D'autre part, on sait que la famille $(e_1+e_i,f(e_1+e_i))$ est li\'ee, donc il existe $\mu_i$ tel que $f(e_1+e_i) = \mu_i (e_1+e_i)$. On en d\'eduit que $\lambda_1 e_1+ \lambda_i e_i =  \mu_i (e_1+e_i)$, soit que $(\lambda_1-\mu_i) e_1+ (\lambda_i-\mu_i)e_i = 0_E$. Or la famille $(e_1,e_i)$ est libre car $(e_1,\dots, e_n)$ est la base canonique de $\R^n$, donc on a $\lambda_1=\mu_i$ et $\lambda_i=\mu_i$ soit finalement $\lambda_1=\lambda_i$ : $\lambda_i$ ne d\'epend pas de $i$.\\
+		      On a donc bien montr\'e \fbox{qu'il existe $\lambda\in\R$ tel que: $\forall i\in\intent{ 1,n}$, $f(e_i)=\lambda e_i$}.
+		\item \textbf{Montrer que $f$ est soit identiquement nulle, soit une homoth\'etie vectorielle.}\\
+		      On a donc montr\'e que la matrice de $f$ dans la base canonique est donn\'ee par $M(f) = \lambda I_n$. On a donc, pour tout $u\in E$, $f(u) = \lambda u$, donc \fbox{$f$ est soit identiquement nulle (si $\lambda=0$), soit une homoth\'etie vectorielle}.
+	\end{enumerate}
+\end{correction}
+%-------------------------------------------------
+%------------------------------------------------
+\begin{exercice}  \;
+	Soit $f$ un endomorphisme de $\R^3$. On suppose que $f^3=0_{\cL(\R^3)}$ et $f^2\not= 0_{\cL(\R^3)}$.
+	\begin{enumerate}
+		\item Montrer qu'il existe un vecteur $u\in\R^3$ tel que $(u,f(u),f^2(u))$ soit une famille libre de $\R^3$.
+		\item Donner la matrice de $f$ dans cette base.
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \;
+	\textbf{Soit $f$ un endomorphisme de $\R^3$. On suppose que $f^3=0_{\cL(\R^3)}$ et $f^2\not= 0_{\cL(\R^3)}$.}
+	\begin{enumerate}
+		\item \textbf{Montrer qu'il existe un vecteur $u\in\R^3$ tel que $(u,f(u),f^2(u))$ soit une famille libre de $\R^3$.}\\
+		      Soit $u \in E$ tel que $f^2(u) \not = 0_E$. Montrons que $(u,f(u),f^2(u))$ est une famille libre : soient $(\lambda_1, \lambda_2, \lambda_3) \in \R^3$ tels que :
+		      $$\begin{array}{rll}
+				                  & \lambda_1 u + \lambda_2 f(u) +\lambda_3 f^2(u) = 0_E\vsec                                                                       \\
+				      \Rightarrow & f( \lambda_1 u + \lambda_2 f(u) +\lambda_3 f^2(u)) = f(0_E) \vsec                                                               \\
+				      \Rightarrow & \lambda_1 f(u) + \lambda_2 f^2(u) = 0_E                           & \textmd{ car } f \in \cL(E) \textmd{ et } f^3(u) = 0_E\vsec \\
+				      \Rightarrow & f(\lambda_1 f(u) + \lambda_2 f^2(u) ) = f(0_E)\vsec                                                                             \\
+				      \Rightarrow & \lambda_1 f^2(u)  = 0_E                                           & \textmd{ car } f \in \cL(E) \textmd{ et } f^3(u) = 0_E
+			      \end{array}$$
+		      Or on a $f^2(u) \not=0$, donc $\lambda_1=0$ on en d\'eduit que $\lambda_2 f^2(u) = 0_E$, et pour la m\^eme raison $\lambda_2=0$, et finalement $\lambda_3 f^2(u) = 0_E$ et donc $\lambda_3 = 0$. Donc \fbox{il existe un vecteur $u\in\R^3$ tel que $(u,f(u),f^2(u))$ soit une famille libre}.
+		\item \textbf{Donner la matrice de $f$ dans cette base.}\\
+		      On sait que $(u,f(u),f^2(u))$ est une famille libre de $3$ \'el\'ements dans $\R^3$ de dimension $3$ : c'est donc une base de $\R^3$.\\
+		      On a de plus : $f(u) = 0 \times u + 1\times f(u) + 0\times f^2(u)$, $f(f(u)) =   0 \times u + 0\times f(u) + 1\times f^2(u)$, et $f(f^2(u)) = 0_E$, donc la matrice dans cette base est donn\'ee par $\left( \begin{array}{rrr} 0 & 0 & 0\\ 1 & 0 & 0 \\ 0 & 1 & 0\end{array} \right)$.
+	\end{enumerate}
+\end{correction}
+%
+
+
+\end{document}

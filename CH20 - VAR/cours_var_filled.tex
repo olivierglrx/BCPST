@@ -1,0 +1,1072 @@
+\documentclass[a4paper, 11pt]{article}
+\input{macro/package.tex}
+\input{macro/environement}
+\input{macro/header.tex}
+\input{macro/newcommand.tex}
+\geometry{hmargin=2.0cm, vmargin=2.5cm}
+
+
+
+
+\begin{document}
+\tableofcontents
+ \title{Chapitre 22  : Variables Aléatoires Réelles} 
+
+
+
+ Dans tout ce chapitre, on se place dans un espace probabilis\'e fini $(\Omega, \mathcal{P}(\Omega),P)$.
+
+%\vspace{0.4cm}
+%--------------------------------------------------
+%------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\section{G\'en\'eralit\'es sur les variables al\'eatoires r\'eelles finies}
+
+%--------------------------------------------------
+%------------------------------------------------
+%-----------------------------------------------------------
+\subsection*{D\'efinition et notations}
+
+ {  
+
+\begin{defi} On appelle variable al\'eatoire r\'eelle finie sur $\Omega$, not\'ee varf, toute application de $\Omega$ dans $\R$. 
+
+
+\end{defi}
+ 
+}
+
+\begin{exemple}
+Pour chacune des exp\'eriences al\'eatoires suivantes, donner l'univers $\Omega$ et un exemple de varf sur $\Omega$.
+\begin{enumerate}
+\item On lance une pi\`ece de monnaie deux fois de suite, et \`a chaque lancer on gagne un euro si on obtient pile, on perd $2$ euros si on obtient face.
+
+$$G \left|\begin{array}{ccc}
+ \intent{P,F}& \tv &\R \\
+ P&\mapsto & 1\\
+ F&\mapsto & -2\\
+\end{array}\right.$$
+
+\item On lance deux d\'es non truqu\'es de couleurs diff\'erentes.
+$$S \left|\begin{array}{ccc}
+ \intent{1,6}^2& \tv &\R \\
+ (i,j)&\mapsto &i+j
+\end{array}\right.$$
+
+\end{enumerate}
+\end{exemple}
+
+
+
+%--------------------------------------------------
+%------------------------------------------------
+%-----------------------------------------------------------
+
+
+ {  
+
+\begin{defi} On appelle univers image d'une varf, not\'e  $X(\Omega)$ l'ensemble des images de l'application $\Omega$. 
+
+$$X(\Omega) = \{X(\omega) \, |\, \omega \in \Omega\}.$$ 
+\end{defi}
+ 
+}
+
+\begin{exemple}
+Donner les univers images pour les $2$ exemples pr\'ec\'edents.
+
+\end{exemple}
+
+\begin{rem}
+En BCPST1, on ne travaille que sur des univers $\Omega$ finis. 
+
+\end{rem}
+
+
+
+
+%--------------------------------------------------
+%------------------------------------------------
+%-----------------------------------------------------------
+
+
+%\paragraph{Notations des \'ev\`{e}nements associ\'es \`{a} une varf}
+
+ \textbf{Notations}: Pour tout $a\in\R$, on note:\vsec
+\begin{itemize}
+\item[$\bullet$] $\lbrack X=a\rbrack=X^{-1}(\{a\})=\{ \omega \in \Omega \, |\, X(\omega) = a\}$
+\item[$\bullet$]  $\lbrack X\leq a\rbrack=\{ \omega \in \Omega \, |\, X(\omega) \leq a\}$
+\item[$\bullet$]  $\lbrack X\geq a\rbrack=\{ \omega \in \Omega \, |\, X(\omega) \geq  a\}$
+\item[$\bullet$]  $\lbrack X< a\rbrack=\{ \omega \in \Omega \, |\, X(\omega) < a\}$
+\item[$\bullet$]  $\lbrack X> a\rbrack=\{ \omega \in \Omega \, |\, X(\omega) > a\}$
+\end{itemize}
+Soit $A\subset \Omega$ on note :
+\begin{itemize}
+\item[$\bullet$] $\lbrack X\in A \rbrack=X^{-1}(A)=\{ \omega \in \Omega \, |\, X(\omega) \in A\}$
+\end{itemize}
+
+Comme ce sont des \'ev\'enements, on peut calculer leur probabilit\'e.
+
+\begin{exemple} 
+On reprend le deuxi\`eme exemple. Calculer $P(\lbrack Y=5\rbrack)$, $P(\lbrack Y \geq 10 \rbrack)$, $P(\lbrack 1\leq Y< 5\rbrack)$, $P(\lbrack Y>12\rbrack)$.
+\end{exemple}
+
+{\footnotesize \begin{exercice} Soit $X$ une varf et $a\in\R$. Exprimer $P(\lbrack X \leq a\rbrack)$ en fonction de  $P(\lbrack X\geq a\rbrack)$.
+\end{exercice}}
+
+
+
+
+%\subsection{Sce associ\'e \`{a} une var}
+
+ {  
+
+\begin{prop} Syst\`{e}me complet d'\'ev\`{e}nements associ\'e \`{a} une varf
+\begin{itemize}
+\item[$\bullet$] Si $X$ est une varf avec $X(\Omega)=\lbrace x_1,\dots, x_n\rbrace$.
+ Alors $\ddp \bigcup_{i=1}^n [X=x_i]$ est un sce.
+\item[$\bullet$] En particulier, on a
+$$P(X\in A)=\sum_{x\in A} P([X=a])$$
+
+
+\end{itemize}
+\end{prop}
+ 
+}
+
+\begin{exemple} 
+Donner le sce associ\'e dans les exemples du d\'ebut.
+
+\end{exemple}
+
+%--------------------------------------------------
+%------------------------------------------------
+%-----------------------------------------------------------
+\subsection{Loi d'une variable al\'eatoire r\'eelle finie}
+
+%\subsection{D\'efinition de la loi d'une var}
+
+ {  
+
+\begin{defi} Soit $X$ une variable al\'eatoire r\'eelle.
+ On appelle loi de probabilit\'e de $X$ not\'ee $f_X$ l'application
+$$f_X \left|\begin{array}{ccc}
+ X(\Omega) & \tv &[0,1] \\
+x &\mapsto &P([X=x])
+\end{array}\right.$$
+
+\end{defi}
+ 
+}
+\vsec\vsec
+
+\setlength\fboxrule{1pt}
+  {
+
+D\'eterminer la loi de probabilit\'e de $X$:
+\begin{itemize}
+\item[$\bullet$] Donner l'univers image $X(\Omega)=\lbrace x_1,x_2,x_3,\dots,x_n\rbrace$.
+\item[$\bullet$] Pour chaque \'el\'ement $x$ de $X(\Omega)$, calculer sa probabilit\'e $P(X=x)$:
+
+$$\hbox{Calculs de }\ P(X=x_1),\ P(X=x_2),\ P(X=x_3),\ \dots,\ P(X=x_n).$$
+\end{itemize}
+ }
+\setlength\fboxrule{0.5pt}
+
+\begin{exemple}  
+Donner les lois des varf des exemples du d\'ebut.
+\end{exemple} 
+
+
+ 
+
+%\subsection{Repr\'esentation graphique d'une loi}
+
+
+ Deux repr\'esentations sont utilis\'ees pour d\'efinir la loi d'une var:
+\begin{itemize}
+\item[$\bullet$] \textbf{Sous la forme d'un tableau}
+
+
+\item[$\bullet$] \textbf{Sous la forme d'un diagramme en b\^{a}tons}
+
+
+\end{itemize}
+
+\begin{exemple}  
+Donner les deux repr\'esentations graphiques possibles pour les exemples du d\'ebut.
+\end{exemple} 
+
+%--------------------------------------------------
+%------------------------------------------------
+%-----------------------------------------------------------
+\subsection{Fonction de r\'epartition d'une variable al\'eatoire r\'eelle finie}
+
+%\subsection{D\'efinition}
+
+ 
+
+\begin{defi} Soit $X$ une variable al\'eatoire r\'eelle.
+ On appelle fonction de r\'epartition de $X$ not\'ee $F_X$ l'application
+ 
+$$F_X \left|\begin{array}{ccc}
+ X(\Omega) & \tv &[0,1] \\
+x &\mapsto &P([X\leq x])
+\end{array}\right.$$
+ 
+\end{defi}
+ 
+
+
+\begin{exemple} 
+Calculer la fonction de r\'epartition $F_X$ pour les $2$ exemples du d\'ebut. Faire de plus \`{a} chaque fois la repr\'esentation graphique de $F_X$.
+\end{exemple} 
+\begin{center}
+\includegraphics[scale=0.4]{fonction_repartition.png}
+
+\end{center}
+
+
+
+
+
+%\subsection{Propri\'et\'es}
+
+ 
+\begin{prop}
+Soit $X$ une variable aléatoire et $F_X$ sa fonction de répartition alors :
+\begin{enumerate}
+\item $F$ est croissante. 
+\item $F$ est continue à droite en tout point de $\R$. 
+\item $\ddp \lim_{x\tv -\infty} F(x) = 0$  et $\ddp \lim_{x\tv +\infty} F(x) = 1$
+\end{enumerate}
+De plus on a 
+$$\forall x\in \R, \, F(x) =\sum_{z \leq x, z\in X(\Omega)} P(X=z)$$
+\end{prop}
+
+
+
+\paragraph{Lien entre la fonction de r\'epartition et la loi}
+
+ D'apr\`{e}s la propri\'et\'e ci-dessus, on remarque que si l'on conna\^it la loi de $X$, on peut calculer la fonction de r\'epartition de $X$. Mais la r\'eciproque est vraie aussi. Si on conna\^it la fonction de r\'epartition de $X$, on peut en d\'eduire la loi de $X$. Cela peut \^etre utile lorsqu'il est plus facile de d\'eterminer la fonction de r\'epartition que la loi. \vsec\vsec
+
+   
+
+\begin{prop} 
+Soit $X$ une varf avec $X(\Omega)=\lbrace x_1,\dots, x_n\rbrace$ tels que $x_1<x_2<\dots<x_n$. Alors on a:\vsec
+ 
+ $$P(X=x_i) = F(x_i) -F(x_{i-1})$$
+
+\end{prop}
+ 
+
+
+\begin{proof}
+
+\end{proof}
+
+{\footnotesize \begin{exercice} Un joueur pr\'el\`eve successivement et avec remise $n$ boules dans une urne contenant $N$ boules num\'erot\'ees de 1 \`a $N$. On consid\`ere les varf $X$ et $Y$ \'egales respectivement au plus grand et au plus petit num\'ero des $n$ boules tir\'ees. Donner les univers images de $X$ et de $Y$. Calculer la fonction de r\'epartition de $X$. En d\'eduire la loi de $X$. Calculer ensuite pour tout $k\in Y(\Omega)$: $P(\lbrack Y>k\rbrack)$. En d\'eduire la loi de $Y$.
+\end{exercice}}\vsec\vsec
+
+
+
+Penser \`{a} passer par la fonction de r\'epartition pour obtenir la loi de var d\'efinie avec des min ou des max.
+
+
+%--------------------------------------------------
+%------------------------------------------------
+%-----------------------------------------------------------
+\subsection{Compos\'ee d'une variable al\'eatoire r\'eelle finie: $Y=g(X)$}
+
+
+ Si $X$ est une variable al\'eatoire finie et $g$ une fonction num\'erique dont l'ensemble de d\'efinition contient $X(\Omega)$, on peut \'etudier la variable al\'eatoire $Y=g(X)$.\vsec\vsec 
+
+\begin{dboxminipage}{0.9 \textwidth}
+M\'ethode pour \'etudier les var de type $Y=g(X)$:
+\begin{itemize}
+\item[$\bullet$] Calcul de l'univers image $Y(\Omega)$:
+ Si $X(\Omega)=\lbrace x_1,x_2,x_3,\dots,x_n\rbrace$ alors $Y(\Omega)$ s'obtient en calculant $g(x_1), g(x_2), g(x_3),\dots, g(x_n)$.
+\item[$\bullet$] Calcul de la loi de $Y=g(X)$:
+ Pour tout $y\in Y(\Omega)$, on \'ecrit que: $P(\lbrack Y=y\rbrack)=P(\lbrack g(X)=y\rbrack)$, et on se ram\`{e}ne alors \`{a} $X$.
+\end{itemize}
+\end{dboxminipage}
+
+%
+%\begin{exercice} On suppose que $X$ est une varf qui suit la loi d\'efinie par
+%$$\begin{array}{|c|c|c|c|c|c|}
+%\hline
+%\rule[-2mm]{0pt}{7mm}  x& -2&-1&0&1&2
+%\hline
+%\rule[-3mm]{0pt}{8mm}  P(\lbrack X=x\rbrack) & \ddp\frac{1}{10} & \ddp\frac{3}{10} & \ddp\frac{1}{5}&\ddp\frac{1}{3}&\ddp\frac{1}{15}
+%\hline
+%\end{array}$$
+%On note $Y=|X|$, $Z=X^2$ et $T=X(X+1)(X+2)$. Calculer les lois de $Y,\ Z$ et $T$. 
+%
+%\end{exercice}
+
+\begin{exercice} 
+Reprendre l'exemple 1 du d\'ebut et \'etudier $U=Z^2-Z-2$.
+\end{exercice}
+
+
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+
+
+
+\section{Moments d'une variable al\'eatoire r\'eelle finie}
+
+%--------------------------------------------------
+%------------------------------------------------
+%-----------------------------------------------------------
+\subsection{Esp\'erance d'une variable al\'eatoire r\'eelle finie}
+
+ On s'int\'eresse ici \`a la moyenne d'un ph\'enom\`ene al\'eatoire. Mais la moyenne au sens arithm\'etique semble sans int\'er\^et car certaines valeurs ont une probabilit\'e plus forte que d'autres d'arriver. On va ainsi s'int\'eresser \`a une moyenne pond\'er\'ee par la probabilit\'e qu'a la valeur d'arriver.
+
+
+%\subsection{D\'efinition de l'esp\'erance}
+
+ {  
+
+\begin{defi} 
+Soit $X$ une varf avec $X(\Omega)=\lbrace x_1,\dots, x_n\rbrace$. \vsec
+\begin{itemize}
+\item[$\bullet$] On appelle esp\'erance de $X$ not\'ee $E(X)$  le nombre r\'eel:
+$$E(X) =\sum_{i=1}^n x_i P(X=x_i)$$
+\item[$\bullet$] Une variable al\'eatoire d'esp\'erance nulle est dite centrée.
+\end{itemize}
+\end{defi}
+ 
+}
+
+
+\begin{exemples}
+\begin{itemize}
+\item[$\bullet$] Si $X(\Omega)=\intent{0,n}$, $n\in\N$ fix\'e alors $E(X)=\sum_{i=1}^n i P(X=i)$
+\item[$\bullet$] Si $X(\Omega)=\lbrace -3,-1,1,2\rbrace$ alors $E(X)=-3 P(X=-3) -P(X=-1) +P(X=1)+2P(X=2)$
+\item[$\bullet$] Si $X$ est une varf constante \'egale \`{a} $a$: $X=a$, alors $E(X)=a$
+\end{itemize}
+
+
+\begin{itemize}
+\item[$\bullet$] Si $X(\Omega)=\lbrace 0,1\rbrace$ alors $$E(X)= $$
+\item[$\bullet$] Si $X(\Omega)=\intent{0,n}$, $n\in\N$ fix\'e alors $$E(X)= $$
+\item[$\bullet$] Si $X$ est une varf constante \'egale \`{a} $a$: $X=a$, alors $$E(X)= $$
+\end{itemize}
+\end{exemples}
+
+
+
+
+\begin{rem}
+ L'esp\'erance est ainsi la moyenne de chacune des valeurs prises par la variable al\'eatoire $X$ pond\'er\'ee par la probabilit\'e que $X$ prenne cette valeur.
+\end{rem}
+
+\begin{exemple}
+Calculer l'esp\'erance dans chacun des exemples du d\'ebut.
+
+\end{exemple}
+
+
+
+
+\paragraph{Th\'eor\`{e}me de transfert}
+
+ 
+
+\begin{theorem} 
+Soit $X$ une var avec $X(\Omega)=\lbrace x_1,\dots, x_n\rbrace$, soit $g: \R\rightarrow \R$ une fonction num\'erique et $Y=g(X)$. Alors, on a
+$$E(Y)= \sum_{i=1}^n g(x_i) P(X=x_i)$$
+
+\end{theorem}
+ 
+
+
+\begin{exemples}
+\begin{itemize}
+\item[$\bullet$] Si $X(\Omega)=\intent{ 0,n}$, $n\in\N$ fix\'e alors $E(X^2)= \sum_{i=0}^n i^2 P(X=i)$
+%\item[$\bullet$] Si $X(\Omega)=\lbrace -3,-1,1,2\rbrace$ alors $E(e^X)=$\dotfill  \vsec
+\item[$\bullet$] Si $X(\Omega)=\intent{ 1,6}$ alors $E(\ln{(X)})= \sum_{i=1}^6 \ln(i) P(X=i) $
+\item[$\bullet$] Si $X(\Omega)=\intent{ 1,n}$, $n\in\N$ fix\'e alors $E(X^3)= \sum_{i=1}^n i^3 P(X=i)$
+\end{itemize}
+\end{exemples}
+
+{\footnotesize \begin{exercice} 
+Reprendre l'exercice 3 et calculer l'esp\'erance des varf $X,Y,Z$ et $T$.
+\end{exercice}}\vsec\vsec
+
+
+
+Penser au th\'eor\`{e}me de transfert pour calculer l'esp\'erance de var de type $Y=g(X)$ avec $X$ connu.
+
+
+\begin{defi} 
+Soit $X$ une varf avec $X(\Omega)=\lbrace x_1,\dots, x_n\rbrace$. \vsec
+ Pour tout $k\in\N^{\star}$, on appelle moment d'ordre $k$ de $X$, not\'e parfois $m_k(X)$, le nombre r\'eel: 
+
+ $$m_k(X)=E(X^k)= \sum_{x_i\in X(\Omega)} x_i^k P(X=x_i)$$
+ 
+
+\end{defi}
+ 
+
+
+{\footnotesize \begin{exercice} 
+Calculer les moments d'ordre 0, 1, 2 et 3 de la var $X$ dont la loi est d\'efinie dans l'exercice 3.
+\end{exercice}}\vsec\vsec
+
+
+
+
+
+
+\paragraph{Lin\'earit\'e de l'esp\'erance}
+
+
+ {  
+
+\begin{prop} Lin\'earit\'e de l'esp\'erance:
+\begin{itemize}
+\item[$\bullet$] Soit $X$ une var et $(a,b)\in\R^2$. On a:
+
+$$E(aX+b) =aE(X)+b$$
+\item[$\bullet$] Soient $X_1,X_2,\dots,X_n$ des var et $(a_1,a_2,\dots,a_n)\in\R^n$. On a:
+$$E(\sum_{i=1}^n a_i X_i) = \sum_{i=1}^n a_iE(X_i) $$
+
+\end{itemize}
+\end{prop}
+ 
+}
+
+\begin{proof}
+D\'emontrons que $E(aX+b)=aE(X)+b$.
+
+
+\end{proof}
+
+
+{\footnotesize \begin{exercice} On consid\`ere $r$ boules num\'erot\'ees de 1 \`a $r$ et $n$ tiroirs num\'erot\'es de 1 \`a $n$. On place au hasard chacune des $r$ boules dans l'un des $n$ tiroirs, chaque tiroir pouvant contenir 0, 1 ou plusieurs boules. On note $V$ la var \'egale au nombre de tiroirs rest\'es vides. D\'eterminer l'esp\'erance de $V$.
+\end{exercice}}
+
+
+
+%--------------------------------------------------
+%------------------------------------------------
+%-----------------------------------------------------------
+\subsection{Variance, \'ecart-type d'une variable al\'eatoire r\'eelle finie}
+
+
+%\subsection{D\'efinition de la variance}
+
+ {  
+
+\begin{defi} 
+Soit $X$ une variable al\'eatoire finie. 
+ On appelle variance de $X$, not\'ee $V(X)$, le nombre r\'eel d\'efini par
+$$V(X) = E( (X-E(X))^2)$$
+
+
+\end{defi}
+ 
+}
+
+\begin{rem}
+La variance est la moyenne du carr\'e de la distance entre les valeurs de $X$ et de sa moyenne $E(X)$. Ainsi, la variance mesure l'\'ecart entre $X$ et sa moyenne c'est-\`a-dire la dispersion de la var $X$.
+\end{rem}
+
+
+%
+ 
+\paragraph{Formule de Koenig-Huygens}
+
+ En pratique, on n'utilise quasiment jamais la d\'efinition de la variance pour calculer la variance car cela entraine des calculs compliqu\'es. Ainsi, dans la quasi-totalit\'e des cas, on utilise la formule de Koenig-Huygens donn\'ee ci-dessous pour calculer la variance.\vsec\vsec
+
+
+ {  
+
+\begin{prop} 
+Soit $X$ une variable al\'eatoire finie. 
+
+$$V(X) = E(X^2) - E(X)^2$$
+
+\end{prop}
+ 
+}
+
+
+
+\begin{proof}
+
+
+\end{proof}
+
+\begin{exemple}
+Calculer la variance dans chacun des $2$ exemples du d\'ebut.
+\end{exemple}\vsec\vsec
+
+\setlength\fboxrule{1pt}
+  {
+
+M\'ethode pour calculer la variance: utiliser la formule de Koenig-Huygens:
+\begin{itemize}
+\item[$\bullet$] \'Etape 1: calculer l'esp\'erance $E(X)$.
+\item[$\bullet$] \'Etape 2: calculer en utilisant le th\'eor\`{e}me de transfert $E(X^2)$.
+\item[$\bullet$] \'Etape 3: conclure en utilisant la formule de Koenig-Huygens: $V(X)=E(X^2)-E(X)^2$.
+\end{itemize}
+ }
+\setlength\fboxrule{0.5pt}
+
+
+
+%\paragraph{Propri\'et\'es de la variance}
+
+ {  
+
+\begin{prop} 
+Soit $X$ une variable al\'eatoire finie et $(a,b)\in\R^2$. 
+\begin{itemize}
+\item[$\bullet$] $V(X) \geq 0$
+\item[$\bullet$] $V(aX+b) = a^2 V(X)$
+\item[$\bullet$] En particulier on a: $V(X+b)=V(X)$
+\end{itemize}
+\end{prop}
+ 
+}
+
+
+
+
+\
+
+\begin{defi} 
+Soit $X$ une variable al\'eatoire finie.
+ On appelle \'ecart-type de $X$ le nombre r\'eel not\'e $\sigma$ le nombre 
+ $$\sigma=\sigma(X) =\sqrt{V(X)}.$$
+
+
+\end{defi}
+ 
+
+\begin{exemple}
+\begin{itemize}
+\item[$\bullet$] Une var d'esp\'erance nulle et d'\'ecart-type (ou de variance) \'egal \`{a} 1 est dite réduite
+\item[$\bullet$] Si $X$ est une var d'esp\'erance $m$ et d'\'ecart-type $\sigma$ alors $Y=\frac{X-m}{\sigma}$ est une var centr\'ee r\'eduite.
+En effet :
+
+
+\end{itemize}
+\end{exemple}
+
+
+
+\subsection{In\'egalit\'e de Bienaym\'e-Tchebychev}
+
+ Cette in\'egalit\'e permet de donner une estimation de l'\'ecart de la variable al\'eatoire avec son esp\'erance.\vsec
+
+ {  
+
+\begin{prop} 
+In\'egalit\'e de Bienaym\'e-Tchebychev. 
+Soit $X$ une variable al\'eatoire finie, et $\varepsilon >0$. On a alors :
+$$P(|X-E(X)| \geq \varepsilon) \; \leq \;  \frac{V(X)}{\varepsilon^2} $$
+\end{prop}
+ 
+}
+
+\begin{rem}
+Intuivement, on obtient que la probabilit\'e que l'erreur entre $X$ et son esp\'erance soit sup\'erieur \`a $\varepsilon$ est major\'ee par $\ddp \frac{V(X)}{\varepsilon^2}$. On remarque que :
+\begin{itemize}
+\item[$\bullet$] pour $\varepsilon$ grand (un grand \'ecart avec l'esp\'erance), la probabilit\'e est  très petite. 
+\item[$\bullet$] pour $\varepsilon$ petit (un petit \'ecart avec l'esp\'erance), l'in\'egalit\'e peut ne pas \^etre utile, en particulier si $\ddp \frac{V(X)}{\varepsilon^2}>1$.
+\end{itemize}
+\end{rem}
+
+{\footnotesize \begin{exercice} 
+On lance $n$ fois de suite un d\'e \'equilibr\'e.
+\begin{enumerate}
+\item Soit $X$ le nombre d'apparition du nombre $6$. Quelle loi suit $X$ ? Donner son esp\'erance et sa variance.
+\item Soit $Y$ la fr\'equence d'apparition du nombre $6$. Exprimer $Y$ en fonction de $X$, et donner son esp\'erance et sa variance.
+\item Soit $p_n$ la probabilit\'e que $Y$ soit proche de $\ddp \frac{1}{6}$ \`a $0.1$ pr\`es. Combien de lancers doit-on effectuer pour que $p_n$ soit sup\'erieur \`a $0.9$ ?
+\end{enumerate}
+\end{exercice}}
+
+
+
+
+
+
+
+
+%------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\section{Lois usuelles}
+%--------------------------------------------------
+%------------------------------------------------
+
+
+%--------------------------------------------------
+%------------------------------------------------
+%-----------------------------------------------------------
+\subsection{Loi uniforme}
+
+
+
+\paragraph{Mod\'elisation type}
+
+\begin{itemize}
+\item[$\bullet$] Lancer d'un dé équilibré à $6$ faces. On note $X$ la variable aléatoire correspondant au numéro obtenu. On obtient 
+$$\forall k\in \intent{1,6},\,  P(X=k ) =\frac{1}{6}$$
+\item[$\bullet$] Autres exemples:
+\begin{itemize}
+\item[$\star$]  Tirer une boule dans une urne contenant $N$  boules numérotées de $1$ à $N$. On note $X$ la variable aléatoire correspondant au numéro obtenu. On obtient 
+$$\forall k\in \intent{1,N},\,  P(X=k ) =\frac{1}{N}$$
+\end{itemize}
+\end{itemize}
+
+\begin{dboxminipage}{0.7 \textwidth}
+\textbf{\large{Sch\'ema uniforme:}}\\
+ Exp\'eriences dont toutes les issues sont \'equiprobables.
+\end{dboxminipage}
+
+
+
+
+\hspace{-0.7cm} {  
+
+\begin{defi} Soit $X$ une var.
+\begin{itemize}
+\item[$\bullet$] Soit $X(\Omega)=\lbrace x_1,x_2,\dots,x_n\rbrace$:
+ On dit que $X$ suit la loi uniforme sur $X(\Omega)$ si
+ $$\forall  k\in \intent{1,n},\,  P(X=x_k ) =\frac{1}{n}$$
+
+
+ On note alors $X\sim U(n)$
+\item[$\bullet$] Cas particulier o\`{u} $X(\Omega)=\intent{ 1,n}$:
+ $$\forall  k\in \intent{1,n},\,  P(X=k ) =\frac{1}{n}$$
+ On note alors $X\sim U(\intent{1,n})$
+\end{itemize}
+\end{defi}
+ 
+}
+ 
+
+\textbf{Repr\'esentation graphique }
+\begin{center}
+\includegraphics[scale=0.4]{loiunif.png}
+\end{center}
+
+ 
+
+
+
+
+
+
+
+
+
+
+\begin{prop} Soit $X$ une var.
+\begin{itemize}
+\item[$\bullet$] Si $X\hookrightarrow \mathcal{U}(\intent{1,n})$, $n\in\N^{\star}$, alors:
+$$E(X) = \frac{n+1}{2} \quad V(X) = $$
+
+\item[$\bullet$] Si $X\hookrightarrow \mathcal{U}(X(\Omega))$ avec $X(\Omega)=\intent{ a,b}$ avec $a<b$, alors:
+$$E(X) =\frac{b+a}{2} $$ 
+
+\end{itemize}
+\end{prop}
+ 
+
+\begin{proof}
+
+
+\end{proof}
+
+ 
+
+%--------------------------------------------------
+%------------------------------------------------
+%-----------------------------------------------------------
+\subsection{Loi de Bernoulli}
+
+
+
+\paragraph{Mod\'elisation type}
+
+ Mod\'elisation type: 
+ 
+Une pièce truquée possède $p$ chances de tomber sur pile ( succés) et $q=1-p$ chances de tomber sur face (échec). On définit la VARF X qui teste si pile est sortie : $X$ vaut $1$ si on obtient pile et $0$ sinon. 
+$$P(X=1) =p \quad P(X=0) = 1-p$$
+
+
+\begin{dboxminipage}{0.7 \textwidth}
+\textbf{\large{Sch\'ema de Bernoulli:}}\\
+ Exp\'eriences n'ayant que 2 r\'esultats possibles: succ\`{e}s ou \'echec.
+\end{dboxminipage}
+
+
+
+\paragraph{Loi}
+
+
+\hspace{-0.7cm}  {  
+
+\begin{defi} Soit $X$ une var et $p\in\lbrack 0,1\rbrack$. On dit que $X$ suit une loi de Bernoulli de param\`{e}tre $p$ si
+$$P(X=1) = p \quad P(X=0) =1-p$$
+ On note alors $X \sim  \cB(p)$
+\end{defi}
+ 
+}
+
+
+\begin{exemples}
+\begin{itemize}
+\item[$\bullet$] Soit $A\subset \Omega$ alors la loi $1_A$ suit une loi de Bernouilli de paramètre $p=P(A)$. 
+\end{itemize}
+\end{exemples}
+ 
+
+\textbf{Repr\'esentation graphique}
+
+ \begin{center}
+ \includegraphics[scale=0.4]{bernouilli}
+ \end{center}
+
+
+%
+%\begin{exemples}
+%\begin{itemize}
+%\item[$\bullet$] \dotfill \vsec
+%\item[$\bullet$] \dotfill \vsec
+%\item[$\bullet$] \dotfill \vsec
+%\end{itemize}
+%\end{exemples}
+
+
+
+
+
+%\paragraph{Fonction de r\'epartition}
+%
+% Calculer la fonction de r\'epartition de $X$ avec $X\hookrightarrow \mathcal{B}(p)$, $p\in\lbrack 0,1\rbrack$. Faire la repr\'esentation graphique pour $p=\ddp\frac{1}{4}$.
+%
+
+
+
+
+\begin{prop} Soit $X$ une var avec $X\hookrightarrow \mathcal{B}(p)$, $p\in\lbrack 0,1\rbrack$. Alors
+$$E(X) = p\quad V(X) = p(1-p)= pq$$
+
+\end{prop}
+ 
+
+
+
+
+
+%--------------------------------------------------
+%------------------------------------------------
+%-----------------------------------------------------------
+\subsection{Loi binomiale}
+
+
+
+\paragraph{Mod\'elisation type}
+\begin{enumerate}
+\item [$\bullet$] Exemple 1 On dispose d'une urne avec $N$ boules, $R$ rouges et $N-R$ jaunes. On effectue $n$ tirages successifs avec remise, la probabilité d'obtenir exactement $k$ boules rouges parmi les $n$ tirages est 
+
+\begin{itemize}
+\item[$\star$] $X(\Omega)=\intent{0,n}$
+\item[$\star$] Loi de $X$:
+$$P(X=k ) = \binom{n}{k} \frac{R^k(N-R)^{n-k}}{N^n}$$
+
+\end{itemize}
+
+\item [$\bullet$] Exemple 2 (Sch\'ema binomial) On effectue $n$ lancers d'une pièce non équilibrée satisfaisant $P( pile) =p $ et $P(face)= q$ on effectue $n$ lancer et $X$ correspond au nombre de pile on obtient : 
+
+\begin{itemize}
+\item[$\star$] $X(\Omega)=\intent{0,n}$
+\item[$\star$] Loi de $X$:
+$$P(X=k ) = \binom{n}{k} p^k(1-p)^{n-k}$$
+
+\end{itemize}
+\end{enumerate}
+
+
+
+
+
+\paragraph{Loi}
+
+
+\hspace{-0.7cm}  {  
+
+\begin{defi} Soient $X$ une var, $p\in\lbrack 0,1\rbrack$ et $n\in\N^{\star}$. On dit que $X$ suit une loi binomiale de param\`{e}tre $n$ et $p$ si
+$$\forall k\in \intent{1,n}, \quad P(X=k ) = \binom{n}{k} p^k(1-p)^{n-k}$$
+
+ On note alors $X\sim B(n,p) $ ou $X\hookrightarrow B(n,p)$
+\end{defi}
+ 
+}
+ 
+\textbf{Repr\'esentation graphique}
+
+ \begin{center}
+ \includegraphics[scale=0.4]{binomiale}
+ \end{center}
+
+
+
+\begin{prop} Soit $X$ une var avec $X\hookrightarrow \mathcal{B}(n,p)$, $p\in\lbrack 0,1\rbrack$ et $n\in\N^{\star}$. Alors
+
+$$E(X)= np \quad V(X) = np(1-p) =npq$$
+\end{prop}
+ 
+
+
+
+
+%--------------------------------------------------
+%------------------------------------------------
+%-----------------------------------------------------------
+%\subsection{Loi hyperg\'eom\'etrique}
+%
+%
+%
+%
+%\paragraph{Mod\'elisation type}
+%
+%On dispose d'une urne avec $N$ boules, $R$ rouges et $N-R$ jaunes. On effectue $n$ tirages successifs avec remise, la probabilité d'obtenir exactement $k$ boules rouges parmi les $n$ tirages est 
+%
+%\begin{itemize}
+%\item[$\star$] $X(\Omega)=\intent{0,N}$
+%\item[$\star$] Loi de $X$:
+%$$P(X=k ) = \frac{\binom{R}{k} \binom{N-R}{n-k} }{\binom{N}{n} }$$
+%
+%\end{itemize}
+%
+%C'est le même résultat que pour le tirage simultané de $n$ boules. 
+%
+%
+%
+%\paragraph{Loi}
+%
+% {  
+%
+%\begin{defi} Loi hyperg\'eom\'etrique:
+% Soient $X$ une var, $(n,N)\in\N^2$ avec $n\in\intent{ 1,N}$, $p\in\lbrack 0,1\lbrack$ tel que $Np\in\N$. On dit que $X$ suit une loi hyperg\'eom\'etrique de param\`{e}tre $N,n,p$ si 
+%$$ \forall k\in \intent{0,n} \quad P(X=k ) = \frac{\binom{pN}{k} \binom{(1-p)N}{n-k} }{\binom{N}{n} }$$
+%
+% On note alors  $X \sim \cH (N,n,p)$ ou $X \hookrightarrow \cH (N,n,p)$
+%\end{defi}
+% 
+%}\vsec\vsec
+%
+%\setlength\fboxrule{1pt}
+%  {
+%
+%\textbf{\large{Sch\'ema hyperg\'eom\'etrique:}}
+%Le cadre de la loi $\mathcal{H}(N,n,p)$ est celui
+%\begin{itemize}
+%\item[$\bullet$] d'un ensemble de $N$ objets s\'epar\'es en 2 cat\'egories:
+%(Np objets du premier type et $Nq$ objets du second type).
+%\item[$\bullet$] dans lequel on extrait $n$ \'echantillons:
+%\begin{itemize}
+%\item[$\star$] soit simultan\'ement
+%\item[$\star$] soit successivement sans remise.
+%\end{itemize}
+%\item[$\bullet$] La loi $\mathcal{H}(N,n,p)$ permet de conna\^{i}tre le nombre de repr\'esentants de l'une des cat\'egories.
+%\end{itemize}
+% }
+%\setlength\fboxrule{0.5pt}
+%\vsec\vsec
+%
+%
+%\begin{exemples}
+%\begin{itemize}
+%\item[$\bullet$] \dotfill \vsec
+%\item[$\bullet$] \dotfill \vsec
+%\end{itemize}
+%\end{exemples}
+%
+%\begin{rem}
+%\dotfill \vsec
+%\dotfill \vsec
+%\dotfill
+%\end{rem}
+%
+%
+%   
+%
+%\begin{prop} Soit $X$ une var avec $X\hookrightarrow \mathcal{H}(N,n,p)$, $p\in\lbrack 0,1\rbrack$. Alors
+%
+%$$E(X)=np$$
+%\end{prop}
+% 
+%\begin{prop}[Formule de Vandermonde]
+%Soient $n,m,k \in \N^*$  avec $k\leq n+m$ 
+%
+%$$\binom{n+m}{k}  =\sum_{i=0}^k \binom{n}{i}\binom{m}{k-i}$$ 
+%\end{prop}
+%\begin{proof}
+%\begin{align*}
+%(1+X)^{n+m} &=(1+X)^n (1+X)^m\\
+%\equivaut \sum_{k=0}^{m+n} \binom{n}{k} X^k &=\sum_{i=0}^{m} \binom{n}{i} X^i \sum_{j=0}^{m} \binom{m}{j} X^j\\
+%\equivaut \sum_{k=0}^{m+n} \binom{n}{k} X^k &= \sum_{i=0}^{m} \sum_{j=0}^{m}  \binom{n}{i} \binom{m}{j} X^{i+j}
+%\end{align*}
+%On identifie le coefficient de $X^k$ dans les deux expressions. Dans la deuxième expression, pour $i\geq 0$, fixé $j=k-i\geq 0$. Donc i varie dans $\intent{0,k}$
+%$$\binom{n}{k} = \sum_{i=0}^{k} \binom{n}{i} \binom{m}{k-i}$$ 
+%\end{proof}
+%\begin{proof}[Preuve sur l'espèrance de la loi hypergéomtrique]
+%\begin{align*}
+%E(X) &= \sum_{k=0}^n k P(X=k) \\
+%		&= \sum_{k=0}^n k \frac{\binom{R}{k} \binom{N-R}{n-k} }{\binom{N}{n} }\\
+%		&=\frac{1}{\binom{N}{n} } \sum_{k=1}^n k \binom{R}{k} \binom{N-R}{n-k}\\
+%&=\frac{1}{\binom{N}{n} } \sum_{k=1}^n  R \binom{R-1}{k-1} \binom{N-R}{n-k}\\
+%	&=\frac{1}{\binom{N}{n} } \sum_{k=1}^n k  \binom{R-1}{k-1} \binom{N-R}{n-1-(k-1)}\\
+%		&=\frac{1}{\binom{N}{n} } \sum_{j=0}^{n-1} R \binom{R-1}{j} \binom{N-R}{n-1-j }\\
+%				&= \frac{1}{\binom{n}{k} } R \binom{R-1+N-R}{n-1}\\
+%		&=\frac{R}{\binom{n}{k} } \binom{N-1}{n-1}\\
+%		&= \frac{Rn}{N}	
+%\end{align*}
+%
+%\end{proof}
+
+
+
+
+
+\section{Ind\'ependance de var}
+
+%----------------------------------------------------------
+%-----------------------------------------------------------
+\subsection{Ind\'ependance de deux var}
+
+\noindent\ {D\'efinition}\\
+
+ {\noindent  
+
+\begin{defi} 
+Soient $X$ et $Y$ deux var. On dit que $X$ et $Y$ sont ind\'ependantes si:\\
+\vspace{1.5cm}
+\end{defi}
+ 
+}\vsec
+
+{\footnotesize \begin{exercice} 
+\begin{enumerate}
+\item Une urne contient $n$ jetons num\'erot\'es de 1 \`a $n$. On en tire 2 successivement avec remise. 
+Soient $X$ le num\'ero du premier jeton, et $Y$ le num\'ero du second. \'Etudier l'ind\'ependance de $X$ et $Y$.
+\item Reprendre l'exercice pr\'ec\'edent avec deux tirages sans remise.
+\end{enumerate}
+\end{exercice}
+}
+
+
+
+\vspace{0.3cm}
+
+\noindent\ {Cons\'equence sur les trois types de lois}\\
+
+ {\noindent  
+
+\begin{prop} 
+Soit $(X,Y)$ un couple de var. Il y a \'equivalence entre:
+\begin{itemize}
+ \item[$\bullet$] Les var $X$ et $Y$ sont ind\'ependantes.\vsec
+\item[$\bullet$] $\forall (x,y)\in X(\Omega)\times Y(\Omega)$ \dotfill \vsec
+\item[$\bullet$] Pour tout $y\in Y(\Omega)$ tel que $P(\lbrack Y=y\rbrack)\not= 0$, \dotfill \vsec
+\item[$\bullet$] Pour tout $x\in X(\Omega)$ tel que $P(\lbrack X=x\rbrack)\not= 0$, \dotfill \vsec
+\end{itemize}
+\end{prop}
+ 
+}\vsec
+
+\begin{prop}
+$(X,Y)$ couple, esperance et varaince de $X+Y$ et $XY$. 
+\end{prop}
+\vspace{0.3cm}
+
+\noindent\ {Lemme des coalitions}\\
+
+
+\begin{prop} 
+Soient $X$ et $Y$ deux var ind\'ependantes.\vsec\\ 
+Alors $u(X)$ et $v(Y)$ sont indépendants. 
+\end{prop}
+ 
+
+
+\begin{exemples}
+Si $X$ et $Y$ sont ind\'ependantes, alors, par exemple
+\begin{itemize}
+ \item[$\bullet$] \dotfill\vsec
+\item[$\bullet$] \dotfill\vsec
+\end{itemize}
+\end{exemples}
+
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+\subsection{G\'en\'eralisation: ind\'ependance de $n$ var}
+
+
+\begin{defi} 
+Soient $X_1,\dots X_n$ $n$ var. Elles sont mutuellement ind\'ependantes si:\\
+\vspace{1.2cm}
+\end{defi}
+ 
+
+\begin{rems}
+\begin{itemize}
+\item[$\bullet$] On vous demandera rarement de montrer que des var sont mutuellement ind\'ependantes. C'est plut\^ot une donn\'ee de l'exercice qui permet de faire le calcul de la probabilit\'e d'intersections d'\'ev\'enements.
+
+\item[$\bullet$] Exemples types de mod\`{e}les donnant des var mutuellement ind\'ependantes:\vsec
+\begin{itemize}
+\item[$\star$] \dotfill\vsec
+\item[$\star$] \dotfill\vsec
+\item[$\star$] De fa\c{c}on g\'en\'erale: \dotfill\vsec
+\end{itemize}
+\end{itemize}
+\end{rems}
+
+
+\begin{prop} 
+Soient $X_1,\dots, X_n,X_{n+1},\dots, X_p$ des var mutuellement ind\'ependantes. Alors:\vsec
+\begin{itemize}
+\item[$\bullet$] \dotfill\vsec
+\item[$\bullet$] \dotfill\vsec
+\end{itemize}
+\end{prop}
+
+
+\begin{exemples}
+Si $X,Y,Z,T$ sont mutuellement ind\'ependantes, alors, par exemple\vsec
+\begin{itemize}
+ \item[$\bullet$] \dotfill\vsec
+\item[$\bullet$] \dotfill\vsec
+\end{itemize}
+\end{exemples}
+
+
+
+
+
+
+%----------------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+%-------------------------------------------------------
+
+\end{document}

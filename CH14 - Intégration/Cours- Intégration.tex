@@ -1,0 +1,1029 @@
+\documentclass[a4paper, 11pt]{article}
+\input{macro/package.tex}
+\input{macro/environement}
+\input{macro/header.tex}
+\input{macro/newcommand.tex}
+\geometry{hmargin=2.0cm, vmargin=2.5cm}
+
+
+
+
+\begin{document}
+\tableofcontents
+\title{Chapitre : derivation}
+
+%\title{Chapitre 11 : Integration et calcul de primitives}
+% debut
+%------------------------------------------------
+%\vspace{0.5cm}
+
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%\vspace{0.3cm}
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+%-------------------------------------------------------
+%\vspace{0.4cm}
+Dans tout le chapitre, $I$ d\'esigne un intervalle de $\R$ non r\'eduit \`a un point.
+
+%--------------------------------------------------
+%------------------------------------------------
+%--------------------------------------------------
+%------------------------------------------------
+%--------------------------------------------------
+%------------------------------------------------
+\section{Primitive. D\'efinition de l'int\'egrale}
+%--------------------------------------------------
+%------------------------------------------------
+%--------------------------------------------------
+%------------------------------------------------
+\subsection{Primitive d'une fonction continue sur un intervalle}
+
+
+
+
+{
+
+	\begin{defi}
+		Soit $f$ une fonction d\'efinie sur un intervalle $I$ de $\R$. On appelle primitive de $f$ sur $I$ toute fonction $F$ qui v\'erifie:
+		\begin{itemize}
+			\item[$\bullet$] $F$ est $\cC^1(I)$.
+			\item[$\bullet$] $\forall x\in I, \, F'(x)=f(x)$.
+		\end{itemize}
+	\end{defi}
+
+}
+
+\begin{exemples}
+	\begin{itemize}
+		\item[$\bullet$] La fonction $x\mapsto x$ admet comme primitive sur $\R$ la fonction $\ddp x\mapsto \frac{x^2}{2}$
+		\item[$\bullet$] La fonction $x\mapsto \cos{(x)}$ admet comme primitive sur $\R$ la fonction $\ddp x\mapsto \sin(x)$
+		\item[$\bullet$] La fonction $x\mapsto \ddp\frac{1}{x}$ admet comme primitive sur $\R^{+\star}$ la fonction $\ddp \mapsto \ln(|x|)$
+		\item[$\bullet$] La fonction $x\mapsto e^{2x}$ admet comme primitive sur $\R$ la fonction$\ddp x\mapsto \frac{e^{2x}}{2}$
+	\end{itemize}
+\end{exemples}
+
+
+
+
+
+
+{
+
+\begin{theorem} Th\'eor\`{e}me fondamental:
+	\begin{itemize}
+		\item[$\bullet$] Toute fonction continue sur un intervalle $I$ de $\R$ admet une primitive sur $I$
+		\item[$\bullet$]
+		      Si $F_1$ et $F_2$ sont deux primitives de $f$ sur $I$, alors il existe $c\in \R$ tel que pour tout $x\in I$,  $F_1(x) = F_2(x) +c$.
+	\end{itemize}
+\end{theorem}
+}
+
+\begin{center}
+	\begin{dboxminipage}{11cm}
+		Ainsi pour justifier qu'une primitive de $f$ existe sur $I$ il suffit de :\\
+		Justifier que $f$ est continue sur $I$.
+	\end{dboxminipage}
+\end{center}
+
+
+
+
+
+
+
+
+
+
+\warning  Le th\'eor\`{e}me pr\'ec\'edent ne s'applique que si $I$ est un intervalle de $\R$.
+
+	{\footnotesize \begin{exo}
+			En d\'erivant la fonction $f: x\mapsto \arctan{\left( \ddp\frac{\sqrt{1-x^2}}{x} \right)}$, donner une autre expression de $f$.
+		\end{exo}
+	}
+
+
+\href{http://olivierglorieux.fr/wp-content/uploads/Cours/formulaire_primitives.pdf}{\color{blue}{Voir le  tableau des primitives usuelles}}
+
+%\begin{itemize}
+%\item[\Large{\ding{182}}] \textbf{Tableau des primitives usuelles:}\\
+% Il d\'ecoule directement de celui des d\'eriv\'ees: cf tableau.
+%\vsec
+%
+%\item[\Large{\ding{183}}] \textbf{Tableau des primitives compos\'ees:}\\
+% L\`{a} encore, il d\'ecoule directement de celui des d\'eriv\'ees: cf tableau.
+%
+%\end{itemize}
+
+{\footnotesize \begin{exo}
+		Calculer une primitive des fonctions suivantes apr\`{e}s avoir justifi\'e son existence:\\
+		\begin{enumerate}
+			\begin{minipage}[t]{0.48\textwidth}
+				\item $x\mapsto 4-5x+6x^2+8x^3-x^5$.
+				\item $x\mapsto a^x$ avec $a>0$.
+				\item $x\mapsto \ddp\frac{1}{2x-5}$.
+				\item  $x\mapsto \ddp\frac{1}{a^2+x^2}$, $a\not= 0$.
+				\item $x\mapsto (3x^2+2)\sqrt{2x^3+4x}$
+			\end{minipage}
+			\begin{minipage}[t]{0.48\textwidth}
+				\item  $f:\ x\mapsto xe^{-x^2} $.
+				\item  $f:\ x\mapsto  \ddp\frac{\ln{(x)}}{x}$.
+				\item $f:\ x\mapsto \cos{(x)}\sin^n{(x)} $.
+				%\item  $f:\ x\mapsto x^3\sqrt{1-x^4} $.
+				\item  $f:\ x\mapsto \ddp\frac{1}{(x-2)^2} $.
+				\item $f:\ x\mapsto \ddp\frac{1}{(4-x)^3} $.
+				%\item $f:\ x\mapsto  \ddp\frac{x^2}{\sqrt{4+x^3}}$.
+				%\item $f:\ x\mapsto \ddp\frac{e^x}{1+e^{2x}  } $.
+			\end{minipage}
+
+
+		\end{enumerate}
+	\end{exo}
+}
+
+%--------------------------------------------------
+%------------------------------------------------
+%--------------------------------------------------
+%------------------------------------------------
+\subsection{Int\'egrale d'une fonction continue sur un segment}
+
+{
+
+\begin{defi}
+	Soit $f$ une fonction continue sur le segment $\lbrack a,b\rbrack$.
+	\begin{itemize}
+		\item[$\bullet$] On appelle int\'egrale de $f$ de $a$ \`a $b$ le r\'eel: $F(b)- F(a)$ où $F$ est une primitive de $f$ sur $[a,b]$
+		\item[$\bullet$] $F(b)-F(a)$ est aussi not\'e $\int_a^b f(t) dt$
+	\end{itemize}
+\end{defi}
+
+
+
+{\footnotesize \begin{exo}
+	\begin{enumerate}
+		\item Calcul de $\ddp \int\limits_{0}^1 (-4x^3+x^2+3x+4)dx$
+		\item Calcul de $\ddp \int\limits_{1}^2  \ddp\frac{dx}{2x-1}$
+		\item Calcul de $\ddp \int\limits_{0}^1 xe^{x^2} dx$
+	\end{enumerate}
+\end{exo}}
+
+\begin{rems}
+	\begin{itemize}
+		\item[$\bullet$] La variable d'int\'egration est   muette
+		\item[$\bullet$] La variable d'int\'egration ne doit JAMAIS appara\^itre dans les bornes ou \`a l'ext\'erieur de l'int\'egrale.
+	\end{itemize}
+\end{rems}
+
+%--------------------------------------------------
+%------------------------------------------------
+%--------------------------------------------------
+%------------------------------------------------
+\subsection{Interpr\'etation g\'eom\'etrique de l'int\'egrale}
+
+
+On munit le plan d'un rep\`ere orthonorm\'e $(O,\vec{i},\vec{j})$.\\
+Soit $f: I\rightarrow \R$ une fonction \textbf{continue} sur $I$ et \textbf{positive} sur $I$.\\
+Soit $(a,b)\in I^2$ avec $a<b$. \\
+Soit $\mathcal{D}=\left\lbrace M(x,y),\  a\leq x\leq b\ \hbox{et}\ 0\leq y\leq f(x)\right\rbrace.$\vsec\\
+Alors l'int\'egrale de $f$ entre $a$ et $b$ est \'egale \`a l'aire de $\cD$.
+
+
+
+
+%--------------------------------------------------
+%------------------------------------------------
+%--------------------------------------------------
+%------------------------------------------------
+%--------------------------------------------------
+%------------------------------------------------
+\section{Propri\'et\'es de l'int\'egrale}
+\vsec
+%--------------------------------------------------
+%------------------------------------------------
+%--------------------------------------------------
+%------------------------------------------------
+\subsection{Relation de Chasles}
+
+{  \vsec
+
+	\begin{prop}
+		Soient $f: I\rightarrow \R$ continue sur $I$ et $a,b,c$ trois r\'eels de $I$.
+		\begin{itemize}
+			\item[$\bullet$] $\ddp \int\limits_a^c f(x)dx =\int\limits_a^b f(x)dx +\int\limits_b^c f(x)dx $
+			\item[$\bullet$] $\ddp \int\limits_a^b f(x)dx=-\int\limits_b^a f(x)dx $
+			\item[$\bullet$] $\ddp \int\limits_a^a f(x)dx=0$
+			\item[$\bullet$] Si $a_0,a_1,\dots,a_n$ sont aussi des r\'eels de $I$, on a: $\ddp\int\limits_{a_0}^{a_n} f(x)dx=\sum
+				      _{i=0}^{n-1} \int_{a_i} ^{a_{i+1}} f(t) dt$
+		\end{itemize}
+	\end{prop}
+
+}
+{\footnotesize \begin{exo}
+		\begin{enumerate}
+			\item Soit $f$ la fonction d\'efinie par $f(x)=\left\lbrace\begin{array}{ll}  xe^{x^2} & \hbox{si}\ x\geq 1\\ \ddp\frac{10e}{9+x^2} &\hbox{si}\ x<1.   \end{array}\right.$ Calculer $\ddp \int\limits_0^2 f(t)dt$.
+			      \vspace*{-0.5cm}
+			\item Calculer $\ddp \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} |\sin{u}|du$.
+		\end{enumerate}
+	\end{exo}}
+\vsec
+%--------------------------------------------------
+%------------------------------------------------
+%--------------------------------------------------
+%------------------------------------------------
+\vsec
+\subsection{Lin\'earit\'e de l'int\'egrale}
+
+{  \vsec
+
+	\begin{prop}
+		Soient $f, g: I\rightarrow \R$ continues sur $I$ et $a,\ b$ deux r\'eels de $I$ et soit $\lambda \in\R$. Alors, on a
+		\begin{itemize}
+			\item[$\bullet$] $\ddp \int\limits_a^b (f(x)+g(x))dx=\int\limits_a^b f(x)dx +\int\limits_a^b g(x)dx$
+			\item[$\bullet$]  $\ddp \int\limits_a^b \lambda f(x)dx=\lambda \int\limits_a^b f(x)dx$
+			\item[$\bullet$] Si $f_1,\dots, f_n$ sont continues sur $I$ et $(\lambda_1,\dots,\lambda_n) \in\R^n$ alors:\\
+			      $\ddp\int\limits_a^b \left(\sum\limits_{i=1}^n \lambda_i f_i(x) \right)dx= \sum\limits_{i=1}^n \left(\int\limits_a^b\lambda_i f_i(x)dx \right)= \sum\limits_{i=1}^n \lambda_i \left(\int\limits_a^b f_i(x)dx \right)$
+		\end{itemize}
+	\end{prop}
+
+}
+\vsec
+{\footnotesize \begin{exo}
+		Calculer $\ddp \int\limits_0^1 \ddp\frac{dx}{(x+1)(x+2)}$. On pourra montrer qu'il existe $(a,b)\in\R^2$ tel que $\ddp\frac{1}{(x+1)(x+2)}=\ddp\frac{a}{x+1}+\ddp\frac{b}{x+2}$.
+	\end{exo}}
+
+
+%--------------------------------------------------
+%------------------------------------------------
+%--------------------------------------------------
+%------------------------------------------------\\
+\vsec \vsec
+\subsection{Int\'egrale et in\'egalit\'e}
+
+%\ {Conna\^{i}tre le signe d'une int\'egrale: th\'eor\`{e}me de positivit\'e de l'int\'egrale}\vsec
+
+{
+	\subsubsection{Inégalités larges}
+	\begin{theorem} Th\'eor\`{e}me de positivit\'e de l'int\'egrale : si on a
+		\vsec % ou de n\'egativit\'e de l'int\'egrale:
+		%\begin{enumerate}
+		%\item Th\'eor\`{e}me de positivit\'e de l'int\'egrale: SI \vsec
+		\begin{itemize}
+			\item[$\bullet$] $f$ continue sur $[a,b]$.
+			\item[$\bullet$] $\forall x \in [a,b],$ on a  $f(x) \geq 0$.
+			\item[$\bullet$] $a\leq b$.
+		\end{itemize}
+		Alors, $\ddp \int\limits_a^b f(t)dt \geq 0$.
+		%\item Th\'eor\`{e}me de n\'egativit\'e de l'int\'egrale: SI\vsec
+		%\begin{itemize}
+		%\item[$\bullet$] \dotfill \phantom{\hspace{4cm}} \vsec
+		%\item[$\bullet$] \dotfill \phantom{\hspace{4cm}}\vsec
+		%\item[$\bullet$] \dotfill \phantom{\hspace{4cm}}\vsec
+		%\end{itemize}
+		%ALORS, d'apr\`es le th\'eor\`eme de n\'egativit\'e de l'int\'egrale: $\int\limits_a^b f(t)dt \leq 0$.\\
+		%\end{enumerate}
+	\end{theorem}
+
+}\vsec
+
+\begin{rem}
+	On a un r\'esultat similaire pour les fonctions n\'egatives.
+\end{rem}
+
+
+
+
+\begin{dboxminipage}{11cm}
+
+	Etude du signe d'une int\'egrale = \'etude du signe de la fonction \`a l'int\'erieur.
+\end{dboxminipage}
+
+
+
+
+
+
+{\footnotesize \begin{exo}
+	Montrer que $\ddp\int\limits_{-\demi}^{-\frac{1}{3}} \ddp\frac{\ln{(1+x)}}{x} dx \geq 0$ et que $\ddp \int\limits_{2}^{3} \ddp\frac{x^2+x-2}{-x^2+x+12} dx \geq 0$.
+\end{exo}}
+\vsec\vsec
+
+{\textbf{Application : \'etude de suite d\'efinie par une int\'egrale.}\\
+L'\'etude de suite d\'efinie par des int\'egrales fait partie des exos types sur les int\'egrales \`{a} conna\^{i}tre parfaitement. Le plus souvent pour \'etudier la convergence de telles suites, on utilise le th\'eor\`{e}me sur les suites monotones et ainsi il faut montrer que la suite est soit croissante et major\'ee, soit d\'ecroissante et minor\'ee.
+\vsec\vsec
+
+
+
+\begin{dboxminipage}{11cm}
+	M\'ethode pour l'\'etude de la monotonie d'une suite $(I_n)_{n\in\N}$ d\'efinie par une int\'egrale:\\
+	Signe de $I_{n+1}-I_n$ : \'etude du signe de la fonction \`a l'int\'erieur + th\'eor\`eme de positivit\'e de l'int\'egrale.
+\end{dboxminipage}
+
+
+
+
+{\footnotesize \begin{exo}
+	Pour tout $n\in\N$, on d\'efinit $I_n=\ddp \int\limits_0^1 \ddp\frac{dx}{1+x^n}$. \'Etudier la monotonie de la suite $(I_n)_{n \in\N}$.
+\end{exo}}
+\vsec\vsec
+
+%\ {Encadrer une int\'egrale: th\'eor\`{e}me de croissance de l'int\'egrale}\vsec
+
+{
+
+	\begin{theorem} Th\'eor\`{e}me de croissance de l'int\'egrale: si
+		\begin{itemize}
+			\item[$\bullet$] $f,g,h$ continue sur $[a,b]$.
+			\item[$\bullet$] $\forall x \in [a,b],$ on a  $g(x)\leq f(x) \geq h(x)$.
+			\item[$\bullet$] $a\leq b$.
+		\end{itemize}
+		Alors on a : $\ddp \int\limits_a^b g(x)dx \; \leq \;  \int\limits_a^b f(x)dx \; \leq \; \int\limits_a^b h(x)dx$.\vsec
+	\end{theorem}
+}
+\vsec\vsec
+
+\begin{dboxminipage}{13cm}
+	Encadrement d'une int\'egrale = encadrement de la fonction \`a l'int\'erieur.
+\end{dboxminipage}
+
+
+\vsec
+
+{\textbf{Application : \'etude de suite d\'efinie par une int\'egrale}
+%Pour montrer qu'une suite $(I_n)_{n\in\N}$ d\'efinie par une int\'egrale est major\'ee, minor\'ee, born\'ee:\\   Obtenir un encadrement de $I_n$ : th\'eor\`eme de croissance de l'int\'egrale  
+
+%  \begin{dboxminipage}{11cm}
+%M\'ethode pour montrer qu'une suite $(I_n)_{n\in\N}$ d\'efinie par une int\'egrale est major\'ee, minor\'ee, born\'ee:\\ 
+%  Obtenir un encadrement de $I_n$ : th\'eor\`eme de croissance de l'int\'egrale  
+%  \end{dboxminipage}
+%
+
+\vsec
+
+
+
+
+\begin{dboxminipage}{13cm}
+	M\'ethode pour calculer la limite d'une suite $(I_n)_{n\in\N}$ d\'efinie par une int\'egrale:\\
+	Th\'eor\`eme de croissance de l'int\'egrale + th\'eor\`eme des gendarmes ou th\'eor\`eme de comparaison
+\end{dboxminipage}
+\vsec \\
+\underline{On NE peut PAS passer à la limite directement à l'intérieur de l'integrale. } (intervertion de limite, l'intégrale est déjà une limite en quelque sorte)
+
+\vsec
+
+{\footnotesize \begin{exo}
+		Pour tout $n\in\N$, on d\'efinit $I_n=\ddp \int\limits_0^1 \ddp\frac{dx}{1+x^n}$. \'Etudier la convergence de cette suite.
+	\end{exo}}
+
+
+
+{\footnotesize \begin{exo}
+		\begin{enumerate}
+			\item Pour tout $n\in\N$, on pose $I_n=\ddp \int\limits_0^1 t^n(1-t)^n dt$. Calculer la limite de la suite $(I_n)_{n\in\N}$.
+			\item On pose, pour tout $n\in\N$: $J_n=\ddp \int\limits_0^1 \ddp\frac{x^n}{1+x} dx$. Calculer la limite de la suite $(J_n)_{n\in\N}$. On pourra en particulier montrer que pour tout $n\in\N$: $0\leq J_n \leq \ddp\frac{1}{n+1}$.
+		\end{enumerate}
+	\end{exo}}
+\vsec\vsec
+
+
+%
+%\subsubsection{Inégalités strictes}
+% {  
+% 
+%
+%
+%\begin{theorem} Th\'eor\`{e}me de s\'eparation de l'int\'egrale:
+%Soit $f  : [a,b] \tv \R$
+%\begin{itemize}
+%\item[$\bullet$] $f$ continue sur $[a,b]$.
+%\item[$\bullet$] $\forall x \in [a,b],$ on a  $f(x) \geq 0$.
+%\item[$\bullet$] $\exists x \in [a,b],$ on a  $f(x) > 0$.
+%\item[$\bullet$] $a\leq b$. 
+%\end{itemize}
+%Alors on a : $\ddp\int\limits_a^b f(t)dt > 0$.
+%\end{theorem}
+%
+%
+% 
+%}\vsec
+%Par contraposée on obtient le corollaire suivant :
+%\begin{corollaire}
+%Soit $f  : [a,b]\tv \R$
+%\begin{itemize}
+%\item[$\bullet$] $f$ continue sur $[a,b]$.
+%\item[$\bullet$] $\forall x \in [a,b],$ on a  $f(x) \geq 0$.
+%\item[$\bullet$] $\int_{a}^b f(t)dt=0$.
+%\end{itemize}
+%Alors on a : $f=0$.
+%\end{corollaire} 
+%
+%\begin{rem}
+%On a un r\'esultat similaire pour des fonctions  n\'egatives.
+%\end{rem}
+%
+%{\footnotesize \begin{exo} 
+%Soient $n\in\N$ et $I_n=\ddp \int\limits_0^{\frac{\pi}{2}} \sin^n{(t)}dt$.  Montrer que pour tout $n\in\N$: $I_n>0$.
+%\end{exo}}
+%\vsec\vsec
+%
+%
+%\subsection{Valeur moyenne d'une fonction}
+% {  
+%
+%\begin{defi} 
+%Soient $f$ une fonction continue sur un intervalle $I$ de $\R$ et $(a, b)\in I^2$.\vsec\vsec\\
+% On appelle valeur moyenne de $f$ sur $\lbrack a,b\rbrack$ avec $a\not= b$, le nombre r\'eel $\frac{1}{b-a} \int_a^b f(t) dt$
+%\end{defi}
+% 
+%}
+%\vsec
+%
+% {  
+%
+%\begin{prop} 
+%Th\'eor\`eme de la valeur moyenne:\\
+% Soient $f$ une fonction continue sur $I$ et $(a, b)\in I^2$ avec $a<b$.\\
+%  Alors il existe $c \in [a,b]$ tel que: 
+%  $f(c) = \frac{1}{b-a} \int_a^b f(t) dt$
+%\end{prop}
+% 
+%}
+%
+
+
+%--------------------------------------------------
+%------------------------------------------------
+%--------------------------------------------------
+%------------------------------------------------
+\subsection{Int\'egrale et valeur absolue}
+
+
+{
+
+	\begin{theorem} Inégalité triangulaire pour les intégrales :
+		\begin{itemize}
+			\item[$\bullet$] $f$ continue sur $[a,b]$
+			\item[$\bullet$] $a<b$
+		\end{itemize}
+		Alors : $\left| \int_a^b f(t) dt \right| \leq \int_a^b \left|f(t)\right| dt$
+	\end{theorem}
+}
+
+{\footnotesize \begin{exo}
+		%Soit $g$ une fonction de classe $C^1$ sur $\lbrack 0,1\rbrack$. \`{A} l'aide d'une int\'egration par partie, montrer qu'il existe un r\'eel $b>0$ tel que: $\forall n\in\N^{\star},\ \left|  \ddp\int_0^1 g(x)\sin{(2\pi nx)} dx  \right| \leq \ddp\frac{b}{n}$.
+		Soit $g$ une fonction continue sur $\lbrack 0,1\rbrack$. Montrer qu'il existe un r\'eel $x_0 \in [0,1]$ tel que: $\left|  \ddp\int_0^1 g(x)\sin{(x)} dx  \right| \leq |g(x_0)| $.
+	\end{exo}}
+
+%--------------------------------------------------
+%------------------------------------------------
+%--------------------------------------------------
+%------------------------------------------------
+%\subsection{Fonction d\'efinie par une int\'egrale}
+
+%\ {Propri\'et\'es d'une fonction d\'efinie par une int\'egrale}\\
+\subsection{Primitive comme intégrale}
+Soit $f: I\rightarrow \R$ continue sur $I$ et soit $a\in I$. On peut alors d\'efinir une fonction $g: I\rightarrow \R$ par:
+$$\forall x\in I,\ g(x)=\int\limits_a^x f(t)dt. $$
+
+
+{
+
+		\begin{prop}
+			Soient $f: I\rightarrow \R$ continue sur $I$, $a\in I$ et $g: x\in I\mapsto \ddp\int\limits_a^x f(t)dt$. Alors :
+			\begin{itemize}
+				\item[$\bullet$] $g$ est de classe dérivable sur $I$
+				\item[$\bullet$] $g(x) =F(x) -F(a)$ avec $F$ une primitive de $f$
+				\item[$\bullet$] $\forall x\in I, \, g'(x) = f(x)$
+			\end{itemize}
+		\end{prop}
+	}
+
+\begin{rem}
+	La fonction $g$ ainsi d\'efinie est l'unique primitive de $f$ sur $I$ qui s'annule en $a$.
+\end{rem}
+
+
+
+% 
+%
+%\subsubsection{G\'en\'eralisation}
+%
+% Soit $f: I\rightarrow \R$ une fonction continue sur $I$ intervalle de $\R$. Soient deux fonctions $u,v: J\rightarrow I$ d\'erivables sur $J$ avec $J$ intervalle de $\R$. On d\'efinit alors la fonction $g: J\rightarrow \R$ par
+%$$ \forall x\in J,\ g(x)=\ddp\int\limits_{u(x)}^{v(x)} f(t)dt.$$
+%
+%
+%% Il s'agit alors d'\'etudier cette fonction, en particulier on vous demande souvent d'\'etudier:
+%%\begin{itemize} 
+%%\item[$\bullet$] \dotfill \phantom{\hspace{7cm}} \vsec
+%%\item[$\bullet$] \dotfill \phantom{\hspace{7cm}}  \vsec
+%%\item[$\bullet$] \dotfill \phantom{\hspace{7cm}}  \vsec
+%%\item[$\bullet$] \dotfill \phantom{\hspace{7cm}}  \vsec
+%%\end{itemize}
+%%\vsec
+%
+% Afin d'\'etudier les variations de $g$, il faut savoir d\'eriver $g$:\vsec
+%
+%\textbf{Expression de la d\'eriv\'ee de $g$:}\\
+%
+%
+%$g(x) = F(v(x)) -F(u(x)) $ avec $F$ une primitive de $f$ sur $I$. Donc 
+%$$g'(x) = v'(x) f(v(x)) - u'(x) f(u(x))$$
+%
+%
+%{\footnotesize \begin{exo} 
+%\'Etude de la fonction $g$ d\'efinie par $g(x)=\ddp\int\limits_x^{2x} \ddp\frac{e^t}{t} dt$.\\
+% Donner son domaine de d\'efinition, ses variations, ses limites aux bornes, ses branches infinies (pour cela on pourra commencer par v\'erifier que $g$ est toujours comprise entre $\ln{2}e^x$ et $\ln{2}e^{2x}$). \'Etudier les \'eventuels prolongements par continuit\'e. Tracer la courbe repr\'esentative de $g$.
+%\end{exo}}
+%
+% 
+
+
+%--------------------------------------------------
+%------------------------------------------------
+%--------------------------------------------------
+%------------------------------------------------
+%--------------------------------------------------
+%------------------------------------------------
+\section{M\'ethodes de calcul d'int\'egrales}
+
+
+\subsection{Reconna\^{i}tre une primitive usuelle}
+
+Bien conna\^{i}tre le tableau des primitives usuelles.\\
+\href{http://olivierglorieux.fr/wp-content/uploads/Cours/formulaire_primitives.pdf}{\color{blue}{Voir le  tableau des primitives usuelles}}
+
+Calculer des fonctions dérivées à la chaine... \\
+Vérifier rapidement que notre primitive est bien une primitive.
+
+%--------------------------------------------------
+%------------------------------------------------
+%--------------------------------------------------
+%------------------------------------------------
+\vsec\vsec\vsec
+\subsection{Int\'egration par parties}
+
+{
+
+	\begin{prop} Int\'egration par parties:\\
+		Si $u$ et $v$ sont deux fonctions de classe $C^1$ sur $\lbrack a,b\rbrack$. Alors :
+		$$\int_{a^b} u(t)v'(t) dt =\left[ u(t)v(t)\right]_a^b-\int_a^b u'(t)v(t)dt$$
+	\end{prop}
+
+}
+Quand utiliser l'IPP ?
+\begin{itemize}
+	\item[$\bullet$] Si la fonction est de type\\
+	      Polyn\^ome $\times$ $\left\| \begin{array}{l} \hbox{cosinus, sinus}\\ \hbox{exponentielle, ln}\\ \hbox{arctangente}        \end{array} \right.$
+	\item[$\bullet$] Obtenir des relations de r\'ecurrence
+	      pour l'\'etude des suites d\'efinies par des int\'egrales.
+\end{itemize}
+
+
+
+\begin{dboxminipage}{14cm}
+	\vsec
+	M\'ethode avec une IPP:
+	\begin{itemize}
+		\item[$\bullet$] On pose: \\ $\left\lbrace\begin{array}{lll}
+				      u(t)=....          & \hspace{1cm} & u^{\prime}(t)=.... \\
+				      v^{\prime}(t)=.... & \hspace{1cm} & v(t)=....
+			      \end{array}\right.$
+		\item[$\bullet$] Les fonctions  $u$ et $v$ sont de classe $C^1$ sur l'intervalle $\lbrack a,b\rbrack$,
+		      donc par int\'egration par partie, on a:
+		      $$\int\limits_{a}^b u(t)v^{\prime}(t)dt= \lbrack u(t)v(t)\rbrack_a^b -\int\limits_a^b u^{\prime}(t)v(t)dt$$
+	\end{itemize}
+\end{dboxminipage}
+\vsec \vsec
+
+
+
+
+
+
+
+Quelle fonction doit-on d\'eriver ?\\
+Le choix de la fonction que l'on d\'erive suit la loi ALPET:
+\begin{itemize}
+	\item[$\bullet$] D'abord A comme arctangente
+	\item[$\bullet$] Puis L comme logarithme n\'ep\'erien
+	\item[$\bullet$] Puis P comme polyn\^ome
+	\item[$\bullet$] Puis E comme exponentielle
+	\item[$\bullet$] Enfin T comme trigonom\'etrie
+\end{itemize}
+
+
+
+{\footnotesize \begin{exo}
+	Calculer les intégrales suivantes
+	\begin{enumerate}
+		\begin{minipage}[t]{0.48\textwidth}
+			\item $I(x)=\ddp\int\limits_1^x \ln{t}dt$.\\
+			\item $I(x)=\ddp\int\limits_0^x \arctan{t}dt$.
+		\end{minipage}
+		\begin{minipage}[t]{0.48\textwidth}
+			\item $I=\ddp\int\limits_0^1 x^2\sin{x}dx $.\\
+			\item $I=\ddp\int\limits_0^{\pi} \cos{x} e^x dx$.
+		\end{minipage}
+	\end{enumerate}
+\end{exo}}
+\vsec
+
+{\textbf{Application : \'Etude de suite d\'efinie par une int\'egrale:}\\
+
+\begin{dboxminipage}{14cm}
+	Relation de r\'ecurrence pour une suite d\'efinie par une int\'egrale : Int\'egration par partie
+
+\end{dboxminipage}
+
+
+{\footnotesize \begin{exo}
+	On pose, pour tout $n\in\N$, $I_n=\ddp\int\limits_1^e (\ln{t})^n t^2 dt$. Trouver une relation de r\'ecurrence.
+\end{exo}}
+
+%--------------------------------------------------
+%------------------------------------------------
+%--------------------------------------------------
+%------------------------------------------------
+\vsec
+\vsec\vsec
+\subsection{Changement de variables}
+
+
+
+\begin{prop} Changement de variables: si
+	\begin{itemize}
+		\item[$\bullet$] $f : I \tv \R$ est une fonction continue sur $I$
+		\item[$\bullet$]  et  $\phi : [a,b] \tv I$ une fonction de classe $\cC^1$ sur $[a,b]$.
+	\end{itemize}
+	Alors
+	$$\int_{\phi(a)}^{\phi(b)} f(x) dx = \int_a^b f(\phi(t)) \phi'(t)dt.$$
+
+	%$$\int\limits_{\alpha}^{\beta} f(\varphi(t))\varphi^{\prime}(t)dt = \int\limits_{\varphi(\alpha)}^{\varphi(\beta)} f(u)du$$
+\end{prop}
+
+Remarque : On applique souvent des changements de variables avec $\phi$ bijective. Dans ce cas, on a la formule suivante :
+$$\int_{\alpha}^{\beta} f(x) dx = \int_{\phi^{-1}(\alpha)}^{\phi^{-1}(\beta)} f(\phi(t)) \phi'(t)dt.$$
+
+
+\begin{dboxminipage}{12cm}
+	\begin{itemize}
+		\item[$\bullet$] On pose $u=\varphi(t)$. ($\phi^{-1} (u ) = t,$ si $\phi$ bijective)
+		\item[$\bullet$] On calcule $du$ en fonction de $t$. ($du = \phi'(t)dt$)
+		\item[$\bullet$] On calcule la nouvelle fonction \`a int\'egrer.
+		\item[$\bullet$] On calcule les nouvelles bornes de l'int\'egrale.
+	\end{itemize}
+
+\end{dboxminipage}
+
+
+
+
+{\footnotesize \begin{exo}
+	Calculer $\ddp I=\int\limits_0^1 \ddp\frac{e^{2x}}{e^x+1} dx$,  $\ddp J=\int\limits_1^2 \ddp\frac{1}{1+\sqrt{x}} dx$ et $\ddp K=\int\limits_0^1 \sqrt{1-u^2} du$.
+\end{exo}}
+
+
+%
+%
+%\paragraph{Applications aux fonctions paires, impaires, p\'eriodiques}
+%
+%  
+%
+%\begin{prop_break} Soit $f$ une fonction continue sur $\R$
+%
+%\begin{itemize}
+% \item[$\bullet$] Si $f$ est  paire alors, pour tout $a\in\R$: 
+%$\ddp \int_{-a}^{a} f(t) dt = 2\int_0^a f(t)dt$ 
+%\item[$\bullet$]  Si $f$ est impaire alors, pour tout $a\in\R$:
+%$\ddp \int_{-a}^{a} f(t) dt = 0$  
+%\item[$\bullet$]  Si $f$ est  p\'eriodique de p\'eriode $T$ alors, pour tout $(a,b)\in\R^2$: \linebreak
+%$\ddp \int_{a}^{b} f(t) dt = \int_{a+T}^{b+T} f(t) dt $  
+%\end{itemize}
+%\end{prop_break}
+% 
+%}
+%
+%\begin{proof}
+%\begin{itemize}
+% \item[$\bullet$] Soit $f$  une fonction paire et  $a\in\R$, on calcule 
+%$\ddp \int_{-a}^{0} f(t) dt $ grâce au changement de variable $\phi(x)= -x$.
+%On obtient $\ddp \int_{-a}^{0} f(t) dt  = \int_{a}^{0} f(-x) (-1)dx $.
+%Comme $f$ est paire on a $f(-x) =f(x)$ et par propriété de l'intégrale 
+%$\int_{a}^{0} f(-x) (-1)dx = -\int_0^a f(-x) (-1) dx$.
+%Finalement 
+%$$\ddp \int_{-a}^{0} f(t) dt  = \int_0^a f(x) dx.$$
+%En utilisant la relation de Chasles on obtient le résultat demandé. 
+%\item[$\bullet$]  Soit $f$ une fonction impaire et $a\in\R$. La preuve précédente s'applique quasiment telle quelle. On peut aussi  faire le changement de variable $\phi(x) = -x$ sur l'intégrale en entier : on obtient 
+%\begin{align*}
+%I &=\ddp \int_{-a}^{a} f(t) dt \\
+%	&= \ddp \int_{a}^{-a} f(-t) (-1)dt \quad \text{ changement de variable}\\
+%	&= \ddp -\int_{-a}^{a} f(t) dt \quad \text{ imparité de $f$}\\
+%	&=-I
+%\end{align*}
+%Donc $I=0$.
+%
+%\item[$\bullet$]  Pour le dernier point il suffit de faire un changement de variable $\phi(x) = x+T$ on obtient la formule annoncée en utilisnat que  $f(x+T) =f(x)$ par périodicité. 
+%
+%\end{itemize}
+%\end{proof}
+%
+%
+%
+% 
+%%--------------------------------------------------
+%%------------------------------------------------
+%%--------------------------------------------------
+%%------------------------------------------------
+%\subsection{Polynômes trigonométriques}
+%
+%%
+%%
+%%\ {Reconna\^{i}tre la forme $x\mapsto \ddp\frac{1}{(x-a)^n}$ avec $a\in\R$ et $n\in\N^{\star}$}\\
+%%
+%% {  
+%%
+%%\begin{prop}
+%%Soit $f: x\mapsto \ddp\frac{1}{(x-a)^n}$ avec $a\in\R$ et $n\in\N^{\star}$. \vsec\vsec
+%%\begin{itemize}
+%%\item[$\bullet$] Si $n=1$ alors  $\ln(x-a)$ est une primitive de $f$ sur $]a,+\infty[$
+%%\item[$\bullet$]  Si $n>1$ alors $\frac1{-(n-1)(x-a)^{n-1}}$ est une primitive de $f$ sur $]a,+\infty[$
+%%\end{itemize}
+%%\end{prop}
+%% 
+%%}
+%%
+%%{\footnotesize \begin{exo} 
+%%Calculer les int\'egrales suivantes: $I=\ddp\int\limits_3^4 \ddp\frac{dx}{(2-x)^3}$, $J=\ddp\int\limits_0^2 \ddp\frac{x}{x+2}dx$ et $K=\ddp\int\limits_0^1 \ddp\frac{x}{(x-2)^5}dx$.\end{exo}}
+%%
+%%\vspace{0.5cm}
+%
+%%\ {Reconna\^{i}tre des polyn\^{o}mes en sinus ou en cosinus}\\
+%
+%
+%
+%%\setlength\fboxrule{1pt}
+%  %{
+%%
+%%\begin{itemize}
+%%\item[$\bullet$] Lin\'earisation (m\'ethode qui marche toujours mais les calculs peuvent \^etre longs).
+%%\item[$\bullet$] Cas particulier lorsque la puissance est impaire: changement de variable.
+%%\end{itemize}
+%% }
+%%\setlength\fboxrule{0.5pt}
+%%
+%%{\footnotesize \begin{exo} 
+%%Calculer les int\'egrales suivantes: 
+%%\end{exo}}
+%%
+%%
+%%\item[\Large{\ding{183}}] \textbf{Int\'egration de produit de sinus ou de cosinus:}\vsec
+%%
+%%\setlength\fboxrule{1pt}
+%%  {
+%%
+%%\begin{itemize}
+%%\item[$\bullet$] Lin\'earisation (m\'ethode qui marche toujours mais les calculs peuvent \^etre longs).
+%%\item[$\bullet$] Lorsqu'il y a une des puissances soit du cosinus, soit du sinus qui est impaire: changement de variable.
+%%\item[$\bullet$] Utilisation des formules trigonom\'etriques qui permettent de transformer des produits en sommes.\\
+%%Fonctions de type: $x\mapsto \cos{(kx)}\cos{(lx)}\qquad x\mapsto \sin{(kx)}\sin{(lx)}\qquad x\mapsto \cos{(kx)}\sin{(lx)}\qquad $
+%%\end{itemize}
+%% }
+%%\setlength\fboxrule{0.5pt}
+%
+%On cherche à calculer les intégrales de la forme $\int P(\cos(x), sin(x))dx$ où $P(x,y)$ est un polynôme e deux variables eg. $P(x,y) = x^2y + xy^3 +3x +xy +1$ donne l'intégrale 
+%$$ \int_a^b   \cos^2(x)\sin(x) +\cos(x) \sin^3(x) + 3 \cos(x) +\cos(x) \sin(x) +1$$
+%Par linéarité il suffit de savoir calculer les intégrales du type 
+%$$I_{p,q}=\int  \cos^p(x) \sin^q(x) dx.$$
+%
+%La mêthode qui fonctionne toujours :  \underline{linéariser}.  Si vous devez en retenir qu'une c'est celle là. Mais il faut savoir bien le faire, sans  se perdre dans les caculs... 
+%
+%Il existe ensuite une série d'astuces pour calculer ce type d'intégrale (elles sont communément appelées \href{https://fr.wikipedia.org/wiki/Règles_de_Bioche}{\color{blue}{règles de Bioche}}, je ne suis personnellement jamais arrivé à les mémoriser...) 
+%
+%J'en donnerai deux : 
+%\begin{itemize}
+%\item Si $p$ est impair, alors on peut utilser le changement de variable  $t = \sin(x)$ 
+%\item Si $q$ est impair, alors on peut utilser le changement de variable  $t = \cos(x)$ 
+%\end{itemize}
+%Expliquons pour $p$ impair la démarche. Elle est évidemment symétrique pour $q$ impair.  
+%Soit $k\in \N$ tel que $p=2k+1$. On peut écrire alors : 
+%\begin{align*}
+%I_{p,q} &=\int \cos^{2k+1} (x) \sin^q(x) dx\\
+%			&=\int \left(\cos^{2} (x) \right)^k\cos(x) \sin^q(x) dx\\
+%\end{align*}
+%		 &=\int (1-\sin^2(x))^k \sin^q(x)\cos(x)  dx 
+% On fait ensuite le changement de variable $\sin(x) = t $ on obtient $\cos(x)dx  =dt$ d'où
+% $$I_{p,q} = \int (1-t^2)^k   t^q dt$$
+% et on est ramené à calculer une primitive d'un polynôme  en $t$ ce qui n'est pas difficile. 
+%
+%
+%
+%Enfin il est souvent très utile pour se type d'intégrale d'utiliser les formules trigonométriques du type : 
+%
+%
+%\begin{minipage}[t]{0.45 \textwidth}
+%\begin{itemize}
+%\item $ \cos{a}\cos{b}=\demi(\cos(a+b) +\cos(a-b)) $
+%\item $\sin{a}\sin{b}=\demi(\cos(a-b) -\cos(a+b))$
+%\end{itemize}
+%\end{minipage}
+%\begin{minipage}[t]{0.45 \textwidth}
+%\begin{itemize}
+%\item  $\sin{a}\cos{b}=\demi(\sin(a+b) +\sin(a-b))$
+%\item $\cos{a}\sin{b}=\demi(\sin(a+b) -\sin(a-b))$
+%\end{itemize}
+%\end{minipage}
+%
+%
+%
+%
+%
+%
+%{\footnotesize \begin{exo} 
+%Calculer les int\'egrales suivantes: 
+%
+%\begin{minipage}[t]{0.45 \textwidth}
+%\begin{itemize}
+%\item $I_1=\ddp \int\limits_{0}^{\pi}  \cos^4{(t)}dt$, 
+%\item $I_2=\ddp\int\limits_{0}^{\frac{\pi}{2}} \sin^4{(t)}dt $ 
+%\item $I_3=\ddp\int\limits_{0}^{\frac{\pi}{2}} \sin^7{(t)}dt$.
+%\end{itemize}
+%\end{minipage}
+%\begin{minipage}[t]{0.45 \textwidth}
+%\begin{itemize}
+%\item $I_4=\ddp\int\limits_{0}^{\pi}  \cos^2{(t)}\sin^2{(t)}dt$,
+%\item   $I_5=\ddp\int\limits_{0}^{\frac{\pi}{2}} \sin{(3t)}\cos{(5t)}dt $ 
+%\item $I_6=\ddp\int\limits_{0}^{\frac{\pi}{2}} \sin^4{(t)}\cos^3{(t)}dt$.
+%\end{itemize}
+%\end{minipage}
+%
+%\end{exo}}
+%
+%
+%% 
+%%--------------------------------------------------
+%%------------------------------------------------
+%%--------------------------------------------------
+%%------------------------------------------------
+%%--------------------------------------------------
+%%------------------------------------------------
+%\section{Sommes de Riemann}
+%
+%
+%%----------------------------------------------------
+%%-----------------------------------------------------
+%\subsection{Une m\'ethode de calcul approch\'e d'int\'egrale: la m\'ethode des rectangles}
+%
+% Nous allons ici utiliser la m\'ethode dite des rectangles pour d\'eterminer une valeur approch\'ee de l'int\'egrale d'une fonction continue sur un segment. On se limite ici au cas d'une fonction $f$ continue sur le segment $\lbrack 0,1\rbrack$. On souhaite approcher $\ddp \int\limits_0^1 f(t)dt$.\\
+%
+%\begin{itemize}
+%\item[$\bullet$] Subdivision r\'eguli\`{e}re de $\lbrack 0,1\rbrack$ de pas $\frac{1}{n}$ : c'est la subdivision de $[0,1]$ de la forme $$x_0 =0 < x_1= \frac{1}{n} < ...< x_k=\frac{k}{n} < ... <x_n =1$$
+%
+%
+% 
+%\item[$\bullet$] Approximation de $\ddp \int\limits_{\frac{k}{n}}^{\frac{k+1}{n}} f(t)dt$:
+%\begin{itemize}
+%\item[$\star$] Approximation \`a gauche :
+%$$\ddp \int\limits_{\frac{k}{n}}^{\frac{k+1}{n}} f(t)dt \simeq \int\limits_{\frac{k}{n}}^{\frac{k+1}{n}} f\left(\frac{k}{n}\right) dt =  \frac{1}{n} f\left(\frac{k}{n}\right)$$
+%
+%\item[$\star$] Approximation \`a droite :
+%$$\ddp \int\limits_{\frac{k}{n}}^{\frac{k+1}{n}} f(t)dt \simeq \int\limits_{\frac{k}{n}}^{\frac{k+1}{n}} f\left(\frac{k+1}{n}\right) dt =  \frac{1}{n} f\left(\frac{k+1}{n}\right)$$
+%
+%\end{itemize}
+%\item[$\bullet$] Approximation de $\ddp \int\limits_{0}^{1} f(t)dt$:
+%\begin{itemize}
+%\item[$\star$] Approximation \`a gauche :
+%\begin{align*}
+%\ddp \int\limits_{0}^{1} f(t)dt &=\sum_{k=0}^{n-1} \frac{1}{n} f\left(\frac{k}{n}\right)\\
+%												&=\frac{1}{n} \sum_{k=0}^{n-1}  f\left(\frac{k}{n}\right)
+%\end{align*}
+%\item[$\star$] Approximation \`a droite :
+%\begin{align*}
+%\ddp \int\limits_{0}^{1} f(t)dt &=\sum_{k=0}^{n-1} \frac{1}{n} f\left(\frac{k+1}{n}\right)\\
+%												&=\frac{1}{n} \sum_{k=1}^{n}  f\left(\frac{k}{n}\right)
+%\end{align*}
+%
+%
+%\end{itemize}
+%
+%\end{itemize}
+%
+%
+%
+%%----------------------------------------------------
+%%-----------------------------------------------------
+%\subsection{Sommes de Riemann, th\'eor\`eme de Riemann}
+%\begin{defi}
+%$R_n = \ddp \frac{1}{n} \sum_{k=0}^{n-1}  f\left(\frac{k}{n}\right)$ et $S_n=\ddp \frac{1}{n} \sum_{k=1}^{n}  f\left(\frac{k}{n}\right)$ sont appelées sommes de Riemann associées à $f$ 
+%\end{defi}
+%
+%%
+%%\begin{defi}
+%%Soit $f$ une fonction continue sur $\lbrack 0,1\rbrack$. 
+%%\begin{itemize}
+%%%\item[$\bullet$] La subdivision r\'eguli\`ere en $n$ morceaux de $\lbrack 0,1\rbrack$ est alors: \dotfill \vsec
+%%\item[$\bullet$] Les sommes de Riemann associ\'ees \`a $f$ sur $\lbrack 0,1\rbrack$ sont\vsec\vsec\\
+%%\phantom{\hspace{-0.3cm}} \dotfill \vsec
+%%\end{itemize}
+%%\end{defi}
+%% 
+%
+%
+%
+% {  
+%
+%\begin{theorem}  
+%Si $f$ est continue sur $\lbrack 0,1\rbrack$ alors:
+%$$\lim_{n\tv +\infty} R_n = \lim_{n\tv +\infty} S_n = \int_0^1 f(t)dt$$
+%\end{theorem}
+% }
+%
+%\vsec\vsec
+%
+%\ {Exemples d'application}  Ce th\'eor\`eme permet de calculer la limite de certaines sommes. \vsec
+%
+%\begin{dboxminipage}{14cm}
+%\vsec
+%\begin{itemize}
+%\item[$\bullet$] Mettre $u_n$ sous la forme $u_n=\ddp\frac{1}{n}\sum\limits_{k=0}^{n-1} f\left(\ddp\frac{k}{n} \right)$ ou $u_n=\ddp\frac{1}{n}\sum\limits_{k=1}^{n} f\left(\ddp\frac{k}{n} \right)$.
+%\item[$\bullet$] On pose $f(x)=...$, avec $f$ continue sur $\lbrack 0,1\rbrack$.
+%\item[$\bullet$] D'apr\`es le th\'eor\`eme sur les sommes de Riemann: $\ddp\lim\limits_{n\to +\infty} u_n=\int\limits_0^1 f(t)dt.$
+%\end{itemize}
+%\end{dboxminipage}
+%
+% 
+%{\footnotesize \begin{exo} 
+%Calculer la limite des suites d\'efinies par:
+%\begin{enumerate}
+%\item $\forall n\in\N^{\star}$, $u_n=\ddp\frac{1}{n}\sum\limits_{k=0}^{n-1}  \sin{\left( \ddp\frac{k\pi}{n} \right)}$.
+%\item $\forall n\in\N^{\star}$, $u_n=\ddp\sum\limits_{k=1}^{n} \ddp\frac{1}{2n+k}$.
+%\item $\forall n\in\N^{\star}$, $u_n=\ddp\sum\limits_{k=1}^{n} \ddp\frac{1}{\sqrt{n(n+k)}}$.
+%\end{enumerate}
+%\end{exo}}
+%
+%\vsec\vsec
+%
+%\subsection{G\'en\'eralisation}
+%
+% On peut g\'en\'eraliser ce r\'esultat sur un intervalle $[a,b]$ (avec $a<b$) quelconque. Les sommes de Riemann sont alors d\'efinies par :
+%$$R_n = \ddp \frac{1}{n} \sum_{k=0}^{n-1}  f\left(a+\frac{k}{n}(b-a)\right)$$ et $$S_n=\ddp \frac{1}{n} \sum_{k=1}^{n}  f\left(a+\frac{k}{n}(b-a)\right)$$
+% De plus, cette m\'ethode permet de d\'efinir l'int\'egrale de fonctions qui ne sont pas continues. \vsec\\
+%
+% {  
+%
+%\begin{defi}
+%Une fonction $f : I \to \R$ est dite continue par morceaux sur $I$ si pour tout segment $[a,b]$ de $I$, on peut trouver une subdivision $(x_i)_{i=0\ldots n}$ telle que pour tout $i \in \intent{0,n-1}$ :
+%\begin{itemize}
+%\item[$\bullet$] $f$ est continue sur $]x_i, x_{i+1}[$
+%\item[$\bullet$]  $f$ admet des limites finies en $x_i$ et $x_{i+1}$
+%\end{itemize}
+%\end{defi}
+% 
+%}
+%
+%
+%
+%\begin{exemples}
+%\vsec
+%\begin{itemize}
+%\item[$\bullet$]$x\mapsto\mathbb{1}_{[0,1]}(x) $ (exemple très important pour la deuxième année)\\
+%\item[$\bullet$] $x\mapsto \floor{x}$\\
+%\item[$\bullet$] $x\mapsto\left\{ 
+%\begin{array}{lc}
+%x+1 \quad &\text{ si $0\leq x<\frac{1}{2} $}\\
+%2x-1 \quad &\text{ si $\frac{1}{2}\leq x\leq 1 $}\\
+%\end{array}
+%\right.$
+%\end{itemize}
+%\end{exemples}
+%
+%\vspace*{0.5cm}
+%
+% {  
+%
+%\begin{theorem}  
+%Si $f$ est continue par morceaux sur $\lbrack a,b\rbrack$ alors: $f$ est intégrable sur $[a,b]$
+%\end{theorem}
+% }
+%
+%\begin{rem} On trouve la valeur de l'int\'egrale en calculant l'int\'egrale sur chaque intervalle o\`u la fonction est continue, puis en utilisant la relation de Chasles.
+%\end{rem}
+
+\end{document}

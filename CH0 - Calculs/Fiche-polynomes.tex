@@ -1,0 +1,100 @@
+\documentclass[a4paper, 11pt]{article}
+\input{macro/package.tex}
+\input{macro/environement}
+\input{macro/header.tex}
+\input{macro/newcommand.tex}
+\geometry{hmargin=2.0cm, vmargin=1.5cm}
+
+
+
+
+\begin{document}
+
+\title{Fonctions polynomiales}
+\begin{defi}
+Soit $a$ un réel et soit $f$ la fonction définie pour tout $x\in \R$ par 
+$$f(x)= a$$ 
+On dit alors que $f$ est la fonction constante égale à $a$.
+\end{defi}
+
+\begin{defi}
+Soit $a,b$ deux réels  et $a\neq 0$.  Soit $f$ la fonction définie pour tout $x\in \R$ par 
+$$f(x)= ax+b$$ 
+On dit alors que $f$ est une fonction affine.
+On appelle $a$ le coefficient directeur (ou pente) de $f$ et $b$ son ordonnée à l'origine. 
+\end{defi}
+
+\begin{prop}
+Soit $f(x)=ax+b$ une fonction affine. On a alors 
+\begin{itemize}
+\item Si $a>0$, $f(x) \geq 0 \equivaut x\geq\frac{-b}{a}$
+\item Si $a<0$, $f(x) \geq 0 \equivaut x\leq\frac{-b}{a}$
+\end{itemize}
+
+\end{prop}
+
+\begin{defi}
+Soit $a,b,c$ trois réels  et $a\neq 0$.  Soit $f$ la fonction définie pour tout $x\in \R$ par 
+$$f(x)= ax^2+bx+c$$ 
+On dit alors que $f$ est une fonction polynomiale de degré $2$.
+\end{defi}
+
+\begin{defi}
+On appelle discriminant d'une fonction polynomiale de degré $2$, $f(x)= ax^2+bx+c$,  le nombre souvent noté $\Delta$: 
+$$\Delta = b^2 -4ac$$
+\end{defi}
+\begin{defi}
+On appelle racine de $f$ un nombre $r$ tel que $f(r)=0$
+\end{defi}
+\begin{prop}
+Soit $f$ une fonction polynomiale de degré $2$, $f(x)= ax^2+bx+c$. Soit $\Delta$ son discriminant. On a alors :
+\begin{itemize}
+\item Si $\Delta>0$, $f$ admet deux racines réelles 
+$$r_1 = \frac{-b+\sqrt{\Delta} }{2a} \quad r_2 = \frac{-b-\sqrt{\Delta} }{2a}$$
+\item Si $\Delta=0$, $f$ admet une unique racine réelle 
+$$r = \frac{-b}{2a} $$
+\item Si $\Delta<0$, $f$ n'admet aucune racine réelle (mais des racines complexes...)
+\end{itemize}
+\end{prop}
+
+% \begin{exercice}
+% Ecrire un script Python qui permet de résoudre les équations polynomiales de degré 2. 
+% \end{exercice}
+
+% \subsection{Fonctions polynomiales de degré $n$}
+% \begin{defi}
+% Soit $a_0,a_1,a_2, \dots, a_n$, $n+1$ réels avec $a_n\neq 0$.  Soit $f$ la fonction définie pour tout $x\in \R$ par 
+% $$f(x)= a_nx^n+a_{n-1}x^{n-1} + \dots +a_1 x +a_0$$ 
+% On dit alors que $f$ est une fonction polynomiale de degré $n$.
+% \end{defi}
+
+% \begin{defi}(Généralisation)
+% On appelle racine de $f$ un nombre $r$ tel que $f(r)=0$
+% \end{defi}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

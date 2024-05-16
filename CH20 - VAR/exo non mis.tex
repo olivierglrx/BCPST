@@ -1,0 +1,645 @@
+\documentclass[a4paper, 11pt,reqno]{article}
+\input{macro/package.tex}
+\input{macro/environement}
+\input{macro/header.tex}
+\input{macro/newcommand.tex}
+\geometry{hmargin=1.0cm, vmargin=2.5cm}
+
+
+\newcommand{\type}{TD }
+%\excludecomment{correction}
+%\newcommand{\type}{Correction TD }
+
+
+\begin{document}
+\title{ Exercices supplémentaires Variables aléatoires}
+
+\begin{exercice}
+	Soit $n\in\N^{\star}$ et $\lambda \in\R$. On consid\`ere une varf $X$ prenant ses valeurs dans l'ensemble $\intent{ 1,n}$ et telle que, pour tout $k\in\intent{ 1,n}$: $P(\lbrack X=k\rbrack)=\lambda k$.
+	\begin{enumerate}
+		\item D\'eterminer $\lambda$.
+		\item Calculer alors $E(X)$ et $V(X)$.
+	\end{enumerate}
+\end{exercice}
+\begin{correction}
+	Soit $n\in\N^{\star}$ et $\lambda \in\R$. On consid\`ere une varf $X$ prenant ses valeurs dans l'ensemble $\intent{ 1,n}$ et telle que, pour tout $k\in\intent{ 1,n}$: $P(\lbrack X=k\rbrack)=\lambda k$.
+	\begin{enumerate}
+		\item D\'eterminer $\lambda$.
+		\item Calculer alors $E(X)$ et $V(X)$.
+	\end{enumerate}
+\end{correction}
+
+
+
+
+
+
+%%%
+
+
+\begin{exercice}  \;
+	On lance 6 fois un d\'e non pip\'e et on note $X$ le nombre de 6 obtenus au cours de ces lancers.
+	\begin{enumerate}
+		\item Calculer la loi de $X$. Repr\'esenter cette loi par un tableau puis par un diagramme en b\^atons.
+		\item Calculer la fonction de r\'epartition de $X$.
+		\item Calculer son esp\'erance et sa variance.
+		\item D\'eterminer la loi de la varf $Y=(X-3)^2$.
+		\item On consid\`ere $g: x\mapsto \cos{(\pi x)}$ et on pose $Z=g(X)$. D\'eterminer l'esp\'erance de la varf $Z$.
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \;
+	On lance 6 fois un d\'e non pip\'e et on note $X$ le nombre de 6 obtenus au cours de ces lancers.
+	\begin{enumerate}
+		\item Raisonnement direct :\\
+		      On commence par calculer l'univers : les lancers sont successifs donc avec ordre, et avec r\'ep\'etition, donc $\Omega$ est l'ensemble des $6$-listes de num\'eros entre $1$ et $6$. On a donc $\card \Omega = 6^6$.\\
+		      On regarde ensuite l'univers image : $X(\Omega) = \intent{0,6}$. On calcule donc les $P(X=k)$ pour $k \in  \intent{0,6}$.\\
+		      Le d\'e est non pip\'e, on a donc \'equiprobabilit\'e pour tous les lancers : on se ram\`ene \`a du d\'enombrement. Je d\'etaille un des cas, les autres se d\'emontrent avec le m\^eme raisonnement.\\
+		      Calcul de $P(X=1)$.  On commence par choisir la place du $6$ que l'on a tir\'e : on a $6$ possibilit\'es. Puis pour chaque configuration, on a une possibilit\'e pour le $6$, et $5$ possibilit\'es pour chacun des num\'eros qui ne sont pas des $6$, soit $5^5$ possibilit\'es. On a donc une probabilit\'e $P(X=1) = \frac{6 \times 5^5}{6^6}$, soit \fbox{$P(X=1) = \frac{5^5}{6^5}$}.\\
+		      De m\^eme (\`a d\'etailler), on trouve : \fbox{$P(X=0) = \frac{5^6}{6^6}$}, \fbox{$P(X=2) = \frac{\binom{6}{2} 5^4}{6^6}$}, \fbox{$P(X=3) = \frac{\binom{6}{3} 5^3}{6^6}$}, \fbox{$P(X=4) = \frac{\binom{6}{4} 5^2}{6^6}$}, \fbox{$P(X=5) = \frac{5}{6^5}$}, \fbox{$P(X=6) = \frac{1}{6^6}$}.\vsec\\
+		      Tableau et diagramme \`a faire.\\
+		      Raisonnement en reconnaissant une loi usuelle : on a une succession de 6 exp\'eriences al\'eatoires semblables et ind\'ependantes, dont la probabilit\'e de succ\`es est $\frac{1}{6}$ (probabilit\'e de tomber sur $6$ pour un d\'e \'equilibr\'e). On reconna\^it donc une loi binomiale de param\`etres $6$ et $\frac{1}{6}$. On a donc $X(\Omega) = \intent{0,6}$ et $\forall k \in \intent{0,6}$, \fbox{$\ddp P(X=k)=\binom{6}{k} \left(\frac{1}{6}\right)^k \left(\frac{5}{6}\right)^{6-k}$}.
+		\item On utilise la formule du cours qui donne
+		      \begin{itemize}
+			      \item[$\star$] si $x<0$, on a $F_X(x) = 0$,
+			      \item[$\star$] $\forall k \in \intent{0,5}$, si $x \in [k,k+1[$, $F_X(x) = \ddp \sum\limits_{i=0}^k P(X =i) =  \sum\limits_{i=0}^k \binom{6}{i} \left(\frac{1}{6}\right)^i \left(\frac{5}{6}\right)^{6-i}$,
+				      %\item[$\star$] si $0\leq x < 1$, on a $F_X(x) = P(X =0) = \frac{5^6}{6^6}$,
+				      %\item[$\star$] si $1\leq x < 2$, on a $F_X(x) = \sum\limits_{k=0}^1 P(X =k) = \frac{1}{6^6} (5^6 +6 \times 5^5 )$,
+				      %\item[$\star$] si $2\leq x < 3$, on a $F_X(x) = \sum\limits_{k=0}^2 P(X =k) = \frac{1}{6^6} (5^6 +6 \times 5^5 +\binom{6}{2} 5^4)$,
+				      %\item[$\star$] si $3\leq x < 4$, on a $F_X(x) = \sum\limits_{k=0}^3 P(X =k) = \frac{1}{6^6} (5^6 +6 \times 5^5 + \binom{6}{2} 5^4 + \binom{6}{3} 5^3)$,
+				      %\item[$\star$] si $4\leq x < 5$, on a $F_X(x) = \sum\limits_{k=0}^4 P(X =k) = \frac{1}{6^6} (5^6 +6 \times 5^5 + \binom{6}{2} 5^4 + \binom{6}{3} 5^3 + \binom{6}{4} 5^2)$,
+				      %\item[$\star$] si $5\leq x < 6$, on a $F_X(x) = \sum\limits_{k=0}^5 P(X =k) = \frac{1}{6^6} (5^6 +6 \times 5^5 + \binom{6}{2} 5^4 + \binom{6}{3} 5^3 + \binom{6}{4} 5^2 + 30)$,
+			      \item[$\star$] si $x\geq 6$, on a $F_X(x) = 1$.
+		      \end{itemize}
+		      %---
+		\item On utilise les formules de l'esp\'erance et de la variance d'une loi binomiale : $E(X)=6\times\ddp\frac{1}{6}$, soit \fbox{$E(X)=1$}, et $V(X) = 6 \times \ddp\frac{1}{6}\times \frac{5}{6}$, soit \fbox{$V(X)=\ddp\frac{5}{6}$}.
+		      %Esp\'erance : on calcule $E(X) = \sum\limits_{k=0}^6 k P(X=k)$ en rempla\c cant les probabilit\'es par leur valeur.\\
+		      %Variance : on utilise \`a nouveau la formule de Koenig-Huygens : $V(X) = E(X^2) - (E(X))^2$, en calculant $E(X^2)$ gr\^ace au th\'eor\`eme du transfert : $E(X^2) = \sum\limits_{k=0}^6 k^2 P(X=k)$ en rempla\c cant les probabilit\'es par leur valeur.
+		\item Soit $h(x) = (x-3)^2$. On commence par calculer $Y(\Omega) = h(\intent{0,6}) = \{0,1,4,9\}$. Puis on en d\'eduit :
+		      \begin{itemize}
+			      \item[$\star$] $P(Y=0) = P(X=3)$, soit \fbox{$P(Y=0) =  \frac{\binom{6}{3} 5^3}{6^6}$}.
+			      \item[$\star$] $P(Y=1) = P([X=2]\cup[X=4]) = P(X=2) + P(X=4)$ car ce sont des \'ev\'enements incompatibles. Soit  \fbox{$P(Y=1) = \frac{\binom{6}{2} 5^4}{6^6} +  \frac{\binom{6}{4} 5^2}{6^6}$}.
+			      \item[$\star$]  $P(Y=4) = P([X=1]\cup[X=5]) = P(X=1) + P(X=5)$, soit  \fbox{$P(Y=4) = \frac{5^5}{6^5} +  \frac{5}{6^5}$}.
+			      \item[$\star$]  $P(Y=9) = P([X=0]\cup[X=6]) = P(X=0) + P(X=6)$, soit  \fbox{$P(Y=9) =  \frac{5^6}{6^6} +  \frac{1}{6^6}$}.
+		      \end{itemize}
+		\item On commence par calculer $Z(\Omega) = g(\intent{0,6}) = \{-1,1\}$. Puis on en d\'eduit :
+		      \begin{itemize}
+			      \item[$\star$] $P(Z=1) = P([X=0]\cup[X=2]\cup[X=4]\cup[X=6])$, soit \fbox{$P(Z=1) =  \frac{1}{6^6} (5^6 + \binom{6}{2} 5^4 + \binom{6}{4} 5^2 +1 )$}.
+			      \item[$\star$] $P(Z=-1) = P([X=1]\cup[X=3]\cup[X=5])$, soit \fbox{$P(Z=-1) =  \frac{1}{6^6} (5^5 + \binom{6}{3} 5^3 + 30 )$}.\end{itemize}
+		      On en d\'eduit l'esp\'erance avec la formule $E(Z) = P(Z=1) - P(Z=-1)$.
+	\end{enumerate}
+\end{correction}
+%-------------------------------------------------
+%------------------------------------------------
+
+
+
+
+
+%------------------------------------------------
+\begin{exercice}  \;
+	Pour chacune des variables al\'eatoires d\'ecrites ci-dessous, donner la loi exacte, l'esp\'erance et la variance:
+	\begin{enumerate}
+		\item Nombre de piles au cours du lancer de 20 pi\`eces truqu\'ees dont la probabilit\'e d'obtenir face est 0.7.
+		%\item On tire 8 cartes d'un jeu de 52 et on s'int\'eresse au nombre de carreaux.
+		\item On lance 5 d\'es.
+		      \begin{enumerate}
+			      \item On s'int\'eresse au nombre de 6.
+			      \item On s'int\'eresse au num\'ero obtenu avec le premier d\'e.
+		      \end{enumerate}
+		\item Nombre de filles dans les familles de 6 enfants sachant que la probabilit\'e d'obtenir une fille est 0.51.
+		      %\item Nombre d'accidents par an \`a un carrefour donn\'e, sachant qu'il y a chaque jour une chance sur 125 d'accident.
+		\item Nombre de voix d'un des candidats \`a une \'election pr\'esidentielle lors du d\'epouillement des 100 premiers bulletins dans un bureau de vote.
+		\item On range au hasard 20 objets dans 3 tiroirs. Nombre d'objets dans le premier tiroir.
+%		\item Un sac contient 26 jetons sur lesquels figurent les 26 lettres de l'alphabet. On en aligne 5 au hasard. Nombre de voyelles dans ce mot.
+		\item Un enclos contient 15 lamas, 15 dromadaires et 15 chameaux. On sort un animal au hasard de cet enclos. Nombre de bosses.
+		\item On suppose que $1\%$ des tr\`efles poss\`edent 4 feuilles. On cueille 1000 tr\`efles. Nombre de tr\`efles \`a 4 feuilles cueillis.
+%		\item Dans une population de 20 personnes, dont 8 hommes, nombre de femmes pr\'esentes dans une d\'el\'egation de 6 personnes tir\'ees au sort.
+		\item Il y a 128 boules num\'erot\'ees de 1 \`a 128. On en tire 10 parmi les 128, puis on en tire une parmi les 10. On s'int\'eresse au num\'ero de la boule obtenue.
+	\end{enumerate}
+\end{exercice}
+%----------------------------------------------
+%------------------------------------------------
+
+\begin{correction}  \;
+	%Pour chacune des variables al\'eatoires d\'ecrites ci-dessous, donner la loi exacte, l'esp\'erance et la variance:
+	%Je ne donne ici que le r\'esultat.
+	\begin{enumerate}
+		\item Nombre de piles au cours du lancer de 20 pi\`eces truqu\'ees dont la probabilit\'e d'obtenir face est 0.7 : on a une succession de $20$ exp\'eriences de Bernoulli ind\'ependantes, dont la probabilit\'e de succ\`es est $0.3$, donc \fbox{$X \hookrightarrow \cB(20,0.3)$}. On en d\'eduit : $X(\Omega) = \intent{ 0, 20 }$, $P(X=k) = \ddp \binom{20}{k} (0.3)^k (0.7)^{20-k}$, $E(X) = 20 \times 0.3$, $V(X) = 20 \times 0.3 \times 0.7$.
+	%	\item On tire 8 cartes d'un jeu de 52 et on s'int\'eresse au nombre de carreaux : on a un tirage simultan\'e de $8$ cartes parmi $52$, et la proportion de cartes gagnantes (les carreaux) est $\ddp\frac{1}{4}$, donc \fbox{$\ddp X \hookrightarrow \cH(52,8,\frac{1}{4})$}. On en d\'eduit $X(\Omega) = \intent{ 0, 8 }$, $P(X=k) = \ddp \frac{\binom{13}{k}\binom{39}{8-k}}{\binom{52}{8}}$, $E(X) = 2$, $\ddp V(X) = \frac{3}{2} \times \frac{44}{51} = \frac{66}{51}$.
+		\item On lance 5 d\'es.
+		      \begin{enumerate}
+			      \item On s'int\'eresse au nombre de 6 : on a une succession de $5$ exp\'eriences de Bernoulli ind\'ependantes, dont la probabilit\'e de succ\`es est $\ddp \frac{1}{6}$, donc \fbox{$\ddp X \hookrightarrow \cB\left(5,\frac{1}{6}\right)$}. On en d\'eduit : $X(\Omega) = \intent{ 0, 5 }$, $P(X=k) = \ddp \binom{5}{k} \left(\frac{1}{6}\right)^k \left(\frac{5}{6}^{5-k}\right){5-k}$, $\ddp E(X) = \frac{5}{6}$, $V(X) \ddp = \frac{25}{36}$.
+			      \item On s'int\'eresse au num\'ero obtenu avec le premier d\'e : on tire un num\'ero au hasard parmi $6$ (car le d\'e est \'equilibr\'e), donc \fbox{$X \hookrightarrow \cU(6)$}. On en d\'eduit : $X(\Omega) = \intent{ 1,6 }$, $P(X=k) = \ddp \frac{1}{6}$, $\ddp E(X) = \frac{7}{2}$, $\ddp V(X) = \frac{35}{12}$.
+		      \end{enumerate}
+		\item Nombre de filles dans les familles de 6 enfants sachant que la probabilit\'e d'obtenir une fille est 0.51 : on a une succession de $6$ exp\'eriences de Bernoulli ind\'ependantes, dont la probabilit\'e de succ\`es est $0.51$ donc \fbox{$X \hookrightarrow \cB(6,0.51)$}. On en d\'eduit : $X(\Omega) = \intent{ 0, 6 }$, $P(X=k) = \ddp \binom{6}{k} (0.51)^k (0.49)^{6-k}$, $E(X) = 6 \times 0.51$, $V(X) = 6\times 0.51 \times 0.49$.
+		      %\item Nombre d'accidents par an \`a un carrefour donn\'e, sachant qu'il y a chaque jour une chance sur 125 d'accident :  $X \hookrightarrow \cB(365,\frac{1}{125})$, $E(X) = \frac{365}{125}$, $V(X) = \frac{365}{125}\times \frac{124}{125}$.
+		\item Nombre de voix d'un des candidats \`a une \'election pr\'esidentielle lors du d\'epouillement des 100 premiers bulletins dans un bureau de vote : on a une succession de $100$ exp\'eriences de Bernoulli ind\'ependantes, dont la probabilit\'e de succ\`es est $p$, donc \fbox{$X \hookrightarrow \cB(100,p)$}. On en d\'eduit : $X(\Omega) = \intent{ 0, 100 }$, $P(X=k) = \ddp \binom{100}{k} p^k (1-p)^{n-k}$,  $E(X) = 100 p$, $V(X) = 100 p (1-p)$, o\`u $p$ est la probabilit\'e de voter pour ce candidat.
+		\item On range au hasard $20$ objets dans $3$ tiroirs. Nombre d'objet dans le premier tiroir : on a une succession de $20$ exp\'eriences de Bernoulli ind\'ependantes, dont la probabilit\'e de succ\`es est $\ddp \frac{1}{3}$, donc \fbox{$X \ddp \hookrightarrow \cB(20,\frac{1}{3})$}. On en d\'eduit : $X(\Omega) = \intent{ 0, 20 }$, $P(X=k) = \ddp \binom{20}{k} \left(\frac{1}{3}\right)^k \left(\frac{2}{3}\right)^{20-k}$,  $E(X) = \ddp \frac{20}{3}$, $V(X) =\ddp \frac{40}{9}$.
+	%	\item Un sac contient $26$ jetons sur lesquels figurent les $26$ lettres de l'alphabet. On en aligne 5 au hasard. Nombre de voyelle dans ce mot : on a un tirage simultan\'e de $5$ cartes parmi $26$, et la proportion de jetons gagnants (les voyelles) est $\ddp\frac{20}{26}$, donc \fbox{$X \ddp \hookrightarrow \cH(26,5,\frac{6}{26})$}. On en d\'eduit : $X(\Omega) = \intent{ 0, 5 }$, $P(X=k) = \ddp \frac{\binom{6}{k}\binom{20}{5-k}}{\binom{26}{5}}$,  $E(X) = \ddp\frac{30}{26}$, $V(X) = \ddp\frac{30}{26} \times \frac{20}{26} \times \frac{21}{25}$.
+		\item Un enclos contient 15 lamas, 15 dromadaires et 15 chameaux. On sort un animal au hasard de cet enclos. Nombre de bosses : on a autant de chance de tirer $0$, $1$ ou $2$ bosses, donc \fbox{$X \hookrightarrow \cU(\intent{0,2})$}. On en d\'eduit : $X(\Omega) = \intent{ 0, 2 }$, $P(X=k) = \ddp \frac{1}{3}$,  $E(X) = 1$, $\ddp V(X) = \frac{4}{3}$.
+		\item On suppose que $1\%$ des tr\`efles poss\`edent 4 feuilles. On cueille 100 tr\`efles. Nombre de tr\`efles \`a 4 feuilles cueillis : on a une succession de $100$ exp\'eriences de Bernoulli ind\'ependantes, dont la probabilit\'e de succ\`es est $\ddp\frac{1}{100}$, donc \fbox{$X \ddp \hookrightarrow \cB(100,\frac{1}{100})$}. On en d\'eduit : $X(\Omega) = \intent{ 0, 100 }$, $P(X=k) = \ddp \binom{100}{k} (0.01)^k (0.99)^{100-k}$,  $E(X) = 1$, $V(X) = \ddp \frac{99}{100}$.
+		%\item Dans une population de 20 personnes, dont 8 hommes, nombre de femmes pr\'esentes dans une d\'el\'egation de 6 personnes tir\'ees au sort : on a un tirage simultan\'e de $6$ personnes parmi $20$, et la proportion de personnes gagnantes (les femmes) est $\ddp\frac{12}{20}$, donc \fbox{$X \hookrightarrow \cH(20,6,\frac{12}{20})$}. On en d\'eduit : $X(\Omega) = \intent{ 0, 6 }$, $P(X=k) = \ddp \frac{\binom{12}{k}\binom{8}{6-k}}{\binom{20}{6}}$,  $E(X) =\ddp \frac{18}{5}$, $V(X) =\ddp \frac{18}{5} \times \frac{2}{5}\times \frac{14}{19}$.
+		\item Il y a 128 boules num\'erot\'ees de 1 \`a 128. On en tire 10 parmi les 128, puis on en tire une parmi les 10. On s'int\'eresse au num\'ero de la boule obtenue : on a autant de chance de tirer n'importe quel num\'ero, donc \fbox{$X \hookrightarrow \cU(128)$}. On en d\'eduit : $X(\Omega) = \intent{ 1,128 }$, $P(X=k) = \ddp \frac{1}{128}$,  $E(X) =\ddp \frac{129}{2}$, $V(X) = \ddp \frac{128^2-1}{12}$.
+	\end{enumerate}
+\end{correction}
+
+
+
+
+
+
+
+\begin{exercice}  \;
+	\begin{enumerate}
+		\item Soit $X\hookrightarrow \cU(q)$ avec $q\in\N^{\star}$ telle que $E(X)=5$. D\'eterminer $q$.
+		\item Soit $Y\hookrightarrow \cB(n,p)$ avec $n\in\N^{\star}$ et $p\in\rbrack 0,1\lbrack$ telle que $E(X)=\sigma (X)=\ddp\frac{3}{4}$. D\'eterminer $n$ et $p$.
+%		\item Soit $Z\hookrightarrow \cH(15,n,p)$ avec $n\in\N^{\star}$ et $p\in\rbrack 0,1 \lbrack$ telle que $E(X)=\ddp\demi$ et $V(X)=\ddp\frac{5}{14}$. D\'eterminer $n$ et $p$. On donne la variance de la loi hyperg\'eom\'etrique : $\ddp np(1-p) \frac{N-n}{N-1}$.
+	\end{enumerate}
+\end{exercice}
+
+
+
+
+\begin{correction}  \;
+	\begin{enumerate}
+		\item L'esp\'erance de la loi uniforme est donn\'ee par $E(X) = \frac{q+1}{2}$. On a donc $\frac{q+1}{2} = 5$, soit \fbox{$q=9$}.%Soit $X\hookrightarrow \cU(q)$ avec $q\in\N^{\star}$ telle que $E(X)=5$. D\'eterminer $q$.
+		\item On a $E(Y) = np$ et $\sigma(Y) = \sqrt{np(1-p)}$. On doit donc r\'esoudre
+		      $$\left\{ \begin{array}{rcl}
+				      np             & = & \frac{3}{4}\vsec  \\
+				      \sqrt{np(1-p)} & = & \frac{3}{4} \vsec
+			      \end{array} \right. \Leftrightarrow
+			      \left\{ \begin{array}{rcl}
+				      np       & = & \frac{3}{4}\vsec   \\
+				      np (1-p) & = & \frac{9}{16} \vsec
+			      \end{array} \right.
+			      \Leftrightarrow
+			      \left\{ \begin{array}{rcl}
+				      np                & = & \frac{3}{4}\vsec   \\
+				      \frac{3}{4} (1-p) & = & \frac{9}{16} \vsec
+			      \end{array} \right.
+			      \Leftrightarrow
+			      \left\{ \begin{array}{rcl}
+				      np & = & \frac{3}{4}\vsec  \\
+				      p  & = & \frac{1}{4} \vsec
+			      \end{array} \right.  $$
+		      On obtient donc \fbox{$n=3$, $p=\frac{1}{4}$}.
+		      %Soit $Y\hookrightarrow \cB(n,p)$ avec $n\in\N^{\star}$ et $p\in\rbrack 0,1\lbrack$ telle que $E(X)=\sigma (X)=\ddp\frac{3}{4}$. D\'eterminer $n$ et $p$.
+		% \item On a $E(Z) = np$ et $V(Z) = np(1-p)\frac{15-n}{14}$. On doit donc r\'esoudre
+		%       $$\left\{ \begin{array}{rcl}
+		% 		      np                            & = & \frac{1}{2}\vsec   \\
+		% 		      \sqrt{np(1-p)\frac{15-n}{14}} & = & \frac{5}{14} \vsec
+		% 	      \end{array} \right. \Leftrightarrow
+		% 	      \left\{ \begin{array}{rcl}
+		% 		      np                       & = & \frac{1}{2}\vsec \\
+		% 		      \frac{1}{2} (1-p) (15-n) & = & 5 \vsec
+		% 	      \end{array} \right.
+		% 	      \Leftrightarrow
+		% 	      \left\{ \begin{array}{rcl}
+		% 		      np          & = & \frac{1}{2}\vsec \\
+		% 		      15-n-15p+np & = & 10 \vsec
+		% 	      \end{array} \right.$$
+		%       $$\Leftrightarrow
+		% 	      \left\{ \begin{array}{rcl}
+		% 		      n                                  & = & \frac{1}{2p}\vsec \\
+		% 		      \frac{1}{2p} + 15 p - \frac{11}{2} & = & 0\vsec
+		% 	      \end{array} \right.
+		% 	      \Leftrightarrow
+		% 	      \left\{ \begin{array}{rcl}
+		% 		      n                & = & \frac{1}{2p}\vsec \\
+		% 		      30 p^2 - 11 p +1 & = & 0\vsec
+		% 	      \end{array} \right.  $$
+		%       On trouve deux solutions $p=\frac{1}{6}$ ou $p=\frac{1}{5}$. La seule qui donne une valeur enti\`ere pour $n$ est la premi\`ere, et on a donc \fbox{$n=3$, $p=\frac{1}{6}$}.
+		      %Soit $Z\hookrightarrow \cH(15,n,p)$ avec $n\in\N^{\star}$ et $p\in\rbrack 0,1 \lbrack$ telle que $E(X)=\ddp\demi$ et $V(X)=\ddp\frac{5}{14}$. D\'eterminer $n$ et $p$.
+	\end{enumerate}
+\end{correction}
+
+
+
+
+
+
+\begin{exercice}  \;
+	On consid\`ere une urne contenant 5 boules num\'erot\'ees: 2 rouges et 3 bleues.
+	\begin{enumerate}
+		%\item On tire simultan\'ement 3 boules de l'urne et on note $X$ le nombre de boules bleues obtenu. Donner la loi de $X$ ainsi que son esp\'erance et sa variance.
+		\item On r\'ealise 3 tirages successifs avec remise et on note $Y$ le nombre de boules bleues obtenu au cours de ces tirages. Donner la loi de $Y$ ainsi que son esp\'erance et sa variance.
+	%	\item On r\'ealise 3 tirages successifs sans remise et on note $Z$ le nombre de boules bleues obtenu au cours de ces tirages. Donner la loi de $Z$ ainsi que son esp\'erance et sa variance.
+		\item On tire une boule de l'urne et on note $T$ le num\'ero de la boule obtenue. Donner la loi de $Z$ ainsi que son esp\'erance et sa variance.
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \;
+	On consid\`ere une urne contenant 5 boules num\'erot\'ees: 2 rouges et 3 bleues.
+	\begin{enumerate}
+		%\item On reconna\^it une loi hyperg\'eom\'etrique : $X \hookrightarrow \cH(5,3,\frac{3}{5})$, $E(X) = \frac{9}{5}$, $V(X) = \frac{9}{5} \times \frac{2}{5} \times \frac{2}{4}$.
+		      %On tire simultan\'ement 3 boules de l'urne et on note $X$ le nombre de boules bleues obtenu. Donner la loi de $X$ ainsi que son esp\'erance et sa variance.
+		\item On reconna\^it une loi binomiale : $X \hookrightarrow \cB(3,\frac{3}{5})$, $E(X) = \frac{9}{5}$, $V(X) = \frac{9}{5} \times \frac{2}{5}$.
+		%\item C'est \`a nouveau une loi hyperg\'eom\'etrique, et on retrouve le m\^eme r\'esultat que pour 1.
+		\item On reconna\^it une loi de Bernoulli  : $X \hookrightarrow \cB(\frac{3}{5})$, $E(X) = \frac{3}{5}$, $V(X) = \frac{3}{5} \times \frac{2}{5}$.
+	\end{enumerate}
+\end{correction}
+
+
+
+
+
+\begin{exercice}  \;
+	On consid\`ere un d\'e truqu\'e \`a  6 faces tel que la probabilit\'e d'obtenir la face num\'erot\'ee $k$ soit proportionnelle \`a $k$. Soit $X$ la varf \'egale au num\'ero de la face obtenue.
+	\begin{enumerate}
+		\item D\'eterminer la loi de $X$, sa fonction de r\'epartition, son esp\'erance et sa variance.
+		\item On pose $Y=\ddp\frac{1}{X}$. Calculer la loi de $Y$ et $E(Y)$.
+		\item Faire de m\^eme avec les varf $Z=(X-2)(X-5)$ et $T=\left\lfloor \ddp\frac{X}{2} \right\rfloor$.
+		      %\item Donner un majorant de $P\left( \left| X-\ddp\frac{13}{3} \right|\geq \ddp\frac{2}{3} \right)$ puis de $P\left( \left| X-\ddp\frac{13}{3} \right|\geq 2 \right)$ \`a l'aide de l'in\'egalit\'e de Bienaym\'e-Tchebychev. Comparer avec la valeur exacte.
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \;
+	%On consid\`ere un d\'e truqu\'e \`a  6 faces tel que la probabilit\'e d'obtenir la face num\'erot\'ee $k$ soit proportionnelle \`a $k$. Soit $X$ la varf \'egale au num\'ero de la face obtenue.
+	\begin{enumerate}
+		\item
+		      \begin{itemize}
+			      \item[$\bullet$] Loi de $X$. On a $X(\Omega) = \intent{ 1,6}$, et on sait que pour tout $k \in \intent{ 1,6}$, on a $P(X=k) = \alpha$ avec $\alpha$ \`a d\'eterminer. Or on a $\sum\limits_{k=1}^6 P(X=k) = 1$, donc
+				      $$\sum_{k=1}^6 \alpha k = 1 \Rightarrow  \alpha \frac{6 \times 7}{2} = 1 \Rightarrow \alpha = \frac{1}{21}.$$
+				      On obtient donc \fbox{$\ddp P(X=k) = \frac{k}{21}$}.
+			      \item[$\bullet$] Fonction de r\'epartition. On utilise la formule du cours :
+				      \begin{itemize}
+					      \item[$\star$] si $x<1$, on a $F_X(x) = 0$,
+					      \item[$\star$] si $k\leq x < k+1$, avec $k\in \intent{ 1,5}$, on a $\ddp F_X(x) = \sum\limits_{i=1}^k P(X=i) = \sum\limits_{i=1}^k \frac{i}{21}$, soit $\ddp F_X(x) = \frac{k(k+1)}{42}$.
+					      \item[$\star$] si $x\geq 6$, on a $F_Y(x) = 1$.
+				      \end{itemize}
+			      \item[$\bullet$] Esp\'erance. On a $E(X) =\ddp  \sum\limits_{k=1}^6 k P(X=k) = \sum\limits_{k=1}^6 \frac{k^2}{21} =  \frac{6 \times 7 \times 13}{6\times 21}$, soit \fbox{$E(X) =\ddp \frac{91}{21}$}.
+			      \item[$\bullet$] Variance. On applique la formule de Koenig-Huygens : $V(X) = E(X^2) - (E(X))^2$, en calculant $E(X^2)$ gr\^ace au th\'eor\`eme du transfert :
+				      $$E(X^2) = \sum\limits_{k=1}^6 k^2 P(X=k) = \sum\limits_{k=1}^6 \frac{k^3}{21} = \frac{1}{21} \times \left(\frac{6(6+1)}{2}\right)^2 = \frac{441}{21}$$
+				      soit  \fbox{$V(X) =\ddp  \frac{441}{21} - \left(\frac{91}{21}\right)^2\simeq 2.2$}.
+		      \end{itemize}
+		      % D\'eterminer la loi de $X$, sa fonction de r\'epartition, son esp\'erance et sa variance.
+		\item On a $Y(\Omega)=\ddp \left\{1,\frac{1}{2},\frac{1}{3}, \frac{1}{4}, \frac{1}{5}, \frac{1}{6}\right\}$. De plus, pour tout $k\in \intent{ 1,6}$, on a \fbox{$\ddp P(Y= \frac{1}{k}) = P(X=k) = \frac{k}{21}$}.\\
+		      On utilise le th\'eor\`eme du transfert pour calculer l'esp\'erance :
+		      $$E(Y) = \sum_{k=1}^6 \frac{1}{k} P(X=k) = \sum_{k=1}^6 \frac{1}{21}$$
+		      soit \fbox{$E(Y) = \ddp \frac{6}{21}$}.
+		\item On donne ici uniquement les r\'esultats :
+		      \begin{center} \begin{tabular}{|c|c|c|c|c|c|} \hline $z_i$     & $-2$               & $0$                & $4$                \\
+               \hline $P(\lbrack Z=z_i\rbrack)$ & $\ddp \frac{1}{3}$ & $\ddp \frac{1}{3}$ & $\ddp \frac{1}{3}$
+               \\ \hline
+			      \end{tabular} %\end{center}
+			      %\begin{center} 
+			      \quad \begin{tabular}{|c|c|c|c|c|c|} \hline $t_i$     & $0$                 & $1$                 & $2$                 & $3$                 \\
+               \hline $P(\lbrack T=t_i\rbrack)$ & $\ddp \frac{1}{21}$ & $\ddp \frac{5}{21}$ & $\ddp \frac{9}{21}$ & $\ddp \frac{6}{21}$
+               \\ \hline
+			      \end{tabular}
+		      \end{center}
+		      On en d\'eduit \fbox{$E(Z) = \ddp \frac{2}{3}$} et \fbox{$E(T) = \ddp \frac{41}{21}$}.
+		      %\item Donner un majorant de $P\left( \left| X-\ddp\frac{13}{3} \right|\geq \ddp\frac{2}{3} \right)$ puis de $P\left( \left| X-\ddp\frac{13}{3} \right|\geq 2 \right)$ \`a l'aide de l'in\'egalit\'e de Bienaym\'e-Tchebychev. Comparer avec la valeur exacte.
+	\end{enumerate}
+\end{correction}
+
+
+
+
+
+
+
+\begin{exercice}  \;
+	La loi de probabilit\'e d'une var $X$ est donn\'ee par le tableau
+	suivant :\\\begin{center} \begin{tabular}{|c|c|c|c|c|c|} \hline $x_i$     & $-4$ & $-2$ & $1$  & $2$  & $3$  \\
+               \hline $P(\lbrack X=x_i\rbrack)$ & 0,10 & 0,35 & 0,15 & 0,25 & 0,15
+               \\ \hline
+		\end{tabular} \end{center}
+	\begin{enumerate}
+		\item Tracer le diagramme en b\^atons de $X$.
+		\item Donner sa fonction de r\'epartition et en donner le graphe.
+		\item Calculer $P(\lbrack X<0\rbrack),\ P(\lbrack X>-1\rbrack ),\ P(\lbrack -3,5<X\leq -2\rbrack)$.
+		\item Donner sous forme d'un tableau la loi de probabilit\'e des
+		      variables suivantes : $|X|,\ Y=X^2+X-2,\ Z=\min(X,1),\
+			      T=\max(X,-X^2)$.
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \;
+	La loi de probabilit\'e d'une var $X$ est donn\'ee par le tableau
+	suivant :\\\begin{center} \begin{tabular}{|c|c|c|c|c|c|} \hline $x_i$     & $-4$ & $-2$ & $1$  & $2$  & $3$  \\
+               \hline $P(\lbrack X=x_i\rbrack)$ & 0,10 & 0,35 & 0,15 & 0,25 & 0,15
+               \\ \hline
+		\end{tabular} \end{center}
+	\begin{enumerate}
+		\item Diagramme \`a faire.%Tracer le diagramme en b\^atons de $X$.
+		\item D'apr\`es la formule du cours :
+		      \begin{itemize}
+			      \item[$\star$] si $x<-4$, on a $F_X(x) = 0$,
+			      \item[$\star$] si $-4\leq x < -2$, on a $F_X(x) = P(X =-4) = 0,10$,
+			      \item[$\star$] si $-2\leq x < 1$, on a $F_X(x) = P(X=-4)+P(X=-2) = 0,45$,
+			      \item[$\star$] si $1\leq x < 2$, on a $F_X(x) =  P(X=-4)+P(X=-2)+P(X=1) = 0,6$,
+			      \item[$\star$] si $2\leq x < 3$, on a $F_X(x) = P(X=-4)+P(X=-2)+P(X=1) +P(X=2)=0,85$,
+			      \item[$\star$] si $x\geq 3$, on a $F_X(x) = 1$.
+		      \end{itemize}
+		\item On a $[X=0]\cup[X<0] = [X\leq0]$, et comme ce sont des \'ev\'enements incompatibles, on a $P(X\leq0) = P(X=0) + P(X\leq0)$. On en d\'eduit : $P(\lbrack X<0\rbrack) = P(X\leq0) - P([X=0]) = F_X(0) - 0$, soit \fbox{$P(\lbrack X<0\rbrack) = 0,45$}.\\
+		      De m\^eme, $P(\lbrack X> -1\rbrack ) = 1- P(X\leq -1) = 1-F_X(-1) = 1-0,45$, soit \fbox{$P(\lbrack X> -1\rbrack ) = 0,55$}.\\
+		      Enfin, $P(\lbrack -3,5<X\leq -2\rbrack) = P(X\leq -2) - P(X\leq -3,5) = F_X(-2) - F_X(-3,5)$, soit \fbox{$P(\lbrack -3,5<X\leq -2\rbrack)  = 0,35$}.
+		\item Ici je donne juste les r\'esultats :
+		      \begin{center} \begin{tabular}{|c|c|c|c|c|c|} \hline $x_i$       & $1$  & $2$  & $3$  & $4$  \\
+               \hline $P(\lbrack |X|=x_i\rbrack)$ & 0,15 & 0,60 & 0,15 & 0,10
+               \\ \hline
+			      \end{tabular} %\end{center}
+			      %\begin{center} 
+			      \quad \begin{tabular}{|c|c|c|c|c|c|} \hline $y_i$     & $0$  & $4$  & $10$ \\
+               \hline $P(\lbrack Y=y_i\rbrack)$ & 0,25 & 0,25 & 0,5
+               \\ \hline
+			      \end{tabular} \end{center}
+		      \begin{center}
+			      \begin{tabular}{|c|c|c|c|c|c|} \hline $z_i$     & $-4$ & $-2$ & $1$  \\
+               \hline $P(\lbrack Z=z_i\rbrack)$ & 0,10 & 0,35 & 0,55
+               \\ \hline
+			      \end{tabular} %\end{center}
+			      %\begin{center} 
+			      \quad \begin{tabular}{|c|c|c|c|c|c|} \hline $t_i$     & $-4$ & $-2$ & $1$  & $2$  & $3$  \\
+               \hline $P(\lbrack T=t_i\rbrack)$ & 0,10 & 0,35 & 0,15 & 0,25 & 0,15
+               \\ \hline
+			      \end{tabular} \end{center}
+	\end{enumerate}
+\end{correction}
+
+
+
+
+
+\begin{exercice}
+	On consid\`ere une urne de taille $N>1$ contenant $r$ boules blanches et $N-r$ boules noires ($0<r<N$). Dans cette urne, on pr\'el\`eve les boules une \`a une et sans remise jusqu'\`a l'obtention de toutes les boules blanches et on note $X$ le nombre de tirages qu'il est n\'ecessaire d'effectuer pour cela.
+	\begin{enumerate}
+		\item
+		      \begin{enumerate}
+			      \item Traiter le cas $N=4$ et $r=1$.
+			      \item Traiter le cas $N=4$ et $r=2$.
+			      \item Dans le cas $r=1$, reconna\^itre la loi de $X$. Donner son espr\'erance. M\^eme question dans le cas $r=N$.\\
+			            \noindent On revient d\'esormais au cas g\'en\'eral $1<r<N$.
+		      \end{enumerate}
+		\item Calculer l'univers image de $X$.
+		\item Soit $k$ une de ces valeurs.
+		      \begin{enumerate}
+			      \item D\'eterminer la probabilit\'e qu'au cours des $k-1$ premiers tirages soient apparus $r-1$ boules blanches.
+			      \item V\'erifier que: $P(\lbrack X=k\rbrack)=\ddp\frac{\ddp \binom{k-1}{r-1}}{\ddp \binom{N}{r}}$.
+		      \end{enumerate}
+		\item Calculer l'esp\'erance et la variance de $X$.
+	\end{enumerate}
+\end{exercice}
+\begin{correction}
+	On consid\`ere une urne de taille $N>1$ contenant $r$ boules blanches et $N-r$ boules noires ($0<r<N$). Dans cette urne, on pr\'el\`eve les boules une \`a une et sans remise jusqu'\`a l'obtention de toutes les boules blanches et on note $X$ le nombre de tirages qu'il est n\'ecessaire d'effectuer pour cela.
+	\begin{enumerate}
+		\item
+		      \begin{enumerate}
+			      \item Traiter le cas $N=4$ et $r=1$.
+			      \item Traiter le cas $N=4$ et $r=2$.
+			      \item Dans le cas $r=1$, reconna\^itre la loi de $X$. Donner son espr\'erance. M\^eme question dans le cas $r=N$.\\
+			            \noindent On revient d\'esormais au cas g\'en\'eral $1<r<N$.
+		      \end{enumerate}
+		\item Calculer l'univers image de $X$.
+		\item Soit $k$ une de ces valeurs.
+		      \begin{enumerate}
+			      \item D\'eterminer la probabilit\'e qu'au cours des $k-1$ premiers tirages soient apparus $r-1$ boules blanches.
+			      \item V\'erifier que: $P(\lbrack X=k\rbrack)=\ddp\frac{\ddp \binom{k-1}{r-1}}{\ddp \binom{N}{r}}$.
+		      \end{enumerate}
+		\item Calculer l'esp\'erance et la variance de $X$.
+	\end{enumerate}
+\end{correction}
+
+
+
+
+
+
+
+\begin{exercice}
+	Deux urnes $U_1$ et $U_2$ contiennent des boules blanches et des boules noires en nombres respectifs $b_1,\ n_1,\ b_2,\ n_2$ non nuls. On effectue un premier tirage dans une urne choisie au hasard et on remet la boule obtenue dans son urne d'origine. Si l'on obtient une boule blanche (resp noire), le deuxi\`eme tirage se fait dans $U_1$ (resp $U_2$). Si au $i$-\`eme tirage, la boule obtenue est blanche, le $i+1$-\`eme tirage se fait dans $U_1$ sinon dans $U_2$. Soit $B_i$ l'\'ev\'enement \textit{on obtient une boule blanche au tirage i}.
+	\begin{enumerate}
+		\item Calculer $P(B_1)$, $P(B_2)$ et $P(B_{n+1})$ en fonction de $P(B_n)$.
+		\item Soit $X_n$ le nombre de boules blanches obtenues lors des $n$ premiers tirages. Calculer $E(X_n)$. On pourra introduire $Y_i$ la varf \'egale au nombre de boule blanche obtenue au tirage $i$.
+	\end{enumerate}
+\end{exercice}
+\begin{correction}
+	Deux urnes $U_1$ et $U_2$ contiennent des boules blanches et des boules noires en nombres respectifs $b_1,\ n_1,\ b_2,\ n_2$ non nuls. On effectue un premier tirage dans une urne choisie au hasard et on remet la boule obtenue dans son urne d'origine. Si l'on obtient une boule blanche (resp noire), le deuxi\`eme tirage se fait dans $U_1$ (resp $U_2$). Si au $i$-\`eme tirage, la boule obtenue est blanche, le $i+1$-\`eme tirage se fait dans $U_1$ sinon dans $U_2$. Soit $B_i$ l'\'ev\'enement \textit{on obtient une boule blanche au tirage i}.
+	\begin{enumerate}
+		\item Calculer $P(B_1)$, $P(B_2)$ et $P(B_{n+1})$ en fonction de $P(B_n)$.
+		\item Soit $X_n$ le nombre de boules blanches obtenues lors des $n$ premiers tirages. Calculer $E(X_n)$. On pourra introduire $Y_i$ la varf \'egale au nombre de boule blanche obtenue au tirage $i$.
+	\end{enumerate}
+\end{correction}
+
+
+%-------------------------------------------------
+%------------------------------------------------
+\begin{exercice}  \;
+	Dans un jeu t\'el\'evis\'e, le candidat doit r\'epondre \`a 20 questions. Pour chacune d'elles, l'animateur propose au candidat trois r\'eponses possibles, une seule \'etant la r\'eponse exacte. Les questionnaires sont \'etablis de fa\c{c}on que l'on puisse admettre que:
+	\begin{itemize}
+		\item[$\bullet$] un candidat retenu pour participer au jeu conna\^it la r\'eponse exacte pour $60\%$ des questions et donne une r\'eponse au hasard pour les autres;
+		\item[$\bullet$]  les questions pos\'ees lors du jeu sont ind\'ependantes.
+	\end{itemize}
+	\begin{enumerate}
+		\item On consid\`ere l'\'ev\'enement $E_i$: le candidat donne la r\'eponse exacte \`a la $i$-\`eme question. Calculer $P(E_i)$.
+		\item On note $X$ la varf \'egale au nombre de r\'eponses exactes donn\'ees par le candidat aux 20 questions du jeu. Donner la loi de probabilit\'e de $X$.
+		\item Quel est le nombre moyen de bonnes r\'eponses donn\'ees par le candidat ?
+	\end{enumerate}
+\end{exercice}
+%------------------------------------------------
+\begin{correction}  \;
+	Dans un jeu t\'el\'evis\'e, le candidat doit r\'epondre \`a 20 questions. Pour chacune d'elles, l'animateur propose au candidat trois r\'eponses possibles, une seule \'etant la r\'eponse exacte. Les questionnaires sont \'etablis de fa\c{c}on que l'on puisse admettre que:
+	\begin{itemize}
+		\item[$\bullet$] un candidat retenu pour participer au jeu conna\^it la r\'eponse exacte pour $60\%$ des questions et donne une r\'eponse au hasard pour les autres.
+		\item[$\bullet$]  Les questions pos\'ees lors du jeu sont ind\'ependantes.
+	\end{itemize}
+	\begin{enumerate}
+		\item On note $C_i$ l'\'ev\'enement \og le candidat conna\^it la r\'eponse \`a la $i$-\`eme question \fg. On a alors, d'apr\`es la formule des probabilit\'es totales :
+		      $$P(E_i)  = P(E_i \cap C_i) + P(E_i \cap \bar C_i).$$
+		      De plus, $P(C_i) = \frac{60}{100}=\frac{3}{5}\not=0$, donc les probabilit\'es conditionnelles existent et on a
+		      $$P(E_i) = P_{C_i}(E_i) P(C_i) + P_{\bar C_i}(E_i) P(\bar C_i) = 1 \times \frac{3}{5} + \frac{1}{3} \times \frac{2}{5},$$
+		      car si le joueur conna\^it la r\'eponse, il l'a donne \`a coup s\^ur, et sinon il a une chance sur $3$ (\'equiprobabilit\'e) de trouver la bonne r\'eponse. On a donc finalement \fbox{$\ddp P(E_i) = \frac{11}{15}$}.
+		      %On consid\`ere l'\'ev\'enement $E_i$: le candidat donne la r\'eponse exacte \`a la $i$-\`eme question. Calculer $P(E_i)$.
+		\item On a $X(\Omega) = \intent{ 0, 20 }$. La varf $X$ suit une loi binomiale de param\`etres $n=10$ et $\ddp p= \frac{11}{15}$. On en d\'eduit que $\ddp P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}$, soit \fbox{$\ddp P(X=k) = \binom{20}{k} \left( \frac{11}{15}\right)^k \left( \frac{4}{15}\right)^{20-k}$}.
+		      %On note $X$ la varf \'egale au nombre de r\'eponses exactes donn\'ees par le candidat aux 20 questions du jeu. Donner la loi de probabilit\'e de $X$.
+		\item On a alors $\ddp E(X) = n p = 20 \times \frac{11}{15}$.
+		      %On note $X_i$ la varf qui vaut $1$ si la r\'eponse \`a la $i$-\`eme question est correcte, et $0$ sinon. On a $X= \sum\limits_{i=1}^{20} X_i$
+		      %Quel est le nombre moyen de bonnes r\'eponses donn\'ees par le candidat.
+	\end{enumerate}
+\end{correction}
+
+
+
+
+%-------------------------------------------------
+%------------------------------------------------
+\begin{exercice}
+	On lance quatre fois de suite une pi\`ece \'equilibr\'ee. On note $X$ le nombre de s\'equence(s) pile-face obtenue(s). D\'eterminer la loi de $X$.
+\end{exercice}
+\begin{correction}
+	On lance quatre fois de suite une pi\`ece \'equilibr\'ee. On note $X$ le nombre de s\'equence(s) pile-face obtenue(s). D\'eterminer la loi de $X$.
+\end{correction}
+
+
+%
+%
+%
+\begin{exercice}
+	Soit $X$ une varf sur un espace probabilis\'e fini $(\Omega,\mathcal{P}(\Omega),P)$ dont l'univers image est donn\'e par $X(\Omega)=\intent{ 0,n}$. On note $F_X$ sa fonction de r\'epartition.
+	\begin{enumerate}
+		\item Pour tout $k\in\intent{ 0,n}$, exprimer $P(\lbrack X<k\rbrack)$ et $P(\lbrack X>k\rbrack)$ \`a l'aide de $F_X$.
+		\item G\'en\'eraliser ce r\'esultat \`a une var finie quelconque.
+	\end{enumerate}
+\end{exercice}
+\begin{correction}
+	Soit $X$ une varf sur un espace probabilis\'e fini $(\Omega,\mathcal{P}(\Omega),P)$ dont l'univers image est donn\'e par $X(\Omega)=\intent{ 0,n}$. On note $F_X$ sa fonction de r\'epartition.
+	\begin{enumerate}
+		\item On a $P(X<0)= 0$. De plus, pour $k \in\intent{ 1,n}$,
+		      $$P(X\leq k) = P([X<k] \cup [X=k]) = P(X<k) + P(X=k)$$
+		      car ces \'ev\'enements sont incompatibles. Or on a $P(X=k)$ est le saut de $F_X$, donc $P(X=k) = F_X(k)-F_X(k-1)$. On a donc
+		      $$P(X<k) = P(X\leq k) - P(X=k) = F_X(k) - (F_X(k)-F_X(k-1)),$$
+		      soit \fbox{$P(X<k) = F_X(k-1)$}.
+		      D'autre part, $P(X>k) = 1-P(X\leq k)$, soit  \fbox{$P(X>k)= 1-F_X(k)$}.
+		      % Pour tout $k\in\intent{ 0,n}$, exprimer $P(\lbrack X<k\rbrack)$ et $P(\lbrack X>k\rbrack)$ \`a l'aide de $F_X$.
+		\item \`A faire.%G\'en\'eraliser ce r\'esultat \`a une var finie quelconque.
+	\end{enumerate}
+\end{correction}
+
+
+\begin{exercice}
+	\begin{enumerate}
+		\item
+		      On consid\`ere une urne contenant 3 boules vertes et 2 boules roses. On effectue un tirage de 3 boules et on appelle $N$ la varf \'egale au nombre de boules vertes.
+		      \begin{enumerate}
+			      \item Donner la loi de $N$, son esp\'erance et son \'ecart-type.
+			      \item Comparer avec la loi binomiale $\cB\left( 3,\ddp\frac{3}{5} \right)$.
+		      \end{enumerate}
+		\item On multiplie par 10 le nombre de boules de chaque couleur pr\'esentes dans l'urne et on note encore $N$ la varf \'egale au nombre de boules vertes obtenues au cours de ce tirage de 3 boules. Donner une approximation de la loi de $N$.
+	\end{enumerate}
+\end{exercice}
+\begin{correction}
+	\begin{enumerate}
+		\item
+		      On consid\`ere une urne contenant 3 boules vertes et 2 boules roses. On effectue un tirage de 3 boules et on appelle $N$ la varf \'egale au nombre de boules vertes.
+		      \begin{enumerate}
+			      \item Donner la loi de $N$, son esp\'erance et son \'ecart-type.
+			      \item Comparer avec la loi binomiale $\cB\left( 3,\ddp\frac{3}{5} \right)$.
+		      \end{enumerate}
+		\item On multiplie par 10 le nombre de boules de chaque couleur pr\'esentes dans l'urne et on note encore $N$ la varf \'egale au nombre de boules vertes obtenues au cours de ce tirage de 3 boules. Donner une approximation de la loi de $N$.
+	\end{enumerate}
+\end{correction}
+
+
+\begin{exercice}  \;
+	Lors d'un concours d'\'equitation, un cavalier effectue un parcours de 2 km \`a la vitesse de 10km/h. Il doit franchir 10 obstacles ind\'ependants les uns des autres. La probabilit\'e de franchir un obstacle est de $\ddp\frac{3}{5}$.
+	\begin{enumerate}
+		\item On note $X$ la varf qui d\'esigne le nombre d'obstacles franchis sans fautes par le cavalier. D\'eterminer la loi, la fonction de r\'epartition, l'esp\'erance et la variance de $X$.
+		\item On suppose que si le cavalier franchit un obstacle sans faute, il ne perd pas de temps et qu'il perd 30 secondes sinon. Calculer le temps moyen d'un parcours.
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \;
+	%Lors d'un concours d'\'equitation, un cavalier effectue un parcours de 2000 m\`etres \`a la vitesse de 10km/h. Il doit franchir 10 obstacles ind\'ependants les uns des autres. La probabilit\'e de franchir un obstacle est de $\ddp\frac{3}{5}$.
+	\begin{enumerate}
+		\item On a $X(\Omega) = \intent{ 0,10}$. On a une succession de $10$ exp\'eriences de Bernoulli ind\'ependantes, dont la probabilit\'e de succ\`es est $\ddp \frac{3}{5}$, donc $X$ suit une loi binomiale de param\`etres $n=10$ et $p=\frac{3}{5}$, donc on a \fbox{$\ddp P(X=k) = \binom{n}{k} \left(\frac{3}{5}\right)^k \left(\frac{2}{5}\right)^{10-k}$}, \fbox{$E(X) = np = 6$} et \fbox{$\ddp V(X) = n p (1-p) = \frac{12}{5}$}.
+		      %On note $X$ la varf qui d\'esigne le nombre d'obstacles franchis sans fautes par le cavalier. D\'eterminer la loi, la fonction de r\'epartition, l'esp\'erance et la variance de $X$. 
+		\item On note $Y$ la variable al\'eatoire \'egale au temps du parcours en minutes. Le temps sans faute est de $2\times \frac{1}{10}= \frac{1}{5}$ heure, soit $12$ minutes, et on enl\`eve $30$ secondes par faute, soit $\frac{1}{2}$ minute. Comme le nombre de fautes est $10-X$, on a $Y = 12 + \frac{1}{2}(10-X).$ Comme l'esp\'erance est lin\'eaire, on a
+		      $$E(Y) = 12 + \frac{1}{2}(10-E(X))$$
+		      soit \fbox{$E(Y)= 14$} : le temps moyen d'un parcours est de $14$ minutes.
+		      %On suppose que si le cavalier franchit un obstacle sans faute, il ne perd pas de temps et qu'il perd 30 secondes sinon. Calculer le temps moyen d'un parcours.
+	\end{enumerate}
+\end{correction}
+
+
+
+
+\begin{exercice}  \;
+	\begin{enumerate}
+%		\item Soit $X\hookrightarrow \cU(q)$ avec $q\in\N^{\star}$ telle que $E(X)=5$. D\'eterminer $q$.
+%		\item Soit $Y\hookrightarrow \cB(n,p)$ avec $n\in\N^{\star}$ et $p\in\rbrack 0,1\lbrack$ telle que $E(X)=\sigma (X)=\ddp\frac{3}{4}$. D\'eterminer $n$ et $p$.
+	\item Soit $Z\hookrightarrow \cH(15,n,p)$ avec $n\in\N^{\star}$ et $p\in\rbrack 0,1 \lbrack$ telle que $E(X)=\ddp\demi$ et $V(X)=\ddp\frac{5}{14}$. D\'eterminer $n$ et $p$. On donne la variance de la loi hyperg\'eom\'etrique : $\ddp np(1-p) \frac{N-n}{N-1}$.
+	\end{enumerate}
+\end{exercice}
+
+
+
+
+\begin{exercice}  \;
+	Deux joueurs jouent $n$ fois chacun \`a pile ou face.
+	\begin{enumerate}
+		\item Calculer la probabilit\'e qu'ils obtiennent le m\^eme nombre de piles.
+		\item Calculer la probabilit\'e pour qu'un joueur obtienne un nombre de piles strictement plus grand que l'autre.
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \;
+	%Deux joueurs jouent $n$ fois chacun \`a pile ou face.
+	\begin{enumerate}
+		\item Soit $X$ (resp. $Y$) le nombre de piles effectu\'es par le premier joueur (resp. le deuxi\`eme joueur). On a
+		      $$P(X=Y) = P(([X=0]\cap[Y=0])\cup ([X=1]\cap[Y=1]) \cup \ldots \cup ([X=n]\cap[Y=n])).$$
+		      Or ces \'ev\'enements sont $2$ \`a $2$ incompatibles, donc on a
+		      $$P(X=Y) = P([X=0]\cap[Y=0]) + P([X=1]\cap[Y=1]) + \ldots + P([X=n]\cap[Y=n]).$$
+		      De plus, les jeux sont ind\'ependants donc on a $P([X=k]\cap[Y=k]) = P(X=k) \times P(Y=k).$ Or $X$ et $Y$ suivent toutes deux une loi binomiale de param\`etres $n$ et $\ddp \frac{1}{2}$, donc
+		      $$\ddp P(X=k) = P(Y=k) = \binom{n}{k} \ddp \left(\frac{1}{2}\right)^k \left(1-\frac{1}{2}\right)^{n-k} = \binom{n}{k} \ddp \left(\frac{1}{2}\right)^n.$$
+		      On a donc finalement :
+		      $$P(X=Y) =\ddp \sum\limits_{k=0}^n \left(\binom{n}{k} \left(\frac{1}{2}\right)^n\right)^2 = \left(\frac{1}{2}\right)^{2n}\sum\limits_{k=0}^n \left(\binom{n}{k}\right)^2 = \left(\frac{1}{2}\right)^{2n} \binom{2n}{n}$$
+		      d'apr\`es la formule de Vandermonde.
+		      %Calculer la probabilit\'e qu'ils obtiennent le m\^eme nombre de piles.
+		\item On a $P(X \not= Y) = 1-P(X=Y) $. Donc \fbox{$\ddp P(X \not= Y) = 1 - \left(\frac{1}{2}\right)^{2n} \binom{2n}{n}$}.\\
+		      De plus, comme $P(X>Y) = P(X<Y)$, on a $P(X>Y) = \ddp \frac{1}{2} P(X\not=Y) =$ \fbox{$\ddp \frac{1}{2}- \left(\frac{1}{2}\right)^{2n+1} \binom{2n}{n}$}.
+
+		      %Calculer la probabilit\'e pour qu'un joueur obtienne un nombre de piles strictement plus grand que l'autre.
+	\end{enumerate}
+\end{correction}
+%--------------------------------------------------
+
+
+%------------------------------------------------
+\begin{exercice}  \;
+	Une puce se d\'eplace sur un axe par sauts ind\'ependants et d'amplitude 1, al\'eatoirement vers la gauche ou la droite. Soit $X_n$ sa position apr\`es $n$ sauts (elle commence \`a la position 0). Soit $Y_n$ le nombre de fois o\`u elle a saut\'e vers la droite au cours des $n$ premiers sauts.
+	\begin{enumerate}
+		\item Donner la loi de $Y_n$.
+		\item Apr\`es avoir exprim\'e $X_n$ en fonction de $Y_n$, donner la loi de $X_n$.
+		\item On suppose que $n$ est pair. Quelles est la probabilit\'e $p_n$ que la puce revienne \`a son point de d\'epart apr\`es $n$ sauts ? Etudier la convergence de la suite $(p_n)_{n\in\N}$. \\
+		      \noindent On admettra la formule de Stirling: $n!\underset{+\infty}{\thicksim} \ddp\frac{n^n \sqrt{2\pi n}}{e^n}$.
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \;
+	\textbf{Une puce se d\'eplace sur un axe par sauts ind\'ependants et d'amplitude 1, al\'eatoirement vers la gauche ou la droite. Soit $\mathbf{X_n}$ sa position apr\`es $\mathbf{n}$ sauts (elle commence \`a la position 0). Soit $\mathbf{Y_n}$ le nombre de fois o\`u elle a saut\'e vers la droite au cours des $\mathbf{n}$ premiers sauts.}
+	\begin{enumerate}
+		\item \textbf{Donner la loi de $\mathbf{Y_n}$:}\\
+		      \noindent On reconna\^{i}t une loi binomiale car $Y_n$ est un nombre de succ\`{e}s, le succ\`{e}s \'etant sauter vers la droite et que l'on r\'ep\`{e}te bien $n$ fois la m\^{e}me exp\'erience dans les m\^{e}mes conditions. Ainsi on a: \fbox{$Y_n\hookrightarrow \mathcal{B}\left(n,\ddp\demi\right)$.} En effet il y a \'equiprobabilit\'e de sauter \`{a} droite ou \`{a} gauche et ainsi la probabilit\'e de sauter vers la droite vaut bien $\ddp\demi$. On a donc:
+		      $$\forall k\in\intent{ 0,n},\ P(\lbrack Y_n=k\rbrack)=\binom{n}{k} \left( \ddp\demi \right)^k \left( \ddp\demi \right)^{n-k}=\fbox{$\ddp\binom{n}{k} \left( \ddp\demi \right)^n$}.$$
+		\item \textbf{Apr\`es avoir exprimer $\mathbf{X_n}$ en fonction de $\mathbf{Y_n}$, donner la loi de $\mathbf{X_n}$.}
+		      \begin{itemize}
+			      \item[$\bullet$] La position de la puce apr\`{e}s $n$ sauts en ayant commenc\'e \`{a} 0 correspond au nombre de sauts faits \`{a} droite moins le nombre de sauts effectu\'es \`{a} gauche. Or si $Y_n$ est le nombre de sauts effectu\'es \`{a} droite, $n-Y_n$ correspond alors au nombre de sauts effectu\'es \`{a} gauche. Ainsi on a:
+				      $$\fbox{$X_n=Y_n-(n-Y_n)=2Y_n-n.$}$$
+			      \item[$\bullet$] Univers image de $X_n$: la plus petite valeur atteinte est $-n$ (que des sauts \`a gauche), et la plus grande $n$ (que des sautes \`a droite). Ainsi $X_n(\Omega) = \intent{ -n, n }$. On peut cependant remarquer que tous les entiers entre $-n$ et $n$ ne peuvent \^etre atteints. Si $n$ est pair, seuls les entiers pairs peuvent \^etre atteints, et si $n$ est impair, seuls les entiers impairs peuvent \^etre atteints !
+			      \item[$\bullet$] Loi de $X_n$: Soit $k\in\intent{ -n,n}$ fix\'e. On a:
+				      $$P(X_n=k)=P(2Y_n-n=k)=P\left( Y_n=\ddp\frac{n+k}{2} \right).$$
+				      Comme on conna\^{i}t la loi de $Y_n$, on va pouvoir en d\'eduire la loi de $X_n$. Pour cela il faut d\'ej\`{a} savoir si, lorsque $k\in\intent{ -n,n}$, on a: $\ddp\frac{n+k}{2} \in Y_n(\Omega)$, \`{a} savoir si: $\ddp\frac{n+k}{2} \in\intent{ 0,n}$.
+				      \begin{itemize}
+					      \item[$\star$] Comme $k\in\intent{ -n,n}$, on a: $0\leq n+k\leq 2n$ et ainsi: $0\leq \ddp\frac{n+k}{2}\leq n\Leftrightarrow \ddp\frac{n+k}{2}\in \lbrack 0,n\rbrack$.
+					      \item[$\star$] Mais il faut faire attention car $ \ddp\frac{n+k}{2}$ n'est pas forc\'ement un entier et ainsi on n'a pas forc\'ement que: $\ddp\frac{n+k}{2}\in \intent{ 0,n}$.
+				      \end{itemize}
+				      On doit donc distinguer deux cas selon que $n+k$ est pair ou imapir:
+				      \begin{itemize}
+					      \item[$\star$] CAS 1: si $k$ est tel que $n+k$ est impair:\\
+						      \noindent Alors $\ddp\frac{n+k}{2}$ n'est pas un entier et ainsi $\ddp\frac{n+k}{2}\notin Y_n(\Omega)$ et donc $P(X_n=k)=P\left( Y_n=\ddp\frac{n+k}{2} \right)=0$.
+					      \item[$\star$] CAS 2: si $k$ est tel que $n+k$ est pair:\\
+						      \noindent Alors $\ddp\frac{n+k}{2}$ est un entier et ainsi $\ddp\frac{n+k}{2}\in Y_n(\Omega)$ et donc $P(X_n=k)=P\left( Y_n=\ddp\frac{n+k}{2} \right)=\ddp\binom{n}{\frac{n+k}{2}} \left(\ddp\demi  \right)^n$.
+				      \end{itemize}
+				      On obtient ainsi la loi de $X_n$:
+				      $$\fbox{$
+							      \forall k\in \intent{ -n,n},\ P(X_n=k)=\left\lbrace\begin{array}{ll}
+								      \ddp\binom{n}{\frac{n+k}{2}} \left(\ddp\demi  \right)^n & \hbox{si}\ n+k\ \hbox{pair}\vsec \\
+								      0                                                       & \hbox{si}\ n+k\ \hbox{impair}.
+							      \end{array}\right.
+							      .$}$$
+		      \end{itemize}
+		\item \textbf{On suppose que $\mathbf{n}$ est pair. Quelles est la probabilit\'e $\mathbf{p_n}$ que la puce revienne \`a son point de d\'epart apr\`es $\mathbf{n}$ sauts ? \'Etudier la convergence de la suite $\mathbf{(p_n)_{n\in\N}}$ }\\
+		      \noindent \textbf{On admettra la formule de Stirling: $\mathbf{n!\underset{+\infty}{\thicksim} \ddp\frac{n^n \sqrt{2\pi n}}{e^n}}$.}
+		      \begin{itemize}
+			      \item[$\bullet$] Calcul de $p_n$:\\
+				      \noindent On cherche \`{a} calculer $p_n=P(X_n=0)$. Comme $n$ est pair par hypoth\`{e}se, on a bien: $n+k=n$ qui est toujours pair et ainsi on obtient d'apr\`{e}s la question pr\'ec\'edente que:
+				      $$\fbox{$p_n=P(X_n=0)=\ddp\binom{n}{\frac{n}{2}} \left(\ddp\demi  \right)^n.$}$$
+			      \item[$\bullet$] \'Etude de la convergence:\\
+				      \noindent On utilise pour cela la formule de Stirling et on obtient que:
+				      $$\ddp\binom{n}{\frac{n}{2}}=\ddp\frac{n!}{\left(\frac{n}{2}\right)!\left(\frac{n}{2}\right)!}\underset{+\infty}{\thicksim}
+					      \ddp\frac{n^n \sqrt{2\pi n}}{e^n} \left(\ddp\frac{    e^{\frac{n}{2}}}{(\frac{n}{2})^{\frac{n}{2}} \sqrt{\pi n} }\right)^2.$$
+				      Or on a:
+				      $$ \ddp\frac{n^n \sqrt{2\pi n}}{e^n} \left(\ddp\frac{    e^{\frac{n}{2}}}{(\frac{n}{2})^{\frac{n}{2}} \sqrt{\pi n} }\right)^2= \ddp\frac{n^n \sqrt{2\pi n}}{e^n}\ddp\frac{    e^{n}  }{(\frac{n}{2})^{n} n\pi}=\ddp\sqrt{\ddp\frac{2}{\pi n}} 2^n.$$
+				      Ainsi on obtient que:
+				      $$p_n\underset{+\infty}{\thicksim} \ddp\sqrt{\ddp\frac{2}{\pi n}}$$
+				      car $p_n=\ddp\binom{n}{\frac{n}{2}} \left(\ddp\demi  \right)^n$. \fbox{Ainsi la suite $(p_n)_{n\in\N}$ converge vers 0.}
+		      \end{itemize}
+	\end{enumerate}
+\end{correction}
+
+\end{document}

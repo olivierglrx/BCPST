@@ -1,0 +1,94 @@
+\documentclass[a4paper, 11pt]{article}
+\input{macro/package.tex}
+\input{macro/environement}
+\input{macro/header.tex}
+\input{macro/newcommand.tex}
+\geometry{hmargin=2.0cm, vmargin=1.5cm}
+
+
+
+
+\begin{document}
+
+
+
+\title{Valeur absolue}
+
+
+
+
+
+\begin{defi}
+La fonction \emph{valeur absolue} est notée $| \cdot | : \R \mapsto\R$ et définie par:
+$$|x| = \left\{ \begin{array}{rl}
+ x \quad \text{ si }  \, x \geq 0 \vspace{0.3cm}\\  
+-x \quad  \text{ si } \,  x< 0\vspace{0.3cm}
+\end{array} \right.$$
+\end{defi}
+\paragraph{Remarque :}
+\begin{description}
+\item $\bullet$ En particulier, la fonction valeur absolue est toujours positive. De plus,  $|x| =0$ si et seulement si  $x=0$. 
+\item $\bullet$  Soit $(x,y) \in \R^2$ alors, $|x-y|$ correspond à la distance entre $x$ et $y$ sur la droite réelle. 
+\item $\bullet$ On a  $x \leq |x|$ et $-x\leq |x|$. 
+\item $\bullet$  La fonction valeur absolue est continue sur $\R$ mais pas dérivable en $0$. 
+\end{description}
+
+\vbox{
+\begin{prop}
+Soit, $(x,y) \in \R^2$, on a alors :
+\begin{enumerate}
+\item $|x|=|-x|$
+\item $|x y | = |x | |y |$
+\item Si $y\neq 0$ alors, $\left|\frac{x}{y}\right| =\frac{|x |}{|y|}$.
+\end{enumerate}
+\end{prop}
+}
+
+\begin{prop}[Inégalité triangulaire \warning]
+Soit, $(x,y) \in \R^2$, on a alors :
+$$|x+y|\leq |x|+|y|.$$
+\end{prop}
+
+
+\begin{prop}
+Pour tout $x\in \R$, $$\sqrt{(x^2)}=|x|$$ 
+
+Pour tout $x\in \R^+$,
+
+$$(\sqrt{x})^2= x =|x|$$
+\end{prop}
+\begin{prop}
+
+Pour tout $x\in \R$,
+$$|x|^2=|x^2|=x^2$$
+\end{prop}
+
+
+\begin{prop}\, 
+Soit $a\in \R$  un réel et $\epsilon >0$ un réel strictement positif. Pour tout $x\in \R$ on a 
+$$|x-a| \leq \epsilon \Longleftrightarrow a-\epsilon \leq x \leq a+\epsilon \Longleftrightarrow x\in [a-\epsilon, a+\epsilon].$$
+\end{prop}
+En particulier, pour tout $\epsilon >0$, l'inégalité $| x | \leq \epsilon $ est équivalente à 
+$-\epsilon \leq x\leq \epsilon $ ou a  $x\in [-\epsilon , \epsilon ]$.
+
+
+
+
+
+
+\vspace{0.3cm}
+\fbox{
+\begin{minipage}[t]{0.9\textwidth}
+\begin{itemize}
+%\item[$\bullet$] M\'ethode avec les valeurs absolues: \dotfill \phantom{\hspace{5cm}}
+\item[$\bullet$] Pour enlever une valeur absolue, il faut conna\^{i}tre le signe de ce qui est \`{a} l'int\'erieur.\\
+$\Longrightarrow$ \'Etude de cas selon le signe de ce qui est \`{a} l'int\'erieur de la valeur absolue.
+\end{itemize}
+\end{minipage}}
+
+
+
+
+
+
+\end{document}

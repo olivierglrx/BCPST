@@ -1,0 +1,1014 @@
+\documentclass[a4paper, 11pt]{article}
+\input{macro/package.tex}
+\input{macro/environement}
+\input{macro/header.tex}
+\input{macro/newcommand.tex}
+\geometry{hmargin=2.0cm, vmargin=2.5cm}
+
+
+
+
+\begin{document}
+\tableofcontents
+ \title{Chapitre N : Applications linéaires} 
+ % debut
+ %------------------------------------------------
+\vspace{0.5cm}
+
+
+
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+
+\noindent Dans tout ce chapitre $\bK$ d\'esigne $\R$ ou $\bC$.
+%
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+%-------------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+%-------------------------------------------------------
+%\vspace{0.4cm}
+%
+%-----------------------------------------------------
+%-------------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+%-------------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+%-------------------------------------------------------
+\section{D\'efinitions et premi\`{e}res propri\'et\'es}
+%-----------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+%-------------------------------------------------------
+\subsection{D\'efinitions}
+
+%----------------------------------------------------
+%-----------------------------------------------------
+\noindent\ {D\'efinition d'une application lin\'eaire}\\
+
+ {\noindent  
+
+\begin{defi} 
+Soit $E=\bK^n$ et $F=\bK^p$ avec $n$ et $p$ deux entiers naturels non nuls. 
+\begin{itemize}
+\item[$\bullet$] Soit $f$ une application de $E$ dans $F$. On dit que $f$ est une application lin\'eaire de $E$ dans $F$ si\\
+\vspace{0.5cm}
+
+\item[$\bullet$] L'ensemble des applications lin\'eaires de $E$ dans $F$ est not\'e \dotfill\vsec
+\end{itemize} 
+\end{defi}
+ 
+}
+\begin{dboxminipage}{0.8 \textwidth}
+\textbf{M\'ethodes pour montrer que $\mathbf{f\in\cL(E,F)}$}
+\begin{itemize}
+\item[$\bullet$] V\'erifier que $f$ va bien de l'espace $E$ dans l'espace $F$: $f:\ E\rightarrow F$.
+\item[$\bullet$] Soit $u\in E$, soit $v\in E$, soit $\lambda \in\bK$. Montrer que $f(\lambda u+v)=\lambda f(u)+f(v)$.
+\end{itemize}
+\end{dboxminipage}
+
+
+
+{\footnotesize \begin{exercice} 
+\begin{enumerate}
+\item Montrer que $f(x,y,z)=(y,0,x+z,3x+y-2z)$ est une application lin\'eaire.
+\item Soit $f$ d\'efinie par $f(x,y,z)=(x+y,2x-y,4z)$. Montrer que $f\in\cL(\R^3,\R^3)$.
+\item Soit $g$ l'application d\'efinie par $g(x,y,z)=(x-y+4z, 3x-z)$. Montrer que $f\in\cL(\R^3,\R^2)$.
+\end{enumerate}
+\end{exercice}
+}
+
+
+\begin{exemples} 
+\begin{itemize}
+\item[$\bullet$] L'application nulle: $f: \left|\begin{array}{ccc} \bK^n &\rightarrow & \bK^p\vsec\\ u & \mapsto & \ldots \ldots \end{array} \right.$
+est une application lin\'eaire.
+\item[$\bullet$] L'application identit\'e: $Id: \left|\begin{array}{ccc} \bK^n &\rightarrow & \bK^n\vsec\\ u & \mapsto & \ldots \ldots \end{array} \right.$
+est une application lin\'eaire.
+\item[$\bullet$] Soit $\alpha\in\bK$, on appelle homoth\'etie vectorielle dans $\bK^n$ de rapport $\alpha$, l'application: $f : \left|\begin{array}{ccc} \bK^n &\rightarrow & \bK^n \vsec\\ u & \mapsto & \ldots \ldots \end{array} \right.$
+Les homoth\'eties sont des applications lin\'eaires. 
+
+
+
+
+\item[$\bullet$] La projection canonique par rapport \`a la $i$-\`eme coordonn\'ee est d\'efinie par $\pi_i : \left|\begin{array}{ccc} \bK^n &\rightarrow & \bK \vsec\\ (x_1, \ldots, x_n) & \mapsto & \ldots \ldots \end{array} \right.$. C'est une application lin\'eaire.
+
+\end{itemize}
+\end{exemples}
+
+
+%------------------------------------------
+
+\vsec
+
+\begin{defi} \textbf{D\'efinitions suppl\'ementaires:}\vsec
+\begin{itemize}
+\item[$\bullet$] Une application lin\'eaire de $E$ vers $E$ est appel\'ee \dotfill\vsec\\
+L'ensemble des endomorphismes de $E$ est not\'e \dotfill\vsec
+\item[$\bullet$]  Une application lin\'eaire de $E$ dans $F$ qui est bijective de $E$ sur $F$ s'appelle\\ \phantom{}\dotfill \vsec
+\item[$\bullet$]  Une application lin\'eaire de $E$ dans $E$ qui est bijective de $E$ sur $E$ s'appelle \\\phantom{} \dotfill \vsec
+\end{itemize}
+\end{defi}
+ 
+
+{\footnotesize \begin{exercice} Montrer que $f\in\cL(\R^3)$ avec $f(x,y,z)=(x-2y+z, 2x+3y-5z, x+y+z)$.\end{exercice}
+}
+%-----------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+%-------------------------------------------------------
+\subsection{Premi\`{e}res propri\'et\'es}
+
+%----------------------------------------------------
+%-----------------------------------------------------
+ {\noindent  
+
+\begin{prop} Soit $f\in\cL(E,F)$ avec $E=\bK^n$ et $F=\bK^p$ ($n$ et $p$ deux entiers naturels non nuls). On a:\vsec
+\begin{itemize}
+\item[$\bullet$] $f(0_E)=$\dotfill \phantom{\hspace{15cm}}\vsec
+\item[$\bullet$] Pour tout $p\in\N^{\star}$, pour toute famille de vecteurs $(u_1,\dots, u_p)\in E^p$, pour tous scalaires $(\lambda_1,\dots, \lambda_p)\in\bK^p$, on a:\\
+\vspace{1cm}
+\end{itemize}
+\end{prop}
+ }
+\textbf{Preuve}
+
+\vspace{4cm}
+
+
+\begin{dboxminipage}{0.7\textwidth}
+\textbf{M\'ethodes pour montrer qu'une fonction n'est pas une application lin\'eaire}
+\begin{itemize}
+\item[$\bullet$] M\'ethode 1: montrer que $f(0_E)\not= 0_F$\\
+(car si $f$ est une application lin\'eaire alors on a forc\'ement $f(0_E) = 0_F$).
+\item[$\bullet$] M\'ethode 2: trouver un contre-exemple: trouver $u\in E$, $v\in E$ et $\lambda \in\bK$ tel que $f(\lambda u+v)\not= \lambda f(u)+f(v)$.
+\end{itemize}
+\end{dboxminipage}
+
+
+ 
+
+{\footnotesize \begin{exercice} 
+\begin{enumerate}
+\item Soit $f$ d\'efinie par: $f(x,y,z)=(x+y+z+1, z)$. \'Etude de la lin\'earit\'e de $f$.
+\item Soit $h$ une application d\'efinie par: $h(x,y,z)=x^2+y+z$. \'Etudier la lin\'earit\'e de $h$.
+\end{enumerate}
+\end{exercice}
+}
+
+
+\vspace{0.5cm}
+
+%-----------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+%-------------------------------------------------------
+\subsection{Op\'erations sur les applications lin\'eaires}
+%----------------------------------------------------
+%-----------------------------------------------------
+%------------------------------------------
+
+
+\begin{prop} \textbf{Somme et multiplication par un scalaire}
+\begin{itemize}
+\item[$\bullet$] Soient $f\in\cL(E,F)$, $g\in\cL(E,F)$ et $(\alpha,\beta)\in\bK^2$, alors \dotfill\vsec
+\item[$\bullet$] Autrement dit: \vsec
+\begin{itemize}
+\item[$\star$] La somme de deux applications lin\'eaires est \dotfill\vsec
+\item[$\star$] La multiplication d'une application lin\'eaire par un scalaire est \dotfill\vsec
+\end{itemize}
+\end{itemize} 
+\end{prop}
+ 
+
+\textbf{Preuve}
+
+\vspace{4cm}
+
+\begin{rem}
+Ainsi, comme vous le verrez en BCPST2, $\left| \cL(E,F), +,. \right)$ est \dotfill
+\end{rem}
+
+{\footnotesize \begin{exercice} 
+On d\'efinit 
+$$u: \left|\begin{array}{llllllll}
+ \R^3 & \rightarrow & \R^2\vsec\\ 
+    (x,y,z) & \mapsto &(x-y,7z) 
+\end{array}\right. \quad \textmd{ et } \quad
+v: \left|\begin{array}{llllllll}
+  \R^3 & \rightarrow & \R^2\vsec\\
+   (x,y,z) & \mapsto & (y+2z, 3x+y-z). 
+\end{array}\right.$$
+Montrer que $u$ et $v$ sont bien des applications lin\'eaires et calculer $2u-3v$.
+\end{exercice}
+}
+ 
+\vspace{0.4cm}
+
+%------------------------------------------
+\noindent\ {Composition des applications lin\'eaires}\\
+
+ {\noindent  
+
+\begin{prop}
+Soient $E=\bK^q$, $F=\bK^p$ et $G=\bK^n$. Si $f\in\cL(E,F)$ et $g\in\cL(F,G)$ alors \dotfill\vsec\\
+\noindent La composition de deux applications lin\'eaires est \dotfill\vsec
+\end{prop}
+ }
+
+\textbf{Preuve}
+
+\vspace{5cm}
+
+{\footnotesize \begin{exercice} On d\'efinit:
+$$f: \left|\begin{array}{lllllllll}
+ \R^3 & \rightarrow & \R^2 \vsec\\
+ (x,y,z) & \mapsto &(x-y-2z,-x+3y-z)
+\end{array}\right. \quad \textmd{ et } \quad
+g: \left|\begin{array}{lllllllll}
+ \R^2 & \rightarrow & \R^2\vsec\\
+(x,y) & \mapsto & (2x-y, x+3y).
+\end{array}\right.
+$$ 
+D\'eterminer l'expression analytique de $g\circ f$. 
+\end{exercice}
+}
+
+\noindent \warning  Comme pour les applications, $g\circ f$ peut \^etre bien d\'efinie mais pas $f\circ g$ (cf exemple ci-dessus) et m\^eme lorsque $g\circ f$ et $f\circ g$ sont toutes les deux bien d\'efinies, elles ne sont pas \'egales en g\'en\'eral. Si $f\circ g=g\circ f$, on dit que les applications $f$ et $g$ \dotfill\phantom{\hspace{10cm}}
+
+\vspace{0.4cm}
+
+%------------------------------------------
+\paragraph{Cas particulier des endomorphismes}
+
+\noindent Dans l'ensemble des endomorphismes $\cL(E)$ avec $E=\bK^n$, on peut composer les \'el\'ements entre eux sans restriction. Attention, $f\circ g$ et $g\circ f$ sont dans ce cas pr\'ecis toujours bien d\'efinies, mais elles ne sont pas \'egales en g\'en\'eral.\\
+
+ {\noindent  
+
+\begin{defi}
+Soit $E=\bK^n$ et $f$ un endomorphisme non nul de $\cL(E)$. On d\'efinit $f^k$ dans $\cL(E)$ pour tout entier naturel $k$ par la r\'ecurrence
+$$\left\lbrace \begin{array}{l}
+f^0=Id_E\vsec\\
+\forall k\in\N,\quad f^{k+1}= \ldots \ldots \ldots \ldots \ldots \ldots%f\circ f^k=f^k\circ f.
+\end{array}\right.$$ 
+\end{defi}
+ }
+
+\begin{exemples}
+Soient $f\in\cL(E)$ et $g\in\cL(E)$. 
+\begin{itemize}
+ \item[$\bullet$] Calculer $(f+g)\circ (f-g)$:
+\vspace{2cm}
+\item[$\bullet$]  Calculer $(f+g)^2$:
+\vspace{2cm}
+\end{itemize}
+\end{exemples}
+
+ {\noindent  
+
+\begin{prop}
+Soient $E=\bK^n$ et $(f,g)\in\cL(E)^2$.\\
+Si $f$ et $g$ commutent, alors pour tout entier naturel $n\in\N$, on a:\\
+\vspace{1cm}
+\end{prop}
+ }
+
+
+\vspace{0.5cm}
+
+%------------------------------------------
+\paragraph{Bijection r\'eciproque d'une application lin\'eaire bijective}
+
+
+\begin{prop}
+Si $f\in\cL(E)$ avec $E=\bK^n$ est un automorphisme de $E$ alors $f^{-1}$ est \dotfill
+\end{prop}
+ 
+
+{\footnotesize \begin{exercice} Soit $f \in \mathcal{L}(E)$ d\'efinie par $f(x,y) = (x+2y, 2x+y)$. Montrer que $f$ est un automorphisme et v\'erifier que $f^{-1}$ est lin\'eaire.
+\end{exercice}}
+
+\vspace*{0.5cm}
+
+
+%-----------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+%-------------------------------------------------------
+\section{Noyau et image d'une application lin\'eaire}
+%----------------------------------------------------
+%-----------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+\subsection{D\'efinition du noyau et de l'image d'une application lin\'eaire}
+%----------------------------------------------------
+%-----------------------------------------------------
+%------------------------------------------
+
+
+\begin{defi}
+Soit $f\in\cL(E,F)$.
+\begin{itemize}
+ \item[$\bullet$] Le noyau de $f$ est le sous-ensemble de $E$ (espace de d\'epart) not\'e $\ker{(f)}$ et d\'efini par\\
+\vspace{1cm}
+
+\item[$\bullet$]  L'image de $f$ est le sous-ensemble de $F$ (espace d'arriv\'ee) not\'e $\im{(f)}$ et d\'efini par\\
+\vspace{1cm}
+
+\end{itemize}
+\end{defi}
+ 
+
+
+
+
+\vspace{0.4cm}
+% 
+
+
+\begin{prop}
+Soit $f\in\cL(E,F)$.
+\begin{itemize}
+\item[$\bullet$] L'ensemble $\ker{(f)}$ \dotfill %est un sev de \ldots.\\ 
+\item[$\bullet$] L'ensemble $\im{(f)}$  \dotfill %est un sev de \ldots.
+\end{itemize}
+\end{prop}
+ \textbf{Preuve}
+
+\vspace{10cm}
+
+
+
+%------------------------------------------
+
+\begin{dboxminipage}{0.8\textwidth}
+\textbf{M\'ethode pour d\'eterminer une base et la dimension de $\ker{(f)}$}\\
+On a: $\ker{(f)}=\lbrace u\in E,\ f(u)=0_F\rbrace$.
+\begin{itemize}
+\item[$\bullet$] $u\in\ker f\Longleftrightarrow f(u)=0_F$. On \'ecrit le syst\`eme lin\'eaire que l'on doit r\'esoudre.
+\item[$\bullet$] On \'echelonne le syst\`eme lin\'eaire.
+\item[$\bullet$] On trouve alors l'\'ecriture vectorielle de $\ker{(f)}$ et on en d\'eduit une base et la dimension de $\ker{(f)}$.
+\end{itemize}
+
+\end{dboxminipage}
+
+
+{\footnotesize \begin{exercice} Montrer que ces applications sont des applications lin\'eaires et d\'eterminer une base et la dimension de leur noyau.
+\begin{enumerate}
+\item $f(x,y,z)=(x-2y+3z, 2x+y-2z)$.
+\item $f(x,y,z)=( x-y+z,x+2y-z,2x+z )$
+\item $f(x,y,z)=(x-y-3z,2x-z, x+y+2z)$.
+%\item[$\bullet$] $f(x,y,z,t)=(x+y-z+t, 2x+y+2z-t)$
+\item $f(x,y,z,t)= (-y,my,x-mz-t,y)$, avec $m$ param\`etre r\'eel.
+\end{enumerate}
+\end{exercice}
+}
+\vsec
+
+\begin{dboxminipage}{0.9\textwidth}
+\textbf{M\'ethode 1 pour d\'eterminer une base et la dimension de $\im{(f)}$}
+\begin{itemize}
+\item[$\bullet$] On \'ecrit $\Im f=\lbrace v\in F,\ \exists u\in E,\ v=f(u)\rbrace$, et on obtient une \'ecriture param\'etrique de $\im f$.
+\item[$\bullet$] On en d\'eduit la forme vectorielle, donc une famille g\'en\'eratrice de $\im f$ : attention, cette famille n'est pas n\'ecessairement une base !
+\item[$\bullet$] On extrait de cette famille une base de $\im f$.
+\end{itemize}
+\end{dboxminipage}
+
+\vsec
+ 
+
+\begin{dboxminipage}{0.9\textwidth}
+\textbf{M\'ethode 2 pour d\'eterminer une base et la dimension de $\im{(f)}$}
+\begin{itemize}
+\item[$\bullet$] On \'ecrit $v\in\im f\Longleftrightarrow \exists u\in E,\ v=f(u)$, et on \'echelonne le syst\`eme lin\'eaire correspondant.
+\item[$\bullet$] On cherche les \'equations de compatibilit\'e : s'il en existe, ce sont le(s) \'equation(s) cart\'esienne(s) de $\im f$.
+\item[$\bullet$] On passe de l'\'ecriture cart\'esienne \`a l'\'ecriture vectorielle afin d'obtenir une base et la dimension de $\im f$.
+\end{itemize}
+\end{dboxminipage}
+
+
+{\footnotesize \begin{exercice} D\'eterminer une base et la dimension de l'image des applications lin\'eaires de l'exercice 7.
+%\begin{itemize}
+%\item[$\bullet$] $f(x,y,z)=(x-2y+3z, 2x+y-2z)$.
+%\item[$\bullet$] $f(x,y,z)=( x-y+z,x+2y-z,2x+z )$
+%\item[$\bullet$] $f(x,y,z,t)=(x+y-z+t, 2x+y+2z-t)$
+%\item[$\bullet$] $f(x,y)=(2x+3y, x-2y , -y)$
+%\end{itemize}
+\end{exercice}
+}
+
+
+
+ 
+
+%----------------------------------------------------
+%-----------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+\subsection{Lien avec l'injectivit\'e, la surjectivit\'e et la bijectivit\'e d'une application lin\'eaire}
+
+%------------------------------------------
+
+
+\begin{prop}
+Soit $f\in\cL(E,F)$.\vsec\\
+\noindent $f$ est injective de $E$ dans $F$ si et seulement si \dotfill \vsec
+\end{prop}
+ 
+
+
+\begin{rem}
+On a toujours $\lbrace 0_E\rbrace\subset \ker f$ car \dotfill\vsec\\
+Ainsi, pour montrer que $\ker f=\lbrace 0_E\rbrace$, il suffit de montrer que \dotfill \vsec
+\end{rem}
+
+ \textbf{Preuve}
+
+\vspace{6cm}
+
+
+
+
+
+\begin{dboxminipage}{0.7\textwidth}
+\textbf{M\'ethode pour montrer l'injectivit\'e d'une application lin\'eaire} : calculer le noyau.
+\begin{itemize}
+\item[$\bullet$] Si $\ker{(f)}=\lbrace 0_E\rbrace$ alors $f$ est injective de $E$ dans $F$.
+\item[$\bullet$] Sinon $f$ n'est pas injective de $E$ dans $F$.
+\end{itemize}
+\end{dboxminipage}
+
+
+
+{\footnotesize \begin{exercice} 
+\begin{enumerate}
+\item Soit $f$ d\'efinie de $\R^2$ dans $\R^3$ par $f(x,y)=(x-y, x+y, 2y-x)$. Montrer que $f$ est lin\'eaire. L'application $f$ est-elle injective ? 
+\item Soit $f$ d\'efinie de $\R^3$ dans $\R^2$ par $f(x,y,z)=(2x-z,y+2z)$. Montrer que $f$ est lin\'eaire. L'application $f$ est-elle injective ?
+\end{enumerate}
+\end{exercice}
+}
+
+
+\vspace{0.4cm}
+
+
+\begin{prop}
+Soit $f\in\cL(E,F)$.\vsec\\
+\noindent $f$ est surjective de $E$ dans $F$ si et seulement si \dotfill \vsec
+\end{prop}
+ 
+
+\begin{rem}
+On a toujours \dotfill\vsec\\
+Ainsi, pour montrer que $\im{(f)}=F$, il suffit de montrer que \dotfill \vsec
+\end{rem}
+
+\textbf{Preuve}
+\vspace{2cm}
+
+\begin{dboxminipage}{0.9 \textwidth}
+\textbf{M\'ethodes pour montrer la surjectivit\'e d'une application lin\'eaire} : calculer l'image.
+\begin{itemize}
+\item[$\bullet$] Si $\im{(f)}=F$ alors $f$ est surjective de $E$ dans $F$.
+\item[$\bullet$] Sinon $f$ n'est pas surjective de $E$ dans $F$.
+\end{itemize}
+\end{dboxminipage}
+
+
+
+
+{\footnotesize \begin{exercice} 
+\begin{enumerate}
+\item Soit $f$ d\'efinie de $\R^2$ dans $\R^3$ par $f(x,y)=(x-y, x+y, 2y-x)$. Montrer que $f$ est lin\'eaire. L'application $f$ est-elle surjective ? 
+\item Soit $f$ d\'efinie de $\R^3$ dans $\R^2$ par $f(x,y,z)=(2x-z,y+2z)$. Montrer que $f$ est lin\'eaire. L'application $f$ est-elle surjective ?
+\end{enumerate}
+\end{exercice}
+}
+
+
+\vspace{0.4cm}
+%------------------------------------------
+
+
+\begin{prop}
+Soit $f\in\cL(E)$.\vsec\\
+\noindent $f$ est un automorphisme de $E$ si et seulement si \dotfill \vsec
+\end{prop}
+
+\begin{dboxminipage}{0.93\textwidth}
+\textbf{M\'ethodes pour d\'eterminer la bijectivit\'e d'une application lin\'eaire et calculer $f^{-1}$}
+\begin{itemize}
+\item[$\bullet$] On montre que $f$ est \`a la fois injective et surjective.
+\item[$\bullet$] Pour le calcul de $f^{-1}$: on prend un vecteur $v\in F$, et on cherche $u\in E$ tel que $v=f(u)$.
+\item[$\bullet$] On \'echelonne le syst\`eme lin\'eaire correspondant afin d'exprimer les coordonn\'ees de $u$ en fonction des coordonn\'ees de $v$.
+\item[$\bullet$] Comme $v=f(u) \Leftrightarrow u=f^{-1}(v)$, on en d\'eduit l'expression de $f^{-1}$.
+\end{itemize}
+\end{dboxminipage}
+
+{\footnotesize \begin{exercice} Soit $f(x,y,z)=(x+y+z,x+y,y+z)$. Montrer que $f$ est un automorphisme de $\R^3$ et calculer $f^{-1}$. 
+\end{exercice}
+}
+
+
+
+%----------------------------------------------------
+%-----------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+%-------------------------------------------------------
+\section{Les diff\'erents liens entre les matrices et les applications lin\'eaires}
+
+%----------------------------------------------------
+%-----------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+\subsection{Matrices associ\'ees \`{a} une application lin\'eaire}
+
+%------------------------------------------
+\noindent\ {Passage de l'application lin\'eaire aux matrices}\\
+
+ {\noindent  
+
+\begin{defi} \textbf{Matrices d'une application lin\'eaire}
+\begin{itemize}
+\item[$\bullet$] Soient $E=\bK^n$ et $F=\bK^p$ et soit $f\in\cL(E,F)$.\\
+\noindent  On fixe $\cB=(u_1,\dots, u_n)$ une base de $E$ et $\C=(v_1,\dots, v_p)$ une base de $F$.\\
+\noindent On appelle matrice de $f$ relativement aux bases $\cB$ et $\C$ not\'ee \dotfill\\
+\vspace{4cm}
+
+
+Ainsi la $j$-i\`eme colonne de $M_{\cB,\C}(f)$ repr\'esente les coordonn\'ees du vecteur $f(u_j)$ dans la base $\C$.
+\item[$\bullet$] Si $f\in\cL(E)$ avec $\cB=(u_1,\dots, u_n)$ base de $E$, on appelle matrice de $f$ dans la base $\cB$ la matrice d\'efinie par $M_{\cB}(f)=M_{\cB,\cB}(f)$.
+
+
+
+\end{itemize}
+\end{defi}
+ }\vsec
+
+\setlength\fboxrule{1pt}
+\noindent  {
+
+\begin{itemize}
+\item[$\bullet$] On calcule les vecteurs $f(u_1)$,$f(u_2)$,...,$f(u_n)$. Le plus souvent, on les obtient dans la base canonique de $F$.
+\item[$\bullet$] On calcule (si besoin) les coordonn\'ees de ces vecteurs dans la base $\C=(v_1,\dots, v_p)$.\item[$\bullet$] On remplit colonne par colonne la matrice associ\'ee \`a $f$.
+\end{itemize}
+ }
+\setlength\fboxrule{0.5pt}
+
+{\footnotesize \begin{exercice} 
+\begin{enumerate}
+%\item[$\bullet$] On consid\`ere l'application lin\'eaire d\'efinie par:
+%$\forall (x,y,z)\in\R^3,\ f(x,y,z)=(2x-y-z, -x+y,x-z).$ On note $\cB_1=(e_1,e_2,e_3)$ la base canonique de $\R^3$ et $\cB_2=(f_1,f_2,f_3)$ la famille de vecteurs d\'efinie par: $f_1=(2,0,-1)$, $f_2=(1,1,0)$ et $f_3=(0,1,-1)$.
+%\begin{itemize}
+%\item[$\star$] V\'erifier que $\cB_2$ est une base de $\R^3$.
+%\item[$\star$] Calculer les matrices suivantes: $M_{\cB_1}(f)$, $M_{\cB_2,\cB_1}(f)$, $M_{\cB_2}(f)$ et $M_{\cB_1,\cB_2}(f)$.
+%\end{itemize}
+\item Soit $f$ d\'efinie par: $f(x,y,z)=(2x-y,x+z)$. 
+\begin{itemize}
+\item[$\star$] Calculer la matrice de $f$ relativement aux bases canoniques $\cB_3$ et $\cB_2$ de $\R^3$ et $\R^2$.
+\item[$\star$] On pose $\mathcal{C}=(f_1,f_2,f_3)$ avec $f_1(1,0,0)$, $f_2(1,1,0)$, $f_3(1,1,1)$ et $\mathcal{D}=(u_1,u_2)$ avec $u_1(1,0)$ et $u_2(1,1)$. Montrer que $\mathcal{C}$ et $\mathcal{D}$ sont respectivement des bases de $\R^3$ et $\R^2$. Calculer la matrice de $f$ relativement aux bases $\mathcal{C}$ et $\mathcal{D}$.
+\end{itemize}
+%---
+\item Soit $f$ d\'efinie de $\R^3$ dans $\R^2$ par $f(x,y,z)=(x+2y+3z, x-y-z)$. 
+\begin{itemize}
+\item[$\star$] On consid\`ere les bases canoniques $\cB_3$ et $\cB_2$ de $\R^3$ et de $\R^2$. Donner la matrice $M$ de $f$ relativement \`a ces bases.
+\item[$\star$] On garde maintenant pour $\R^2$ la base canonique mais on prend pour $\R^3$ la base suivante: $\cB=(u_1,u_2,u_3)$ d\'efinie par $u_1=(1,1,1)$, $u_2=(0,1,-1)$ et $u_3=(1,1,0)$. Calcul de $M_1=M_{\cB,\cB_2}(f)$.
+\item[$\star$] On prend maintenant la base canonique de $\R^3$ et on prend la base $\C=(v_1,v_2)$ pour $\R^2$ d\'efinie par $v_1=(1,1)$ et $v_2=(1,-1)$. Calcul de $M_2=M_{\cB_3,\C}(f)$.
+\end{itemize}
+\end{enumerate}
+\end{exercice}
+}
+
+\vspace{0.4cm}
+%------------------------------------------
+\paragraph{Passage de la matrice \`{a} l'application lin\'eaire canoniquement associ\'ee}
+
+
+
+\begin{defi} \textbf{Application lin\'eaire canoniquement associ\'ee \`{a} une matrice}\\
+\noindent Si $A\in\mathcal{M}_{pn}(\bK)$ est une matrice fix\'ee, on appelle application lin\'eaire canoniquement associ\'ee \`a $A$ \vsec\\
+l'application $f \in \cL(\bK^n, \bK^p)$ telle que $f(x_1, \ldots, x_n) = (y_1, \ldots, y_p)$, o\`u : \vsec
+\vspace{0.5cm}
+\end{defi}
+
+\begin{dboxminipage}{0.8\textwidth}
+\textbf{M\'ethode pour trouver $f$ canoniquement associ\'ee \`{a} $A$:}\\ 
+Calculer $AX$.
+\end{dboxminipage}
+
+
+
+{\footnotesize \begin{exercice} 
+\begin{enumerate}
+\item On consid\`ere la matrice suivante $A=\left( \begin{array}{rrr} 2&-1&3\\-3&2&-1\\-1&1&2   \end{array}\right).$ D\'eterminer l'application lin\'eaire $f$ canoniquement associ\'ee \`a $A$.
+\item Faire de m\^{e}me avec $A=\left(\begin{array}{rrr} 1&2&1\\-3&1&4\\-3&4&-5   \end{array}\right)$ et $B=\left(\begin{array}{rrr} 1&1&1\\1&0&0\\1&1&0\\ 1&0&-5   \end{array}\right)$.
+\end{enumerate}
+\end{exercice}
+}
+
+{\footnotesize \begin{exercice} Calcul de l'image d'un vecteur gr\^ace aux matrices.
+\begin{enumerate}
+\item Soit $f\in\cL(\R^3)$ de matrice relativement \`a la base canonique $M=\left(\begin{array}{rrr} 3&-1&1\\ 0&2&0\\ 1&-1&3   \end{array}\right)$. Calcul de $f(u)$ avec $u=(1,0,-1)$.
+\item Soit $f\in\cL(\R^2,\R^3)$ de matrice relativement \`a la base canonique $A=\left(\begin{array}{rr} 1&2\\ 3&-2\\1&1 \end{array}\right)$. Calcul de $f(u)$ avec $u=(3,4)$.
+\end{enumerate}
+\end{exercice}
+}
+
+%----------------------------------------------------
+%-----------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+\subsection{Lien entre les op\'erations sur les applications lin\'eaires et les matrices}
+
+\noindent Soient $f\in\cL(E,F)$, $g\in\cL(E,F)$ et $h\in\cL(F,G)$. On fixe les bases $\cB=(u_1,\cdots, u_n)$, $\C=(v_1,\cdots, v_p)$ et $\mathcal{D}=(w_1,\dots,w_r)$ respectivement bases de $E$, $F$ et de $G$ et on note $A=M_{\cB,\C}(f)$, $B=M_{\cB,\C}(g)$ et $C=M_{\C,\mathcal{D}}(h)$.
+\vspace{0.4cm}
+
+
+
+\begin{prop}
+Soit $(\alpha,\beta)\in\bK^2$.\vsec\\
+\noindent La matrice de l'application lin\'eaire $\alpha f+\beta g$ dans les bases $\cB$ \`a $\C$ est \dotfill \vsec
+\end{prop}
+
+
+{\footnotesize \begin{exercice} On d\'efinit $f$ l'application lin\'eaire canoniquement associ\'ee \`a $A$ avec $A=\left(\begin{array}{rrrr} -1&1&2&3\\ 1&-2&1&0\\ 4&1&2&-5  \end{array}\right)$. Et soit $g$ l'application lin\'eaire d\'efinie par: 
+$g(x,y,z,t)=(x-y-z+2t,5x-6y+3t,x-z+2t)$. Calculer $2f-3g$.
+\end{exercice}
+}
+
+
+ 
+%------------------------------------------
+
+
+\begin{prop} \textbf{Composition d'applications lin\'eaires}\vsec\\
+La matrice de l'application lin\'eaire $h\circ f$ dans les bases $\cB$ \`a $\mathcal{D}$ est \dotfill \vsec
+\end{prop}
+
+
+
+
+\begin{prop} \textbf{Cas particulier important des endomorphismes}\\
+Ici $E=F$ et $f\in\cL(E)$ avec $\cB$ base de $E$ et $A=M_{\cB}(f)$.\vsec\\
+\noindent Pour tout $n\in\N$, la matrice de l'application lin\'eaire $f^n$ dans la base $\cB$ est \dotfill \vsec
+\end{prop}
+
+
+{\footnotesize \begin{exercice}
+\begin{enumerate}
+\item On d\'efinit les applications lin\'eaires suivantes:
+$$f: \left|\begin{array}{lllllllll}
+\R^3 & \rightarrow & \R^2\vsec\\
+(x,y,z) & \mapsto &(x-y-2z,-x+3y-z)
+\end{array} \right. \quad \textmd{ et } \quad
+g: \left|\begin{array}{lllllllll}
+ \R^2 & \rightarrow & \R^2\vsec\\
+ (x,y) & \mapsto & (2x-y, x+3y).
+\end{array} \right. $$ 
+Donner l'expression analytique de $g\circ f$. Puis d\'eterminer les matrices de $f$, $g$ et $g\circ f$ dans les bases canoniques. V\'erifier sur cet exemple la propri\'et\'e ci-dessus.
+\item On d\'efinit $f$ l'application lin\'eaire canoniquement associ\'ee \`a $A$ avec $A=\left(\begin{array}{rrr} -1&1&2\\ 1&-2&1\\ 0&1&2  \end{array}\right)$. Donner $f^3$.
+\item Soit $f\in\cL(\R^3)$ et $M\in\mathcal{M}_3(\R)$ sa matrice dans la base canonique de $\R^3$. Traduire matriciellement l'\'egalit\'e $f^2-2f+Id_{\R^3}=0$.
+\end{enumerate}
+\end{exercice}
+}
+
+
+\vspace{0.4cm}
+
+%------------------------------------------
+
+\begin{prop}
+On a l'\'equivalence suivante:\vsec\\
+$f$ bijective de $E$ dans $F$ $\Longleftrightarrow$ \dotfill \vsec\\
+Et dans ce cas la matrice de $f^{-1}$ est \dotfill\vsec
+\end{prop}
+\vsec
+
+\begin{dboxminipage}{0.7\textwidth}
+\textbf{M\'ethode matricielle pour \'etudier la bijectivit\'e de $f$}
+\begin{itemize}
+\item[$\bullet$] On calcule la matrice $A$ de $f$ canoniquement associ\'ee.
+\item[$\bullet$] On \'etudie l'inversibilit\'e de $A$.
+\item[$\bullet$] Si $A$ est inversible, alors $f$ est bijective de $E$ dans $F$ et $f^{-1}$ est canoniquement associ\'ee \`{a} $A^{-1}$.
+\end{itemize}
+\end{dboxminipage}
+
+
+
+{\footnotesize \begin{exercice}
+\begin{enumerate}
+\item Soit $A=\left(\begin{array}{lll} 0&1&1\\ 1&0&1\\ 1&1&0  \end{array}\right)$ et $f$ l'application lin\'eaire canoniquement associ\'ee \`a $A$. Montrer que $f$ est bijective et calculer $f^{-1}$.
+\item Montrer que l'application lin\'eaire $f$ de $\R^3$ dans $\R^3$ d\'efinie par $f(x,y,z)=(x+2y+3z, 3x+5y+4z, 2x+y+5z)$ est bijective et calculer l'expression de $f^{-1}$ par les deux m\'ethodes disponibles.
+\end{enumerate}
+\end{exercice}
+}
+
+\vspace{0.4cm}
+
+%------------------------------------------
+\noindent\ {Conclusion}\\
+\begin{dboxminipage}{0.8\textwidth}
+\begin{itemize}
+\item[$\bullet$] $f+g$ se traduit matriciellement par $A+B$.
+\item[$\bullet$] $\lambda f$ se traduit matriciellement par $\lambda A$.
+\item[$\bullet$] $h\circ f$ se traduit matriciellement par $C\times A$.
+\item[$\bullet$] $f\circ f$ se traduit matriciellement par $A^2$.
+\item[$\bullet$] $f^n=f\circ f\circ f\circ \dots\circ f$ se traduit matriciellement par $A^n$.
+\item[$\bullet$] $f$ bijective $\Leftrightarrow$ $A$ inversible et alors $f^{-1}$ se traduit matriciellement par $A^{-1}$.
+\end{itemize}
+\end{dboxminipage}
+
+
+
+
+
+%----------------------------------------------------
+%-----------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+\subsection{Calcul du noyau et de l'image d'une application lin\'eaire gr\^ace aux matrices.} %Cons\'equences}
+
+\vspace{0.4cm}
+
+%------------------------------------------
+
+\begin{prop}
+Soient $A\in\mathcal{M}_{pn}(\bK)$ et $f_A$ l'application lin\'eaire canoniquement associ\'ee \`a $A$.\vsec\\
+\noindent R\'esoudre le syst\`eme lin\'eaire $AX=0$, c'est d\'eterminer \dotfill\vsec
+\end{prop}
+ \vsec
+
+
+{\footnotesize \begin{exercice}
+\begin{enumerate}
+\item \'Etude du noyau de l'application lin\'eaire $f$ canoniquement associ\'ee \`a $A=\left( \begin{array}{rrr} 2&-1&3\\-3&2&-1\\-1&1&2   \end{array}\right)$.
+\item \'Etude du noyau de l'application lin\'eaire $g$ canoniquement associ\'ee \`a $B=\left( \begin{array}{rrrr} 1&-1&2&1\\0&1&-2&3\\-1&2&0&-1   \end{array}\right)$.
+\end{enumerate}
+\end{exercice}
+}
+
+
+\vspace{0.4cm}
+% 
+%------------------------------------------
+
+
+
+
+\begin{itemize}
+\item[\Large{\ding{182}}] \textbf{M\'ethode 1: Matriciellement en utilisant une famille g\'en\'eratrice}\\
+
+ {\noindent  
+
+\begin{prop}
+Soit $f\in\cL(E,F)$ avec $E=\bK^n$ et $F=\bK^p$.\\
+\noindent Si $(u_1,u_2,u_3,\dots,u_n)$ est une base de $E$ alors\\
+\vspace{1.5cm}
+
+\end{prop}
+ }\vsec
+
+\setlength\fboxrule{1pt}
+\noindent  {
+
+Soit $(u_1,u_2,\dots,u_n)$ une base de l'espace de d\'epart : alors $(f(u_1),f(u_2),\dots,f(u_n))$ est une famille g\'en\'eratrice de $\im{(f)}$, donc :
+\begin{itemize}
+\item[$\bullet$] Les colonnes de la matrice donnent une famille g\'en\'eratrice de $\im{(f)}$.
+\item[$\bullet$] On \'etudie alors la libert\'e de la famille $(f(u_1),\dots,f(u_n))$.
+\item[$\bullet$] On enl\`eve les \'eventuelles relations de liaison entre les vecteurs pour obtenir \`a la fin une base de $\im{(f)}$.
+\end{itemize}
+ }
+\setlength\fboxrule{0.5pt}
+
+
+\item[\Large{\ding{183}}] \textbf{M\'ethode 2: Matriciellement en utilisant la d\'efinition de l'image}\\
+
+ {\noindent  
+
+\begin{prop}
+Soient $A\in\mathcal{M}_{pn}(\bK)$ et $f_A$ l'application lin\'eaire canoniquement associ\'ee \`a $A$.\vsec\\
+\noindent $v\in\im{(f)} \Longleftrightarrow$ \dotfill revient \`{a} r\'esoudre matriciellement\vsec\\
+\vspace{1cm}
+
+\end{prop}
+ }\vsec
+
+
+\end{itemize}
+
+
+{\footnotesize \begin{exercice}
+D\'eterminer une base et la dimension de l'image de $f$ lorsque $f$ est l'application lin\'eaire  canoniquement associ\'ee \`a
+\begin{enumerate}
+
+\item $A=\left( \begin{array}{rrr} 2&-1&3\\-3&2&-1\\-1&1&2   \end{array}\right)$
+ 
+
+\item $B=\left( \begin{array}{rrrr} 1&-1&2&1\\0&1&-2&3\\-1&2&0&-1   \end{array}\right)$
+ 
+
+\item $C=\left(\begin{array}{rrrr} 0&1&2&1\\ 1&0&1&1\\ 0&1&2&1  \end{array}\right)$
+ 
+\end{enumerate}
+\end{exercice}
+}
+
+
+ 
+
+%-----------------------------------------------------
+%-------------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+%-------------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+%-------------------------------------------------------
+\section{Rang d'une application lin\'eaire}
+
+%----------------------------------------------------
+%-----------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+\subsection{D\'efinition du rang d'une application lin\'eaire}
+
+%------------------------------------------
+
+
+\begin{defi}
+Soient $E=\bK^n$ et $F=\bK^p$ et soit $f\in\cL(E,F)$.\vsec\\
+\noindent Le rang de $f$ est \dotfill \\
+\vspace{0.4cm}
+\end{defi}
+
+
+
+
+\noindent \textbf{Rappels:}
+\begin{itemize}
+\item[$\bullet$] Rang d'un syst\`{e}me lin\'eaire : \dotfill
+\item[$\bullet$] Rang d'une matrice : \dotfill
+\item[$\bullet$] Rang d'une famille de vecteurs: \dotfill
+\end{itemize}
+\vsec
+
+
+
+\begin{prop} 
+Le rang de $f$ est \'egal au \dotfill 
+\end{prop}
+
+
+\begin{dboxminipage}{0.7\textwidth}
+\textbf{M\'ethodes pour calculer le rang d'une application lin\'eaires:}
+\begin{itemize}
+\item[$\bullet$] M\'ethode 1: par la d\'efinition en calculant la dimension de l'image de $f$.
+\item[$\bullet$] M\'ethode 2: en calculant le rang de la matrice canoniquement associ\'ee \`{a} $f$ par le pivot de Gauss.
+\end{itemize}
+\end{dboxminipage}
+
+
+
+
+ 
+
+{\footnotesize \begin{exercice} 
+Calculer le rang des applications lin\'eaires suivantes:
+\begin{enumerate}
+\item $f(x,y,z)=(x+2y+z, -3x+y+4z, -3x+4y-5z)$
+\item $f(x,y,z,t)=(x+y+z+t, x, x+y, x+z)$
+\end{enumerate}
+\end{exercice}
+}
+
+
+\vspace{0.4cm}
+
+%------------------------------------------
+\noindent\ {Cons\'equence: M\'ethode rapide pour d\'eterminer une base et la dimension de l'image de $f$}\vsec\\
+
+\setlength\fboxrule{1pt}
+\hspace{-0.5cm} \noindent  {
+
+\begin{itemize}
+\item[$\bullet$] On calcule le rang $r$ de la matrice associ\'ee \`{a} $f$ par le pivot de Gauss. Cela nous donne le rang de $f$.
+\item[$\bullet$] On cherche $r$ vecteurs libres parmi les colonnes de la matrice associ\'ee.
+\item[$\bullet$] On a ainsi trouv\'e $r$ vecteurs libres qui sont dans $\Im(f)$, donc on a trouv\'e une base de $\Im{(f)}$.
+\end{itemize}
+ }
+\setlength\fboxrule{0.5pt}
+
+{\footnotesize \begin{exercice}
+\begin{enumerate}
+\item Soit $f$ l'application canoniquement associ\'ee \`a la matrice $M=\left(\begin{array}{rrr} 1&1&-1\\1&3&0\\0&2&1\\2&6&0  \end{array}\right)$. Base et la dimension de l'image?
+\item D\'eterminer le rang et une base de l'image des endomorphismes de $\R^4$ dont les matrices dans la base canonique de $\R^4$ sont respectivement
+$$A=\left(\begin{array}{rrrr} 3&0&1&2\\4&0&3&1\\3&0&0&3\\1&0&3&-2   \end{array}\right)\qquad \hbox{et}\qquad B=\left(\begin{array}{rrrr} 1&-1&1&0\\-2&0&-4&4\\0&1&1&-2\\3&-2&4&-2   \end{array}\right).$$
+\end{enumerate}
+\end{exercice}
+}
+
+%----------------------------------------------------
+%-----------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+\subsection{Th\'eor\`{e}me du rang et cons\'equences}
+
+
+\begin{prop}[Théorème du rang] Soit $f\in\cL(E,F)$ avec $E$ de dimension finie. On a:
+\vspace{1cm}
+\end{prop}
+
+
+
+\vspace{0.4cm}
+
+%------------------------------------------
+
+
+
+\begin{dboxminipage}{0.7\textwidth}
+\textbf{Si on conna\^{i}t le noyau:}
+\begin{itemize}
+\item[$\bullet$] Par le th\'eor\`{e}me du rang: on en d\'eduit le rang de $f$.
+\item[$\bullet$] En regardant les colonnes de toute matrice associ\'ee \`{a} $f$,\\
+on obtient une base de l'image de $f$.
+\end{itemize}
+\vsec
+\textbf{Si on conna\^{i}t le rang de $f$:}\\
+Par le th\'eor\`{e}me du rang:\\
+On en d\'eduit la dimension du noyau.
+\end{dboxminipage}
+
+
+ 
+
+ 
+
+{\footnotesize \begin{exercice}
+\begin{enumerate}
+\item Soit l'application de $\R^3$ dans $\R^3$ d\'efinie par: $f(x,y,z)=(x+y-z, x-2y-2z, x-5y-3z)$. Donner la dimension et une base du noyau et de l'image de $f$.
+\item M\^eme chose pour $f$ l'application canoniquement associ\'ee \`a la matrice $M=\left(\begin{array}{rrr} 1&-2&0\\-2&3&-2\\1&1&6  \end{array}\right)$.
+\end{enumerate}
+\end{exercice}
+}
+
+%\vspace{0.4cm}
+% 
+%------------------------------------------
+%\noindent\ {Cons\'equence 2: bijectivit\'e d'un endomorphisme}\\
+
+
+
+\begin{prop} Soit $f\in\cL(E)$ (avec $E$ de dimension finie).
+\vspace{1cm}
+\end{prop}
+
+\textbf{Preuve}
+
+\vspace{5cm}
+
+
+\begin{rems}
+\begin{itemize}
+\item[$\bullet$]  \warning  L'hypoth\`{e}se que $f$ soit un endomorphisme est essentielle.
+\item[$\bullet$] De plus, l'hypoth\`{e}se: $E$ de dimension finie sera essentielle en BCPST2 o\`{u} vous \'etudierez aussi des espaces vectoriels de dimension infinie.
+\item[$\bullet$] Ainsi ce th\'eor\`{e}me assure que pour les endomorphismes en dimension finie, on a \'equivalence entre injectivit\'e, surjectivit\'e et bijectivit\'e.
+\end{itemize}
+\end{rems}
+
+{\footnotesize \begin{exercice}
+\begin{enumerate}
+%\item[$\bullet$] Montrer que $f(x,y,z)=(3y-2z,-x,4y+3z)$ est un automorphisme de $\R^3$.
+\item Soit $A=\left(\begin{array}{lll}  0&1&1\\ 1&0&1\\ 1&1&0 \end{array}\right)$ et $f$ l'endomorphisme canoniquement associ\'e \`a $A$. D\'eterminer les valeurs de $\lambda$ pour lesquelles $f-\lambda Id_{\R^3}$ n'est pas injective. Pour chacune de ces valeurs, d\'eterminer $\ker (f-\lambda Id_{\R^3})$.
+\item On consid\`ere la matrice $A=\ddp\frac{1}{3}\left(\begin{array}{rrr} 7&16&12\\-1&-1&-3 \\-2&-8&-3  \end{array}\right).$ On note $f$ l'endomorphisme canoniquement associ\'e \`a $A$. D\'eterminer, selon les valeurs de $\lambda$, le rang de la matrice $A-\lambda I_3$. En d\'eduire que: $f-\lambda Id_{\R^3}$ non bijectif si et seulement si $\lambda=1$ ou $\lambda=-1$. 
+\end{enumerate}
+\end{exercice}
+}
+
+\end{document}

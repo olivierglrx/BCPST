@@ -1,0 +1,145 @@
+\documentclass[a4paper, 11pt]{article}
+\input{macro/package.tex}
+\input{macro/environement}
+\input{macro/header.tex}
+\input{macro/newcommand.tex}
+\geometry{hmargin=2.0cm, vmargin=1.5cm}
+
+
+
+
+\begin{document}
+
+
+
+
+\title{Règles de calculs}
+
+\section{Fractions et puissances}
+\begin{prop}
+	Soit $(a,b,c,d)\in (\R^*)^4$.On a
+	\begin{center}
+		\begin{tabular}{ l c l }
+			$\ddp \frac{a+c}{b}=\frac{a}{b}+ \frac{c}{b}$          & et & $ \ddp \frac{a}{b}+\frac{c}{d}=\frac{ad+bc}{bd}$                                       \\  \\
+
+			$\ddp c\frac{a}{b}=\frac{ac}{b} $                      & et & $\ddp \frac{ca}{cb}=\frac{c}{c}\frac{a}{b}  =\frac{a}{b}$ \vsec                        \\
+
+
+			$\ddp \frac{\frac{a}{b}}{c} = \frac{a}{bc} $           & et & $\ddp \frac{a}{\frac{b}{c}} = \frac{ac}{b}$\vsec                                       \\
+
+			$\ddp \frac{\frac{a}{b}}{\frac{c}{d}} = \frac{ad}{bc}$ & et & $\ddp \frac{a\frac{1}{c}}{b\frac{1}{c}} =\frac{\frac{a}{c}}{\frac{b}{c}} =\frac{a}{b}$
+		\end{tabular}
+	\end{center}
+	--------------------------\\
+	\footnotesize{ $\frac{a}{b+c }\neq \frac{a}{b}+\frac{a}{c}$.... c'est très faux...}
+\end{prop}
+
+\begin{prop} \label{prop-regle de calcul puissance}
+	Pour tout $(x,y) \in \R^2$, non nuls si besoin, pour tout $n,m\in \Z$ on a :
+	\begin{itemize}
+		\item[$\bullet$] $(xy)^n =x^n y^n$
+		\item[$\bullet$] $x^{n} \times x^m = x^{n+m}$ \; et \; $\ddp \frac{x^n}{x^m} =x^{n-m}$
+		\item[$\bullet$] $ (x^n)^m = x^{nm}$
+	\end{itemize}
+\end{prop}
+
+
+
+\section{Factorisations}
+\begin{prop}
+	Soit $(a,b,c,d)\in \R^4$. On a
+	$$(a+b)^2=a^2+2ab+b^2$$
+	$$(a-b)^2 = a^2 -2ab+b^2$$
+	$$a^2-b^2 =(a-b)(a+b)$$
+	Ces égalités sont souvent appelées identités remarquables.
+\end{prop}
+
+
+\begin{prop}
+	$$(ax+b)  (cx+d) = acx^2 +(bc+ad) x +bd $$
+	$$ax+b   (cx+d) = ax +bc x +bd $$
+	$$(ax+b)  cx+d = acx^2 +bc x +d $$
+
+
+	$$c (ax+b) = acx +bc$$
+	$$c ax+b = acx +b$$
+
+	$$c-(ax+b) = c-ax-b$$
+	$$c-ax+b = c-ax+b$$
+\end{prop}
+
+\begin{prop}
+	Si $x\mapsto P(x) $ est une fonction polynomiale et $r$ une racine de $P$ (ie. $P(r)=0$) alors on peut factoriser $P(x)$ par $(x-r)$.
+
+	Autrement dit  il existe une fonction polynomiale $Q$ (de degré 1 de moins que celui de $P$) tel que $P(x)=(x-r)Q(x)$
+\end{prop}
+
+\section{Exercices}
+Les exercices sont tirés du très bon \href{https://colasbd.github.io/cdc/cahier_de_calcul_enonces_v13.pdf}{Cahier de calculs}
+\begin{exercice}
+	Mettre sous la forme d’une seule fraction, qu’on écrira sous la forme la plus simple possible
+	\begin{itemize}
+		\item[$\bullet$] $\ddp \frac{1}{(n+1)^2}+\frac{1}{n+1}-\frac{1}{n} \text { pour } n \in \mathbb{N}^* $
+		\item[$\bullet$]  $\ddp \frac{a^3-b^3}{(a-b)^2}-\frac{(a+b)^2}{a-b} \text { pour }(a, b) \in \mathbb{Z}^2$
+		\item[$\bullet$]  $\ddp \frac{\frac{6(n+1)}{n(n-1)(2 n-2)}}{\frac{2 n+2}{n^2(n-1)^2}} \text { pour } n \in \mathbb{N}^* \backslash\{1\} .  $
+	\end{itemize}
+\end{exercice}
+
+\begin{exercice}
+	Soit $k \in \mathbb{R} \backslash\{1\}$ et $x \in \mathbb{R} \backslash\{2\}$. Écrire les fractions suivantes sous la forme $a+\frac{b}{X}$ avec $a$ et $b$ entiers et $X \in \mathbb{R}$.
+	$$A=\frac{29}{6}\quadet B=\frac{k}{k-1} \quadet C=\frac{3 x-1}{x-2}$$
+\end{exercice}
+
+\begin{exercice}
+	Soit $t \in \mathbb{R} \backslash\{-1\}$. On donne $A=\ddp \frac{1}{1+t^2}-\frac{1}{(1+t)^2}$ et $B=\ddp \left(1+t^2\right)(1+t)^2$.
+	Simplifier $A B$ autant que possible.
+\end{exercice}
+
+\begin{exercice}
+	Développer, réduire et ordonner les expressions polynomiales suivantes selon les puissances croissantes de $x$.
+	\begin{itemize}[label=$\bullet$]
+		\begin{minipage}[t]{0.55\textwidth}
+			\item $(x-2)^2\left(-x^2+3 x-1\right)-(2 x-1)\left(x^3+2\right)$
+			\item  $(2 x+3)(5 x-8)-(2 x-4)(5 x-1)$
+			\item  $\left((x+1)^2(x-1)\left(x^2-x+1\right)+1\right) x-x^6-x^5+2$
+		\end{minipage}
+		\begin{minipage}[t]{0.45\textwidth}
+			\item  $(x+1)(x-1)^2-2\left(x^2+x+1\right)$
+			\item $\left(x^2+\sqrt{2} x+1\right)\left(1-\sqrt{2} x+x^2\right)$
+			\item $\left(x^2+x+1\right)^2$
+		\end{minipage}
+	\end{itemize}
+\end{exercice}
+
+\begin{exercice}
+	Factoriser les expressions polynomiales de la variable réelle $x$ suivantes.
+	\begin{itemize}[label=$\bullet$]
+		\begin{minipage}[t]{0.55\textwidth}
+			\item$-(6 x+7)(6 x-1)+36 x^2-49$
+			\item $25-(10 x+3)^2$
+		\end{minipage}
+		\begin{minipage}[t]{0.45\textwidth}
+			\item  $(6 x-8)(4 x-5)+36 x^2-64$
+			\item $(-9 x-8)(8 x+8)+64 x^2-64$
+		\end{minipage}
+	\end{itemize}
+
+\end{exercice}
+
+\begin{exercice}
+	Factoriser sur $\mathbb{R}$ les expressions polynomiales suivantes dont les variables représentent des nombres réels.
+	\begin{itemize}[label=$\bullet$]
+		\begin{minipage}[t]{0.55\textwidth}
+			\item$(x+y)^2-z^2$
+			\item  $x y-x-y+1$
+			\item $x^2+6 x y+9 y^2-169 x^2$
+		\end{minipage}
+		\begin{minipage}[t]{0.45\textwidth}
+			\item   $x^3+x^2 y+2 x^2+2 x y+x+y$
+			\item$y^2\left(a^2+b^2\right)+16 x^4\left(-a^2-b^2\right) $
+		\end{minipage}
+	\end{itemize}
+
+\end{exercice}
+
+\end{document}

@@ -1,0 +1,108 @@
+\documentclass[a4paper, 11pt]{article}
+\input{macro/package.tex}
+\input{macro/environement}
+\input{macro/header.tex}
+\input{macro/newcommand.tex}
+\geometry{hmargin=2.0cm, vmargin=1.5cm}
+
+
+
+
+\begin{document}
+
+\title{Exponentielle}
+\begin{theorem}
+Il existe une unique fonction $f$ définie sur $\R$ vérifiant : 
+$$\forall x\in \R,\quad f'(x) =f(x) \quadet f(0)=1$$
+\end{theorem}
+
+\begin{defi}
+On appelle exponentielle et on note $\exp$ la fonction $f$ du théorème précédent. 
+
+
+\end{defi}
+
+\begin{center}
+    \centering
+
+\includegraphics[scale=0.25]{CH0 - Calculs/images/exp.png}\par\medskip
+    \textbf{Graphe de la fonction exponentielle}
+\end{center}
+\paragraph{Remarques}
+\begin{itemize}
+    \item Par définition $\exp$ est définie et dérivable sur $\R$ et $\exp'(x)=\exp(x)$ et $\exp(0)=1$
+    \item On utilise parfois (souvent) la notation $e^x$ au lieu de $\exp(x)$ on a alors, par exemple : 
+    \begin{itemize}
+\item[$\bullet$] $e^1 =e$ 
+\item[$\bullet$]  $e^0=1$ 
+\end{itemize}
+    
+\end{itemize}
+
+
+\begin{prop}
+Soient ($a, b\in \R$):
+\begin{itemize}
+\item[$\bullet$] $\ddp e^{a}e^{b}=e^{a+b}$
+\item[$\bullet$] $\ddp\frac{e^{a}}{e^{b}}=e^{a-b}$
+\item[$\bullet$] $(e^{a})^b=e^{ab}$
+\end{itemize}
+\end{prop}
+
+
+
+
+\newpage
+
+\title{Logarithme}
+
+
+\begin{theorem}
+Il existe une unique fonction $f$ définie sur $\R_+^*$ vérifiant : 
+$$\forall x>0,\quad f'(x) =\frac{1}{x} \quadet f(1)=0$$
+\end{theorem}
+
+\begin{defi}
+On appelle logarithme népérien et on note $\ln$ la fonction $f$ du théorème précédent. 
+\end{defi}
+
+
+
+\begin{center}
+\includegraphics[scale=0.3]{CH0 - Calculs/images/ln.png}\par\medskip
+    \textbf{Graphe de la fonction logarithme}
+\end{center}
+\paragraph{Remarques}
+\begin{itemize}
+    \item Par définition $\ln$ est définie et dérivable sur $\R_+^*$ et 
+    $\forall x>0\, \ln'(x) =\frac{1}{x}  \quadet \ln(1)=0$.
+    \item En physique/chimie le logarithme décimal est souvent utilisé, il est noté $\log$ et définie par $\log(x)  =\frac{\ln(x)}{\ln(10)}$
+
+\end{itemize}
+
+
+\begin{prop}
+Soient ($a>0,\ b>0$):
+\begin{itemize}
+\item[$\bullet$] $\ln{(ab)}=\ln(a)+\ln(b) $
+\item[$\bullet$] $\ln{\left(\ddp\frac{a}{b}\right)}=\ln(a) -\ln(b)$
+\item[$\bullet$] $\ln{(a^p)}=p\ln(a)$
+\end{itemize}
+\end{prop}
+
+
+
+\paragraph{Lien entre $\exp$ et $\ln$}
+\begin{prop}
+On a pour tout \fbox{$x\in \R_+^*$} : 
+$$\exp(\ln(x)) =x$$
+On a pour tout \fbox{$x\in \R$} : 
+$$\ln(\exp(x)) =x$$
+
+Pour tout \fbox{$a\in \R, b\in \R_+^*$} :
+$$\exp(a\ln(b)) =b^a$$
+
+\end{prop}
+\vspace{0.5cm}
+
+\end{document}

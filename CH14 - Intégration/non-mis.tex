@@ -1,0 +1,338 @@
+\documentclass[a4paper, 11pt,reqno]{article}
+\input{macro/package.tex}
+\input{macro/environement}
+\input{macro/header.tex}
+\input{macro/newcommand.tex}
+\geometry{hmargin=1.0cm, vmargin=2.5cm}
+
+\newcommand{\type}{TD }
+\excludecomment{correction}
+%\newcommand{\type}{Correction TD }
+
+\begin{document}
+\title{TD 10 :  Intégrale et calcul de primitive}
+
+
+\begin{exercice}
+	Trouver une primitive de chacune des fonctions rationnelles suivantes:\\
+	\begin{minipage}[t]{0.3\textwidth}
+		\begin{itemize}
+			\item[$\bullet$] $x\mapsto \ddp\frac{x+3}{x^2-1}$
+			\item[$\bullet$] $x\mapsto \ddp\frac{2x+3}{x^2+x-2}$
+		\end{itemize}
+	\end{minipage}
+	\begin{minipage}[t]{0.3\textwidth}
+		\begin{itemize}
+			\item[$\bullet$] $x\mapsto \ddp\frac{x+2}{x^2+2x+1}$
+			\item[$\bullet$] $x\mapsto \ddp\frac{2x+1}{x^2+x+1}$
+		\end{itemize}
+	\end{minipage}
+	\begin{minipage}[t]{0.3\textwidth}
+		\begin{itemize}
+			\item[$\bullet$] $x\mapsto \ddp\frac{4x+6}{x^2+3x+2}$
+			\item[$\bullet$] $x\mapsto \ddp\frac{2x+2}{x^2+x+1}$
+		\end{itemize}
+	\end{minipage}
+\end{exercice}
+
+
+\begin{exercice}  \;
+	Pour tout $x>0$ et $x\not= 1$, on pose $f(x)=\ddp \int_x^{x^2} \ddp\frac{dt}{\ln{t}}$.
+	\begin{enumerate}
+		\item Justifier l'existence de $f$, et montrer que $f$ est d\'erivable sur $\rbrack 0,1\lbrack$ et sur
+		      $\rbrack 1,+\infty\lbrack$. \'Etudier les variations de $f$.
+		\item Pour tout $x>0$ et $x\not= 1$, calculer $\ddp \int_x^{x^2} \ddp\frac{dt}{t\ln{t}}$. En d\'eduire que $f(x)$ est compris entre $x\ln{2}$ et $x^2\ln{2}$. D\'eterminer les limites de $f$ en 0, 1 et $+\infty$.
+		\item On prolonge $f$ par continuit\'e en 0 et en 1. Montrer que le prolongement $g$ est de classe $C^1$ sur $\R^+$.
+	\end{enumerate}
+\end{exercice}
+
+
+\begin{correction}
+	On peut tout de suite v\'erifier que la suite $(u_n)_{n\in\N^{\star}}$ est bien d\'efinie.\\
+	\noindent Comme la fonction $f$ est continue sur $\lbrack 0,1\rbrack$ par hypoth\`{e}se, la fonction $f_n: x\mapsto f(x^n)$ est elle aussi continue sur $\lbrack 0,1\rbrack$ comme compos\'ee de fonctions continues (on a bien que pour tout $x\in\lbrack 0,1\rbrack$: $x^n\in\lbrack 0,1\rbrack$). Ainsi l'int\'egrale $u_n$ existe bien et cela pour tout $n\in\N$. Ainsi la suite est bien d\'efinie.
+	\begin{enumerate}
+		\item
+		      \begin{enumerate}
+			      \item La fonction $f$ est bien continue sur $\lbrack 0,1\rbrack$ et pour tout $n\in\N^{\star}$: $u_n=\int_0^1 a dx=a$. Ainsi il s'agit d'une suite constante toujours \'egale \`{a} $a$. Ainsi cette suite est bien convergente et $\lim\limits_{n\to +\infty} u_n=a$.
+			      \item La fonction $f$ est bien continue sur $\lbrack 0,1\rbrack$ et pour tout $n\in\N^{\star}$: $u_n=\int_0^1 x^n dx=\ddp\frac{1}{n+1}$. Comme $\lim\limits_{n\to +\infty} \ddp\frac{1}{n+1}=0$, la suite $(u_n)_{n\in\N^{\star}}$ est bien convergente et $\lim\limits_{n\to +\infty} u_n=0$.
+			      \item La fonction $f$ est bien continue sur $\lbrack 0,1\rbrack$ et pour tout $n\in\N^{\star}$: $u_n=\int_0^1 x^{np} dx=\ddp\frac{1}{np+1}$. Comme $\lim\limits_{n\to +\infty} \ddp\frac{1}{np+1}=0$ car $p$ est un nombre fix\'e, la suite $(u_n)_{n\in\N^{\star}}$ est bien convergente et $\lim\limits_{n\to +\infty} u_n=0$.
+			      \item La fonction $f$ est bien continue sur $\lbrack 0,1\rbrack$ et pour tout $n\in\N^{\star}$: $u_n=\int_0^1 x^n(1-x^n) dx=\int_0^1 x^n dx- \int_0^1 x^{2n} dx   =\ddp\frac{1}{n+1}-\ddp\frac{1}{2n+1}=\ddp\frac{n}{(n+1)(2n+1)}$. Comme $\lim\limits_{n\to +\infty} \ddp\frac{n}{(n+1)(2n+1)}=0$ d'apr\`{e}s le th\'eor\`{e}me des monomes de plus haut degr\'e, la suite $(u_n)_{n\in\N^{\star}}$ est bien convergente et $\lim\limits_{n\to +\infty} u_n=0$.
+		      \end{enumerate}
+		\item
+		      La fonction $f$ est bien continue sur $\lbrack 0,1\rbrack$ comme quotient de fonctions continues donc on sait que la suite $(u_n)_{n\in\N^{\star}}$ est bien d\'efinie et pour tout $n\in\N$: $u_n=\int_0^1 \ddp\frac{1}{1+x^n}dx$.
+		      \begin{enumerate}
+			      \item
+			            \begin{itemize}
+				            \item[$\bullet$] Calcul de $u_1$:\\
+				                  \noindent On a: $u_1=\int_0^1 \ddp\frac{dx}{1+x}=\ln{(2)}$.
+				            \item[$\bullet$] Calcul de $u_2$:\\
+				                  \noindent On a: $u_2=\int_0^1 \ddp\frac{dx}{1+x^2}=\arctan{(1)}-0=\ddp\frac{\pi}{4}$.
+			            \end{itemize}
+			      \item
+			            \begin{itemize}
+				            \item[$\bullet$] \'Etude de la monotonie de la suite:
+				                  \begin{itemize}
+					                  \item[$\star$] Soit $n\in\N^{\star}$, on a par lin\'earit\'e de l'int\'egrale que: $u_{n+1}-u_n=\int_0^1 \ddp\frac{x^n(1-x)}{(1+x^n)(1+x^{n+1})} dx$. Or comme $x\in\lbrack 0,1\rbrack$, on sait que $x^n\geq 0$, $(1+x^n)(1+x^{n+1})>0$ comme produit de deux nombres strictement positifs et $1-x\geq 0$. Ainsi pour tout $x\in\lbrack 0,1\rbrack$, on a: $ \ddp\frac{x^n(1-x)}{(1+x^n)(1+x^{n+1})} \geq 0$.
+					                  \item[$\star$] On a donc:
+					                        \begin{itemize}
+						                        \item[$\circ$] La fonction $x\mapsto  \ddp\frac{x^n(1-x)}{(1+x^n)(1+x^{n+1})} $ est continue sur $\lbrack 0,1\rbrack$ comme compos\'ee, somme, produit et quotient de fonctions continues.
+						                        \item[$\circ$] $0\leq 1$.
+						                        \item[$\circ$] Pour tout $x\in\lbrack 0,1\rbrack$: $ \ddp\frac{x^n(1-x)}{(1+x^n)(1+x^{n+1})} \geq 0$.
+					                        \end{itemize}
+					                        Ainsi d'apr\`{e}s le th\'eor\`{e}me de positivit\'e de l'int\'egrale, on obtient que: $u_{n+1}-u_n\geq 0$. Ainsi la suite est bien croissante.
+				                  \end{itemize}
+				            \item[$\bullet$] Montrons que la suite est major\'ee:\\
+				                  \begin{itemize}
+					                  \item[$\star$] On a pour tout $x\in\lbrack 0,1\rbrack$: $0\leq x^n\leq 1\Leftrightarrow 1\leq 1+x^n \leq 2\Leftrightarrow \ddp\demi \leq \ddp\frac{1}{1+x^n} \leq 1$.
+					                  \item[$\star$] On a donc:
+					                        \begin{itemize}
+						                        \item[$\circ$] les fonctions $x\mapsto \ddp\demi$, $x\mapsto 1$ et $x\mapsto f(x^n)$ sont continues sur $\lbrack 0,1\rbrack$.
+						                        \item[$\circ$] $0\leq 1$.
+						                        \item[$\circ$] Pour tout $x\in\lbrack 0,1\rbrack$: $\ddp\demi \leq \ddp\frac{1}{1+x^n} \leq 1$.
+					                        \end{itemize}
+					                        Ainsi d'apr\`{e}s le th\'eor\`{e}me de croissance de l'int\'egrale, on obtient que: $\ddp\demi \leq u_n\leq 1$. En particulier la suite est major\'ee par 1.
+				                  \end{itemize}
+				            \item[$\bullet$] La suite est ainsi croissante et major\'ee par 1, elle est donc convergente d'apr\`{e}s le th\'eor\`{e}me sur les suites monotones.
+			            \end{itemize}
+			      \item
+			            \begin{itemize}
+				            \item[$\bullet$] Soit $n\in\N$, on a: $u_n=\int_0^1 \ddp\frac{1}{1+x^n}dx = \int_0^1 \ddp\frac{1+x^n}{1+x^n}dx-\int_0^1 \ddp\frac{x^n}{1+x^n}dx=1-\int_0^1 \ddp\frac{x^n}{1+x^n}dx$. Ainsi, on vient bien de montrer que pour tout $n\in\N$: $1-u_n=\int_0^1 \ddp\frac{x^n}{1+x^n}dx$.
+				            \item[$\bullet$]
+				                  \begin{itemize}
+					                  \item[$\star$] Encadrement de la fonction \`{a} l'int\'erieur:\\
+					                        \noindent Pour tout $x\in\lbrack 0,1\rbrack$, on a d\'ej\`{a} vu que $\ddp\demi \leq \ddp\frac{1}{1+x^n} \leq 1$. Comme $x^n>0$, on obtient alors que: $\ddp\frac{x^n}{2}\leq \ddp\frac{x^n}{1+x^n}\leq x^n$.
+					                  \item[$\star$] Utilisation du th\'eor\`{e}me de croissance de l'int\'egrale:
+					                        \begin{itemize}
+						                        \item[$\circ$] Les fonctions $x\mapsto \ddp\frac{x^n}{2}$, $x\mapsto x^n$ et $x\mapsto \ddp\frac{x^n}{1+x^n}$ sont continues sur $\lbrack 0,1\rbrack$ comme quotient de fonctions continues.
+						                        \item[$\circ$] $0\leq 1$
+						                        \item[$\circ$] Pour tout $x\in\lbrack 0,1\rbrack$: $\ddp\frac{x^n}{2}\leq \ddp\frac{x^n}{1+x^n}\leq x^n$.
+					                        \end{itemize}
+					                        Ainsi en utilisant le th\'eor\`{e}me de croissance de l'int\'egrale, on obtient que: $\ddp\frac{1}{2(n+1)}\leq 1-u_n\leq \ddp\frac{1}{n+1}$. Comme $\ddp\frac{1}{2(n+1)} \geq 0$, on a bien que: $0\leq 1-u_n\leq \ddp\frac{1}{n+1}$.
+				                  \end{itemize}
+				            \item[$\bullet$] Convergence de la suite: On a:
+				                  \begin{itemize}
+					                  \item[$\star$] Pour tout $n\in\N$: $0\leq 1-u_n\leq \ddp\frac{1}{n+1} $.
+					                  \item[$\star$] $\lim\limits_{n\to +\infty} 0=\lim\limits_{n\to +\infty} \ddp\frac{1}{n+1}=0$ par propri\'et\'e sur le quotient de limite.
+				                  \end{itemize}
+				                  Ainsi d'apr\`{e}s le th\'eor\`{e}me des gendarmes, on obtient que: $\lim\limits_{n\to +\infty} 1-u_n=0$, \`{a} savoir: $\lim\limits_{n\to +\infty} u_n=1$. La suite $(u_n)_{n\in\N^{\star}}$ est donc convergente et elle converge vers 1.
+			            \end{itemize}
+			      \item On utilise pour cela une IPP en \'ecrivant que: $\ddp\frac{x^n}{1+x^n}=\ddp\frac{x}{n}\times \ddp\frac{nx^{n-1}}{1+x^n}$.
+			            \begin{itemize}
+				            \item[$\star$] On pose
+				                  $$\begin{array}{lllllll}
+						                  u(x)          & = & \ddp\frac{x}{n}            & \hspace{1cm} & u^{\prime}(x) & = & \ddp\frac{1}{n} \vsec \\
+						                  v^{\prime}(x) & = & \ddp\frac{nx^{n-1}}{1+x^n} & \hspace{1cm} & v(x)          & = & \ln{|1+x^n|}.
+					                  \end{array}$$
+				            \item[$\star$] Les fonctions $u$ et $v$ sont de classe $C^1$ sur $\lbrack 0,1\rbrack$ comme fonctions usuelles et ainsi par int\'egration par partie, on obtient que:
+				                  $$\int_0^1 \ddp\frac{x^n}{1+x^n} dx = \ddp\frac{\ln{2}}{n}-\ddp\frac{1}{n}\int_0^1 \ln{(1+x^n)}dx  .$$
+			            \end{itemize}
+			      \item On pose la fonction $f: u\mapsto f(u)=\ln{u}-u$ et on \'etudie cette fonction sur $\R^{+}$ afin de v\'erifier qu'elle reste bien toujours n\'egative. \`{A} faire.
+			      \item
+			            \begin{itemize}
+				            \item[$\bullet$] Encadrement de la fonction \`{a} l'int\'erieur:\\
+				                  \noindent On utilise l'in\'egalit\'e d\'emontr\'ee ci-dessus qui est vraie sur $\R^+$ donc en particulier sur $\lbrack 0,1\rbrack$ et on obtient que pour tout $x\in\lbrack 0,1\rbrack$, on a: $\ln{(1+x^n)}\leq x^n$.
+				            \item[$\bullet$] Utilisation du th\'eor\`{e}me de croissance de l'int\'egrale: On a
+				                  \begin{itemize}
+					                  \item[$\star$] Les fonctions $x\mapsto x^n$ et $x\mapsto \ln{(1+x^n)}$ sont continues sur $\lbrack 0,1\rbrack$.
+					                  \item[$\star$] $0\leq 1$
+					                  \item[$\star$] Pour tout $x\in\lbrack 0,1\rbrack$: $\ln{(1+x^n)}\leq x^n$.
+				                  \end{itemize}
+				                  Ainsi d'apr\`{e}s le th\'eor\`{e}me de croissance de l'in\'etgrale, on a: $\int_0^1 \ln{(1+x^n)}dx \leq \int_0^1 x^ndx$. Et ainsi on obtient que: $\int_0^1 \ln{(1+x^n)}dx \leq \ddp\frac{1}{n+1}$.
+			            \end{itemize}
+			      \item \`{A} ne pas faire.
+		      \end{enumerate}
+	\end{enumerate}
+\end{correction}
+
+\begin{correction}
+	\begin{enumerate}
+		\item
+		      \begin{itemize}
+			      \item[$\bullet$] Existence:\\
+			            \noindent Soit $(n,p)\in\N^{2}$ fix\'es. La fonction $x\mapsto (1+x)^n(1-x)^p$ est continue sur $\lbrack -1,1\rbrack$ comme produit de fonctions polynomiales et ainsi $I_{n,p}$ existe bien. Ainsi la suite est bien d\'efinie.
+			      \item[$\bullet$] Relation de r\'ecurrence:\\
+			            \noindent On utilise une IPP.
+			            \begin{itemize}
+				            \item[$\star$] On pose
+				                  $$\begin{array}{lllllll}
+						                  u(x)          & = & (1+x)^n & \hspace{1cm} & u^{\prime}(x) & = & n(1+x)^{n-1}\vsec             \\
+						                  v^{\prime}(x) & = & (1-x)^p & \hspace{1cm} & v(x)          & = & -\ddp\frac{(1-x)^{p+1}}{p+1}.
+					                  \end{array}$$
+				            \item[$\star$] Les fonctions $u$ et $v$ sont de classe $C^1$ sur $\lbrack -1,1\rbrack$ comme fonctions usuelles et ainsi par int\'egration par partie, on obtient que:
+				                  $$I_{n,p}=0+\ddp\frac{n}{p+1}I_{n-1,p+1}.$$
+			            \end{itemize}
+		      \end{itemize}
+		\item Calcul de $I_{0,n+p}$:\\
+		      \noindent L'int\'egrale existe bien, on l'a d\'ej\`{a} d\'emontr\'e.\\
+		      \noindent On a: $I_{0,n+p}=\left\lbrack \ddp\frac{-(1-x)^{n+p+1}}{n+p+1} \right\rbrack_{-1}^1=\ddp\frac{2^{n+p+1}}{n+p+1}$.
+		\item On it\'ere la relation de r\'ecurrence trouv\'ee \`{a} la premi\`{e}re question afin de conjecturer l'expression de $I_{n,p}$. On a:
+		      $$I_{n,p}=\ddp\frac{n}{p+1}I_{n-1,p+1}=\ddp\frac{n}{p+1}\times \ddp\frac{n-1}{p+2} I_{n-2,p+2}=\ddp\frac{n}{p+1}\times \ddp\frac{n-1}{p+2} \times \ddp\frac{n-2}{p+3} I_{n-3,p+3}.$$
+		      Ainsi en it\'erant, on obtient que: $I_{n,p}=\ddp\frac{n(n-1)(n-2)\dots  1}{(p+1)(p+2)(p+3)\dots (p+n)} I_{0,n+p}=\ddp\frac{n!}{(p+1)(p+2)(p+3)\dots (p+n)}I_{0,n+p}=\ddp\frac{n! p!}{(n+p)!}I_{0,n+p}$. Comme on conna\^{i}t de plus la valeur de $I_{0,n+p}$, on obtient que pour tout $(n,p)\in\N^2$: $I_{n,p}=\ddp\frac{n! p!}{(n+p)!} \times \ddp\frac{2^{n+p+1}}{n+p+1}$.
+	\end{enumerate}
+\end{correction}
+
+
+%------------------------------------------------
+\begin{correction}\;
+	\begin{enumerate}
+		\item Il s'agit d'utiliser les formules qui transforme les produits en sommes: $\cos{(p)}\cos{(q)}=\ddp\demi\left(\cos{(p+q)}+\cos{(p-q)}  \right)$.
+		      Il faut aussi utiliser des arguments de type:
+		      $$\sin{((k+l)wT)}=\sin{( 2\pi(k+l) )}=0$$
+		      car $k+l$ est un entier et $T=\ddp\frac{2\pi}{w}$. On est de plus oblig\'e de s\'eparer les cas $k=l$ et $k\not= l$ car les formules trigonom\'etriques font appara\^itre des termes de type: $\int_{0}^T \cos{( (k-l)wx  )} dx$ ou $\int_{0}^T \sin{( (k-l)wx  )} dx$ et il fait ainsi savoir si $k=l$ ou pas pour savoir que vaut la primitive. On obtient les r\'esultats suivants pour tout $k$ et $l$ entiers strictement positifs:
+		      $$\begin{array}{lll}
+				      \ddp\int_0^T \cos{(kwx)}\cos{(lwx)}dx & = & \left\lbrace\begin{array}{ll} 0 & \hbox{si}\ k\not= l\vsec\\ \ddp\frac{T}{2} & \hbox{si}\ k= l \end{array}\right.\vsec \\
+				      \ddp\int_0^T \sin{(kwx)}\sin{(lwx)}dx & = & \left\lbrace\begin{array}{ll} 0 & \hbox{si}\ k\not= l\vsec\\ \ddp\frac{T}{2} & \hbox{si}\ k= l \end{array}\right.\vsec \\
+				      \ddp\int_0^T \sin{(kwx)}\cos{(lwx)}dx & = & 0.
+			      \end{array}$$
+		\item Pour d\'emontrer les \'egalit\'es, on part de la forme la plus compliqu\'ee, c'est-\`a-dire celle de droite.
+		      \begin{itemize}
+			      \item[$\bullet$] Montrons que: $c= \ddp\frac{1}{T} \int_0^T f(x)dx$ en partant donc de $\ddp\int_0^T f(x)dx$\\
+			            On utilise le fait que, par d\'efinition, on sait que
+			            $$\forall x\in\R,\quad f(x)=c+\sum\limits_{k=1}^n \left( a_k\cos{(kwx)} + b_k\sin{(kwx)}  \right).$$
+			            On a alors:
+			            $$\int_0^T f(x)dx =\int_0^T \left\lbrack c+\sum\limits_{k=1}^n \left( a_k\cos{(kwx)} + b_k\sin{(kwx)}  \right)    \right\rbrack dx=  \int_0^T c dx+ \int_0^T \left\lbrack \sum\limits_{k=1}^n \left( a_k\cos{(kwx)} + b_k\sin{(kwx)}  \right)    \right\rbrack dx .$$
+			            On a ainsi d\'ej\`a utilis\'e la lin\'earit\'e de l'int\'egrale. On continue de l'utiliser afin de sortir la somme de l'int\'egrale:
+			            $$\int_0^T f(x)dx = cT+\sum\limits_{k=1}^{n} \int_0^T \left( a_k\cos{(kwx)} + b_k\sin{(kwx)}  \right)dx.$$
+			            On s'occupe alors du terme $\sum\limits_{k=1}^{n} \int_0^T \left( a_k\cos{(kwx)} + b_k\sin{(kwx)}  \right)dx$. Par lin\'earit\'e de l'int\'egrale, on peut encore couper en deux et on obtient:
+			            $$\begin{array}{lll}
+					            \ddp \sum\limits_{k=1}^{n} \left\lbrack\int_0^T \left( a_k\cos{(kwx)} + b_k\sin{(kwx)}  \right)dx\right\rbrack & = & \ddp \sum\limits_{k=1}^{n} \left\lbrack \int_0^T a_k\cos{(kwx)}dx + \int_0^T b_k\sin{(kwx)}dx\right\rbrack\vsec \\
+					                                                                                                                           & = & \ddp \sum\limits_{k=1}^{n} \int_0^T a_k\cos{(kwx)}dx +  \sum\limits_{k=1}^{n} \int_0^T b_k\sin{(kwx)}dx.
+				            \end{array}$$
+			            Puis, comme $a_k$ et $b_k$ ne d\'ependent pas de $x$, on peut les sortir de l'int\'egrale et on obtient:
+			            $$\sum\limits_{k=1}^{n} \left\lbrack\int_0^T \left( a_k\cos{(kwx)} + b_k\sin{(kwx)}  \right)dx\right\rbrack=\sum\limits_{k=1}^{n}\left\lbrack a_k \int_0^T \cos{(kwx)}dx \right\rbrack +  \sum\limits_{k=1}^{n} \left\lbrack b_k \int_0^T \sin{(kwx)}dx \right\rbrack.$$
+			            On calcule enfin les int\'egrales. Le calcul montre que, pour tout $k$ entier naturel tel que $k\geq 1$, on a:
+			            $$\int_0^T \cos{(kwx)}dx=0\quad \hbox{et}\quad \int_0^T \sin{(kwx)}dx=0.$$
+			            Ainsi, les deux sommes sont en fait des sommes de termes tous nuls et ainsi, on vient de montrer que:
+			            $$\sum\limits_{k=1}^{n} \left\lbrack \int_0^T \left( a_k\cos{(kwx)} + b_k\sin{(kwx)}  \right)dx\right\rbrack =0.$$
+			            On obtient alors:
+			            \conclusion{$\ddp \int_0^T f(x)dx =cT$}.
+			            Ce qui est bien le r\'esultat voulu.
+			            %---
+			      \item[$\bullet$] Montrons que: $a_k= \ddp\frac{2}{T} \int_0^T f(x)\cos{(kwx)}dx$.\\
+			            \noindent Il s'agit de faire un peu le m\^eme type de raisonnement mais c'est un peu plus dur. La premi\`ere chose \`a remarquer est qu'ici, dans le terme $\ddp\frac{2}{T} \int_0^T f(x)\cos{(kwx)}dx$, l'indice $k$ joue le r\^ole d'un indice fix\'e. On ne peut donc plus utiliser la formule de $f(x)$ en sommant sur $k$. Mais l'indice de sommation \'etant muet, il suffit juste de sommer sur, par exemple, l'indice de sommation $i$. On obtient ainsi:
+			            $$\int_0^T f(x)\cos{(kwx)}dx= \int_0^T \left\lbrack c+\sum\limits_{i=1}^n \left( a_i\cos{(iwx)} + b_i\sin{(iwx)}  \right)    \right\rbrack    \cos{(kwx)}dx.$$
+			            Ici, il faut commencer par remarquer que, comme $\cos{(kwx)}$ est ind\'ependant de l'indice de sommation $i$, on peut le rentrer dans la somme. On obtient ainsi
+			            $$\int_0^T f(x)\cos{(kwx)}dx= \int_0^T \left\lbrack c \cos{(kwx)}+\sum\limits_{i=1}^n \left( a_i\cos{(iwx)} \cos{(kwx)} + b_i\sin{(iwx)} \cos{(kwx)}  \right)    \right\rbrack dx.$$
+			            Ensuite, il faut faire comme \`a l'\'etape pr\'ec\'edente et utiliser la lin\'earit\'e de l'int\'egrale:
+			            $$\hspace*{-2cm}\begin{array}{lll}
+					            \ddp \int_0^T f(x)\cos{(kwx)}dx & = & \ddp \int_0^T c\cos{(kwx)}dx + \int_0^T \left\lbrack \sum\limits_{i=1}^n \left( a_i\cos{(iwx)} \cos{(kwx)} + b_i\sin{(iwx)} \cos{(kwx)}  \right)\right\rbrack dx\vsec                                         \\
+					                                            & = & \ddp \int_0^T c\cos{(kwx)}dx + \sum\limits_{i=1}^n \left\lbrack \int_0^T \left( a_i\cos{(iwx)} \cos{(kwx)} + b_i\sin{(iwx)} \cos{(kwx)}  \right) dx\right\rbrack\vsec                                         \\
+					                                            & = & \ddp c\int_0^T \cos{(kwx)}dx + \sum\limits_{i=1}^n \left\lbrack\int_0^T a_i\cos{(iwx)} \cos{(kwx)} dx\right\rbrack + \sum\limits_{i=1}^n \left\lbrack\int_0^T b_i\sin{(iwx)} \cos{(kwx)} dx\right\rbrack\vsec \\
+					                                            & = & \ddp c\int_0^T \cos{(kwx)}dx + \sum\limits_{i=1}^n a_i \int_0^T \cos{(iwx)} \cos{(kwx)} dx + \sum\limits_{i=1}^n b_i \int_0^T \sin{(iwx)} \cos{(kwx)} dx.
+				            \end{array}$$
+			            On peut tout de suite remarquer que pour tout $k\in\N^{\star}$, on a: $\int_0^T \cos{(kwx)}dx=0$.\\
+			            \noindent On utilise alors les r\'esultats d\'emontr\'es \`a la premi\`ere question. En particulier, ils montrent que, pour tout $k\in\N^{\star}$ et tout $i\in\N^{\star}$, on a: $\int_0^T \sin{(iwx)} \cos{(kwx)} dx =0$. Ainsi, on obtient:
+			            $$ \int_0^T f(x)\cos{(kwx)}dx = \sum\limits_{i=1}^n \left\lbrack a_i \int_0^T \cos{(iwx)} \cos{(kwx)} dx\right\rbrack .$$
+			            On continue d'utiliser les r\'esultats de la premi\`ere question. On coupe pour cela la somme ci-dessus en trois parties:
+			            $$\begin{array}{l}
+					            \sum\limits_{i=1}^n a_i \int_0^T \cos{(iwx)} \cos{(kwx)} dx=\vsec \\
+					            \sum\limits_{i=1}^{k-1} a_i \int_0^T \cos{(iwx)} \cos{(kwx)} dx+ a_k\int_0^T \cos{(kwx)} \cos{(kwx)} dx +\sum\limits_{i=k+1}^n a_i \int_0^T \cos{(iwx)} \cos{(kwx)} dx.\end{array}$$
+			            Les deux sommes sont, d'apr\`es la premi\`ere question des sommes de termes tous nuls et ainsi, il reste:
+			            $$\sum\limits_{i=1}^n a_i \int_0^T \cos{(iwx)} \cos{(kwx)} dx=a_k\int_0^T \cos{(kwx)} \cos{(kwx)} dx=a_k\ddp\frac{T}{2}.$$
+			            Ainsi, on vient de d\'emontrer que:
+			            \conclusion{$\ddp \int_0^T f(x)\cos{(kwx)}dx=a_k\ddp\frac{T}{2}$},
+			            ce qui est le r\'esultat voulu.
+			      \item[$\bullet$]  M\^eme raisonnement que le cas pr\'ec\'edent.
+		      \end{itemize}
+	\end{enumerate}
+\end{correction}
+%------------------------------------------------
+%-------------------------------------------------
+
+
+\begin{correction}
+	\noindent \textbf{Calculer la limite quand $\mathbf{x}$ tend vers $\mathbf{+\infty}$ de la fonction $\mathbf{f(x)=\int_x^{2x} \ddp\frac{dt}{\sqrt{1+t^2+t^4}}}$.}
+	\begin{itemize}
+		\item[$\bullet$] Montrons que la fonction $f: x\mapsto \int_x^{2x} \ddp\frac{dt}{\sqrt{1+t^2+t^4}}$ est bien d\'efinie au voisinage de $+\infty$:
+		      \begin{itemize}
+			      \item[$\bullet$] Les fonctions $x\mapsto x$ et $x\mapsto 2x$ sont d\'efinies et continues sur $\R$.
+			      \item[$\bullet$] La fonction $g: t\mapsto \ddp\frac{1}{\sqrt{1+t^2+t^4}}$ est continue sur $\R$ comme compos\'ee et quotient de fonctions continues car $1+t^2+t^4>0$ comme somme de deux termes positifs dont l'un est strictement positif.
+			      \item[$\bullet$] Pour tout $x\in\R$, on a bien que: $\lbrack x,2x\rbrack\subset \R$ ou $\lbrack 2x,x\rbrack\subset \R$.
+		      \end{itemize}
+		      Ainsi on a: $\mathcal{D}_f=\R$.
+		\item[$\bullet$] Encadrement de $f$:
+		      \noindent On remarque que, si $x\geq 0$: $x\leq t\leq 2x \Leftrightarrow \ddp\frac{1}{\sqrt{1+4x^2+16x^4}}\leq \ddp\frac{1}{\sqrt{t^4+1}}\leq \ddp\frac{1}{\sqrt{1+x^2+x^4}}$ en utilisant le fait que la fonction racine carr\'ee est strictement croissante sur $\R^+$ et que la fonction inverse est strictement d\'ecroissante sur $\R^{+\star}$. \\
+		      \noindent Ainsi on a donc:
+		      \begin{itemize}
+			      \item[$\star$] Les fonctions $t\mapsto \ddp\frac{1}{\sqrt{1+4x^2+16x^4}}$, $t\mapsto \ddp\frac{1}{\sqrt{1+t^2+t^4}}$ et $t\mapsto \ddp\frac{1}{\sqrt{1+x^2+x^4}}$ sont continues sur $\lbrack x,2x\rbrack$.
+			      \item[$\star$] $x\leq 2x$ car $x\geq 0$.
+			      \item[$\star$] Pour tout $t\in\lbrack x,2x\rbrack$: $\ddp\frac{1}{\sqrt{1+4x^2+16x^4}}\leq \ddp\frac{1}{\sqrt{1+t^2+t^4}}\leq \ddp\frac{1}{\sqrt{1+x^2+x^4}}$.
+		      \end{itemize}
+		      Ainsi d'apr\`{e}s le th\'eor\`{e}me de croissance de l'int\'egrale, on obtient que: $\ddp\frac{x}{\sqrt{1+4x^2+16x^4}}\leq f(x)\leq \ddp\frac{x}{\sqrt{1+x^2+x^4}}$.
+		\item[$\bullet$] On a ainsi
+		      \begin{itemize}
+			      \item[$\bullet$] Pour tout $x\geq 0$, $\ddp\frac{x}{\sqrt{1+4x^2+16x^4}}\leq f(x)\leq \ddp\frac{x}{\sqrt{1+x^2+x^4}}$.
+			      \item[$\bullet$] $\lim\limits_{x\to +\infty} \ddp\frac{x}{\sqrt{1+4x¬2+16x^4}}=\lim\limits_{x\to +\infty} \ddp\frac{x}{\sqrt{1+x^2+x^4}}=0$ en \'ecrivant que: $\ddp\frac{x}{\sqrt{1+4x^2+16x^4}}=\ddp\frac{x}{x^2\sqrt{16+\frac{4}{x^2}+\frac{1}{x^4}}}=\ddp\frac{1}{x\sqrt{16+\frac{4}{x^2}+\frac{1}{x^4}}}$ puis par compos\'ee, somme et quotient de limites.
+		      \end{itemize}
+		      Ainsi d'apr\`{e}s le th\'eor\`{e}me des gendarmes, on a: \conclusion{$\lim\limits_{x\to +\infty} f(x)=0$.}
+	\end{itemize}
+\end{correction}
+
+
+
+
+\begin{correction}
+	\noindent \textbf{Soit la fonction $\mathbf{f: x\mapsto f(x)=\int_0^{\sin^2{(x)}} \arcsin{\sqrt{t}}dt +  \int_0^{\cos^2{(x)}} \arccos{\sqrt{t}}dt }$.}
+	\begin{enumerate}
+		\item \textbf{ Montrer que $\mathbf{f}$ est d\'efinie et de classe $\mathbf{C^1}$ sur $\mathbf{\R}$.}
+		      \begin{itemize}
+			      \item[$\bullet$] Montrons que $f$ est bien d\'efinie sur $\R$:\\
+			            \noindent On pose que $f=f_1+f_2$. Montrons s\'eparemment que $f_1$ et $f_2$ sont toutes les deux bien d\'efinies sur $\R$.
+			            \begin{itemize}
+				            \item[$\star$] \'Etude de $f_1$:
+				                  \begin{itemize}
+					                  \item[$\circ$] Les fonctions $x\mapsto 0$ et $x\mapsto \sin^2{(x)}$ sont toutes les deux continues sur $\R$.
+					                  \item[$\circ$]  La fonction $g_1: t\mapsto \arcsin{(\sqrt{t})}$ est continue sur $\lbrack 0,1\rbrack$.
+					                  \item[$\circ$]  Pour tout $x\in\mathcal{D}_{f_1}$, on doit avoir que: $\lbrack 0,\sin^2{(x)}\rbrack\subset \lbrack 0,1\rbrack$ car $\lbrack 0,1\rbrack$ est le domaine de continuit\'e de $g_1$. Or pour tout $x\in\R$: $0\leq \sin^2{(x)}\leq 1$ ainsi pour tout $x\in\R$, on a bien: $\lbrack 0,\sin^2{(x)}\rbrack\subset \lbrack 0,1\rbrack$.
+				                  \end{itemize}
+				                  Ainsi on a: $\mathcal{D}_{f_1}=\R$.
+				            \item[$\star$] \'Etude de $f_2$:\\
+				                  \noindent Le m\^{e}me type de raisonnement donne que $\mathcal{D}_{f_2}=\R$.
+				            \item[$\star$] Ainsi \conclusion{$f$ est bien d\'efinie sur $\R$} comme somme de deux fonctions d\'efinies sur $\R$.
+			            \end{itemize}
+			      \item[$\bullet$] Montrons que $f$ est de classe $C^1$ sur $\R$:
+			            \begin{itemize}
+				            \item[$\star$] La fonction $g_1: t\mapsto \arcsin{(\sqrt{t})}$ est continue sur $\lbrack 0,1\rbrack$ dont il existe une primitive $G_1$ de $g_1$ sur $\lbrack 0,1\rbrack$ et de plus $G_1$ est de classe $C^1$ sur $\lbrack 0,1\rbrack$ comme primitive d'une fonction continue. De m\^{e}me: la fonction $g_2: t\mapsto \arccos{(\sqrt{t})}$ est continue sur $\lbrack 0,1\rbrack$ dont il existe une primitive $G_2$ de $g_2$ sur $\lbrack 0,1\rbrack$ et de plus $G_2$ est de classe $C^1$ sur $\lbrack 0,1\rbrack$ comme primitive d'une fonction continue.
+				            \item[$\star$] Pour tout $x\in\R$, on a: $f(x)=G_1(\sin^2{(x)})-G_1(0)+G_2(\cos^2{(x)})-G_2(0)$.
+				            \item[$\star$] Ainsi \conclusion{la fonction $f$ est de classe $C^1$ sur $\R$} comme compos\'ees et sommes de fonctions de classe $C^1$.
+			            \end{itemize}
+		      \end{itemize}
+		\item \textbf{Montrer que $\mathbf{f}$ est $\mathbf{\pi}$ p\'eriodique et paire.}
+		      \begin{itemize}
+			      \item[$\bullet$] \'Etude de la $\pi$-p\'eriodicit\'e de $f$:
+			            \begin{itemize}
+				            \item[$\star$] Pour tout $x\in\R=\mathcal{D}_f$, $x+\pi\in\R=\mathcal{D}_f$.
+				            \item[$\star$] Soit $x\in\R$, on a: $f(x+\pi)=f_1(x+\pi)+f_2(x+\pi)$. Montrons que $f_1(x+\pi)=f_1(x)$. On a: $f_1(x+\pi)=\int_0^{\sin^2{(x+\pi)}} \arcsin{(\sqrt{t})}dt= \int_0^{(-\sin{(x)})^2} \arcsin{(\sqrt{t})}dt =\int_0^{\sin^2{(x)}} \arcsin{(\sqrt{t})}dt=f_1(x)$. Le m\^{e}me raisonnement donne que $f_2(x+\pi)=f_2(x)$. Ainsi on vient de montrer que $f(x+\pi)=f(x)$.
+			            \end{itemize}
+			            Ainsi \conclusion{la fonction $f$ est p\'eriodique de p\'eriode $\pi$} et il suffit donc de l'\'etudier par exemple sur $\left\lbrack -\ddp\frac{\pi}{2},\ddp\frac{\pi}{2}\right\rbrack$ puis la courbe $\mathcal{C}_f$ s'obtient par translation de vecteur $\pi\vect{i}$.
+			      \item[$\bullet$] Montrons que la fonction $f$ est paire:
+			            \begin{itemize}
+				            \item[$\star$] Pour tout $x\in\R=\mathcal{D}_f$, $-x\in\R=\mathcal{D}_f$.
+				            \item[$\star$] Soit $x\in\R$, on a: $f(-x)=f_1(-x)+f_2(-x)$. Montrons que $f_1(-x)=f_1(x)$. On a: $f_1(-x)=\int_0^{\sin^2{(-x)}} \arcsin{(\sqrt{t})}dt= \int_0^{(-\sin{(x)})^2} \arcsin{(\sqrt{t})}dt =\int_0^{\sin^2{(x)}} \arcsin{(\sqrt{t})}dt=f_1(x)$ car la fonction sinus est impaire. Le m\^{e}me raisonnement donne que $f_2(-x)=f_2(x)$ en utilisant la parit\'e de la fonction cosinus. Ainsi on vient de montrer que $f(-x)=f(x)$.
+			            \end{itemize}
+			            Ainsi \conclusion{la fonction $f$ est paire} et il suffit alors de l'\'etudier sur $\left\lbrack 0,\ddp\frac{\pi}{2}\right\rbrack$. La courbe $\mathcal{C}_f$ s'obtient alors par sym\'etrie par rapport \`{a} l'axe des ordonn\'ees.
+		      \end{itemize}
+		\item \textbf{Montrer que $\mathbf{f}$ est constante sur $\mathbf{\left\lbrack 0,\ddp\frac{\pi}{2}\right\rbrack}$ et en d\'eduire qu'elle est constante sur $\mathbf{\R}$.}
+		      \begin{itemize}
+			      \item[$\bullet$] On a montr\'e que la fonction $f$ est de classe $C^1$ sur $\R$, en particulier elle est d\'erivable sur $\left\lbrack 0,\ddp\frac{\pi}{2}\right\rbrack$.
+			      \item[$\bullet$] Pour tout $x\in \left\lbrack 0,\ddp\frac{\pi}{2}\right\rbrack$, on a:
+			            $$\begin{array}{lll}
+					            f^{\prime}(x) & = & 2\sin{x}\cos{x}G_1^{\prime}(\sin^2{(x)})-2\sin{x}\cos{x}G_2^{\prime}(\cos^2{(x)})\vsec                 \\
+					                          & = & 2\sin{x}\cos{x}g_1(\sin^2{(x)})(\sin^2{(x)})-2\sin{x}\cos{x}g_2(\cos^2{(x)})\vsec                      \\
+					                          & = & 2\sin{x}\cos{x}\left\lbrack  \arcsin{\sqrt{\sin^2{x}}}-\arccos{\sqrt{\cos^2{x}}}    \right\rbrack\vsec \\
+					                          & = & 2\sin{x}\cos{x}\left\lbrack  \arcsin{|\sin{x}|}-\arccos{|\cos{x}|}    \right\rbrack
+				            \end{array}.$$
+			            Or comme $x\in  \left\lbrack 0,\ddp\frac{\pi}{2}\right\rbrack$, on a: $\cos{(x)}\geq 0$ et $\sin{(x)}\geq 0$ et ainsi on obtient que pour tout $x\in  \left\lbrack 0,\ddp\frac{\pi}{2}\right\rbrack$: $f^{\prime}(x)=2\sin{x}\cos{x}\left\lbrack  \arcsin{\sin{x}}-\arccos{\cos{x}}    \right\rbrack$. Comme sur $ \left\lbrack 0,\ddp\frac{\pi}{2}\right\rbrack$, les fonctions sinus, arcsinus et cosinus, arcosinus sont bien r\'eciproque l'une de l'autre, on a pour tout $x\in  \left\lbrack 0,\ddp\frac{\pi}{2}\right\rbrack$: $f^{\prime}(x)=2\sin{x}\cos{x}(x-x)=0$.
+			      \item[$\bullet$] Comme la d\'eriv\'ee de $f$ est nulle sur l'intervalle $ \left\lbrack 0,\ddp\frac{\pi}{2}\right\rbrack$, la fonction $f$ est constante sur l'intervalle $ \left\lbrack 0,\ddp\frac{\pi}{2}\right\rbrack$. Donc pour tout $x\in  \left\lbrack 0,\ddp\frac{\pi}{2}\right\rbrack$: $f(x)=C$ avec $C$ constante r\'eelle.
+			      \item[$\bullet$] Puis en utilisant la sym\'etrie par rapport \`{a} l'axe des ordonn\'ees et la translation de vecteur $\pi \vect{i}$, on obtient que \conclusion{$f$ est en fait constante sur $\R$.}
+		      \end{itemize}
+		\item \textbf{Donner la valeur de cette constante.}
+		      \begin{itemize}
+			      \item[$\bullet$] Voir le cours sur les fonctions trigonom\'etriques r\'eciproques o\`{u} on a montr\'e que pour tout $x\in\lbrack -1,1\rbrack$: $\arcsin{x}+\arccos{x}=\ddp\frac{\pi}{2}$.
+			      \item[$\bullet$] On calcule $f\left( \ddp\frac{\pi}{4}\right)$. On a: $f\left( \ddp\frac{\pi}{4}\right)=\int_0^{\demi} \arcsin{(\sqrt{t})}dt+\int_0^{\demi} \arccos{(\sqrt{t})} dt=\int_0^{\demi} \left(\arcsin{(\sqrt{t})} +\arccos{(\sqrt{t})}  \right)dt=\int_0^{\demi}  \ddp\frac{\pi}{4} dt=\ddp\frac{\pi}{8}$.\\
+			            \noindent Ainsi on vient de montrer que \conclusion{pour tout $x\in\R$: $f(x)=\ddp\frac{\pi}{8}$.}
+		      \end{itemize}
+	\end{enumerate}
+\end{correction}
+
+\end{document}

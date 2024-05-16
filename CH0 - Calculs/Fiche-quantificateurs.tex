@@ -1,0 +1,259 @@
+\documentclass[a4paper, 11pt]{article}
+\input{macro/package.tex}
+\input{macro/environement}
+\input{macro/header.tex}
+\input{macro/newcommand.tex}
+\geometry{hmargin=2.0cm, vmargin=1.5cm}
+
+\DeclareMathOperator{\NON}{NON}
+\DeclareMathOperator{\ET}{ET}
+\DeclareMathOperator{\OU}{OU}
+
+\begin{document}
+
+
+
+\title{Logique et quantificateurs}
+
+
+
+
+
+\begin{defi}
+Soit $P$ une proposition. La proposition \textbf{NON} $P$, appelée négation de $P$, est la proposition fausse si $P$ est vraie, et vraie si $P$ est fausse. 
+\end{defi}
+\paragraph{Exemples}
+\begin{itemize}
+\item[$\bullet$] Soit $P$  la proposition : 'La fonction $f$ est croissante'. On a alors\\
+NON($P$) : 
+
+En particulier, ceci ne signifie pas 'la fonction f est décroissante'.
+\item[$\bullet$]  Soit $P$  la proposition : 'Pour tout $x\in \R$, $x^2+2x-1>0$'. On a alors \\
+NON($P$) :
+
+
+\item[$\bullet$] NON ($x=1$) :  
+\item[$\bullet$] NON ($x>y$) : 
+\end{itemize}
+
+
+\begin{defi}
+Soient $P, Q$ deux propositions. La proposition $P$ \textbf{OU} $Q$, est la proposition vraie si soit $P$ soit $Q$  est vraie, et fausse sinon.
+\end{defi}
+\paragraph{Exemples}
+\begin{itemize}
+\item[$\bullet$] (la fonction $\ln{}$ est croissante sur $\R_+^*$) ou (la fonction $\sin{}$ est paire) est ...........
+\item[$\bullet$] (3<0) ou ($\pi$ est un entier) est  ...........
+\item[$\bullet$] (la fonction $\sin{}$ est impaire) ou (la fonction $\cos{}$ est paire) est  ..........
+\end{itemize}
+
+
+\begin{defi}
+Soient $P, Q$ deux propositions. La proposition $P$ \textbf{ET} $Q$, est la proposition vraie si à la fois  $P$ et $Q$  sont vraies, et fausse sinon.
+\end{defi}
+\paragraph{Exemples}
+\begin{itemize}
+\item[$\bullet$] (la fonction $\ln{}$ est croissante sur $\R_+^*$) et (la fonction $\sin{}$ est paire) est ...........
+\item[$\bullet$] (3<0) et ($\pi$ est un entier) est  ...........
+\item[$\bullet$] (la fonction $\sin{}$ est impaire) et (la fonction $\cos{}$ est paire) est  ..........
+\end{itemize}
+
+
+\begin{defi}
+Soient $P, Q$ deux propositions. On définit $'P \implique Q'$ par 
+$ '\NON(P)  \OU Q'$. On dit que $P$ implique $Q$. 
+\end{defi}
+Heuristiquement ceci correspond à dire que $P$ 'est plus forte que' $Q$ : Si $P$ est vraie alors nécessairement $Q$ est vraie. En revanche si $P$ est fausse on ne peut rien dire sur $Q$. A partir d'un postulat faux on peut arriver à tout et n'importe quoi ! 
+
+De manière pratique, pour prouver une implication on s'intéressera seulement au cas où $P$ est vraie.
+\paragraph{Exemples}
+\begin{itemize}
+    \item $\forall x\in \R, \quad  (x>1) \implique (x^2>1)$ est une proposition ..........
+    \item $\forall x\in \R, \quad  (x^2>1) \implique (x>1)$ est une proposition ..........
+    \item $\forall x\in \R^+, \quad  (\sqrt{x}>1) \implique (x>1)$ est une proposition ..........
+\end{itemize}
+
+\begin{defi}
+Soient $P, Q$ deux propositions. On définit $'P \equivaut Q'$ par 
+$ 'P \implique Q \ET Q \implique P'$. On dit que $P$ équivaut à  $Q$. 
+\end{defi}
+Dans ce cas, $P$ est vraie si et seulement si $Q$ est vraie. 
+
+
+
+\begin{prop} Avec les op\'erateurs $\ET$ et $\OU$ :
+\begin{itemize}
+\item[$\bullet$]  $\NON$ $(P \OU  Q)$ = $\NON(P)  \ET \NON(Q)$
+\item[$\bullet$]  $\NON$ $(P \ET  Q)$ = $\NON(P) \OU \NON(Q)$
+\item[$\bullet$] $P \ET (Q \OU R)$ = $(P \ET Q) \OU (P\ET R)$
+\item[$\bullet$] $P {\OU} (Q {\ET} R)$ = $(P \OU Q) \ET (P\OU R)$
+\end{itemize}
+\end{prop}
+\paragraph{Exemple}
+ On utilise cette propriété : "$P \ET (Q \OU R)$ = $(P \ET Q) \OU (P\ET R)$" lorsque l'on fait une disjonction de cas. Considérons par exemples la propriété $$P(x): "|x+1|<x"$$
+ Remarquons que $x$ est solution de l'équation $|x+1|<x$ si et seulement si $P(x)$ est vraie. La disjonction de cas consiste alors à considérer les deux propositions 
+ $$Q(x):"x+1>0" \quadet R(x):"x+1\leq 0".$$
+Remarquons que $Q(x) \OU R(x)$ est vraie pour tout $x\in \R$. Ainsi $\Big(P(x) \ET (Q(x) \OU R(x))\Big)=P(x)$. 
+ 
+Enfin les propositions $(P(x) \ET Q(x)) $ et $(P(x) \ET R(x))$ correspondent aux solutions respectives de l'équation dans le cas où $x+1>0$ puis $x+1\leq 0$. 
+
+
+ 
+
+ 
+ 
+
+ 
+
+
+\begin{prop}\label{regle operateur implique} Avec l'op\'erateur $\implique$:
+\begin{itemize}
+\item[$\bullet$]  $'P \implique  Q'$ = $'\NON(Q)  \implique  \NON(P)'$ (C'est la base de la contraposée) 
+\item[$\bullet$]  $'\NON$ $(P \implique  Q)'$ = $'P  \ET \NON(Q)'$ (C'est la base du raisonnement par l'absurde)
+\end{itemize}
+\end{prop}
+
+\paragraph{Exemples}
+\begin{itemize}
+    \item Méthode directe
+    \begin{itemize}
+        \item[$\bullet$] Montrer que pour tout entier $n,\ \left( n\geq 2\Rightarrow n+\frac{1}{n}\geq 2  \right)$.
+        \item[$\bullet$] Si $n\in \N$ est impair  alors $n^2$ est impair. 
+        \end{itemize}
+    \item Contraposée : Au lieu de prouver $P\implique Q$ on prouve $\NON(P) \implique \NON(Q)$ qui lui est équivalent. 
+    \begin{itemize}
+        \item[$\bullet$] Si $x^3=2$ alors $x<2$.
+        \item[$\bullet$] Si $n^2\in \N$ est pair  alors $n$ est pair. 
+    \end{itemize}
+    \item Absurde. Au lieu de prouver $P\implique Q$ on prouve que $P \ET \NON(Q)$ est fausse. 
+
+   \begin{itemize}
+        \item[$\bullet$] (Le grand classique) $\sqrt{2}$ est irrationel. 
+         \item[$\bullet$] Si $x\in \N$ est entier  alors $\displaystyle x+\frac{1}{2}$ n'est pas entier. 
+    \end{itemize}
+\end{itemize}
+
+
+\newpage
+\begin{defi} Soit $E$ un ensemble et $P(x)$ une propri\'et\'e.
+\begin{itemize}
+\item[$\bullet$] $\mathbf{\forall}$ se lit 'quelque soit'
+Si $P(x)$ est vraie pour tout $x\in E$, on \'ecrit: $\forall x\in E,\ P(x)$
+\item[$\bullet$] $\mathbf{\exists}$ se lit 'il existe'
+Si $P(x)$ est vraie pour au moins un $x\in E$, on \'ecrit: $\exists x\in E,\ P(x)$
+\end{itemize}
+\end{defi}
+
+Plus rarement on utilise $\exists!$ qui se lit 'il existe un unique'. Si $P(x)$ est vraie pour un unique \'el\'ement $x\in E$, on écrit alors $\exists ! x \in E, P(x)$
+
+\warning[5ex] Toutes les variables \footnote{Sauf les variables 'muettes' celles se trouvant au sein d'une focntion mathématique telles que $\sum_{k=0}^n$  (ici $k$ est muet mais pas $n$) ou $\lim_{x\tv 0} f(x)$ (ici $x$ est muet.) Ces variables sont 'muettes' car elles n'ont pas de valeurs bien définies, et ne servent qu'à l'utilisation du symbole mathématiques sous-jacent.  } doivent être quantifiées. 
+
+
+\warning[5ex]L'ordre des quantificateurs est important. Plus précisément : 
+
+\warning[5ex] Les quantificateurs ne peuvent pas être interchangés.
+
+\warning[5ex] On n'utilisera pas les quantificateurs à la place du français. 
+Tirer du programme officiel : \og L'usage des quantificateurs hors des énoncés mathématiques est à proscrire.\fg \
+ Cette mise en garde s'applique aussi pour les opérateurs $\implique$ et $\equivaut$. \\
+
+\bigskip
+
+La négation d'un 'pour tout' est 'il existe', et vice-versa, la négation d'un 'il existe' est 'pour tout'. 
+
+$$"\NON( \forall x\in E, \, P(x)) " = "\exists x\in E, \, \NON(P(x))"$$
+$$"\NON( \exists x\in E, \, P(x))" = "\forall x\in E, \, \NON(P(x))"$$
+
+
+
+\begin{exercice}  \;
+Les assertions suivantes sont-elles vraies ou fausses ? Donner leur n\'egation.
+\begin{enumerate}
+\begin{minipage}[t]{0.45\textwidth}
+ \item
+$\forall x\in\R,\ x\geq 0$. 
+\item 
+$\exists y\in\R,\ y\geq 0$.
+\item 
+$\forall x\in\R^{+},\ \exists y\in\R,\ x=y^2$.
+\item 
+$\exists y\in\R,\ \forall x\in\R^{+},\ x=y^2$.
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\item 
+$\exists x\in\R^{+},\ \forall y\in\R,\ x=y^2$.
+\item 
+$\exists x\in\R,\ \forall y\in\R,\ x+y>0$.
+\item 
+$\forall x\in\R,\ \exists y\in\R,\ x+y>0$.
+\item 
+$\forall x\in\R,\ \forall y\in\R,\ x+y>0$.
+\end{minipage}
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}  \;
+Soit $(f,g)$ deux fonctions de $\R$ dans $\R$. \'Ecrire \`a l'aide des quantificateurs les \'enonc\'es suivants puis les nier. Donner des exemples de fonctions qui vérifient ces propriétés ou leur négation.
+\begin{enumerate}
+\begin{minipage}[t]{0.55\textwidth}
+\item Pour tout $x\in\R$, $f(x)\leq 1$. 
+\item 
+L'application $f$ est croissante.
+%\item 
+%L'application $f$ est croissante et positive.
+\item 
+Il existe un r\'eel positif $x$ tel que $f(x)\geq 0$.
+\item 
+La fonction $f$ est paire.
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\item
+La fonction $f$ ne s'annule jamais.
+\item La fonction $f$ atteint toutes les valeurs de $\N$.
+\item
+La fonction $f$ est inf\'erieure \`a la fonction $g$.
+\item
+La fonction $f$ est p\'eriodique.
+\end{minipage}
+\end{enumerate}
+\end{exercice}
+%--------------------------------------------------------------
+
+%--------------------------------------------------------------
+
+\begin{exercice}  \;
+Soit $(x,y)\in\R^2$. \'Ecrire les n\'egations des propositions suivantes:
+\begin{enumerate}
+\item $1\leq x<y$.
+\item $(x^2=1)\Longrightarrow x=1$.
+\item $\forall x\in E,\ \forall x^{\prime}\in E,\ (x\not= x^{\prime})\Longrightarrow f(x)\not= f(x^{\prime})$.
+\end{enumerate}
+\end{exercice}
+\begin{exercice}
+Soit $f$ une fonction de $\R$ dans $\R$. On considère les trois propositions suivantes 
+$$P_1(f) : "\exists M\in \R, \forall x \in \R, f(x) <M"$$
+$$P_2(f) : "\exists x\in \R, \exists y \in \R, f(x) <f(y)"$$
+$$P_3(f) : "\forall x\in \R, \exists y \in \R^+, f(x) \geq f(y)"$$
+
+\begin{enumerate}
+    \item Donner les négations de ces propositions
+    \item Dire si ces propositions sont vraies ou fausses pour les fonctions suivantes :
+    $$ f \left| \begin{array}{ccc}
+         \R &\tv &\R   \\
+         x & \mapsto & 1
+    \end{array}\right. ,\quad  g \left| \begin{array}{ccc}
+         \R &\tv &\R   \\
+         x & \mapsto & \exp(x)
+    \end{array}\right. ,\quad  h \left| \begin{array}{ccc}
+         \R &\tv &\R   \\
+         x & \mapsto & \cos(x)
+    \end{array}\right.$$
+
+On justifiera, dans le cas où les propositions sont vraies, en donnant une valeur pour les variables quantifiées par le quantificateur $\exists$
+    
+\end{enumerate}
+\end{exercice}
+
+
+
+\end{document}

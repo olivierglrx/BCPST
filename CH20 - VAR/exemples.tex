@@ -1,0 +1,464 @@
+\documentclass[a4paper, 11pt]{article}
+\input{macro/package.tex}
+\input{macro/environement}
+\input{macro/header.tex}
+\input{macro/newcommand.tex}
+\geometry{hmargin=2.0cm, vmargin=2cm}
+
+
+
+
+\begin{document}
+
+ \title{Chapitre 22  : Variables Aléatoires Réelles - exemples de cours} 
+
+ Dans tout ce chapitre, on se place dans un espace probabilis\'e fini $(\Omega, \mathcal{P}(\Omega),P)$.
+
+%\vspace{0.4cm}
+%--------------------------------------------------
+%------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\section{G\'en\'eralit\'es sur les variables al\'eatoires r\'eelles finies}
+
+\begin{exemple}
+Pour chacune des exp\'eriences al\'eatoires suivantes, donner un exemple de variable aléatoire adaptée à l'expérience. (On les appellera $X_1$ à $X_4$)
+\begin{enumerate}
+\item On lance une pi\`ece de monnaie  et on gagne un euro si on obtient pile, on perd $2$ euros si on obtient face. 
+\item On lance deux d\'es à 6 faces de couleurs différentes.
+\item Une urne contient $n$ boules numérotées de $1$ à $n$. On tire une boule au hasard.
+\item Une urne contient $R$ boules rouges et $B$ boules blanches. On effectue $10$ tirages successifs avec remise.
+\end{enumerate}
+\end{exemple}
+
+\vspace{12cm}
+%--------------------------------------------------
+%------------------------------------------------
+%-----------------------------------------------------------
+
+
+
+
+\begin{exemple}
+Donner les univers images pour les $4$ exemples pr\'ec\'edents.
+
+\end{exemple}
+
+\vspace{4cm}
+
+
+
+%--------------------------------------------------
+%------------------------------------------------
+%-----------------------------------------------------------
+
+
+%\paragraph{Notations des \'ev\`{e}nements associ\'es \`{a} une varf}
+\begin{tcolorbox}
+ \textbf{Notations}: Pour tout $a\in\R$, on note:\vsec
+\begin{itemize}
+\item[$\bullet$] $\lbrack X=a\rbrack=X^{-1}(\{a\})=\{ \omega \in \Omega \, |\, X(\omega) = a\}$
+\item[$\bullet$]  $\lbrack X\leq a\rbrack=\{ \omega \in \Omega \, |\, X(\omega) \leq a\}$
+\item[$\bullet$]  $\lbrack X\geq a\rbrack=\{ \omega \in \Omega \, |\, X(\omega) \geq  a\}$
+\item[$\bullet$]  $\lbrack X< a\rbrack=\{ \omega \in \Omega \, |\, X(\omega) < a\}$
+\item[$\bullet$]  $\lbrack X> a\rbrack=\{ \omega \in \Omega \, |\, X(\omega) > a\}$
+\end{itemize}
+Soit $A\subset \Omega$ on note :
+\begin{itemize}
+\item[$\bullet$] $\lbrack X\in A \rbrack=X^{-1}(A)=\{ \omega \in \Omega \, |\, X(\omega) \in A\}$
+\end{itemize}   
+\end{tcolorbox}
+ 
+
+\begin{exemple} 
+On reprend le deuxi\`eme exemple (somme des valeurs des dés). Exprimer sous forme d'ensemble 
+\begin{itemize}
+    \item $\lbrack X_2=5\rbrack$
+    \item $\lbrack X_2 \geq 10 \rbrack$
+    \item $\lbrack 1\leq X_2< 5\rbrack$
+    \item $\lbrack X_2>13\rbrack$
+\end{itemize}
+En déduire la valeur de 
+\begin{itemize}
+    \item $P(\lbrack X_2=5\rbrack)$
+    \item $P(\lbrack X_2 \geq 10 \rbrack)$
+    \item $P(\lbrack 1\leq X_2< 5\rbrack)$
+    \item $P(\lbrack X_2>13\rbrack)$
+\end{itemize}
+\end{exemple}
+
+
+\begin{exercice} Soit $X$ une varf et $a\in\R$. Exprimer $P(\lbrack X \leq a\rbrack)$ en fonction de  $P(\lbrack X> a\rbrack)$.
+\end{exercice}
+\vspace{2cm}
+
+
+
+
+
+
+
+%--------------------------------------------------
+%------------------------------------------------
+%-----------------------------------------------------------
+\subsection{Loi d'une variable al\'eatoire r\'eelle finie}
+
+
+
+\begin{exemple}  
+Donner les lois de $X_1$ et $X_3$.
+\end{exemple} 
+
+\vspace{8cm}
+ 
+
+
+
+\begin{exemple}  
+Donner les diagrammes en bâtons de $X_1$ et $X_3$.
+\end{exemple} 
+\vspace{4cm}
+
+%--------------------------------------------------
+%------------------------------------------------
+%-----------------------------------------------------------
+\subsection{Fonction de r\'epartition d'une variable al\'eatoire r\'eelle finie}
+
+%\subsection{D\'efinition}
+
+ 
+
+
+
+
+\begin{exemple} 
+Calculer les fonctions de r\'epartition $F_{X_1}$ et $F_{X_3}$ puis en faire  la repr\'esentation graphique.
+\end{exemple} 
+
+
+\vspace{10cm}
+
+
+
+
+
+
+\begin{exercice} Un joueur pr\'el\`eve successivement et avec remise $n$ boules dans une urne contenant $N$ boules num\'erot\'ees de 1 \`a $N$. On consid\`ere les varf $X$ et $Y$ \'egales respectivement au plus grand et au plus petit num\'ero des $n$ boules tir\'ees. Donner les univers images de $X$ et de $Y$. Calculer la fonction de r\'epartition de $X$. En d\'eduire la loi de $X$. Calculer ensuite pour tout $k\in Y(\Omega)$: $P(\lbrack Y>k\rbrack)$. En d\'eduire la loi de $Y$.
+\end{exercice}
+
+\vspace{14cm}
+
+
+
+Penser \`{a} passer par la fonction de r\'epartition pour obtenir la loi de var d\'efinie avec des min ou des max.
+
+
+%--------------------------------------------------
+%------------------------------------------------
+%-----------------------------------------------------------
+
+\begin{exercice} 
+Donner loi de  $U=G^2-G-2$ où $G$ est la variable aléatoire de l'exemple 1.
+\end{exercice}
+
+\vspace{3cm}
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+
+
+
+\section{Moments d'une variable al\'eatoire r\'eelle finie}
+
+%--------------------------------------------------
+%------------------------------------------------
+%-----------------------------------------------------------
+\subsection{Esp\'erance d'une variable al\'eatoire r\'eelle finie}
+
+
+
+\begin{exemple}
+Calculer l'espérance de $X_1$ et $X_3$. 
+\end{exemple}
+
+
+
+ \vspace{7cm}
+
+
+ 
+
+
+
+%\begin{exercice} 
+%Calculer les moments d'ordre 0, 1, 2 et 3 de la var $X$ dont la loi est d\'efinie dans l'exercice 3.
+%\end{exercice}
+
+
+
+
+
+
+
+
+\begin{exercice} On consid\`ere $r$ boules num\'erot\'ees de 1 \`a $r$ et $n$ tiroirs num\'erot\'es de 1 \`a $n$. On place au hasard chacune des $r$ boules dans l'un des $n$ tiroirs, chaque tiroir pouvant contenir 0, 1 ou plusieurs boules. On note $Y$ la var \'egale au nombre de tiroirs rest\'es vides. 
+\begin{enumerate}
+\item On note $X_i$ la var qui vaut 1 si le tiroir $i$ est vide et $0$ sinon. Donner la loi  et l'espérance de $X_i$.
+\item Exprimer $Y$ en fonction des $X_i$.
+\item En déduire l'espérance de $Y$
+\end{enumerate}
+\end{exercice}
+
+\vspace{7cm}
+
+%--------------------------------------------------
+%------------------------------------------------
+%-----------------------------------------------------------
+\subsection{Variance, \'ecart-type d'une variable al\'eatoire r\'eelle finie}
+
+
+Penser au th\'eor\`{e}me de transfert pour calculer l'esp\'erance de var de type $Y=g(X)$ avec $X$ connue.
+
+\begin{exemple}
+Calculer les moments d'ordre 2 de $X_1$ et $X_3$
+\end{exemple}
+
+
+
+
+
+\vspace{3cm}
+
+
+\begin{exemple}
+Calculer la variance de $X_1$ et $X_3$
+\end{exemple}
+
+
+\vspace{3cm}
+
+
+
+
+%
+\subsection{In\'egalit\'e de Bienaym\'e-Tchebychev}
+
+%
+ \begin{exercice} 
+On lance $n$ fois de suite un d\'e \'equilibr\'e.
+\begin{enumerate}
+\item Soit $X$ le nombre d'apparition du nombre $6$. Quelle loi suit $X$ ? Donner son esp\'erance et sa variance.
+\item Soit $Y$ la fr\'equence d'apparition du nombre $6$. Exprimer $Y$ en fonction de $X$, et donner son esp\'erance et sa variance.
+\item Soit $p_n$ la probabilit\'e que $Y$ soit proche de $\ddp \frac{1}{6}$ \`a $0.1$ pr\`es. Combien de lancers doit-on effectuer pour que $p_n$ soit sup\'erieur \`a $0.9$ ?
+\end{enumerate}
+\end{exercice}
+\newpage
+
+
+
+
+
+
+
+%------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\section{Lois usuelles}
+%--------------------------------------------------
+%------------------------------------------------
+
+
+%--------------------------------------------------
+%------------------------------------------------
+%-----------------------------------------------------------
+\subsection{Loi uniforme}
+
+
+
+\paragraph{Mod\'elisation type}
+
+\begin{itemize}
+\item[$\bullet$] Lancer d'un dé équilibré à $6$ faces. On note $X$ la variable aléatoire correspondant au numéro obtenu. On obtient 
+$$\forall k\in \intent{1,6},\,  P(X=k ) =....$$
+\item[$\bullet$] Autres exemples:
+\begin{itemize}
+\item[$\star$]  Tirer une boule dans une urne contenant $N$  boules numérotées de $1$ à $N$. On note $X$ la variable aléatoire correspondant au numéro obtenu. On obtient 
+$$\forall k\in \intent{1,N},\,  P(X=k ) =....$$
+\end{itemize}
+\end{itemize}
+
+ 
+
+%--------------------------------------------------
+%------------------------------------------------
+%-----------------------------------------------------------
+\subsection{Loi de Bernoulli}
+
+
+
+\paragraph{Mod\'elisation type}
+
+ Mod\'elisation type: 
+ 
+Une pièce truquée possède $p$ chances de tomber sur pile ( succés) et $q=1-p$ chances de tomber sur face (échec). On définit la VARF X qui teste si pile est sortie : $X$ vaut $1$ si on obtient pile et $0$ sinon. 
+$$P(X=1) =.... \quad P(X=0) = ....$$
+
+
+
+
+
+
+%
+%\begin{exemples}
+%\begin{itemize}
+%\item[$\bullet$] \dotfill \vsec
+%\item[$\bullet$] \dotfill \vsec
+%\item[$\bullet$] \dotfill \vsec
+%\end{itemize}
+%\end{exemples}
+
+
+
+
+
+%\paragraph{Fonction de r\'epartition}
+%
+% Calculer la fonction de r\'epartition de $X$ avec $X\hookrightarrow \mathcal{B}(p)$, $p\in\lbrack 0,1\rbrack$. Faire la repr\'esentation graphique pour $p=\ddp\frac{1}{4}$.
+%
+
+
+
+
+
+
+
+
+
+
+%--------------------------------------------------
+%------------------------------------------------
+%-----------------------------------------------------------
+\subsection{Loi binomiale}
+
+
+
+\paragraph{Mod\'elisation type}
+\begin{enumerate}
+\item [$\bullet$] Exemple 1 On dispose d'une urne avec $N$ boules, $R$ rouges et $N-R$ jaunes. On effectue $n$ tirages successifs avec remise, la probabilité d'obtenir exactement $k$ boules rouges parmi les $n$ tirages est 
+
+\begin{itemize}
+\item[$\star$] $X(\Omega)=\intent{0,n}$
+\item[$\star$] Loi de $X$:
+$$P(X=k ) =....$$
+
+\end{itemize}
+
+\item [$\bullet$] Exemple 2 (Sch\'ema binomial) On effectue $n$ lancers d'une pièce non équilibrée satisfaisant $P( pile) =p $ et $P(face)= q$ on effectue $n$ lancer et $X$ correspond au nombre de pile on obtient : 
+
+\begin{itemize}
+\item[$\star$] $X(\Omega)=\intent{0,n}$
+\item[$\star$] Loi de $X$:
+$$P(X=k ) =....$$
+
+\end{itemize}
+\end{enumerate}
+
+\begin{exemple}
+    Dire si les $X_i$ de l'exemple 1 suivent des lois usuelles. Si oui les expliciter.
+\end{exemple}
+
+\vspace{4cm}
+
+
+\newpage
+%------------------------------------------------
+\begin{exemple}  \;
+	Pour chacune des variables al\'eatoires d\'ecrites ci-dessous, donner la loi exacte, l'esp\'erance et la variance:
+	\begin{enumerate}
+		\item Nombre de piles au cours du lancer de 20 pi\`eces truqu\'ees dont la probabilit\'e d'obtenir face est 0.7.
+		%\item On tire 8 cartes d'un jeu de 52 et on s'int\'eresse au nombre de carreaux.
+		\item On lance 5 d\'es.
+		      \begin{enumerate}
+			      \item On s'int\'eresse au nombre de 6.
+			      \item On s'int\'eresse au num\'ero obtenu avec le premier d\'e.
+		      \end{enumerate}
+		\item Nombre de filles dans les familles de 6 enfants sachant que la probabilit\'e d'obtenir une fille est 0.51.
+		      %\item Nombre d'accidents par an \`a un carrefour donn\'e, sachant qu'il y a chaque jour une chance sur 125 d'accident.
+		\item Nombre de voix d'un des candidats \`a une \'election pr\'esidentielle lors du d\'epouillement des 100 premiers bulletins dans un bureau de vote.
+		\item On range au hasard 20 objets dans 3 tiroirs. Nombre d'objets dans le premier tiroir.
+%		\item Un sac contient 26 jetons sur lesquels figurent les 26 lettres de l'alphabet. On en aligne 5 au hasard. Nombre de voyelles dans ce mot.
+\item 	On consid\`ere une urne contenant 5 boules num\'erot\'ees: 2 rouges et 3 bleues.
+	\begin{enumerate}
+		%\item On tire simultan\'ement 3 boules de l'urne et on note $X$ le nombre de boules bleues obtenu. Donner la loi de $X$ ainsi que son esp\'erance et sa variance.
+		\item On r\'ealise 3 tirages successifs avec remise et on note $Y$ le nombre de boules bleues obtenu au cours de ces tirages. Donner la loi de $Y$ ainsi que son esp\'erance et sa variance.
+	%	\item On r\'ealise 3 tirages successifs sans remise et on note $Z$ le nombre de boules bleues obtenu au cours de ces tirages. Donner la loi de $Z$ ainsi que son esp\'erance et sa variance.
+		\item On tire une boule de l'urne et on note $T$ le num\'ero de la boule obtenue. Donner la loi de $T$ ainsi que son esp\'erance et sa variance.
+	\end{enumerate}
+		\item Un enclos contient 15 lamas, 15 dromadaires et 15 chameaux. On sort un animal au hasard de cet enclos. Nombre de bosses.
+		\item On suppose que $1\%$ des tr\`efles poss\`edent 4 feuilles. On cueille 1000 tr\`efles. Nombre de tr\`efles \`a 4 feuilles cueillis.
+%		\item Dans une population de 20 personnes, dont 8 hommes, nombre de femmes pr\'esentes dans une d\'el\'egation de 6 personnes tir\'ees au sort.
+		\item Il y a 128 boules num\'erot\'ees de 1 \`a 128. On en tire 10 parmi les 128, puis on en tire une parmi les 10. On s'int\'eresse au num\'ero de la boule obtenue.
+  
+	\end{enumerate}
+\end{exemple}
+%----------------------------------------------
+%------------------------------------------------
+\vspace{8cm}
+
+
+%--------------------------------------------------
+%------------------------------------------------
+%-----------------------------------------------------------
+
+
+%----------------------------------------------------------
+%-----------------------------------------------------------
+% \section{Ind\'ependance de deux var}
+% \begin{exercice} 
+% \begin{enumerate}
+% \item Une urne contient $n$ jetons num\'erot\'es de 1 \`a $n$. On en tire 2 successivement avec remise. 
+% Soient $X$ le num\'ero du premier jeton, et $Y$ le num\'ero du second. \'Etudier l'ind\'ependance de $X$ et $Y$.
+% \item Reprendre l'exercice pr\'ec\'edent avec deux tirages sans remise.
+% \end{enumerate}
+% \end{exercice}
+
+
+
+
+%\begin{exemple}
+%Si $X$ et $Y$ sont ind\'ependantes, alors, par exemple
+%\begin{itemize}
+% \item[$\bullet$] \dotfill\vsec
+%\item[$\bullet$] \dotfill\vsec
+%\end{itemize}
+%\end{exemple}
+%
+%%-----------------------------------------------------------
+%%----------------------------------------------------------
+%%-----------------------------------------------------------
+%%----------------------------------------------------------
+%
+%\begin{exemple}
+%Si $X,Y,Z,T$ sont mutuellement ind\'ependantes, alors, par exemple\vsec
+%\begin{itemize}
+% \item[$\bullet$] \dotfill\vsec
+%\item[$\bullet$] \dotfill\vsec
+%\end{itemize}
+%\end{exemple}
+
+
+
+
+
+
+%----------------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+%-------------------------------------------------------
+
+\end{document}

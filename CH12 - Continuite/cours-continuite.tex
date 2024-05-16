@@ -1,0 +1,509 @@
+\documentclass[a4paper, 11pt]{article}
+\input{macro/package.tex}
+\input{macro/environement}
+\input{macro/header.tex}
+\input{macro/newcommand.tex}
+\geometry{hmargin=2.0cm, vmargin=2.5cm}
+
+
+
+
+\begin{document}
+\tableofcontents
+\title{Chapitre : Continuite}
+% debut
+%------------------------------------------------
+\vspace{0.5cm}
+
+%----------------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+%-------------------------------------------------------
+\vspace{0.4cm}
+
+
+\noindent Dans tout ce qui suit, les fonctions consid\'er\'ees sont des fonctions num\'eriques.\\
+\noindent $f$ d\'esigne une fonction de $\R$ dans $\R$. Son domaine de d\'efinition not\'e $\mathcal{D}_f$ est un intervalle ou une r\'eunion d'intervalles.
+
+%-------------------------------------------------------------
+%----------------------------------------------------
+%-------------------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+%-------------------------------------------------------
+\section{Continuit\'e en un point}
+%-------------------------------------------------------------
+%----------------------------------------------------
+\subsection{D\'efinition de la continuit\'e en un point:}
+%-------------------------------------------------------------
+%----------------------------------------------------
+
+{\noindent
+
+	\begin{defi}
+		Soit $x_0\in\mathcal{D}_f$. On dit que la fonction $f$ est continue en $x_0$ si
+		\vspace{1cm}
+	\end{defi}
+
+}
+
+{\footnotesize \begin{exercice}
+		\begin{enumerate}
+			\item \'Etudier la continuit\'e en 0 de la fonction $f$ d\'efinie par $f(x)=\left\lbrace\begin{array}{ll} x\ln{(x)} &\hbox{si}\ x>0\\ 0 & \hbox{si}\ x=0.    \end{array}\right.$\vsec
+			\item \'Etudier la continuit\'e en 1 de la fonction $f$ d\'efinie par $f(x)=\left\lbrace\begin{array}{ll} \ddp\frac{\ln{(x)}}{x-1} &\hbox{si}\ x>0,\ x\not=1\\ 2 & \hbox{si}\ x=1.    \end{array}\right.$
+		\end{enumerate}
+	\end{exercice}}
+
+%--------------------------------
+%--------------------------------
+\subsection{Continuit\'e \`a droite et \`a gauche en un point}
+%--------------------------------
+%--------------------------------
+\noindent Lorsque la fonction se comporte de fa\c{c}on diff\'erente \`{a} droite et \`{a} gauche de $x_0\in\mathcal{D}_f$, on doit regarder la continuit\'e \`{a} droite et \`{a} gauche en $x_0$.\\
+
+
+
+Exemple type: les fonctions d\'efinies par des raccords.
+
+
+
+\begin{defi}
+	Soit $f$ une fonction d\'efinie en $x_0$. On suppose que $x_0$ n'est pas une borne de $\mathcal{D}_f$.\vsec
+	\begin{itemize}
+		\item[$\bullet$] On dit que la fonction $f$ est continue \`a droite en $x_0$ si \dotfill \vsec\vsec
+		\item[$\bullet$]  On dit que la fonction $f$ est continue \`a gauche en $x_0$ si \dotfill \vsec\vsec
+	\end{itemize}
+\end{defi}
+
+
+
+
+{\footnotesize \begin{exercice}
+	\'Etudier la continuit\'e en $0$ \`{a} droite et \`{a} gauche de la fonction partie enti\`{e}re.
+\end{exercice}}
+
+
+%--------------------------------
+%--------------------------------
+\subsection{Lien entre continuit\'e \`a droite, \`a gauche et continuit\'e en un point}
+%--------------------------------
+%--------------------------------
+
+
+\begin{prop}
+	Soit $f$ une fonction d\'efinie en $x_0$, o\`u $x_0$ n'est pas une extr\'emit\'e de $\mathcal{D}_f$. On a alors:\vsec\vsec\\
+	\noindent f continue en $x_0$ $\Longleftrightarrow $ \dotfill $\Longleftrightarrow $\dotfill\vsec\vsec
+\end{prop}
+
+
+
+\begin{exemple}
+	\'Etudier la continuit\'e en $0$ de la fonction partie enti\`{e}re.
+\end{exemple}
+
+{\footnotesize \begin{exercice}
+	\'Etudier la continuit\'e au point de raccord des fonctions suivantes:
+	\begin{enumerate}
+
+		\item $f(x)=\left\lbrace\begin{array}{ll} \ddp\frac{\sin{(x)}}{x} &\hbox{si}\ x>0\\ 1 & \hbox{si}\ x=0\\ \ddp\frac{e^x-1}{x} &\hbox{si}\ x<0  \end{array}\right.$\vsec
+		\item $f(x)=\left\lbrace\begin{array}{ll} e^{-\frac{1}{x}} &\hbox{si}\ x\not=0\\ 0 & \hbox{si}\ x=0   \end{array}\right.$
+
+
+		\item $f(x)=\left\lbrace\begin{array}{ll} \ddp\frac{\sin{(3x)}}{e^x-1} &\hbox{si}\ x>0 \vsec\\ -\ddp\demi & \hbox{si}\ x=0\vsec\\ \ddp\frac{\sqrt{1-x}-1}{x} &\hbox{si}\ x<0  \end{array}\right.$\vsec
+		\item $f(x)=\left\lbrace\begin{array}{ll} \ddp\frac{\ln{(1+x^2)}}{x} &\hbox{si}\ x\not=0\\ 1 & \hbox{si}\ x=0 \end{array}\right.$
+
+	\end{enumerate}
+\end{exercice}}
+
+
+%\textbf{M\'ethode pour montrer la continuit\'e de $\mathbf{f}$ en un point $\mathbf{x_0}$ de $\mathbf{\mathcal{D}_f}$ d\'efini par un raccord:}
+%\begin{itemize}
+%\item[$\bullet$] Calculer les limites \`a gauche et \`a droite.
+%\item[$\bullet$] Montrer que $f(x_0) = \lim\limits_{x \to x_0^+} f(x) = \lim\limits_{x \to x_0^-} f(x) $.
+%\end{itemize}
+
+
+%-------------------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+%-------------------------------------------------------
+\section{Continuit\'e sur un intervalle}
+%-------------------------------------------------------------
+%----------------------------------------------------
+\subsection{D\'efinition de la continuit\'e sur un intervalle}
+%-------------------------------------------------------------
+%----------------------------------------------------
+
+
+\begin{defi}
+	Soit $I$ un intervalle de $\R$ non r\'eduit \`a un point. \vsec
+	\begin{itemize}
+		\item[$\bullet$] Une application $f: I\rightarrow \R$ est dite continue sur $I$ si \dotfill\vsec
+		\item[$\bullet$] L'ensemble des fonctions continues sur $I$ est not\'e \dotfill ou \dotfill\vsec
+		\item[$\bullet$] On dit que $f$ \dotfill\vsec
+	\end{itemize}
+\end{defi}
+
+
+
+%----------------------------------------------------------------
+%----------------------------------------------------------------
+\subsection{Continuit\'e des fonctions usuelles}
+%----------------------------------------------------------------
+%----------------------------------------------------------------
+
+\noindent En repassant par la d\'efinition, on peut ainsi d\'emontrer la continuit\'e des fonctions usuelles suivantes :\vsec\\
+\phantom{\hspace*{0cm}}\dotfill\vsec\\
+\phantom{\hspace*{0cm}}\dotfill
+
+
+%------------------------------------------------------
+\subsection{Continuit\'e et op\'erations alg\'ebriques}
+
+
+
+\begin{prop}
+	Soient $I$ un intervalle quelconque de $\R$ et $\lambda\in\R$.\\
+	\noindent Si $f$ et $g$ sont deux \'el\'ements de $\mathcal{C}(I)$ alors\vsec
+	\begin{itemize}
+		\item[$\bullet$] \dotfill \vsec
+		\item[$\bullet$]  \dotfill\vsec
+		\item[$\bullet$]  \dotfill \vsec
+		\item[$\bullet$]  \dotfill \vsec
+	\end{itemize}
+\end{prop}
+
+
+
+%---------------------------------------------------------
+%---------------------------------------------------------
+\subsection{Continuit\'e et composition entre deux fonctions}
+%---------------------------------------------------------
+%---------------------------------------------------------
+
+{\noindent
+
+\begin{prop}
+	Soient $I$ et $J$ deux intervalles de $\R$. \vsec\\
+	%\begin{itemize}
+	%\item[$\bullet$]
+	Si $f\in\mathcal{C}(I)$ et $g\in\mathcal{C}(J)$ avec $f(I)\subset J$ alors \dotfill \vsec
+	%\item[$\bullet$] \dotfill\vsec
+	%\end{itemize}
+\end{prop}
+
+
+
+\textbf{M\'ethode pour montrer la continuit\'e sur un intervalle:}\vsec\\
+Par somme, produit, compos\'ee, quotient dont le d\'enominateur ne s'annule pas de fonctions usuelles.\vsec
+
+{\footnotesize \begin{exercice} \'Etudier la continuit\'e sur $\mathcal{D}_f$ des fonctions suivantes:
+		\begin{enumerate}
+
+			\item $f(x)=\ddp\sqrt{\frac{1+x}{2}}$
+			\item $f(x)=\ddp\frac{e^{-x^2}}{x}$
+			\item $f(x)=\ln{(e^{-x^4} +3)}$
+
+
+			\item $f(x)=\left\lbrace\begin{array}{ll} x\sin{\left(\ddp\frac{1}{x} \right)} &\hbox{si}\ x\not=0\\ 1 & \hbox{si}\ x=0  \end{array}\right.$
+			\item $f(x)=\left\lbrace\begin{array}{ll} \ddp\frac{\ln{(x)}}{\tan{(\pi x)}} &\hbox{si}\ x\not=1\\ 1 & \hbox{si}\ x=1   \end{array}\right. $
+
+		\end{enumerate}
+	\end{exercice}}
+
+
+
+%-------------------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+%-------------------------------------------------------
+%-------------------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+%-------------------------------------------------------
+\section{Prolongement par continuit\'e}
+
+\noindent La fonction $f$ est d\'efinie au voisinage de $x_0$ MAIS PAS en $x_0$: \fbox{$x_0\notin\mathcal{D}_f$}. On calcule donc $\lim\limits_{x\to x_0} f(x)$ pour savoir si on peut prolonger par continuit\'e la fonction en $x_0$.
+
+
+\subsection{Prolongement par continuit\'e}
+
+
+\begin{defi}
+	Soient $x_0\in\R$ et une fonction $f$ telle que :
+	$\left\{\begin{array}{l}
+			\textmd{\fbox{$f$ non d\'efinie en $x_0$}}\vsec \\
+			\textmd{$f$ admet une limite finie en $x_0$ not\'ee $l$.}
+		\end{array}\right.$\\
+	Alors la fonction $\tilde f$ d\'efinie par :
+
+
+	s'appelle le prolongement par continuit\'e de $f$ en $x_0$. Par abus de notation, on la note encore \ldots\ldots.
+\end{defi}
+
+%
+%{\footnotesize \begin{exercice} \'Etudier les \'eventuels prolongements par continuit\'e des fonctions suivantes:
+%\begin{enumerate}
+%
+%\item $f(x) = \ddp\frac{\sin{x}}{x}$
+%\item $f(x) = x^{\alpha}$, $\alpha\in\R$
+%\item $f(x) =  x^x$
+%\item  $f(x)=\left\lbrace\begin{array}{ll}
+%\sin{x} & \hbox{si}\ x>0\vsec\\
+%\cos{x} & \hbox{si}\ x<0.
+%\end{array}\right.
+%$ \vsec
+%%\item $f(x)=\sin{(x+1)}\ln{|x+1|}$
+% 
+%
+%\item $f(x)=\left\lbrace\begin{array}{ll}
+%e^x & \hbox{si}\ x<0\vsec\\
+%1+x & \hbox{si} \ x>0.
+%\end{array}\right.
+%$\vsec
+%\item $f(x)=\ddp\frac{\cos{(\pi x)}+1}{e^{ax^2}-e^{a}}$
+%\item $f(x)=\ddp\frac{x^2-2x-3}{\sqrt{1+x}}$
+% 
+%\end{enumerate}
+%\end{exercice}}
+
+% 
+
+%\begin{rem}
+%\'Etant donn\'ee une fonction $f:I\rightarrow \R$, on ne confondra pas les situations suivantes:\vsec
+%\begin{itemize}
+%\item[$\bullet$]
+%La fonction $f$ est continue en $x_0$: \dotfill \vsec\\
+%Exemple : $f(x) = \left(\begin{array}{rcl}
+%\R & \to & \R\vsec\\
+%x & \to & \left\lbrace\begin{array}{cl} 
+%\ddp \frac{\sin x }{x} & \hbox{si}\ x\not=0\vsec\\
+%1 & \hbox{si}\ x=0.
+%\end{array}\right.
+%\end{array}\right.$ est \dotfill
+%\item[$\bullet$]  
+%La fonction $f$ est prolongeable par continuit\'e en $x_0$: \dotfill \vsec\\
+%Exemple : $g(x) =  \left(\begin{array}{rcl}
+%\R^\star & \to & \R\vsec\\
+%x &\to & \ddp \frac{\sin x }{x} 
+%\end{array}\right.$ est \dotfill
+%\end{itemize}
+%\end{rem}
+%
+%
+% 
+
+%---------------------------------------------
+\subsection{Prolongement par continuit\'e \`a droite et \`a gauche}
+
+\noindent Lorsque la limite en $x_0$ n'existe pas, cela vient le plus souvent du fait que les limites en $x_0$ \`{a} droite et \`{a} gauche ne sont pas les m\^{e}mes. On peut alors regarder si la fonction est prolongeable par continuit\'e \`{a} droite ou \`{a} gauche.\vsec\vsec
+
+{\noindent
+
+	\begin{prop} Existence du prolongement par continuit\'e \`{a} droite ou \`{a} gauche:\\
+		Soit $f$ une fonction non d\'efinie en $x_0$.
+		\begin{itemize}
+			\item[$\bullet$] Prolongement par continuit\'e \`{a} droite:
+			      \begin{itemize}
+				      \item[$\star$] $f$ admet un prolongement par continuit\'e \`a droite en $x_0$ si \dotfill
+				      \item[$\star$]
+				            Dans ce cas, le prolongement $\tilde f$ est d\'efini par :
+				            \vspace{1.5cm}
+
+			      \end{itemize}
+			\item[$\bullet$] Prolongement par continuit\'e \`{a} gauche:
+			      \begin{itemize}
+				      \item[$\star$] $f$ admet un prolongement par continuit\'e \`a gauche en $x_0$ si \dotfill
+				      \item[$\star$] Dans ce cas, le prolongement $\tilde f$ est d\'efini par :
+				            \vspace{1.5cm}
+
+			      \end{itemize}
+		\end{itemize}
+	\end{prop}
+
+}
+
+{\footnotesize \begin{exercice} \'Etudier les \'eventuels prolongements par continuit\'e des fonctions suivantes:
+		\begin{enumerate}
+			\item $f(x)=e^{\frac{1}{x}}$
+			\item $g(x)=\left\lbrace\begin{array}{ll}
+					      \ddp\frac{\ln{x}}{x-1} & \hbox{si}\ x>1\vsec \\
+					      \ddp\frac{x}{-x^2-x+2} & \hbox{si}\ x<1.
+				      \end{array}\right.$
+		\end{enumerate}
+	\end{exercice}}
+
+
+%-------------------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+%-------------------------------------------------------
+%-------------------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+%-------------------------------------------------------
+% 
+\section{Th\'eor\`emes sur les fonctions continues d\'efinies sur un intervalle}
+
+%-------------------------------------------
+\subsection{Composition entre une fonction et une suite, application aux suites r\'ecurrentes:}
+
+\noindent On rappelle le r\'esultat vu lors du chapitre sur les suites.\\
+
+{\noindent
+
+\begin{prop}
+	Soient $f$ une fonction num\'erique d\'efinie sur $\mathcal{D}_f$ et une suite $\suiteu$. Si \vsec
+	\begin{itemize}
+		\item[$\bullet$] \dotfill\vsec
+		\item[$\bullet$] \dotfill \vsec
+	\end{itemize}
+	Alors \dotfill\vsec
+\end{prop}
+
+}
+
+{\footnotesize \begin{exercice}
+	Calculer les limites \'eventuelles de la suite $\suiteu$ d\'efinie par: $u_0>0$ et pour tout $n\in\N$: $u_{n+1}=f(u_n)$ avec $f(x)=\ln{(2+x)}$.% \'Etudier le comportement asymptotique de la suite.
+\end{exercice}}
+
+
+%-------------------------------------------------------
+%------------------------------------------------------------
+\subsection{Th\'eor\`eme des valeurs interm\'ediaires}
+
+\noindent\ {Le th\'eor\`{e}me}\\
+
+{\noindent
+
+\begin{theorem}
+	Soient $f: I\rightarrow \R$ et $(a,b)\in I^2$ avec $a<b$. Si on a :\vsec
+	\begin{itemize}
+		\item[$\bullet$] \dotfill \vsec
+		\item[$\bullet$] \dotfill \vsec
+	\end{itemize}
+	alors pour tout $y$ compris entre $f(a)$ et $f(b)$: \dotfill \vsec
+\end{theorem}
+
+
+{\footnotesize \begin{exercice}
+	\begin{enumerate}
+		\item Montrer que toute fonction polyn\^ome de degr\'e 3 a au moins une racine r\'eelle sur $\R$. De m\^{e}me montrer que toute fonction polyn\^ome de degr\'e impair a au moins une racine r\'eelle sur $\R$.
+		\item Soit $f:\ \lbrack a,b\rbrack\rightarrow \lbrack a,b\rbrack $ une fonction continue. Montrer qu'elle admet un point fixe.
+		\item Soient deux fonctions continues $f:\ \lbrack 0,1\rbrack\rightarrow \R$ et $g:\ \lbrack 0,1\rbrack\rightarrow \R$ v\'erifiant $f(0)>g(0)$ et $f(1)<g(1)$. Montrer qu'il existe $c\in \; \rbrack 0,1\lbrack$ tel que $f(c)=g(c)$.
+	\end{enumerate}
+\end{exercice}}
+
+
+%---------------------------------------------------------
+%------------------------------------------------------------
+%---------------------------------------------------------
+%------------------------------------------------------------
+%---------------------------------------------------------
+%------------------------------------------------------------
+\subsection{Th\'eor\`eme de la bijection}
+
+%---------------------------------------------------------
+%------------------------------------------------------------
+\noindent\ {Th\'eor\`{e}me de la bijection et fonction r\'eciproque}\\
+
+{\noindent
+
+\begin{theorem}
+	Soient $f: I\rightarrow \R$. Si on a : \vsec
+	\begin{itemize}
+		\item[$\bullet$] \dotfill\vsec
+		\item[$\bullet$] \dotfill\vsec
+	\end{itemize}
+	alors :\vsec
+	\begin{itemize}
+		\item[$\bullet$] \dotfill\vsec
+		\item[$\bullet$] \dotfill\vsec
+		\item[$\bullet$] \dotfill\vsec
+	\end{itemize}
+\end{theorem}
+}
+
+
+
+{\footnotesize \begin{exercice}
+	\begin{enumerate}
+		\item \'Etude de la bijectivit\'e de la fonction $f: x\mapsto x^3+2^x$.
+		\item \'Etude de la bijectivit\'e de la fonction $f:\ x\mapsto \ddp\frac{x+2}{x-2}$. Donner ensuite l'expression de $f^{-1}$.
+	\end{enumerate}
+\end{exercice}}
+
+%---------------------------------------------------------
+%------------------------------------------------------------
+{Fonction arctangente}\\
+
+
+
+\begin{prop}
+	La fonction tangente est bijective de \ldots \ldots \ldots dans  \ldots \ldots \ldots. \\
+	Sa fonction r\'eciproque est la fonction arctangente, d\'efinie de  \ldots \ldots \ldots dans  \ldots \ldots \ldots, et not\'ee \ldots \ldots \ldots \ldots. On a de plus :\vsec
+	\begin{itemize}
+		\item[$\bullet$] Monotonie : la fonction arctangente est \dotfill\vsec
+		\item[$\bullet$] Parit\'e :  la fonction arctangente est \dotfill\vsec
+	\end{itemize}
+\end{prop}
+
+
+
+%---------------------------------------------------------
+%------------------------------------------------------------
+\noindent\ {Fonctions arccosinus et arcsinus}\\
+
+\noindent Ces fonctions ne font pas partie des fonctions usuelles du programme : il faut refaire la d\'emonstration pour d\'emontrer leur existence et leurs propri\'et\'es.
+
+{\footnotesize \begin{exercice}
+	\begin{itemize}
+		\item[$\bullet$] Montrer que la fonction cosinus est bijective de $[0,\pi]$ dans $[-1,1]$. Sa bijection r\'eciproque est appel\'ee fonction arccosinus, et est not\'ee $\arccos$. Faire sa repr\'esentation graphique.
+		\item[$\bullet$] Montrer que la fonction sinus est bijective de $\left[-\frac{\pi}{2},\frac{\pi}{2}\right]$ dans $[-1,1]$. Sa bijection r\'eciproque est appel\'ee fonction arcsinus, et est not\'ee $\arcsin$. Faire sa repr\'esentation graphique.
+	\end{itemize}
+\end{exercice}}
+
+
+{\footnotesize \begin{exercice}
+	\begin{enumerate}
+		\item \'Etude des points fixes de la fonction tangente sur $\left\rbrack \ddp\frac{\pi}{2},\ddp\frac{3\pi}{2}\right\lbrack$.\\
+		\item Soit $n\in\N^{\star}$ fix\'e. Montrer qu'il existe un unique $u_n\in\left\rbrack 2n\pi,2n\pi+\ddp\frac{\pi}{2}\right\lbrack$ tel que $u_n\sin{(u_n)}=1$.
+	\end{enumerate}
+\end{exercice}}
+
+%-------------------------------------------------------------
+%----------------------------------------------------
+%-------------------------------------------------------
+%------------------------------------------------------------
+\subsection{Fonction continue sur un segment}
+
+\begin{defi} D\'efinition d'un segment de $\R$:\vsec\\
+	Un segment de $\R$ est \dotfill\vsec
+\end{defi}
+
+
+
+\begin{exemples}
+	\begin{itemize}
+		\item[$\bullet$] Exemples de segment de $\R$: \dotfill \vsec
+		\item[$\bullet$] Exemples d'intervalles de $\R$ non segment: \dotfill \vsec
+	\end{itemize}
+\end{exemples}\vsec\vsec
+
+%---------------------------
+
+\begin{theorem} Th\'eor\`{e}me d'une fonction continue sur un segment:\vsec
+	\begin{itemize}
+		\item[$\bullet$] \dotfill\vsec\\
+		      \hspace*{0cm}\dotfill \vsec
+		\item[$\bullet$] Plus pr\'ecisement, si $f$ est continue sur $\lbrack a,b\rbrack$ alors:
+		      \vspace{2cm}
+	\end{itemize}
+\end{theorem}
+
+{\footnotesize \begin{exercice}
+	Montrer que la fonction $f$ d\'efinie par $f(x)=x^{12}-2x^5+3x^3-1$ admet un minimum sur $\R$.
+\end{exercice}}
+
+
+\end{document}

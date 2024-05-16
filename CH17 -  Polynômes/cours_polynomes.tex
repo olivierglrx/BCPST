@@ -1,0 +1,778 @@
+\documentclass[a4paper, 11pt,reqno]{article}
+\input{macro/package.tex}
+\input{macro/environement}
+\input{macro/header.tex}
+\input{macro/newcommand.tex}
+\geometry{hmargin=1.0cm, vmargin=2.5cm}
+
+
+
+\begin{document}
+\tableofcontents
+\title{Chapitre 15  : Polynômes}
+% debut
+%------------------------------------------------
+
+
+%----------------------------------------------------
+%-----------------------------------------------------
+%-------------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+%-------------------------------------------------------
+
+
+\noindent Dans tout ce chapitre, $\bK$ d\'esigne $\R$ ou $\bC$.
+
+%----------------------------------------------------
+%-----------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+%-------------------------------------------------------
+\section{G\'en\'eralit\'es sur les polyn\^omes. Degr\'e et coefficient dominant.}
+
+%----------------------------------------------------
+%-----------------------------------------------------
+\subsection{D\'efinitions et notations}
+
+{\noindent
+
+	\begin{defi} \textbf{Notion de polyn\^omes:}
+		\begin{itemize}
+			\item[$\bullet$] On appelle polyn\^ome \`a coefficients dans $\bK$ toute fonction $P:\ \bK\rightarrow\bK$ qui est de type:\\
+
+
+			\item[$\bullet$] $a_0,a_1,\dots,a_n$ sont appel\'es \dotfill \vsec
+			\item[$\bullet$] $\bK[X]$ est l'ensemble des polyn\^omes \`a coefficients dans $\bK$.
+		\end{itemize}
+	\end{defi}
+
+}
+
+
+\begin{exemples}
+	\begin{itemize}
+		\item[$\bullet$] Donner un exemple de polyn\^{o}me de $\R[X]$: \dotfill\vsec
+		\item[$\bullet$] Donner un exemple de polyn\^{o}me de $\bC[X]$: \dotfill\vsec
+		\item[$\bullet$] Donner des exemples de non polyn\^{o}me: \dotfill\vsec
+	\end{itemize}
+\end{exemples}
+%\vsec
+
+%----------------------------------------------------
+%-----------------------------------------------------
+{\noindent
+
+\begin{defi} \textbf{Polyn\^omes particuliers: notations usuelles:}\\
+	\noindent On d\'efinit les polyn\^omes particuliers suivants:
+	\begin{itemize}
+		\item[$\bullet$] le polyn\^ome $\mathbf{1}:\ x\mapsto 1$\dotfill \vsec
+		\item[$\bullet$] le polyn\^ome $X:\ x\mapsto x$ \dotfill \vsec
+		\item[$\bullet$] pour tout $n\in\N^{\star}$, le polyn\^ome $X^n:\ x\mapsto x^n$ appel\'e \dotfill\vsec
+	\end{itemize}
+
+\end{defi}
+
+}\vsec
+
+\noindent Par exemple, le polyn\^ome r\'eel $P=2X^4-5X^3+10X-6$ est une fonction qui est d\'efinie par\\\vspace{2cm}
+
+
+\begin{rem} \noindent \warning  Il faut bien comprendre ici que $\mathbf{1},X,X^2,\dots X^n$ d\'esignent des fonctions et pas des nombres. En particulier on ne confondra pas les notations suivantes:\\
+	\begin{itemize}
+		\item[$\star$] $ax^2+bx+c$  qui est \dotfill\vsec
+		\item[$\star$] $aX^2+bX+c$  qui est \dotfill\vsec
+		\item[$\star$] $ax^2+bx+c=0$  qui est \dotfill\vsec
+		\item[$\star$] $aX^2+bX+c=0$  qui est \dotfill\vsec
+	\end{itemize}
+	De m\^{e}me, $P$ est un polyn\^{o}me donc une \dotfill alors que $P(x)$ est un \dotfill
+\end{rem}
+
+
+%----------------------------------------------------
+%-----------------------------------------------------
+\subsection{Unicit\'e des coefficients}
+
+{\noindent
+
+	\begin{theorem} \textbf{Identification des coefficients d'un polyn\^ome}
+		\begin{itemize}
+			\item[$\bullet$] $P=0\Longleftrightarrow \forall x\in\bK,\ P(x)=0\Longleftrightarrow$ \dotfill\vsec
+
+			\item[$\bullet$] $P=Q\Longleftrightarrow \left\|\begin{array}{ll} \forall x\in\bK & P(x)=Q(x) \\ \forall x\in\bK & \sum\limits_{k=0}^n a_kx^k =\sum\limits_{k=0}^n b_k x^k\end{array}\right.
+				      \vsec \\ \phantom{sdf} \quad \hspace{0.2cm}\Longleftrightarrow \left\|\begin{array}{l} \hbox{les coefficients de}\ P \hbox{ et de}\ Q\ \hbox{sont \'egaux.} \\
+					      \phantom{'} \dotfill
+				      \end{array}\right.$
+		\end{itemize}
+	\end{theorem}
+}
+
+
+
+{\footnotesize \begin{exercice}
+		\begin{enumerate}
+			\item Factoriser le polyn\^ome $P=2X^3-6X^2+5X-1$.
+			\item Montrer qu'il existe trois r\'eels $(a,b,c)\in\R^3$ tels que l'on ait: $\forall x\in\R\setminus\left\lbrace  -1,-\ddp\frac{2}{3}\right\rbrace,\quad \ddp\frac{6x^2+10x+3}{(3x+2)(x+1)}=a+\ddp\frac{b}{3x+2}+\ddp\frac{c}{x+1}.$
+		\end{enumerate}
+	\end{exercice}
+}
+
+%----------------------------------------------------
+%-----------------------------------------------------
+\subsection{Op\'erations sur les polyn\^omes}
+
+\noindent Comme les polyn\^{o}mes sont des cas particuliers de fonctions, on peut d\'efinir la somme de deux polyn\^{o}mes, le produit et la compos\'ee.\vsec
+
+{\noindent
+
+	\begin{theorem} \textbf{Somme, multiplication, composition de polyn\^omes}\\
+		\noindent Soit $P=\sum\limits_{k=0}^n a_k X^k\in\bK[X]$, $Q=\sum\limits_{k=0}^n b_k X^k\in\bK[X]$ et $\lambda\in\bK$.\vsec
+		\begin{itemize}
+			\item[$\bullet$] Somme: $P+Q=$\dotfill est un polyn\^ome \vsec
+			\item[$\bullet$] Multiplication par un scalaire: $\lambda P=$\dotfill est un polyn\^ome  \vsec
+			\item[$\bullet$] Multiplication de deux polyn\^omes: $PQ: x\in\bK\mapsto (PQ)(x)=P(x)Q(x)$ est un polyn\^ome\vsec
+			      %\item[$\bullet$] Composition de deux polyn\^omes: $P(Q): x\in\bK\mapsto (P\circ Q)(x)=P(Q(x))$ est un polyn\^ome  \vsec
+		\end{itemize}
+	\end{theorem}
+}
+
+{\footnotesize \begin{exercice}
+		\begin{enumerate}
+			\item $P=X^3+2X^2+1$ et $Q=X^2-2X+1$. Calcul de $PQ$.
+			      %\item[$\star$] $P=X^3+1$ et $Q=X^2+1$. Calcul de $P(Q)$
+			\item  On d\'efinit souvent: $P(X+a)$ qui est la compos\'ee du polyn\^ome $P$ et du polyn\^ome $X+a$. Calculer $P(X+a)$ avec $P=X^3-3X^2+1$.
+		\end{enumerate}
+	\end{exercice}
+}\vsec\vsec
+
+{\noindent
+
+	\begin{prop} Simplification avec les polyn\^{o}mes:\vsec
+		\begin{itemize}
+			\item[$\bullet$] $\forall (P,Q)\in (\bK[X])^2,\quad P\times Q=0 \Longleftrightarrow$ \dotfill\vsec
+			\item[$\bullet$] $\forall (P,Q)\in (\bK[X])^2,\quad \left(P\times Q=P\times R\ \hbox{et}\ P\not= 0\right) \Longrightarrow $ \dotfill \vsec
+		\end{itemize}
+	\end{prop}
+}
+
+
+%----------------------------------------------------
+%-----------------------------------------------------
+\subsection{Degr\'e et coefficient dominant d'un polyn\^ome}
+
+
+
+\begin{defi} \textbf{Degr\'e d'un polyn\^ome}\\
+	\noindent Soit $P\in\bK\lbrack X\rbrack$ s'\'ecrivant: $P=\sum\limits_{k=0}^n a_kX^k$.
+	\begin{itemize}
+		\item[$\bullet$] Le degr\'e de $P$ est not\'e $\deg (P)$ et est d\'efini par:\vsec
+		      \begin{itemize}
+			      \item[$\star$] si $P$ est le polyn\^{o}me nul alors \dotfill \vsec
+			      \item[$\star$] Sinon \dotfill\vsec
+		      \end{itemize}
+		\item[$\bullet$] Ainsi, si $P$ n'est pas le polyn\^ome nul:
+		      $$\deg(P)=n \Longleftrightarrow  \hspace{11cm}   $$
+		\item[$\bullet$] $a_n$ est alors appel\'e \dotfill \vsec
+		\item[$\bullet$] $a_nX^n$ est alors appel\'e \dotfill \vsec
+		\item[$\bullet$] On dit qu'un polyn\^ome est unitaire si \dotfill \vsec
+		\item[$\bullet$] On note $\bK_n\lbrack X\rbrack$ l'ensemble des polyn\^omes de $\bK\lbrack X\rbrack$ \dotfill \vsec
+	\end{itemize}
+\end{defi}
+
+
+\begin{prop}
+	Si $P=Q$ alors $$ $$
+	Réciproquement si $ deg(P) \neq deg(Q)$ alors
+	$$ $$
+\end{prop}
+\begin{remarques}
+	\item Bien s\^{u}r deux polyn\^{o}mes peuvent avoir le m\^{e}me degr\'e et ne pas \^etre \'egaux !
+
+	\item[$\bullet$] Si $P$ est un polyn\^ome constant non nul alors \dotfill \vsec
+
+	\item[$\bullet$]  Si $P=\sum\limits_{k=0}^n a_kX^k$ alors le degr\'e de $P$ n'est pas forc\'ement $n$.
+	\begin{itemize}
+		\item[$\star$] Si $a_n\not= 0$ alors \dotfill \vsec
+		\item[$\star$] Si $a_n=0$, on a \dotfill \vsec
+	\end{itemize}
+	Ainsi la notation $P=\sum\limits_{k=0}^n a_k X^k$ signifie juste que \dotfill
+
+\end{remarques}\vsec
+
+
+
+\begin{prop} \textbf{Degr\'e d'une somme, d'un produit, d'une compos\'ee, d'un polyn\^{o}me d\'eriv\'ee}\\
+	\noindent Soient $(P,Q)\in \bK[X]^2$ et $\lambda\in\bK$.
+	\begin{itemize}
+		\item[$\bullet$] Somme: $\deg(P+Q)$ \dotfill\vsec
+		      \begin{itemize}
+			      \item[$\star$] Si $\deg(P)\not= \deg(Q)$ alors: $ \deg(P+Q)=$\dotfill\vsec
+			      \item[$\star$] Si $\deg(P)= \deg(Q)$ alors: $ \deg(P+Q)$\dotfill\vsec
+		      \end{itemize}
+		\item[$\bullet$] Produit par un scalaire: $\deg(\lambda P)=$\dotfill \vsec
+		\item[$\bullet$] Produit: $\deg(PQ)=$\dotfill \vsec
+		\item[$\bullet$] Composition: $\deg(P(Q))=$\dotfill \vsec
+		\item[$\bullet$] D\'erivation: $\deg (P^{\prime})=$\dotfill \vsec
+	\end{itemize}
+\end{prop}
+
+
+{\footnotesize \begin{exercice}
+	\begin{enumerate}
+		\item Soit $P$ un polyn\^{o}me de degr\'e $n$ et $Q=P(X+1)-P$. Montrer que $\deg (Q)\leq n$, puis que $\deg (Q)\leq n-1$.
+		\item Soit $P$ un polyn\^{o}me de degr\'e $n$. D\'eterminer le degr\'e de $Q=\sum\limits_{k=0}^n P^{(k)}$.
+	\end{enumerate}
+\end{exercice}
+}\vsec
+
+
+
+
+
+\colorbox{gray!40}{M\'ethodes pour d\'eterminer le coefficient dominant et le degr\'e d'un polyn\^ome $P$}\\
+
+\hspace{-1cm}
+\begin{dboxminipage}{1\textwidth}
+	\begin{itemize}
+		\item[$\bullet$] Calculer explicitement $P$ (lorsque cela est possible, plut\^{o}t pour les polyn\^{o}mes de petit degr\'e).
+		\item[$\bullet$] \'Etudier uniquement les mon\^omes de plus haut degr\'e du polyn\^ome et regarder s'ils sont nuls ou pas:
+		      \begin{itemize}
+			      \item[$\star$] On \'ecrit $P$ sous la forme $P=a_nX^n+Q$ avec $Q\in\bK_{n-1}\lbrack X\rbrack$.
+			      \item[$\star$]  On calcule $a_n$:
+			            \begin{itemize}
+				            \item[$\circ$] Si $a_n\not= 0$ alors $\deg{P}=\ldots \ldots$ et le coefficient dominant est \ldots \ldots.
+				            \item[$\circ$] Si $a_n= 0$ alors $\deg{P}\leq \ldots \ldots$ et on \'ecrit $P$ sous la forme: $P=a_{n-1}X^{n-1}+Q$ avec $Q\in\bK_{n-2}\lbrack X\rbrack$.\\
+				                  \hspace{1.3cm} On calcule $a_{n-1}$ pour savoir s'il est nul ou pas.
+			            \end{itemize}
+			      \item[$\star$] On continue ainsi jusqu'\`{a} tomber sur un terme non nul.
+		      \end{itemize}
+		\item[$\bullet$] Utiliser les r\'esultats sur le degr\'e d'une somme, d'un produit, d'une compos\'ee et d'une d\'eriv\'ee.
+		\item[$\bullet$] Lorsqu'il s'agit d'une suite de polyn\^omes d\'efinie par r\'ecurrence, on raisonne par r\'ecurrence.
+		      \begin{itemize}
+			      \item[$\star$] Pour deviner le r\'esultat, il est conseill\'e de regarder les premiers termes de la suite: $P_0,P_1,P_2\dots$.
+			      \item[$\star$] On conjecture alors le r\'esultat.
+			      \item[$\star$] On le d\'emontre par r\'ecurrence en utilisant la relation de r\'ecurrence.
+		      \end{itemize}
+	\end{itemize}
+
+\end{dboxminipage}
+
+\setlength\fboxrule{0.5pt}
+
+{\footnotesize \begin{exercice}
+		\begin{enumerate}
+			\item \'Etudier le degr\'e et le coefficient dominant de $P=(X+1)^6-X^6+2$.
+			\item On d\'efinit $(P_n)_{n\in\N}$ par $\left\lbrace\begin{array}{l}
+					      P_0=1\vsec   \\
+					      P_1=-2X\vsec \\
+					      \forall n\in\N,\ P_{n+2}=-2XP_{n+1}-2(n+1)P_n.
+				      \end{array}\right.$ \\
+			      Calculer $P_2$ et $P_3$. Trouver le degr\'e et le coefficient de plus haut degr\'e de $P_n$.
+			      %\item[$\bullet$] Soit $(P_n)_{n\in\N}$ la suite de polyn\^omes d\'efinie par r\'ecurrence par $\left\lbrace\begin{array}{l}
+			      %P_0=1\qquad P_1=X\vsec\\ 
+			      %\forall n\in\N,\quad P_{n+2}=2XP_{n+1}-P_n.
+			      %\end{array}\right.$
+			      %Ces polyn\^omes sont appel\'es les polyn\^omes de Tchebychev. Calculer $P_2$, $P_3$ et $P_4$. Trouver le degr\'e et le coefficient de plus haut degr\'e de $P_n$.
+			      %\item[$\bullet$]  Soit la fonction $f$ d\'efinie sur $\left\rbrack -\ddp\frac{\pi}{2},\ddp\frac{\pi}{2}\right\lbrack$ par: $f(x)=\ddp\frac{1}{\cos{x}}$. Calculer $f^{\prime}$ et $f^{\prime\prime}$. Montrer l'existence, pour tout $n\in\N$, d'un polyn\^ome $P_n$ tel que, pour tout $x\in\left\rbrack -\ddp\frac{\pi}{2},\ddp\frac{\pi}{2}\right\lbrack$: $f^{(n)}(x)=\ddp\frac{P_n(\sin{x})}{(\cos{x})^{n+1}}.$
+			      %Trouver une relation entre $P_{n+1}$, $P_n$ et $P^{\prime}_n$. D\'eterminer le degr\'e de $P_n$ et le mon\^ome de plus haut degr\'e de $P_n$.
+			      %\item[$\bullet$] D\'eterminer le degr\'e et le coefficient dominant de $P=(X+1)^n-(X-1)^n$. 
+			      %\item[$\bullet$] Soit $a$ un nombre r\'eel non nul et $P$ un polyn\^ome de degr\'e $n$. D\'eterminer le degr\'e du polyn\^ome $P(X+a)-P.$ 
+			      %\item[$\bullet$] On d\'efinit $(P_n)_{n\in\N}$ par $\left\lbrace\begin{array}{l} 
+			      %P_0=1\vsec\\
+			      %P_1=X\vsec\\
+			      %\forall n\in\N,\ P_{n+2}=XP_{n+1}+\left( 1-\ddp\frac{X^2}{4} \right)P_n.
+			      %              \end{array}\right.$ 
+			      %\begin{itemize}
+			      %\item[$\star$] Calculer $P_2$ et $P_3$.
+			      %\item[$\star$] Montrer par r\'ecurrence que pour tout $n\in\N$: $\deg (P_n)\leq n$.
+			      %\item[$\star$] En d\'eduire que pour tout $n\in\N$: $a_{n+2}=a_{n+1}-\ddp\frac{a_n}{4}$ avec $a_n$ coefficient d'indice $n$ de $P_n$.
+			      %\item[$\star$] Calculer $(a_n)_{n\in\N}$ puis montrer que $\deg (P_n)=n$.
+			      %\end{itemize}              
+		\end{enumerate}
+	\end{exercice}
+}
+
+% 
+
+%----------------------------------------------------
+%-----------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+%-------------------------------------------------------
+\section{Polyn\^omes et d\'erivation}
+
+\noindent Les polyn\^omes sont des fonctions tr\`es r\'eguli\`eres qui sont continues, et d\'erivables une infinit\'e de fois. On peut donc calculer leurs  d\'eriv\'ees successives.
+
+
+%----------------------------------------------------
+%-----------------------------------------------------
+\subsection{Polyn\^ome d\'eriv\'e, d\'eriv\'ees successives d'un polyn\^ome}
+
+
+
+
+\begin{defi} D\'erivation d'un polyn\^ome\\
+
+	$\bullet$ D\'eriv\'ee des fonctions $X^n$, $n\in\N$:\vsec\vsec
+	\begin{itemize}
+		\item[$\star$] $n=0$: $(X^0)^{\prime}=$\dotfill \vsec
+		\item[$\star$] $n>0$: $(X^n)^{\prime}=$\dotfill \vsec
+	\end{itemize}
+
+	\quad
+
+	$\bullet$ $P=\sum\limits_{k=0}^n a_kX^k$ un polyn\^ome de $\bK$ de degr\'e $n$ ($a_n\not= 0$).\vsec
+	\begin{itemize}
+		\item[$\star$] $n=0$: la d\'eriv\'ee d'un polyn\^ome constant est \dotfill  \vsec
+		\item[$\star$] $n>0$: $P^{\prime}=$\dotfill \vsec
+	\end{itemize}
+
+\end{defi}
+\vsec\vsec
+
+%\noindent\ {D\'eriv\'ees d'ordre sup\'erieur: exemples usuels \`a conna\^itre}\vsec
+
+\begin{defi}
+	La dérivée $n$-éme d'un polynôme est définie par réccurrence. On a
+	$$\left\{
+		\begin{array}{ccl}
+			P^{(0)}   & = & P                                \\
+			P^{(n+1)} & = & (P^{(n)})' \quad \forall n\geq 0
+		\end{array}
+		\right.$$
+\end{defi}
+
+
+{\footnotesize \begin{exercice}
+	\begin{enumerate}
+		\item Calculer les d\'eriv\'ees suivantes: $(X^2)^{\prime}$, $(X^2)^{(2)}$, $(X^2)^{(3)}$.
+		\item Calculer les d\'eriv\'ees suivantes: $(X^n)^{(0)}$, $(X^n)^{\prime}$, $(X^n)^{(2)}$, $(X^n)^{(3)}$, $(X^n)^{(n)}$, $(X^n)^{(n+1)}$.
+	\end{enumerate}
+\end{exercice}
+}\vsec
+
+{\noindent
+
+	\begin{prop} Exemples usuels de d\'eriv\'ees successives d'un polyn\^{o}me:
+		\begin{itemize}
+			\item[$\bullet$] Pour tous entiers naturels $n$ et $p$, on a
+			      $$(X^n)^{(p)}= \hspace{8cm}  $$
+			\item[$\bullet$] Pour tous entiers naturels $n$ et $p$, on a
+			      $$((X-a)^n)^{(p)}= \hspace{8cm}  $$
+			\item[$\bullet$] Soit $P$ un polyn\^ome de $\bK$ de degr\'e $n$. Si $P=\ddp\sum\limits_{k=0}^n a_kX^k$ avec $a_n\not= 0$ alors, on a
+			      $$P^{(p)}= \hspace{8cm}  $$
+		\end{itemize}
+	\end{prop}
+}
+
+{\footnotesize \begin{exercice}
+		\begin{enumerate}
+			\item Calculer les d\'eriv\'ees premi\`{e}re, seconde et troisi\`{e}me de $P=5X^6+4X^3+X^2$.
+			\item Faire de m\^{e}me avec $Q=(2+3i)X^4-(5-i)X^3+iX-8$.
+		\end{enumerate}
+	\end{exercice}
+}\vsec
+
+% 
+
+
+\begin{prop}
+	Soit $P\in\bK$, on a:\vsec
+	\begin{itemize}
+		\item[$\bullet$] $P^{\prime}=0\Longleftrightarrow$ \dotfill \vsec
+		\item[$\bullet$]  Si $P$ n'est pas constant alors: $\deg(P^{\prime})=$\dotfill\vsec
+		\item[$\bullet$]  Si $\deg(P)=n$ avec $n\in\N$ alors $P^{(n+1)} = $\dotfill \vsec
+	\end{itemize}
+\end{prop}
+
+
+
+
+%----------------------------------------------------
+%-----------------------------------------------------
+\subsection{Op\'erations sur la d\'erivation}%, formule de Leibniz}
+
+{\noindent
+
+	\begin{prop}
+		Soient $P$ et $Q$ deux polyn\^omes de $\bK[X]$ et soit $\lambda \in\bK$.
+		\begin{itemize}
+			\item[$\bullet$] $(P+Q)^{\prime}=$\dotfill\vsec
+			\item[$\bullet$]  $(\lambda P)^{\prime}=$\dotfill\vsec
+			\item[$\bullet$]  $(PQ)^{\prime}=$\dotfill\vsec
+			      %\item[$\bullet$] $\left(P(Q)\right)^{\prime}=$\dotfill\vsec 
+			      %\item[$\bullet$] Formule de Leibniz: $(PQ)^{(n)}=$\dotfill\vsec 
+		\end{itemize}
+	\end{prop}
+}
+
+{\footnotesize \begin{exercice}
+		Soit $(P_n)_{n\in\N}$ la suite de polyn\^omes d\'efinie par r\'ecurrence par: $\left\lbrace\begin{array}{l}
+				P_0=1\vsec \\
+				\forall n\in\N,\quad P_{n+1}=(2n+1)XP_n-(X^2+1)P_n^{\prime}.
+			\end{array}\right.$ Calculer $P_1$, $P_2$ et $P_3$. Trouver le degr\'e et le coefficient dominant de $P_n$.
+	\end{exercice}}
+
+%{\footnotesize \begin{exercice} 
+%\begin{itemize}
+%\item[$\bullet$] Calculer la d\'eriv\'ee $n$-i\`eme de $P=Q(aX+b)$ avec $a$ et $b$ deux scalaires.
+%\item[$\bullet$] Calculer la d\'eriv\'ee $n$-i\`eme de $P=(X-a)^n(X-b)^n$. En d\'eduire $((X-a)^{2n})^{(n)}$. En d\'eduire la relation $\ddp \sum\limits_{k=0}^n \binom{n}{k}^2=\binom{2n}{n}$.
+%\end{itemize}
+%\end{exercice}}
+
+
+%----------------------------------------------------
+%-----------------------------------------------------
+%\subsection{Formule de Taylor-Lagrange pour les polyn\^omes}
+%
+%\hspace{-0.5cm}  {\noindent  
+%
+%\begin{theorem}
+%Soit $P$ un polyn\^ome de $\bK$ de degr\'e $n$ et soit $a$ un \'el\'ement quelconque de $\bK$.\vsec
+%\begin{itemize}
+%\item[$\bullet$] $P=$\dotfill \vsec\vsec
+%\item[$\bullet$] Pour $a=0$: $P=$\dotfill \vsec
+%\end{itemize}
+%\end{theorem}
+% }
+%
+%
+%\begin{rem}
+%Cette formule dit en particulier que pour tout polyn\^ome $P\in\bK$ de degr\'e $n$ avec $P=\sum\limits_{k=0}^n a_kX^k$, alors\\
+%
+%
+%\end{rem}
+%
+%
+%{\footnotesize 
+%\begin{exercice}
+%{\footnotesize Montrer qu'il existe un unique polyn\^ome de degr\'e inf\'erieur ou \'egal \`a 3 et le calculer tel que $P(2)=5$, $P^{\prime}(2)=10$, $P^{(2)}(2)=9$, $P^{(3)}(2)=6$. }
+%\end{exercice}}
+
+
+%
+
+%----------------------------------------------------
+%-----------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+%-------------------------------------------------------
+\section{Racines d'un polyn\^ome}
+
+%----------------------------------------------------
+%-----------------------------------------------------
+\subsection{D\'efinition et caract\'erisation}
+
+{\noindent
+
+	\begin{defi}
+		Soit $(P,Q)\in\bK[X]^2$. On dit que $Q$ divise $P$ si:\\
+
+
+	\end{defi}
+}\vsec\vsec
+
+\begin{defi}
+	Soit $P\in\bK[X]$ et $a\in\bK$. \\
+	On dit que $a$ est \emph{racine de $P$} (ou un zéro de $P$) si  $$ $$
+	Soit $k\in \N^*$. On dit que $a$ est\emph{ racine de multiplicité $k$  de  $P$} si  $$ $$\vspace{1cm}
+\end{defi}
+
+\begin{theorem}\textbf{Caract\'erisation d'une racine d'un polyn\^ome}\\
+	Soit $P\in\bK[X]$ et $a\in\bK$\\
+	\noindent \begin{tabular}{llll}
+		$\bullet$ & $a$ racine de $P$                                               & $\Longleftrightarrow$ & \hspace{5cm} \vsec\vsec \\
+
+		$\bullet$ & \begin{tabular}{l} $a$ racine\\ d'ordre $k$ de $P$\end{tabular} & $\Longleftrightarrow$ &
+
+		\vsec\vsec\vsec
+	\end{tabular}
+\end{theorem}
+
+
+
+\begin{rems}
+	\begin{itemize}
+		\noindent Ainsi, d\`es que l'on conna\^it une racine (ou z\'ero) $a$ de $P$, on peut factorier $P$ par $X-a$.
+		\item[$\bullet$] Pour $k=1$, on dit que la racine est \dotfill, pour $k=2$, on dit que la racine est \dotfill\\
+		      \noindent D\`es que $k>1$, on dit que la racine est \dotfill. \\
+		      Et pour $k=0$, $a$ n'est pas racine de $P$.
+		\item[$\bullet$]  \noindent \warning  On distinguera bien les racines r\'eelles et les racines complexes selon que $P$ est vu comme un polyn\^ome r\'eel ou complexe. En effet, un polyn\^ome dont tous les coefficients sont r\'eels peut \^etre consid\'er\'e comme un polyn\^ome r\'eel mais aussi comme un polyn\^ome complexe. Cela change tout au niveau des racines.\\
+		      \noindent  Exemple avec $P=X^2+1$:
+
+	\end{itemize}
+\end{rems}
+
+%{\footnotesize 
+%\begin{exercice}
+%Soit $n$ un entier non nul. Montrer que $1$ est racine de $P=X^{2n}-nX^{n+1}+nX^{n-1}-1$ et d\'eterminer l'ordre de multiplicit\'e de cette racine. 
+%\end{exercice}
+%}
+
+
+%----------------------------------------------------
+%-----------------------------------------------------
+\subsection{M\'ethodes pour obtenir les racines d'un polyn\^ome}
+
+
+
+\colorbox{gray!40}{M\'ethodes pour d\'eterminer les racines d'un polyn\^ome $P$:}\\
+
+\begin{dboxminipage}{0.9\textwidth}
+	\begin{itemize}
+		\item[$\bullet$] Si $P$ est un polyn\^ome de degr\'e 0, 1 ou 2: on conna\^it ses racines.
+		\item[$\bullet$] Si $P$ est un polyn\^ome de degr\'e sup\'erieur:
+		      \begin{itemize}
+			      \item[$\star$] Recherche de racines \'evidentes: on teste avec -2,-1,0,1,2,-i,i....
+			      \item[$\star$] D\'etermination de leur multiplicit\'e en calculant les d\'eriv\'ees successives.
+			      \item[$\star$] On utilise parfois: Si $P\in\R$ et si $P$ a une racine complexe, son conjugu\'e sera aussi racine de $P$ avec la m\^eme multiplicit\'e.
+		      \end{itemize}
+		\item[$\bullet$] Si $P\in\R$, utiliser le th\'eor\`eme des valeurs interm\'ediaires ou le th\'eor\`eme de la bijection sur la fonction $x\mapsto P(x)$ pour d\'eterminer l'existence et/ou l'unicit\'e de racines.
+		      %\begin{itemize}
+		      %\item[$\star$] \'Etude de la fonction $x\mapsto P(x)$ sur $\R$ pour d\'eterminer l'existence et/ou l'unicit\'e de racines:\\
+		      %On utilise pour cela le TVI ou le  th\'eor\`eme de la bijection.
+		      %\item[$\star$] Utilisation du th\'eor\`eme de Rolle pour faire le lien entre les racines de $P$ et celles de $P^{\prime}$.
+		      %\end{itemize}
+		      %\item[$\bullet$] Utilisation des racines $n$-i\`eme de l'unit\'e pour les polyn\^omes de type $X^n-a$.
+		\item[$\bullet$] Utilisation des identit\'es remarquables.
+	\end{itemize}
+\end{dboxminipage}
+
+
+{\footnotesize
+\begin{exercice}
+	\begin{enumerate}
+		\item D\'eterminer les racines complexes de $P=X^5-X^4+2X^3-2X^2+X-1$
+		\item D\'eterminer les racines complexes de $P=X^5-1$
+		\item Soit $n$ un entier non nul. Montrer que $1$ est racine de $P=X^{2n}-nX^{n+1}+nX^{n-1}-1$ et d\'eterminer l'ordre de multiplicit\'e de cette racine.
+		      %\item[$\star$] Montrer que si $P\in\R$ admet au moins deux racines r\'eelles alors $P^{\prime}$ a au moins une racine r\'eelle.
+		      %\item[$\star$] Montrer que le polyn\^ome $P=X^4-9X^3+30X^2-44X+24$ a une racine d'ordre 3 que l'on pr\'ecisera. En d\'eduire toutes les racines de $P$.
+		      %\item[$\star$] D\'eterminer les racines de $A=(X+1)^n-(X-1)^n$.
+	\end{enumerate}
+\end{exercice}}
+
+{\footnotesize
+\begin{exercice}
+	Montrer que tout polyn\^ome de $\R$ de degr\'e impair admet au moins une racine r\'eelle.
+\end{exercice}}
+
+
+%----------------------------------------------------
+%-----------------------------------------------------
+\subsection{M\'ethodes pour montrer l'\'egalit\'e entre deux polyn\^omes ou la nullit\'e d'un polyn\^ome}
+
+\noindent
+Soient $P\in\bK$ et $\alpha_1,\alpha_2,\dots,\alpha_p$ des \'el\'ements de $\bK$ deux \`a deux distincts.
+$$\alpha_1,\alpha_2,\dots,\alpha_p\ \hbox{sont des racines de}\ P\Longleftrightarrow \hspace{9.5cm}  $$
+On en d\'eduit le r\'esultat suivant:\\
+
+{\noindent
+
+\begin{theorem} \textbf{Lien entre le nombre de racines et la nullit\'e d'un polyn\^ome}\vsec
+	\begin{itemize}
+		\item[$\bullet$] Tout polyn\^ome de degr\'e inf\'erieur ou \'egal \`a $n$ et qui admet au moins $n+1$ racines est \dotfill \vsec
+		\item[$\bullet$] Deux polyn\^omes de degr\'e  $\leq n$ ayant les m\^emes valeurs pour au moins $n+1$ valeurs sont \dotfill \vsec
+	\end{itemize}
+\end{theorem}
+}\vsec\vsec
+
+
+
+\colorbox{gray!30}{M\'ethodes pour montrer qu'un polyn\^ome $P$ est nul}\\
+
+\begin{dboxminipage}{0.9\textwidth}
+	\begin{itemize}
+		\item[$\bullet$] M\'ethode 1: On montre que tous ses coefficients sont nuls.
+		\item[$\bullet$] M\'ethode 2: On montre qu'il a strictement plus de racines que son degr\'e ou qu'il a une infinit\'e de racines.
+	\end{itemize}
+\end{dboxminipage}
+
+
+
+\vspace{1cm}
+
+\colorbox{gray!30}{M\'ethodes pour montrer que deux polyn\^omes sont \'egaux}\\
+
+
+\begin{dboxminipage}{0.9\textwidth}
+	\begin{itemize}
+		\item[$\bullet$] M\'ethode 1: On montre qu'ils ont les m\^emes coefficients.
+		\item[$\bullet$] M\'ethode 2: On montre qu'ils sont \'egaux sur strictement plus de valeurs que leur degr\'e.
+	\end{itemize}
+
+\end{dboxminipage}
+
+
+{\footnotesize
+\begin{exercice}
+	D\'eterminer tous les polyn\^omes de $\R$ tels que $\forall x\in\R,\ P(x+1)=P(x).$
+\end{exercice}
+}
+
+%----------------------------------------------------
+%-----------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+%-------------------------------------------------------
+\section{Factorisation d'un polyn\^ome dans $\R$ ou $\bC$}
+
+%----------------------------------------------------
+%-----------------------------------------------------
+\subsection{Factorisation d'un polyn\^ome dans $\bC$}
+
+{\noindent
+
+	\begin{theorem} \textbf{Th\'eor\`eme de d'Alembert - Hors Programme ! mais tellement fondamental...}
+		\begin{itemize}
+			\item[$\bullet$] Dans $\bC$, un polyn\^ome de degr\'e $n$ a exactement $n$ racines, en comptant leur multiplicit\'e.
+			\item[$\bullet$] Dans $\bC$, un polyn\^ome $P$ non nul de degr\'e $n$ se factorise selon
+			      $$P = a_n \prod_{k=1}^n (X-z_k)^{p_k}$$
+
+
+			      avec
+			      \begin{itemize}
+				      \item[$\star$] $a_n$ coefficient dominant de $P$,
+				      \item[$\star$] $z_1,z_2,\dots,z_k$ sont toutes les racines de $P$ complexes distinctes et
+				      \item[$\star$] $p_1,p_2,\dots,p_k$ sont les multiplicit\'es respectives de ces racines: $p_1+\dots+p_k=n$.
+			      \end{itemize}
+		\end{itemize}
+	\end{theorem}
+
+}\vsec\vsec
+
+\setlength\fboxrule{1pt}
+\noindent  {
+
+	Factoriser un polyn\^ome dans $\bC$ revient \`a d\'eterminer toutes ses racines complexes avec leur ordre.
+}
+\setlength\fboxrule{0.5pt}
+
+{\footnotesize
+	\begin{exercice}
+		\begin{enumerate}
+			\item Factorisation dans $\bC$ de $P=X^3+X^2+X+1$.
+			\item Factorisation dans $\bC$ de $P=2X^4+6X^2+4$.
+			      %\item[$\bullet$] Factorisation dans $\bC$ de $P=X^6-1-i$. 
+			\item Factorisation dans $\bC$ de $P=X^n+1$ avec $n\in\N$.
+		\end{enumerate}
+	\end{exercice}
+}
+
+
+
+\begin{rem}
+	Factorisation dans $\R[X]$ :
+
+\end{rem}
+
+%----------------------------------------------------
+%-----------------------------------------------------
+%\subsection{Factorisation d'un polyn\^ome dans $\R$}
+%
+%\noindent La factorisation est plus d\'elicate dans $\R$ que dans $\bC$ car il existe des polyn\^omes \`a coefficients r\'eels qui n'ont pas de racines r\'eelles (exemple: $P=X^2+1$) et qui ne sont donc pas factorisables dans $\R$. \vsec
+%
+%\hspace{-0.5cm}  {\noindent  
+%
+%\begin{prop}
+%Soit $P$ un polyn\^ome r\'eel et $z_0$ une racine complexe d'ordre $n$. Alors $\overline{z_0}$ est aussi une racine de $P$, de m\^eme ordre $n$.
+%\end{prop}
+% }
+%
+%\hspace{-0.5cm}  {\noindent  
+%
+%\begin{theorem} \textbf{Factorisation dans $\R$}
+%Tout polyn\^ome $P$ non constant \`a coefficients r\'eels se factorise dans $\R$ par\\
+%
+%
+%
+%avec 
+%\begin{itemize}
+%\item[$\bullet$] $a_n$ coefficient dominant de $P$, 
+%\item[$\bullet$] $x_1,x_2,\dots,x_r$ sont les racines r\'eelles de $P$ distinctes, 
+%\item[$\bullet$] $p_1,p_2,\dots,p_r$ sont les multiplicit\'es de ces racines r\'eelles, 
+%\item[$\bullet$] les polyn\^omes $X^2+\alpha_j X+\beta_j$ sont \`a coefficients r\'eels mais sans racines r\'eelles \`a savoir de discriminant strictement n\'egatif, 
+%\item[$\bullet$] $q_1,q_2,\dots, q_s$ sont des entiers naturels non nuls. 
+%\end{itemize}
+%De plus: $p_1+\dots+p_r+2q_1+\dots+2q_s=\deg P$.
+%\end{theorem}
+% 
+%}\vsec\vsec
+%
+%
+%\setlength\fboxrule{1pt}
+%\noindent  {
+%
+%\textbf{M\'ethodes pour factoriser un polyn\^ome r\'eel $P$ dans $\R$}
+%\begin{itemize}
+%\item[$\bullet$]  On factorise $P$ dans $\bC$.
+%\item[$\bullet$]  On conserve les termes $X-x_i$ pour toutes les racines $x_i$ r\'eelles.
+%\item[$\bullet$] Pour les racines complexes NON r\'eelles:
+%\begin{itemize}
+%\item[$\star$] On regroupe les termes contenant les racines conjugu\'ees: $\alpha$ et $\overline{\alpha}$.
+%\item[$\star$] On obtient ainsi des polyn\^omes de degr\'e 2 \`a discriminant strictement n\'egatif car\\
+%\noindent $(X-\alpha)(X-\overline{\alpha})=\underbrace{X^2-2\reel{(\alpha)} X+|\alpha|^2}_{\in\R}$.
+%\end{itemize}
+%\end{itemize}
+% }
+%\setlength\fboxrule{0.5pt}
+
+
+{\footnotesize
+\begin{exercice}
+	\begin{enumerate}
+		\item Factorisation dans $\R$ de $P=X^4-1$
+		\item Factorisation dans $\R$ de $P=2X^4+6X^2+4$
+		      %\item[$\star$] Factorisation dans $\R$ de $P=X^5-X^4+X-1$ 
+		      %\item[$\star$] Factorisation dans $\R$ de $P=X^3-3X^2+3X-2$ 
+	\end{enumerate}
+\end{exercice}}
+
+%----------------------------------------------------
+%-----------------------------------------------------
+\subsection{Relation coefficients-racines}
+
+\noindent On rappelle le r\'esultat suivant donnant une relation entre les racines d'un polyn\^ome de degr\'e 2 et les coefficients de ce polyn\^ome.\vsec
+
+{\noindent
+
+	\begin{prop}
+		Soit $P=aX^2+bX+c \in\bC$ avec $a\not=0$.\\
+		Les complexes $(z_1,z_2)$ sont racines de $P$ si et seulement si : \vsec
+
+		%\begin{itemize}
+		%\item[$\bullet$]  \dotfill\vsec
+		%\item[$\bullet$] \dotfill\vsec
+		%\end{itemize} 
+	\end{prop}
+}\vsec
+
+{\footnotesize
+	\begin{exercice}
+		Soit $P$ un polyn\^ome de degr\'e 3 ayant pour racines $x_1, x_2, x_3$. Exprimer $x_1 + x_2 + x_3$, $x_1 x_2 + x_1 x_3 + x_2 x_3$ et $x_1 x_2 x_3$ en fonction des coefficients de $P$.
+	\end{exercice}}
+
+%
+%\begin{rem}
+%\noindent On peut g\'en\'eraliser ce r\'esultat \`a des polyn\^omes de degr\'e $n$ : soit $P$ le polyn\^ome de degr\'e $n$ d\'efini par $P=a_nX^n+a_{n-1}X^{n-1}+\dots+a_1X+a_0$ avec $a_n\not= 0$. On note $x_1, \ldots , x_n$ ses racines. On a alors :
+%$$\left\{ \begin{array}{rcl}
+%\ddp \sum_{i=1}^n x_i  & = &\hspace*{10cm} \vsec\\
+%\ddp \sum_{1\leq i < j \leq n} x_i  x_j & = & \vsec\\
+%\vdots\vsec\\
+%\ddp \sum_{1\leq i_1 < i_2 < \ldots < i_k \leq n} x_{i_1} x_{i_2} \ldots x_{i_k} & = & \vsec\\
+%\vdots\vsec\\
+%\ddp \prod_{i=1}^n x_i & = & \vsec
+%\end{array}\right.$$
+%\end{rem}
+%
+%%\hspace{-0.5cm}  {\noindent  
+%%
+%%\begin{prop} Relation entre coefficients et racines\\
+%%\noindent Soient $n\in\N$ et $P\in\bC$ un polyn\^ome de degr\'e $n$, $P=a_nX^n+a_{n-1}X^{n-1}+\dots+a_1X+a_0$ avec $a_n\not= 0$, 
+%%et $x_1,x_2,\dots,x_n$ ses racines. Alors, on a:\\
+%%
+%%\end{prop}
+%% }\vsec
+%
+
+
+\end{document}

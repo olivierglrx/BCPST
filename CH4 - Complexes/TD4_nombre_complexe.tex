@@ -1,0 +1,900 @@
+\documentclass[a4paper, 11pt]{article}
+\input{macro/package.tex}
+\input{macro/environement}
+\input{macro/header.tex}
+\input{macro/newcommand.tex}
+\geometry{hmargin=1.0cm, vmargin=2.5cm}
+
+
+
+\newcommand{\type}{TD }
+\excludecomment{correction}
+%\renewcommand{\type}{Correction TD }
+
+
+\begin{document}
+
+\title{\type  4 - Nombres Complexes}
+
+%-------------
+
+
+
+
+\section*{Entraînements}
+\subsection*{Forme algébrique}
+\begin{exercice}  \;
+Mettre les complexes suivants sous forme alg\'ebrique simple:
+\begin{enumerate}
+\begin{minipage}[t]{0.3\textwidth}
+\item $z=\ddp\frac{1-3i}{1+3i}$ 
+\item $z=(i-\sqrt{2})^3$
+\item $z=\ddp\frac{1+4i}{1-5i}$ 
+\item  $z=\left(\ddp\frac{\sqrt{3}-i}{1+i\sqrt{3}}  \right)^9$
+\end{minipage}
+\begin{minipage}[t]{0.3\textwidth}
+\item $z=\ddp\frac{(1+i)^2}{(1-i)^2}$
+\item $z=\ddp\frac{1}{\frac{1}{i+1}-1}$
+\item $z=(1+i)^{2019}$
+\item $z=\ddp\frac{2+5i}{1-i}+\ddp\frac{2-5i}{1+i}$
+\end{minipage}
+\begin{minipage}[t]{0.3\textwidth}
+\item $z=(5-2i)^3$ 
+\item $z=\ddp\frac{1}{(4-i)(3+2i)}$ 
+\item $z=\ddp\frac{(3+i)(2-3i)}{-2i+5}$
+\item $z=(\sqrt{3}-2i)^4$
+\end{minipage}
+\end{enumerate}
+\end{exercice}
+%------------------------------------------------
+%-----------------------------------------------
+%-------------------------------------------------
+\begin{correction}   \;
+Dans cet exercice, je ne d\'etaille pas forc\'ement tous les calculs, je ne donne que la m\'ethode g\'en\'erale ou des indications.
+\begin{enumerate}
+\item \textbf{Mettre sous forme alg\'ebrique $\mathbf{z=\ddp\frac{1-3i}{1+3i}}$:} 
+$\fbox{$z=-\ddp\frac{4}{5}-\ddp\frac{3i}{5}.$}$ On a un quotient de nombres complexes dont on vaut la forme alg\'ebrique: on multiplie par le conjugu\'e du d\'enominateur.  
+\item \textbf{Mettre sous forme alg\'ebrique $\mathbf{z=(i-\sqrt{2})^3}$:} $\fbox{$z=\sqrt{2}+5i.$}$ On utilise ici une identit\'e remarquable.
+\item \textbf{Mettre sous forme alg\'ebrique $\mathbf{z= \ddp\frac{1+4i}{1-5i}}$:}  $\fbox{$z=-\ddp\frac{19}{26}+i\frac{9}{26}.$ }$ On a un quotient de nombres complexes dont on vaut la forme alg\'ebrique: on multiplie par le conjugu\'e du d\'enominateur.  
+\item \textbf{Mettre sous forme alg\'ebrique $\mathbf{z=\left(\ddp\frac{\sqrt{3}-i}{1+i\sqrt{3}}  \right)^9}$:}  $\fbox{$z=(-i)^9=-i.$}$ Ici plusieurs m\'ethodes marchent bien: Soit on commence par mettre sous forme exponentielle le nombre complexe $\ddp\frac{\sqrt{3}-i}{1+i\sqrt{3}}$ en mettant sous forme exponentielle le num\'erateur d'un c\^{o}t\'e et le d\'enominateur de l'autre c\^{o}t\'e puis on passe \`{a} la puissance 9. Soit on commence par mettre sous forme alg\'ebrique le nombre complexe $\ddp\frac{\sqrt{3}-i}{1+i\sqrt{3}}$ en multipliant par le conjugu\'e du d\'enominateur et on passe \`{a} la puissance 9.
+\item \textbf{Mettre sous forme alg\'ebrique $\mathbf{z= \ddp\frac{(1+i)^2}{(1-i)^2}}$:}  $\fbox{$z=-1.$}$ L\`{a} encore il y a plusieurs m\'ethodes qui marchent bien. Une possibilit\'e est de mettre sous forme exponentielle $1+i$ d'un c\^{o}t\'e et $1-i$ de l'autre c\^{o}t\'e puis de les passer au carr\'e et enfin de faire le quotient.  
+\item \textbf{Mettre sous forme alg\'ebrique $\mathbf{ z=\ddp\frac{1}{\frac{1}{i+1}-1}}$:}  $\fbox{$z=-1+i.$}$ On peut par exemple commencer par tout mettre sous le m\^{e}me d\'enominateur en bas et on obtient $z=\ddp\frac{1}{\frac{-i}{1+i}}=\ddp\frac{1+i}{-i}=i(1+i)$.
+\item \textbf{Mettre sous forme alg\'ebrique $\mathbf{z=(1+i)^{2019}}$:}  $\fbox{$z=- 2^{1009} + 2^{1009} i.$  }$ Ici il faut commencer par mettre sous forme exponentielle $1+i$ et on obtient que $1+i=\sqrt{2}e^{i\frac{\pi}{4}}$. Ensuite on passe \`{a} la puissance et on obtient que: $z=\left( \sqrt{2}e^{i\frac{\pi}{4}}  \right)^{2019}=2^{1009} \sqrt{2} e^{i\frac{2019\pi}{4}}$. Il faut alors compter le nombre de tours complets que l'on a fait dans $\ddp\frac{2019\pi}{4}$. Une fa\c{c}on de voir les choses est d'\'ecrire : $\ddp\frac{2019}{8}\times 2\pi$ et de faire la division euclidienne de $2019$ par 8. On obtient: $2019=252\times 8 + 3$ et ainsi on a: $\ddp\frac{2019}{8}\times 2\pi=252\times 2\pi + \frac{3\pi}{4}$. Ainsi on a: $z=2^{1009} \sqrt{2} \times e^{i \left(252\times 2\pi + \frac{3\pi}{4}\right)}= 2^{1009} \sqrt{2} \left(-\frac{\sqrt{2}}{2} + \frac{\sqrt{2}}{2} i\right) = - 2^{1009} + 2^{1009} i$.
+\item  \textbf{Mettre sous forme alg\'ebrique $\mathbf{z=\ddp\frac{2+5i}{1-i}+\ddp\frac{2-5i}{1+i}}$:}  $\fbox{$z=-3$. }$ On peut par exemple mettre sous forme alg\'ebrique chaque terme de la somme de fa\c{c}on s\'epar\'ee en multipliant par le conjugu\'e puis on les somme.
+\item \textbf{Mettre sous forme alg\'ebrique $\mathbf{z=(5-2i)^3}$:}  $\fbox{$z=65-142 i.$}$ On utilise une identit\'e remarquable.
+\item \textbf{Mettre sous forme alg\'ebrique $\mathbf{z= \ddp\frac{1}{(4-i)(3+2i)}}$:}  $\fbox{$z=\ddp\frac{14}{221}-i\ddp\frac{5}{221}$.}$ On peut multiplier par le conjugu\'e du d\'enominateur \`{a} savoir $(4+i)(3-2i)$.
+\item \textbf{Mettre sous forme alg\'ebrique $\mathbf{z=\ddp\frac{(3+i)(2-3i)}{-2i+5}}$:}  $\fbox{$z=\ddp\frac{69}{29}-i\ddp\frac{17}{29}$.}$  On multiplie par le conjugu\'e du d\'enominateur.
+\item \textbf{Mettre sous forme alg\'ebrique $\mathbf{z=(\sqrt{3}-2i)^4}$:}  $\fbox{$z=-47+8\sqrt{3}i$.}$ On d\'eveloppe avec le bin\^{o}me de Newton.
+\end{enumerate}
+\end{correction}
+%------------------------------------------------
+
+
+
+
+
+
+
+%-------------------------------------------------
+\begin{exercice}  \;
+Soit $x$ un r\'eel fix\'e. Calculer la partie r\'eelle et imaginaire de 
+$(x+i)^2$ et de $\ddp\frac{x-3i}{x^2+1-2ix}$.
+\end{exercice}
+%\vspace{0.5cm}
+
+
+%-------------------------------------------------
+\begin{correction}   \;
+\begin{itemize}
+\item[$\bullet$] \textbf{Calculer la partie r\'eelle et la partie imaginaire de $\mathbf{(x+i)^2}$:}
+En d\'eveloppant $(x+i)^2$, on obtient $(x+i)^2=(x^2-1)+2i x$. Ainsi
+$$\fbox{$\reel{\left\lbrack(x+i)^2\right\rbrack}=x^2-1\quadet \imag{\left\lbrack(x+i)^2\right\rbrack}=2x.$}$$
+\item[$\bullet$]  \textbf{Calculer la partie r\'eelle et la partie imaginaire de $\mathbf{\ddp\frac{x-3i}{x^2+1-2i x}}$:}
+On a: $\ddp\frac{x-3i}{x^2+1-2i x}=\ddp\frac{(x-3i)(x^2+1+2i x)}{x^4+6x^2+1}$.
+Ainsi, on obtient
+$$\fbox{$\reel{ \left(\ddp\frac{x-3i}{x^2+1-2i x}\right)}=\ddp\frac{x(x^2+7)}{x^4+6x^2+1}\quad\hbox{et}\quad \imag{\left(\ddp\frac{x-3i}{x^2+1-2i x}\right)}=\ddp\frac{-x^2-3}{x^4+6x^2+1}.$}$$
+\end{itemize}
+\end{correction}
+%------------------------------------------------
+%-------------------------------------------------
+% \vspace{0.5cm}
+
+
+%------------------------------------------------
+%-------------------------------------------------
+%---------------------------------------------------
+%-------------------------------------------------
+%-------------------------------------------------
+%--------------------------------------------------
+%-----------------------------------------------------------------
+%------------------------------------------------
+%-------------------------------------------------
+%---------------------------------------------------
+%-------------------------------------------------
+%-------------------------------------------------
+%--------------------------------------------------
+%----------------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------
+\subsection*{Forme trigonom\'etrique ou exponentielle d'un nombre complexe}
+\vspace{0.2cm}
+
+%------------------------------------------------
+%-------------------------------------------------
+\begin{exercice}  \;
+\'Ecrire les nombres suivants sous forme exponentielle et trigonom\'etrique:
+\begin{enumerate}
+\begin{minipage}[t]{0.45\textwidth}
+\item $z=-18$
+\item $z=-7i$
+\item $z=1+i$
+\item $z=(1+i)^5$ 
+\item $z=\ddp\frac{1+i\sqrt{3}}{\sqrt{3}-i}$ 
+\item $z=-2e^{i\frac{\pi}{3}}e^{-i\frac{\pi}{4}}$
+\item $z=-10e^{i\pi}\left(\ddp\frac{2e^{i\frac{5\pi}{8}}}{e^{i\frac{7\pi}{4}}}\right)^6$
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\item $z=-5\left(\cos{\left(\ddp\frac{2\pi}{5}\right)} +i\sin{\left(\ddp\frac{2\pi}{5}\right)}  \right)$
+\item $z=\ddp\frac{1}{\frac{i}{2}-\frac{1}{2\sqrt{3}}}$
+\item $z=\left( \ddp\frac{1+i\sqrt{3}}{1-i}  \right)^{20}$
+\item $z=\ddp\frac{1}{1+i\tan{\theta}},\ \theta\not= \ddp\frac{\pi}{2}+k\pi,\ k\in\bZ$
+\item $z=\left( \ddp\frac{1+i\tan{(\theta)}}{1-i\tan{(\theta)}}  \right)^n,\ n\in\bN,\ \theta\not= \ddp\frac{\pi}{2}+k\pi,\ k\in\bZ$
+\end{minipage}
+\end{enumerate}
+\end{exercice}
+%------------------------------------------------
+
+%------------------------------------------------
+%-------------------------------------------------
+%------------------------------------------------
+%-------------------------------------------------
+\begin{correction}   \;
+Dans cet exercice, je ne d\'etaille pas forc\'ement tous les calculs, je ne donne que la m\'ethode g\'en\'erale ou des indications.
+\begin{enumerate} 
+\item \textbf{Mettre sous forme exponentielle $\mathbf{z=-18}$:}
+\fbox{$z=18e^{i\pi}$}. On a en effet commenc\'e par calculer le module qui vaut $18$, puis on a mis en facteur le module et on a mis $-1$ sous forme exponentielle.
+%--
+\item \textbf{Mettre sous forme exponentielle $\mathbf{z=-7i}$:}
+$\fbox{$z=7e^{-i\frac{\pi}{2}}.$}$ On a en effet commenc\'e par calculer le module qui vaut $7$. Puis on a mis en facteur le module et on a mis $-i$ sous forme exponentielle.
+%--
+\item \textbf{Mettre sous forme exponentielle $\mathbf{z=1+i   }$:}
+$\fbox{$z=\sqrt{2}e^{i\frac{\pi}{4}}.$}$ On a calcul\'e le module qui vaut $\sqrt{2}$ et on l'a mis en facteur.
+%--
+\item \textbf{Mettre sous forme exponentielle $\mathbf{z= (1+i)^5  }$:}
+On commence par mettre $1+i$ sous forme exponentielle et on obtient que $1+i=\sqrt{2}e^{i\frac{\pi}{4}}$. Ainsi on obtient que $(1+i)^5=(\sqrt{2})^5e^{i\frac{5\pi}{4}}=4\sqrt{2}e^{i\frac{5\pi}{4}}$. Ainsi on a: $\fbox{$z=4\sqrt{2}e^{i\frac{5\pi}{4}}.$}$
+%--
+\item \textbf{Mettre sous forme exponentielle $\mathbf{z= \ddp\frac{1+i\sqrt{3}}{\sqrt{3}-i}  }$:}
+$\fbox{$z=e^{i\frac{\pi}{2}}.$}$ Ici on peut par exemple mettre sous forme exponentielle d'un c\^{o}t\'e le num\'erateur et de l'autre c\^{o}t\'e le d\'enominateur. Puis on utilise les propri\'et\'es sur les quotients d'exponentielles.
+%--
+\item \textbf{Mettre sous forme exponentielle $\mathbf{z=-2e^{i\frac{\pi}{3}}e^{-i\frac{\pi}{4}}   }$:}
+Ici le calcul du module donne $|z|=2$ car pour tout $\theta\in\R$: $|e^{i\theta}|=1$. On a donc: 
+$z=2\left\lbrack    -1\times e^{\frac{i\pi}{3}}\times  e^{-\frac{i\pi}{4}}\right\rbrack=2 e^{i\frac{13\pi}{12}}$. Ainsi on a: $\fbox{ $z=2 e^{i\frac{13\pi}{12}}.$  }$
+%--
+\item \textbf{Mettre sous forme exponentielle $\mathbf{z= -10e^{i\pi}\left(\ddp\frac{2e^{i\frac{5\pi}{8}}}{e^{i\frac{7\pi}{4}}}\right)^6  }$:}
+M\^{e}me type de calcul qui utilise les propri\'et\'es de l'exponentielle. Ici le module vaut $10\times 2^6=640$ et on obtient que $z=640e^{i\frac{-27\pi}{4}}$. On simplifie alors $e^{i\frac{-27\pi}{4}}$ en remarquant par exemple que 
+$\ddp\frac{-27\pi}{4}=\ddp\frac{-28\pi+\pi}{4}=-7\pi+\ddp\frac{\pi}{4}$. Ainsi on a: $e^{i\frac{-27\pi}{4}}=e^{i(\pi+\frac{\pi}{4})}=e^{i\frac{5\pi}{4}}$. Ainsi on a: $\fbox{$ z=640e^{i\frac{5\pi}{4}} .$}$
+%--
+\item \textbf{Mettre sous forme exponentielle $\mathbf{z=  -5\left(\cos{\left(\ddp\frac{2\pi}{5}\right)} +i\sin{\left(\ddp\frac{2\pi}{5}\right)}  \right) }$:}
+$\fbox{$z=5e^{i(\frac{2\pi}{5}+\pi)}=5e^{\frac{7i\pi}{5}}.$}$ En effet on a: $z=-5e^{i\frac{2\pi}{5}}=5e^{i\pi}e^{i\frac{2\pi}{5}}$.
+%--
+\item \textbf{Mettre sous forme exponentielle $\mathbf{z= \ddp\frac{1}{\frac{i}{2}-\frac{1}{2\sqrt{3}}}  }$:}
+Mettons tout d'abord sous forme exponentielle $Z=\ddp\frac{i}{2}-\ddp\frac{1}{2\sqrt{3}}$.
+On a $|Z|=\ddp\frac{1}{\sqrt{3}}$, ainsi,
+$$Z=\ddp\frac{1}{\sqrt{3}}\left(-\frac{1}{2}+i\frac{\sqrt{3}}{2}   \right)=\ddp\frac{1}{\sqrt{3}}e^{\frac{2i\pi}{3}}=\ddp\frac{1}{\sqrt{3}}j.$$
+Ainsi comme $z=\ddp\frac{1}{Z}$, on obtient: $\fbox{$z=\sqrt{3}e^{-\frac{2i\pi}{3}}=\sqrt{3}j^2.$}$
+%--
+\item \textbf{Mettre sous forme exponentielle $\mathbf{z= \left( \ddp\frac{1+i\sqrt{3}}{1-i}  \right)^{20}   }$:}
+On commence par mettre ce qui est \`{a} l'int\'erieur de la parenth\`{e}se sous forme exponentielle. Comme c'est un quotient, on met sous forme exponentielle de fa\c{c}on s\'epar\'ee le num\'erateur et le d\'enominateur et on obtient que: $\ddp\frac{1+i\sqrt{3}}{1-i}=\ddp\frac{  2e^{i\frac{\pi}{3}} }{ \sqrt{2}e^{-i\frac{\pi}{4}}   }=\sqrt{2}e^{i\frac{7\pi}{12}}$. Ainsi on obtient : $z=\left(  \sqrt{2}e^{i\frac{7\pi}{12}} \right)^{20}=2^{10}e^{i\frac{140\pi}{12}}=2^{10}e^{i\frac{35\pi}{3}}=2^{10} e^{i\pi(10+\frac{5}{3})}=2^{10}\times e^{10i\pi}\times e^{i\frac{5\pi}{3}}=2^{10}e^{i\frac{5\pi}{3}}$. Ainsi on a: $\fbox{$z=2^{10}e^{i\frac{5\pi}{3}}.$}$
+%--
+\item \textbf{Mettre sous forme exponentielle $\mathbf{z=  \ddp\frac{1}{1+i\tan{\theta}},\ \theta\not= \ddp\frac{\pi}{2}+k\pi,\ k\in\Z }$:}
+Commen\c{c}ons par calculer le module. Le formulaire de trigonom\'etrie donne $|z|=|\cos{\theta}|$. Il faut donc discuter selon le signe du cosinus.
+\begin{itemize}
+ \item[$\bullet$] Si $\cos{\theta}\geq 0$, c'est-\`a-dire si $\exists k\in\Z,\ -\ddp\frac{\pi}{2}+2k\pi\leq \theta
+\leq \ddp\frac{\pi}{2}+2k\pi$,alors 
+$$z =\cos{\theta}\times\ddp\frac{1}{\cos{\theta}+i\sin{\theta}} = \cos{\theta}e^{-i\theta}.$$
+\item[$\bullet$] Si $\cos{\theta}\leq 0$, c'est-\`a-dire si $\exists k\in\Z,\ \ddp\frac{\pi}{2}+2k\pi\leq \theta
+\leq \ddp\frac{3\pi}{2}+2k\pi$,alors 
+$$z =-\cos{\theta}\times\ddp\frac{-1}{\cos{\theta}+i\sin{\theta}}
+= -\cos{\theta}e^{i\pi}e^{-i\theta}
+= -\cos{\theta}e^{i\left( \pi-\theta \right)}.$$
+\end{itemize}
+%--
+\item \textbf{Mettre sous forme exponentielle $\mathbf{z=\left( \ddp\frac{1+i\tan{(\theta)}}{1-i\tan{(\theta)}}  \right)^n,\ n\in\N,\ \theta\not= \ddp\frac{\pi}{2}+k\pi,\ k\in\Z   }$:}
+Ici plusieurs m\'ethodes sont possibles. On peut par exemple commencer par simplifier le quotient $\ddp\frac{1+i\tan{(\theta)}}{1-i\tan{(\theta)}}$. On obtient en utilisant la d\'efinition de la tangente: 
+$$\ddp\frac{1+i\tan{(\theta)}}{1-i\tan{(\theta)}}=\ddp\frac{ \frac{\cos{(\theta)} +i\sin{(\theta)}  }{\cos{(\theta)}}  }{   \frac{\cos{(\theta)} -i\sin{(\theta)}  }{\cos{(\theta)}}   }=\ddp\frac{\cos{(\theta)} +i\sin{(\theta)} }{ \cos{(\theta)} -i\sin{(\theta)} }.$$
+Il suffit alors de remarquer que: $\cos{(\theta)} +i\sin{(\theta)} =e^{i\theta}$ et que $\cos{(\theta)} -i\sin{(\theta)} =\cos{(-\theta)} +i\sin{(-\theta)} =e^{-i\theta}$ en utilisant la d\'efinition de $e^{i\theta}$, la parit\'e du cosinus et l'imparit\'e du sinus. Ainsi on obtient que: $\ddp\frac{1+i\tan{(\theta)}}{1-i\tan{(\theta)}}=\ddp\frac{e^{i\theta}}{e^{-i\theta}}=e^{2i\theta}$. En passant \`{a} la puissance $n$, on obtient que: $\fbox{$z=e^{2in\theta}.$}$
+\end{enumerate}
+\end{correction}
+
+
+
+
+
+
+
+
+%-------------------------------------------------
+\begin{exercice}  \;
+Soit $t \in \bR$. Donner l'expression du module de $z_1$ et $z_2$. Mettre $z_2$ sous forme exponentielle.
+$$z_1=t^2+2i \, t-1\quad\hbox{et}\quad z_2=1-\cos{t}+i\sin{t}.$$
+\end{exercice}
+%------------------------------------------------
+
+%------------------------------------------------
+%-------------------------------------------------
+\begin{correction}   \;
+\begin{itemize}
+\item[$\bullet$] \textbf{Calculer le module de $\mathbf{z_1=t^2+2ti-1}$:} On a 
+$$|z_1|^2=(t^2-1)^2+4t^2=t^4+2t^2+1=(1+t^2)^2.$$
+Ainsi, $\fbox{$|z_1|=\sqrt{(1+t^2)^2}=|1+t^2|=1+t^2$}$ car la somme de deux nombres positifs est positive.
+\item[$\bullet$] \textbf{Calculer le module de $\mathbf{z_2=1-\cos{(t)}+i\sin{(t)} }$:} On a:
+$$|z_2|^2=(1-\cos{t})^2+\sin^2{t}=2(1-\cos{t})=4\sin^2{\left(\ddp\frac{t}{2}\right)}.$$
+Ainsi, $|z_2|=2|\sin{\left(\frac{t}{2}\right)}|$. Il faut alors discuter selon le signe du sinus qui n'est pas toujours positif.
+\begin{itemize}
+\item[$\star$] Si $\sin{\left(\ddp\frac{t}{2}\right)}\geq 0$, on a $\fbox{$|z_2|=2\sin{\left( \ddp\frac{t}{2} \right)}.$}$ \'Etude de $\sin{\left(\ddp\frac{t}{2}\right)}\geq 0$:
+$$\sin{\left(\ddp\frac{t}{2}\right)}\geq 0 \Leftrightarrow  \exists k\in\Z,\ 0+2k\pi\leq \ddp\frac{t}{2}\leq \pi+2k\pi\Leftrightarrow \exists k\in\Z,\ 4k\pi\leq t \leq 2\pi+4k\pi.$$
+\item[$\star$] Si $\sin{\left(\ddp\frac{t}{2}\right)}\leq 0$, on a $\fbox{$|z_2|=-2\sin{\left( \ddp\frac{t}{2} \right)}.$}$ \'Etude de $\sin{\left(\ddp\frac{t}{2}\right)}\leq 0$:
+$$
+\sin{\left(\ddp\frac{t}{2}\right)}\leq 0 \Leftrightarrow  \exists k\in\Z,\ \pi+2k\pi\leq \ddp\frac{t}{2}\leq 2\pi+2k\pi\Leftrightarrow  \exists k\in\Z,\ 2\pi+4k\pi\leq t \leq 4\pi+4k\pi.$$
+\end{itemize}
+%----
+\item[$\bullet$] \textbf{Mettre $\mathbf{z_2}$ sous forme exponentielle:} On distingue donc deux cas selon le signe de $\sin{\left(\ddp\frac{t}{2}\right)}$.
+\begin{itemize}
+\item[$\star$] Cas 1: Lorsque $t$ v\'erifie: $\exists k\in\Z,\ 4k\pi\ < t  < 2\pi+4k\pi$ (0 ne se met pas sous forme exponentielle, il faut donc \'etudier uniquement les nombres complexes non nuls ce qui explique les in\'egalit\'es strictes):\\
+\noindent On a alors $|z_2|=2\sin{\left( \ddp\frac{t}{2} \right)}$ et donc 
+$$\begin{array}{lllll}
+z_2&=2\sin{\left( \ddp\frac{t}{2} \right)} \left\lbrack   \ddp\frac{1-\cos{(t)}}{2\sin{\left( \ddp\frac{t}{2} \right)}}+i\ddp\frac{\sin{(t)}}{2\sin{\left( \ddp\frac{t}{2} \right)}}  \right\rbrack\\ &=2\sin{\left( \ddp\frac{t}{2} \right)} \left\lbrack 
+\ddp\frac{  2\sin^2{\left( \ddp\frac{t}{2} \right)}   }{2\sin{\left( \ddp\frac{t}{2} \right)}}+i\ddp\frac{  2\sin{\left( \ddp\frac{t}{2} \right)}\cos{\left( \ddp\frac{t}{2} \right)} }{2\sin{\left( \ddp\frac{t}{2} \right)}}
+   \right\rbrack\\
+   &= 2\sin{\left( \ddp\frac{t}{2} \right)} \left\lbrack \sin{\left( \ddp\frac{t}{2} \right)} +i\cos{\left( \ddp\frac{t}{2} \right)}    \right\rbrack\\
+   & =2\sin{\left( \ddp\frac{t}{2} \right)} \left\lbrack i\left( \cos{\left( \ddp\frac{t}{2} \right)} -i \sin{\left( \ddp\frac{t}{2} \right)}   \right)\right\rbrack\vsec\\
+   &= 2\sin{\left( \ddp\frac{t}{2} \right)} \left\lbrack i\left( \cos{\left( -\ddp\frac{t}{2} \right)} +i \sin{\left( -\ddp\frac{t}{2} \right)}  \right) \right\rbrack \\
+    = &2\sin{\left( \ddp\frac{t}{2} \right)} \left\lbrack e^{i\frac{\pi}{2}} \times e^{-i\frac{t}{2}} \right\rbrack\vsec\\
+   &= 2\sin{\left( \ddp\frac{t}{2} \right)}  e^{i\frac{\pi-t}{2}} &&
+   \end{array}$$
+Dans ce cas, on a donc obtenu que $\fbox{$z_2=2\sin{\left( \ddp\frac{t}{2} \right)}  e^{i\frac{\pi-t}{2}}.$}$   
+\item[$\star$] Cas 2: Lorsque $t$ v\'erifie: $ \exists k\in\Z,\ 2\pi+4k\pi < t  < 4\pi+4k\pi$:\\
+\noindent On a alors $|z_2|=-2\sin{\left( \ddp\frac{t}{2} \right)}$ et donc en refaisant le m\^{e}me type de raisonnement que ci-dessus:
+$$
+z_2=-2\sin{\left( \ddp\frac{t}{2} \right)}\left\lbrack  - e^{i\frac{\pi-t}{2}} \right\rbrack=-2\sin{\left( \ddp\frac{t}{2} \right)}\left\lbrack  e^{i\pi}e^{i\frac{\pi-t}{2}} \right\rbrack=-2\sin{\left( \ddp\frac{t}{2} \right)} e^{i\frac{3\pi-t}{2}}.$$
+Dans ce cas, on a donc obtenu que $\fbox{$z_2=-2\sin{\left( \ddp\frac{t}{2} \right)}  e^{i\frac{3\pi-t}{2}}.$}$  
+\end{itemize}
+\item[$\bullet$] \textbf{Autre m\'ethode :} On peut \'egalement utiliser la m\'ethode de l'angle moiti\'e. On a en effet :
+$$z_2 = 1-\cos t+i \sin t = 1-e^{-it} = e^{-i\frac{t}{2}} \left(e^{i\frac{t}{2}} - e^{-i\frac{t}{2}}\right) = 2i \sin\left(\frac{t}{2}\right) e^{-i\frac{t}{2}} = 2 \sin\left(\frac{t}{2}\right) e^{i\frac{\pi-t}{2}}.$$
+On reprend ensuite les m\^emes cas, et on obtient les m\^emes r\'esultats que pr\'ec\'edemment.
+\end{itemize}
+\end{correction}
+
+
+
+
+
+
+
+
+
+
+%-----------------------------------------------
+\begin{exercice}  \;
+ Soit $u\in\bC$ un complexe de module 1 et d'argument $\varphi$. Pr\'eciser le module et un argument de $1+u$.
+\end{exercice}
+%------------------------------------------------
+
+%------------------------------------------------
+%-------------------------------------------------
+\begin{correction}   \; \textbf{Module et argument de $\mathbf{1+u}$ avec $\mathbf{u}$ de module 1:}\\
+Comme $u\in\bC$ est un complexe de module 1, il s'\'ecrit sous la forme $u=e^{i\varphi}$ avec $\varphi$ un argument.\\
+Par la m\'ethode des angles moiti\'es, on obtient:
+$$
+1+u = e^{i0}+e^{i\varphi}= e^{\frac{i\varphi}{2}}\left( e^{-\frac{i\varphi}{2}}+e{\frac{i\varphi}{2}}  \right)= 2\cos{\left(\ddp\frac{\varphi}{2}  \right)}e^{\frac{i\varphi}{2}}.$$
+Ainsi, $|1+u|=2\left|\cos{\left(\ddp\frac{\varphi}{2}\right)}\right|$ et il faut \'etudier le signe de $\cos{\left(\ddp\frac{\varphi}{2}\right)}$.
+\begin{itemize}
+ \item[$\bullet$] Si $\cos{\left(\ddp\frac{\varphi}{2}\right)}\geq 0$, alors $\left\lbrace\begin{array}{l}
+|1+u|=2\cos{\left(\ddp\frac{\varphi}{2}\right)} \vsec\\
+\arg{(1+u)}\equiv \ddp\frac{\varphi}{2}\lbrack 2\pi\rbrack.
+\end{array}\right.$\\
+Et la r\'esolution de $\cos{\left(\ddp\frac{\varphi}{2}\right)}\geq 0$ donne
+$$
+\cos{\left(\ddp\frac{\varphi}{2}\right)}\geq 0  \Leftrightarrow \exists k\in\Z,\ -\ddp\frac{\pi}{2}+2k\pi\leq \ddp\frac{\varphi}{2}\leq \ddp\frac{\pi}{2}+2k\pi\Leftrightarrow  \exists k\in\Z,\ -\pi+4k\pi\leq \varphi\leq \pi+4k\pi.$$
+\item[$\bullet$] Si $\cos{\left(\ddp\frac{\varphi}{2}\right)}\leq 0$, alors $\left\lbrace\begin{array}{l}
+|1+u|=-2\cos{\left(\ddp\frac{\varphi}{2}\right)} \vsec\\
+\arg{(1+u)}\equiv \ddp\frac{\varphi}{2}+\pi\lbrack 2\pi\rbrack.
+\end{array}\right.$\\
+En effet, $-1=e^{i\pi}$.\\
+Et la r\'esolution de $\cos{\left(\ddp\frac{\varphi}{2}\right)}\leq 0$ donne
+$$
+\cos{\left(\ddp\frac{\varphi}{2}\right)}\leq 0  \Leftrightarrow \exists k\in\Z,\ \ddp\frac{\pi}{2}+2k\pi\leq \ddp\frac{\varphi}{2}\leq \ddp\frac{3\pi}{2}+2k\pi
+\Leftrightarrow  \exists k\in\Z,\ \pi+4k\pi\leq \varphi\leq 3\pi+4k\pi.$$  
+\end{itemize}
+\end{correction}
+%------------------------------------------------
+
+
+
+
+%-------------------------------------------------
+\begin{exercice}  \;
+\begin{enumerate}
+\item Soient $a$ et $b$ des r\'eels tels que $b$ ne soit pas de la forme: $(2k+1)\pi$ avec $k$ entier.\\
+\noindent Calculer le module et un argument de $\ddp\frac{1+\cos{a}+i\sin{a}}{1+\cos{b}+i\sin{b}}$.
+\item Soit $(\alpha,\beta)\in\lbrack 0,2\pi\lbrack^2$. D\'eterminer la forme exponentielle de $Z=\ddp\frac{1-\cos \alpha +i\sin \alpha }{1-\sin \beta +i\cos \beta}$.
+\end{enumerate}
+\end{exercice}
+
+
+%-------------------------------------------------
+\begin{correction}   \;
+\begin{enumerate}
+%-----------------
+\item \textbf{Module et argument de $\mathbf{Z=\ddp\frac{1+\cos{a}+i\sin{a}  }{ 1+\cos{b}+i\sin{b}  }}$}:\\
+On peut remarquer que: $\ddp\frac{1+\cos{a}+i\sin{a}  }{ 1+\cos{b}+i\sin{b}  }= \ddp\frac{ 1+e^{ia}  }{1+e^{ib}}$. On utilise donc la m\'ethode de l'angle moiti\'e pour le num\'erateur et le d\'enominateur. On obtient
+$$\ddp\frac{1+\cos{a}+i\sin{a}  }{ 1+\cos{b}+i\sin{b}  }= \ddp\frac{ e^{\frac{ia}{2}}   2\cos{\left( \frac{a}{2}\right)}  }{ e^{\frac{ib}{2}}   2\cos{\left( \frac{b}{2}\right)}   }=\ddp\frac{ e^{\frac{ia}{2}}   \cos{\left( \frac{a}{2}\right)}  }{ e^{\frac{ib}{2}}   \cos{\left( \frac{b}{2}\right)}   }.$$
+On peut remarquer que ce nombre est bien d\'efini car le d\'enominateur est bien non nul car on a suppos\'e que $b$ n'est pas de la forme $2k\pi+\pi$ donc $\ddp\frac{b}{2}$ n'est pas de la forme $k\pi+\ddp\frac{\pi}{2}$ avec $k\in\Z$ et ainsi $\cos{\left( \frac{b}{2}\right)} $ ne s'annule pas. On obtient donc
+$$Z=\ddp\frac{1+\cos{a}+i\sin{a}  }{ 1+\cos{b}+i\sin{b}  }=\ddp\frac{ \cos{\left( \frac{a}{2}\right)}  }{   \cos{\left( \frac{b}{2}\right)}  } e^{i\frac{a-b}{2}}.$$
+\begin{itemize}
+\item[$\bullet$] Calcul du module: $|Z|= \left| \ddp\frac{ \cos{\left( \frac{a}{2}\right)}  }{   \cos{\left( \frac{b}{2}\right)}  }   \right|$. Ainsi, il faut \'etudier des cas selon le signe de ce qui est \`{a} l'interieur du module.
+\item[$\bullet$] Cas 1: Si $ \ddp\frac{ \cos{\left( \frac{a}{2}\right)}  }{   \cos{\left( \frac{b}{2}\right)}  } >0$, \`{a} savoir s'ils sont tous les deux positifs ou tous les deux n\'egatifs, on obtient alors:
+$$|Z|=\ddp\frac{ \cos{\left( \frac{a}{2}\right)}  }{   \cos{\left( \frac{b}{2}\right)}  } \quad \hbox{et}\quad Z=\ddp\frac{ \cos{\left( \frac{a}{2}\right)}  }{   \cos{\left( \frac{b}{2}\right)}  } e^{i\frac{a-b}{2}}.$$
+$Z$ est alors bien sous forme exponentielle et un argument de $Z$ est $\ddp\frac{a-b}{2}$.
+\item[$\bullet$] Cas 2: Si $ \ddp\frac{ \cos{\left( \frac{a}{2}\right)}  }{   \cos{\left( \frac{b}{2}\right)}  } <0$, \`{a} savoir si l'un est n\'egatif et l'autre positif, on obtient alors:
+$$|Z|=-\ddp\frac{ \cos{\left( \frac{a}{2}\right)}  }{   \cos{\left( \frac{b}{2}\right)}  } \quad \hbox{et}\quad Z=-\ddp\frac{ \cos{\left( \frac{a}{2}\right)}  }{   \cos{\left( \frac{b}{2}\right)}  } \left(-e^{i\frac{a-b}{2}}\right)=-\ddp\frac{ \cos{\left( \frac{a}{2}\right)}  }{   \cos{\left( \frac{b}{2}\right)}  } 
+e^{i(\frac{a-b}{2}+\pi)}.$$
+$Z$ est alors bien sous forme exponentielle et un argument de $Z$ est $\ddp\frac{a-b}{2}+\pi$.
+\end{itemize}
+%-----------------
+\item \textbf{D\'eterminer la forme exponentielle de $\mathbf{Z=\ddp\frac{1-\cos{(\alpha)} +i\sin{(\alpha)} }{1-\sin{(\beta)} +i\cos{(\beta)}}}$} : on utilise le m\^{e}me type de raisonnement, en remarquant que :
+$$Z=\ddp\frac{1-(\cos \alpha -i\sin \alpha) }{1+i(\cos \beta - i \sin \beta)} = \frac{1-e^{-i\alpha}}{1+ie^{-i\beta}} =  \frac{1-e^{-i\alpha}}{1+e^{i\left(\frac{\pi}{2} - \beta\right)}}.$$
+On utilise ensuite la m\'ethode de l'angle moiti\'e, et on distingue 3 cas :
+\begin{itemize}
+\item[$\bullet$] Si $\ddp \frac{\sin\left(\frac{\alpha}{2}\right)}{\cos \left( \frac{\beta}{2}-\frac{\pi}{4}\right)} >0$, alors $Z = \ddp \frac{\sin\left(\frac{\alpha}{2}\right)}{\cos \left( \frac{\beta}{2}-\frac{\pi}{4}\right)} e^{i\left(\frac{\beta-\alpha}{2}+\frac{\pi}{4}\right)}$.
+\item[$\bullet$] Si $\ddp \frac{\sin\left(\frac{\alpha}{2}\right)}{\cos \left( \frac{\beta}{2}-\frac{\pi}{4}\right)} =0$, alors $Z=0$ et n'admet pas de forme exponentielle.
+\item[$\bullet$] Si $\ddp \frac{\sin\left(\frac{\alpha}{2}\right)}{\cos \left( \frac{\beta}{2}-\frac{\pi}{4}\right)} <0$, alors  $Z = \ddp -\frac{\sin\left(\frac{\alpha}{2}\right)}{\cos \left( \frac{\beta}{2}-\frac{\pi}{4}\right)} e^{i\left(\frac{\beta-\alpha}{2}+\frac{3\pi}{4}\right)}$.
+\end{itemize}
+\end{enumerate}
+\end{correction}
+
+
+
+%------------------------------------------------
+%-------------------------------------------------
+\begin{exercice} 
+On rappelle que $j=e^{\frac{2i\pi}{3}}$.
+\begin{enumerate}
+\item Calculer $j^3$ et $1+j+j^2$.
+\item Simplifier les expressions $(1+j)^5$, $\ddp\frac{1}{(1+j)^4}$ et $\ddp\frac{1}{1-j^2}$.
+\end{enumerate}
+\end{exercice}
+
+%------------------------------------------------
+%-------------------------------------------------
+\begin{correction}   \;
+\begin{enumerate}
+\item \textbf{Calcul de $\mathbf{j^3}$ et de $\mathbf{1+j+j^2}$}:\\
+\noindent On a: $j^3=\left(  e^{i\frac{2\pi}{3}} \right)^3=e^{2i\pi}=1$. Pour le calcul de $1+j+j^2$, on reconna\^{i}t la somme des termes d'une suite g\'eom\'etrique de raison $j\not= 1$ et ainsi
+$$1+j+j^2=\ddp\frac{1-j^3}{1-j}=0.$$
+\item \textbf{Calcul de $\mathbf{(1+j)^5}$, $\mathbf{\ddp\frac{1}{(1+j)^4}}$ et de $\mathbf{\ddp\frac{1}{1-j^2}}$}:
+\begin{itemize}
+\item[$\bullet$] $(1+j)^5= (-j^2)^5= -j^{10}=-j^9\times j=-j=-e^{\frac{2i\pi}{3}}$.
+\item[$\bullet$] $\ddp\frac{1}{(1+j)^4}=\ddp\frac{1}{(-j^2)^4}=\ddp\frac{1}{j^8}=\ddp\frac{1}{j^2}=j^{-2}=e^{\frac{-4i\pi}{3}}=j$.
+\item[$\bullet$] En remarquant que $\overline{j^2}=j$, on obtient :
+$$\ddp\frac{1}{1-j^2}= \frac{1-\overline{j^2}}{(1-j^2)(1-\overline{j^2})} = \frac{1-j}{1-j^2-\overline{j^2}-|j^2|} = \frac{1-j}{1+1+1} = \frac{1-j}{3}.$$
+\end{itemize}
+\end{enumerate}
+\end{correction}
+
+
+
+
+%------------------------------------------------
+%-------------------------------------------------
+%---------------------------------------------------
+%-------------------------------------------------
+%-------------------------------------------------
+%--------------------------------------------------
+%----------------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------
+\subsection*{Applications des nombres complexes}
+% \vspace{0.2cm}
+
+%------------------------------------------------
+%-------------------------------------------------
+\begin{exercice}  \;
+Lin\'eariser les expressions suivantes, et en d\'eduire une primitive dans chacun des cas.
+\begin{enumerate}
+\begin{minipage}[t]{0.45\textwidth}
+\item $\sin^5{x}$,
+\item $\sin^3{x}\cos^2{x}$,
+\item $\cos^6{x}$, $\sin^6{x}$,
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\item $\sin^4{x}\cos^3{x}$,
+\item $\sin^4{x}\cos^4{x}$.
+\end{minipage}
+\end{enumerate}
+\end{exercice}
+%------------------------------------------------
+%-------------------------------------------------
+
+%------------------------------------------------
+%-------------------------------------------------
+\begin{correction}   \;
+\begin{enumerate}
+\item \textbf{Lin\'eariser $\mathbf{\sin^5{x}}$} : on utilise la formule d'Euler, puis on d\'eveloppe gr\^ace \`a la formule du bin\^ome de Newton. Il suffit ensuite de rassembler les exponentielles conjugu\'ees, et d'appliquer \`a nouveau la formule d'Euler dans l'autre sens.
+$$\begin{array}{rcl}
+\sin^5 x & = & \ddp \left( \frac{e^{ix} - e^{-i x}}{2i} \right)^5\vsec\\
+& =& \ddp \frac{1}{32 i} \left( e^{5ix} - 5 e^{4ix}e^{-ix} + 10 e^{3ix} e^{-2ix} - 10 e^{2ix}e^{-3ix} + 5 e^{ix}e^{-4ix} - e^{-5ix}\right)\vsec\\
+& =& \ddp \frac{1}{32 i} \left( e^{5ix} - e^{-5ix} + 5 (-e^{3ix} + e^{-3ix}) + 10 (e^{ix} - e^{-ix} ) \right)\vsec\\
+& = & \ddp \frac{1}{32 i} \left( 2i \sin(5x) - 10i \sin(3x) + 20 i\sin x\right) 
+\end{array}$$
+On obtient finalement : \fbox{$\sin^5{x}=\ddp\frac{\sin{(5x)}}{16}-\ddp\frac{5}{16}\sin{(3x)}+\ddp\frac{5}{8}\sin{x}$}.\\
+Une primitive est donc donn\'ee par : $F(x) = -\ddp\frac{1}{80}\cos{(5x)}+\ddp\frac{5}{48}\cos{(3x)}-\ddp\frac{5}{8}\cos{x}+C$, avec $C \in \R$.
+%---
+\item \textbf{Lin\'eariser $\mathbf{\sin^3{x}\cos^2{x}}$} : Attention de ne pas lin\'eariser s\'eparemment les deux termes ! Il faut ici d\'evelopper toutes les exponentielles, avant de repasser aux cosinus et sinus.
+$$\begin{array}{rcl}
+\sin^3{x}\cos^2{x} & = &\ddp \left( \frac{e^{ix}-e^{-ix}}{2i}\right)^3 \left( \frac{e^{ix}+e^{-ix}}{2}\right)^2\vsec\\
+& = & \ddp \frac{-1}{8i} \times \frac{1}{4} \times \left(e^{3ix} - 3 e^{ix} + 3 e^{-ix} - e^{-3ix}\right) \left(e^{2ix} + 2 + e^{-2ix}\right)\vsec\\
+& = & \ddp \frac{-1}{32i} \left(e^{5ix} + 2e^{3ix} + e^{ix} - 3e^{3ix} - 6 e^{ix} - 3 e^{-ix} + 3 e^{ix} + 6 e^{-ix} + 3 e^{-3ix} - e^{-ix} - 2 e^{-3ix} - e^{-5ix} \right)\vsec\\
+& = & \ddp \frac{-1}{32i} \left(e^{5ix} - e^{-5ix} - (e^{3ix} - e^{-3ix}) - 2 (e^{ix} - e^{-ix})\right)\vsec\\
+& = & \ddp \frac{-1}{32i} \left(2i \sin (5x) - 2i \sin(3x) - 4i \sin x\right)
+\end{array}$$
+On obtient : \fbox{$\sin^3{x}\cos^2{x}=-\ddp\frac{\sin{(5x)}}{16}+\ddp\frac{\sin{(3x)}}{16}+\ddp\frac{\sin{x}}{8}$}.\\
+Une primitive est donc donn\'ee par : $F(x) = \ddp\frac{\cos{(5x)}}{80}-\ddp\frac{\cos{(3x)}}{48}-\ddp\frac{\cos{x}}{8}+C$, avec $C \in \R$.
+%---
+\item \textbf{Lin\'eariser $\mathbf{\cos^6{x}}$}: On obtient : \fbox{$\cos^6{x}=\ddp\frac{\cos{(6x)}}{32}+\ddp\frac{3\cos{(4x)}}{16}+\ddp\frac{15\cos{(2x)}}{32}+\ddp\frac{5}{8}$}.\\
+Une primitive est donc donn\'ee par : $F(x) = \ddp\frac{\sin{(6x)}}{192}+\ddp\frac{3\sin{(4x)}}{64}+\ddp\frac{15\sin{(2x)}}{64}+\ddp\frac{5}{8}x+C$, avec $C \in \R$.
+%---
+\item \textbf{Lin\'eariser $\mathbf{\sin^6{(x)}}$}: On obtient : \fbox{$\sin^6{(x)}=-\ddp\frac{\cos{(6x)}}{32}+\ddp\frac{3}{16}\cos{(4x)}-\ddp\frac{15}{32}\cos{(2x)}+\ddp\frac{5}{16}$}.\\
+Une primitive est donc donn\'ee par : $F(x) = \ddp\frac{-1}{192} \sin{(6x)} +\ddp\frac{3}{64}\sin{(4x)}-\ddp\frac{15}{64}\sin{(2x)}+\ddp\frac{5}{16}x+C$, avec $C \in \R$.
+%---
+\item \textbf{Lin\'eariser $\mathbf{\sin^4{(x)}\cos^3{(x)}}$}: On obtient :\\
+ \fbox{$\sin^4{(x)}\cos^3{(x)}= \ddp\frac{1}{2^6}\left(  \cos{(7x)}-\cos{(5x)}-3\cos{(3x)}+3\cos{(x)} \right) $}.\\
+ 
+Une primitive est donc donn\'ee par : $$F(x) = \ddp\frac{1}{2^6}\left( \ddp\frac{ \sin{(7x)}}{7} -\ddp\frac{\sin{(5x)}}{5}-\sin{(3x)}+3\sin{(x)} \right)+C,$$ avec $C \in \R$.
+%---
+\item \textbf{Lin\'eariser $\mathbf{\sin^4{(x)}\cos^4{(x)}}$}: On obtient : \fbox{$\sin^4{(x)}\cos^4{(x)}= \ddp\frac{1}{2^7}\left(  \cos{(8x)}-4\cos{(4x)}+3 \right) $}.\\
+Une primitive est donc donn\'ee par : $F(x) = \ddp\frac{1}{2^7}\left(  \ddp\frac{\sin{(8x)}}{8}-\sin{(4x)}+3x \right)+C$, avec $C \in \R$.
+%---
+\end{enumerate}
+\end{correction}
+
+
+
+
+
+
+
+
+\begin{exercice}  \;
+\begin{enumerate}
+\item Exprimer en fonction des puissances de $\cos{x}$ et de $\sin{x}$: $\cos{(3x)}$ et $\sin{(4x)}.$
+\item Exprimer en fonction des puissances de $\cos{x}$ et de $\sin{x}$: $\cos{(5x)}$ et $\sin{(5x)}.$ En d\'eduire la valeur de $\cos{\left(  \ddp\frac{\pi}{10}\right)}$.
+\end{enumerate}
+\end{exercice}
+%------------------------------------------------
+
+%------------------------------------------------
+%-------------------------------------------------
+\begin{correction}   \;
+\begin{enumerate}
+\item Il s'agit ici d'utiliser la formule de Moivre pour exprimer le cosinus comme la partie r\'eelle d'une exponentielle complexe, et le sinus comme sa partie imaginaire. Puis on calcule l'exponentielle comme une puissance, en d\'eveloppant gr\^ace \`a la formule du bin\^ome de Newton, et on identifie la partie r\'eelle et la partie imaginaire.
+\begin{itemize}
+\item[$\bullet$] On a $\cos (3x) = \reel(e^{3ix})$. On a de plus :
+$$\begin{array}{rcl}
+e^{3ix} & = & \ddp (e^{ix})^3 \; = \; = \left(\cos x + i \sin x \right)^3\vsec\\
+& = & \ddp \cos^3 x + 3 i \cos^2 x \sin x - 3 \cos x \sin^2 x - i \sin^3 x
+\end{array}$$
+On a donc $\cos (3x) = \reel (\cos^3 x + 3 i \cos^2 x \sin x - 3 \cos x \sin^2 x - i \sin^3 x) = \cos^3{x}-3\cos{x}\sin^2{x}$, soit, en utilisant $\sin^2 x =1-\cos^2 x$ : \fbox{$\cos(3x)=4\cos^3{x}-3\cos{x}$}. 
+\item[$\bullet$] De m\^eme, on remarque que $\sin(4x) = \imag(e^{4ix})$. La m\^eme m\'ethode donne : \fbox{$\sin(4x)=4\cos{x}\sin{x}\left( \cos^2{x}-\sin^2{x} \right)=4\cos{x}\sin{x}\left( 1-2\sin^2{x}  \right)$}.
+\end{itemize}
+\item 
+\begin{itemize}
+\item[$\bullet$]  On applique la m\^eme m\'ethode, et on obtient :
+$$\cos{(5x)} = \cos^5{(x)}-10\cos^3{(x)}\sin^2{(x)}+5\cos{(x)}\sin^4{(x)}$$
+$$\sin{(5x)}= \sin^5{(x)} -10\cos^2{(x)}\sin^3{(x)}+5\cos^4{(x)}\sin{(x)}  .$$
+\item[$\bullet$] On commence par exprimer $\cos{(5x)}$ en fonction de $\cos x$ uniquement :
+$$\begin{array}{rcl}
+\cos{(5x)} & = & \cos^5{(x)}-10\cos^3{(x)}(1-\cos^2{(x)}+5\cos{(x)}(1-\cos^2{(x)})^2 \vsec\\
+ & = & 16 \cos^5 (x) - 20 \cos^3(x) + 5. 
+ \end{array}$$
+En prenant $x=\ddp\frac{\pi}{10}$ dans la relation pr\'ec\'edente, on a alors :
+$$\cos{\left(\frac{5\pi}{10}\right)} = 16 \cos^5{\left( \ddp\frac{\pi}{10}\right)}-20\cos^3{\left( \ddp\frac{\pi}{10}\right)}+5.$$
+En remarquant que $\ddp \cos{\left(\frac{5\pi}{10}\right)} = \cos{\left(\frac{\pi}{2}\right)}=0$, on obtient que $\ddp \cos{\left(\frac{\pi}{10}\right)}$ est solution de l'\'equation :
+$$16X^5-20X^3+5 = 0 \; \Leftrightarrow \; X(16X^4-20X^2+5)=0.$$
+Ainsi c'est \'equivalent \`{a}: $X=0$ ou \`{a} $16X^4-20X^2+5=0$. Comme $\cos{\left( \ddp\frac{\pi}{10}\right)}\not =0$, on doit donc r\'esoudre: $16X^4-20X^2+5=0$. On pose encore $Y=X^2$ afin de se ramener \`{a} une \'equation du second degr\'e en $Y$ et on obtient: $16Y^2-20Y+5=0$. Les solutions sont alors $Y=\ddp\frac{5-\sqrt{5}}{8}$ ou $Y=\ddp\frac{5+\sqrt{5}}{8}$. Ainsi, comme $Y=X^2$, on a
+$$ X=\ddp\sqrt{\ddp\frac{5-\sqrt{5}}{8}}\ \hbox{ou}\ X=-\ddp\sqrt{\ddp\frac{5-\sqrt{5}}{8}}\ \hbox{ou}\ X=\ddp\sqrt{\ddp\frac{5+\sqrt{5}}{8}}\ \hbox{ou}\ X=-\ddp\sqrt{\ddp\frac{5+\sqrt{5}}{8}}.$$
+Comme $\ddp\frac{\pi}{10}\in\left\rbrack 0,\ddp\frac{\pi}{6}\right\lbrack$, on sait, le cosinus \'etant d\'ecroissant sur cet intervalle que: $0<\ddp\frac{\sqrt{3}}{2}<\cos{\left( \ddp\frac{\pi}{10}\right)}<1$. En particulier, il ne peut pas \^{e}tre n\'egatif, donc $\ddp \cos\left(\frac{\pi}{10}\right)$ vaut $\ddp\sqrt{\ddp\frac{5-\sqrt{5}}{8}}$ ou $\ddp\sqrt{\ddp\frac{5+\sqrt{5}}{8}}$. Or on a :
+$$\sqrt{4} < \sqrt{5} < \sqrt{9} \; \Leftrightarrow \; 2 < 5-\sqrt{5} < 3 \; \Leftrightarrow \; \frac{1}{4} <\frac{5-\sqrt{5}}{8} < \frac{3}{8} \; \Leftrightarrow \; \demi < \sqrt{\frac{5-\sqrt{5}}{8}} < \frac{\sqrt{3}}{2\sqrt{2}}.$$
+En particulier, on a :  $\ddp\sqrt{\ddp\frac{5-\sqrt{5}}{8}}<\ddp\frac{\sqrt{3}}{2}=\cos\left(\frac{\pi}{6}\right)$, et donc 
+ \fbox{$\cos{\left( \ddp\frac{\pi}{10}\right)}=\ddp\sqrt{\ddp\frac{5+\sqrt{5}}{8}}$}.
+\end{itemize}
+\end{enumerate}
+\end{correction}
+%------------------------------------------------
+
+
+
+
+
+%-------------------------------------------------
+\begin{exercice}  \;
+R\'esoudre dans $\bC$ les \'equations suivantes.
+\begin{enumerate}
+\item $(z+1)^2+(2z+3)^2=0$
+\item $2z^2(1-\cos{(2\theta)})-2z\sin{(2\theta)}+1=0$
+\item $\exp(z)=3+\sqrt{3}i$
+\end{enumerate}
+\end{exercice}
+%------------------------------------------------
+
+
+
+
+
+
+%-------------------------------------------------
+
+%------------------------------------------------
+
+%-------------------------------------------------
+\begin{correction}   \;
+\begin{enumerate}
+%----------------------------------------------------
+\item  \textbf{R\'esolution de $\mathbf{(z+1)^2+(2z+3)^2=0}$ :}
+On reconna\^it un trin\^ome : 
+$$(z+1)^2+(2z+3)^2=0 \Leftrightarrow z^2 + 2z +1 +4z^2 + 12 z  + 9 =0 \Leftrightarrow 5 z^2 + 14 z + 10 = 0.$$
+Le discriminant vaut $\Delta = 14^2 - 4 \times 5 \times 10 = 4 ( 49 - 50) = -4$. Les solutions sont donc $z_1 = \ddp \frac{-14 - 2i}{10} = \frac{-7 - i}{5}$ et $z_2 = \ddp \frac{-7+i}{5}$.\\
+Ainsi, $\fbox{$ \mathcal{S}=\left\lbrace \ddp\frac{-7-i}{5},\ddp\frac{-7+i}{5}  \right\rbrace. $}$
+%----------------------------------------------------
+\item \textbf{R\'esolution de $\mathbf{2z^2(1-\cos{(2\theta)})-2z\sin{(2\theta)}+1=0}$ :} on fait deux cas, car le coefficient du $z^2$ peut s'annuler.
+\begin{itemize} 
+\item[$\bullet$] Si $1-\cos(2\theta) = 0 \Leftrightarrow \cos(2\theta) = 1 \Leftrightarrow  \; \exists k \in \Z, 2\theta = 2k\pi  \Leftrightarrow  \; \exists k \in \Z, \theta = k\pi $.\\
+On a alors $\sin(2\theta) = 0$, et on doit donc r\'esoudre : $0+0+1 = 0$, ce qui est impossible. Donc $\mathcal{S}_{1} = \emptyset$.
+\item[$\bullet$] Si $1-\cos(2\theta) = 0 \Leftrightarrow  \forall k \in \Z, \theta \not = k\pi $.\\
+C'est une \'equation du second degr\'e en $z$, on calcule donc le discriminant et on obtient
+\begin{align*}
+\Delta&=4\sin^2{(2\theta)}-8(1-\cos{(2\theta)})\\
+&=4\left( 2\sin{(\theta)}\cos{(\theta)}  \right)^2-8\times 2\sin^2{(\theta)}\\&=16\sin^2{(\theta)} (\cos^2{(\theta)} -1)\\
+&=-16\sin^4{(\theta)} .
+\end{align*}
+
+Ainsi $\Delta<0$ et $\sqrt{-\Delta}=4\sin^2{(\theta)}$.
+On obtient alors $z_1=\ddp\frac{ 2\sin{(2\theta)} +4i\sin^2{(\theta)}  }{ 4\times 2\sin^2{(\theta)}}=\ddp\demi\left( \cot{(\theta)}+i \right)$
+en utilisant le fait que $\sin{(2\theta)}=2\cos{(\theta)}\sin{(\theta)}$. Et les racines \'etant alors complexes conjugu\'ees, on obtient: $z_2=\ddp\demi\left( \cot{(\theta)}-i \right)$. Ainsi $\fbox{$ \mathcal{S}=\left\lbrace \ddp\demi\left( \cot{(\theta)}-i \right),\ddp\demi\left( \cot{(\theta)}+i \right) \right\rbrace $}$.
+\end{itemize}
+%%----------------------------------------------------
+%\item Exercice tr\`{e}s classique: L'id\'ee ici est de se ramener \`{a} la r\'esolution d'une \'equation type racine n-i\`{e}me de l'unit\'e.
+%\begin{itemize}
+%\item[$\bullet$] Comme 1 n'est pas solution de l'\'equation, on peut supposer que $z\not= 1$. Ainsi, on peut bien diviser par $(z-1)^n$ qui est bien non nul. Ainsi, on a
+%$$(z+1)^n=(z-1)^n\Leftrightarrow \left( \ddp\frac{z+1}{z-1}\right)^n=1\Leftrightarrow Z^n=1$$
+%en posant $Z=\ddp\frac{z+1}{z-1}$.
+%\item[$\bullet$] R\'esolution des racines n-i\`{e}me de l'unit\'e: \`{a} savoir faire: voir cours:\\
+%\noindent On obtient donc que les solutions sont les $Z$ de la forme
+%$$Z_k=e^{\frac{2ik\pi}{n}},\quad k\in\intent{ 0,n-1}.$$
+%\item[$\bullet$] On repasse alors \`{a} $z$ et on cherche donc les $z$ tels que: $\ddp\frac{z+1}{z-1}=e^{\frac{2ik\pi}{n}}$ avec $k\in\intent{ 0,n-1}$ fix\'e. On obtient alors
+%$$\ddp\frac{z+1}{z-1}=e^{\frac{2ik\pi}{n}}\Leftrightarrow z+1=e^{\frac{2ik\pi}{n}} (z-1)\Leftrightarrow z\left(1- e^{\frac{2ik\pi}{n}} \right)=-e^{\frac{2ik\pi}{n}}-1\Leftrightarrow z\left(e^{\frac{2ik\pi}{n}} -1\right)=e^{\frac{2ik\pi}{n}}+1.$$
+%Ici, il faut faire attention car on ne peut JAMAIS diviser par un nombre sans v\'erifier qu'il est bien NON nul. Or on a:
+%$$e^{\frac{2ik\pi}{n}} -1=0\Leftrightarrow e^{\frac{2ik\pi}{n}} =1\Leftrightarrow \ddp\frac{2k\pi}{n}=2k^{\prime}\pi\Leftrightarrow k=nk^{\prime}$$
+%avec $k^{\prime}\in\Z$. Or $k\in\intent{ 0,n-1}$ donc le seul $k$ qui v\'erifie cela est $k=0$. 
+%\begin{itemize}
+%\item[$\star$] Pour $k=0$, on obtient: $0=2$ donc il n'y a pas de solution pour $k=0$.
+%\item[$\star$] Pour $k\not= 0$, \`{a} savoir pour $k\in\intent{ 1,n-1}$, on sait que $1- e^{\frac{2ik\pi}{n}}\not= 0$ et on peut donc bien diviser. On obtient
+%$$z=\ddp\frac{e^{\frac{2ik\pi}{n}}+1}{e^{\frac{2ik\pi}{n}} -1}=-i\cot{\left( \ddp\frac{k\pi}{n} \right)}$$
+%en utilisant la m\'ethode de l'angle moiti\'e.
+%\end{itemize}
+%\item[$\bullet$] Conclusion: $\fbox{$ \mathcal{S}=\left\lbrace  z\in\bC,\exists k\in\intent{ 1,n-1},\ z=-i\cot{\left( \ddp\frac{k\pi}{n} \right)}  \right\rbrace $}$
+%\end{itemize}
+%%----------------------------------------------------
+%----------------------------------------------------
+\item \textbf{R\'esolution de $\mathbf{\exp(z)=3+\sqrt{3}i}$ :}\\
+On commence par mettre $3+\sqrt{3}i$ sous forme exponentielle : on obtient $3+\sqrt{3}i=2\sqrt{3} e^{i \frac{\pi}{6}}$. On pose $z=a+ib$, avec $(a,b)\in \R^2$. On doit alors r\'esoudre :
+$$e^a e^{ib} = 2\sqrt{3} e^{i \frac{\pi}{6}}.$$
+Par identification du module et de l'argument, on obtient $e^a=2\sqrt{3}$, soit $a = \ln(2\sqrt{3})$, et $b=\ddp \frac{\pi}{6} + 2k \pi$, avec $k \in \Z$. On a donc comme solutions : 
+
+$$\fbox{$\ddp \mathcal{S} = \left\{ \ln(2\sqrt{3}) + i \left(\frac{\pi}{6} + 2k \pi\right),k \in \Z\right\}$}.$$
+\end{enumerate}
+\end{correction}
+%------------------------------------------------
+
+
+
+
+\begin{exercice}  \;
+R\'esoudre dans $\bC$ les \'equations suivantes et mettre les solutions sous forme exponentielle.
+\begin{enumerate}
+\begin{minipage}[t]{0.45\textwidth}
+\item $z^2=i$
+\item $z^3=i$
+\item $z^4+4=0$ 
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\item $z^2=3-4i$
+\item $z^4=j$ (on rappelle que $j=e^{\frac{2i\pi}{3}}$).
+\end{minipage}
+\end{enumerate}
+\end{exercice}
+\begin{correction}   \;
+\begin{enumerate}
+ \item \textbf{R\'esolution de $\mathbf{z^2=i}$ :}
+Comme 0 n'est pas solution, on cherche les solutions $z$ sous la forme exponentielle $z=re^{i\theta}$ avec $r>0$ et $\theta\in\R$.
+$$ 
+z^2=i \Leftrightarrow  r^2e^{2i\theta}=e^{i\frac{\pi}{2}}
+\Leftrightarrow  \left\lbrace\begin{array}{l}
+r^2=1\vsec\\
+\exists k\in\Z,\ 2\theta=\ddp\frac{\pi}{2}+2k\pi
+\end{array}\right. 
+\Leftrightarrow  \left\lbrace\begin{array}{l}
+r=1\vsec\\
+\exists k\in\Z,\ \theta=\ddp\frac{\pi}{4}+k\pi.
+\end{array}\right. 
+$$
+Ainsi,
+$$\fbox{$\mathcal{S}=\left\lbrace  e^{i\frac{\pi}{4}},e^{i\frac{5\pi}{4}} \right\rbrace=\left\lbrace 
+\ddp\frac{1+i}{\sqrt{2}},\ddp\frac{-1-i}{\sqrt{2}}  \right\rbrace   .$}$$
+%----------------------------------------------------
+ \item \textbf{R\'esolution de $\mathbf{z^3=i}$ :}
+ Comme 0 n'est pas solution, on cherche les solutions $z$ sous la forme exponentielle $z=re^{i\theta}$ avec $r>0$ et $\theta\in\R$.
+$$ 
+z^3=i \Leftrightarrow  r^3e^{3i\theta}=e^{i\frac{\pi}{2}}
+\Leftrightarrow  \left\lbrace\begin{array}{l}
+r^3=1\vsec\\
+\exists k\in\Z,\ 3\theta=\ddp\frac{\pi}{2}+2k\pi
+\end{array}\right. 
+\Leftrightarrow  \left\lbrace\begin{array}{l}
+r=1\vsec\\
+\exists k\in\Z,\ \theta=\ddp\frac{\pi}{6}+\ddp\frac{2k\pi}{3}.
+\end{array}\right. 
+$$
+Ainsi,
+$$\fbox{$\mathcal{S}=\left\lbrace  e^{i\frac{\pi}{6}},e^{i\frac{5\pi}{6}},e^{i\frac{3\pi}{2}} \right\rbrace=\left\lbrace 
+\ddp\frac{\sqrt{3}+i}{2},\ddp\frac{-\sqrt{3}+i}{2},-i  \right\rbrace   .$}$$
+%------------------------------------------------------
+\item  \textbf{R\'esolution de $\mathbf{z^4=-4}$ :}
+0 n'est pas solution, on cherche donc les solutions sous la forme $z=re^{i\theta}$ avec $r>0$ et $\theta\in\R$.
+On obtient alors
+$$
+z^4=-4 \Leftrightarrow  r^4e^{4i\theta}=4e^{i\pi}
+\Leftrightarrow  \left\lbrace\begin{array}{lll}
+r^4=4\vsec\\
+\exists k\in\Z,\ 4\theta=\pi+2k\pi
+\end{array} \right.
+\Leftrightarrow  \left\lbrace\begin{array}{lll}
+r=\sqrt{2}\vsec\\
+\exists k\in\Z,\ \theta=\ddp\frac{\pi}{4}+\ddp\frac{k\pi}{2}.
+\end{array} \right.$$
+Ainsi, les solutions sont $\fbox{$ \mathcal{S}=\left\lbrace \sqrt{2}e^{i\frac{\pi}{4}},\sqrt{2}e^{i\frac{3\pi}{4}},\sqrt{2}e^{-i\frac{3\pi}{4}} ,\sqrt{2}e^{-i\frac{\pi}{4}}\right\rbrace .$}$
+%-----------------------------------------------------
+\item \textbf{R\'esolution de $\mathbf{z^2=3-4i}$ :}
+\begin{itemize}
+ \item[$\bullet$]
+On commence par essayer d'appliquer la m\'ethode du cours et on cherche donc \`a mettre $3-4i$ sous forme exponentielle. On ne trouve pas de forme exponentielle simple. Pour les racines secondes d'un nombre complexe, il existe aussi une autre m\'ethode qui utilise la forme alg\'ebrique. 
+\item[$\bullet$]  M\'ethode avec la forme alg\'ebrique pour les racines SECONDES d'un nombre complexe.\\
+On cherche donc $z$ sous la forme $z=x+iy$. On obtient donc
+$$z^2=3-4i\Leftrightarrow (x+iy)^2=3-4i  \Leftrightarrow x^2-y^2+2xy i = 3-4i \Leftrightarrow \left\lbrace\begin{array}{l}
+x^2-y^2=3\vsec\\
+2xy=-4.
+\end{array}\right.$$
+On obtient donc, car $xy=-2$, donc $x\not=0$ :
+$$\begin{array}{lllll}
+z^2=3-4i&\Leftrightarrow& \left\lbrace\begin{array}{l}
+x^2-y^2=3\vsec\\
+y=-\ddp\frac{2}{x}
+\end{array}\right.
+\Leftrightarrow 
+\left\lbrace\begin{array}{ll}
+\ddp x^2 - \frac{4}{x^2}=3&\vsec\\
+y=-\ddp\frac{2}{x}
+\end{array}\right.
+&\Leftrightarrow & 
+\left\lbrace\begin{array}{lll}
+x^4-3x^2-4 = 0\vsec\\
+y=-\ddp\frac{2}{x}
+\end{array}\right.
+\end{array}$$
+Dans la premi\`ere \'equation on pose $X=x^2$. On obtient alors : $X^2-3X-4=0$, dont les solutions sont $X_1=-1$ et $X_2=4$. On revient \`a $x$ : on a $x^2=-1$ qui est impossible, ou $x^2=4 \Leftrightarrow x=2$ ou $x=-2$. On en d\'eduit dont gr\^ace \`a la deuxi\`eme \'equation :
+$$z^2=3-4i \Leftrightarrow \left\{\begin{array}{rcr} x&=&2\\b&=&-1\end{array}\right. \textmd{ ou } \left\{\begin{array}{rcr} x&=&-2\\b&=&1\end{array}\right. $$
+Ainsi, les solutions sont $\fbox{$ \mathcal{S}=\left\lbrace  2-i, -2+i\right\rbrace .$}$
+\end{itemize}
+%---------------------------------------------
+\item \textbf{R\'esolution de $\mathbf{z^4=j}$ :}
+0 n'est pas solution, on cherche donc les solutions $z$ sous la forme $z=re^{i\theta}$ avec $r>0$ et $\theta\in\R$. On obtient
+$$
+z^4=j \Leftrightarrow  r^4e^{4i\theta}=j
+\Leftrightarrow  \left\lbrace\begin{array}{l}
+r^4=1\vsec\\
+\exists k\in\Z,\ 4\theta=\ddp\frac{2\pi}{3}+2k\pi
+\end{array}\right.
+\Leftrightarrow  \left\lbrace\begin{array}{l}
+r=1\vsec\\
+\exists k\in\Z,\ \theta=\ddp\frac{\pi}{6}+\ddp\frac{k\pi}{2}.
+\end{array}\right.
+$$
+Ainsi, $\fbox{$ \mathcal{S}=\left\lbrace  e^{i\frac{\pi}{6}},e^{i\frac{2\pi}{3}},e^{i\frac{-5\pi}{6}},e^{i\frac{-\pi}{3}}  \right\rbrace .$}$
+%----------------------------------------------------
+\end{enumerate}
+\end{correction}
+
+
+
+
+
+
+%-------------------------------------------------
+
+
+%-------------------------------------------------
+%-------------------------------------------------
+
+%-------------------------------------------------
+\begin{exercice}  \;
+Soit $n\in\bN^{\star}$. R\'esoudre dans $\bC$ les \'equations suivantes et mettre les solutions sous forme exponentielle.
+\begin{enumerate}
+\item $z^n=(z-1)^n$, $n\in\bN^{\star}$
+\item $(z+1)^n=(z-1)^n$ 
+\end{enumerate}
+\end{exercice}
+
+
+
+%-------------------------------------------------
+
+%-------------------------------------------------
+\begin{correction}   \;
+\begin{enumerate}
+%----------------------------------------------------
+\item  \textbf{R\'esolution de $\mathbf{z^n=(z-1)^n}$ :}
+On peut tout de suite remarquer que $z=1$ n'est pas solution. On obtient alors pour tout $z\not= 1$,
+$$\begin{array}{llll}
+z^n=(z-1)^n&\Leftrightarrow & \left( \ddp\frac{z}{z-1} \right)^n=1\vsec\\
+& \Leftrightarrow & \exists k\in\lbrace 0,\dots, n-1\rbrace,\ \ddp\frac{z}{z-1}=e^{\frac{2ik\pi}{n}}& \textmd{ (racines $n$-i\`emes de l'unit\'e)}\vsec\\
+& \Leftrightarrow & \exists k\in\lbrace 0,\dots, n-1\rbrace,\ z=e^{\frac{2ik\pi}{n}}(z-1).
+\end{array}$$
+Si $k=0$, $z=z-1$ n'a pas de solution. Ainsi, on peut prendre $k\in\lbrace 1,\dots,n-1\rbrace$. On obtient alors
+$$\begin{array}{lll}
+z^n=(z-1)^n&\Leftrightarrow & \exists k\in\lbrace 1,\dots, n-1\rbrace,\ z(1-e^{\frac{2ik\pi}{n}})=-e^{\frac{2ik\pi}{n}}\vsec\\
+&\Leftrightarrow & \exists k\in\lbrace 1,\dots, n-1\rbrace,\ z=\ddp\frac{-e^{\frac{2ik\pi}{n}}}{e^{\frac{ik\pi}{n}}\times \left(-2i\sin{\left( \ddp\frac{k\pi}{n}\right)}\right)   }\vsec\\
+&\Leftrightarrow & \exists k\in\lbrace 1,\dots, n-1\rbrace,\ z=e^{\frac{ik\pi}{n}}\ddp\frac{-i}{2\sin{\left( \ddp\frac{k\pi}{n}\right)}} = \frac{1}{2\sin{\left( \ddp\frac{k\pi}{n}\right)}} e^{i\frac{k\pi}{n}+ \frac{3pi}{2}}.
+\end{array}$$
+Donc on a : \fbox{$ \mathcal{S}=\left\lbrace \ddp  \frac{1}{2\sin{\left( \ddp\frac{k\pi}{n}\right)}} e^{i\frac{k\pi}{n}+ \frac{3pi}{2}}, k \in \intent{ 1, n-1 } \right\rbrace$}
+%----------------------------------------------------
+\item Exercice tr\`{e}s classique: L'id\'ee ici est de se ramener \`{a} la r\'esolution d'une \'equation type racine n-i\`{e}me de l'unit\'e.
+\begin{itemize}
+\item[$\bullet$] Comme 1 n'est pas solution de l'\'equation, on peut supposer que $z\not= 1$. Ainsi, on peut bien diviser par $(z-1)^n$ qui est bien non nul. Ainsi, on a
+$$(z+1)^n=(z-1)^n\Leftrightarrow \left( \ddp\frac{z+1}{z-1}\right)^n=1\Leftrightarrow Z^n=1$$
+en posant $Z=\ddp\frac{z+1}{z-1}$.
+\item[$\bullet$] R\'esolution des racines n-i\`{e}me de l'unit\'e: \`{a} savoir faire: voir cours:\\
+\noindent On obtient donc que les solutions sont les $Z$ de la forme
+$$Z_k=e^{\frac{2ik\pi}{n}},\quad k\in\intent{ 0,n-1}.$$
+\item[$\bullet$] On repasse alors \`{a} $z$ et on cherche donc les $z$ tels que: $\ddp\frac{z+1}{z-1}=e^{\frac{2ik\pi}{n}}$ avec $k\in\intent{ 0,n-1}$ fix\'e. On obtient alors
+$$\ddp\frac{z+1}{z-1}=e^{\frac{2ik\pi}{n}}\Leftrightarrow z+1=e^{\frac{2ik\pi}{n}} (z-1)\Leftrightarrow z\left(1- e^{\frac{2ik\pi}{n}} \right)=-e^{\frac{2ik\pi}{n}}-1\Leftrightarrow z\left(e^{\frac{2ik\pi}{n}} -1\right)=e^{\frac{2ik\pi}{n}}+1.$$
+Ici, il faut faire attention car on ne peut JAMAIS diviser par un nombre sans v\'erifier qu'il est bien NON nul. Or on a:
+$$e^{\frac{2ik\pi}{n}} -1=0\Leftrightarrow e^{\frac{2ik\pi}{n}} =1\Leftrightarrow \ddp\frac{2k\pi}{n}=2k^{\prime}\pi\Leftrightarrow k=nk^{\prime}$$
+avec $k^{\prime}\in\Z$. Or $k\in\intent{ 0,n-1}$ donc le seul $k$ qui v\'erifie cela est $k=0$. 
+\begin{itemize}
+\item[$\star$] Pour $k=0$, on obtient: $0=2$ donc il n'y a pas de solution pour $k=0$.
+\item[$\star$] Pour $k\not= 0$, \`{a} savoir pour $k\in\intent{ 1,n-1}$, on sait que $1- e^{\frac{2ik\pi}{n}}\not= 0$ et on peut donc bien diviser. On obtient
+$$z=\ddp\frac{e^{\frac{2ik\pi}{n}}+1}{e^{\frac{2ik\pi}{n}} -1}=-i\cot{\left( \ddp\frac{k\pi}{n} \right)}$$
+en utilisant la m\'ethode de l'angle moiti\'e.
+\end{itemize}
+\item[$\bullet$] Conclusion: $\fbox{$ \mathcal{S}=\left\lbrace  z\in\bC,\exists k\in\intent{ 1,n-1},\ z=-i\cot{\left( \ddp\frac{k\pi}{n} \right)}  \right\rbrace $}$
+\end{itemize}
+%----------------------------------------------------
+\end{enumerate}
+\end{correction}
+%------------------------------------------------
+
+%------------------------------------------------
+%-------------------------------------------------
+%---------------------------------------------------
+%-------------------------------------------------
+%-------------------------------------------------
+%--------------------------------------------------
+%----------------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------
+%\noindent {{\bf\Large{Divers}}}
+%\vspace{0.1cm}
+%
+%
+%%------------------------------------------------
+%%-------------------------------------------------
+%\begin{exercicedur}
+%Soit $a$ un r\'eel, $n$ un entier naturel non nul et 
+%$$Z=\prod\limits_{k=0}^{n-1} \left( e^{\frac{4ki\pi}{n}} -2\cos{(a)}e^{\frac{2ki\pi}{n}} +1      \right).$$
+%\begin{enumerate}
+% \item
+%Factoriser dans $\bC$: $P(X)=X^2-2\cos{(a)}X+1$.
+%\item 
+%En d\'eduire une factorisation de $Z$.
+%\item 
+%Simplifier $Z$.
+%\end{enumerate}
+%\end{exercicedur}
+%------------------------------------------------
+%-------------------------------------------------
+%\begin{exercicedur}
+%Soient $n\in\bN^{\star}$ et $a\in\bR$ fix\'es.
+%\begin{enumerate}
+% \item
+%R\'esoudre dans $\bC$ l'\'equation $(z+1)^n=e^{2ina}$. 
+%\item 
+%Calculer $P(a)=\prod\limits_{k=0}^{n-1} \sin{(a+\ddp\frac{k\pi}{n})}$. Quel est $P(0)$?
+%\item 
+%Calculer $\prod\limits_{k=1}^{n-1} \sin{(\ddp\frac{k\pi}{n})}$.
+%\end{enumerate}
+%\end{exercicedur}
+%------------------------------------------------
+%-------------------------------------------------
+\section*{Type DS}
+
+\begin{exercice}
+Soit $\omega =e^{\frac{2i\pi}{7}}$. On considère $A=\omega+\omega^2 +\omega^4$ et $B =\omega^3+\omega^5 +\omega^6$
+
+\begin{enumerate}
+\item Calculer $\frac{1}{\omega}$ en fonction de $\overline{\omega}$
+\item Montrer que pour tout $k\in \intent{0,7}$ on a 
+$$\omega^k =\overline{\omega}^{7-k}.$$
+\item En déduire que $\overline{A}=B$.
+\item Justifier que $\sin\left( \frac{2\pi}{7}\right)-\sin\left( \frac{\pi}{7}\right)>0$.
+\item Montrer alors que la partie imaginaire de $A$ est strictement positive.
+\item  Prouver par récurrence que pour tout  $ q\neq 1, \,$ et tout $ n\in \N : $ on a : 
+$$\sum_{k=0}^n q^k =\frac{1-q^{n+1}}{1-q}.$$
+\item Montrer alors que $\ddp \sum_{k=0}^6 \omega^k =0$. En déduire que $A+B=-1$.
+\item Montrer que $AB=2$. 
+
+\item En déduire la valeur exacte de $A$.
+
+
+\end{enumerate}
+\end{exercice}
+\begin{correction}
+\begin{enumerate}
+\item $$\frac{1}{\omega} = e^{\frac{-2i\pi}{7}} =\overline{\omega}$$
+\item On a $\omega^7 = e^{7\frac{2i\pi}{7}}=e^{2i\pi}=1 $ donc pour tout $k\in \intent{0,7}$ on a 
+$$\omega^{7-k}\omega^{k}=1$$
+D'où 
+$$\omega^k=\frac{1}{\omega^{7-k}}=\overline{\omega}^{7-k}$$
+\item On  a d'après la question précédente : 
+$$\overline{\omega} =\omega^{6}$$
+$$\overline{\omega^2} =\omega^{5}$$
+$$\overline{\omega^4} =\omega^{3}$$
+Ainsi on a : 
+\begin{align*}
+\overline{A}&=\overline{\omega+\omega^2+\omega^4} \\
+					&=\overline{\omega}+\overline{\omega^2}+\overline{\omega^4} \\
+					&=\omega^6+\omega^5+\omega^3\\
+					&= B. 
+\end{align*}
+
+
+\item $$\Im(A) =\sin(\frac{2\pi}{7})+\sin(\frac{4\pi}{7})+\sin(\frac{8\pi}{7})=\sin(\frac{2\pi}{7}) +\sin(\frac{4\pi}{7}) -\sin(\frac{\pi}{7})$$
+
+Comme $\sin$ est croissante sur $[0, \frac{\pi}{2}[$ 
+$$\sin(\frac{\pi}{7}) \leq \sin(\frac{2\pi}{7})$$
+Donc 
+$$\Im(A) \geq \sin(\frac{4\pi}{7})>0$$
+
+
+\item On a 
+$$\sum_{k=0}^6 \omega^k = \frac{1-\omega^7}{1-\omega} = 0$$
+
+Or $$A+B= \sum_{k=1}^6 \omega^k =  \sum_{k=0}^6 \omega^k-1=-1$$
+
+
+
+\item  $AB = \omega^{4}+\omega^{6}+\omega^{7}+\omega^{5}+\omega^{7}+\omega^{8}+\omega^{7}+\omega^{9}+\omega^{10}$ 
+D'où 
+$$AB= 2\omega^7 + \omega^4(1+\omega^{1}+\omega^{2}+\omega^{3}+\omega^{4}+\omega^{5}+\omega^{6})=2\omega^7=2$$
+
+\item $A$ et $B$ sont donc les racines du polynome du second degré $X^2+X+2$. Son discriminant vaut $\Delta  =1-8 = -7$ donc 
+$$A\in \{\frac{-1 \pm i\sqrt{7}}{2}\}$$
+
+D'après la question 4, $\Im(A)>0$ donc 
+
+$$A= \frac{-1+ i\sqrt{7}}{2}$$
+
+\end{enumerate}
+
+\end{correction}
+
+
+
+
+\end{document}

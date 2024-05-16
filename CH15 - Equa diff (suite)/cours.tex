@@ -1,0 +1,991 @@
+\documentclass[a4paper, 11pt]{article}
+\input{macro/package.tex}
+\input{macro/environement}
+\input{macro/header.tex}
+\input{macro/newcommand.tex}
+\geometry{hmargin=2.0cm, vmargin=3.5cm}
+
+
+
+
+\begin{document}
+\tableofcontents
+\title{CH7 : Équation différentielle} 
+ % debut
+ %------------------------------------------------
+\vspace{0.5cm}
+
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%\vspace{0.3cm}
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+%-------------------------------------------------------
+\vspace{0.3cm}
+
+
+\noindent Une \'equation diff\'erentielle est une \'equation dont la variable est une fonction $f$, et qui met en jeu $f$ et ses d\'eriv\'ees. Les \'equations diff\'erentielles interviennent dans de nombreux domaines physiques et biologiques pour \'etudier des ph\'enom\`enes qui \'evoluent dans le temps, comme par exemple des r\'eactions chimiques ou la croissance d'une population.
+
+\begin{exemple}
+En dynamique des populations, le mod\`ele de Malthus d\'ecrit l'\'evolution d'une population plac\'ee dans des conditions id\'eales (nourriture et place illimit\'ee) gr\^ace \`a une \'equation diff\'erentielle. Le nombre d'individus au temps $t$ est not\'e $N(t)$, et la fonction $N$ ob\'eit \`a l'\'equation diff\'erentielle
+$$N'(t) = \lambda N(t),$$
+ce qui signifie que la croissance de la population est proportionnelle au nombre d'individus.
+\end{exemple}
+
+
+\noindent Les \'equations diff\'erentielles sont omnipr\'esentes en sciences. D\`es qu'il s'agit d'\'etudier les variations au cours du temps d'une quantit\'e, que ce soit en physique, en chimie, en biologie ou m\^eme en \'economie, on est amen\'e \`a mod\'eliser le ph\'enom\`ene \`a l'aide d'\'equations diff\'erentielles. Vous en avez d\'ej\`a (ou vous allez en) rencontr\'ees en \'electricit\'e, en m\'ecanique, en cin\'etique...
+
+%------------------------------------------------
+%-------------------------------------------------
+%debut
+%--------------------------------------------------
+%------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+%-------------------------------------------------------
+\section{\'Equations diff\'erentielles lin\'eaires du premier ordre}
+
+\noindent Dans toute cette section, on consid\`{e}re $I$ un intervalle de $\R$, et deux fonctions $a,b: I\rightarrow \R$ continues sur $I$.
+
+
+%----------------------------------------------------
+%-----------------------------------------------------
+\subsection{D\'efinitions et notations}
+
+ {\noindent  
+
+\begin{defi}  \textbf{\'Equations diff\'erentielles lin\'eaires du premier ordre:}
+\begin{itemize}
+ \item[$\bullet$] On appelle \'equation diff\'erentielle lin\'eaire du premier ordre sous forme r\'esoluble toute \'equation de la\vsec\\
+  forme: y'(t)+a(t)y(t)=b(t) (1) \vsec
+\item[$\bullet$] Lorsque $b$ est la fonction nulle, on dit que c'est une équation homogéne. \vsec\\
+\noindent On appelle \'equation homog\`ene associ\'ee \`a (1) l'\'equation: y'(t)+a(t)y(t)=0\\ 
+ \vsec
+\item[$\bullet$] Une \'equation diff\'erentielle lin\'eaire est dite \`a coefficients constants lorsque les fonctions $a$ et $b$ sont constantes. 
+\end{itemize}
+\end{defi}
+ 
+}
+\vsec\vsec
+
+ {\noindent  
+
+\begin{defi}  \textbf{Solution d'une \'equation diff\'erentielle lin\'eaire du premier ordre:}\\
+\noindent On appelle solution de l'\'equation diff\'erentielle lin\'eaire (1) toute fonction: \vsec
+\begin{itemize}
+\item[$\bullet$] $f$ dérivable sur $\R$ \vsec
+\item[$\bullet$] Pour tout $t\in\R$,  $f'(t) +a(t)f(t)=b(t)$\vsec 
+\end{itemize}
+\end{defi}
+ 
+}
+
+
+
+{\footnotesize \begin{exercice} 
+R\'esolution de $y^{\prime}+2y=0$.
+\end{exercice}
+}
+
+
+%----------------------------------------------------
+%-----------------------------------------------------
+
+%----------------------------------------------------
+%-----------------------------------------------------
+\subsection{R\'esolution de l'\'equation lin\'eaire homog\`ene associ\'ee}
+\subsubsection{Primitives des fonctions usuelles}
+\begin{defi}
+Soit $f$ une fonction continue sur un intervalle $I$. On appelle primitive de $f$, toute  fonction $F$, dérivable sur $I$ et telle que pour tout $x\in I$:
+$$F'(x) =f(x) $$ 
+\end{defi}
+
+\begin{remarques}
+\item Une primitive d'une fonction n'est pas unique : si $F$ est une primitive de $f$ sur $I$ alors $G = F+a$ pour tout réel $a$ est aussi une primitive. On utilisera donc l'article indéfini 'une' quand on parlera de primitive et non de l'article défini 'la'.
+\end{remarques}
+
+\begin{theorem}
+Soit $f$ une fonction continue sur un intervalle $I$, alors $f$ admet une primitive sur $I$. 
+\end{theorem}
+
+
+%\begin{defi}
+%Soit $f$ une fonction continue et définie sur $I$ et $(a,b)\in I^2$. On définit l'intégrale de $f$ sur $[a,b]$ par $$\int_a^b f(t)dt= F(b)-F(a) $$
+%où $F$ est une primitive de $f$ sur $I$. 
+%\end{defi}
+
+
+
+
+
+
+
+
+
+\setlength\fboxrule{1pt}
+\hspace{-2cm} \noindent \doublebox{
+\begin{minipage}[t]{0.94\textwidth}
+\begin{tabular}{l|l|l|l}
+\rule[2.5mm]{0pt}{8mm}  & \textbf{Expression de $\mathbf{f}$} &  $\mathbf{D_f}$ \hspace*{4.5cm} & \textbf{Une primitive de $\mathbf{f}$ sur $\mathbf{D_f}$} \\
+\hline
+% Constante
+\rule[0mm]{0pt}{8mm}  \rotatebox{90}{\hspace{-0.1cm}Cte\ \ } & \hspace{0.5mm} $x\mapsto a$ (constante)                                          & \hspace{0.5mm}  $\R$              &   \hspace{0.5mm} $x\mapsto ax$         \\
+\hline
+% Puissances
+\rule[-8mm]{0pt}{14mm}  \rotatebox{90}{\hspace{-1.7cm} Fonctions puissances\ \ }   &$\begin{array}{l} x\mapsto x^n  \vsec\\  x\mapsto \ddp\frac{1}{x^n}\quad (n\not=1) \vsec\\   x\mapsto   \ddp \frac{1}{\sqrt{x}} \vsec\\  x\mapsto  \sqrt{x}  \vsec\vsec \\ x\mapsto x^{\alpha}=e^{\alpha \ln{(x)}},\ \alpha\in\R\setminus\Z   \end{array}$ &
+ $\begin{array}{l} \R   \vsec\vsec\\  ]-\infty, 0[ \textmd{ ou } ]0, +\infty[  \vsec \vsec\vsec\\  \R^{+\star}  \vsec \vsec\\  \R^{+\star}  \vsec\vsec \\  \R^{+\star}  \vsec  \end{array}$ & 
+  $\begin{array}{l} x\mapsto \ddp\frac{x^{n+1}}{n+1} \vsec\\  x\mapsto \ddp \frac{x^{-n+1}}{-n+1}= -\frac{1}{n-1} \times \frac{1}{x^{n-1}} \vsec\\ x\mapsto  \ddp2 \sqrt{x}  \vsec\\ x\mapsto  \ddp \frac{2}{3} x\sqrt{x}  \vsec \\  x\mapsto \ddp\frac{x^{\alpha+1}}{\alpha+1}  \end{array}$ \\
+\hline
+% Inverse
+\rule[-5mm]{0pt}{8mm} \rotatebox{90}{\hspace{-0.2cm} Inv\ \ } & \hspace{0.5mm} $x\mapsto \ddp \frac{1}{x}$ & \hspace{0.5mm} $ ]-\infty, 0[ \textmd{ ou } ]0, +\infty[$ & \hspace{0.5mm} $x\mapsto \ln(|x|)$\\
+\hline
+% Log
+\rule[-5mm]{0pt}{8mm} \rotatebox{90}{\hspace{-0.2cm} Log\ \ } & \hspace{0.5mm} $x\mapsto \ddp \ln x$ & \hspace{0.5mm}  $\R^{+\star}$ & \hspace{0.5mm} $x\mapsto x \ln x - x $\\
+\hline
+% Exp
+\rule[-5mm]{0pt}{8mm}  \rotatebox{90}{\hspace{-0.2cm} Exp\ \ } & \hspace{0.5mm} $x\mapsto e^{\alpha x}$ ($\alpha\in\bC^{\star}$) & \hspace{0.5mm} $\R$  & \hspace{0.5mm} $x\mapsto\ddp\frac{1}{\alpha} e^{\alpha x}$\\
+\hline
+% Trigo
+\rule[-5mm]{0pt}{8mm}  \rotatebox{90}{\hspace{-2cm} Trigonom\'etriques \ \ }   & \begin{minipage}[t]{0.2\textwidth} \vspace{-1.2cm} $\begin{array}{l}  x\mapsto \cos{x}  \vsec\vsec\\  x\mapsto \sin{x}   \vsec\vsec\\    x\mapsto 1+\tan^2{x}=\ddp\frac{1}{\cos^2{x}} \vsec\vsec\\  x\mapsto \tan{x}  \vsec \vsec\\  x\mapsto \cot{x} = \ddp \frac{\cos x}{\sin x}  \vsec \end{array}$ \end{minipage}& \begin{minipage}[t]{0.2\textwidth} \vspace{-1.2cm} 
+ $\begin{array}{l}  \R \vsec\vsec\\ \R  \vsec\vsec\\ \left\rbrack -\ddp\frac{\pi}{2}+k\pi, \ddp\frac{\pi}{2}+k\pi\right\lbrack (k\in\Z) \vsec\\  \left\rbrack -\ddp\frac{\pi}{2}+k\pi, \ddp\frac{\pi}{2}+k\pi\right\lbrack (k\in\Z) \vsec\\  \left\rbrack \, k\pi, (k+1)\pi\right\lbrack (k\in\Z) \vsec \end{array}$ \end{minipage}& \begin{minipage}[t]{0.2\textwidth} \vspace{-1.2cm}
+  $\begin{array}{l}  x\mapsto \sin{x}  \vsec\vsec\\  x\mapsto -\cos{x}  \vsec \vsec\vsec\\  x\mapsto \tan x  \vspace*{0.1cm}\vsec\vsec \\  x\mapsto - \ln (|\cos{x}|)  \vsec\vsec\\   x\mapsto  \ln (|\sin{x}|) \vsec\end{array}$ \end{minipage}\\
+\hline
+% Trigo r�ciproque
+\rule[-10mm]{0pt}{10mm}  \rotatebox{90}{\hspace{-1cm} Arctan\ \ }   &\begin{minipage}[t]{0.2\textwidth} \vspace{0cm}  $\begin{array}{l} x\mapsto \ddp \frac{1}{1+x^2} 
+%\vsec\vsec\\  x\mapsto \ddp \frac{1}{1-x^2} \vsec 
+\end{array}$ \end{minipage} &\begin{minipage}[t]{0.2\textwidth} \vspace{0.2cm}
+ $\begin{array}{l}  \R 
+ %\vsec\vsec\vsec \\  ]-1,1[  \vsec  
+ \end{array}$ \end{minipage} &  \begin{minipage}[t]{0.2\textwidth} \vspace{0.2cm}
+  $\begin{array}{l} x\mapsto \arctan x 
+  %\vsec\vsec\vsec\\  x\mapsto \arcsin x \vsec 
+  \end{array}$ \end{minipage}\\
+
+\end{tabular}
+\end{minipage}}
+\setlength\fboxrule{0.5pt}
+
+
+
+\newpage
+%---------------------------------------------------
+%---------------------------------------------------
+\noindent{\textbf{Primitives de fonctions compos\'ees.}}\\
+
+Soit $u$ une fonction \textbf{d\'erivable} sur $I$.\\
+
+
+\setlength\fboxrule{1pt}
+\hspace{-1cm} \noindent \doublebox{
+\begin{minipage}[t]{0.84\textwidth}
+\begin{tabular}{l|l|l|l}
+\rule[-2.5mm]{0pt}{8mm}  & \textbf{Expression de la fonction $\mathbf{f}$} & \textbf{Condition sur  $u$}  & \textbf{Une primitive de $\mathbf{f}$ sur $\mathbf{I}$} \\
+\hline
+\rule[-8mm]{0pt}{14mm}  \rotatebox{90}{\hspace{-1.7cm} Fonctions puissances\ \ }   & $\begin{array}{l}  \vspace*{-0.1cm}\\ x\mapsto u^{\prime}(x) (u(x))^n  \vsec\\  x\mapsto \ddp\frac{u^{\prime}(x)}{u^n(x)} \quad (n \not=1)  \vsec\\   x\mapsto \ddp\frac{u'(x)}{\sqrt{u(x)}}  \vsec\vsec\\ x\mapsto u'(x) \times u(x)^{\alpha-1}, \ \alpha\in\R\setminus\Z \vsec\vsec   \end{array}$ &
+ $\begin{array}{l} \vspace*{-0.3cm}\\ \textmd{Aucune } \vspace*{0.1cm}\vsec\vsec\\  \forall x\in I,\ u(x)\neq 0   \vsec\vsec\\  \forall x\in I,\ u(x)> 0   \vspace*{0.5cm} \vsec\\  \forall x\in I,\ u(x)> 0  \vsec  \end{array}$  & 
+  $\begin{array}{l} \vspace*{-0.1cm}\\ x\mapsto \ddp\frac{u^{n+1}(x)}{n+1} \vsec\\  x\mapsto \ddp- \frac{1}{n-1}\times \ddp\frac{1}{u^{n-1}(x)} \vsec\\ x\mapsto  2 \sqrt{u(x)}   \vsec\vsec\\  x\mapsto \ddp \frac{u^{\alpha+1}(x)}{\alpha +1} \vsec\vsec  \end{array}$ \\
+\hline
+%Inv
+\rule[-5mm]{0pt}{10mm} \rotatebox{90}{Inv\ \ } & \begin{minipage}[t]{0.2\textwidth} \vspace{-0.5cm} \hspace*{0.5mm} $x \mapsto \dfrac{u'(x)}{u(x)}$ \end{minipage}& \begin{minipage}[t]{0.2\textwidth} \vspace{-0.3cm} \hspace*{0.5mm} $\forall x\in I,\ u(x) \not = 0$ \end{minipage}& \begin{minipage}[t]{0.2\textwidth} \vspace{-0.3cm} \hspace*{0.5mm} $x\mapsto \ln{(|u(x)|)}$\end{minipage}\\
+\hline
+%Exp
+\rule[-5mm]{0pt}{10mm}  \rotatebox{90}{Exp\ \ } &  \begin{minipage}[t]{0.25\textwidth} \vspace{-0.3cm} \hspace*{0.7mm} $x \mapsto u'(x) \exp(u(x)) $ \end{minipage} &  \begin{minipage}[t]{0.2\textwidth} \vspace{-0.3cm} \hspace*{0.5mm} Aucune \end{minipage}&  \begin{minipage}[t]{0.2\textwidth} \vspace{-0.3cm}  \hspace*{0.5mm} $ x\mapsto \exp(u(x)) $ \end{minipage}\\
+\hline
+%Trigo
+\rule[-5mm]{0pt}{8mm}  \rotatebox{90}{\hspace{-0.1cm} Trigo \ \ }   & \begin{minipage}[t]{0.2\textwidth} \vspace{-1.2cm} $\begin{array}{l}  x\mapsto u'(x) \cos{(u(x))}  \vsec\vsec\\  x\mapsto u'(x) \sin{(u(x))}   \vsec \end{array}$ \end{minipage}& \begin{minipage}[t]{0.2\textwidth} \vspace{-1.2cm} 
+ $\begin{array}{l} \textmd{Aucune }  \vsec\vsec\\  \textmd{Aucune }  \vsec \end{array}$ \end{minipage}& \begin{minipage}[t]{0.2\textwidth} \vspace{-1.2cm}
+  $\begin{array}{l}  x\mapsto \sin{(u(x))}  \vsec\vsec\\  x\mapsto -\cos{(u(x))}  \vsec \end{array}$ \end{minipage}\\
+\hline
+% Trigo r�ciproque
+%\rule[0mm]{0pt}{10mm}  \rotatebox{90}{ Arctan\ \ }   &\begin{minipage}[t]{0.2\textwidth} \vspace{-1.2cm}  $\begin{array}{l} x\mapsto \ddp \frac{u'(x)}{1+u^2(x)} \vsec\end{array}$ \end{minipage} &\begin{minipage}[t]{0.2\textwidth} \vspace{-1cm}
+% $\begin{array}{l}  \textmd{Aucune }  \vsec  \end{array}$ \end{minipage} &  \begin{minipage}[t]{0.2\textwidth} \vspace{-1cm}
+%  $\begin{array}{l} x\mapsto \arctan u(x) \vsec \end{array}$ \end{minipage}\\
+
+
+\end{tabular}
+\end{minipage}}
+\setlength\fboxrule{0.5pt}
+
+
+%
+%\begin{itemize}
+%\item[$\bullet$] pour $n\in\N$, une primitive de $x\mapsto u^{\prime}(x) (u(x))^n$ sur $I$ est $F(x)=\ddp\frac{u^{n+1}(x)}{n+1}$.
+%\item[$\bullet$] Pour $n\in^{\star}$, $n\not= 1$, si pour tout $ x\in I,\ u(x)\neq 0$, une primitive de $x\mapsto \ddp\frac{u^{\prime}(x)}{u^n(x)}$ sur $I$ est\\
+%\noindent  $F(x)=\ddp\frac{1}{-n+1}\times \ddp\frac{1}{u^{n-1}(x)}$.
+%\item[$\bullet$] Pour $\alpha \in\R\backslash\Z$, si pour tout $ x\in I,\ u(x)>0,$ une primitive de $x\mapsto u^{\prime}(x) (u(x))^{\alpha}$ sur $I$ est $F(x)=\ddp\frac{u^{\alpha+1}(x)}{\alpha+1}$.
+%\item[$\bullet$] si pour tout $ x\in I,\ u(x)\neq 0$, une primitive de $x\mapsto \ddp\frac{u^{\prime}(x)}{u(x)}$ sur $I$ est $F(x)=\ln{(|u(x)|)}$\vsec
+%\item[$\bullet$] Une primitive de $x\mapsto u^{\prime}(x) e^{u(x)}$ sur $I$ est $F(x)=e^{u(x)}$. \vsec
+%\item[$\bullet$] Une primitive de $x\mapsto u^{\prime}(x) \cos{(u(x))}$ sur $I$ est $F(x)=\sin{(u(x))}$. \vsec
+%\item[$\bullet$] Une primitive de $x\mapsto u^{\prime}(x) \sin{(u(x))}$ sur $I$ est $F(x)=-\cos{(u(x))}$. \vsec
+%\item[$\bullet$] Une primitive de $x\mapsto \ddp\frac{u^{\prime}(x)}{ 1+u^2{(x)}}$ sur $I$ est $F(x)=\arctan{(u(x))}$. 
+%\end{itemize}
+
+
+
+
+\subsubsection{Forme des solutions d'une équation différentielle homogéne du premier ordre}
+
+
+\begin{theorem} 
+Soit $a: I\rightarrow \R$ continue sur $I$ intervalle de $\R$ et soit $A$ une primitive de $a$ sur $I$.\\
+\noindent Les solutions de l'\'equation diff\'erentielle homog\`{e}ne associ\'ee (2): $y^{\prime}+a(x)y=0$ sont les fonctions:
+$$S_h=\{ t\mapsto C e^{-A(t)}\, |\, C\in \R\}$$ où
+$A$ est une primitive de $a$
+\end{theorem}
+ 
+
+\begin{proof} 
+\vspace{5cm}
+
+\end{proof}
+
+{\footnotesize \begin{exercice} 
+\begin{enumerate}
+
+\item R\'esolution de $x^{\prime}+tx=0$.
+\item R\'esolution de $y^{\prime}-\ddp\frac{xy}{x^2-1}=0$. 
+ 
+
+\item R\'esolution de $y^{\prime}-\ddp\frac{3y}{2x}=0$. 
+ 
+\end{enumerate}
+\end{exercice}
+}
+
+%----------------------------------------------------
+%-----------------------------------------------------
+\subsection{Recherche d'une solution particuli\`ere de l'\'equation avec second membre}
+
+
+\noindent\ {M\'ethode de la variation de la constante}\vsec\\
+\noindent On a vu que les solutions de l'\'equation homog\`ene (2): $y^{\prime}+a(x)y=0$ sont $y: x\mapsto Ce^{-A(x)}$ avec $A$ une primitive de $a$ et $C$ une constante r\'eelle. Le principe de la m\'ethode de variation de la constante est alors de rechercher une solution particuli\`ere de l'\'equation avec second membre (1): $y^{\prime}+a(x)y=b(x)$ sous la forme: 
+$y: x\mapsto C(x)e^{-A(x)}$
+avec $C$ une fonction d\'erivable \`a d\'eterminer qui correspond \`a la nouvelle inconnue. Le nom de la m\'ethode s'explique puisque l'on remplace la constante $C$ des solutions de l'\'equation homog\`ene par une fonction qui varie $x\mapsto C(x)$.\vsec
+
+
+ {\noindent  
+
+\begin{prop} 
+Soient deux fonctions $a$ et $b$ continues sur $I$ intervalle de $\R$ et $A$ une primitive de $a$. L'\'equation diff\'erentielle (1): $y^{\prime}+a(x)y=b(x)$ admet une solution particuli\`ere de la forme 
+$$\forall x\in I,\quad y_p(x)= C(x)e^{-A(x)}$$
+avec $C$ une fonction d\'erivable qui s'obtient par un calcul de primitive.
+\end{prop}
+ 
+}\vsec\vsec
+
+
+\setlength\fboxrule{1pt}
+\noindent  {
+
+\textbf{M\'ethode de la variation de la constante}
+\begin{itemize}
+\item[$\bullet$] Chercher une solution particuli\`ere de (1) sous la forme $y_p(x)=C(x)e^{-A(x)}$
+\item[$\bullet$] Exprimer l'\'equation $y_p^{\prime}(x)+a(x)y_p(x)=b(x)$ en fonction de $C^{\prime}(x)$.\\
+Il y a forc\'ement une simplification des $C(x)$ sinon c'est qu'il y a une erreur de calcul !
+\item[$\bullet$] Obtenir $C(x)$ au moyen d'un calcul de primitive.
+\end{itemize}
+ }
+\setlength\fboxrule{0.5pt}
+
+{\footnotesize \begin{exercice} 
+\begin{enumerate}
+
+\item R\'esoudre dans $\R$: $x^{\prime}+x=te^{-t}$.
+\item R\'esoudre sur $\ddp \left\rbrack -\frac{\pi}{2},\frac{\pi}{2} \right\lbrack $: $y^{\prime}-y\tan{(x)}=\sin{(2x)}$. 
+\item R\'esoudre dans $\R$: $y^{\prime}+y=\ddp\frac{1}{1+e^t}$. 
+\item R\'esolution de $y^{\prime}-(\tan{x})y=e^x$
+ 
+
+\item R\'esolution de $x^2y^{\prime}+y=\ddp\frac{1}{x}$
+\item R\'esolution de $xy^{\prime}-y+\ln{(x)}=0$ 
+\item R\'esolution de $(1-x^2)y^{\prime}+2xy=4x$ 
+ 
+\end{enumerate}
+\end{exercice}
+}
+\vsec\vsec
+
+ 
+
+\noindent\ {\'Etude de quelques cas particuliers de second membre}\\
+
+\begin{itemize}
+\item[\Large{\ding{182}}] \textbf{\large{Principe de superposition}}\\
+
+ {\noindent  
+\noindent 
+\begin{prop}
+Soient $a, b_1, b_2: I\rightarrow \R$ des fonctions continues sur $I$ et soient $(\lambda_1,\lambda_2)\in\R^2$. Si $y_1$ et $y_2$ sont respectivement des solutions de 
+$$y^{\prime}+a(x)y=b_1(x)\qquad \hbox{et}\qquad y^{\prime}+a(x)y=b_2(x)$$
+alors:\vsec\\
+$\lambda_1y_1+\lambda_2y_2$ est solution de $$y'+a(x)y = \lambda_1b_1(x)+\lambda_2b_2(x)$$
+\end{prop}
+ 
+}\vsec
+
+\noindent {\footnotesize \begin{exercice} 
+R\'esoudre dans $\R$: $y^{\prime}-3y=e^{3x}+6$.
+\end{exercice}
+}
+
+%\vsec
+\vspace{0.5cm}
+
+\item[\Large{\ding{183}}] \textbf{\large{Cas o\`u a est constante et le second membre polynomial ou exponentiel:}}\vsec\\
+\noindent Lorsque $a$ est constante et que le second membre $b(x)$ est de type polynomial et/ou exponentiel, la m\'ethode de variation de la constante est alors peu efficace car elle conduit \`a int\'egrer des fonctions de type exponentielle$\times$ polyn\^ome d'o\`u des int\'egrations par parties successives. Or, dans de tels cas particuliers, la recherche d'une solution particuli\`ere est simple et rapide en appliquant les m\'ethodes suivantes:\vsec
+
+\vspace{0.5cm}
+\begin{tabular}{|l|l|} 
+\hline
+\rule[-5mm]{0pt}{10mm} \textbf{Expression de $b(x)$ et condition \'eventuelle} & \textbf{Forme de la solution particuli\`ere $y_p(x)$}\\
+\hline
+\rule[-5mm]{0pt}{10mm}  Polyn\^ome de degr\'e $n$  & Polyn\^ome de degr\'e $n$ \`a d\'eterminer\\
+\hline
+\rule[-5mm]{0pt}{10mm} $P(x)e^{mx}\qquad$ $m\in\bC$, $m\not=-a$ & $Q(x)e^{mx}$ avec $\deg P=\deg Q$, $Q$ \`a d\'eterminer \\
+\rule[-5mm]{0pt}{10mm} $P(x)e^{-a x}$ & $ xQ(x) e^{mx}$ avec $\deg P=\deg Q$, $Q$ \`a d\'eterminer\\
+\hline
+\end{tabular}
+\vsec
+
+{\footnotesize \begin{exercice} 
+R\'esoudre les \'equations diff\'erentielles suivantes :
+\begin{enumerate}
+
+\item $y^{\prime}+2y=x+1$
+\item $y^{\prime}+y=x^2$
+\item $y^{\prime}+y=x^2+x+1$.
+ 
+
+\item $y^{\prime}+5y=xe^{-2x}$
+\item $y^{\prime}+2y=xe^{-2x}$.
+\item $y^{\prime}-2y+e^x=0$.
+ 
+\end{enumerate}
+\end{exercice}
+}
+
+
+%\begin{itemize}
+% \item[$\bullet$] \textbf{Recherche de solution particuli\`ere pour  {$ y+ay=P(x) $} avec $P$ polyn\^ome:}\\
+%\noindent Cette \'equation diff\'erentielle admet une solution particuli\`ere de la forme $y_1(x)=Q(x)$ avec $Q$ polyn\^ome de m\^eme degr\'e que $P$.\\
+%{\footnotesize \begin{exercice} 
+%R\'esoudre $y^{\prime}+2y=x+1$ et $y^{\prime}+y=x^2$.
+%\end{exercice}
+%}
+%
+%
+%\item[$\bullet$]  \textbf{Recherche de solution particuli\`ere pour  {$ y+ay=P(x)e^{m x} $} avec $P$ polyn\^ome et $m \not= -a$:}\\
+%\noindent  Cette \'equation diff\'erentielle admet une solution particuli\`ere de la forme $y_1(x)=Q(x)e^{m x}$ avec $Q$ polyn\^ome de m\^eme degr\'e que $P$.\\
+%{\footnotesize \begin{exercice} 
+%R\'esoudre $y^{\prime}+5y=xe^{-2x}$.
+%\end{exercice}
+%}\vsec
+%
+%\item[$\bullet$]  \textbf{Recherche de solution particuli\`ere pour  {$ y+ay=P(x)e^{-a x} $} avec $P$ polyn\^ome:}\\
+%\noindent  Cette \'equation diff\'erentielle admet une solution particuli\`ere de la forme $y_1(x)=xQ(x)e^{-ax}$ avec $Q$ polyn\^ome de m\^eme degr\'e que $P$.\\
+%{\footnotesize \begin{exercice} 
+%\begin{itemize}
+%\item[$\bullet$] R\'esoudre $y^{\prime}+y=t^2+t+1$.
+%\item[$\bullet$] R\'esoudre $y^{\prime}-2y+e^x=0$.
+%\item[$\bullet$] R\'esoudre $y^{\prime}+2y=xe^{-2x}$.
+%\end{itemize}
+%\end{exercice}
+%}
+%\end{itemize}
+
+\end{itemize}
+%
+
+
+\subsection{Structure de l'ensemble des solutions}
+
+ {\noindent  
+
+\begin{theorem} 
+La solution g\'en\'erale de (1) est la somme de la solution g\'en\'erale de l'\'equation diff\'erentielle homog\`ene associ\'ee (2) et d'une solution particuli\`ere de (1). Ainsi, si: 
+\begin{itemize}
+\item[$\bullet$] on conna\^{i}t l'ensemble des solutions de l'\'equation homog\`ene associ\'ee (2) : $S_h=\{ t\mapsto C e^{-A(t)}\, |\, C\in \R\}$ où
+$A$ est une primitive de $a$
+\item[$\bullet$] On note $y_p$ une solution particuli\`ere de (1) 
+\end{itemize}
+\vsec
+Alors l'ensemble des solutions de (1) est : $S_h=\{ t\mapsto y_p(t) + C e^{-A(t)}\, |\, C\in \R\}$
+\end{theorem}
+ 
+}
+\vsec\vsec
+
+\setlength\fboxrule{1pt}
+\noindent  {
+
+\textbf{M\'ethode pour r\'esoudre une \'equation diff\'erentielle lin\'eaire du premier ordre}
+\begin{itemize}
+\item[$\bullet$] Commencer par dire que c'est une \'equation diff\'erentielle lin\'eaire du premier ordre.
+\item[$\bullet$] R\'esoudre l'\'equation diff\'erentielle homog\`ene associ\'ee.
+\item[$\bullet$] Recherche d'une solution particuli\`ere de l'\'equation avec second membre.
+\item[$\bullet$] Additionner les deux.
+\end{itemize}
+ }
+\setlength\fboxrule{0.5pt}
+
+
+\vspace*{0.5cm}
+
+%----------------------------------------------------
+%-----------------------------------------------------
+\subsection{\'Equation diff\'erentielle lin\'eaire du premier ordre avec condition initiale}
+
+\noindent  {\noindent  
+
+\begin{prop}
+Soit $x_0\in I$ et $y_0\in\R$.\\
+\noindent L'\'equation diff\'erentielle lin\'eaire du premier ordre $y^{\prime}+a(x)y=b(x)$ admet 
+une unique solution $y$ v\'erifiant $y(x_0)=y_0$.\\
+\noindent La condition $y(x_0)=y_0$ d\'etermine la constante. 
+\end{prop}
+ 
+}\vsec
+
+\noindent  { 
+\textbf{M\'ethode pour trouver une solution v\'erifiant une condition initiale :}
+\begin{itemize}
+\item[$\bullet$] R\'esoudre l'\'equation diff\'erentielle avec la m\'ethode g\'en\'erale.
+\item[$\bullet$] Utiliser la condition $y(t_0) = y_0$ pour d\'eterminer la constante $C$.
+\end{itemize}
+ 
+}
+
+
+{\footnotesize \begin{exercice} 
+R\'esoudre sur $\R^{+\star}$ l'\'equation diff\'erentielle $y^{\prime}-\ddp\frac{3y}{x}=x$ avec $y(1)=2$.
+\end{exercice}
+}
+
+%----------------------------------------------------
+%-----------------------------------------------------
+%\subsection{M\'ethode g\'en\'erale et exemples}
+%
+%\setlength\fboxrule{1pt}
+%\noindent  {
+%
+%\textbf{M\'ethode pour r\'esoudre une \'equation diff\'erentielle lin\'eaire du premier ordre}
+%\begin{itemize}
+%\item[$\bullet$] R\'esolution de l'\'equation diff\'erentielle homog\`ene associ\'ee\\
+%On obtient des solutions de la forme: $y_0(x)=C e^{-A(x)}$ avec $C$ constante r\'eelle.
+%\item[$\bullet$] Recherche d'UNE solution particuli\`ere $y_1$ de l'\'equation avec second membre:
+%\begin{itemize}
+%\item[$\star$] Par la m\'ethode de la variation de la constante (s'il n'y a pas de solution particuli\`ere \'evidente).
+%\item[$\star$] En utilisant les m\'ethodes associ\'ees \`a certains cas particuliers.
+%\end{itemize}
+%\item[$\bullet$] Conclusion: On additionne les solutions $y_0$ \`a la solution particuli\`ere $y_1$ pour avoir toutes les solutions
+%\end{itemize}
+% }
+%\setlength\fboxrule{0.5pt}
+%
+%{\footnotesize \begin{exercice} 
+%\begin{itemize}
+% \item[$\bullet$] R\'esolution de $y^{\prime}-(\tan{x})y=e^x$
+%\item[$\bullet$]  R\'esolution de $x^2y^{\prime}+y=\ddp\frac{1}{x}$
+%\item[$\bullet$]  R\'esolution de $xy^{\prime}-y+\ln{(x)}=0$ 
+%\item[$\bullet$]  R\'esolution de $(1-x^2)y^{\prime}+2xy=4x$ 
+%\end{itemize}
+%\end{exercice}
+%}
+
+ 
+
+%------------------------------------------------
+%-------------------------------------------------
+%debut
+%--------------------------------------------------
+%------------------------------------------------
+%----------------------------------------------------
+%-----------------------------------------------------
+%-------------------------------------------------------
+\section{\'Equations diff\'erentielles lin\'eaires du second ordre \`a coefficients constants}
+
+\noindent On consid\`{e}re dans toute cette partie $I$ un intervalle de $\R$, $(a,b,c)$ trois constantes r\'eelles avec $a\not= 0$ et $f: I\rightarrow \bK$ continue (avec $\bK=\R$ ou $\bC$).
+
+
+%----------------------------------------------------
+%-----------------------------------------------------
+\subsection{D\'efinitions et notations}
+
+ {\noindent  
+
+\begin{defi}
+\textbf{\'Equations diff\'erentielles lin\'eaires du second ordre \`a coefficients constants:}
+\begin{itemize}
+ \item[$\bullet$] On appelle \'equation diff\'erentielle lin\'eaire du second ordre \`a coefficients constants toute \'equation de la forme : 
+ $$ay'+by'+cy=f(t)$$
+
+\item[$\bullet$] Lorsque $f$ est la fonction nulle, on dit que c'est une \'equation homogène.
+\noindent On appelle \'equation homog\`ene associ\'ee \`a (1) l'\'equation:  $$ay'+by'+cy=$$
+\item[$\bullet$] On appelle \'equation caract\'eristique associ\'ee, l'\'equation: $$aX^2+bX+c=0$$d'inconnue $X$.
+\end{itemize}
+\end{defi}
+ 
+}\vsec
+
+
+ {\noindent  
+
+\begin{defi}
+\textbf{Solution d'une \'equation diff\'erentielle lin\'eaire du second ordre:}\\
+\noindent On appelle solution de l'\'equation diff\'erentielle lin\'eaire (1) toute fonction $u$ 
+\begin{itemize}
+\item[$\bullet$] Définie et dérivable deux fois sur $\R$ 
+\item[$\bullet$] Pour tout $x\in \R$ : $$au''(x) +bu'(x) +cu(x)=f(x)$$
+\end{itemize}
+\end{defi}
+ 
+}\vsec
+
+
+%----------------------------------------------------
+%-----------------------------------------------------
+
+
+%----------------------------------------------------
+%-----------------------------------------------------
+\subsection{R\'esolution de l'\'equation lin\'eaire homog\`ene associ\'ee}
+
+\noindent  {\noindent  
+
+\begin{prop}
+\label{prop:ordre2_h}
+On note $\Delta$ le discriminant de l'\'equation caract\'eristique associ\'ee (3). Les solutions de l'\'equation diff\'erentielle homog\`ene associ\'ee (2) sont donn\'ees par:
+\begin{itemize}
+\item[$\bullet$] Si $\Delta>0$, l'\'equation caract\'eristique admet deux racines r\'elles distinctes $r_1$ et $r_2$ et \vsec\\
+$$S_h = \{  t\mapsto C_1 e^{r_1t} +C_2 e^{r_2t} \, |\, (C_1,C_2) \in \R^2\} $$
+\item[$\bullet$] Si $\Delta=0$, l'\'equation caract\'eristique admet une racine double $r$ et\vsec\\
+$$S_h = \{  t\mapsto C_1 e^{rt} +C_2te^{rt} \, |\, (C_1,C_2) \in \R^2\} $$
+\item[$\bullet$] Si $\Delta<0$, l'\'equation caract\'eristique admet deux racines complexes conjugu\'ees $\alpha \pm i \omega$ et \vsec\\
+$$S_h = \{  t\mapsto C_1\cos(\omega t) e^{\alpha t} +C_2\sin(\omega t) e^{\alpha t} \, |\, (C_1,C_2) \in \R^2\} $$
+\end{itemize}
+\vspace*{0cm}
+\end{prop}
+ 
+}\vsec
+
+
+
+%\noindent  {\noindent  
+%
+%\begin{prop}
+%On note $\Delta$ le discriminant de l'\'equation caract\'eristique associ\'ee (3) et $r_1,\ r_2$ les racines de cette \'equation caract\'eristique. 
+%Les solutions r\'eelles de l'\'equation diff\'erentielle homog\`ene associ\'ee (2) sont donn\'ees par:
+%\begin{itemize}
+% \item[$\bullet$] Si $\Delta>0$, $r_1$ et $r_2$ sont deux racines r\'eelles distinctes:\vsec\\
+% \phantom{\hspace{-0.3cm}} \dotfill \vsec
+%\item[$\bullet$]  Si $\Delta=0$, $r_1=r_2=r$:
+%\vsec\\
+% \phantom{\hspace{-0.3cm}} \dotfill \vsec
+%\item[$\bullet$]  Si $\Delta<0$, $r_1$ et $r_2$ sont complexes conjugu\'ees distinctes et en notant $r_1=\rho+i\theta$:\vsec\\
+% \phantom{\hspace{-0.3cm}} \dotfill \vsec
+%\end{itemize}
+%\end{prop}
+% 
+%}\vsec
+
+\begin{rem}
+On notera l'analogie avec les suites lin\'eaires r\'ecurrentes d'ordre deux.
+\end{rem}
+
+{\footnotesize \begin{exercice} 
+R\'esoudre dans $\R$ les \'equations diff\'erentielles suivantes
+\begin{enumerate}
+\item $y^{\prime\prime}-y=0$ 
+\item $y^{\prime\prime}+w^2y=0$ avec $w>0$
+\item $y^{\prime\prime}-2y^{\prime}+y=0$
+\end{enumerate}
+\end{exercice}
+}
+
+
+
+
+%----------------------------------------------------
+%-----------------------------------------------------
+\subsection{Solution particuli\`ere  avec second membre}
+
+
+\begin{itemize}
+\item[\Large{\ding{182}}] \textbf{\large{Principe de superposition}}\\
+
+ {\noindent  
+
+\begin{prop}
+Soient $(a,b,c)\in\R^3$ trois r\'eels avec $a\not= 0$, $f_1, f_2: I\rightarrow \bK$ deux fonctions continues sur $I$ et soient $(\lambda_1,\lambda_2)\in\R^2$. Si $y_1$ et $y_2$ sont respectivement des solutions de 
+$$ay^{\prime\prime}+by^{\prime}+cy=f_1(x)\qquad \hbox{et}\qquad ay^{\prime\prime}+by^{\prime}+cy=f_2(x)$$
+alors $\lambda_1y_1+\lambda_2y_2$ est solution de $$ay''+by'+cy = \lambda_1f_1(x)+\lambda_2f_2(x)$$
+\end{prop}
+ 
+}\vsec
+
+\item[\Large{\ding{183}}] \textbf{\large{Seconds membres particuliers}}\\
+
+\noindent La proposition suivante r\'ecapitule sous quelle forme il faut chercher la solution particuli\`ere $y_p$ selon la forme du second membre $f(x)$ de l'\'equation diff\'erentielle \`a coefficients constants. On rappelle ici qu'\`a toute \'equation diff\'erentielle du second ordre \`a coefficients constants: $ay^{\prime\prime}+by^{\prime}+cy=f(x)$, on lui associe l'\'equation caract\'eristique 
+
+\begin{equation}\label{eq caractéristique}\tag{EC}
+ax^2+bx+c=0
+\end{equation}
+
+
+\begin{minipage}[t]{0.98\textwidth}
+\hspace*{-1cm}
+\begin{tabular}{|l|l|} 
+\hline
+\rule[-5mm]{0pt}{10mm} \textbf{Expression de $f(x)$ et condition \'eventuelle} & \textbf{Forme de la solution particuli\`ere $y_p(x)$}\\
+\hline
+\rule[-5mm]{0pt}{10mm}  Polyn\^ome de degr\'e $n$ avec $c\not= 0$  & Polyn\^ome de degr\'e $n$ \`a d\'eterminer\\
+\hline
+\rule[-5mm]{0pt}{10mm} $e^{mx}\qquad$ $m\in\bC$, $m$ n'est pas racine de (\ref{eq caractéristique}) & $\alpha e^{mx}$, $\alpha$ \`a d\'eterminer \\
+\rule[-5mm]{0pt}{10mm}  $e^{mx}\qquad$ $m\in\bC$, $m$ est racine simple de (\ref{eq caractéristique}) & $\alpha x e^{mx}$, $\alpha$ \`a d\'eterminer \\
+\rule[-5mm]{0pt}{10mm} $e^{mx}\qquad$ $m\in\bC$, $m$ est racine double de (\ref{eq caractéristique}) & $\alpha x^2 e^{mx}$, $\alpha$ \`a d\'eterminer \\
+\hline
+\rule[-5mm]{0pt}{10mm} $P(x)e^{mx}\qquad$ $m\in\bC$, $m$ n'est pas racine de (\ref{eq caractéristique}) & $Q(x)e^{mx}$ avec $\deg P=\deg Q$, $Q$ \`a d\'eterminer \\
+\rule[-5mm]{0pt}{10mm} $P(x)e^{mx}\qquad$ $m\in\bC$, $m$ est racine simple de (\ref{eq caractéristique}) & $ xQ(x) e^{mx}$ avec $\deg P=\deg Q$, $Q$ \`a d\'eterminer\\
+\rule[-5mm]{0pt}{10mm} $P(x)e^{mx}\qquad$ $m\in\bC$, $m$ est racine double de (\ref{eq caractéristique}) & $ x^2Q(x) e^{mx}$ avec $\deg P=\deg Q$, $Q$ \`a d\'eterminer\\
+\hline
+\rule[-5mm]{0pt}{10mm} $\cos{(wx)}$ ou $\sin{(wx)}\qquad$ $w\in\R^{\star}$, $iw$ pas racine de (\ref{eq caractéristique}) & $\alpha\cos{(wx)}+\beta\sin{(wx)}$, $\alpha,\beta$ \`a d\'eterminer\\
+\rule[-5mm]{0pt}{10mm} $\cos{(wx)}$ ou $\sin{(wx)}\qquad$ $w\in\R^{\star}$, $iw$ racine de (\ref{eq caractéristique}) & $\alpha x\cos{(wx)}+\beta x\sin{(wx)}$, $\alpha,\beta$ \`a d\'eterminer\\
+\hline
+\end{tabular}
+\end{minipage}
+\vspace{0.5cm}
+
+\vsec
+
+{\footnotesize \begin{exercice} 
+\begin{enumerate}
+\item R\'esoudre $y^{\prime\prime}-y=e^x-2e^{3x}$
+\item R\'esoudre $y^{\prime\prime}-2y^{\prime}+2y=2x^2-4x+4$.
+\item R\'esoudre $2y^{\prime\prime}-y^{\prime}-y=3\cos{(2x)}-\sin{(2x)} $.
+\item R\'esoudre $y^{\prime\prime}-2y^{\prime}+2y=xe^{(1+i)x}$.
+\end{enumerate}
+\end{exercice}
+}
+\end{itemize}
+
+%
+
+
+\subsection{Structure de l'ensemble des solutions}
+
+ {\noindent  
+ \begin{equation}
+  ay'+by'+cy=f(t)
+ \end{equation}
+ 
+  \begin{equation}
+  ay'+by'+cy=0
+ \end{equation}
+
+\begin{theorem} 
+La solution g\'en\'erale de (1) est la somme de la solution g\'en\'erale de l'\'equation diff\'erentielle homog\`ene associ\'ee (2) et d'une solution particuli\`ere de (1). Ainsi, si: 
+\begin{itemize}
+\item[$\bullet$] on conna\^{i}t l'ensemble des solutions de l'\'equation homog\`ene associ\'ee (2) : $$S_h=\{ t\mapsto C_1u_1(t)+ C_2u_2(t)\, |\,  (C_1,C_2)\in \R^2\}$$
+\item[$\bullet$] On note $y_p$ une solution particuli\`ere de (1) 
+\end{itemize}
+\vsec
+Alors l'ensemble des solutions de (1) est : $$S_h=\{ t\mapsto y_p(t)  C_1u_1(t)+ C_2u_2(t)\, |\,  (C_1,C_2)\in \R^2\}$$
+\end{theorem}
+ 
+}\vsec\vsec
+
+\setlength\fboxrule{1pt}
+\noindent  {
+
+\textbf{M\'ethode: R\'esoudre une \'equation diff\'erentielle lin\'eaire du second ordre \`a coefficients constants}
+\begin{itemize}
+\item[$\bullet$] Commencer par dire que c'est une \'equation diff\'erentielle lin\'eaire du second ordre \`a coefficients constants.
+\item[$\bullet$] R\'esoudre l'\'equation diff\'erentielle homog\`ene associ\'ee.
+\item[$\bullet$] Rechercher une solution particuli\`ere de l'\'equation avec second membre.
+\item[$\bullet$] Additionner les deux.
+\end{itemize}
+ }
+\setlength\fboxrule{0.5pt}
+
+ 
+%----------------------------------------------------
+%-----------------------------------------------------
+\subsection{\'Equation diff\'erentielle lin\'eaire du second ordre avec condition initiale}
+
+\noindent Il y a deux constantes \`a d\'eterminer, donc pour avoir unicit\'e de la solution, il faut, cette fois-ci, avoir deux conditions initales.\vsec
+
+\noindent  {\noindent  
+
+\begin{prop}
+Soit $x_0\in \R$ et $(y_0,y_1)\in\R^2$.\\
+\noindent L'\'equation diff\'erentielle lin\'eaire du second ordre \`a coefficients constants $ay^{\prime\prime}+by^{\prime}+cy=f(x)$ admet une unique solution $y$ v\'erifiant 
+$$\left\lbrace\begin{array}{lll}
+y(x_0)&=&y_0\vsec\\
+y^{\prime}(x_0)&=&y_1.
+\end{array}\right.$$
+\end{prop}
+ 
+}\vsec
+
+
+
+
+\noindent  { 
+\textbf{M\'ethode pour trouver une solution v\'erifiant une condition initiale :}
+\begin{itemize}
+\item[$\bullet$] R\'esoudre l'\'equation diff\'erentielle avec la m\'ethode g\'en\'erale.
+\item[$\bullet$] Utiliser les conditions $y(t_0) = y_0$ et $y^{\prime}(x_0)=y_1$ pour d\'eterminer les constantes $A$ et $B$.
+\end{itemize}
+ 
+}
+
+
+
+{\footnotesize \begin{exercice} 
+R\'esoudre $y^{\prime\prime}-2y^{\prime}-3y = 9x^2$ avec $y(0)=0$ et $y^{\prime}(0)=1$.
+\end{exercice}
+}
+
+
+%-------------------------------------------------------
+%\section{Exemples de r\'esolution d'\'equations diff\'erentielles du type $y'(t) = F(y(t))$}
+%
+%%-----------------------------------------------------
+%%-------------------------------------------------------
+%\subsection{D\'efinition et m\'ethode de r\'esolution}
+%
+%\noindent Dans la suite, on consid\`ere une fonction $F:I \to \R$ continue sur un intervalle $I$.\vsec\\
+%
+%\noindent  {\noindent  
+%
+%\begin{defi}
+%\textbf{\'Equations diff\'erentielles autonomes.}\\
+%On appelle \'equation diff\'erentielle autonome sous forme r\'esolue toute \'equation de la forme :\vsec\\
+%\vspace*{0.5cm}
+%\end{defi}
+% 
+%}\vsec
+%
+%\begin{rem}
+%Ce type d'\'equation diff\'erentielle n'est pas lin\'eaire ! Toutes les m\'ethodes pr\'ec\'edentes ne peuvent pas \^etre appliqu\'ees dans ce cas. Vous serez donc toujours guid\'es pour r\'esoudre ce type d'\'equations.
+%\end{rem}
+%
+%
+%
+%%-----------------------------------------------------
+%%-------------------------------------------------------
+%\subsection{Quelques exemples en dynamique des populations}
+%
+%
+%%-------------------------------------------------------
+%\ {Mod\`ele de Malthus}\\
+%
+%\noindent En dynamique des populations, le mod\`{e}le de Malthus (1798) est un mod\`{e}le simple qui d\'ecrit la vitesse de croissance d'une population lorsque celle-ci est de taille raisonnable et plac\'ee dans des conditions id\'eales: espace illimit\'e, nourriture suffisante, absence de pr\'edateurs, r\'esistance aux maladies...\\
+%\noindent Dans ces conditions, Malthus consid\`{e}re que la production de nouveaux individus est proportionnelle au nombre d'individus pr\'esents. En notant $N(t)$ le nombre d'individus de la population \`{a} l'instant $t$, le taux de croissance d'une telle population est alors proportionnel \`{a} la population, ce qui donne la relation diff\'erentielle suivante:
+%$$N^{\prime}(t)=\ldots \ldots \ldots \ldots \ldots$$%rN(t)$$
+%o\`{u} $r$ d\'esigne \dotfill\vsec\\
+%\phantom{\hspace*{0cm}}\dotfill\\%\textbf{le taux de croissance per capita}, c'est-\`{a}-dire le \og nombre\fg \, de nouveaux individus que peut produire en moyenne chaque individu de la population par unit\'e de temps.\\
+%
+%\noindent La solution de cette \'equation diff\'erentielle lin\'eaire du premier ordre \`{a} coefficients constants est:\\
+%\vspace{5cm}
+%
+%
+%%\noindent On observe ainsi une croissance exponentielle:\vsec\\
+%%
+%%\begin{center}
+%%\includegraphics[scale=0.7]{./malthus2.eps}
+%%\end{center}
+%% 
+%%\vsec
+% 
+%\noindent Courbe de la solution obtenue :
+%\vspace*{5cm}
+%
+%
+%\noindent Par comparaison avec les donn\'ees exp\'erimentales, on a p\^{u} constater que le mod\`{e}le pr\'esente un tr\`{e}s bon ajustement avec la premi\`{e}re phase de croissance d'une population issue d'un effectif faible. Ainsi, en l'absence de pression (d\'emographique, comp\'etition, pr\'edation...), l'hypoth\`{e}se de Malthus semble bien acceptable.\\
+%
+%\noindent Cependant, le mod\`{e}le souffre d'une incoh\'erence profonde: la croissance exponentielle est illimit\'ee. Autrement dit, n'importe quelle esp\`{e}ce qui suivrait le seul mod\`{e}le de Malthus finirait tr\`{e}s vite par atteindre des densit\'es de population irr\'ealistes!\\
+%
+%%\noindent Les deux mod\`{e}les pr\'esent\'es dans les prochains paragraphes tiennent compte des limites du milieu pour \'eviter cette incoh\'erence.
+%
+%%-------------------------------------------------------
+%\ {Mod\`ele de Verhulst}\\
+%
+%%\noindent Comme on vient de le voir, le mod\`{e}le de Malthus permet de d\'ecrire l'\'evolution d'une population qui b\'en\'eficie de conditions id\'eales. Dans la r\'ealit\'e, ces conditions sont rares et ne restent valables que sur de courtes dur\'ees (un environnement clos suppose vraisemblablement des ressources limit\'ees). Par cons\'equent, d\`{e}s que l'on s'approche de la surpopulation (manque de nourriture, interactions d\^{u}es \`{a} la promiscuit\'e....), le taux de croissance baisse afin que la population ne d\'epasse pas une certaine limite.\\
+%
+%\noindent Le mod\`{e}le de Verhulst (1838) a pour but de tenir compte des contraintes impos\'ees par le milieu. Pour cela, Verhulst choisit de remplacer le taux de croissance constant $r$ du mod\`{e}le de Malthus par un taux de croissance variant avec la taille de la population.\\
+%\noindent Verhulst aboutit alors \`{a} la relation diff\'erentielle suivante:
+%$$N^{\prime}(t)=\ldots \ldots \ldots \ldots \ldots \ldots \ldots \ldots \ldots \ldots$$%r\left( 1-\ddp\frac{N(t)}{K} \right) N(t).$$
+%
+%
+%\noindent Verhulst corrige le taux de croissance per capita $r$ en le multipliant par le facteur correctif limitant $1-\ddp\frac{N(t)}{K}$ o\`{u} $K$ d\'esigne \dotfill\\
+%\begin{itemize}
+%\item[$\bullet$] Lorsque la population est faible devant $K$ : \dotfill\vsec\\
+%\phantom{\hspace*{0cm}}\dotfill  \vsec
+%\item[$\bullet$] Lorsque la population s'approche de sa limite $K$ : \dotfill\vsec\\
+%\phantom{\hspace*{0cm}}\dotfill 
+%\end{itemize}
+%%\noindent Plus pr\'ecisement, Verhulst corrige le taux de croissance per capita $r$ en le multipliant par le facteur correctif limitant $1-\ddp\frac{N(t)}{K}$ o\`{u} $K$ d\'esigne \textbf{la capacit\'e de charge du milieu} (c'est-\`{a}-dire l'effectif de population que l'on ne peut d\'epasser).\\
+%%\noindent Ainsi lorsque la population est faible devant $K$, le facteur $1-\ddp\frac{N(t)}{K}$ est proche de 1 et le taux de croissance est proche de $r$. On retrouve alors le mod\`{e}le malthusien et sa croissance exponentielle (compatible avec une population faible dans un milieu id\'eal).\\
+%%\noindent A contrario, lorsque la population s'approche de sa limite $K$, le facteur $1-\ddp\frac{N(t)}{K}$ tend vers 0 et le taux de croissance s'affaiblit. Le mod\`{e}le tient aussi compte de la stabilisation de la population au palier $K$.\\
+%
+%
+%\vsec
+%
+%\noindent Ce type de mod\`{e}le est classique. On ne le rencontre pas seulement en dynamique des populations mais aussi en g\'eologie, en \'economie, en sciences physiques, en chimie... Il est alors commun\'ement d\'esign\'e sous le nom de mod\`ele \ldots \ldots \ldots \ldots \ldots \ldots%\textbf{mod\`{e}le logistique}.
+%\vsec
+%
+%\noindent L'\'equation diff\'erentielle de Verhulst n'est pas lin\'eaire. On peut toutefois la r\'esoudre en posant un changement de variable.
+%\vspace{15cm}
+%
+%
+%
+%%
+%%\begin{center}
+%%\includegraphics[scale=0.5]{./verhulst.eps}
+%%\end{center}
+%% 
+%%\vsec
+%
+% 
+%\vspace*{5cm}
+%
+%\noindent Courbe des solutions obtenues :
+%\vspace*{5cm}
+%
+%Interpr\'etation : 
+%\begin{itemize}
+%\item[$\bullet$] \dotfill
+%\item[$\bullet$] \dotfill
+%\end{itemize}
+%On parle de \ldots \ldots \ldots \ldots \ldots \ldots \ldots \ldots \ldots \ldots \ldots \ldots \ldots \ldots \ldots 
+%\vsec
+%\vsec
+%%\noindent On observe cette fois, qu'apr\`{e}s un d\'ebut de croissance exponentielle (la courbe de Malthus est en pointill\'es sur le dessin), la courbe de Verhulst
+%% (en trait plein) se stabilise asymptotiquement \`{a} la valeur de $K$.\\
+% 
+%%\noindent On parle d'une \textbf{courbe logistique}.
+%%\vsec
+%
+% 
+%\begin{rem} Strat\'egie \'evolutive des \^{e}tres vivants. \`{A} partir du mod\`{e}le de Verhulst, une analyse s'est d\'evelopp\'ee concernant les strat\'egies \'evolutives des \^{e}tres vivants. En effet, si l'on consid\`{e}re deux sous-populations en comp\'etition dans le cadre du mod\`{e}le logistique, il appara\^{i}t que l'une peut l'emporter sur l'autre soit en am\'eliorant la valeur de $r$, soit en am\'eliorant la valeur de $K$:
+%\begin{itemize}
+%\item[$\bullet$] \textbf{Strat\'egie $\mathbf{r}$:} ont une strat\'egie $r$ les \^{e}tres vivants qui tablent sur une forte valeur de $r$, c'est-\`{a}-dire ceux qui produisent un grand nombre de juv\'eniles. On trouvera ainsi des esp\`{e}ces dont les juv\'eniles ont une faible chance d'atteindre l'\^{a}ge adulte, dont la population fluctue fortement, qui alternent de nombreuses phases d'installation et de disparition et qui sont souvent de petite taille et \`{a} courte dur\'ee de vie.
+%\item[$\bullet$] \textbf{Strat\'egie $\mathbf{K}$:} ont une strat\'egie $K$ les \^{e}tres vivants qui optimisent la valeur de $K$, c'est-\`{a}-dire ceux qui produisent peu de jeunes et privil\'egient la meilleure ad\'equation possible avec leur milieu. On trouvera ainsi des esp\`{e}ces qui prodiguent beaucoup de soins aux jeunes, qui forment des couples stables et qui sont souvent de grande taille et de dur\'ee de vie importante. 
+%\end{itemize} 
+%\end{rem}
+%
+%
+%\vspace*{0.5cm}
+%
+%%-------------------------------------------------------
+%\ {Mod\`ele de Gompertz}\\
+%
+%\noindent Le mod\`{e}le de Gompertz (1825) est un \og concurrent\fg \, du pr\'ec\'edent. En effet, comme dans le mod\`{e}le de Verhulst, la population d\'ecrite par l'\'equation de Gompertz cro\^{i}t d'abord de fa\c{c}on exponentielle puis finit par se stabiliser en s'approchant d'une valeur plafond.\\
+%Comme Verhulst, Gompertz corrige le taux de croissance per capita $r$ en le multipliant par un factuer correctif limitant $\ln{(K)}-\ln{(N(t))}$ o\`{u} $K$ d\'esigne toujours la capacit\'e de charge du milieu. Il aboutit ainsi \`{a} la relation diff\'erentielle suivante:
+%$$N^{\prime}(t)=\ldots \ldots \ldots \ldots \ldots \ldots \ldots \ldots \ldots \ldots \ldots \ldots \ldots \ldots \ldots $$%r\left( \ln{(K)}-\ln{(N(t))}  \right) N(t).$$
+%
+%
+%\noindent L'\'equation diff\'erentielle de Gompertz n'est pas lin\'eaire. On peut toutefois la r\'esoudre en proc\'edant par s\'eparation des variables.
+% 
+%
+%\phantom{\hspace*{0cm}}
+%\vspace{18cm}
+%
+%Courbe des solutions obtenues :
+%
+%\vspace{5cm}
+%
+%
+%Interpr\'etation : 
+%\begin{itemize}
+%\item[$\bullet$] \dotfill
+%\item[$\bullet$] \dotfill
+%\end{itemize}
+%
+%
+%%
+%%
+%%
+%%\begin{center}
+%%\includegraphics[scale=0.5]{./gompertz.eps}
+%%\end{center}
+%% 
+%%\vsec
+%
+%
+%
+%%
+%%\noindent Graphiquement, la courbe de Gompertz (en trait plein) est du m\^{e}me type que la courbe logistique (en pointill\'es) \`{a} ceci pr\`{e}s que la croissance exponentielle est plus forte pour Gompertz mais dure moins longtemps (puisque le point d'inflexion arrive plus t\^{o}t que sur la courbe logistique).\\
+%
+%%\noindent Pour une population initiale $N_0$ et un taux de croissance per capita $r$ observ\'es, on choisira plut\^{o}t le mod\`{e}le de Gompertz ou plut\^{o}t celui de Verhulst afin que l'ajustement des param\`{e}tres (\`{a} partir des donn\'ees exp\'erimentales) donne une courbe de croissance conforme aux observations.
+%
+% 
+%%-----------------------------------------------------
+%%-------------------------------------------------------
+%\subsection{Approximation des solutions}
+%
+%\noindent Dans de tr\`es nombreuses situations, on arrive \`a montrer que l'\'equation diff\'erentielle $y'(t) = F(y(t))$ admet une unique solution pour une donn\'ee initiale fix\'ee (en utilisant un th\'eor\`eme ici hors-programme, le th\'eor\`eme de Cauchy-Lipschitz). Mais tr\`es souvent, on ne conna\^it aucune formule pour calculer cette solution : il est donc n\'ecessaire d'utiliser une m\'ethode de r\'esolution num\'erique approch\'ee.\vsec
+%
+%%-------------------------------------------------------
+%\ {Approximation de la d\'eriv\'ee}\\
+%
+%\noindent L'id\'ee est d'approximer la d\'eriv\'ee $y'(t)$ par un taux d'accroissement.\vsec
+%
+%\noindent  {\noindent  
+%
+%\begin{prop}
+%Soit $f$ une fonction d\'efinie d'un intervalle $I$ dans $\R$, et soit $x_0 \in I$.\vsec
+%\begin{itemize}
+%\item[$\bullet$] Si $f$ est de classe $\mathcal{C}^2$, on peut utiliser l'approximation : $f'(x_0) \simeq \dotfill$\vsec\\ %$\ddp \frac{f(x_0+h)-f(x_0)}{h}
+%avec une erreur de l'ordre de $h$.
+%\item[$\bullet$] Si $f$ est de classe $\mathcal{C}^3$, on peut utiliser l'approximation : $f'(x_0) \simeq \dotfill$\vsec\\ %$\ddp \frac{f(x_0+h)-f(x_0)}{h}
+%avec une erreur de l'ordre de $h^2$.
+%\end{itemize}
+%\end{prop}
+% 
+%}\vsec
+%
+%\begin{proof}
+%\vspace*{9cm}
+%\end{proof}
+%
+%%-------------------------------------------------------
+%\ {M\'ethode d'Euler}\\
+%
+%\noindent En choisissant la premi\`ere approximation, on obtient la m\'ethode d'Euler, qui permet de calculer une approximation des solutions de l'\'equation $y'(t) = F(y(t))$. \\
+%Son principe est de remplacer l'\'equation $y'(t) = F(y(t))$ par l'approximation : $\ddp \frac{y(t+h)-y(t)}{h} \simeq F(y(t))$, soit :
+%$$y(t+h) \simeq y(t) + h F(y(t)).$$
+%Ainsi, si l'on conna\^it une condition initiale $y(t_0)=y_{init}$, on peut calculer de proche en proche une solution approch\'ee aux temps $t_k = t_0+ kh$. Notons $y_k$ la solution approch\'ee au temps $t_k$.\\
+%
+%\noindent  { 
+%\textbf{M\'ethode d'Euler :}
+%\begin{itemize}
+%\item[$\bullet$] Initialisation : on pose $y_0=y_{init}$ pour respecter la condition initiale.
+%\item[$\bullet$] Relation de r\'ecurrence : si $y_k$ a \'et\'e calcul\'ee, on pose $y_{k+1} = y_k + h F(y_k)$.
+%\end{itemize}
+% 
+%}
+%\vsec
+%
+%\noindent Ce sch\'ema num\'erique donne une bonne approximation de la solution exacte aux temps $t_k$, sous r\'eserve d'avoir de bonnes hypoth\`eses sur $F$, et de choisir un pas de temps $h$ tr\`es petit.
+
+\end{document}

@@ -1,0 +1,716 @@
+\documentclass[a4paper, 11pt]{article}
+\input{macro/package.tex}
+\input{macro/environement}
+\input{macro/header.tex}
+\input{macro/newcommand.tex}
+\geometry{hmargin=2.0cm, vmargin=1.5cm}
+
+\author{Olivier Glorieux}
+
+
+\newcommand{\type}{TD }
+\excludecomment{correction}
+%\renewcommand{\type}{Correction TD }
+
+\begin{document}
+\title{\type  5.2 - Suites réelles}
+
+%----------------------s---------------------------
+\section*{Entraînements}
+\begin{exercice} \; \'Etudier la monotonie des suites d\'efinies par
+\begin{enumerate}
+\begin{minipage}[t]{0.4\textwidth}
+\item
+$\forall n\in\N,\ u_n=\left(\ddp \sum\limits_{k=0}^n \ddp\frac{1}{2^k}\right)-n$ 
+\item 
+$\forall n\in\N,\ u_n=\ddp\frac{n!}{2^{n+1}}$ 
+\item 
+$\forall n\in\N^{\star},\ u_n=\ddp\frac{\ln{(n)}}{n}$ 
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\item 
+$\forall n\in\N,\ u_n=\ddp \sum\limits_{k=0}^{2n}\ddp\frac{(-1)^k}{k+1}$ 
+\item 
+$\forall n\in\N,\ u_n=n+2(-1)^n$ 
+\item $\forall n\in\N,\ u_n=\ddp \sum\limits_{k=2}^{n}\ddp\frac{1}{k\ln{(k)}}$ 
+%\item $\forall n\in\N,\ u_n=\ddp\frac{5^n}{n!}$ 
+\end{minipage}
+\end{enumerate}
+\end{exercice}
+
+
+%----------------------------------------------------
+\begin{correction} \;
+\'Etude de la monotonie des suites suivantes.
+\begin{enumerate}
+\item La suite $\suiteu$ est d\'efinie par une somme, on \'etudie donc le signe de $u_{n+1}-u_n$.
+$$u_{n+1}-u_n=\sum\limits_{k=0}^{n+1}\ddp\frac{1}{2^k}-(n+1)-\sum\limits_{k=0}^{n}\ddp\frac{1}{2^k}+n=\ddp\frac{1}{2^{n+1}}-1.$$
+Or, pour tout $n\in\N$, on a: $\ddp\frac{1}{2^{n+1}}<1$. Ainsi la suite $\suiteu$ est d\'ecroissante.
+\item La suite $\suiteu$ est plut\^ot de type produit. Comme tous ses termes sont strictement positifs, on compare $\ddp\frac{u_{n+1}}{u_n}$ \`a 1. On obtient
+$$\ddp\frac{u_{n+1}}{u_n}=\ddp\frac{(n+1)!}{2^{n+2}} \times \ddp\frac{2^{n+1}}{n!}=\ddp\frac{n+1}{2}.$$
+Un calcul rapide donne
+$$\ddp\frac{n+1}{2}<1\Leftrightarrow n+1<2\Leftrightarrow n<1.$$
+Ainsi, la suite $(u_n)_{n\in\N^{\star}}$ est croissante ou encorrectione la suite $\suiteu$ est croissante \`{a} partir du rang 1.
+\item 
+La suite $(u_n)_{n\in\N^{\star}}$ est une suite d\'efinie explicitement et $u_n=f(n)$ avec
+$$f:\ x\mapsto f(x)=\ddp\frac{\ln{x}}{x}.$$
+L'\'etude de la monotonie de la fonction $f$ sur $\lbrack 1,+\infty\lbrack$ permet d'en d\'eduire directement la monotonie de la suite.\\
+\noindent La fonction $f$ est d\'erivable sur $\R^{+\star}$ comme quotient dont le d\'enominateur ne s'annule pas de fonctions d\'erivables. On obtient
+$$\forall x\in\R^{+\star},\ f^{\prime}(x)=\ddp\frac{1-\ln{x}}{x^2}.$$
+\'Etudions le signe de $1-\ln{x}$ ($x^2\geq 0$ donc le signe de la d\'eriv\'ee est bien le signe de $1-\ln{x}$):\\
+\noindent $1-\ln{x}>0  \Leftrightarrow  \ln{x}<1
+\Leftrightarrow x<e $ car la fonction exponentielle est strictement croissante.
+Ainsi, la fonction $f$ est strictement d\'ecroissante sur $\lbrack e,+\infty\lbrack$. Ainsi, \`a partir du rang 3, la suite $(u_n)_{n\geq 3}$ est d\'ecroissante.
+\item La suite $\suiteu$ est d\'efinie par une somme, on \'etudie donc le signe de $u_{n+1}-u_n$.
+$$\begin{array}{lll}
+u_{n+1}-u_n&=&\sum\limits_{k=0}^{2(n+1)}\ddp\frac{(-1)^k}{k+1}-\sum\limits_{k=0}^{2n}\ddp\frac{(-1)^k}{k+1}\vsec\\
+&=& \sum\limits_{k=0}^{2n+2}\ddp\frac{(-1)^k}{k+1}-\sum\limits_{k=0}^{2n}\ddp\frac{(-1)^k}{k+1}\vsec\\
+&=& \ddp\frac{1}{2n+3}-\ddp\frac{1}{2n+2}\vsec\\
+&=& \ddp\frac{-1}{(2n+3)(2n+2)}.
+\end{array}$$
+Ainsi, la suite $\suiteu$ est d\'ecroissante.
+\item 
+On remarque que
+$$u_{n+1}-u_n=n+1+2(-1)^{n+1}-n-2(-1)^n=1+2(-1)^{n+1}+2(-1)^{n+1}=1+4(-1)^{n+1}.$$
+Ainsi, si $n=2p$ pair, on obtient: $u_{2p+1}-u_{2p}=5>0$ et si $n=2p+1$ impair, on obtient: $u_{2p+2}-u_{2p+1}=-3<0$. Ainsi la suite $\suiteu$ n'est pas monotone.
+\item La suite $\suiteu$ est d\'efinie par une somme, on \'etudie donc le signe de $u_{n+1}-u_n$.
+$$u_{n+1}-u_n = \sum\limits_{k=2}^{n+1}\ddp\frac{1}{k \ln k}-\sum\limits_{k=2}^{n}\ddp\frac{1}{k \ln k} = \ddp\frac{1}{(n+1) \ln (n+1)} > 0.$$
+Ainsi, la suite $\suiteu$ est croissante.
+\end{enumerate}
+\end{correction}
+
+
+
+%
+
+
+
+
+
+%--------------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------------
+\begin{exercice} 
+\noindent \'Etudier le comportement en $+\infty$ des suites suivantes:
+\begin{enumerate}
+\begin{minipage}[t]{0.3\textwidth}
+\item
+$u_n=\ddp\frac{n}{\cos{\left(\ddp\frac{1}{n}  \right)}}$
+\item
+$u_n=\ddp\sqrt{n+1}-\sqrt{n}$
+\item 
+$u_n=\ln{(n+1)}-\ln{(n^2)}$
+\item  
+$u_n=\left(1+\ddp\frac{2}{n}\right)^n$
+\item  
+$u_n=\ddp\frac{2^n+n}{2^n}$
+\item  $u_n=\ddp\frac{n+(-1)^n}{n-\ln{(n^3)}}$
+\end{minipage}
+\begin{minipage}[t]{0.3\textwidth}
+\item  
+$u_n=\ddp\frac{1}{n^2}\ddp \sum\limits_{k=1}^n k$
+\item 
+$u_n=\ddp\frac{3^n-4^n}{3^n+4^n}$
+\item  
+$u_n=\ddp\frac{\sin{n}}{n}$
+\item  
+$u_n=\ddp\frac{1+(-1)^n}{n}$
+\item  
+$u_n=n^2-n\cos{n}+2$
+%\item  $u_n=n^2\left( \ddp\demi \right)^n \sin{(n!)}$
+\item  $u_n=\ddp\frac{n!+(n+1)!}{(n+2)!}$
+%\item  $u_n=\ddp\frac{1}{n^3}\ddp \sum\limits_{k=1}^n k^2$
+\end{minipage}
+\begin{minipage}[t]{0.3\textwidth}
+\item 
+$u_n=\ln{(2^n+n)}$
+%\item $u_n=\ln{(2^n-n)}$  
+\item $u_n=n^{\frac{1}{n}}$  
+\item   $u_n=(\ln{n})^n$
+\item  $u_n=\ddp\frac{n^3+2^n}{3^n}$ 
+%\item   $t_n=(a^n+b^n)^{\frac{1}{n}}$
+\item $u_n=(n^2+n+1)^{\frac{1}{n}}$  
+\item $u_n=\ddp\frac{1}{a^n}\ddp \sum\limits_{k=1}^n b^k$  
+\item $u_n = \ddp n^2 \left(\cos\left(\frac{1}{n^2}\right)-1\right)$
+\end{minipage}
+\end{enumerate}
+\end{exercice}
+
+
+
+
+%----------------------------------------------------
+\begin{correction} \;
+Je ne donne ici que les r\'eponses et quelques indications pour trouver les limites demand\'ees. Une telle r\'edaction dans une copie serait tr\`es insuffisante.
+\begin{enumerate}
+\item
+$\lim \limits_{n\to +\infty}\ddp\frac{n}{\cos{\left(\ddp\frac{1}{n}  \right)}}=+\infty$ par compos\'ee et produit de limite car $\cos{(0)}=1$.
+\item On a ici une forme ind\'etermin\'ee avec une diff\'erence de racines. L'id\'ee est d'utiliser la quantit\'ee conjugu\'ee :
+$$\sqrt{n+1}-\sqrt{n} = \ddp \frac{(\sqrt{n+1}-\sqrt{n})(\sqrt{n+1}+\sqrt{n})}{\sqrt{n+1}+\sqrt{n}} = \frac{n+1-n}{\sqrt{n+1}+\sqrt{n}} = \frac{1}{\sqrt{n+1}+\sqrt{n}}.$$
+Par quotient de limites, on obtient donc : $\lim \limits_{n\to +\infty}\ddp\sqrt{n+1}-\sqrt{n}=0$.
+\item
+$\lim \limits_{n\to +\infty}\ln{(n+1)}-\ln{(n^2)}=-\infty$ en utilisant $\ln{\left( \ddp\frac{n+1}{n^2} \right)}$ et le th\'eor\`{e}me des mon\^{o}mes de plus haut degr\'e.
+\item
+$\lim\limits_{n\to +\infty}\left(1+\ddp\frac{2}{n}\right)^n=e^2$ en utilisant le fait que $\ln{\left( 1+\ddp\frac{2}{n} \right)} \underset{+\infty}{\thicksim} \ddp\frac{2}{n}$ (limite tr\`{e}s classique fait en cours).
+\item
+$\lim \limits_{n\to +\infty}\ddp\frac{2^n+n}{2^n}=1$ en mettant en facteur en haut et en bas le terme dominant, \`a savoir $2^n$ et en utilisant une croissance compar\'ee car $2^n=e^{n\ln{2}}$. 
+\item
+$\lim \limits_{n\to +\infty}\ddp\frac{n+(-1)^n}{n-\ln{(n^3)}}=1$ en mettant en facteur en haut et en bas $n$ et en remarquant que $\lim\limits_{n\to +\infty} \ddp\frac{(-1)^n}{n}=0$ par le th\'eor\`eme des gendarmes et que $\lim\limits_{n\to +\infty} \ddp\frac{\ln{(n^3)}}{n}=\lim\limits_{n\to +\infty} \ddp\frac{3\ln{(n)}}{n}=0 $ par croissance compar\'ee.
+\item
+$\lim \limits_{n\to +\infty}\ddp\frac{1}{n^2}\sum\limits_{k=1}^n k= \ddp\demi$ en \'ecrivant que $\sum\limits_{k=1}^n k=\ddp\frac{n(n+1)}{2}$ et d'apr\`es le th\'eor\`eme sur les mon\^omes de plus haut degr\'e.
+\item
+$\lim \limits_{n\to +\infty}\ddp\frac{3^n-4^n}{3^n+4^n}=-1$ en mettant en facteur en haut et en bas $4^n$ le terme dominant et appliquant le th\'eor\`eme sur les suites g\'eom\'etriques.
+\item
+$\lim \limits_{n\to +\infty}\ddp\frac{\sin{n}}{n}=0$ en utilisant un correctionollaire du th\'eor\`eme des gendarmes car $\left| \ddp\frac{\sin{n}}{n} \right|\leq \ddp\frac{1}{n}$ ou le th\'eor\`{e}me des gendarmes.
+\item 
+$\lim \limits_{n\to +\infty}\ddp\frac{1+(-1)^n}{n}=0$ en utilisant le th\'eor\`eme des gendarmes car: $0\leq \ddp\frac{1+(-1)^n}{n}\leq \ddp\frac{2}{n}$.
+\item
+$\lim \limits_{n\to +\infty}n^2-n\cos{n}+2=+\infty$ en mettant en facteur le terme dominant $n^2$ et en utilisant le correctionollaire du th\'eor\`eme des gendarmes avec $\left| \ddp\frac{\cos{n}}{n} \right|\leq\ddp\frac{1}{n}$.
+%\item 
+%$\lim \limits_{n\to +\infty}n^2\left( \ddp\demi \right)^n \sin{(n!)}=0$ en utilisant toujours le correctionollaire du th\'eor\`eme des gendarmes car $\left| n^2\left( \ddp\demi \right)^n\sin{n!} \right|\leq n^2\left( \ddp\demi \right)^n$ ainsi que les croissances compar\'ees car $n^2\left( \ddp\demi \right)^n=n^2 e^{-n\ln{2}}$. 
+\item
+$\lim \limits_{n\to +\infty}\ddp\frac{n!+(n+1)!}{(n+2)!}=0$ en utilisant la d\'efinition des factorielles.
+%\item
+%$\lim \limits_{n\to +\infty}\ddp\frac{1}{n^3}\sum\limits_{k=1}^n k^2=\ddp\frac{1}{3}$ en \'ecrivant que $\sum\limits_{k=1}^n k^2=\ddp\frac{n(n+1)(2n+1)}{6}$ et en utilisant le th\'eor\`eme sur les mon\^omes de plus haut degr\'e.
+\item
+$\lim \limits_{n\to +\infty}\ln{(2^n+n)}=+\infty$ par propri\'et\'e sur les somme et compos\'ee de limites.
+%\item
+%$\lim \limits_{n\to +\infty}\ln{(2^n-n)}=+\infty$ car $\ln{(2^n-n)}=n\ln{2}+\ln{\left( 1-\ddp\frac{n}{2^n} \right)}$ et en utilisant les croissances compar\'ees, on a: $\lim\limits_{n\to +\infty} 1-\ddp\frac{n}{2^n}=1$.
+\item
+$\lim \limits_{n\to +\infty}n^{\frac{1}{n}}=1$ car $n^{1/n}=e^{1/n\ln{n}}$ puis par croissance compar\'ee, on a: $\lim\limits_{n\to +\infty} \ddp\frac{\ln{n}}{n}=0$.  
+\item
+$\lim \limits_{n\to +\infty}(\ln{n})^n=+\infty$. Il n'y a pas de forme ind\'etermin\'ee ici, il suffit d'\'ecrire que $\left( \ln{n}\right)^n=e^{n\ln{(\ln{n})}}$.
+\item
+$\lim \limits_{n\to +\infty}\ddp\frac{n^3+2^n}{3^n}=0$ en mettant $2^n$ en facteur au num\'erateur et en utilisant ensuite le th\'eor\`eme sur la convergence des suites g\'eom\'etriques et les croissances compar\'ees car $\lim\limits_{n\to +\infty} \ddp\frac{n^3}{2^n}=\lim\limits_{n\to +\infty} \ddp\frac{n^3}{e^{n\ln{2}}}=0$. 
+%\item 
+%$\lim \limits_{n\to +\infty}(a^n+b^n)^{\frac{1}{n}}$ avec $a>0$ et $b>0$.\\
+%\noindent Pour cette limite, il faut \'etudier des cas selon que $a>b$, $a=b$ ou $a<b$. Faisons le par exemple pour $a>b$. On commence par \'ecrire que: $(a^n+b^n)^{1/n}=e^{1/n\ln{(a^n+b^n)}}$. Puis, comme $a>b$, on met le terme dominant en facteur, \`a savoir $a^n$. On obtient pour l'exposant qui est dans l'exponentielle: 
+%$$\ddp\frac{\ln{(a^n)}}{n}+\ddp\frac{\ln{\left( 1+(\frac{b}{a})^n \right)}}{n}=\ln{a}+\ddp\frac{\ln{\left( 1+(\frac{b}{a})^n \right)}}{n}.$$
+%Le deuxi\`eme terme tend vers 0 (pas de forme ind\'etermin\'ee) donc, par composition de limite, on obtient, si $a>b$,
+%$$\lim \limits_{n\to +\infty}(a^n+b^n)^{\frac{1}{n}}=e^{\ln{a}}=a.$$
+%Il suffit alors de faire un raisonnement analogue pour les deux autres cas.
+\item
+$\lim \limits_{n\to +\infty}(n^2+n+1)^{\frac{1}{n}}=1$ en transformant l'expression en mettant le terme dominant $n^2$ en facteur:
+$$(n^2+n+1)^{\frac{1}{n}}=e^{1/n\ln{(n^2+n+1)}}.$$
+Le terme en exposant dans l'exponentielle est alors
+$$\ddp\frac{\ln{(n^2+n+1)}}{n}=\ddp\frac{\ln{(n^2)}}{n}+\ddp\frac{\ln{(1+\frac{1}{n}+\frac{1}{n^2})}}{n}.$$
+On obtient alors la limite voulue en utilisant les croissances compar\'ees.
+\item
+$\lim \limits_{n\to +\infty}\ddp\frac{1}{a^n}\sum\limits_{k=1}^n b^k$.\\
+\noindent On suppose ici que $a>0$ et $b>0$. Commen\c{c}ons par calculer l'expression dont on cherche la limite. On obtient, si $b\not= 1$
+$$\ddp\frac{1}{a^n}\sum\limits_{k=1}^n b^k=\ddp\frac{b}{1-b}\ddp\frac{1-b^n}{a^n}.$$
+Et si $b=1$, on obtient $\ddp\frac{1}{a^n}\sum\limits_{k=1}^n b^k=\ddp\frac{n}{a^n}$.
+Etudions alors des cas:
+\begin{itemize}
+\item[$\star$] Si $b>1$:\\
+\noindent On a alors: $u_n\underset{+\infty}{\thicksim} \ddp\frac{-b}{1-b} \left( \ddp\frac{b}{a} \right)^n$ car $1-b^n\underset{+\infty}{\thicksim} -b^n$ et en utilisant ensuite les propri\'et\'es sur le produit et le quotient d'\'equivalent.
+Ainsi, on obtient les cas suivants:\\
+\noindent Si $b<a$, alors $\lim\limits_{n\to +\infty} u_n=0$\\
+\noindent Si $b=a$, alors $\lim\limits_{n\to +\infty} u_n=\ddp\frac{-b}{1-b}$\\
+\noindent Si $b>a$, alors $\lim\limits_{n\to +\infty} u_n=+\infty$\\
+\item[$\star$] Si $0<b<1$:\\
+\noindent On a alors: $u_n\underset{+\infty}{\thicksim} \ddp\frac{b}{1-b} \left( \ddp\frac{1}{a} \right)^n$ car $1-b^n\underset{+\infty}{\thicksim} 1$ et en utilisant ensuite les propri\'et\'es sur le produit et le quotient d'\'equivalent..
+Ainsi, on obtient les cas suivants:\\
+\noindent Si $a>1$, alors $\lim\limits_{n\to +\infty} u_n=0$\\
+\noindent Si $a=1$, alors $\lim\limits_{n\to +\infty} u_n=\ddp\frac{b}{1-b}$\\
+\noindent Si $a<1$, alors $\lim\limits_{n\to +\infty} u_n=+\infty$\\
+\item[$\star$] Si $b=1$:\\
+\noindent On a alors: $u_n\underset{+\infty}{\thicksim} \ddp\frac{n}{a^n}$.
+Ainsi, on obtient les cas suivants:\\
+\noindent Si $a>1$, alors $\lim\limits_{n\to +\infty} u_n=0$ par croissance compar\'ee\\
+\noindent Si $a=1$, alors $\lim\limits_{n\to +\infty} u_n=+\infty$\\
+\noindent Si $a<1$, alors $\lim\limits_{n\to +\infty} u_n=+\infty$\\
+\end{itemize}
+\item $ \lim\limits_{n\to+\infty}  \ddp n^2 \left(\cos\left(\frac{1}{n^2}\right)-1\right)$ : on utilise ici les \'equivalents usuels. On a : $\ddp u_n \underset{+\infty}{\thicksim} n^2 \times \left(-\frac{1}{2n^2}\right) = -\frac{1}{2}$, donc $\lim\limits_{n\to +\infty} u_n=\ddp -\demi$.
+\end{enumerate} 
+\end{correction}
+%--------------------------------------------------
+%------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{exercice}  \;
+Calculer les limites des suites suivantes. 
+\begin{enumerate}
+\noindent \begin{minipage}[t]{0.3\textwidth}
+\item $u_n=e^{n^2+n+1}$
+\item $u_n=e^{2n}-e^n$
+\item $u_n=\ddp\frac{e^n+n^2+n+1}{e^{2n}+1}$
+\item $u_n=\ddp\frac{n}{n-1}e^{\frac{1}{n}}$
+\item $u_n=e^{n^2}-e^{n+1}$
+\item $u_n=\ln{\left(\ddp\frac{e^n+1}{e^n-1}\right)}$
+\end{minipage}
+\begin{minipage}[t]{0.3\textwidth}
+
+\item $u_n=\ln{\left(\ddp\frac{e^n+n^2}{2n+1}\right)}$
+\item $u_n=\ln{\left(\ddp\frac{2-n}{n+4}\right)}$
+\item $u_n=\ddp\frac{2^n}{n^2+1}$
+\item $u_n=\left( \ddp\demi \right)^n \ln{n}$
+\end{minipage}
+\begin{minipage}[t]{0.3\textwidth}
+\item $u_n=\ddp\frac{e^{\sqrt{n}}}{n^2}$
+\item $u_n=e^n-n^{\frac{2}{3}}$
+\item $u_n=e^{\frac{1}{n-2}}$
+\item $u_n=(2n-1)e^{\frac{1}{n-2}}$
+\item $u_n=\ddp\frac{\ln{(n^2+1)}}{n}$
+\end{minipage}
+\end{enumerate}
+\end{exercice}
+%--------------------------------------------------
+%------------------------------------------------
+\begin{correction}  \;
+Je ne d\'etaille pas tous les calculs.
+\begin{enumerate}
+\item  $\mathbf{u_n=e^{n^2+n+1}}$:
+\begin{itemize}
+\item[$\bullet$]  Par propri\'et\'e sur les sommes et compos\'ee de limites, on obtient que $\lim\limits_{n\to +\infty} u_n=+\infty$.
+\end{itemize} 
+\item $\mathbf{u_n=e^{2n}-e^n}$
+\begin{itemize}
+\item[$\bullet$]  FI donc on met en facteur le terme dominant \`{a} savoir $e^{2n}$. On obtient que: $u_n=e^{2n}(1-e^{-n})$. Puis par propri\'et\'e sur les composition, somme et produit de limites, on obtient que: $\lim\limits_{n\to +\infty} u_n=+\infty$.
+\end{itemize} 
+\item $\mathbf{u_n=\ddp\frac{e^n+n^2+n+1}{e^{2n}+1}}$
+\begin{itemize}
+
+\item[$\bullet$]  FI donc on met en facteur le terme dominant au num\'erateur ($e^n$) et au d\'enominateur $e^{2n}$. On obtient alors que par propri\'et\'e sur les compos\'ee, sommes et quotient de limites $\lim\limits_{n\to +\infty} u_n=0$. 
+\end{itemize} 
+\item $\mathbf{u_n=\ddp\frac{n}{n-1}e^{\frac{1}{n}}}$:
+\begin{itemize}
+\item[$\bullet$]  Par le th\'eor\`{e}me du mon\^{o}me de plus haut degr\'e, on a: $\lim\limits_{n\to +\infty} \ddp\frac{n}{n-1}=1$. Donc par propri\'et\'e sur les compos\'ee et produit de limites: $\lim\limits_{n\to +\infty} u_n=1$. 
+\end{itemize}
+
+
+
+\item $\mathbf{u_n=e^{n^2}-e^{n+1}}$:
+\begin{itemize}
+\item[$\bullet$]  FI donc on met en facteur le terme dominant \`{a} savoir $e^{n^2}$. On obtient que $u_n=e^{n^2}(1-e^{-n^2+n+1})$. Par le th\'eor\`{e}me du mon\^{o}me de plus haut degr\'e, on a: $\lim\limits_{n\to +\infty} -n^2+n+1=-\infty$. Ainsi par propri\'et\'e sur les sommes, compos\'ees etb produit de limites, on obtient que: $\lim\limits_{n\to +\infty} u_n=+\infty$.
+\end{itemize} 
+\item $\mathbf{u_n=\ln{\left(\ddp\frac{e^n+1}{e^n-1}\right)}}$
+\begin{itemize}
+\item[$\bullet$]  FI donc on met en facteur le terme dominant au num\'erateur et au d\'enominateur \`{a} savoir $e^n$. On obtient alors $u_n=\ln{\left( \ddp\frac{1+e^{-n}}{1-e^{-n}}  \right)}$. Puis par propri\'et\'es sur les compos\'ees, sommes, quotient de limites, on obtient que: $\lim\limits_{n\to +\infty} u_n=0$. 
+\end{itemize} 
+\item $\mathbf{u_n=\ln{\left(\ddp\frac{e^n+n^2}{2n+1}\right)}}$
+\begin{itemize}
+
+\item[$\bullet$]  FI donc on met en facteur le terme dominant au num\'erateur et au d\'enominateur \`{a} savoir $e^n$ au num\'erateur et $n$ au d\'enominateur. On obtient que: $u_n=\ln{\left( \ddp\frac{e^n}{n}\times \ddp\frac{1+\frac{n^2}{e^n}}{2+\frac{1}{n}}  \right)}$. Par croissance compar\'ee, on a: $\lim\limits_{n\to +\infty}  \ddp\frac{e^n}{n}=+\infty$ et  
+$\lim\limits_{n\to +\infty}  \ddp\frac{n^2}{e^n}=0$. Puis par propri\'et\'e sur les sommes, quotients, produit et compos\'ee de limites, on obtient que $\lim\limits_{n\to +\infty} u_n=+\infty$.
+\end{itemize} 
+\item  $\mathbf{u_n=\ln{\left(\ddp\frac{2-n}{n+4}\right)}}$:
+Pas définie pour $n>2 !$
+
+\item $\mathbf{u_n=\ddp\frac{2^n}{n^2+1}}$:
+\begin{itemize}
+\item[$\bullet$]  FI donc on fait appara\^{i}tre une croissance compar\'ee en mettant en facteur $n^2$ terme dominant au d\'enominateur. On obtient que $u_n=\ddp\frac{e^{\ln{2}n}}{n^2}\times \ddp\frac{1}{1+\frac{1}{n^2}}$. Par croissance compar\'ee, on a: $\lim\limits_{n\to +\infty} \ddp\frac{e^{\ln{2}n}}{n^2}=+\infty$. Puis par propri\'et\'e sur les quotients, somme et produit de limites, on obtient que: $\lim\limits_{n\to +\infty} u_n=+\infty$.
+\end{itemize} 
+\item $\mathbf{u_n=\left( \ddp\demi \right)^n \ln{n}}$
+\begin{itemize}
+\item[$\bullet$]  FI car $u_n=\ln{(n)}e^{-n\ln{2}}$. On va faire appara\^{i}tre une croissance compar\'ee en multipliant et divisant par $n$. On obtient que: $u_n=\ddp\frac{n}{e^{\ln{2}n}}\times \ddp\frac{\ln{n}}{n}$. Par croissances compar\'ees, on a: $\lim\limits_{n\to +\infty} \ddp\frac{n}{e^{\ln{2}n}}=0=\lim\limits_{n\to +\infty} \ddp\frac{\ln{n}}{n}$. Ainsi par propri\'et\'e sur le produit de limite, on a: $\lim\limits_{n\to +\infty} u_n=0$. 
+\end{itemize} 
+\item  $\mathbf{u_n=\ddp\frac{e^{\sqrt{n}}}{n^2}}$
+\begin{itemize}
+\item[$\bullet$]  FI donc on transforme l'enpression afin de faire appara\^{i}tre une croissance compar\'ee. On pose par enemple $n=\sqrt{n}$ et on obtient que $u_n=u_n=\ddp\frac{e^n}{n^4}$. Ainsi par croissance compar\'ee: $\lim\limits_{n\to +\infty} u_n=+\infty$. Puis par propri\'et\'e sur la composition de limites: $\lim\limits_{n\to +\infty} u_n=+\infty$. 
+\end{itemize} 
+\item $\mathbf{u_n=e^n-n^{\frac{2}{3}}}$:
+\begin{itemize}
+\item[$\bullet$]  FI donc on met en facteur le terme dominant \`{a} savoir $e^n$. On obtient que: $u_n=e^n\left( 1-\ddp\frac{n^{\frac{2}{3}}}{e^n}  \right)$. Par croissance compar\'ee, on a: $\lim\limits_{n\to +\infty} \ddp\frac{n^{\frac{2}{3}}}{e^n} =0$. Puis par propri\'et\'e sur les somme et produit de limites, on obtient que: $\lim\limits_{n\to +\infty} u_n=+\infty$.
+\end{itemize} 
+\item $\mathbf{u_n=e^{\frac{1}{n-2}}}$
+\begin{itemize}
+\item[$\bullet$] $\lim\limits_{n\to +\infty} u_n=1$
+\end{itemize} 
+\item $\mathbf{u_n=(2n-1)e^{\frac{1}{n-2}}}$:
+\begin{itemize}
+\item[$\bullet$] $\lim\limits_{n\to +\infty} u_n=+\infty$
+\end{itemize} 
+\item$\mathbf{u_n=\ddp\frac{\ln{(n^2+1)}}{n}}$
+\begin{itemize}
+
+\item[$\bullet$]  FI donc on met en facteur le terme dominant $n^2$ dans le logarithme afin de faire appara\^{i}tre une croissance compar\'ee. On obtient que: $u_n=2\ddp\frac{\ln{n}}{n}+\ddp\frac{\ln{(1+\frac{1}{n^2})}}{n}$. Par croissance compar\'ee, on a: $\lim\limits_{n\to +\infty} \ddp\frac{\ln{n}}{n}=0$ et par propri\'et\'e sur les quotients, somme et compos\'ee de limites: $\lim\limits_{n\to +\infty} \ddp\frac{\ln{(1+\frac{1}{n^2})}}{n}=0$. Donc par propri\'et\'e sur les sommes de limites, on a: $\lim\limits_{n\to +\infty} u_n=0$. 
+\end{itemize} 
+\end{enumerate}
+\end{correction}
+
+
+
+
+
+\section*{Type DS}
+%--------------------------------------------------------------
+
+%-----------------------------------------------------------------
+\begin{exercice}  \; Suites homographiques.\\
+\noindent On consid\`ere les suites $\suiteu$ et $\suitev$ d\'efinies par
+$$u_0=0\ \hbox{et}\ \forall n\in\N,\ u_{n+1}=\ddp\frac{5u_n-2}{u_n+2} \quad \textmd{ et } \quad \forall \, n \in \N, \ v_n = \ddp\frac{u_n-2}{u_n-1}.$$
+\begin{enumerate}
+ \item
+Montrer que la suite $\suiteu$ est bien d\'efinie et que pour tout $n\geq 3$, $u_n>1$. 
+\item 
+En d\'eduire que la suite $\suitev$  est bien d\'efinie sur $\N$.
+\item 
+Montrer que $\suitev$ est g\'eom\'etrique.
+\item 
+En d\'eduire l'expression explicite de $\suitev$ puis de $\suiteu$.
+\item Etudier la convergence de la suite $\suiteu$.
+\end{enumerate}
+\end{exercice}
+
+%----------------------------------------------------
+\begin{correction} \;
+\begin{enumerate}
+ \item Comme toujours pour ce genre de question, on fait une r\'ecurrence.
+\begin{itemize}
+\item[$\bullet$] On montre par r\'ecurrence sur $n\geq 3$ la propri\'et\'e $\mathcal{P}(n):\quad u_n \textmd{ d\'efini et  } u_n> 1.$
+\item[$\bullet$]  Initialisation: pour $n=3$:\\
+\noindent On a: $u_1=-1$ puis $u_2=-7$ et $u_3=\ddp\frac{37}{5}>1$. Ainsi, $\mathcal{P}(3)$ est vraie.
+\item[$\bullet$]  H\'er\'edit\'e: soit $n\geq 3$, on suppose la propri\'et\'e vraie \`a l'ordre $n$, montrons que $\mathcal{P}(n+1)$ est vraie. Par hypoth\`ese de r\'ecurrence, on sait que $u_n>1$, donc $u_n-1\not=0$ et $u_{n+1}$ est bien d\'efini. De plus, on a
+$$u_{n+1}>1 \; \Leftrightarrow \; \ddp\frac{5u_n-2}{u_n+2}>1 \; \Leftrightarrow \; 5u_n -2>u_n+2 \; \Leftrightarrow \; u_n>1.$$
+Ici on a utilis\'e le fait que $u_n>1$ d'apr\`es $\mathcal{P}(n)$, et donc que $u_n+2>0$. On arrive $u_n>1$ qui est bien vrai, donc par \'equivalences, $u_{n+1}>1$ est vrai aussi. Ainsi, $\mathcal{P}(n+1)$ est vraie.
+\item[$\bullet$]  Conclusion: il r\'esulte du principe de r\'ecurrence que $\forall n\geq 3,\ u_n>1.$
+\end{itemize}
+%--
+\item La suite $(v_n)_{n\in\N}$ est bien d\'efinie  car $u_0,\ u_1,\ u_2$ ne sont pas \'egaux \`a 1 et ensuite on a $\forall n \geq 3, u_n > 1$. Ainsi pour tout $n\in\N$, on a bien $u_n-1\not= 0$ et $v_n$ bien d\'efini. 
+%--
+\item Soit $n\in\N$:
+$$\begin{array}{lll}
+v_{n+1}&=& \ddp\frac{u_{n+1}-2}{u_{n+1}-1}
+= \ddp\frac{\frac{5u_n-2-2u_n-4}{u_n+2}}{\frac{5u_n-2-u_n-2}{u_n+2}}
+= \ddp\frac{3u_n-6}{4u_n-4}
+= \ddp\frac{3}{4}\ddp\frac{u_n-2}{u_n-1}
+= \ddp\frac{3}{4}v_n.
+\end{array}$$
+Ainsi la suite $(v_n)_{n\in\N}$ est une suite g\'eom\'etrique de raison $\ddp\frac{3}{4}$ et de premier terme $2$.
+\item On en d\'eduit la formule explicite de $v_n$:
+$$\forall n\in\N,\quad v_n=2\left( \ddp\frac{3}{4} \right)^n.$$
+En remarquant que: $u_n(v_n-1)=v_n-2$ et que la suite $(v_n)_{n\in\N}$ \'etait toujours diff\'erente de 1, on obtient que
+$$\forall n\in\N,\ u_n=\ddp\frac{v_n-2}{v_n-1}\Rightarrow u_n=\ddp\frac{2(\frac{3}{4})^n-2}{2(\frac{3}{4})^n-1}.$$
+\item Comme $-1<\ddp\frac{3}{4}<1$, la suite $(v_n)_{n\in\N}$ converge vers 0 et ainsi, on a: $\lim\limits_{n\to\N} u_n=2$.
+\end{enumerate}
+\end{correction}
+%----------------------------------------------------------------
+
+
+
+
+
+\vspace{0.5cm}
+
+\begin{exercice} \;
+Soit une suite $\suiteu$ qui v\'erifie la relation de r\'ecurrence
+$$\left\lbrace\begin{array}{l}
+u_0\in\R\vsec\\
+\forall n\in\N,\ u_{n+1}=-u_n^2+2u_n
+\end{array}\right.$$
+\begin{enumerate}
+ \item 
+Calculer $1-u_{n+1}$ en fonction de $1-u_n$.
+\item 
+D\'eterminer la limite de la suite $\suiteu$, si elle existe, en fonction du premier terme $u_0$.
+\end{enumerate}
+\vspace{0.5cm}
+\end{exercice}
+
+
+
+
+%--------------------------------------------------
+%------------------------------------------------
+%----------------------------------------------------
+\begin{correction} \;
+\begin{enumerate}
+ \item Soit $n\in\N$, on a: $1-u_{n+1}=1+u_n^2-2u_n=(1-u_n)^2.$
+ \item On pose $v_n = 1-u_n$. On a alors $v_{n+1}=v_n^2$. Essayons de calculer $v_n$ : on a $v_1=v_0^2$, $v_2=v_0^4$, $v_3=v_0^8$. On conjecture donc : $\forall n\in\N,\ v_n=v_0^{2^n}$. \\
+Montrons par r\'ecurrence sur $n\in\N$ la propri\'et\'e : $\mathcal{P}(n):\quad v_n=v_0^{2^n}.$
+\begin{itemize}
+\item[$\bullet$]  Initialisation: pour $n=0$:\\
+\noindent On a: $v_0^{2^0}=v_0$. Donc $\mathcal{P}(0)$ est vraie.
+\item[$\bullet$]  H\'er\'edit\'e: Soit $n\in\N$. On suppose la propri\'et\'e vraie \`a l'ordre $n$, montrons qu'elle est vraie \`a l'ordre $n+1$. On a vu que: $v_{n+1}=v_n^2$. On utilise alors l'hypoth\`ese de r\'ecurrence et on obtient
+$$v_{n+1}=\left(v_0^{2^n}  \right)^2=v_0^{2^{n+1}}.$$
+Donc $\mathcal{P}(n+1)$ est vraie.
+\item[$\bullet$] Conclusion: il r\'esulte du principe de r\'ecurrence que
+$$\forall n\in\N,\quad v_n=v_0^{2^n}.$$
+\end{itemize}
+On obtient donc pour tout $n\in\N$: $u_n=1-(1-u_0)^{2^n}$.
+\begin{itemize}
+\item[$\bullet$] Si $1-u_0>1 \; \Leftrightarrow \; u_0<0$, alors : $\lim\limits_{n\to +\infty} (1-u_0)^{2^n}=+\infty$, donc $\lim\limits_{n\to +\infty} u_n=-\infty$.
+\item[$\bullet$] Si $u_0=0$, alors $1-u_0=1$ et ainsi: $\forall n\in\N,\quad u_n=0$ et donc $\lim\limits_{n\to +\infty} u_n=0$.
+\item[$\bullet$] Si $-1<1-u_0<1 \; \Leftrightarrow \; 0<u_0<2$, alors  : $\lim\limits_{n\to +\infty} u_n=1$.
+\item[$\bullet$] Si $u_0=2$, alors $1-u_0=-1$ et $(1-u_0)^{2^n} = 1$, et ainsi: $\forall n\in\N,\quad u_n=0$ et donc $\lim\limits_{n\to +\infty} u_n=0$.
+\item[$\bullet$] Si $1-u_0 < -1 \; \Leftrightarrow \; u_0 > 2$, alors $(1-u_0)^2 > 1$, et donc $\lim\limits_{n\to +\infty} (1-u_0)^{2^n}=+\infty$, soit $\lim\limits_{n\to +\infty} u_n=-\infty$.
+\end{itemize}
+\end{enumerate}
+\end{correction}
+
+
+
+
+
+
+
+
+
+
+
+
+
+%----------------------------------------------------------------------------------
+\begin{exercice} \;
+On d\'efinit deux suites $(u_n)_{n\in\N^{\star}}$ et $(v_n)_{n\in\N^{\star}}$ par 
+$$u_1=1\quad v_1=12\quad \forall n\in\N^{\star},\ u_{n+1}=\ddp\frac{u_n+2v_n}{3}\quad v_{n+1}=\ddp\frac{u_n+3v_n}{4}.$$
+\begin{enumerate}
+ \item
+On pose, pour tout $n\in\N^{\star}$, $w_n=v_n-u_n$. Donner l'expression de $(w_n)_{n\in\N^{\star}}$. 
+\item 
+Montrer que $(u_n)_{n\in\N^{\star}}$ et $(v_n)_{n\in\N^{\star}}$ sont adjacentes.
+\item 
+On pose pour tout $n\in\N^{\star}$, $t_n=3u_n+8v_n$. \\
+Donner l'expression de $(t_n)_{n\in\N^{\star}}$ et en d\'eduire la limite de $(u_n)_{n\in\N^{\star}}$ et $(v_n)_{n\in\N^{\star}}$.
+\end{enumerate}
+\end{exercice}
+\vspace{0.5cm}
+
+\begin{correction} \;
+\textbf{On d\'efinit deux suites $\mathbf{(u_n)_{n\in\N^{\star}}}$ et $\mathbf{(v_n)_{n\in\N^{\star}}}$ par }
+$$\mathbf{u_1=1\quad v_1=12\quad \forall n\in\N^{\star},\ u_{n+1}=\ddp\frac{u_n+2v_n}{3}\quad v_{n+1}=\ddp\frac{u_n+3v_n}{4}.}$$
+\begin{enumerate}
+\item \textbf{On pose, pour tout $\mathbf{n\in\N^{\star}}$, $\mathbf{w_n=v_n-u_n}$. Donner l'expression de $\mathbf{(w_n)_{n\in\N^{\star}}}$:}\\
+\noindent Soit $n\in\N^{\star}$, on a: 
+$$w_{n+1}=\ddp\frac{u_n+3v_n}{4}-\ddp\frac{u_n+2v_n}{3}=\ddp\frac{v_n-u_n}{12}=\ddp\frac{1}{12}w_n.$$
+Ainsi la suite $(w_n)_{n\in\N^{\star}}$ est une suite g\'eom\'etrique de raison $\ddp\frac{1}{12}$ et de premier terme $w_1=v_1-u_1=11$. On en d\'eduit donc l'expression explicite de $w_n$:
+$$\fbox{$\forall n\geq 1,\ w_n=w_1\left( \ddp\frac{1}{12}  \right)^{n-1}=11\left( \ddp\frac{1}{12}  \right)^{n-1}$.}$$
+\item \textbf{Montrer que $\mathbf{(u_n)_{n\in\N^{\star}}}$ et $\mathbf{(v_n)_{n\in\N^{\star}}}$ sont adjacentes:}
+\begin{itemize}
+\item[$\bullet$] \'Etude de la monotonie de la suite $(u_n)_{n\in\N^{\star}}$:\\
+\noindent Soit $n\geq 1$, on a:
+$$u_{n+1}-u_n=\ddp\frac{u_n+2v_n}{3}-u_n=\ddp\frac{2(v_n-u_n)}{3}=\ddp\frac{2}{3}w_n.$$
+Or on conna\^{i}t l'expression de $w_n$, on obtient donc:
+$$\forall n\in\N,\ u_{n+1}-u_n=\ddp\frac{2}{3} \times 11\left( \ddp\frac{1}{12}  \right)^{n-1}  \geq 0.$$
+Ainsi, la suite $(u_n)_{n\in\N^{\star}}$ est croissante.
+\item[$\bullet$] \'Etude de la monotonie de la suite $(v_n)_{n\in\N^{\star}}$:\\
+\noindent Soit $n\geq 1$, on a:
+$$v_{n+1}-v_n=\ddp\frac{u_n+3v_n}{4}-v_n=\ddp\frac{u_n-v_n}{4}=\ddp\frac{-1}{4}w_n.$$
+Or on conna\^{i}t l'expression de $w_n$, on obtient donc:
+$$\forall n\in\N,\ v_{n+1}-v_n=\ddp\frac{-11}{4} \left( \ddp\frac{1}{12}  \right)^{n-1}  \leq 0.$$
+Ainsi, la suite $(v_n)_{n\in\N^{\star}}$ est d\'ecroissante.
+\item[$\bullet$] Montrons que $\lim\limits_{n\to +\infty} v_n-u_n=0$:\\
+\noindent On a montr\'e \`{a} la question pr\'ec\'edente que pour tout $n\in\N^{\star}$: $v_n-u_n=11\left( \ddp\frac{1}{12}  \right)^{n-1}$. Comme: $-1<\ddp\frac{1}{12}<1$, on a: $\lim\limits_{n\to +\infty } \left( \ddp\frac{1}{12} \right)^{n-1} =0$. Puis par propri\'et\'e sur le produit de limites, on obtient que: $\lim\limits_{n\to +\infty} v_n-u_n=0$.
+\end{itemize}
+Ainsi, on a donc montr\'e que les deux suites $(u_n)_{n\in\N^{\star}}$ et $(v_n)_{n\in\N^{\star}}$ sont adjacentes. D'apr\`{e}s le th\'eor\`{e}me sur les suites adjacentes, \fbox{elles convergent donc vers la m\^{e}me limite.}
+\item \textbf{On pose pour tout $\mathbf{n\in\N^{\star}}$, $\mathbf{t_n=3u_n+8v_n}$.
+Donner l'expression de $\mathbf{(t_n)_{n\in\N^{\star}}}$ et en d\'eduire la limite de $\mathbf{(u_n)_{n\in\N^{\star}}}$ et $\mathbf{(v_n)_{n\in\N^{\star}}}$:}
+\begin{itemize}
+\item[$\bullet$] Expression de $t_n$ pour tout $n\geq 1$:\\
+\noindent Soit $n\geq 1$, on a: $t_{n+1}=3\ddp\frac{u_n+2v_n}{3}+8\ddp\frac{u_n+3v_n}{4}=3u_n+8v_n=t_n$. Ainsi 
+
+\fbox{la suite $(t_n)_{n\in\N^{\star}}$ est constante \'egale \`{a} $t_1=3u_1+8v_1 = 99$.}
+\item[$\bullet$] Calcul de la valeur de la limite $l$:\\
+\noindent Comme la suite $(t_n)_{n\in\N^{\star}}$ est constante, on a: 
+$\forall n\in\N^{\star},\ 3u_n+8v_n=99$. De plus on a d\'emontr\'e \`{a} la question 2 que les deux suites $(u_n)_{n\in\N^{\star}}$ et $(v_n)_{n\in\N^{\star}}$ convergent vers la m\^{e}me limite $l$ et ainsi par propri\'et\'e sur les produits et somme de limites, on obtient que: $\lim\limits_{n\to +\infty} 3u_n+8v_n=11l$. Par passage \`{a} la limite dans l'\'egalit\'e: $3u_n+8v_n=99$, on obtient donc que
+$$11l=99 \Leftrightarrow \fbox{$l=9.$}$$
+\end{itemize}
+\end{enumerate}
+\end{correction}
+
+
+
+
+
+
+
+
+
+%--------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------
+\begin{exercice} \;
+Soient $(a_n)_{n\in\N}$ et $(b_n)_{n\in\N}$ deux suites telles que $a_0=0$, $b_0=1$ et pour tout $n\in\N$
+$$a_{n+1}=-2a_n+b_n\qquad \hbox{et}\qquad b_{n+1}=3a_n.$$
+\begin{enumerate}
+\item D\'emontrer que la suite $(a_n+b_n)_{n\in\N}$ est constante.
+\item Pour tout $n\in\N$, exprimer $a_n$ en fonction de $n$.
+\item Pour tout $n\in\N$, d\'eterminer $b_n$ en fonction de $n$.
+\end{enumerate}
+\end{exercice}
+
+
+%--------------------------------------------------
+%------------------------------------------------
+\begin{correction} \;
+\textbf{Soient $\mathbf{(a_n)_{n\in\N}}$ et $\mathbf{(b_n)_{n\in\N}}$ deux suites telles que $\mathbf{a_0=0}$, $\mathbf{b_0=1}$ et pour tout $\mathbf{n\in\N}$}
+$$\mathbf{a_{n+1}=-2a_n+b_n\qquad \hbox{et}\qquad b_{n+1}=3a_n.}$$
+\begin{enumerate}
+\item \textbf{D\'emontrer que la suite $\mathbf{(a_n+b_n)_{n\in\N}}$ est constante:}\\
+\noindent Soit $n\in\N$, on a:
+$$a_{n+1}+b_{n+1}=-2a_n+b_n+3a_n=a_n+b_n.$$
+Ainsi \fbox{la suite $(a_n+b_n)_{n\in\N}$ est constante} et donc pour tout $n\in\N$: $a_n+b_n=a_0+b_0=1$. Donc \fbox{$\forall n\in\N,\ a_n+b_n=1$.}
+\item \textbf{Pour tout $\mathbf{n\in\N}$, exprimer $\mathbf{a_n}$ en fonction de $\mathbf{n}$:}\\
+\noindent Soit $n\in\N$. On a, en utilisant le fait que pour tout $n\in\N,\ a_n+b_n=1$, que pour tout $n\in\N$: $b_n=1-a_n$. Ainsi on obtient que pour tout $n\in\N$:
+$$a_{n+1}=-2a_n+b_n \Leftrightarrow a_{n+1}=1-3a_n.$$
+On reconna\^{i}t une suite arithm\'etico-g\'eom\'etrique .
+\begin{itemize}
+\item[$\bullet$] Calcul de la limite \'eventuelle: on r\'esout: $l=1-3l\Leftrightarrow l=\ddp\frac{1}{4}$.
+\item[$\bullet$] \'Etude d'une suite auxiliaire: pour tout $n\in\N$, on pose $v_n=a_n-\ddp\frac{1}{4}$. Montrons que $\suitev$ est une suite g\'eom\'etrique de raison $-3$. Soit $n\in\N$, on a:
+$$v_{n+1}=a_{n+1}-\ddp\frac{1}{4}=1-3a_n-\ddp\frac{1}{4}=-3\left(a_n-\ddp\frac{1}{4} \right)=-3v_n.$$
+Ainsi la suite $\suitev$ est bien une suite g\'eom\'etrique de raison $\ddp\frac{1}{4}$ et de premier terme $v_0=a_0-\ddp\frac{1}{4}=-\ddp\frac{1}{4}$.
+On en d\'eduit l'expression explicite de la suite $\suitev$: pour tout $n\in\N$, on a: $v_n=-\ddp\frac{1}{4}(-3)^n$.
+\item[$\bullet$] Expression explicite de $a_n$ pour tout $n\in\N$:\\
+\noindent Pour tout $n\in\N$, on a: $a_n=v_n+\ddp\frac{1}{4}=-\ddp\frac{1}{4}(-3)^n+\ddp\frac{1}{4}$.On a donc: \fbox{$\forall n\in\N,\ a_n=\ddp\frac{1}{4} \left( 1-(-3)^n  \right)$.}
+\end{itemize}
+\item \textbf{Pour tout $\mathbf{n\in\N}$, d\'eterminer $\mathbf{b_n}$ en fonction de $\mathbf{n}$:}\\
+\noindent Comme pour tout $n\in\N$, on a: $b_{n+1}=3a_n$, on a: $b_n=3a_{n-1}$. Puis en utilisant le r\'esultat de la question pr\'ec\'edente, on obtient que \fbox{$\forall n\in\N,\ b_n=\ddp\frac{3}{4} \left( 1-(-3)^{n-1}  \right)$.}
+\end{enumerate}
+\end{correction}
+
+
+
+\begin{exercice}
+Soit $(a, b) \in \R^2$ tels que $0<a<b.$ On pose $u_0=a, v_0=b$ et pour tout $n\in \N$:
+$$ u_{n+1} =\sqrt{u_n v_n}, \quad v_{n+1} = \frac{u_n +v_n}{2}.$$
+\begin{enumerate}
+\item INFO Ecrire une fonction Python qui prend en argument un entier $n$ et deux flottants $(a,b)$ et retourne la valeur de $u_n$.
+\item Montrer que pour tout $(x,y)\in (\R_+)^2$ on a 
+$$\sqrt{xy} \leq \frac{x+y}{2}$$
+\item Montrer que :  $\forall n\in \N, \, 0\leq u_n\leq v_n.$
+\item Montrer que $\suiteu$ est croissante et $\suite{v}$ et décroissante. 
+\item Montrer que pour tout $(x,y)\in (\R_+)^2$ tel que  $x\geq y>0$ on a $$\frac{x+y}{2}-\sqrt{xy}\leq \frac{1}{2}(x-y)$$
+\item Montrer que :  $\forall n\in \N, \, v_n-u_n\leq \frac{1}{2^n}(v_0-u_0).$
+\item En déduire que $\suiteu$ et $\suitev$ convergent vers la même limite.
+
+\item INFO On note $\ell$ la limite commune des deux suites. Ecrire une fonction Python qui prend en argument un flottant \texttt{eps} et retourne la valeur de $\ell$ à \texttt{eps} prés. 
+
+\end{enumerate}
+\end{exercice}
+
+
+\begin{correction}
+\begin{enumerate}
+\item 
+\begin{lstlisting}
+    from math import sqrt
+    def suite_u(n,a,b):
+      u=a
+      v=b
+      for i in range(n):
+        u,v=sqrt(u*v), (u+v)/2 #affectation simultanee
+      return(u)    
+\end{lstlisting}
+\item On va procéder par équivalence : 
+
+\begin{align*}
+    &\sqrt{xy} \leq \frac{x+y}{2}\\
+    \equivaut & xy \leq \left(  \frac{x+y}{2}\right)^2 \quad \text{car} x+y>0\\
+    \equivaut & xy \leq \frac{x^2+y^2+2xy}{4}\\
+    \equivaut & 4xy \leq x^2+y^2+2xy\\
+    \equivaut & 0\leq x^2+y^2-2xy\\
+    \equivaut & 0\leq (x-y)^2
+\end{align*}
+
+Cette dernière inégalité étant vérifiée pour tout $(x,y)\in \R^2$ et comme on a procédé par équivalence on a bien 
+pour tout $(x,y)\in (\R_+)^2$ 
+\conclusion{$\sqrt{xy} \leq \frac{x+y}{2}$}
+
+\item Montrons par récurrence la propriété $\cP(n)$ définie pour tout $n$ par : \og $  0\leq u_n\leq v_n$ \fg. 
+\textbf{Initialisation:}  Pour $n=0$, la propriété est vraie, d'après l'hypothèse faite dans l'énoncé  $0<a<b.$ 
+
+ \textbf{H\'er\'edit\'e:}\\
+Soit $n\geq 0$ fix\'e. On suppose la propri\'et\'e vraie \`a l'ordre $n$. Montrons qu'alors $\mathcal{P}(n+1)$ est vraie.\\
+On a $u_{n+1} = \sqrt{u_n v_n}$ qui est bien défini car $u_n $ et $v_n$ sont positifs par hypothèse de récurrence. Cette expression assure aussi que $u_{n+1}$ est positif. 
+
+De plus, 
+\begin{align*}
+v_{n+1}-u_{n+1} &= \frac{u_n +v_n}{2} - \sqrt{u_n v_n}&  \text{Par définition. }\\
+                &\geq 0 &  \text{d'après la question précédente. }\\
+\end{align*} 
+Ainsi $v_{n+1} \geq  u_{n+1}$
+La propriété $\cP$ est donc vraie au rang $n+1$.
+
+\textbf{Conclusion:}\\
+Il r\'esulte du principe de r\'ecurrence que pour tout $ n\geq 0$:
+\begin{center}
+\fbox{$  0\leq u_n\leq v_n$}
+\end{center}
+
+\item 
+On a $u_{n+1}-u_n = \sqrt{u_nv_n}-u_n = \sqrt{u_n}( \sqrt{v_n} -\sqrt{u_n})$
+Or comme $u_n\leq v_n$ et que la fonction racine est croissante on a 
+$$u_{n+1}-u_n \geq 0$$
+
+\conclusion{Autrement dit $\suite{u}$ est croissante}
+
+On a $v_n+1-v_n= \frac{u_n+v_n}{2} - v_n  = \frac{u_n-v_n}{2}$
+Or comme $u_n\leq v_n$ on a 
+$$v_{n+1}-v_n\leq 0$$
+\conclusion{Autrement dit $\suite{v}$ est décroissante}
+
+\item 
+
+On va procéder par équivalence : 
+
+\begin{align*}
+    &\frac{x+y}{2}-\sqrt{xy}\leq \frac{1}{2}(x-y)\\
+    \equivaut &y \leq \sqrt{xy}\\
+    \equivaut & y^2 \leq xy & \text{car $y\geq 0$}\\
+    \equivaut & y \leq x & \text{car $y> 0$}\\
+\end{align*}
+
+Cette dernière inégalité étant vérifiée par hypothèse  et comme on a procédé par équivalence on a bien 
+pour tout $(x,y)\in (\R_+)^2$  tel que $0\leq y\leq x$
+\conclusion{$\frac{x+y}{2}-\sqrt{xy}\leq \frac{1}{2}(x-y)$}
+
+ 
+
+
+
+\item 
+Montrons par récurrence la propriété définie $\cP(n)$ définie pour tout $n$ par : \og $  v_n-u_n\leq \frac{1}{2^n}(v_0-u_0).$\fg. 
+\textbf{Initialisation:}  Pour $n=0$, la propriété est vraie car le terme de gauche vaut $v_0-u_0$ et le terme de droite vaut $\frac{1}{1}(v_0-u_0)$. 
+
+ \textbf{H\'er\'edit\'e:}\\
+Soit $n\geq 0$ fix\'e. On suppose la propri\'et\'e vraie \`a l'ordre $n$. Montrons qu'alors $\mathcal{P}(n+1)$ est vraie.\\
+%Montrons tout d'abord que $v_{n+1}-u_{n+1} \leq \frac{1}{2} (v_n -u_n)$. 
+On  a 
+\begin{align*}
+v_{n+1}-u_{n+1} &= \frac{u_n +v_n}{2} - \sqrt{u_n v_n} \\
+			     &\leq \frac{1}{2} (v_n-u_n) & \text{d'après la question précédente}
+														
+\end{align*}
+On applique  l'hypothèse de récurrence, on a alors 
+\begin{align*}
+v_{n+1}-u_{n+1} & \leq \frac{1}{2} \times \frac{1}{2^n}(v_0-u_0)\\
+						 & \leq \frac{1}{2^{n+1}}(v_0-u_0)				
+\end{align*}
+
+La propriété $P$ est donc vraie au rang $n+1$.
+
+\textbf{Conclusion:}\\
+Il r\'esulte du principe de r\'ecurrence que pour tout $ n\geq 0$:
+\begin{center}
+\fbox{$  v_n-u_n\leq \frac{1}{2^n}(v_0-u_0).$}
+\end{center}
+\item 
+
+\begin{lstlisting}
+from math import sqrt, abs
+def limite(eps,a,b):
+  u=a
+  v=b
+  while abs(u-v)>eps:
+     u,v=sqrt(u*v), (u+v)/2 
+  return(u)
+\end{lstlisting}
+
+
+
+
+\end{enumerate}
+\end{correction}
+
+
+
+\end{document}

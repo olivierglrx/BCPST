@@ -1,0 +1,775 @@
+\documentclass[a4paper, 11pt,reqno]{article}
+\input{macro/package.tex}
+\input{macro/environement}
+\input{macro/header.tex}
+\input{macro/newcommand.tex}
+\geometry{hmargin=1.0cm, vmargin=2.5cm}
+
+
+\newcommand{\type}{TD }
+\excludecomment{correction}
+%\newcommand{\type}{Correction TD }
+
+
+\begin{document}
+\title{\type 22 : Variable Aléatoire Réelle}
+% debut
+%------------------------------------------------
+
+
+\vspace{0.2cm}
+\section*{Entraînements}
+\subsection*{Calculs de lois, fonctions de r\'epartition, esp\'erance et variance}
+
+
+%-------------------------------------------------
+%------------------------------------------------
+\begin{exercice}  \;
+	On dispose d'un d\'e \`a 6 faces non truqu\'e. Il poss\`ede une face portant le chiffre 1, 2 faces portant le chiffre 2 et 3 faces portant le chiffre 3. On le lance et on note $X$ le chiffre obtenu. Donner la loi de $X$, sa fonction de r\'epartition et calculer son esp\'erance et sa variance.
+\end{exercice}
+\begin{correction}   \;
+	%On dispose d'un d\'e \`a 6 faces non truqu\'e. Il poss\`ede une face portant le chiffre 1, 2 faces portant le chiffre 2 et 3 faces portant le chiffre 3. On le lance et on note $X$ le chiffre obtenu. Donner la loi de $X$, sa fonction de r\'epartition et calculer son esp\'erance et sa variance. 
+	\begin{itemize}
+		\item[$\bullet$] Univers image : les seuls num\'eros que l'on peut obtenir sont $1,2$ et $3$, donc $X(\Omega) = \{1,2,3\}.$
+		\item[$\bullet$] Calcul de la loi de $X$. Le d\'e est non truqu\'e, on a donc \'equiprobabilit\'e pour chacune des faces du d\'es. On a $6$ faces en tout, et une seule ayant le num\'ero $1$, donc \fbox{$P(X=1) = \frac{1}{6}$}. On a deux faces portant le num\'ero $2$, donc $P(X=2) = \frac{2}{6}$, soit \fbox{$P(X=2) = \frac{1}{3}$}. Enfin, on a trois faces portant le num\'ero $3$, donc $P(X=3) = \frac{3}{6}$, soit \fbox{$P(X=2) = \frac{1}{2}$}.
+		\item[$\bullet$] Fonction de r\'epartition : on utilise la formule du cours :
+			\begin{itemize}
+				\item[$\star$] si $x<1$, on a $F_X(x) = 0$,
+				\item[$\star$] si $1\leq x < 2$, on a $F_X(x) = P(X =1) = \frac{1}{6}$,
+				\item[$\star$] si $2\leq x < 3$, on a $F_X(x) = P(X =1) + P(X=2) = \frac{1}{6} + \frac{1}{3} = \frac{1}{2}$,
+				\item[$\star$] si $x\geq 3$, on a $F_X(x) = 1$.
+			\end{itemize}
+		\item[$\bullet$] Esp\'erance : on calcule
+			$$E(X) = 1\times P(X =1) + 2\times P(X =2) + 3\times P(X =3) = \frac{1}{6} + \frac{2}{3} + \frac{3}{2}$$
+			soit \fbox{$E(X) = \frac{7}{3}$}.
+		\item[$\bullet$] Variance : on utilise la formule de Koenig-Huygens :
+			$$V(X) = E(X^2) - (E(X))^2.$$
+			On calcule $E(X^2)$ gr\^ace au th\'eor\`eme du transfert :
+			$$E(X^2) = 1^2 \times P(X =1) + 2^2\times P(X =2) + 3^2\times P(X =3) = \frac{1}{6} + \frac{4}{3} + \frac{9}{2}=\frac{23}{3}$$
+			soit $V(x) = \frac{23}{3} - \frac{49}{9}$, et donc \fbox{$V(X) = \frac{20}{9}$}.
+	\end{itemize}
+\end{correction}
+%-------------------------------------------------
+%------------------------------------------------
+
+%-------------------------------------------------
+%------------------------------------------------
+
+%-------------------------------------------------
+%------------------------------------------------
+\begin{exercice}  \;
+	Soit $\theta\in\left\lbrack 0,\ddp\demi\right\lbrack$ et $X$ une varf \`a valeurs dans $\intent{ 0,3}$ dont la loi de probabilit\'e est donn\'ee par
+	$$P(\lbrack X=0 \rbrack)= P(\lbrack X=3 \rbrack)=\theta \quad P(\lbrack X= 1\rbrack)=P(\lbrack X= 2\rbrack)= \ddp\demi-\theta.$$
+	\begin{enumerate}
+		\item Donner la fonction de r\'epartition de $X$.
+		\item Calculer l'esp\'erance et la variance de $X$.
+		\item On pose $R=X(X-1)(X-2)(X-3)$. Donner la loi de probabilit\'e de $R$.
+		      %\item Donner la loi de probabilit\'e des varf suivantes
+		      %$$S=\ddp\frac{(1-X)(2-X)(3-X)}{6}\quad T=\ddp\frac{X(3-X)}{2}\qquad V=\ddp\frac{X(X-1)(X-2)}{6}.$$
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \;
+	%Soit $\theta\in\left\lbrack 0,\ddp\demi\right\lbrack$ et $X$ une varf \`a valeurs dans $\intent{ 0,3}$ dont la loi de probabilit\'e est donn\'ee par
+	%$$P(\lbrack X=0 \rbrack)= P(\lbrack X=3 \rbrack)=\theta \quad P(\lbrack X= 1\rbrack)=P(\lbrack X= 2\rbrack)= \ddp\demi-\theta.$$
+	La loi de probabilit\'e d'une var $X$ est donn\'ee par le tableau
+	suivant :\\\begin{center} \begin{tabular}{|c|c|c|c|c|c|} \hline $x_i$     & $0$      & $1$                  & $2$                  & $3$      \\
+               \hline $P(\lbrack X=x_i\rbrack)$ & $\theta$ & $\frac{1}{2}-\theta$ & $\frac{1}{2}-\theta$ & $\theta$
+               \\ \hline
+		\end{tabular} \end{center}
+	\begin{enumerate}
+		\item D'apr\`es la formule du cours :
+		      \begin{itemize}
+			      \item[$\star$] si $x<0$, on a $F_X(x) = 0$,
+			      \item[$\star$] si $0\leq x < 1$, on a $F_X(x) = P(X =0) = \theta$,
+			      \item[$\star$] si $1\leq x < 2$, on a $F_X(x) = P(X=0)+P(X=1) = \theta + \frac{1}{2} -\theta = \frac{1}{2}$,
+			      \item[$\star$] si $2\leq x < 3$, on a $F_X(x) =  P(X=0)+P(X=1)+P(X=2) =  \theta + \frac{1}{2} -\theta + \frac{1}{2} -\theta = 1-\theta$,
+			      \item[$\star$] si $x\geq 3$, on a $F_X(x) = 1$.
+		      \end{itemize}
+		\item Esp\'erance : on calcule
+		      $$E(X) = \sum\limits_{k=0}^3 k P(X=k) = 0 \times \theta + 1\times( \frac{1}{2} -\theta ) + 2\times( \frac{1}{2} -\theta ) + 3 \theta$$
+		      soit \fbox{$E(X) = \frac{3}{2}$} (ce qui \'etait attendu, puisque $X$ est sym\'etrique).\\
+		      Pour la variance, on utilise la formule de Koenig-Huygens : $V(X) = E(X^2) - (E(X))^2$, en calculant $E(X^2)$ gr\^ace au th\'eor\`eme du transfert :
+		      $$E(X^2) = \sum\limits_{k=0}^3 k^2 P(X=k) =  0^2 \times \theta + 1^2 \times( \frac{1}{2} -\theta ) + 2^2 \times( \frac{1}{2} -\theta ) + 3^2 \theta = 4\theta+\frac{5}{2}.$$
+		      On obtient \fbox{$V(X) = 4 \theta - \frac{1}{4}$}.
+		\item On remarque que $R(\Omega) = \{0\}$, donc  $R$ est constante \'egale \`a $0$ : \fbox{$P(R=0)= 1$}.
+		\item Ici je donne juste les r\'esultats :
+		      \begin{center} \begin{tabular}{|c|c|c|c|c|c|} \hline $s_i$     & $0$        & $1$       \\
+               \hline $P(\lbrack S=s_i\rbrack)$ & $1-\theta$ & $ \theta$
+               \\ \hline
+			      \end{tabular} %\end{center}
+			      %\begin{center} 
+			      \quad \begin{tabular}{|c|c|c|c|c|c|} \hline $t_i$     & $0$        & $1$         \\
+               \hline $P(\lbrack T=t_i\rbrack)$ & $2 \theta$ & $1-2\theta$
+               \\ \hline
+			      \end{tabular} %\end{center}
+			      %\begin{center} 
+			      \quad \begin{tabular}{|c|c|c|c|c|c|} \hline $v_i$     & $0$        & $1$      \\
+               \hline $P(\lbrack V=v_i\rbrack)$ & $1-\theta$ & $\theta$
+               \\ \hline
+			      \end{tabular} \end{center}
+	\end{enumerate}
+\end{correction}
+%-------------------------------------------------
+%------------------------------------------------
+
+
+
+%-------------------------------------------------
+%------------------------------------------------
+\begin{exercice}  \;
+	On consid\`ere la fonction d\'efinie sur $\R$ par
+	$$\quad F(x)=  0 \hbox{ sur } ]-\infty,-2[, \; \frac{1}{4} \hbox{ sur } [-2,0[, \; \frac{1}{2} \hbox{ sur } [0,3[, \; \frac{2}{3} \hbox{ sur } [3,4[ , \; 1 \hbox{ sur } [4,+\infty[.$$
+	%\left\lbrace\begin{array}{ccl}
+	%0 & \hbox{si}&\ x<-2\\
+	%\ddp\frac{1}{4}  & \hbox{si} &\ -2\leq x <0\vsec\\
+	%\ddp\frac{1}{2}  & \hbox{si}&\ 0\leq x <3\vsec\\
+	%\ddp\frac{2}{3}  & \hbox{si}&\ 3\leq x<4\vsec\\
+	%1  & \hbox{si}&\ x\geq 4.
+	%\end{array}\right.$$
+	\begin{enumerate}
+		\item Tracer la courbe repr\'esentative de $F$.
+		\item Soit $X$ une varf ayant $F$ pour fonction de r\'epartition. Calculer alors $P(\lbrack X\leq 1\rbrack)$, $P(\lbrack X< 1\rbrack)$ et $P(\lbrack -2\leq X\leq 0\rbrack)$.
+		\item D\'eterminer aussi la loi de $X$, son esp\'erance et sa variance.
+		\item Soit $Y$ et $Z$ les varf d\'efinies par $Y=\ddp\frac{X}{2}$ et $Z=X+2$. D\'eterminer les fonctions de r\'epartition de $Y$ et de $Z$ et tracer leurs courbes repr\'esentatives sur le m\^eme graphique que $F$.
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \;
+	%On consid\`ere la fonction d\'efinie sur $\R$ par
+	%$$\forall t \in\R,\quad F(t)=\left\lbrace\begin{array}{ccl}
+	%0 & \hbox{si}&\ x<-2\\
+	%\ddp\frac{1}{4}  & \hbox{si}&\ -2\leq x <0\vsec\\
+	%\ddp\frac{1}{2}  & \hbox{si}&\ 0\leq x <3\vsec\\
+	%\ddp\frac{2}{3}  & \hbox{si}&\ 3\leq x<4\vsec\\
+	%1  & \hbox{si}&\ x\geq 4.
+	%\end{array}\right.$$
+	\begin{enumerate}
+		\item \`A faire.%Tracer la courbe repr\'esentative de $F$.
+		\item Par d\'efinition, \fbox{$P(X\leq 1) = F(1) = \frac{1}{2}$}.\\
+		      On a de plus $P(X=1)=0$ car la fonction $F$ n'a pas de saut en $1$, donc \fbox{$P(X< 1) = P(X\leq 1) = \frac{1}{2}$}.\\
+		      On a $P(-2\leq X \leq 0) = P(X\leq 0) - P(X<-2) = F(0) - 0$, soit  \fbox{$P(-2\leq X \leq 0)= \frac{1}{2}$}.
+		      %Soit $X$ une varf ayant $F$ pour fonction de r\'epartition. Calculer alors $P(\lbrack X\leq 1\rbrack)$, $P(\lbrack X< 1\rbrack)$ et $P(\lbrack -2\leq X\leq 0\rbrack)$.
+		\item On a $X(\Omega) = \{-2, 0, 3,4\}$ car ce sont les points de discontinuit\'e de $F$. De plus, les probabilit\'es de chaque \'el\'ement de $X(\Omega)$ sont \'egale \`a la valeur du saut de $F$, soit :
+		      \begin{itemize}
+			      \item[$\bullet$] $\ddp P(X=-2) = F(-2) = \frac{1}{4}$\vsec,
+			      \item[$\bullet$] $\ddp P(X=0) = F(0)-F(-2) = \frac{1}{4}$\vsec,
+			      \item[$\bullet$] $\ddp P(X=3) = F(3)-F(0) = \frac{1}{6}$,\vsec
+			      \item[$\bullet$] $\ddp P(X=4) = F(4)-F(3) = \frac{1}{3}$,\vsec
+		      \end{itemize}
+		      On en d\'eduit
+		      $$E(X) = -2 P(X=-2) + 0 P(X=0) + 3 P(X=3) + 4 P(X=4)$$
+		      soit \fbox{$\ddp E(X) = \frac{4}{3}$}.\\
+		      De plus, d'apr\`es la formule de Koenig-Huygens, on a $V(X) = E(X^2) - E(X)^2$. Et le th\'eor\`eme du transfert donne
+		      $$E(X^2) = (-2)^2 P(X=-2) + 0^2 P(X=0) + 3^2 P(X=3) + 4^2 P(X=4),$$
+		      soit $\ddp E(X^2) = \frac{47}{6} $ et donc \fbox{$\ddp V(X) = \frac{109}{18}$}.
+		      %D\'eterminer aussi la loi de $X$, son esp\'erance et sa variance.
+		\item On a $Y(\Omega) = \{-1, 0, \frac{3}{2}, 2\}$, et $Z(\Omega) = \{0, 2,5,6\}$ et les probabilit\'es sont les m\^emes que pr\'ec\'edemment, donc on a
+		      $$\forall t \in\R,\quad F_Y(t)=\left\lbrace\begin{array}{ccl}
+				      0               & \hbox{si} & \ x<-2                      \\
+				      \ddp\frac{1}{4} & \hbox{si} & \ -1\leq x <0\vsec          \\
+				      \ddp\frac{1}{2} & \hbox{si} & \ 0\leq x <\frac{3}{2}\vsec \\
+				      \ddp\frac{2}{3} & \hbox{si} & \ \frac{3}{2}\leq x<2\vsec  \\
+				      1               & \hbox{si} & \ x\geq 2.
+			      \end{array}\right.\quad \textmd{ et } \quad \forall t \in\R,\quad
+			      F_Z(t)=\left\lbrace\begin{array}{ccl}
+				      0               & \hbox{si} & \ x<-2            \\
+				      \ddp\frac{1}{4} & \hbox{si} & \ 0\leq x <2\vsec \\
+				      \ddp\frac{1}{2} & \hbox{si} & \ 2\leq x <5\vsec \\
+				      \ddp\frac{2}{3} & \hbox{si} & \ 5\leq x<6\vsec  \\
+				      1               & \hbox{si} & \ x\geq 6.
+			      \end{array}\right.$$
+		      Le graphe de $F_Z$ est l'homoth\'etie de rapport $\frac{1}{2}$ et de centre $0$ du graphe de $F$, et celui de $F_Z$ le translat\'e de vecteur $2\mathbf{i}$ de $F$.
+		      %Soit $Y$ et $Z$ les varf d\'efinies par $Y=\ddp\frac{X}{2}$ et $Z=X+2$. D\'eterminer les fonctions de r\'epartition de $Y$ et de $Z$ et tracer leurs courbes repr\'esentatives sur le m\^eme graphique que $F$.
+	\end{enumerate}
+\end{correction}
+%-------------------------------------------------
+%------------------------------------------------
+
+%-------------------------------------------------
+%------------------------------------------------
+
+%-------------------------------------------------
+%------------------------------------------------
+
+%------------------------------------------------
+%------------------------------------------------
+
+
+
+%------------------------------------------------
+
+\begin{exercice}  \;
+	On consid\`ere une urne contenant 5 boules num\'erot\'ees: 2 rouges et 3 bleues : 
+	\begin{enumerate}
+		\item On tire simultan\'ement 3 boules de l'urne et on note $X$ le nombre de boules bleues obtenu. Donner la loi de $X$.
+
+		\item On r\'ealise 3 tirages successifs sans remise et on note $Z$ le nombre de boules bleues obtenu au cours de ces tirages. Donner la loi de $Z$.
+
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \;
+	On consid\`ere une urne contenant 5 boules num\'erot\'ees: 2 rouges et 3 bleues.
+	\begin{enumerate}
+		\item
+  Le nombre de tirages total est $ \binom{5}{3}$. Le nombre de tirages qui améne $k$ boules bleues sont $\binom{3}{k}\binom{2}{3-k}$ 
+donc $X(\Omega) = \{1,2,3\}$ et 
+
+\conclusion{$P(X=k) = \frac{\binom{3}{k}\binom{2}{3-k}}{ \binom{5}{3}}$}
+
+		\item
+  Faire des tirages successifs sans remise revien à faire un tirage simultané, $X$ et $Z$ ont dont la même loi :
+  \conclusion{$P(Z=k) = \frac{\binom{3}{k}\binom{2}{3-k}}{ \binom{5}{3}}$}
+	\end{enumerate}
+\end{correction}
+%-------------------------------------------------
+
+
+
+\begin{exercice}  \;
+	On lance deux d\'es \'equilibr\'es distincts \`a 6 faces. On note $X$ le plus grand num\'ero obtenu et $Y$ le plus petit.
+	\begin{enumerate}
+		\item D\'eterminer les lois et les fonctions de r\'epartition de $X$ et de $Y$.
+		\item Calculer $E(X)$ et $E(Y)$ et comparer ces esp\'erances.
+		\item Calculer $V(X)$ et $V(Y)$.
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \;
+	\textbf{On lance deux d\'es \'equilibr\'es distincts \`a 6 faces \'equilibr\'ees. On note $X$ le plus grand num\'ero obtenu et $Y$ le plus petit.}
+	\begin{enumerate}
+		\item On pense ici \`a passer par la fonction de r\'epartition, car il y a des min et des max. On note $N_1$ le num\'ero du premier d\'e et $N_2$ celui du deuxi\`eme.
+		      \begin{itemize}
+			      \item[$\bullet$] Fonction de r\'epartition de $X$, puis loi de $X$. On a tout d'abord $X(\Omega) = \intent{ 1, 6}$. Soit $k \in  \intent{ 1, 6}$, on cherche \`a calculer $P(X\leq k)$. Si le plus grand num\'ero est inf\'erieur \`a $k$, cela veut dire que les deux num\'eros sont inf\'erieurs \`a $k$. On a donc $P(X\leq k) = P([N_1\leq k]\cap[N_2\leq k])$. Les deux lancers \'etant ind\'ependants, on obtient :
+				      $$P(X\leq k) = P(N_1\leq k) \times P(N_2\leq k).$$
+				      Or les d\'es sont \'equilibr\'es, donc on a \'equiprobabilit\'e. On en d\'eduit $\ddp P(N_i \leq k) = \frac{k}{6}$, et donc \fbox{$\ddp P(X\leq k) = \frac{k^2}{36}$}.
+				      La fonction de r\'epartition de $X$ est donc donn\'ee par
+				      \begin{itemize}
+					      \item[$\star$] si $x<1$, on a $F_X(x) = 0$,
+					      \item[$\star$] si $k\leq x < k+1$, avec $k\in \intent{ 1,5}$, on a $F_X(x) = \ddp \frac{k^2}{36}$,
+					      \item[$\star$] si $x\geq 6$, on a $F_X(x) = 1$.
+				      \end{itemize}
+				      On en d\'eduit la loi de probabilit\'e de $X$ :
+				      \begin{itemize}
+					      \item[$\star$] si $k=1$, on a $P(X=1) = F_X(1)$, soit \fbox{$ P(X=1) = \ddp \frac{1}{36}$},
+					      \item[$\star$] si $k \in \intent{2,6}$, on a $P(X=k) = F_X(k)-F_X(k-1)$, soit \fbox{$ P(X=k)= \ddp \frac{k^2}{36}-\frac{(k-1)^2}{36}$}.
+				      \end{itemize}
+				      On remarque que l'on peut regrouper les deux cas dans la deuxi\`eme formule.
+			      \item[$\bullet$] Fonction de r\'epartition de $Y$, puis loi de $Y$.  On a de m\^eme $Y(\Omega) = \intent{ 1, 6}$. Soit $k \in  \intent{ 1, 6}$, on cherche \`a calculer cette fois $P(Y >  k)$ pour en d\'eduire $P(Y \leq k)$. Si le plus petit num\'ero est strictement sup\'erieur \`a $k$, cela veut dire que les deux num\'eros sont strictement sup\'erieurs \`a $k$. On a donc $P(Y > k) = P([N_1> k]\cap[N_2> k])$. Le m\^eme raisonnement que pr\'ec\'edemment donne $P(Y > k) =\ddp \frac{(6-k)^2}{36}$. On en d\'eduit  \fbox{$\ddp P(Y\leq k) = 1- \frac{(6-k)^2}{36}$}, puis
+				      \begin{itemize}
+					      \item[$\star$] si $x<1$, on a $F_Y(x) = 0$,
+					      \item[$\star$] si $k\leq x < k+1$, avec $k\in \intent{ 1,5}$, on a $F_Y(x) =\ddp 1-\frac{(6-k)^2}{36}$,
+					      \item[$\star$] si $x\geq 6$, on a $F_Y(x) = 1$.
+				      \end{itemize}
+				      On en d\'eduit la loi de probabilit\'e de $Y$ :
+				      \begin{itemize}
+					      \item[$\star$] si $k=1$, on a $P(Y=1) = F_Y(1) =  \ddp 1- \frac{25}{36}$, soit \fbox{$ P(Y=1) = \ddp \frac{9}{36}$},
+					      \item[$\star$] si $k \in \intent{2,6}$, on a $P(Y=k) = F_Y(k)-F_Y(k-1)$, soit \fbox{$ P(X=k)=\ddp  \frac{(6-(k-1))^2}{36}-\frac{(6-k)^2}{36}$}.
+				      \end{itemize}
+		      \end{itemize}
+		\item La formule de l'esp\'erance donne
+		      $$\begin{array}{rcl}
+				      E(X) \; = \; \ddp \sum_{k=1}^6 k P(X=k) & = & \ddp  \sum_{k=1}^6 k \left(\frac{k^2}{36}-\frac{(k-1)^2}{36}\right)\vsec               \\
+				                                              & = & \ddp \frac{1}{36} \sum_{k=0}^6 k (k^2 - k^2 +2k - 1) \vsec                             \\
+				                                              & = & \ddp \frac{1}{36} \sum_{k=0}^6 k(2k-1)\vsec                                            \\
+				                                              & = & \ddp \frac{2}{36} \sum_{k=0}^6 k^2 - \frac{1}{36} \sum_{k=0}^6 k\vsec                  \\
+				                                              & = & \ddp \frac{2}{36} \times \frac{6(6+1)(12+1)}{6} - \frac{1}{36} \times \frac{6(6+1)}{2}
+			      \end{array}$$
+		      en utilisant les formules usuelles de sommes.\vsec\\
+		      On obtient donc : \fbox{$\ddp E(X) =   \frac{161}{36}$}.\\
+		      De m\^eme, on a
+		      $$\begin{array}{rcl}
+				      E(Y) \; = \; \ddp \sum_{k=1}^6 k P(Y=k) & = & \ddp  \sum_{k=1}^6 k \left(\frac{(6-(k-1))^2}{36}-\frac{(6-k)^2}{36}\right)\vsec          \\
+				                                              & = & \ddp   \frac{1}{36} \sum_{k=1}^6 k ((6-k)^2 + 2(6-k) + 1 - (6-k)^2)\vsec                  \\
+				                                              & = & \ddp   \frac{1}{36} \sum_{k=1}^6 k (13-2k)\vsec                                           \\
+				                                              & = & \ddp   \frac{13}{36} \sum_{k=1}^6 k - \frac{2}{36} \sum_{k=1}^6 k^2\vsec                  \\
+				                                              & = & \ddp   \frac{13}{36} \times \frac{6(6+1)}{2} - \frac{2}{36} \times \frac{6(6+1)(12+1)}{6}
+			      \end{array}$$
+		      soit \fbox{$\ddp E(Y) = \ddp   \frac{91}{36}$}. On v\'erifie que l'on a bien $E(X) >E(Y)$, ce qui est normal, car la valeur moyenne du plus grand num\'ero doit \^etre sup\'erieure \`a la valeur moyenne du plus petit num\'ero.\vsec\\
+		      %---
+		\item D'apr\`es la formule de Koenig-Huygens, on a : $V(X) = E(X^2)-E(X)^2$. De plus, d'apr\`es le th\'eor\`eme de transfert on a :
+		      $$\begin{array}{rcl}
+				      E(X^2) \; = \; \ddp \sum_{k=1}^6 k^2 P(X=k) & = & \ddp  \sum_{k=1}^6 k^2 \left(\frac{k^2}{36}-\frac{(k-1)^2}{36}\right)\vsec                            \\
+				                                                  & = & \ddp \frac{1}{36} \sum_{k=0}^6 k2(2k-1)\vsec                                                          \\
+				                                                  & = & \ddp \frac{2}{36} \sum_{k=0}^6 k^3 - \frac{1}{36} \sum_{k=0}^6 k^2\vsec                               \\
+				                                                  & = & \ddp \frac{2}{36} \times \left(\frac{6(6+1)}{2}\right)^2 - \frac{1}{36} \times \frac{6(6+1)(12+1)}{6}
+			      \end{array}$$
+		      On obtient donc $E(X^2)=\ddp \frac{791}{36}$. On en d\'eduit \fbox{$V(X) = \ddp \frac{2555}{36^2} \simeq 1.97$}.\\
+		      La m\^eme m\'ethode donne : $V(Y) = E(Y^2)-E(Y)^2$, avec :
+		      $$\begin{array}{rcl}
+				      E(Y^2) \; = \; \ddp \sum_{k=1}^6 k^2 P(Y=k) & = & \ddp  \sum_{k=1}^6 k^2 \left(\frac{(6-(k-1))^2}{36}-\frac{(6-k)^2}{36}\right)\vsec                        \\
+				                                                  & = & \ddp   \frac{1}{36} \sum_{k=1}^6 k^2 (13-2k)\vsec                                                         \\
+				                                                  & = & \ddp   \frac{13}{36} \sum_{k=1}^6 k^2 - \frac{2}{36} \sum_{k=1}^6 k^3\vsec                                \\
+				                                                  & = & \ddp   \frac{13}{36} \times \frac{6(6+1)(12+1)}{6} - \frac{2}{36} \times  \left(\frac{6(6+1)}{2}\right)^2
+			      \end{array}$$
+		      On obtient donc $E(Y^2)=\ddp \frac{301}{36}$. On en d\'eduit \fbox{$V(Y) = \ddp \frac{2555}{36^2} \simeq 1.97$}. Remarquons qu'il est logique que le minimum et le maximum des num\'eros aient la m\^eme variance, c'est-\`a-dire la m\^eme dispersion par rapport \`a leur valeur moyenne.
+	\end{enumerate}
+\end{correction}
+%-------------------------------------------------
+%------------------------------------------------
+
+
+\begin{exercice}
+	On consid\`ere deux urnes comportant chacune des jetons num\'erot\'es de 1 \`a $n$, avec $n\in\N^{\star}$. On tire au hasard un jeton dans chaque urne et on appelle $X$ le plus grand des num\'eros tir\'es.
+	\begin{enumerate}
+		\item D\'eterminer la fonction de r\'epartition $F$ de $X$.
+		\item En d\'eduire la loi de $X$.
+		\item Calculer l'esp\'erance $E(X)$. En d\'eduire un \'equivalent de $E(X)$ quand $n$ tend vers $+\infty$.
+	\end{enumerate}
+\end{exercice}
+\begin{correction}
+	On consid\`ere deux urnes comportant chacune des jetons num\'erot\'es de 1 \`a $n$, avec $n\in\N^{\star}$. On tire au hasard un jeton dans chaque urne et on appelle $X$ le plus grand des num\'eros tir\'es.
+	\begin{enumerate}
+		\item D\'eterminer la fonction de r\'epartition $F$ de $X$.
+		\item En d\'eduire la loi de $X$.
+		\item Calculer l'esp\'erance $E(X)$. En d\'eduire un \'equivalent de $E(X)$ quand $n$ tend vers $+\infty$.
+	\end{enumerate}
+\end{correction}
+
+%------------------------------------------------
+
+\begin{exercice}  \;
+	On lance $m$ d\'es non truqu\'es num\'erot\'es de $1$ \`a $m$.
+	\begin{enumerate}
+		\item Soit $X_1$ la var \'egale au nombre de d\'es amenant le 6. Donner la loi de $X_1$, son esp\'erance et sa variance.
+		\item On relance les d\'es qui n'ont pas amen\'e de 6. Soit $X_2$ le nombre de ceux qui am\`enent 6 lors du deuxi\`eme lancer. Calculer $P(X_2=k)$ pour tout $k\in \intent{ 0,m }$. En d\'eduire la loi de $X_2$ son esp\'erance et sa variance.\\
+		      On pourra montrer en particulier que: $\ddp \binom{m}{i}\ddp \binom{m-i}{k}=\ddp \binom{m}{k}\ddp \binom{m-k}{i}$.
+		\item On poursuit l'exp\'erience pr\'ec\'edente : \`a chaque lancer, on relance uniquement les d\'es qui n'ont pas donn\'e $6$ aux lancers pr\'ec\'edents. Soit $X_n$ la varf \'egale au nombre de d\'es amenant 6 au $n$-i\`eme lancer.
+		      \begin{enumerate}
+			      \item Soit $Z_{i,n}$ la var valant $1$ si le d\'e num\'erot\'e $i$ donne $6$ au $n$-i\`eme lancer et $0$ sinon. Calculer la loi de $Z_{i,n}$.
+			      \item D\'eterminer la loi de $X_n$ et donner sans calcul son esp\'erance et sa variance.
+		      \end{enumerate}
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \;
+	\textbf{On lance $\mathbf{m}$ d\'es non truqu\'es.}
+	\begin{enumerate}
+		\item \textbf{Soit $\mathbf{X_1}$ la var \'egale au nombre de d\'e amenant le 6. Donner sans calcul la loi de $\mathbf{X_1}$ son esp\'erance et sa variance:}\\
+		      \noindent On reconna\^{i}t une loi binomiale car $X_1$ est un nombre de succ\'es, le succ\'es correspondant \`{a} obtenir le chiffre 6 et l'exp\'erience revient bien \`{a} r\'ep\'eter $m$ fois la m\^{e}me exp\'eriences dans les m\^{e}mes conditions (car tous les d\'es sont identiques). On a ainsi \fbox{$X_1\hookrightarrow \mathcal{B}\left(m,\ddp\frac{1}{6}\right)$.} On a ainsi:\\
+		      $$\forall k\in\intent{ 0,m},\ P(\lbrack X_1=k\rbrack)=\binom{m}{k}\left( \ddp\frac{1}{6} \right)^k\left( \ddp\frac{5}{6} \right)^{m-k}.$$
+		      De plus, on a: $E(X_1)=\ddp\frac{m}{6}$ et $V(X_1)=\ddp\frac{5m}{36}$.
+		\item \textbf{On relance les d\'es qui n'ont pas amen\'e de 6. Soit $\mathbf{X_2}$ le nombre de ceux qui am\`enent 6 lors de la deuxi\`eme relance.
+			      Donner la loi de $\mathbf{X_2}$ son esp\'erance et sa variance. On pourra montrer en particulier que: $\mathbf{\ddp \binom{m}{l}\ddp \binom{m-l}{k}=\ddp \binom{m}{k}\ddp \binom{m-k}{l}}$.}
+		      \begin{itemize}
+			      \item[$\bullet$] On peut commencer par v\'erifier l'\'egalit\'ee des coefficients binomiaux donn\'ee.
+				      \begin{itemize}
+					      \item[$\star$] D'un c\^{o}t\'e, on a: $\ddp \binom{m}{l}\ddp \binom{m-l}{k}=\ddp\frac{m!}{l!k!(m-l-k)!}$ en simplifiant par $(m-l)!$.
+					      \item[$\star$] De l'autre c\^{o}t\'e, on a: $\ddp \binom{m}{k}\ddp \binom{m-k}{l}=\ddp\frac{m!}{l!k!(m-l-k)!}$ en simplifiant par $(m-k)!$.
+				      \end{itemize}
+				      Ainsi on a bien que: \fbox{$\ddp \binom{m}{l}\ddp \binom{m-l}{k}=\ddp \binom{m}{k}\ddp \binom{m-k}{l}$.}
+			      \item[$\bullet$] Loi de $X_2$:
+				      \begin{itemize}
+					      \item[$\star$] Univers image: \fbox{$X_2(\Omega)=\intent{ 0,m}$.}
+					      \item[$\star$] Loi:\\
+						      \noindent Soit $k\in X_2(\Omega)$. On remarque que pour calculer $P(\lbrack X_2=k\rbrack)$, on a besoin de conna\^{i}tre le nombre de d\'es que l'on relance lors de la deuxi\`{e}me relance. Et ainsi on a besoin de conna\^{i}tre le nombre de d\'es qui ont amen\'e 6 lors du premier lancer. On utilise donc le sce associ\'e \`{a} la var $X_1$. Ainsi comme $(\lbrack X_1=0\rbrack;\lbrack X_1=1\rbrack;\lbrack X_1=2\rbrack;\dots;\lbrack X_1=m\rbrack )$ est un sce on a d'apr\`{e}s la formule des probabilit\'es totales:
+						      $$P(\lbrack X_2=k\rbrack)=\sum\limits_{l=0}^m P(\lbrack X_1=l\rbrack\cap \lbrack X_2=k\rbrack).$$
+						      Puis comme d'apr\`{e}s la question 1, on a bien que pour tout $l\in\intent{ 0,m}$: $P(\lbrack X_1=l\rbrack)\not= 0$, les probabilit\'es conditionnelles $P_{\lbrack X_1=l\rbrack}$ existent toutes. Ainsi on obtient d'apr\`{e}s la formule des probabilit\'es compos\'ees:
+						      $$P(\lbrack X_2=k\rbrack)=\sum\limits_{l=0}^m P(\lbrack X_1=l\rbrack)P_{\lbrack X_1=l\rbrack}(\lbrack X_2=k\rbrack).$$
+						      En utilisant la question 1, on obtient que: $\forall l\in\intent{ 0,m},\ P(\lbrack X_1=l\rbrack)=\binom{m}{l}\left( \ddp\frac{1}{6} \right)^l\left( \ddp\frac{5}{6} \right)^{m-l}.$ Puis on a: $P_{\lbrack X_1=l\rbrack}(\lbrack X_2=k\rbrack)=\ddp\binom{m-l}{k}\left( \ddp\frac{1}{6} \right)^k\left( \ddp\frac{5}{6} \right)^{m-l-k} $ car on sait que l'on relance alors $m-l$ d\'es. On peut alors calculer la somme et on obtient que:
+						      $$\hspace{-1cm} P(\lbrack X_2=k\rbrack)=\sum\limits_{l=0}^m \binom{m}{l}\left( \ddp\frac{1}{6} \right)^l\left( \ddp\frac{5}{6} \right)^{m-l}   \ddp\binom{m-l}{k}\left( \ddp\frac{1}{6} \right)^k\left( \ddp\frac{5}{6} \right)^{m-l-k}=\sum\limits_{l=0}^m \ddp \binom{m}{k}\ddp \binom{m-k}{l}  \left( \ddp\frac{1}{6} \right)^{l+k}\left( \ddp\frac{5}{6} \right)^{2m-2l-k} $$
+						      en utilisant l'\'egalit\'e sur les coefficients binomiaux d\'emontr\'ee ci-dessus. On sort alors tout ce qui ne d\'epend pas de $l$ indice de sommation et on obtient que:
+						      $$\hspace{-2cm} P(\lbrack X_2=k\rbrack)=\ddp \binom{m}{k} \left( \ddp\frac{1}{6} \right)^{k}\left( \ddp\frac{5}{6} \right)^{2m-k} \sum\limits_{l=0}^m  \ddp \binom{m-k}{l}  \left( \ddp\frac{1}{6} \right)^{l}\left( \ddp\frac{5}{6} \right)^{-2l}
+							      =\ddp \binom{m}{k} \left( \ddp\frac{1}{6} \right)^{k}\left( \ddp\frac{5}{6} \right)^{2m-k} \sum\limits_{l=0}^m  \ddp \binom{m-k}{l}  \left( \ddp\frac{6}{25} \right)^{l}.$$
+						      Comme, pour tout $l>m-k$, on a: $\ddp \binom{m-k}{l} =0$, on obtient alors en utilisant la relation de Chasles que:
+						      $$P(\lbrack X_2=k\rbrack)=\ddp \binom{m}{k} \left( \ddp\frac{1}{6} \right)^{k}\left( \ddp\frac{5}{6} \right)^{2m-k} \sum\limits_{l=0}^{m-k}  \ddp \binom{m-k}{l}  \left( \ddp\frac{6}{25} \right)^{l}.$$
+						      On reconna\^{i}t alors le bin\^{o}me de Newton et on obtient que:
+						      $$\begin{array}{lll}
+								      P(\lbrack X_2=k\rbrack) & = & \ddp \binom{m}{k} \left( \ddp\frac{1}{6} \right)^{k}\left( \ddp\frac{5}{6} \right)^{2m-k}  \left(\ddp\frac{6}{25}+1  \right)^{m-k}\vsec                                      \\
+								                              & = & \ddp \binom{m}{k} \left( \ddp\frac{1}{5} \right)^{k}\left( \ddp\frac{25}{36} \right)^{m}  \left(\ddp\frac{31}{25}  \right)^{m-k}\vsec                                        \\
+								                              & = & \ddp \binom{m}{k} \left( \ddp\frac{1}{5} \right)^{k}\left( \ddp\frac{25}{36} \right)^{k} \left( \ddp\frac{25}{36} \right)^{m-k}  \left(\ddp\frac{31}{25}  \right)^{m-k}\vsec \\
+								                              & = & \ddp \binom{m}{k} \left( \ddp\frac{5}{36} \right)^{k}  \left(\ddp\frac{31}{36}  \right)^{m-k}.
+							      \end{array}$$
+						      Comme $\ddp\frac{31}{36} =1-\ddp\frac{5}{36} $, on reconna\^{i}t alors l'expression d'une loi binomiale et ainsi on a: \fbox{$X_2\hookrightarrow \mathcal{B}\left( m,\ddp\frac{5}{36}   \right)$.}
+				      \end{itemize}
+			      \item[$\bullet$] Esp\'erance et variance de $X_2$: On obtient que $E(X_2)=\ddp\frac{5m}{36}$ et $V(X_2)=\ddp\frac{155m}{36^2}$.
+		      \end{itemize}
+	\end{enumerate}
+\end{correction}
+
+
+
+%%%%
+
+
+
+
+
+
+
+
+\begin{exercice}  \;
+	\noindent Un magicien poss\`ede une pi\`ece truqu\'ee qui renvoie pile avec probabilit\'e $\ddp \frac{1}{3}$ et face avec probabilit\'e $\ddp \frac{2}{3}$. Il lance le d\'e $n$ fois, et on note $X$ la fr\'equence d'apparition du pile au cours de ces $n$ lancers.
+ D\'eterminer la loi de $X$, ainsi que son esp\'erance et sa variance.
+	%\begin{enumerate}
+	%	\item 
+%		\item On note $p_n$ la probabilit\'e que l'erreur entre $X$ et son esp\'erance soit sup\'erieure \`a $0.1$. Calculer le nombre de lancers $n$ \`a effectuer pour que $p_n$ soit inf\'erieure \`a $0.2$.
+	%\end{enumerate}
+\end{exercice}
+\begin{correction}
+
+	\;
+	\noindent \textbf{Un magicien poss\`ede une pi\`ece truqu\'ee qui renvoie pile avec probabilit\'e $\ddp \frac{1}{3}$ et face avec probabilit\'e $\ddp \frac{2}{3}$. Il lance la pi\`ece $n$ fois, et on note $X$ la fr\'equence d'apparition du pile au cours de ces $n$ lancers.}
+	%\begin{enumerate}
+	%	\item \textbf{D\'eterminer la loi de $X$, ainsi que son esp\'erance et sa variance.}\\
+		      On note $Y$ le nombre d'apparitions du pile au cours des $n$ lancers. Comme les exp\'eriences sont ind\'ependantes et ont toutes la m\^eme probabilit\'es de succ\`es $\ddp\frac{1}{3}$, $Y$ suit une loi binomiale : $Y \hookrightarrow \ddp\cB\left(n,\frac{1}{3}\right)$. On a donc $Y(\Omega)=\intent{0,n}$, et $P(Y=k) = \ddp\binom{n}{k} \left(\frac{1}{3}\right)^k \left(\frac{1}{3}\right)^{n-k}$, $E(Y)= n p = \ddp\frac{n}{3}$ et $V(Y) \ddp = n p (1-p) = \frac{2n}{9}$.\\
+		      On a de plus $X=\ddp\frac{Y}{n}$. On en d\'eduit alors, d'apr\`es les propri\'et\'es sur l'esp\'erance et la variance : $X(\Omega)=\ddp \left\{0, \frac{1}{n}, \frac{2}{n}, \ldots ,1\right\}$, et $\ddp P\left(X=\frac{k}{n} \right) = \ddp\binom{n}{k} \left(\frac{1}{3}\right)^k \left(\frac{1}{3}\right)^{n-k}$, $E(X)= \ddp \frac{E(Y)}{n} = \frac{1}{3}$ et $V(X) \ddp = \frac{V(Y)}{n^2}= \frac{2}{9n}$.\\
+	%	\item \textbf{On note $p_n$ la probabilit\'e que l'erreur entre $X$ et son esp\'erance soit sup\'erieure \`a $0.1$. Calculer le nombre de lancers $n$ \`a effectuer  pour que $p_n$ soit inf\'erieure \`a $0.2$.}\\
+	% 	      D'apr\`es l'\'enonc\'e, on a $p_n = P(|X-E(X)|\geq 0.1)$. On cherche la valeur de $n$ \`a partir de laquelle on a $p_n \leq 0.2$. Or d'apr\`es la formule de Bienaym\'e-Tchebychev, on a :
+	% 	      $$p_n \leq \frac{V(X)}{0.1^2}.$$
+	% 	      %D'apr\`es la question pr\'ec\'edente, on a donc $\ddp p_n \leq \frac{2}{9n \times 0.1^2}$. 
+	% 	      Pour avoir $p_n$ inf\'erieure \`a $0.2$, il suffit donc d'avoir :
+	% 	      $$\ddp \frac{V(X)}{0.1^2} \leq 0.2 \; \Leftrightarrow \; \frac{2}{9n \times 0.1^2} \leq 0.2 \; \Leftrightarrow \;  n \geq \frac{2}{9 \times 0.1^2 \times 0.2}.$$
+	% 	      L'application num\'erique donne $n \geq 112$ lancers.
+	% \end{enumerate}
+\end{correction}
+%------------------------------------------------
+%------------------------------------------------
+
+
+
+
+
+%-------------------------------------------------
+%------------------------------------------------
+\begin{exercice}  \;
+	Une urne contient $n$ boules: $m$ sont blanches et les autres sont noires $(1\leq m<n)$. On effectue des tirages sans remise jusqu'\`a ce que l'on ait obtenu toutes les boules blanches. On note $Y$ le nombre de tirages effectu\'es.
+	\begin{enumerate}
+		\item Pour tout $i\in\intent{ 0,n}$, on note $X_i$ le nombre de boules blanches obtenues au cours des $i$ premiers tirages. Quelle est la loi de $X_i$ ?
+		\item Exprimer, pour tout $k\in\intent{ 2,n}$, l'\'ev\'enement $\lbrack Y\leq k\rbrack$ en fonction de $X_k$. Calculer alors $P(\lbrack Y\leq k\rbrack)$. En d\'eduire la loi de $Y$.
+		\item Retrouver le r\'esultat ci-dessus en calculant directement la loi. On pourra exprimer l'\'ev\`{e}nement $\lbrack Y=k\rbrack$ avec $X_{k-1}$ et $B_k$ avec $B_k$ l'\'ev\`{e}nement \og tirer une boule blanche au tirage $k$\fg.
+		\item On suppose $m=1$, donner explicitement la loi de $Y$. M\^eme question si $m=2$.
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \;
+	\textbf{Une urne contient $\mathbf{n}$ boules: $\mathbf{m}$ sont blanches et les autres sont noires $\mathbf{(1\leq m<n)}$. On effectue des tirages sans remise jusqu'\`a ce que l'on ait obtenu toutes les boules blanches. On note $\mathbf{Y}$ le nombre de tirages effectu\'es.}
+	\begin{enumerate}
+		\item \textbf{ Pour tout $\mathbf{i\in\intent{ 0,n}}$, on note $\mathbf{X_i}$ le nombre de boules blanches obtenues au cours des $\mathbf{i}$ premiers tirages. Quelle est la loi de $\mathbf{X_i}$ ?}\\
+		      \noindent On reconna\^{i}t une loi hyperg\'eom\'etrique car les tirages se font sans remise et que l'on cherche bien un nombre de succ\'es, le succ\'es correspondant \`{a} obtenir une boule blanche. Ainsi on a: \fbox{$X_i\hookrightarrow \mathcal{H}\left(n,i,\ddp\frac{m}{n}\right)$.} Ainsi on a $X_i(\Omega)\subset \intent{ 0,i}$ et:
+		      $$\forall k\in \intent{ 0,i},\ P(\lbrack X_i=k\rbrack)=\ddp\frac{  \binom{m}{k}  \binom{n-m}{i-k} }{  \binom{n}{i}  }.$$
+
+		\item \textbf{Exprimer, pour tout $\mathbf{k\in\intent{ 2,n}}$, l'\'ev\'enement $\mathbf{\lbrack Y\leq k\rbrack}$ en fonction de $\mathbf{X_k}$. Calculer alors $\mathbf{P(\lbrack Y\leq k\rbrack)}$. En d\'eduire la loi de $\mathbf{Y}$:}
+		      \begin{itemize}
+			      \item[$\bullet$] On remarque que: \fbox{$\lbrack Y\leq k\rbrack=\lbrack X_k=m\rbrack$} car l'\'ev\`{e}nement $\lbrack Y\leq k\rbrack$ correspond \`{a} ce que toutes les boules blanches aient \'et\'e tir\'ees au plus au tirage $k$ (mais elles ont p\^{u} \^{e}tre toutes tir\'ees avant le tirage $k$). Toutes les boules blanches sont \'et\'e tir\'ees au plus au tirage $k$ correspond donc bien \`{a} ce que le nombre de boules blanches tir\'ees en $k$ tirages soit \'egal \`{a} $m$ \`{a} savoir au nombre total de boules blanches.
+			      \item[$\bullet$] Comme on conna\^{i}t la loi de $X_k$, on en d\'eduit $P(\lbrack Y\leq k\rbrack)$. On obtient donc:
+				      $P(\lbrack Y\leq k\rbrack)=P(\lbrack X_k=m\rbrack)=\ddp\frac{  \binom{m}{m}  \binom{n-m}{k-m} }{  \binom{n}{k}  }=\fbox{$\ddp\frac{ \binom{n-m}{k-m} }{  \binom{n}{k}  }$.}$
+			      \item[$\bullet$] Loi de $Y$:
+				      \begin{itemize}
+					      \item[$\star$] Univers image de $Y$: on a: \fbox{$Y(\Omega)=\intent{ m,n}$} car dans le meilleur des cas on tire d'abord toutes les boules blanches et il faut donc $m$ tirages pour les avoir toutes et dans le pire des cas, on commence par exemple d'abord par tirer toutes les boules noires et seulement ensuite les boules blanches et il faut alors $n$ tirages.
+					      \item[$\star$] Comme on conna\^{i}t $P(\lbrack Y\leq k \rbrack)$ pour tout $k\in Y(\Omega)$, on peut donc en d\'eduire la fonction de r\'epartition de $Y$. Et comme ici on veut la loi de $Y$, il faut donc donner le lien entre des \'ev\`{e}nements type $\lbrack Y\leq K\rbrack$ et des \'ev\`{e}nements type $\lbrack Y=k\rbrack$. Ce raisonnement est classique et doit \^{e}tre connu.
+						      \begin{itemize}
+							      \item[$\circ$] Passage de la fonction de r\'epartition \`{a} la loi:\\
+								      \noindent On a: $\lbrack Y\leq k\rbrack=\lbrack Y=k\rbrack\cup \lbrack Y<k\rbrack=\lbrack Y=k\rbrack\cup \lbrack k-1<Y<k\rbrack\cup \lbrack Y\leq k-1\rbrack$. Comme $ \lbrack k-1<Y<k\rbrack=\emptyset$, on obtient que: $\lbrack Y\leq k\rbrack=\lbrack Y=k\rbrack\cup \lbrack Y\leq k-1\rbrack$. Puis comme ces deux \'ev\`{e}nements sont deux \`{a} deux incompatibles, on obtient que
+								      $$P(\lbrack Y\leq k\rbrack)=P(\lbrack Y=k\rbrack)+P(\lbrack Y\leq k-1\rbrack)\Leftrightarrow
+									      \fbox{$P(\lbrack Y=k\rbrack)=P(\lbrack Y\leq k\rbrack)-P(\lbrack Y\leq k-1\rbrack).$}$$
+							      \item[$\circ$] Cette \'egalit\'e nous permet d'obtenir la loi de $Y$:\\
+								      \noindent Si $k=m$ alors $\lbrack Y\leq k-1\rbrack=\emptyset$ et ainsi: \fbox{$P(\lbrack Y=m\rbrack)=P(\lbrack Y\leq m
+										      \rbrack)=\ddp\frac{1}{\binom{n}{k}}$} car $\binom{n-m}{0}=1$.\\
+								      \noindent Si $k\in\intent{ m+1,n}$ alors $P(\lbrack Y=k\rbrack)=P(\lbrack Y\leq k\rbrack)-P(\lbrack Y\leq k-1\rbrack)=
+									      \ddp\frac{ \binom{n-m}{k-m} }{  \binom{n}{k}  }-\ddp\frac{ \binom{n-m}{k-1-m} }{  \binom{n}{k-1}}$. Si on \'ecrit les coefficients binomiaux sous forme de factorielle et que l'on fait quelques calculs en factorisant, on obtient que:
+								      $$\forall k\in\intent{ m+1,n},\ P(\lbrack Y=k\rbrack)=m\ddp\frac{(n-m)! (k-1)!}{n!(k-m)!}.$$
+								      On peut d'ailleurs remarquer que cette formule est aussi vraie pour $k=m$ car $m\ddp\frac{(n-m)! (k-1)!}{n!(k-m)!}=m\ddp\frac{(n-m)! (m-1)!}{n!(m-m)!}=\ddp\frac{(n-m)! m!}{n!}=\ddp\frac{1}{\binom{n}{m}}$. On obtient donc au final que:
+								      $$\fbox{$\forall k\in Y(\Omega),\ P(\lbrack Y=k\rbrack)=m\ddp\frac{(n-m)! (k-1)!}{n!(k-m)!}.$}$$
+						      \end{itemize}
+				      \end{itemize}
+		      \end{itemize}
+		\item \textbf{ Retrouver le r\'esultat ci-dessus en calculant directement la loi sans passer par la fonction de r\'epartition. On pourra exprimer l'\'ev\`{e}nement $\mathbf{\lbrack Y=k\rbrack}$ avec $\mathbf{X_{k-1}}$ et $\mathbf{B_k}$ avec $\mathbf{B_k}$ l'\'ev\`{e}nement \og tirer une boule blanche au tirage $\mathbf{k}$\fg:}
+		      \begin{itemize}
+			      \item[$\bullet$] On peut remarquer que: \fbox{$\lbrack Y=k\rbrack=\lbrack X_{k-1}=m-1\rbrack\cap B_k$} car l'\'ev\`{e}nement $\lbrack Y=k\rbrack$ correspond \`{a} tirer la derni\`{e}re boule blanche au tirage $k$. Pour cela, il faut bien avoir $B_k$ et avoir tir\'e toutes les autres boules blanches avant \`{a} savoir avoir tir\'e $m-1$ boules blanches lors des $k-1$ premiers tirages.
+			      \item[$\bullet$] On obtient donc $P(\lbrack Y=k\rbrack)=P(\lbrack X_{k-1}=m-1\rbrack\cap B_k)$. Puis d'apr\`{e}s la formule des probabilit\'es compos\'ees, on obtient que: $P(\lbrack Y=k\rbrack)=P(\lbrack X_{k-1}=m-1\rbrack)P_{\lbrack X_{k-1}=m-1\rbrack}( B_k)$ car $P(\lbrack X_{k-1}=m-1\rbrack)\not= 0$ d'apr\`{e}s la question 1 et ainsi la probabilit\'e conditionnelle $P_{\lbrack X_{k-1}=m-1\rbrack}$ existe bien. On a toujours d'apr\`{e}s la question 1 que $P(\lbrack X_{k-1}=m-1\rbrack)=\ddp\frac{  \binom{m}{m-1}  \binom{n-m}{k-m} }{  \binom{n}{k-1}  }=m\ddp\frac{\binom{n-m}{k-m}}{ \binom{n}{k-1} }$. Il reste donc \`{a} calculer $P_{\lbrack X_{k-1}=m-1\rbrack}( B_k)$. Lors du $k$-i\`{e}me tirage il reste dans l'urne 1 boule blanche et $n-k+1$ boules en tout. Ainsi on a:
+				      $P_{\lbrack X_{k-1}=m-1\rbrack}( B_k)=\ddp\frac{1}{n-k+1}$. Au final on a donc obtenu que:
+				      $$\fbox{$\forall k\in Y(\Omega),\ P(\lbrack Y=k\rbrack)=P(\lbrack X_{k-1}=m-1\rbrack)P_{\lbrack X_{k-1}=m-1\rbrack}( B_k)=\ddp\frac{m}{n-k+1}\ddp\frac{\binom{n-m}{k-m}}{ \binom{n}{k-1} }.$}$$
+			      \item[$\bullet$] Il reste alors \`{a} v\'erifier que l'on retrouve bien le m\^{e}me r\'esultat que dans la question pr\'ec\'edente. Pour cela on \'ecrit les deux coefficients binomiaux sous la forme de factorielle et on obtient que:
+				      $$\hspace{-1.5cm} \ddp\frac{m}{n-k+1}\ddp\frac{\binom{n-m}{k-m}}{ \binom{n}{k-1} }=\ddp\frac{m}{n-k+1}\ddp\frac{(n-m)!}{(k-m)!(n-k)!}\ddp\frac{(k-1)!(n-k+1)!}{n!}=m \ddp\frac{(n-m)!(k-1)!(n-k)!}{n!(k-m)!(n-k)!}=m \ddp\frac{(n-m)!(k-1)!}{n!(k-m)!}.$$
+				      On retrouve bien le m\^{e}me r\'esultat que dans la question 2.
+		      \end{itemize}
+		\item \textbf{On suppose $\mathbf{m=1}$, donner explicitement la loi de $\mathbf{Y}$. M\^eme question si $\mathbf{m=2}$.}
+		      \begin{itemize}
+			      \item[$\bullet$] \textbf{Pour $\mathbf{m=1}$:}
+				      \begin{itemize}
+					      \item[$\star$] Univers image: \fbox{$Y(\Omega)=\intent{ 1,n}$.}
+					      \item[$\star$] Loi de $Y$: soit $k\in Y(\Omega)$. On a: $\lbrack Y=k\rbrack=N_1\cap N_2\cap \dots \cap N_{k-1}\cap B_k$ avec notations \'evidentes. Puis d'apr\`{e}s la formule des probabilit\'es compos\'ees et sous r\'eserve d'existence des probabilit\'es conditionnelles, on obtient que:
+						      $$P(\lbrack Y=k\rbrack)=P(N_1)P_{N_1}(N_2)P_{N_1\cap N_2}(N_3)\dots P_{N_1\cap N_2\cap \dots\cap N_{k-2}}(N_{k-1})P_{N_1\cap N_2\cap \dots\cap N_{k-1}}(B_k).$$
+						      De plus $P(N_1)=\ddp\frac{n-1}{n}\not= 0$ et ainsi la probabilit\'e conditionnelle $P_{N_1}$ existe bien. Puis d'apr\`{e}s la formule des probabilit\'es compos\'ees, on a: $P(N_1\cap N_2)=P(N_1)P_{N_1}(N_2)=\ddp\frac{n-1}{n}\times \ddp\frac{n-2}{n-1}=\ddp\frac{n-2}{n}\not= 0$ et ainsi la probabilit\'e conditionnelle $P_{N_1\cap N_2}$ existe bien. En it\'erant le raisonnement on peut alors montrer que toutes les probabilit\'es conditionnelles existent bien. On obtient alors:
+						      $$P(\lbrack Y=k\rbrack)=\ddp\frac{n-1}{n}\times \ddp\frac{n-2}{n-1}\ddp\frac{n-3}{n-2}\dots\ddp\frac{n-k+1}{n-k+2}\ddp\frac{1}{n-k+1}=\ddp\frac{1}{n}.$$
+						      Ainsi on reconna\^{i}t une loi uniforme: \fbox{$Y\hookrightarrow \mathcal{U}(n)$.}
+				      \end{itemize}
+			      \item[$\bullet$] \textbf{Pour $\mathbf{m=2}$:}\\
+				      \noindent On peut ici utiliser le r\'esultat de la question 3 avec $m=2$. On obtient alors:
+				      \begin{itemize}
+					      \item[$\star$] Univers image: \fbox{$Y(\Omega)=\intent{ 2,n}$.}
+					      \item[$\star$] Loi de $Y$: soit $k\in Y(\Omega)$. On a:
+						      $$P(\lbrack Y=k\rbrack)=2\ddp\frac{(n-2)!(k-1)!}{n!(k-2)!}=\fbox{$\ddp\frac{2(k-1)}{n(n-1)}.$}$$
+				      \end{itemize}
+		      \end{itemize}
+	\end{enumerate}
+\end{correction}
+\section*{Type DS}
+
+%-------------------------------------------------
+%------------------------------------------------
+\begin{exercice}  \;
+	Un jeune homme \'ecrit \`a une jeune fille au cours d'une ann\'ee non bissextile. Il adopte la r\'esolution suivante: le jour de l'an, il lui \'ecrit \`a coup s\^ur. S'il lui a \'ecrit le jour $i$, il lui \'ecrit le lendemain avec une probabilit\'e $\ddp\demi$. S'il ne lui a pas \'ecrit le jour $i$, il lui \'ecrit le lendemain \`a coup s\^ur. Soit $X_i$ la varf de Bernoulli valant 1 si le jeune homme \'ecrit le jour $i$ et 0 sinon.
+	\begin{enumerate}
+		\item Former une relation de r\'ecurrence entre $P(\lbrack X_{i+1}=1\rbrack)$ et $P(\lbrack X_{i}=1\rbrack)$.
+		\item En d\'eduire la loi de $X_i$ pour tout $i\in\intent{ 1,365}$.
+		\item Soit $X$ la varf \'egale au nombre de lettres envoy\'ees dans l'ann\'ee. Calculer $E(X)$.
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \;
+	\textbf{Un jeune homme \'ecrit \`a une jeune fille au cours d'une ann\'ee non bissextile. Il adopte la r\'esolution suivante: le jour de l'an, il lui \'ecrit \`a coup s\^ur. S'il lui a \'ecrit le jour $\mathbf{i}$, il lui \'ecrit le lendemain avec une probabilit\'e $\mathbf{\ddp\demi}$. S'il ne lui a pas \'ecrit le jour $\mathbf{i}$, il lui \'ecrit le lendemain \`a coup s\^ur. Soit $\mathbf{X_i}$ la varf de Bernouilli valant 1 si le jeune homme \'ecrit le jour $\mathbf{i}$ et 0 sinon.}
+	\begin{enumerate}
+		\item \textbf{Former une relation de r\'ecurrence entre $\mathbf{P(\lbrack X_{i+1}=1\rbrack)}$ et $\mathbf{P(\lbrack X_{i}=1\rbrack)}$:}\\
+		      \noindent Les \'ev\`{e}nements $(\lbrack X_i=0\rbrack,\lbrack X_i=1\rbrack)$ forment le sce associ\'e \`{a} la var de Bernouilli $X_i$. Ainsi on obtient en utilisant la formule des probabilit\'es totales que:
+		      $$P(\lbrack X_{i+1}=1\rbrack)=P(\lbrack X_i=0\rbrack\cap \lbrack X_{i+1}=1\rbrack)+P(\lbrack X_i=1\rbrack\cap \lbrack X_{i+1}=1\rbrack).$$
+		      D'apr\`{e}s le protocole, on a: $P(\lbrack X_i=0\rbrack)\not= 0$ et $P(\lbrack X_i=1\rbrack)\not= 0$ et ainsi les probabilit\'es conditionnelles $P_{\lbrack X_i=0\rbrack}$ et $P_{\lbrack X_i=1\rbrack}$ existent bien. On peut alors utiliser la formule des probabilit\'es compos\'ees et on obtient que:
+		      $$P(\lbrack X_{i+1}=1\rbrack)=P(\lbrack X_i=0\rbrack)P_{\lbrack X_i=0\rbrack}( \lbrack X_{i+1}=1\rbrack)+P_{\lbrack X_i=1\rbrack}(\lbrack X_{i+1}=1\rbrack)=P(\lbrack X_i=0\rbrack)+\ddp\demi P(\lbrack X_i=1\rbrack).$$
+		      Comme de plus $P(\lbrack X_i=0\rbrack)=1-P(\lbrack X_i=1\rbrack)$, on obtient que:
+		      $$\fbox{$P(\lbrack X_{i+1}=1\rbrack)=1-\ddp\demi P(\lbrack X_i=1\rbrack).$}$$
+		\item \textbf{En d\'eduire la loi de $\mathbf{X_i}$ pour tout $\mathbf{i\in\intent{ 1,365}}$:}
+		      \begin{itemize}
+			      \item[$\bullet$] Pour tout $i\in\intent{ 1,365}$, on a: $X_i\hookrightarrow \mathcal{B}(p_i)$ avec $p_i=P(\lbrack X_i=1\rbrack)$. Ainsi pour conna\^{i}tre la loi de $X_i$, il suffit de conna\^{i}tre $p_i$ \`{a} savoir de calculer $P(\lbrack X_i=1\rbrack)$.
+			      \item[$\bullet$] Calcul de $p_i$:\\
+				      \noindent La question pr\'ec\'edente donne que:
+				      $$\forall i\in\intent{ 1,365},\quad p_{i+1}=1-\ddp\demi p_i.$$
+				      On reconna\^{i}t ainsi une suite arithm\'etico-g\'eom\'etrique. On ne d\'etaille pas les calculs mais on obtient au final:
+				      $$\fbox{$\forall i\in\intent{ 1,365},\quad p_{i}=\ddp\frac{1}{3}\left( -\ddp\demi \right)^{i-1}+\ddp\frac{2}{3}.$}$$
+			      \item[$\bullet$] Ainsi, on a: \fbox{$\forall i\in\intent{ 1,365},\quad X_i\hookrightarrow \mathcal{B}\left( \ddp\frac{1}{3}\left( -\ddp\demi \right)^{i-1}+\ddp\frac{2}{3} \right)$.}
+		      \end{itemize}
+		\item \textbf{Soit $\mathbf{X}$ la varf \'egale au nombre de lettres envoy\'ees dans l'ann\'ee. Calculer $\mathbf{E(X)}$:}\\
+		      \noindent On remarque que: $X=\sum\limits_{i=1}^{365} X_i$. Ainsi par lin\'earit\'e de l'esp\'erance, on obtient que:
+		      $E(X)=\sum\limits_{i=1}^{365} E(X_i)$. De plus comme $X_i\hookrightarrow \mathcal{B}\left( \ddp\frac{1}{3}\left( -\ddp\demi \right)^{i-1}+\ddp\frac{2}{3} \right)$, on a: $E(X_i)=\ddp\frac{1}{3}\left( -\ddp\demi \right)^{i-1}+\ddp\frac{2}{3} $. Ainsi on a:
+		      $$\begin{array}{lll}
+				      E(X) & = & \ddp\sum\limits_{i=1}^{365} \left\lbrack\ddp\frac{1}{3}\left( -\ddp\demi \right)^{i-1}+\ddp\frac{2}{3} \right\rbrack\vsec \\
+				           & = & \ddp\frac{-2}{3} \sum\limits_{i=1}^{365} \left( -\ddp\demi \right)^{i}+\ddp\frac{2}{3} \times 365\vsec                    \\
+				           & = & \fbox{$ \ddp\frac{2}{9}\left( 1-\left(  -\ddp\demi\right)^{365}   \right)+\ddp\frac{730}{3}   .$}
+			      \end{array}$$
+	\end{enumerate}
+\end{correction}
+%-------------------------------------------------
+
+
+%-------------------------------------------------
+%------------------------------------------------
+\begin{exercice}  \;
+	Un tireur doit toucher $n$ cibles ($n\in\N^{\star}$) num\'erot\'ees de 1 \`a $n$ dans l'ordre et il s'arr\^ete d\`es qu'il rate une cible. On suppose que s'il se pr\'esente devant la $k$-i\`eme cible, la probabilit\'e qu'il la touche est $p_k\in \, \rbrack 0,1\lbrack$. On note $X$ le nombre de cibles touch\'ees.
+	\begin{enumerate}
+		\item D\'eterminer la loi de $X$.
+		\item On suppose que, pour tout $k\in\intent{ 1,n}$, $p_k=p$.
+		      \begin{enumerate}
+			      \item D\'eterminer la loi de $X$ en fonction de $p$ et de $q=1-p$.
+			      \item Pour tout $t\in\lbrack 0,1\rbrack$, on d\'efinit la fonction g\'en\'eratrice associ\'ee \`a $X$ par : $G_X(t)=E(t^X).$
+			            Justifier que $G_X^{\prime}(1)=E(X)$ et en d\'eduire l'esp\'erance de $X$ ainsi que la limite de $E(X)$ quand $n$ tend vers $+\infty$.
+		      \end{enumerate}
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \;
+	%Un tireur doit toucher $n$ cibles ($n\in\N^{\star}$) num\'erot\'ees de 1 \`a $n$ dans l'ordre et il s'arr\^ete d\`es qu'il rate une cible. On suppose que s'il se pr\'esente devant la $k$-i\`eme cible, la probabilit\'e qu'il la touche est $p_k\in\rbrack 0,1\lbrack$. On note $X$ le nombre de cibles touch\'ees.
+	\begin{enumerate}
+		\item On commence par trouver l'univers image : on peut toucher de $0$ \`a $n$ cibles, donc $X(\Omega) =\intent{ 0,n}$.\\
+		      Notons $F_k$ l'\'ev\'enement \og le tireur touche la $k$-i\`eme cible \fg. D'apr\`es l'\'enonc\'e, $P(F_k) = p_k$. De plus, on a, pour tout $k \in \intent{ 1,n-1}$,
+		      $$P(X=k) = P(F_1 \cap F_2 \cap \ldots \cap F_k \cap \bar F_{k+1}),$$
+		      car pour toucher exactement $k$ cibles, il faut r\'eussir les $k$ premiers coups, et rater la cible au $k+1$-i\`eme essai. On a, d'apr\`es la formule des probabilit\'es compos\'ees, comme $P(F_1\cap \ldots \cap F_k) \not=0)$ :
+		      $$P(X=k) = P(F_1) \times P_{F_1}(F_2) \times \ldots \times \times P_{F_1\cap \ldots \cap F_k}(\bar F_{k+1})$$
+		      d'o\`u \fbox{$P(X=k) = p_1 p_2 \ldots p_k (1-p_{k+1})$ }.\\
+		      Pour $k=0$, il faut rater la premi\`ere cible, donc \fbox{$P(X=0) = 1-p_1$ }.\\
+		      Pour $k=n$, il faut toucher toutes les cibles. le m\^eme raisonnement donne \fbox{$P(X=n) = p_1 p_2 \ldots p_n$ }.
+		\item %On suppose que, pour tout $k\in\intent{ 1,n}$, $p_k=p$.
+		      \begin{enumerate}
+			      \item  D'apr\`es la question pr\'ec\'edente, on a, pour $k \in \intent{ 0,n-1}$, \fbox{$P(X=k) = p^k q$}, et \fbox{$P(X=n) = p^n$ }. %D\'eterminer la loi de $X$ en fonction de $p$ et de $q=1-p$.
+			      \item %Pour tout $t\in\lbrack 0,1\rbrack$, on d\'efinit la fonction g\'en\'eratrice associ\'ee \`a $X$ par
+			            %$$G_X(t)=E(t^X).$$
+			            %Justifier que $G_X^{\prime}(1)=E(X)$ et en d\'eduire l'esp\'erance de $X$ ainsi que la limite de $E(X)$ quand $n$ tend vers $+\infty$.
+			            D'apr\`es le th\'eor\`eme de transfert, on a
+			            $$G_X(t) = E(t^X) = \sum\limits_{k=0}^n t^k P(X=k).$$
+			            Cette expression est un polyn\^ome en $t$, donc est bien d\'erivable par rapport \`a $t$, et on a
+			            $$G_X'(t) = 0 + \sum\limits_{k=1}^n k t^{k-1} P(X=k).$$
+			            On en d\'eduit
+			            $$G_X'(1) =  \sum\limits_{k=1}^n k  P(X=k) =  \sum\limits_{k=0}^n k  P(X=k),$$
+			            On a donc bien : \fbox{$G_X'(1) = E(X)$}.\\
+			            Calculons $G_X(t)$. On a
+			            $$G_X(t)   =  \sum\limits_{k=0}^n t^k P(X=k) = q + \sum\limits_{k=1}^{n-1} t^k p^k q + t^n p^n = q \sum\limits_{k=0}^{n-1} (tp)^k  + t^n p^n.$$
+			            Or $tp \not=1$, donc on a
+			            $$G_X(t)  = \ddp q \frac{1-(tp)^n}{1-tp} + t^n p^n.$$
+			            On d\'erive :\vsec
+			            $$G_X'(t) = q \frac{-n p (tp)^{n-1} (1-tp) - (1-(tp)^n)(-p)}{(1-tp)^2} + nt^{n-1}p^n.$$
+			            On prend la valeur en $t=1$, et on obtient
+			            $$E(X) = G_X'(1) = q \frac{-n p^n(1-p) + p (1-p^n)}{(1-p)^2} + n p^n = -np^n + \frac{p}{q}(1-p^n) + n p^n.$$
+			            en utilisant le fait que $1-p=q$. On a donc \fbox{$E(X) =\ddp \frac{p}{q}(1-p^n) $}.\\
+			            On a $p \in\rbrack 0,1\lbrack$, donc $\lim\limits_{+\infty}p^n =0$. De plus, $np^n = n e^{n \ln p}$ avec $\ln p <0$, donc par th\'eor\`eme des croissances compar\'ees on a $\lim\limits_{+\infty} np^n =0$. Donc finalement, \fbox{$\lim\limits_{+\infty} \ddp E(X) = \frac{p}{q}$}.
+		      \end{enumerate}
+	\end{enumerate}
+\end{correction}
+
+
+%------------------------------------------------
+%------------------------------------------------
+
+
+%------------------------------------------------
+
+%-------------------------------------------------
+
+
+%------------------------------------------------
+
+
+
+
+%-------------------------------------------------
+%------------------------------------------------
+
+
+%-------------------------------------------------
+
+
+%-------------------------------------------------
+%------------------------------------------------
+
+%-------------------------------------------------
+
+\begin{exercice}  \;
+	\noindent On consid\`{e}re une suite de tirages avec remise dans une urne contenant $N$ boules num\'erot\'ees de 1 \`{a} $N$. Pour tout $n\geq 1$, on note $Y_n$ le nombre de num\'eros non encore sortis \`{a} l'issue du $n$-i\`{e}me tirage.
+	\begin{enumerate}
+		\item D\'eterminer $Y_1$.
+		\item Soit $n\geq 2$.
+		      \begin{enumerate}
+			      \item Justifier que $Y_n\leq N-1$.
+			      \item Montrer en utilisant la formule des probabilit\'es totales que pour tout $k\in\intent{ 0,N}$, on a
+			            $$P(Y_n=k)=\ddp\frac{N-k}{N}P(Y_{n-1}=k)+\ddp\frac{k+1}{N}P(Y_{n-1}=k+1).$$
+		      \end{enumerate}
+		\item En d\'eduire que la suite $(E(Y_n))_{n\geq 1}$ est une suite g\'eom\'etrique et en d\'eduire l'expression explicite de $E(Y_n)$ pour tout $n\geq 1$.
+	\end{enumerate}
+\end{exercice}
+%------------------------------------------------
+\begin{correction}  \;
+	\noindent \textbf{On consid\`{e}re une suite de tirages \textbf{avec remise} dans une urne contenant $\mathbf{N}$ boules num\'erot\'ees de 1 \`{a} $\mathbf{N}$. Pour tout $\mathbf{n\geq 1}$, on note $\mathbf{Y_n}$ le nombre de num\'eros non encore sortis \`{a} l'issue du $\mathbf{n}$-i\`{e}me tirage.}
+	\begin{enumerate}
+		\item \textbf{D\'eterminer $\mathbf{Y_1}$:}
+		      \`{A} l'issu du premier tirage, un seul num\'ero a \'et\'e tir\'e et il y a donc toujours $N-1$ num\'eros non encore tir\'es. Ainsi $Y_1(\Omega)=\lbrace N-1\rbrace$ et $P(Y_1=N-1)=1$. \fbox{La var $Y_1$ est la var certaine \'egale \`{a} $N-1$.}
+		\item \textbf{Soit $\mathbf{n\geq 2}$.}
+		      \begin{enumerate}
+			      \item \textbf{Justifier que $\mathbf{Y_n\leq N-1}$:}\\
+			            \noindent Apr\`{e}s $n$ tirages, le nombre minimum de num\'eros sortis est 1 dans le cas o\`{u} on a toujours tir\'e le m\^{e}me num\'ero. Ainsi le nombre maximum de num\'eros non encore sortis est $N-1$. Ainsi on vient bien de montrer que: \fbox{$Y_n\leq N-1 $}. Ainsi on a: $Y_n(\Omega)=\intent{ 0,N-1}$.
+			      \item \textbf{Montrer en utilisant la formule des probabilit\'es totales que pour tout $\mathbf{k\in\intent{ 0,N-1}}$, on a}
+			            $$\mathbf{P(Y_n=k)=\ddp\frac{N-k}{N}P(Y_{n-1}=k)+\ddp\frac{k+1}{N}P(Y_{n-1}=k+1).}$$
+			            Soit $k\in \intent{ 0,N-1}$ fix\'e. Pour obtenir $\lbrack Y_n=k\rbrack$ lors du tirage $n$, seulement deux cas sont possibles lors du tirage $n-1$. Soit on a: $\lbrack Y_{n-1}=k\rbrack$, soit on a: $\lbrack Y_n=k+1\rbrack$. En effet pour avoir $k$ num\'eros non encore sortis au tirage $n$:
+			            \begin{itemize}
+				            \item[$\bullet$] soit il restait d\'ej\`{a} $k$ num\'eros non encore sortis au tirage $n-1$ et lors du tirage $n$ on a tir\'e un num\'ero d\'ej\`{a} sorti
+				            \item[$\bullet$] soit il restait $k+1$ num\'eros non encore sortis au tirage $n-1$ et lors du tirage $n$ on a tir\'e un nouveau num\'ero jamais sorti.
+			            \end{itemize}
+			            Puis en utilisant ensuite la formule des probabilit\'es totales, on obtient que:
+			            $$P(\lbrack Y_n=k\rbrack)=P(\lbrack Y_{n-1}=k\rbrack \cap \lbrack Y_n=k\rbrack) +P(\lbrack Y_{n-1}=k+1\rbrack \cap \lbrack Y_n=k\rbrack).$$
+			            Puis d'apr\`{e}s la formule des probabilit\'es compos\'ees, on obtient que:
+			            $$P(\lbrack Y_n=k\rbrack)=P(\lbrack Y_{n-1}=k\rbrack)P_{\lbrack Y_{n-1}=k\rbrack}( \lbrack Y_n=k\rbrack) +P(\lbrack Y_{n-1}=k+1\rbrack)P_{\lbrack Y_{n-1}=k+1\rbrack}( \lbrack Y_n=k\rbrack).$$
+			            D'apr\`{e}s le protocole, on a: $P(\lbrack Y_{n-1}=k\rbrack)\not= 0$ et $P(\lbrack Y_{n-1}=k+1\rbrack)\not= 0$ et ainsi les probabilit\'es conditionnelles $P_{P(\lbrack Y_{n-1}=k\rbrack)}$ et $P_{P(\lbrack Y_{n-1}=k+1\rbrack)}$ existent bien.
+			            On a alors:
+			            \begin{itemize}
+				            \item[$\bullet$] Pour obtenir $\lbrack Y_{n}=k\rbrack$ sachant $\lbrack Y_{n-1}=k\rbrack$, il faut choisir lors du tirage $n$ un des $N-k$ num\'eros d\'ej\`{a} sorti lors des $n-1$-i\`{e}me premiers tirages. Ainsi on a: $P_{\lbrack Y_{n-1}=k\rbrack}( \lbrack Y_n=k\rbrack)=\ddp\frac{N-k}{N}$.
+				            \item[$\bullet$] Pour obtenir $\lbrack Y_{n}=k\rbrack$ sachant $\lbrack Y_{n-1}=k+1\rbrack$, il faut choisir lors du tirage $n$ un des $k+1$num\'eros pas encore tir\'es lors des $n-1$-i\`{e}me premiers tirages. Ainsi on a: $P_{\lbrack Y_{n-1}=k+1\rbrack}( \lbrack Y_n=k\rbrack)=\ddp\frac{k+1}{N}$.
+			            \end{itemize}
+			            On obtient donc bien au final que:
+			            $$\fbox{$P(Y_n=k)=\ddp\frac{N-k}{N}P(Y_{n-1}=k)+\ddp\frac{k+1}{N}P(Y_{n-1}=k+1).$}$$
+		      \end{enumerate}
+		      %---
+		\item \textbf{En d\'eduire que la suite $\mathbf{(E(Y_n))_{n\geq 1}}$ est une suite g\'eom\'etrique et en d\'eduire l'expression explicite de $\mathbf{E(Y_n)}$ pour tout $\mathbf{n\geq 1}$.}
+		      \begin{itemize}
+			      \item[$\bullet$] Montrons que la suite $(E(Y_n))_{n\geq 1}$ est une suite g\'eom\'etrique:\\
+				      \noindent Par d\'efinition de l'esp\'erance, on a pour tout $n\geq 1$:
+				      $$E(Y_n)=\sum\limits_{k=0}^{N-1} kP(\lbrack Y_n=k\rbrack).$$
+				      On utilise alors l'\'egalit\'ee d\'emontr\'ee \`{a} la question pr\'ec\'edente afin d'essayer de trouver un lien entre $E(Y_n)$ et $E(Y_{n-1})$. On a:
+				      $$\begin{array}{lll}
+						      E(Y_n) & = & \sum\limits_{k=0}^{N-1} k\left(\ddp\frac{N-k}{N}P(Y_{n-1}=k)+\ddp\frac{k+1}{N}P(Y_{n-1}=k+1) \right)\vsec                   \\
+						             & = & \ddp\frac{1}{N} \sum\limits_{k=0}^{N-1} k(N-k) P(Y_{n-1}=k) + \ddp\frac{1}{N} \sum\limits_{k=0}^{N-1} k(k+1)P(Y_{n-1}=k+1).
+					      \end{array}$$
+				      On pose alors le changement de variable $j=k+1$ dans la deuxi\`{e}me somme et on obtient que:
+				      $$\begin{array}{lll}
+						      E(Y_n) & = & \ddp\frac{1}{N} \sum\limits_{k=0}^{N-1} k(N-k) P(Y_{n-1}=k) + \ddp\frac{1}{N} \sum\limits_{k=1}^{N} (k-1)kP(Y_{n-1}=k)\vsec          \\
+						             & = & \ddp\frac{1}{N} \left(\sum\limits_{k=1}^{N-1} \left\lbrack k(N-k)+(k-1)k \right\rbrack P(Y_{n-1}=k) \right)+0+(N-1)P(Y_{n-1}=N)\vsec \\
+						             & = & \ddp\frac{1}{N} \left(\sum\limits_{k=1}^{N-1} k(N-1) P(Y_{n-1}=k) \right)
+					      \end{array}$$
+				      en utilisant la relation de Chasles puis en utilisant le fait que $P(Y_{n-1}=N)=0$ car $Y_n(\Omega)=\intent{ 0,N-1}$. On obtient alors:
+				      $$\fbox{$E(Y_n)=\ddp\frac{N-1}{N} \sum\limits_{k=1}^{N-1} k P(Y_{n-1}=k) =\ddp\frac{N-1}{N} E(Y_{n-1}).$}$$
+				      Ainsi la suite $(E(Y_n))_{n\geq 1}$ est bien une suite g\'eom\'etrique de raison $\ddp\frac{N-1}{N}$.
+			      \item[$\bullet$] Expression de $(E(Y_n))_{n\geq 1}$:\\
+				      \noindent On obtient donc:
+				      $$\forall n\geq 1,\ E(Y_n)=E(Y_1)\times \left( \ddp\frac{N-1}{N} \right)^{n-1}.$$
+				      Mais on a montr\'e \`{a} la question 1 que la var $Y_1$ est la var certaine \'egale \`{a} $N-1$. Ainsi $E(Y_1)=N-1$. On obtient donc:
+				      $$\fbox{$\forall n\geq 1,\ E(Y_n)=(N-1)\times \left( \ddp\frac{N-1}{N} \right)^{n-1}.$}$$
+		      \end{itemize}
+	\end{enumerate}
+\end{correction}
+
+
+
+
+
+%------------------------------------------------
+\begin{exercice}
+	Une urne contient initialement deux boules rouges et une boule bleue indiscernables au toucher. L'exp\'erience al\'eatoire consiste \`a effectuer une succession illimit\'ee de tirages selon le protocole suivant: on tire une boule de l'urne puis
+	\begin{itemize}
+		\item[$\bullet$] si la boule tir\'ee est bleue, on la remet dans l'urne
+		\item[$\bullet$]  si la boule tir\'ee est rouge, on ne la remet pas dans l'urne mais on remet une boule bleue dans l'urne \`a sa place.
+	\end{itemize}
+	Pour tout entier naturel $n$ non nul, on note $Y_n$ la var \'egale au nombre de boules rouges pr\'esentes dans l'urne \`a l'issue du $n$-i\`eme tirage. On notera de plus les \'ev\'eneemnts suivants:
+	\begin{itemize}
+		\item[$\bullet$] $R_k$: \textit{lors du k-i\`eme tirage, on a extrait une boule rouge de l'urne}
+		\item[$\bullet$] $B_k$: \textit{lors du k-i\`eme tirage, on a extrait une boule bleue de l'urne}
+	\end{itemize}
+	\begin{enumerate}
+		\item Donner la loi de probabilit\'e de $Y_1$.
+		\item Soit $n\geq 2$. Donner l'univers image de $Y_n$.
+		\item Calculer pous tout $n\in\N^{\star}$: $P(\lbrack Y_n=2\rbrack)$.
+		\item On pose pour tout $n\in\N^{\star}$: $u_n=P(\lbrack Y_n=1\rbrack)$.
+		      \begin{enumerate}
+			      \item Donner $u_1$ et $u_2$.
+			      \item Montrer que, pour tout $n\geq 2$, on a: $u_{n+1}=\ddp\frac{2}{3}u_n+\ddp\frac{2}{3^{n+1}}$. Cette relation reste-elle valable pour $n=1$ ?
+			      \item On pose pout tout $n\in\N^{\star}$: $v_n=u_n+\ddp\frac{2}{3^n}$. Exprimer $v_{n+1}$ en fonction de $v_n$, en d\'eduire l'expression de $v_n$ en fonction de $n$ puis e $u_n$ en fonction de $n$.
+			      \item D\'eduire des r\'esultats pr\'ec\'edents $P(\lbrack Y_n=0\rbrack)$ pour tout $n$ entier naturel non nul.
+		      \end{enumerate}
+		\item Calculer l'esp\'erance de $Y_n$.
+		\item Montrer que: $P(\lbrack Y_n>0\rbrack)\leq E(Y_n)$. Que peut-on dire que $\lim\limits_{n\to +\infty} P(\lbrack Y_n=0\rbrack)$ ?
+		\item On note $Z$ la varf \'egale au num\'ero du tirage amenant la derni\`ere boule rouge.
+		      \begin{enumerate}
+			      \item Donner l'univers image de $Z$.
+			      \item Soit $k$ un entier naturel, $k\geq 2$. Exprimer l'\'ev\'eneemnt $\lbrack Z=k\rbrack$ en fonction des variables $Y_{k}$ et $Y_{k-1}$.
+			      \item En d\'eduire la loi de $Z$.
+		      \end{enumerate}
+	\end{enumerate}
+\end{exercice}
+
+\begin{correction}
+	Une urne contient initialement deux boules rouges et une boule bleue indiscernables au toucher. L'exp\'erience al\'eatoire consiste \`a effectuer une succession illimit\'ee de tirages selon le protocole suivant: on tire une boule de l'urne puis
+	\begin{itemize}
+		\item[$\bullet$] si la boule tir\'ee est bleue, on la remet dans l'urne
+		\item[$\bullet$]  si la boule tir\'ee est rouge, on ne la remet pas dans l'urne mais on remet une boule bleue dans l'urne \`a sa place.
+	\end{itemize}
+	Pour tout entier naturel $n$ non nul, on note $Y_n$ la var \'egale au nombre de boules rouges pr\'esentes dans l'urne \`a l'issue du $n$-i\`eme tirage. On notera de plus les \'ev\'eneemnts suivants:
+	\begin{itemize}
+		\item[$\bullet$] $R_k$: \textit{lors du k-i\`eme tirage, on a extrait une boule rouge de l'urne}
+		\item[$\bullet$] $B_k$: \textit{lors du k-i\`eme tirage, on a extrait une boule bleue de l'urne}
+	\end{itemize}
+	\begin{enumerate}
+		\item Donner la loi de probabilit\'e de $Y_1$.
+		\item Soit $n\geq 2$. Donner l'univers image de $Y_n$.
+		\item Calculer pous tout $n\in\N^{\star}$: $P(\lbrack Y_n=2\rbrack)$.
+		\item On pose pour tout $n\in\N^{\star}$: $u_n=P(\lbrack Y_n=1\rbrack)$.
+		      \begin{enumerate}
+			      \item Donner $u_1$ et $u_2$.
+			      \item Montrer que, pour tout $n\geq 2$, on a: $u_{n+1}=\ddp\frac{2}{3}u_n+\ddp\frac{2}{3^{n+1}}$. Cette relation reste-elle valable pour $n=1$ ?
+			      \item On pose pout tout $n\in\N^{\star}$: $v_n=u_n+\ddp\frac{2}{3^n}$. Exprimer $v_{n+1}$ en fonction de $v_n$, en d\'eduire l'expression de $v_n$ en fonction de $n$ puis e $u_n$ en fonction de $n$.
+			      \item D\'eduire des r\'esultats pr\'ec\'edents $P(\lbrack Y_n=0\rbrack)$ pour tout $n$ entier naturel non nul.
+		      \end{enumerate}
+		\item Calculer l'esp\'erance de $Y_n$.
+		\item Montrer que: $P(\lbrack Y_n>0\rbrack)\leq E(Y_n)$. Que peut-on dire que $\lim\limits_{n\to +\infty} P(\lbrack Y_n=0\rbrack)$ ?
+		\item On note $Z$ la varf \'egale au num\'ero du tirage amenant la derni\`ere boule rouge.
+		      \begin{enumerate}
+			      \item Donner l'univers image de $Z$.
+			      \item Soit $k$ un entier naturel, $k\geq 2$. Exprimer l'\'ev\'eneemnt $\lbrack Z=k\rbrack$ en fonction des variables $Y_{k}$ et $Y_{k-1}$.
+			      \item En d\'eduire la loi de $Z$.
+		      \end{enumerate}
+	\end{enumerate}
+\end{correction}
+
+
+
+
+
+
+\end{document}

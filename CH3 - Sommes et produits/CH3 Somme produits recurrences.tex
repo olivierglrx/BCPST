@@ -1,0 +1,539 @@
+\documentclass[a4paper, 11pt,reqno]{article}
+\input{macro/package.tex}
+\input{macro/environement}
+\input{macro/header.tex}
+\input{macro/newcommand.tex}
+\geometry{hmargin=2.0cm, vmargin=3.5cm}
+
+
+
+\author{Olivier Glorieux}
+
+
+\begin{document}
+\tableofcontents
+\title{Chapitre 3 : Entiers, sommes et produits}
+
+
+
+
+
+\section{Notations $\sum$ et $\prod$ }
+\subsection{Définitions}
+\begin{defi} 
+Soit $n$ un entier naturel et $a_1,a_2,\dots,a_n$ des nombres r\'eels ou complexes.\\
+Leur somme est not\'ee  $\ddp \sum\limits_{k=1}^n a_k$
+\noindent Cela correspond \`a $\ddp \sum\limits_{k=1}^n a_k=a_1+a_2+\dots +a_n$ 
+\end{defi}
+%\noindent L'indice de sommation est \dotfill \phantom{\hspace{12cm}}\\
+\begin{center}
+\fbox{\warning La somme $\ddp \sum\limits_{k=1}^n a_k $ NE DEPEND PAS DE $k$. \warning  }
+\end{center}
+
+
+%\noindent \phantom{\hspace{0cm}}\dotfill\\
+On a ainsi $\ddp \sum\limits_{k=1}^n a_k=\ddp \sum\limits_{j=1}^n a_j$
+
+
+\begin{rem}
+\noindent Si le symbole $\ddp\sum$ vous semble complexe dans l'expression $\ddp \sum\limits_{k=1}^n a_k$, ne pas h\'esiter \`a \'ecrire la somme en extension $a_1+a_2+\dots+a_n$ pour mieux la comprendre. 
+\end{rem}
+
+
+{\footnotesize 
+\begin{exercice} 
+\begin{enumerate}
+\item Calculer les quatre sommes suivantes: $\ddp\sum\limits_{k=1}^8 1$, $\ddp\sum\limits_{j=0}^4 \ddp\demi$, $\ddp\sum\limits_{i=1}^n 1$, $\ddp\sum\limits_{k=0}^n (-4)$.
+%\item \'Ecrire d'une autre mani\`{e}re $\sum\limits_{k=1}^n a_k+\sum\limits_{k=1}^n b_k$.
+\item Comparer $\ddp\sum\limits_{k=2}^5 a_k$ et $\ddp\sum\limits_{k=0}^3 a_{5-k}$.
+\item \'Ecrire en extension $\ddp\sum\limits_{k=0}^5 a_{3k+1}$.
+\end{enumerate}
+\end{exercice}}
+ 
+
+{\footnotesize 
+\begin{exercice} \'Ecrire les sommes suivantes \`{a} l'aide du symbole $\sum$:
+\begin{enumerate}
+\item $5a_{1}+5a_2+5a_3+5a_4$.
+\item $a_n+a_{n+1}+\dots+a_{2n}$.
+\item $a_1+a_3+a_5+a_7$.
+\item $a_2+a_4+a_6+\dots+a_{2n}$.
+\end{enumerate}
+\end{exercice}}
+
+
+
+\begin{defi} 
+Soit $n$ un entier naturel et $a_1,a_2,\dots,a_n$ des nombres r\'eels ou complexes. \\
+Leur produit est not\'e \dotfill \phantom{\hspace{8cm}}\\
+\noindent Cela correspond \`a $\ddp \prod\limits_{k=1}^n a_k=$\dotfill \phantom{\hspace{5cm}}
+\end{defi}
+
+
+\begin{exemples}
+Calculer les produits suivants: $P_1=\ddp\prod\limits_{k=1}^n x$ et $P_2=\ddp\prod\limits_{j=1}^n (2j)$.
+\end{exemples}
+
+{\footnotesize 
+\begin{exercice} 
+Calculer $\ddp P_1=\prod_{k=0}^n 2^k$ et $P_2=\ddp \prod_{k=1}^n \frac{k}{k+1}$.
+\end{exercice}}
+
+
+
+\subsection{Propriétés}
+
+%--------------------------------------------------
+\subsubsection{La lin\'earit\'e de la somme}
+%\vspace{0.3cm}
+\begin{prop} 
+Soient $n$ un entier naturel. 
+Soient $a_1,a_2,\dots,a_n,\ b_1,b_2,\dots, b_n$ des r\'eels ou complexes, et soit $\lambda$ un nombre r\'eel ou complexe.
+$$\ddp \sum\limits_{k=1}^n (\lambda a_k+b_k)=\hspace*{4cm}$$
+\end{prop}
+
+
+
+
+
+%\setlength\fboxrule{0.5pt}
+%\begin{proof} 
+%\vspace{2cm}
+%\end{proof}
+
+
+\noindent\warning\, C'est faux avec la multiplication et la division: $\ddp\sum\limits_{k=0}^n a_kb_k \boldmath{\not=} \left(\sum\limits_{k=0}^n a_k\right) \left(\sum\limits_{k=0}^n b_k\right)$ \; et \; 
+$\ddp \sum\limits_{k=0}^n \ddp\frac{a_k}{b_k} \boldmath{\not=} \ddp\frac{\sum\limits_{k=0}^n a_k}{\sum\limits_{k=0}^n b_k}\ (b_k\not= 0)$.
+%{\footnotesize 
+%\begin{exercice} Calculer les sommes suivantes: $\sum\limits_{i=0}^n (1+3^{i})$, $\sum\limits_{j=0}^n \ddp\frac{3}{2^k}$ et $\sum\limits_{k=0}^n (-4+2^{k+2})$.
+%\end{exercice}}
+
+
+\vspace{0.3cm}
+
+%--------------------------------------------------
+\subsubsection{La relation de Chasles}
+
+
+
+\begin{prop} 
+Soient $n$ un entier naturel et $p\in\intent{1,n-1}$.\\
+Soient $a_1,a_2,\dots,a_n$ des nombres r\'eels ou complexes.
+$$\sum\limits_{k=1}^n a_k=\sum\limits_{k=1}^p a_k +\sum\limits_{k=p+1}^n a_k$$
+\end{prop}
+
+
+%\vspace{0.3cm}
+
+\begin{exemples}
+\begin{itemize}
+\item[$\bullet$] $\ddp\sum\limits_{j=0}^{n} a_j= a_0+\ddp\sum\limits_{j=1}^{n} a_j $
+\item[$\bullet$] $\ddp\sum\limits_{j=0}^{n+1} a_j=\ddp\sum\limits_{j=0}^{n} a_j +a_{n+1}$
+\end{itemize}
+\end{exemples}
+
+{\footnotesize 
+\begin{exercice} 
+\begin{itemize}
+\item[$\bullet$] \'Ecrire avec une seule somme: $\ddp\sum\limits_{j=1}^n b_j+\sum\limits_{j=n+1}^{2n} b_j = $ %et $b_{n+1}+\sum\limits_{i=1}^n b_i$.
+\item[$\bullet$] Simplifier les sommes suivantes : $\ddp\sum\limits_{k=1}^{n} \ddp\frac{1}{k}-\sum\limits_{k=2}^{n+1} \ddp\frac{1}{k}$ \; et \; $\ddp\sum\limits_{i=0}^{n+2} a_i+\sum\limits_{j=1}^{n+1} a_j -2\sum\limits_{k=2}^{n+1} a_k$.
+\end{itemize}
+\end{exercice}}
+\vspace{0.3cm}
+
+
+%--------------------------------------------------
+\subsubsection{Le changement d'indice}
+
+
+\begin{exemples}
+\begin{itemize}
+\item[$\bullet$] Transformation de $\ddp\sum\limits_{i=0}^{n} a_{i+1}$:\\
+\vspace{1cm}
+
+
+\item[$\bullet$] Transformation de $\ddp \sum\limits_{i=1}^{n} a_{i-1}:$\\
+\vspace{1cm}
+
+\end{itemize}
+\end{exemples}
+
+
+
+%\colorbox{gristrespale}{
+
+On pose $j=i+1,\ i+2,\ i-1,\ i-2,\dots$.\\ On doit alors:
+\begin{itemize}
+\item[$\bullet$] Regarder le nouvel ensemble de sommation
+\item[$\bullet$]  Transformer $i$ en $j-1 $, $j-2$ $j+1$, $j+2$
+\item[$\bullet$] Changer les indices dans toute la somme. 
+\end{itemize}
+
+
+%}
+
+
+
+{\footnotesize 
+\begin{exercice}
+On pose : $\ddp S = \sum\limits_{k=1}^n k$ et $\ddp T = \sum\limits_{k=1}^n (n-k+1)$. Montrer que $S=T$, puis calculer $S+T$. En d\'eduire la valeur de $S$.
+\end{exercice}}
+
+
+\section{Sommes usuelles}
+
+\subsection{Formalisme des récurrences}
+
+
+
+
+
+\begin{theorem}[Axiome de récurrence]
+Si $P(n)$ est une proposition telle que : 
+\begin{itemize}
+\item $P(0)$ est vraie, (ou plus généralement $P(n_0)$ est vraie pour un certain entier $n_0\in \N$) 
+\item $\forall n \in \N, \, P(n) \Rightarrow P(n+1)$, 
+\end{itemize}
+Alors $P(n)$ est vraie pour tout $n \in \N$. (ou plus généralement $P(n)$ est vraie pour tout entier $n\geq n_0$)
+\end{theorem}
+
+
+
+
+\paragraph{Conseil rédactionnel \faHeart :\\}
+\setlength\fboxrule{1pt}
+\noindent {
+\begin{minipage}[t]{0.9\textwidth}
+\begin{itemize}
+\item[$\bullet$] \textbf{On d\'efinit clairement la propri\'et\'e \`a d\'emontrer:}  \\
+Montrons par r\'ecurrence sur l'entier $n\geq n_0$, la propri\'et\'e $\mathcal{P}(n):\ .....$.
+\item[$\bullet$] \textbf{Initialisation:} pour $n=n_0$:\\
+On v\'erifie que $\mathcal{P}(n_0)$ est vraie.
+\item[$\bullet$] \textbf{H\'er\'edit\'e:}\\
+Soit $n\geq n_0$ fix\'e. On suppose la propri\'et\'e vraie \`a l'ordre $n$. Montrons qu'alors $\mathcal{P}(n+1)$ est vraie.\\
+%\includegraphics[scale=0.08]{../../Fichiers/attention.eps} 
+\warning N'oubliez pas de signaler l'endroit o\`u vous utilisez l'hypoth\`ese de r\'ecurrence.
+\item[$\bullet$] \textbf{Conclusion:}\\
+Il r\'esulte du principe de r\'ecurrence que pour tout $ n\geq n_0,\ \mathcal{P}(n)$.\\
+\end{itemize}
+\end{minipage}}
+\setlength\fboxrule{0.5pt}
+\begin{exo} \faHeartO \, 
+D\'emontrer que pour tout $n\in\bN:\  \sum\limits_{k=0}^n k^2=\frac{n(n+1)(2n+1)}{6}$.
+%\vspace{7cm}
+\end{exo}
+\begin{proof}
+Montrons par r\'ecurrence sur l'entier $n\geq 0$, la propri\'et\'e $\mathcal{P}(n):\sum_{k=0}^n k^2=\frac{n(n+1)(2n+1)}{6}$
+\noindent
+\textbf{Initialisation:}  Pour $n=0$ on a d'une part :$\sum_{k=0}^0 k^2 =0^2=0$. D'autre part on a : $\frac{0(0+1)(2*0+1)}{6}=0$. La propriété $P$ est donc vraie au rang $0$. 
+
+ \textbf{H\'er\'edit\'e:}\\
+Soit $n\geq 0$ fix\'e. On suppose la propri\'et\'e vraie \`a l'ordre $n$. Montrons qu'alors $\mathcal{P}(n+1)$ est vraie.\\
+
+Considérons le membre de gauche de l'égalité de $P(n+1)$, on a : 
+\begin{equation*}
+\sum_{k=0}^{n+1} k^2 = \sum_{k=0}^{n+1} k^2  = \sum_{k=0}^{n} k^2  +(n+1)^2
+\end{equation*}
+Par hypothése de récurrence on a $ \sum_{k=0}^{n} k^2  = \frac{n(n+1)(2n+1)}{6}$, donc 
+$$\sum_{k=0}^{n+1} k^2 = \frac{n(n+1)(2n+1)}{6}+(n+1)^2.$$
+Mettons $(n+1)$ en facteur. On obtient : 
+\begin{align*}
+\sum_{k=0}^{n+1} k^2 & = \frac{(n+1)[n(2n+1)+6(n+1)}{6}.\\
+								& = \frac{(n+1)[2n^2+7n+6]}{6}.
+\end{align*}
+Or $(2n^2+7n+6)=(2n+3)(n+2)=(2(n+1)+1) ( (n+1)+1)$, donc :
+		$$\sum_{k=0}^{n+1} k^2  =\frac{(n+1)((n+1)+1) (2(n+1)+1)			}{6}$$
+La propriété $P$ est donc vraie au rang $n+1$.
+
+\textbf{Conclusion:}\\
+Il r\'esulte du principe de r\'ecurrence que pour tout $ n\geq 0$:
+\begin{center}
+\fbox{$\sum_{k=0}^n k^2=\frac{n(n+1)(2n+1)}{6}.$}
+\end{center}
+
+
+
+
+
+
+\end{proof}
+
+
+\subsection{$\sum_{k=0}^n k^p$ }
+
+\begin{prop}
+$$\sum_{k=0}^n 1= n+1$$
+$$\sum_{k=0}^n k^1=\frac{n(n+1)}{2}$$
+$$\sum_{k=0}^n k^2= \frac{n(n+1)(2n+1)}{6}$$
+$$\sum_{k=0}^n k^3=\left(\frac{n(n+1)}{2}\right)^2$$
+\end{prop}
+Plus généralement on a 
+$$\sum_{k=m}^n k^1=\frac{(n+m)(n-m+1)}{2}$$
+
+Exemple 
+Calculer les sommes suivantes : 
+$\sum_{k=10}^{100} k$, $\sum_{k=10}^{100} k^2$,  $\sum_{k=1}^{2^n} k^3$
+
+
+\subsection{Somme géométrique}
+\begin{prop}
+Soit $q\neq 1$ on a alors : 
+
+$$\sum_{k=0}^n q^k =\frac{1-q^{n+1}}{1-q}$$
+\end{prop}
+
+
+\subsection{Binome de Newton}
+
+
+
+\subsubsection{Coefficients binomiaux: d\'efinition et propri\'et\'es}
+
+
+
+
+
+
+\begin{defi} Soit $(n,p)$ deux entiers naturels.
+\begin{itemize}
+\item[$\bullet$] Si $p\in \intent{0,n}$, on appelle coefficient binomial, le nombre
+$$\binom{n}{p}=\frac{n! }{p! (n-p)!}$$
+\item[$\bullet$] Par convention si $p\notin \intent{0,n}$: $\ddp\binom{n}{p}=0$
+\end{itemize}
+\end{defi}
+
+\vspace{0.3cm}
+
+\begin{exemples}
+\begin{itemize}
+\item[$\bullet$] $\ddp\binom{n}{0}=\frac{n! }{0! (n)!}=1$, $\ddp\binom{n}{1}=\frac{n! }{1! (n-1)!}=n$, $\ddp\binom{n}{2}=\frac{n! }{2! (n-2)!}=\frac{n(n-1)}{2}$\\
+\vspace{1cm}
+\item[$\bullet$] $\ddp\binom{n}{n}=\frac{n! }{n! (n-n)!}=1$, \quad\quad\quad $\ddp\binom{n}{n-1}=\frac{n! }{(n-1)! (n-(n-1))!}=n$, \\
+\item []
+\vspace{1cm}
+$\ddp\binom{n}{n-2}=\frac{n! }{(n-2)! (n-(n-2))!}=\frac{n(n-1)}{2} $
+\end{itemize}
+\end{exemples}
+\vspace{0.4cm}
+
+\begin{rem}
+Les coefficients binomiaux seront tr\`es utiles en d\'enombrement : $\ddp \binom{n}{p}$ est le nombre de tirages simultan\'es (sans ordre et sans r\'ep\'etition) de $p$ boules parmi $n$.
+\end{rem}
+
+
+
+
+\begin{prop} Soit $(n,k)\in\N^2$.
+\begin{itemize}
+\item[$\bullet$] Sym\'etrie des coefficients binomiaux: 
+$$\binom{n}{k}=\binom{n}{n-k}$$
+\item[$\bullet$] Triangle de Pascal:\\
+$$\binom{n}{k}+\binom{n}{k-1}=\binom{n+1}{k}$$
+%\item[$\bullet$] $\ddp k \binom{n}{k} = $\\
+\end{itemize}
+\end{prop}
+
+\begin{exercice}
+Faire la preuve de la proposition (pas besoin de récurrence)
+\end{exercice}
+
+
+\begin{cor}
+$$\binom{n}{k}=\frac{n! }{k! (n-k)!}$$
+et 
+
+$$\binom{n}{n-k}=\frac{n! }{(n-k)! (n-(n-k))!}=\frac{n! }{k! (n-k)!}$$
+
+
+
+\begin{align*}
+\binom{n}{k} +\binom{n}{k-1} &= \frac{n!}{(n-k)!\,k!}+ \frac{n!}{(n-(k-1))!\,(k-1)!}\\
+&= \frac{n!}{(n-k)!\,k!}+ \frac{n!}{(n-k+1))!\,(k-1)!}\\
+&= \frac{(n-k+1)n! + k  n!}{(n-k+1)!\,k!} \quad \text{ on met au même dénominateur} \\
+&= \frac{(n+1)n!}{(n-k+1)!\,k!} \\
+&= \frac{(n+1)!}{(n+1-k)!\,k!} \\
+&=\binom{n+1}{k}
+\end{align*}
+\end{cor}
+
+
+
+\begin{prop}
+Soit $k\in \intent{0,n}$ :
+$$k\binom{n}{k}= n\binom{n-1}{k-1}$$
+En conséquence 
+$$\binom{n}{k}= \frac{n}{k}\binom{n-1}{k-1}$$
+\end{prop}
+%
+%\begin{cor}
+% $$\ddp\binom{n}{k}\binom{k}{j} =\frac{n! }{k! (n-k)!} \frac{k! }{j! (k-j)!}=\frac{n! }{ (n-k)!} \frac{1 }{(k-j)!j!} $$
+% 
+% et 
+% $$\ddp\binom{n}{j}\ddp\binom{n-j}{n-k} = \frac{n! }{j! (n-j)!} \frac{(n-j)! }{(n-j-(n-k)! (n-k)!}= \frac{n! }{j!} \frac{1 }{(k-j)! (n-k)!}$$
+%\end{cor}
+
+
+
+\begin{exercice} Soit $(n,p,k,j)\in\N^4$ avec $k\in\intent{0,n}$ et $j\in\intent{0,k}$. Montrer que $\ddp\binom{n}{k}\binom{k}{j}=\ddp\binom{n}{j}\ddp\binom{n-j}{n-k}$.
+\end{exercice}
+
+\subsubsection{Binôme de Newton}
+
+\begin{theorem}[Binôme de Newton]
+
+\noindent\\
+\doublebox{\hspace{0.5cm}
+$\ddp\forall (a,b)\in \bC^2,\,  \forall n \in \N, \quad  (a+b)^n =\sum_{k=0}^n \binom{n}{k}a^k b^{n-k}.$
+\hspace{0.5cm}
+}
+
+\end{theorem}
+
+
+
+
+
+
+
+
+
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+
+
+
+\section{Approfondissement}
+\subsection{Récurrence double}
+
+\subsection{Récurrence forte}
+Ce type de raisonnement s'utilise quand on a une propriété $P(n)$ qui dépend de tous les $k\leq n$.
+
+\begin{exercice}
+Soit $\suite{u}$ la suite définie par 
+$$u_0=1 \quadet \forall n\in \N, u_{n+1} =\sum_{k=0}^n u_k$$
+Montrer que $\forall n \in \N, u_n\leq 2^n$
+\end{exercice}
+
+
+\begin{exercice}
+Soit $\suite{u}$ la suite définie par 
+$$u_1=3 \quadet \forall n\in \N, u_{n+1} =\frac{2}{n}\sum_{k=0}^n u_k$$
+Montrer que $\forall n \in \N, u_n=3$
+\end{exercice}
+\subsection{Somme double}
+
+
+
+%------------------------------------------------
+\subsubsection{D\'efinition et notations}
+
+
+\noindent On souhaite calculer des sommes dont les termes d\'ependent de deux indices, par exemple : $\ddp \sum_{i=0}^n \sum_{j=0}^p a_{i,j}$.
+
+\begin{exemples}
+Calculer les sommes doubles suivantes: $S_1=\ddp\sum\limits_{i=0}^n\sum\limits_{j=0}^n (i+j)$ et $S_2=\ddp \sum\limits_{i=0}^n\sum\limits_{j=0}^i ij$.
+
+\end{exemples}
+
+
+\begin{rem}
+On pourra noter ces sommes doubles \`a l'aide d'un seul symbole $\ddp \sum$, en indiquant en dessous comment varient les deux indices. Par exemple, on a : $S_1=\ddp\sum\limits_{i=0}^n\sum\limits_{j=0}^n (i+j) = \dotfill$ \\
+et $S_2=\ddp \sum\limits_{i=0}^n\sum\limits_{j=0}^i ij = \dotfill$\\
+De plus, il est toujours conseill\'e de repr\'esenter le domaine des indices pour lequel on effectue la somme.
+\end{rem}
+
+\vspace*{0.5cm}
+
+%--------------------------------------------------
+%------------------------------------------------
+\subsubsection{M\'ethode directe}
+
+
+
+\begin{minipage}[t]{0.6\textwidth}
+\setlength\fboxrule{1pt}
+\noindent {
+\begin{minipage}[t]{1\textwidth}
+Calcul de $\ddp \sum\limits_{i}\sum\limits_{j} a_{ij}=\sum\limits_{i} \left\lbrack \sum\limits_{j} a_{ij}\right\rbrack:$\phantom{4cm}
+\begin{itemize}
+\item[$\bullet$] On calcule d'abord la somme la plus intérieure (ici celle d'indice $j$) qui dépond ou non de $i$
+
+\item[$\bullet$] On calcule la deuxième somme. 
+\end{itemize}
+\end{minipage}}
+\end{minipage}
+
+
+
+{\footnotesize 
+\begin{exercice} 
+Calculer les sommes suivantes $S_1= \ddp \sum\limits_{i=0}^n \sum\limits_{j=0}^i x^j$, $S_2=\ddp \sum\limits_{k=0}^{n^2}\sum\limits_{i=k}^{k+2} ki^2$ et $S_3=\ddp\sum\limits_{j=1}^n\sum\limits_{i=0}^j \ddp\frac{x^i}{x^{j}}$.
+\end{exercice}}
+
+
+%--------------------------------------------------
+%------------------------------------------------
+\subsubsection{Inversion des symboles sommes}
+
+\noindent Lorsque l'on n'arrive pas \`{a} calculer la somme la plus int\'erieure directement, on commence par inverser le sens des symboles somme. Il faut alors distinguer le cas d'indices li\'es ou non li\'es.
+
+
+
+
+
+\begin{enumerate}
+\item Indices non li\'es : les indices ne d\'ependent pas les uns des autres.
+On inverse sans pr\'ecaution:\\
+$$\sum_{i=0}^n \sum_{j=0}^{n'}  a_{i,j} = \sum_{j=0}^{n'} \sum_{i=0}^n  a_{i,j} $$
+
+
+\item Indices li\'es : les bornes d'un indice d\'ependent des autres. On fait très attention : 
+
+$$\ddp \sum\limits_{i=0}^n\sum\limits_{j=0}^i a_{ij}= $$
+Car: $\left\lbrace \begin{array}{lllll} 0&\leq &i & \leq & n\\  0&\leq &j & \leq & i \end{array}\right. \Longleftrightarrow $
+
+
+$$\ddp \sum\limits_{i=0}^n\sum\limits_{j=i}^n a_{ij}=$$
+Car: $\left\lbrace \begin{array}{lllll} 0&\leq &i & \leq & n\\  i&\leq &j & \leq & n \end{array}\right. \Longleftrightarrow$
+
+
+\end{enumerate}
+
+
+
+
+
+
+\begin{rem}
+Dessiner le domaine des indices pour lequel on effectue la somme, ou repr\'esenter les positions relatives des indices sur un axe r\'eel si l'\'echange d'indices li\'es vous para\^it difficile.
+\end{rem}
+
+
+
+\begin{exemples}
+Calculer les sommes doubles suivantes: $S_1= \ddp \sum\limits_{i=1}^n\sum\limits_{j=i}^n \ddp\frac{i}{j}$ et $S_2= \ddp \sum\limits_{j=1}^n\sum\limits_{i=1}^j x^{j}$.
+\end{exemples}
+
+{\footnotesize 
+\begin{exercice} 
+V\'erifier que $\ddp \sum\limits_{k=1}^n k2^k=\sum\limits_{k=1}^n \sum\limits_{l=1}^k 2^k$. Donner alors une expression simple de cette somme en intervertissant l'ordre de sommation.
+\end{exercice}}
+%------------------------------------------------
+%-------------------------------------------------
+%-------------------------------------------------
+%--------------------------------------------------
+%------------------------------------------------
+
+
+
+\end{document}

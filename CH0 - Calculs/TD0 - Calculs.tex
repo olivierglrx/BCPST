@@ -1,0 +1,711 @@
+
+
+\documentclass[a4paper, 11pt]{article}
+\input{macro/package.tex}
+\input{macro/environement}
+\input{macro/header.tex}
+\input{macro/newcommand.tex}
+
+
+\geometry{hmargin=2.0cm, vmargin=2.5cm}
+
+
+\newcommand{\type}{TD }
+%\excludecomment{correction}
+\renewcommand{\type}{Correction TD }
+
+
+\begin{document}
+
+\title{\type 0 - Résolution d'équations}
+
+
+\section*{Entraînements}
+\begin{exercice}
+ Résoudre les (in)-équations suivantes: 
+
+\begin{enumerate}
+\begin{minipage}[t]{0.45\textwidth}
+
+%\item $4x^3-8x^2-5x+7=0$ 
+\item $x^3+4x^2+x-6\geq 0 $ 
+\item  $x^3-x^2-x-2<0 $ 
+\item  $(3x-1)(x+2)+(2-6x)(4x+3)>0$
+\item $32x^6-162x^2<0$
+%\item $(2x-3)(x+2)-(3-2x)(x^2-1)+(4x-6)(x-1)\geq 0$
+\item  $\ddp\frac{2x}{4x^2-1}\leq \ddp\frac{2x+1}{4x^2-4x+1}$
+\item  $ \ddp\frac{x^4+x}{x^4-5x^2+4}<1 $
+%\item  $ \ddp\frac{1}{x-1}-\ddp\frac{1}{2x-1}>1$
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+% \item  $x(x+2)<2x(3x-4)$ 
+%\item  $1-x^4\geq 0$
+\item  $2x^2-4x+2=1-x$
+\item  $(x-1)^2\leq 1$
+\item $\ddp\frac{1}{x-2}\leq \ddp\frac{1}{2x}$
+\item $\ddp\frac{2x+1}{1+x}\geq \ddp\frac{3x-2}{1+x}$
+\item $\ddp\frac{x^2+10x-4}{x-2}\leq \ddp\frac{16x+2}{x+1}$
+%\item $ \ddp\frac{2x-2}{3x+1}>1$
+
+
+\end{minipage}
+\end{enumerate}
+
+\end{exercice}
+
+
+\begin{correction}  \; \textbf{R\'esolution d'\'equations et d'in\'equations avec des polyn\^{o}mes.}
+\begin{enumerate}
+
+%\item \textbf{R\'esolution dans $\mathbf{\R}$ de $\mathbf{4x^3-8x^2-5x+7=0}$:}\\
+%\noindent  -1 est racine \'evidente et on obtient: $4x^3-8x^2-5x+7=0\Leftrightarrow (x+1)(4x^2-12x+7)=0$. De plus, $4x^2-12x+7$ admet $\ddp \frac{3-\sqrt{2}}{2}$ et $\ddp \frac{3+\sqrt{2}}{2}$ pour racines, donc \fbox{$\mathcal{S}=\ddp \left\lbrace -1, \frac{3-\sqrt{2}}{2}, \frac{3+\sqrt{2}}{2}  \right\rbrace$.}
+%---
+\item \textbf{R\'esolution dans $\mathbf{\R}$ de $\mathbf{x^3+4x^2+x-6\geq 0 }$:}  \href{https://youtu.be/tTT0uBYTbWI}{Correction Video}\\
+\noindent 1 est racine \'evidente et on obtient : $x^3+4x^2+x-6\geq 0\Leftrightarrow (x-1)(x^2+5x+6)\geq 0$. Un tableau de signe donne \fbox{$\mathcal{S}=\lbrack -3,-2\rbrack\cup\lbrack 1,+\infty\lbrack$.}
+%---
+\item \textbf{R\'esolution dans $\mathbf{\R}$ de $\mathbf{x^3-x^2-x-2<0}$:}\\
+\noindent 2 est racine \'evidente et on obtient:$x^3-x^2-x-2<0\Leftrightarrow (x-2)(x^2+x+1)<0$ et le discriminant de $x^2+x+1$ est n\'egatif donc \fbox{$\mathcal{S}= \; \rbrack -\infty,2\lbrack$.}
+%---
+\item \textbf{R\'esolution dans $\mathbf{\R}$ de $\mathbf{(3x-1)(x+2)+(2-6x)(4x+3)>0}$:}\href{https://youtu.be/bEAtMfE3GdY}{Correction Video}\\
+\noindent On factorise par $3x-1$ et on obtient: 
+$$(3x-1)(x+2)+(2-6x)(4x+3)>0\Leftrightarrow (3x-1)\left\lbrack x+2-2(4x+3)\right\rbrack >0\Leftrightarrow (3x-1)(-7x-4)>0.$$ 
+Un tableau de signe donne \fbox{$\mathcal{S}=\left\rbrack -\ddp\frac{4}{7},\ddp\frac{1}{3}\right\lbrack $.}
+\item \textbf{R\'esolution dans $\mathbf{\R}$ de $\mathbf{32x^6-162x^2<0}$:}\\
+\noindent On factorise par $2x^2$ puis on utilise l'identit\'e remarquable $a^2-b^2$ et on obtient: 
+$$32x^6-162x^2<0\Leftrightarrow 2x^2(16x^4-81)<0\Leftrightarrow 2x^2( 4x^2-9 )(4x^2+9)<0.$$
+Un tableau de signe donne \fbox{$\mathcal{S}=\left\rbrack -\ddp\frac{3}{2},\ddp\frac{3}{2}\right\lbrack\setminus\lbrace 0\rbrace$.}
+%\item \textbf{R\'esolution dans $\mathbf{\R}$ de $\mathbf{(2x-3)(x+2)-(3-2x)(x^2-1)+(4x-6)(x-1)\geq 0}$:}\\
+%\noindent On factorise par $2x-3$ et on obtient: $(2x-3)(x+2)-(3-2x)(x^2-1)+(4x-6)(x-1)\geq 0\Leftrightarrow (2x-3)\left\lbrack x+2+x^2-1+2(x-1)\right\rbrack\geq 0\Leftrightarrow 
+%(2x-3)(x^2+3x-1)\geq 0$. Un tableau de signe donne \fbox{$\mathcal{S}=\left\lbrack \ddp\frac{-3-\sqrt{13}}{2},\ddp\frac{-3+\sqrt{13}}{2}  \right\rbrack\cup \left\lbrack \ddp\frac{3}{2},+\infty\right\lbrack$.}
+\item \textbf{R\'esolution dans $\mathbf{\R}$ de $\mathbf{\ddp\frac{2x}{4x^2-1}\leq \ddp\frac{2x+1}{4x^2-4x+1}}$:}\\
+\noindent On commence par le domaine de r\'esolution. L'in\'equation est bien d\'efinie si et seulement si $4x^2-1\not= 0$ et $4x^2-4x+1\not= 0$. Ainsi $\mathcal{D}=\R\setminus\left\lbrace -\ddp\demi,\ddp\demi\right\rbrace$.\\
+\noindent On passe tout du m\^{e}me c\^{o}t\'e et on met tout au m\^{e}me d\'enominateur. 
+On a :
+$$\ddp\frac{2x}{(2x+1)(2x-1)}-\ddp\frac{2x+1}{(2x-1)^2}\leq 0 \Leftrightarrow \ddp\frac{ 2x(2x-1)-(2x+1)(2x+1)  }{(2x-1)^2(2x+1)}\leq 0 \Leftrightarrow \ddp\frac{ -6x-1  }{(2x-1)^2(2x+1)}\leq 0.$$ 
+Un tableau de signe donne 
+\fbox{$\mathcal{S}=\left\rbrack -\infty,-\ddp\demi\right\lbrack\cup \left\lbrack -\ddp\frac{1}{6},\ddp\demi\right\lbrack\cup\left\rbrack \ddp\demi,+\infty\right\lbrack$.}
+\item \textbf{R\'esolution dans $\mathbf{\R}$ de $\mathbf{ \ddp\frac{x^4+x}{x^4-5x^2+4}<1}$:} \href{https://youtu.be/JDyq8MIuZuw}{Correction Video}\\
+\noindent On commence par le domaine de r\'esolution. L'in\'equation est bien d\'efinie si et seulement si $x^4-5x^2+4\not= 0\Leftrightarrow (x^2-4)(x^2-1)\not= 0$. Ainsi $\mathcal{D}=\R\setminus\left\lbrace -2,-1,1,2\right\rbrace$.\\
+\noindent On passe tout du m\^{e}me c\^{o}t\'e et on met tout au m\^{e}me d\'enominateur. On a: 
+$$\ddp\frac{x^4+x}{x^4-5x^2+4}-1<0\Leftrightarrow \ddp\frac{5x^2+x-4}{(x^2-4)(x^2-1)}<0.$$ 
+Un tableau de signe donne \fbox{$\mathcal{S}=\rbrack -2,-1\lbrack \; \cup \left\rbrack -1,\ddp\frac{4}{5}\right\lbrack \cup \; \rbrack 1,2\lbrack$.}
+
+\item \textbf{R\'esolution dans $\mathbf{\R}$ de $\mathbf{2x^2-4x+2=1-x}$:}\\
+\noindent $2x^2-4x+2=1-x\Leftrightarrow 2x^2-3x+1=0$ donc \fbox{$\mathcal{S}=\left\lbrace \ddp\demi,1  \right\rbrace$}.
+%---
+\item \textbf{R\'esolution dans $\mathbf{\R}$ de $\mathbf{(x-1)^2\leq 1}$:}\\
+\noindent $(x-1)^2\leq 1\Leftrightarrow x(x-2)\leq 0$ donc \fbox{$\mathcal{S}=\lbrack 0,2\rbrack$}.
+%---
+\item \textbf{R\'esolution dans $\mathbf{\R}$ de $\mathbf{\ddp\frac{1}{x-2}\leq \ddp\frac{1}{2x}}$:} \href{https://youtu.be/8u3_PYb3xXY}{Correction Video}\\
+\noindent On commence par le domaine de r\'esolution. L'in\'equation est bien d\'efinie si et seulement si $x-2\not= 0$ et $2x \not= 0$. Ainsi $\mathcal{D}=\R\setminus\left\lbrace 0,2 \right\rbrace$.\\
+\noindent De plus, on a : $\ddp\frac{1}{x-2}\leq \ddp\frac{1}{2x}\Leftrightarrow \ddp\frac{x+2}{2x(x-2)}\leq 0$ et un tableau de signe donne 
+\fbox{$\mathcal{S}= \; \rbrack -\infty,-2\rbrack \; \cup \; \rbrack 0,2\lbrack$}.
+%---
+\item \textbf{R\'esolution dans $\mathbf{\R}$ de $\mathbf{\ddp\frac{2x+1}{1+x}\geq \ddp\frac{3x-2}{1+x}}$:} \href{https://youtu.be/bwQSb9Lfozo}{Correction Video}\\
+\noindent On commence par le domaine de r\'esolution. L'in\'equation est bien d\'efinie si et seulement si $x+1\not= 0$. Ainsi $\mathcal{D}=\R\setminus\left\lbrace -1 \right\rbrace$.\\
+\noindent $\ddp\frac{2x+1}{x+1}\geq \ddp\frac{3x-2}{1+x}\Leftrightarrow \ddp\frac{-x+3}{1+x}\geq 0$ et un tableau de signe donne 
+\fbox{$\mathcal{S}= \; \rbrack -1,3\rbrack$}.
+%---
+\item \textbf{R\'esolution dans $\mathbf{\R}$ de $\mathbf{\ddp\frac{x^2+10x-4}{x-2}\leq \ddp\frac{16x+2}{x+1}}$:}\\
+\noindent On commence par le domaine de r\'esolution. L'in\'equation est bien d\'efinie si et seulement si $x-2\not= 0$ et $x+1 \not= 0$. Ainsi $\mathcal{D}=\R\setminus\left\lbrace -1,2 \right\rbrace$.\\
+\noindent $\ddp\frac{x^2+10x-4}{x-2}\leq \ddp\frac{16x+2}{x+1}\Leftrightarrow \ddp\frac{x(x^2-5x+36)}{(x-2)(x+1)}\leq 0$ donc un tableau de signe donne \fbox{$\mathcal{S}= \; \rbrack -\infty, -1\lbrack\cup \lbrack 0,2\lbrack$}.
+%\item \textbf{R\'esolution dans $\mathbf{\R}$ de $\mathbf{ \ddp\frac{2x-2}{3x+1}>1}$:}\\
+%\noindent On commence par le domaine de r\'esolution. L'in\'equation est bien d\'efinie si et seulement si $3x+1\not= 0$. Ainsi $\mathcal{D}=\R\setminus\left\lbrace -\ddp\frac{1}{3} \right\rbrace$.\\
+%\noindent $\ddp\frac{2x-2}{3x+1}-1>0\Leftrightarrow \ddp\frac{-x-3}{3x+1}>0$. Un tableau de signe donne 
+%\fbox{$\mathcal{S}=\left\rbrack -3,\ddp\frac{-1}{3}\right\lbrack$.}
+\end{enumerate}
+\end{correction}
+
+
+
+
+
+
+%%%%%%
+
+
+
+
+\begin{exercice}\;
+R\'esolution d'\'equations et d'in\'equations avec les fonctions $\ln{}$, $\exp{}$ et $x\mapsto a^x$:
+\begin{enumerate}
+\begin{minipage}[t]{0.55\textwidth}
+\item  $\ln{(x^2-4e^2)}<1+\ln{(3x)}$
+\item  $\ln{(1+e^{-x})}<x$
+\item $|\ln{x}|<1$
+\item  $\ln{(2x+4)} -\ln{(6-x)}=\ln{(3x-2)}-\ln{(x)}  $
+\item  $e^{3x}-6e^{2x}+8e^x>0$
+\item $2^{2x+1}+2^x=1$
+\item $e^{3x}-e^{2x}-e^{x+1}+e\leq 0$.
+\item  $(\ln{x})^2-3\ln{x}-4\leq 0$
+\end{minipage}
+\begin{minipage}[t]{0.35\textwidth}
+% \item  $e^{\sin{x}}-\ddp\frac{9}{e^{\sin{x}}}\geq 0$
+\item  $2e^{2x}-e^x-1\leq 0$
+\item  $2\ln{(x)}+\ln{(2x-1)}>\ln{(2x+8)}+2\ln{(x-1)}$
+\item  $4e^x-3e^{\frac{x}{2}}\geq 0$
+\item  $e^x-e^{-x}=3$
+\item $9^x-2\times 3^x-8>0$
+%\item $2^{4x}-3\times 2^{2x+1}+2^3<0$
+\end{minipage}
+\end{enumerate}
+\end{exercice}
+
+\begin{correction}  \; \textbf{R\'esolution d'\'equations et d'in\'equations avec $\ln{}$, $\exp{}$ et $x\mapsto a^x$.}
+
+
+\begin{enumerate}
+\item \textbf{R\'esolution dans $\mathbf{\R}$ de $\mathbf{\ln{(x^2-4e^2)}<1+\ln{(3x)}}$:}\\
+\noindent \begin{itemize}
+\item[$\star$]  Domaine de r\'esolution: $\mathcal{D}= \; \rbrack 2e,+\infty\lbrack$
+\item[$\star$]  On a : $\ln{(x^2-4e^2)}<1+\ln{(3x)}\Leftrightarrow x^2-3xe-4e^2<0$. Un tableau de signe donne \fbox{$\mathcal{S}= \; ]2 e, 4 e[$}.
+\end{itemize}
+%---
+\item \textbf{R\'esolution dans $\mathbf{\R}$ de $\mathbf{\ln{(1+e^{-x})}<x}$:}\\
+\noindent \begin{itemize}
+\item[$\star$]  Domaine de r\'esolution: $\mathcal{D}=\R$
+\item[$\star$]  
+$\ln{(1+e^{-x})}<x\Leftrightarrow 1+e^{-x}<e^x\Leftrightarrow e^{2x}-e^x-1>0$.
+On pose $X=e^x$ et on se ram\`ene ainsi \`a la r\'esolution d'une in\'equation du second degr\'e. On obtient 
+\fbox{$\mathcal{S}=\left\rbrack \ln{\left( \ddp\frac{1+\sqrt{5}}{2} \right)},+\infty\right\lbrack$.}
+\end{itemize}
+%---
+\item \textbf{R\'esolution dans $\mathbf{\R}$ de $\mathbf{|\ln{x}|<1}$:}\\
+\noindent \begin{itemize}
+\item[$\star$]  Domaine de r\'esolution: $\mathcal{D}=\R^{+\star}$.
+\item[$\star$]  On distingue deux cas :
+\begin{itemize}
+\item[$\bullet$] Si $x\geq 1$, alors $|\ln{x}|=\ln{x}$ et on doit r\'esoudre $\ln{x}<1\Leftrightarrow x<e$, donc $\mathcal{S_1}= [1,e[$.
+\item[$\bullet$] Si $0<x<1$, alors $|\ln{x}|=-\ln{x}$ et on doit r\'esoudre $-\ln{x}<1 \Leftrightarrow x>\ddp\frac{1}{e}$, donc $\mathcal{S}_2 = \ddp \left]\frac{1}{e} , 1 \right[$.
+\end{itemize}
+Ainsi, $\mathcal{S}=\mathcal{S}_1 \cup \mathcal{S}_2$, soit : \fbox{$\mathcal{S}=\left\rbrack \ddp\frac{1}{e},e\right\lbrack$}.
+\end{itemize}
+%---
+\item \textbf{R\'esolution dans $\mathbf{\R}$ de $\mathbf{\ln{(2x+4)} -\ln{(6-x)}=\ln{(3x-2)}-\ln{(x)}}$:}\\
+\noindent \begin{itemize}
+\item[$\star$] Domaine de r\'esolution: $\mathcal{D}=\left\rbrack \ddp\frac{2}{3},6\right\lbrack$.
+\item[$\star$] En utilisant les propri\'et\'es du logarithme n\'ep\'erien, on a: $\ln{\lbrack x(2x+4)\rbrack}=\ln{\lbrack (3x-2)(6-x)\rbrack}$. Ce qui est \'equivalent \`{a} $x(2x+4)=(3x-2)(6-x)$ car la fonction exponentielle est strictement croissante sur $\R$. En passant tout du m\^{e}me c\^{o}t\'e et en d\'eveloppant, on obtient: \fbox{$\mathcal{S}=\left \lbrace \ddp\frac{6}{5},2\right\rbrace$}.
+\end{itemize} 
+%---
+\item \textbf{R\'esolution dans $\mathbf{\R}$ de $\mathbf{e^{3x}-6e^{2x}+8e^x>0}$:}\\
+\noindent \begin{itemize}
+\item[$\star$] Domaine de r\'esolution: $\mathcal{D}=\R$.
+\item[$\star$] On pose $X=e^x$ et on se ram\`{e}ne ainsi \`{a} r\'esoudre $X^3-6X^2+8X>0\Leftrightarrow X(X-2)(X-4)>0$. Un tableau de signe donne que c'est \'equivalent \`{a}: $0<X<2$ ou $X>4$ ce qui est \'equivalent \`{a}: $e^x<2$ ou $e^x>4$ car une exponentielle est toujours strictement positive. La fonction logarithme n\'ep\'erien \'etant strictement  croissante sur $\R^{+\star}$, on obtient \fbox{$\mathcal{S}=\rbrack -\infty, \ln{(2)}\lbrack\cup\rbrack \ln{4},+\infty\lbrack$.}
+\end{itemize} 
+%---
+\item \textbf{R\'esolution dans $\mathbf{\R}$ de $\mathbf{2^{2x+1}+2^x=1}$:}\\
+\noindent \begin{itemize}
+\item[$\star$] Domaine de r\'esolution: $\mathcal{D}=\R$.
+\item[$\star$] 
+On a  :  $2^{2x+1}+2^x=1  \; \Leftrightarrow \; 2\times (2^x)^2+2^x-1=0$. On pose $X=2^x$, et on doit r\'esoudre $2X^2+X-1=0.$
+Le discriminant est 9 et les racines sont ainsi $-1$ et $\ddp\demi$.
+On obtient alors 
+$$\begin{array}{llll}
+2^{2x+1}+2^x=1& \Leftrightarrow &\left\lbrace\begin{array}{lll}
+e^{x\ln{2}}=-1\vsec\\
+\hbox{ou}\vsec\\
+e^{x\ln{2}}=\ddp\demi
+\end{array}\right. & \vsec\\
+&\Leftrightarrow & e^{x\ln{2}}=\ddp\demi & \hbox{car}\ e^{x\ln{2}}>0\vsec\\
+&\Leftrightarrow & x\ln{2}=-\ln{2}&  \hbox{car la fonction logarithme est strictement croissante} \vsec\\
+&\Leftrightarrow & x=-1.&
+\end{array}$$
+Ainsi, on obtient \fbox{$ \mathcal{S}=\lbrace -1  \rbrace$}.
+\end{itemize}
+%---
+\item \textbf{R\'esolution dans $\mathbf{\R}$ de $\mathbf{e^{3x}-e^{2x}-e^{x+1}+e\leq 0}$:}\\
+\noindent 
+\begin{itemize}
+\item[$\star$]  Domaine de r\'esolution: $\mathcal{D}=\R$.
+\item[$\star$] On pose $X=e^x$ et on doit alors r\'esoudre $X^3-X^2-eX+e\leq 0$. On remarque que 1 est racine \'evidente et ainsi on peut factoriser par 1. Par identification des coefficients d'un polyn\^{o}me, on obtient que: 
+$X^3-X^2-eX+e\leq 0\Leftrightarrow (X-1)(X^2-e)\leq 0$. Un tableau de signe donne $X\leq -\sqrt{e}\ \hbox{ou}\ X\in [1, \sqrt{e}]$. On doit donc r\'esoudre $e^x\leq -\sqrt{e}$ ou $e^x\in [1, \sqrt{e}]$. Or une exponentielle est toujours strictement positive donc on doit r\'esoudre $e^x\in [1, \sqrt{e}]$. En composant par la fonction $\ln$ qui est strictement croissante sur $\R^{+\star}$, on obtient $x\in [0, \ln (\sqrt{e})]\Leftrightarrow x\in \left[0, \ddp\demi \right]$.
+\item[$\star$] Conclusion: \fbox{$\mathcal{S}=\left\lbrack 0, \ddp\demi \right\rbrack  $.}
+\end{itemize}
+\item \textbf{R\'esolution dans $\mathbf{\R}$ de $\mathbf{(\ln{x})^2-3\ln{x}-4\leq 0}$:}\\
+\noindent 
+\begin{itemize}
+\item[$\star$]  Domaine de r\'esolution: $\mathcal{D}=\R^{+\star}$.
+\item[$\star$] On pose $X=\ln{(x)}$ et on doit alors r\'esoudre $X^2-3X-4\leq 0$. Le discriminant vaut $\Delta=25$ et les racines sont $-1$ et $4$. Ainsi, un tableau de signe donne que: $X^2-3X-4\leq 0\Leftrightarrow -1\leq X\leq 4$. On doit donc r\'esoudre $-1\leq \ln{(x)}\leq 4$. En composant par la fonction $\exp{}$ qui est strictement croissante sur $\R$, on obtient que: $e^{-1}\leq x\leq e^4$.
+\item[$\star$] Conclusion: \fbox{$\mathcal{S}=\left\lbrack e^{-1},e^4\right\rbrack  $.}
+\end{itemize}
+%\item \textbf{R\'esolution dans $\mathbf{\R}$ de $\mathbf{e^{\sin{x}}-\ddp\frac{9}{e^{\sin{x}}}\geq 0}$:}\\
+%\noindent \begin{itemize}
+%\item[$\star$]  Domaine de d\'efinition: $\mathcal{D}=\R$ car pour tout $x\in\R$, $e^{\sin{x}}>0$.
+%\item[$\star$]  
+%$e^{\sin{x}}-\ddp\frac{9}{e^{\sin{x}}}\geq 0\Leftrightarrow \ddp\frac{e^{2\sin{x}}-9}{e^{\sin{x}}}\geq 0\Leftrightarrow X^2-9\geq 0$ car $e^{\sin{x}}>0$ et en posant $X=e^{\sin{x}}$. Comme $e^{\sin{x}}\leq -3$ est impossible, on obtient alors: $e^{\sin{x}}-\ddp\frac{9}{e^{\sin{x}}}\geq 0 \Leftrightarrow e^{\sin{x}}\geq 3\Leftrightarrow \sin{x}\geq \ln{3}$ en composant par la fonction $\ln{}$ qui est strictement croissante sur $\R^{+\star}$. Or $\ln{3}>1$, donc \fbox{$\mathcal{S}=\emptyset$.}
+%\end{itemize} 
+%---
+\item \textbf{R\'esolution dans $\mathbf{\R}$ de $\mathbf{2e^{2x}-e^x-1\leq 0}$:}\\
+\noindent \begin{itemize}
+\item[$\star$] Domaine de r\'esolution: $\mathcal{D}=\R$.
+\item[$\star$] On pose $X=e^x$ et on doit r\'esoudre $2X^2-X-1\leq 0$. On obtient $X \in \left] -\ddp \demi, 1\right[$, soit $e^x>\ddp - \demi$ et $e^x <1$. La première \'equation est toujours vraie, et la deuxi\`eme \'equivaut  \`a $x<0$. On a donc : \fbox{$\mathcal{S}= \; \rbrack -\infty,0\rbrack$}.
+\end{itemize} 
+%--------
+\item \textbf{R\'esolution dans $\mathbf{\R}$ de $\mathbf{2\ln{(x)}+\ln{(2x-1)}>\ln{(2x+8)}+2\ln{(x-1)}}$:}\\
+\noindent \begin{itemize}
+\item[$\star$] Domaine de r\'esolution: $\mathcal{D}=\rbrack 1,+\infty\lbrack$.
+\item[$\star$] En utilisant les propri\'et\'es du logarithme n\'ep\'erien et le fait que la fonction exponentielle est strictement croissante sur $\R$, on doit r\'esoudre $5x^2-14x+8<0$. En n'oubliant pas le domaine de d\'efinition, on obtient \fbox{$\mathcal{S}= \; \rbrack 1,2\lbrack$}.
+\end{itemize} 
+%---
+\item \textbf{R\'esolution dans $\mathbf{\R}$ de $\mathbf{4e^x-3e^{\frac{x}{2}}\geq 0}$:}\\
+\noindent \begin{itemize}
+\item[$\star$] Domaine de r\'esolution: $\mathcal{D}=\R$.
+\item[$\star$] On pose $X=e^{\frac{x}{2}}$ et cela revient \`{a} r\'esoudre $4X^2-3X\geq 0\Leftrightarrow X(4X-3)\geq 0$. Ce qui est \'equivalent \`{a} $e^{\frac{x}{2}} \leq 0$ ou $e^{\frac{x}{2}}\geq \ddp\frac{3}{4}$. La premi\`{e}re in\'equation est impossible et la deuxi\`{e}me donne \fbox{$\mathcal{S}=\left\lbrack 2\ln{\left( \ddp\frac{3}{4}\right)},+\infty\right\lbrack$}.
+\end{itemize} 
+%--
+\item \textbf{R\'esolution dans $\mathbf{\R}$ de $\mathbf{e^x-e^{-x}=3}$:}\\
+\noindent \begin{itemize}
+\item[$\star$] Domaine de r\'esolution: $\mathcal{D}=\R$.
+\item[$\star$] On met tout sur le m\^{e}me d\'enominateur et on obtient: $\ddp\frac{ e^{2x}-3e^x-1 }{e^x}=0$. On pose $X=e^x$ et on doit donc r\'esoudre $X^2-3X-1=0$. En repassant \`{a} $x$, on obtient 
+\fbox{$\mathcal{S}=\left\lbrace   \ln{\left(\ddp\frac{3+\sqrt{13}}{2} \right)} \right\rbrace $.}
+\end{itemize} 
+%---
+\item \textbf{R\'esolution dans $\mathbf{\R}$ de $\mathbf{9^x-2\times 3^x-8>0}$:}\\
+\noindent 
+\begin{itemize}
+\item[$\star$] Domaine de r\'esolution: $\mathcal{D}=\R$.
+\item[$\star$] On peut remarquer que: $9^x=(3^x)^2$. Ainsi on pose $X=3^x$ et on obtient que: $X^2-2X-8>0$. Le discriminant vaut $\Delta=36$ et les racines sont $-2$ et 4. Ainsi on doit r\'esoudre $3^x<-2$ ou $3^x>4$. Or on sait que $3^x=e^{x\ln{3}}$ ainsi la premi\`{e}re in\'equation est impossible et la deuxi\`{e}me in\'equation donne: 
+$3^x>4 \Leftrightarrow x>\ddp\frac{\ln{4}}{\ln{3}}$ en composant par la fonction $\ln{}$ qui est strictement croissante sur $\R^{+\star}$ et car $\ln{3}>0$.  On a donc : \fbox{$\mathcal{S}=\left\rbrack \ddp\frac{\ln{4}}{\ln{3}},+\infty   \right\lbrack $}.
+\end{itemize} 
+%\item \textbf{R\'esolution dans $\mathbf{\R}$ de $\mathbf{2^{4x}-3\times 2^{2x+1}+2^3<0}$:}\\
+%\noindent 
+%\begin{itemize}
+%\item[$\star$] Domaine de r\'esolution: $\mathcal{D}=\R$.
+%\item[$\star$] On peut remarquer que: $2^{4x}=4^{2x}=(4^x)^2$ et $2^{2x+1}=2\times 2^{2x}=2\times 4^x$. Ainsi l'in\'equation \`{a} r\'esoudre est \'equivalente \`{a}: $(4^{x})^2 -6\times 4^x+8<0$.
+%Ainsi on pose $X=4^x$ et on obtient que: $X^2-6X+8<0$. Le discriminant vaut $\Delta=4$ et les racines sont $2$ et 4. Ainsi on doit r\'esoudre $2<4^x<4$. Or on sait que $4^x=e^{x\ln{4}}$ ainsi on obtient que:
+%$2<4^x<4 \Leftrightarrow \ln{2}<x\ln{4}<\ln{4}$ en composant par la fonction $\ln{}$ qui est strictement croissante sur $\R^{+\star}$. Comme $\ln{4}>0$ et $\ln{4}=2\ln{2}$, on obtient au final que: $2^{4x}-3\times 2^{2x+1}+2^3<0 \Leftrightarrow \ddp\demi <x<1$. 
+%\item[$\star$] Conclusion: \fbox{$\mathcal{S}=\left\rbrack \ddp\frac{1}{2},1 \right\lbrack $.}
+%\end{itemize} 
+\end{enumerate}
+\end{correction}
+
+
+
+
+
+
+
+
+%%%%%-----
+
+\begin{exercice}
+On consid\`ere l'expression $R(a)=\sqrt{a+2\sqrt{a-1}}+\sqrt{a-2\sqrt{a-1}}$.
+\begin{enumerate}
+ \item Pour quels valeurs de $a$, $R(a)$ est-elle bien d\'efinie ? 
+\item Pour ces valeurs, simplifier l'expression $R(a)$. Tracer la fonction $a\mapsto R(a)$.
+\end{enumerate}
+\end{exercice}
+
+\begin{correction}   \;
+\begin{enumerate}
+\item \textbf{Valeurs de $\mathbf{a}$ pour que $\mathbf{R(a)}$ soit bien d\'efini:}\\
+\noindent Pour que $R(a)$ soit bien d\'efinie, il faut d\'ej\`a que $a-1\geq 0$, c'est-\`a-dire que $a\geq 1$. On suppose donc que $a\geq 1$.
+Sous cette hypoth\`ese, on a donc que $a+2\sqrt{a-1}>0$ comme somme d'un terme strictement positif et d'un autre terme positif. Il reste \`a \'etudier $a-2\sqrt{a-1}$.
+$$a-2\sqrt{a-1}\geq 0\Leftrightarrow a\geq 2\sqrt{a-1}\Leftrightarrow a^2-2a+1\geq 0.$$
+On est pass\'e au carr\'e tout en conservant l'\'equivalence car les deux termes sont bien positifs. Le discriminant de la derni\`ere in\'equation est strictement n\'egatif ($\Delta=-4$) et ainsi, on a $a^2-2a+1>0$, d'o\`u $a-2\sqrt{a-1}>0$. Finalement, on obtient
+$$\fbox{$ \mathcal{D}_R=\lbrack 1,+\infty\lbrack. $}$$
+\item \textbf{Simplifions $\mathbf{R(a)}$:} \\
+\noindent On suppose donc que $a\geq 1$. Ainsi, $R(a)$ a bien un sens et on peut calculer $R(a)^2$. On obtient
+$$R(a)^2=2a+2\sqrt{a^2-4a+4}=2a+2\sqrt{(a-2)^2}=2a+2|a-2|.$$
+Ainsi, si $1\leq a\leq 2$, on obtient
+$$R(a)^2=2a+2(-a+2)=4\quad \hbox{donc}\quad R(a)=2$$
+car $R(a)=-2$ est impossible car $R(a)$ est un nombre positif comme somme de deux nombres positifs (somme de deux racines carr\'ees).
+Et si $a\geq 2$, on obtient
+$$R(a)^2=2a+2(a-2)=4(a-1)\quad \hbox{donc}\quad R(a)=2\sqrt{a-1}$$
+car $R(a)=-2\sqrt{a-1}$ est impossible car $R(a)$ est un nombre positif comme somme de deux nombres positifs (somme de deux racines carr\'ees). \\
+\noindent On a donc obtenu:
+$$\fbox{ $
+\forall a\geq 1,\ R(a)=\left\lbrace
+\begin{array}{ll}
+2 & \hbox{si}\ 1\leq x\leq 2\vsec\\
+2\sqrt{a-1} & \hbox{si}\ x\geq 2.
+\end{array}
+\right.
+$}$$
+%---
+
+
+\end{enumerate}
+\end{correction}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%-----------------------------------------------------
+
+
+
+
+
+%---------------------------------------------------
+\begin{exercice}  \;
+D\'eterminer en fonction du param\`etre $m\in\R$ l'ensemble de d\'efinition de la fonction de $\R$ dans $\R$ donn\'ee par
+$$f(x)=\ddp\sqrt{x^2-(m+1)x+m}.$$
+\end{exercice}
+
+
+
+
+
+
+
+
+\begin{correction}  \;
+La fonction $f$ est bien d\'efinie si et seulement si $x^2-(m+1)x+m\geq 0$. Le discriminant donne: $\Delta=(m+1)^2-4m=(m-1)^2$.
+\begin{itemize}
+\item[$\bullet$] Cas 1: si $m=1$: On obtient alors $\Delta=0$ et ainsi, pour tout $x\in\R$, on a: $x^2-(m+1)x+m\geq 0$. Ainsi : \fbox{$\mathcal{D}_{m=1}=\R$}. 
+\item[$\bullet$] Cas 2: si $m\not= 1$: On obtient alors $\Delta>0$ et les deux racines distinctes sont alors: $\ddp\frac{m+1+|m-1|}{2}$ et $\ddp\frac{m+1-|m-1|}{2}$. Afin de calculer la valeur absolue, on doit encore distinguer deux cas:
+\begin{itemize}
+\item[$\star$] Si $m>1$: les deux racines sont alors $1$ et $m$ et on obtient ainsi: \fbox{$\mathcal{D}_{m>1}=\rbrack -\infty,1\rbrack\cup\lbrack m,+\infty\lbrack$}.
+\item[$\star$] Si $m<1$: les deux racines sont alors $m$ et $1$ et on obtient ainsi: \fbox{$\mathcal{D}_{m<1}=\rbrack -\infty,m\rbrack\cup\lbrack 1,+\infty\lbrack$}.
+\end{itemize}
+\end{itemize}
+\end{correction}
+
+
+\begin{exercice}
+Soit $f$ une fonction de $\R$ dans $\R$. On considère les trois propositions suivantes 
+$$P_1(f) : "\exists M\in \R, \forall x \in \R, f(x) <M"$$
+$$P_2(f) : "\exists x\in \R, \exists y \in \R, f(x) <f(y)"$$
+$$P_3(f) : "\forall x\in \R, \exists y \in \R^+, f(x) \geq f(y)"$$
+
+\begin{enumerate}
+    \item Donner les négations de ces propositions
+    \item Dire si ces propositions sont vraies ou fausses pour les fonctions suivantes :
+    $$ f \left| \begin{array}{ccc}
+         \R &\tv &\R   \\
+         x & \mapsto & 1
+    \end{array}\right. ,\quad  g \left| \begin{array}{ccc}
+         \R &\tv &\R   \\
+         x & \mapsto & \exp(x)
+    \end{array}\right. ,\quad  h \left| \begin{array}{ccc}
+         \R &\tv &\R   \\
+         x & \mapsto & \cos(x)
+    \end{array}\right.$$
+
+On justifiera, dans le cas où les propositions sont vraies, en donnant une valeur pour les variables quantifiées par le quantificateur $\exists$
+    
+\end{enumerate}
+\end{exercice}
+
+\begin{correction}
+    \begin{enumerate}
+        \item $$NON(P_1(f)) : "\forall M\in \R, \exists x \in \R, f(x) \geq M"$$
+$$NON(P_2(f)) : "\forall x\in \R, \forall y \in \R, f(x) \geq f(y)"$$
+$$NON(P_3(f)) : "\exists x\in \R, \forall y \in \R^+, f(x) < f(y)"$$
+\item 
+Pour $f$
+\begin{itemize}
+    \item  $P_1(f)$ est vrai, il suffit de prendre $M=2$.
+    \item $P_2(f)$ est faux. 
+    \item  $P_3(f)$ est vrai, il suffit de prendre $y=1$.
+\end{itemize}
+
+Pour $g$ 
+\begin{itemize}
+    \item  $P_1(g)$ est faux.
+    \item $P_2(g)$ est vrai, il suffit de prendre $x=1$ et $y=2$.
+    \item  $P_3(g)$ est faux.
+\end{itemize}
+
+Pour $h$
+
+\begin{itemize}
+    \item  $P_1(h)$ est vrai il suffit de prendre $M=2$. 
+    \item  $P_2(h)$ est vrai, il suffit de prendre $x=-\pi$ et $y=0$.
+    \item   $P_3(h)$ est vrai, il suffit de prendre $y=\pi$.
+\end{itemize}
+
+    \end{enumerate}
+\end{correction}
+
+
+%%%%%---
+
+\newpage
+\section*{Type DS}
+
+\begin{exercice}
+    On souhaite résoudre l'inéquation suivante 
+
+    $$I(a)\quad  : \quad  ax^2 -2a^2x +ax-x+2a-1\geq 0$$
+    d'inconnue $x$ et de paramètre $a\in \R$.
+
+    \begin{enumerate}
+        \item A quelle.s condition.s sur $a$ cette inéquation n'est-elle pas de degré 2 ? La résoudre pour la.les valeur.s correspondante.s
+
+        Dans toute la suite de l'exercice nous supposerons que $a$ est tel que l'inéquation est de degré $2$.
+        \item Montrer alors que le discriminant de $ ax^2 -2a^2x +ax-x+2a-1$ en tant que polynome du second degre en $x$, vaut 
+        $$\Delta(a) = 4a^4-4a^3-3a^2+2a+1$$
+        \item Montrer que $\Delta(a)=(a-1)^2(2a+1)^2$
+        \item \begin{enumerate}
+            \item   Soit $\cM$ l'ensemble des solutions de  $\Delta(a)=0$. Déterminer $\cM$
+            \item Résoudre $I(a)$ pour $a\in \cM$. 
+        \end{enumerate} 
+
+        On suppose désormais que $a\notin \cM$.
+      
+        
+        \item \begin{enumerate}
+            \item Justifier que $\Delta(a)> 0 $ et exprimer $\sqrt{\Delta(a)}$ à l'aide de valeur absolue. 
+            \item Montrer que pour tout $x\in \R$, 
+                $$\left\{ |x|,-|x|\right\} = \left\{x,-x\right\}$$
+            \item En déduire que l'ensemble des racines de $ax^2 -2a^2x +ax-x+2a-1$ est 
+            $$R=\left\{ \frac{1}{a} , \,  2a-1\right\}  $$
+           
+        \end{enumerate}
+On note  $$r_1(a) = \frac{1}{a} \quadet r_2(a) = 2a-1$$
+        
+        \item Résoudre $r_1(a)\geq r_2(a)$.
+        \item Conclure en donnant les solutions de $I(a)$ en fonction de $a$.
+        
+
+        
+    \end{enumerate}
+
+    
+\end{exercice}
+
+
+\begin{correction}
+    \begin{enumerate}
+        \item L'équation n'est pas de degré $2$ si et seulement si $a=0$. Dans ce cas, l'inéquation devient 
+        $$I(0) \quad :\quad  -x-1\geq 0$$
+        dont les solutions sont 
+        \conclusion{ $\cS_0 = ]-\infty , -1]$}
+        \item Le discriminant vaut 
+        
+        \begin{align*}
+            \Delta(a) &= (-2a^2 +a-1)^2 -4a(2a-1)\\
+                      &= (4a^4 +a^2 +1 -4a^3 +4a^2 -2a) -8a^2 +4a\\
+                      &= 4a^4 -4a^3-3a^2+2a+1
+        \end{align*}
+        \item Développons l'expression proposée: 
+        \begin{align*}
+            (a-1)^2 (2a+1)^2 &= (a^2 -2a+1) (4a^2 +4a+1)\\
+                            &= (4a^4 +4a^3+a^2) +(-8a^3-8a^2-2a) +(4a^2 +4a+1)\\
+                            &= 4a^4 -4a^3 -3a^2 +2a+1
+        \end{align*}    
+            On retrouve bien l'expression obtenue dans la question précédente, on a donc 
+            \conclusion{$ \Delta(a)=(a-1)^2 (2a+1)^2 $}
+
+        \item Pour tout $x\in \R$, $x^2 \geq 0$, d'après la question précédente $\Delta(a)$ est le produit de deux carrés, et donc vérifie $\Delta(a)\geq0$
+
+        On a par ailleurs pour tout $x\in \R $ $\sqrt{x^2} =|x|$, donc 
+
+        \conclusion{ $\sqrt{\Delta(a)} = |a-1||2a+1|$}
+        \item Etudions ces ensembles en fonction du signe de $x$.
+        
+        \underline{Si $x\geq 0$}\\
+        $|x|=x$  et donc 
+        $$\{|x|,-|x|\}= \{x,-x\}$$
+
+        \underline{Si $x< 0$}\\
+        $|x|=-x$  et donc 
+        $$\{|x|,-|x|\}= \{-x,x\}=\{x,-x\}$$    
+        (un ensemble n'est pas ordonné)
+
+        Ainsi on a bien l'égalité voulue. 
+
+        \item L'ensemble des deux racines est donc 
+
+        $$ R=\left\{\frac{2a^2-a+1 +\sqrt{\Delta(a)} }{2a}, \frac{2a^2-a+1-\sqrt{\Delta(a)} }{2a} \right\}$$
+        Ce qui d'après la question 4a) donne 
+               $$ R=\left\{\frac{2a^2-a+1 +|a-1||2a+1| }{2a}, \frac{2a^2-a+1-|a-1||2a+1| }{2a} \right\}$$ 
+        Et donc d'après la question 4b) cet ensemble est égal à 
+                  $$R= \left\{\frac{2a^2-a+1 +(a-1)(2a+1) }{2a}, \frac{2a^2-a+1-(a-1)(2a+1) }{2a} \right\}$$      
+
+
+        Enfin on a $$(a-1)(2a+1) = 2a^2-a-1$$ et donc 
+                  $$R= \left\{\frac{2a^2-a+1 +(2a^2-a-1)) }{2a}, \frac{2a^2-a+1 -(2a^2-a-1) }{2a} \right\}$$          
+
+    On calcule alors séparément ces deux expressions : 
+    $$\frac{2a^2-a+1 +(2a^2-a-1)) }{2a}  = \frac{4a^2-2a }{2a}=2a-1$$
+    et 
+    $$\frac{2a^2-a+1 -(2a^2-a-1)) }{2a}  = \frac{2 }{2a}=\frac{1}{a}$$
+    On obtient bien 
+    \conclusion{$R =\left\{ \frac{1}{a} , \,  2a-1\right\} ±$}
+
+
+    \item  Résolvons l'inéquation de l'énoncé :
+    \begin{align*}
+        \frac{1}{a} &\geq 2a-1 \\
+        \equivaut \quad \frac{1}{a}-2a+1 &\geq 0 \\
+        \equivaut \quad \frac{1-2a^2+a}{a} &\geq 0 \\
+        \equivaut \quad \frac{2a^2-a-1}{a} &\leq 0 \\
+        \equivaut \quad \frac{(2a+1)(a-1)}{a} &\leq 0 
+    \end{align*}
+    Les solutions sont donc (faire un tableau de signes dans le doute)
+\conclusion{$\cS=]-\infty,\frac{-1}{2}]\cup ]0,1] $}
+
+    \item 
+    Pour $a \in ]-\infty,\frac{-1}{2}] $ les solutions de $I(a)$ sont :
+    \conclusion{ $ \cS_a = [r_2(a),r_1(a)] $}
+
+     Pour $a \in ]\frac{-1}{2},0[ $ les solutions de $I(a)$ sont :
+    \conclusion{ $ \cS_a = [r_1(a),r_2(a)] $}   
+
+     Pour $a =0 $ les solutions de $I(a)$ sont :
+    \conclusion{ $\cS_0 = ]-\infty , -1]$}
+
+     Pour $a \in ]0,1] $ les solutions de $I(a)$ sont :
+    \conclusion{ $ \cS_a =]-\infty, r_2(a)]\cup [r_1(a),+\infty[ $}   
+
+    Enfin,  pour $a \in ]1,+\infty[ $ les solutions de $I(a)$ sont :
+    \conclusion{ $ \cS_a =]-\infty, r_1(a)]\cup [r_2(a),+\infty[ $}   
+    
+    
+    
+    \end{enumerate}
+\end{correction}
+
+
+
+
+
+
+\begin{exercice}
+On cherche les racines réelles du polynôme $P(x) =x^3-6x-9$. 
+\begin{enumerate}
+\item Donner en fonction du paramètre $x$ réel, le nombre de solutions réelles de l'équation $x=y+\frac{2}{y}$ d'inconnue $y\in \R^*$. 
+\item Soit $x\in \R$ vérifiant $|x|\geq 2\sqrt{2}$. Montrer en posant le changement de variable $x=y+\frac{2}{y}$ que : 
+$$ P(x) =0 \equivaut y^6 -9y^3 +8=0$$
+\item Résoudre l'équation $z^2-9z+8=0$ d'inconnue $z\in \R$. 
+\item En déduire une racine du polynôme $P$.
+\item Donner toutes les racines réelles du polynôme $P$. 
+\end{enumerate}
+\end{exercice}
+
+\begin{correction}
+\begin{enumerate}
+\item Résolvons l'équation proposée en fonction du paramètre $x$. 
+On a $$
+\begin{array}{lrl}
+&y+\frac{2}{y}&=x\\
+\equivaut & y^2+2&=yx\\
+\equivaut & y^2-xy+2&=0
+\end{array}
+$$
+
+On calcule le discriminant de ce polynome de degré $2$ on obtient
+$$\Delta = x^2-8$$
+
+Donc : 
+\begin{itemize}
+\item si $x^2-8>0$  c'est-à-dire si  $|x| >2\sqrt{2}$, 
+l'équation admet $2$ solutions. 
+\item si $x^2-8=0$  c'est-à-dire si  $x=2\sqrt{2}$ ou $x=-2\sqrt{2}$ 
+l'équation admet $1$ seule solution. 
+\item si $x^2-8<0$  c'est-à-dire si  $x\in ]-2\sqrt{2},22\sqrt{2}[$ 
+l'équation admet $0$ solution. 
+\end{itemize}
+
+\item 
+Soit $x=y+\frac{2}{y}$, on a :
+$$\begin{array}{lrl}
+&P(x)&=0 \\
+\equivaut&\left(y+ \frac{2}{y}\right)^3-6\left(y+ \frac{2}{y}\right)-9&=0
+\end{array}
+$$
+
+Développons à part 
+$\left(y+ \frac{2}{y}\right)^3$. On obtient tout calcul fait
+$$\left(y+ \frac{2}{y}\right)^3=y^3 +6y+\frac{12}{y}+\frac{8}{y^3}$$
+Donc 
+
+$$\begin{array}{lrl}
+&\left(y+ \frac{2}{y}\right)^3-6\left(y+ \frac{2}{y}\right)-9&=0\\
+\equivaut& y^3 +\frac{8}{y^3}-9&=0\\
+\equivaut& y^6 +8-9y^3&=0
+\end{array}
+$$
+où la dernière équivalence s'obtient en multipliant par $y^3$ non nul. 
+
+\item On résout $z^2-9z+8=0$ à l'aide du discriminant du polynôme $z^2-9z+8$ qui vaut 
+$\delta = 81-32= 49=7^2$. On  a donc deux solutions 
+\conclusion{
+$z_1 =\frac{9+7}{2}=8 \quadet z_2 =\frac{9-7}{2}=1$
+}
+
+\item La question d'avant montre que $\sqrt[3]{1}=1$ est solution de l'équation $y^6-9y^3+8=0$ (on peut le vérifier à la main si on veut, mais c'était le but de la question précédente.) 
+
+Comme  on a effectué le changement de variable  $x=y+\frac{2}{y}$ et à l'aide de la question $2$, on voit que $x=1+\frac{2}{1}=3$ est solution de l'équation $P(x)=0$ c'est-à-dire que 
+\conclusion{$3$ est une racine de $P$.} 
+
+(de nouveau on pourrait le revérifier en faisant le calcul, mais ceci n'est psa nécéssaire)
+
+\item Comme $3$ est racine de $P$, on peut écrire $P(x)$ sous la forme $(x-3)(ax^2+bx+c)$, avec $(a,b,c)\in \R^3$. 
+
+En développant on obtient 
+$P(x)= ax^3 +(-3a+b)x^2+(c-3b)x-3c.$ Maintenant par identification on obtient 
+$$\left\{\begin{array}{ccc}
+a&=&1\\
+-3a+b&=&0\\
+c-3b&=&-6\\
+-3c&=&-9
+\end{array}\right.$$
+Ce qui donne 
+$$\left\{\begin{array}{ccc}
+a&=&1\\
+b&=&3\\
+c&=&3\\
+c&=&3
+\end{array}\right.$$
+Et finalement 
+$$P(x) = (x-3) (x^2+3x+3)$$
+
+Il nous reste plus qu'à trouver les racines de $x^2+3x+3$ que l'on fait grâce à son discriminant qui vaut $\Delta =9-12<-3$. 
+
+\conclusion{
+L'unique racine réelle de $P$ est $3$}
+
+
+Je rajoute le graphique de la courbe représentative de $P$ avec le programme Python qui permet de le tracer. 
+\begin{lstlisting}
+import matplotlib.pyplot as plt
+import numpy as np
+def P(x):
+    return(x**3-6*x+9)
+X=np.linspace(-5,5,100)
+Y=P(X)
+Z=np.zeros(100)
+plt.plot(X,Y)
+plt.plot(X,Z)
+plt.show()
+\end{lstlisting}
+%\begin{center}
+%\includegraphics[scale=0.4]{../../../graph.png} 
+%\end{center}
+
+ 
+\end{enumerate}
+
+\end{correction}
+
+
+
+
+
+
+
+%------------------------------------------------------------
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,1330 @@
+\documentclass[a4paper, 11pt,reqno]{article}
+\input{macro/package.tex}
+\input{macro/environement}
+\input{macro/header.tex}
+\input{macro/newcommand.tex}
+\geometry{hmargin=2.0cm, vmargin=1.5cm}
+
+\newcommand{\type}{TD }
+\excludecomment{correction}
+%\renewcommand{\type}{Correction TD }
+
+
+\begin{document}
+
+\title{\type  3 - Sommes, produits et récurrences}
+
+%--------------------------
+
+%-----------------------------------------------------------------------------------------------
+\section*{Entraînements}
+
+
+\vspace{0.2cm}
+
+%------------------------------------------------
+%-------------------------------------------------
+\begin{exercice}  \;
+\noindent Soit $n\in\N,\ n\geq 3$. Simplifier les nombres suivants:
+$$A=\ddp\frac{7!}{6!},\ \ \ \ B=\ddp\frac{3\times 4!}{(3!)^2},\ \ \ \ 
+C=\ddp\frac{n!}{(n-1)!},\ \ \ \ D=\ddp\frac{(n+1)!}{(n-3)!}\ \ \hbox{et}\ \ E=\ddp\frac{(n+1)!}{(n-2)!}+\ddp\frac{n!}{(n-1)!}.$$
+\end{exercice}
+\vspace{0.4cm} 
+
+
+%------------------------------------------------
+%-------------------------------------------------
+%---------------------------------------------------
+%-------------------------------------------------
+
+%-------------------------------------------------
+\begin{correction}  \; \vsec
+\begin{itemize}
+\item[$\bullet$] $A=\ddp\frac{7!}{6!}=\ddp\frac{7\times 6!}{6!}=\fbox{$7.$}$
+\item[$\bullet$] $B=\ddp\frac{3\times 4!}{(3!)^2}=\ddp\frac{3\times 4\times 3!}{3!\times 3\times 2}=\fbox{$2$.}$
+\item[$\bullet$] $C=\ddp\frac{n!}{(n-1)!}=\ddp\frac{n\times (n-1)!}{(n-1)!}=\fbox{$n$.}$
+\item[$\bullet$] $D=\ddp\frac{(n+1)!}{(n-3)!}=\ddp\frac{(n+1)\times n\times (n-1)\times (n-2)\times (n-3)!}{(n-3)!}=\fbox{$(n+1) n (n-1) (n-2)$.}$
+\item[$\bullet$] $E=\ddp\frac{(n+1)!}{(n-2)!}+\ddp\frac{n!}{(n-1)!}=(n+1)n(n-1)+n=n(n^2-1+1)=\fbox{$n^3$.}$
+\end{itemize}
+\end{correction}
+\vspace{0.4cm}
+
+
+
+
+
+%-------------------------------------------------
+%--------------------------------------------------
+%----------------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------
+%\section{Calculs de sommes}
+\vspace{0.2cm}
+
+%------------------------------------------------
+%-------------------------------------------------
+\begin{exercice} \;
+Soit $n\in\N^{\star}$. Calculer les expressions suivantes:\\
+\begin{enumerate}
+\begin{minipage}[t]{0.3\textwidth}
+\item $\ddp \sum\limits_{k=0}^{n} x^{2k}$ \; et \; $\ddp \sum\limits_{k=0}^{n} x^{2k+1}$
+\item $\ddp \sum\limits_{k=0}^{n} a^k 2^{3k} x^{-k}$ avec $x\not= 0$
+\item $\ddp \sum\limits_{i=0}^{n} (i^2+n+3)$
+%\item $\ddp \sum\limits_{j=8}^{21}\ddp\frac{2j-5}{6}$
+\item $\ddp \sum\limits_{i=1}^{n} (2i-1)^3$
+\end{minipage}
+\begin{minipage}[t]{0.25\textwidth}
+%\item $\ddp \sum\limits_{k=0}^{n} \ddp\frac{p}{q+1}$
+\item $\ddp \sum\limits_{k=2}^{n^2} (1-a^2)^{2k+1}$
+\item $\ddp \sum\limits_{k=1}^n (3\times 2^k+1) $ 
+\item $\ddp\frac{1}{n}\ddp \sum\limits_{k=0}^{n-1} \exp{\left(\ddp\frac{k}{n}\right)} $ 
+\item $\ddp \sum\limits_{k=0}^n (2k-1+2^k) $ 
+%\item $\ddp \sum\limits_{k=1}^n 2^{2k+1} $ 
+%\item $\ddp \sum\limits_{i=0}^n 3(i+1)i$
+\end{minipage}
+\begin{minipage}[t]{0.35\textwidth}
+\item $\ddp \sum\limits_{j=0}^n\ddp \binom{n}{j}a^j$ \; et \;  $\ddp \sum\limits_{j=1}^{n+1}\ddp \binom{n}{j}a^j$
+\item $\ddp \sum\limits_{i=0}^{n}\ddp \binom{n}{i}(-1)^{i}$ \; et \; $\ddp \sum\limits_{i=1}^{n}\ddp \binom{n+1}{i}(-1)^{i}$
+\item $\ddp \sum\limits_{j=0}^n\ddp \binom{n}{j}  \ddp\frac{(-1)^{j-1}}{2^{j+1}}$
+\item $\ddp \sum\limits_{k=0}^{n-1} \ddp\frac{1}{3^k}\ddp \binom{n}{k}$
+%\item $\ddp \sum\limits_{k=0}^n \left(   3k-4+5k^2-(-1)^{k+4}3^{2k-1}+\binom{n}{k} (-2)^{k+1}\ddp\frac{1}{3^{k+2}} \right)$
+\end{minipage}
+\end{enumerate}
+\end{exercice}
+%------------------------------------------------
+\begin{correction}   \;
+\begin{enumerate}
+\item \textbf{Calcul de $\mathbf{\ddp \sum\limits_{k=0}^{n} x^{2k}}$:}\\
+\noindent On reconna\^{i}t la somme des termes d'une suite g\'eom\'etrique et on obtient donc en utilisant le fait que $x^{2k}=(x^2)^k$:\\
+\noindent  
+\begin{center}
+$\ddp \sum\limits_{k=0}^{n} x^{2k}=\ddp \sum\limits_{k=0}^{n} (x^2)^{k}=\fbox{$\left\lbrace \begin{array}{ll}  \ddp\frac{1-x^{2n+2}}{1-x^2} & \hbox{si}\ x\not= 1\ \hbox{et}\ x\not=-1\vsec\\ n+1 & \hbox{si}\ x= 1\ \hbox{ou}\ x=-1.   \end{array}\right.$}$\\
+\end{center}
+
+\textbf{Calcul de $\mathbf{\ddp \sum\limits_{k=0}^{n} x^{2k+1}}$:}\\
+\noindent On reconna\^{i}t la somme des termes d'une suite g\'eom\'etrique et on obtient donc en utilisant le fait que $x^{2k+1}=(x^2)^k\times x$:\\
+\noindent \begin{center}
+$\ddp \sum\limits_{k=0}^{n} x^{2k+1}=x\ddp \sum\limits_{k=0}^{n} (x^2)^{k}=\fbox{$\left\lbrace \begin{array}{ll}  x\times \ddp\frac{1-x^{2n+2}}{1-x^2} & \hbox{si}\ x\not= 1\ \hbox{et}\ x\not=-1\vsec\\ n+1 & \hbox{si}\ x= 1\vsec\\ -(n+1)& \hbox{si}\ x=-1.   \end{array}\right.$}$
+\end{center}
+\item  \textbf{Calcul de $\mathbf{\ddp \sum\limits_{k=0}^{n} a^k 2^{3k} x^{-k}}$:}\\
+\noindent On reconna\^{i}t la somme des termes d'une suite g\'eom\'etrique et on obtient donc en utilisant le fait que $a^k 2^{3k} x^{-k}=a^k(2^3)^k\times \ddp\frac{1}{x^k}=a^k\times 8^k\times \left(\ddp\frac{1}{x} \right)^k=\left(\ddp\frac{8a}{x} \right)^k$:\\
+
+\begin{center}
+ $\ddp \sum\limits_{k=0}^{n} a^k 2^{3k} x^{-k}=\ddp \sum\limits_{k=0}^{n} \left(\ddp\frac{8a}{x}\right)^k=\fbox{$\left\lbrace \begin{array}{ll}  \ddp\frac{1-\left( \frac{8a}{x}\right)^{n+1}}{1-\left( \frac{8a}{x}\right)} & \hbox{si}\ x\not= 8a \vsec\\ n+1 & \hbox{si}\ x= 8a.   \end{array}\right.$}$ 
+\end{center}
+
+\item  \textbf{Calcul de $\mathbf{\ddp \sum\limits_{i=0}^{n} (i^2+n+3)}$:}\\
+\noindent Par lin\'earit\'e de la somme, on obtient: 
+\begin{align*}
+\ddp \sum\limits_{i=0}^{n} (i^2+n+3)&=\ddp \sum\limits_{i=0}^{n} i^2+(n+3)\ddp \sum\limits_{i=0}^{n} 1\\
+&= \ddp\frac{n(n+1)(2n+1)}{6}+(n+3)(n+1)\\
+&=\fbox{$ \ddp\frac{n+1}{6}\left( 2n^2+7n+18 \right)$}
+\end{align*}
+
+%\item  \textbf{Calcul de $\mathbf{\ddp \sum\limits_{j=8}^{21}\ddp\frac{2j-5}{6}}$:}\\
+%\noindent Par lin\'earit\'e de la somme, on obtient: $\ddp \sum\limits_{j=8}^{21} \ddp\frac{2j-5}{6}=
+%\ddp\frac{1}{6}\left\lbrack    2\ddp \sum\limits_{j=8}^{21} j-5\ddp \sum\limits_{j=8}^{21}1  \right\rbrack=
+%\ddp\frac{1}{6}\left\lbrack    2\times \ddp\frac{(21+8)(21-8+1)}{2}-5(21-8+1)  \right\rbrack=
+%\fbox{$\ddp\frac{28}{3}.$}$
+\item  \textbf{Calcul de $\mathbf{\ddp \sum\limits_{i=1}^{n} (2i-1)^3}$:}\\
+\noindent On commence par d\'evelopper la puissance cube \`{a} l'int\'erieur de la somme puis on utilise la lin\'earit\'e de la somme. On obtient donc:
+\begin{align*}
+\ddp \sum\limits_{i=1}^{n} (2i-1)^3&=\ddp \sum\limits_{i=1}^{n} \left( 8i^3-12i^2+6i-1 \right)\\
+&=8 \ddp \sum\limits_{i=1}^{n} i^3-12\ddp \sum\limits_{i=1}^{n}i^2+6\ddp \sum\limits_{i=1}^{n} i-\ddp \sum\limits_{i=1}^{n}1. 
+\end{align*}
+On utilise ensuite le formulaire sur les sommes et on obtient alors:
+\begin{align*}
+ \ddp \sum\limits_{i=1}^{n} (2i-1)^3&=8\left( \ddp\frac{n(n+1)}{2} \right)^2-12\ddp\frac{n(n+1)(2n+1)}{6}+6\ddp\frac{n(n+1)}{2}-n\\
+ 	&= \fbox{$n^2(4n^2+4n+1)$} .
+\end{align*}
+
+Une autre solution consiste à faire la somme des paires entre $1$ et $2n$ puis simplifier l'expression avec la somme de tous les entiers au cube. 
+%\item  \textbf{Calcul de $\mathbf{\ddp \sum\limits_{k=0}^{n} \ddp\frac{p}{q+1}}$:}\\
+%\noindent Comme ni $p$, ni $q$ ne d\'ependent de l'indice de sommation $k$, par lin\'earit\'e de la somme, on obtient: $\ddp \sum\limits_{k=0}^{n} \ddp\frac{p}{q+1}=\ddp\frac{p}{q+1}\ddp \sum\limits_{k=0}^{n} 1=\fbox{$ \ddp\frac{p(n+1)}{q+1}$.}$
+%-------------------
+\item  \textbf{Calcul de $\mathbf{\ddp \sum\limits_{k=2}^{n^2} (1-a^2)^{2k+1}}$:}\\
+\noindent On commence par utiliser les propri\'et\'es sur les puissances et on obtient que: $(1-a^2)^{2k+1}=\lbrack(1-a^2)^2\rbrack^k \times (1-a^2)^1$. Par lin\'earit\'e de la somme et en reconnaissant de plus la somme d'une suite g\'eom\'etrique, on a: $\ddp \sum\limits_{k=2}^{n^2} (1-a^2)^{2k+1}=(1-a^2)\ddp \sum\limits_{k=2}^{n^2} \lbrack (1-a^2)^2 \rbrack^k$. On doit donc \'etudier deux cas selon que $(1-a^2)^2\not= 1$ ou que $(1-a^2)^2= 1$.
+\begin{itemize}
+\item[$\bullet$] Cas 1: si $(1-a^2)^2\not= 1$:\\
+\noindent On obtient alors: $\ddp \sum\limits_{k=2}^{n^2} (1-a^2)^{2k+1}=(1-a^2)\times ((1-a^2)^2)^2\times \ddp\frac{1-\lbrack (1-a^2)^2\rbrack^{n^2-1}}{1-(1-a^2)^2}=(1-a^2)^5\times \ddp\frac{1- (1-a^2)^{2n^2-2}}{2a^2-a^4}=\fbox{$(1-a^2)^5\times \ddp\frac{1- (1-a^2)^{2n^2-2}}{a^2(2-a^2)}$.}$
+\item[$\bullet$] Cas 2: si $(1-a^2)^2= 1$:\\
+\noindent Regardons \`{a} quels $a$ cela correctionrespond: $(1-a^2)^2= 1\Leftrightarrow 1-a^2=1\ \hbox{ou}\ 1-a^2=-1\Leftrightarrow a^2=0\ \hbox{ou}\ a^2=2\Leftrightarrow a=-\sqrt{2}\ \hbox{ou}\ a=0\ \hbox{ou}\ a=\sqrt{2}$. Calculons alors la somme pour ces $a$: $\ddp \sum\limits_{k=2}^{n^2} (1-a^2)^{2k+1}=(1-a^2)\ddp \sum\limits_{k=2}^{n^2} 1=(1-a^2)\times (n^2-1).$ Il faut alors distinguer encorrectione deux cas: 
+\begin{itemize}
+\item[$\star$] Si $a=0$ alors $1-a^2=1$ et \fbox{$\ddp \sum\limits_{k=2}^{n^2} (1-a^2)^{2k+1}=n^2-1.$}
+\item[$\star$] Si $a=-\sqrt{2}$ ou $a=\sqrt{2}$ alors $1-a^2=-1$ et \fbox{$\ddp \sum\limits_{k=2}^{n^2} (1-a^2)^{2k+1}=-n^2+1.$}
+\end{itemize}
+\end{itemize}
+\item  \textbf{Calcul de $\mathbf{\ddp \sum\limits_{k=1}^n (3\times 2^k+1) }$:}\\
+\noindent $\ddp \sum\limits_{k=1}^n (3\times 2^k+1)=3 \ddp \sum\limits_{k=1}^n 2^k+\ddp \sum\limits_{k=1}^n 1=3\times 2\times \ddp\frac{1-2^n}{1-2} +n $ par lin\'earit\'e et car $2\not=1$. Donc 
+\begin{center}
+\fbox{$\ddp \sum\limits_{k=1}^n (3\times 2^k+1) =6(2^n-1)+n.$}
+\end{center}
+
+\item  \textbf{Calcul de $\mathbf{\ddp\frac{1}{n}\ddp \sum\limits_{k=0}^{n-1} \exp{\left(\ddp\frac{k}{n}\right)} }$:}\\
+\noindent $\ddp\frac{1}{n}\ddp \sum\limits_{k=0}^{n-1} \exp{\left(\ddp\frac{k}{n}\right)} = \ddp\frac{1}{n}\ddp \sum\limits_{k=0}^{n-1} \left( e^{\frac{1}{n}} \right)^{k}=\ddp\frac{1}{n} \ddp\frac{ 1-\left( e^{\frac{1}{n}} \right)^{n}  }{1-e^{\frac{1}{n}} }$ car $e^{\frac{1}{n}} \not= 1$. Ainsi \fbox{$\ddp\frac{1}{n}\ddp \sum\limits_{k=0}^{n-1} \exp{\left(\ddp\frac{k}{n}\right)} =\ddp\frac{1}{n} \ddp\frac{ 1-e  }{1-e^{\frac{1}{n}} }$.} 
+
+
+\item  \textbf{Calcul de $\mathbf{\ddp \sum\limits_{k=0}^n (2k-1+2^k) }$:}\\
+\noindent $\ddp \sum\limits_{k=0}^n (2k-1+2^k)=2\ddp \sum\limits_{k=0}^n k-\ddp \sum\limits_{k=0}^n 1+\ddp \sum\limits_{k=0}^n 2^k=2\ddp\frac{n(n+1)}{2} -(n+1)+ \ddp\frac{1-2^{n+1}}{1-2}$ par  lin\'earit\'e et car $2\not=1$. Ainsi \fbox{$\ddp \sum\limits_{k=0}^n (2k-1+2^k)=n^2+2^{n+1}-2$.}
+%\item  \textbf{Calcul de $\mathbf{\ddp \sum\limits_{k=1}^n 2^{2k+1} }$:}\\
+%\noindent $\ddp \sum\limits_{k=1}^n 2^{2k+1} =2\ddp \sum\limits_{k=1}^n (2^2)^k=2\ddp \sum\limits_{k=1}^n 4^k=2\times 4\times \ddp\frac{1-4^n}{1-4} $ par  lin\'earit\'e et car $4\not=1$. Ainsi \fbox{$\ddp \sum\limits_{k=1}^n 2^{2k+1} =\ddp\frac{8}{3}(4^n-1)$.}
+%\item  \textbf{Calcul de $\mathbf{\ddp \sum\limits_{i=0}^n 3(i+1)i}$:}\\
+%\noindent $\ddp \sum\limits_{i=0}^n 3(i+1)i=3\ddp \sum\limits_{i=0}^n i^2+3\ddp \sum\limits_{i=0}^n i=3\ddp\frac{n(n+1)(2n+1)}{6}+3\ddp\frac{n(n+1)}{2}=\fbox{$ n(n+1)(n+2)$.}$ On a utilis\'e la lin\'earit\'e de la somme et le formulaire sur les sommes usuelles.
+\item  \textbf{Calcul de $\mathbf{\ddp \sum\limits_{j=0}^n\ddp \binom{n}{j}a^j}$:}\\
+\noindent \fbox{$\ddp \sum\limits_{j=0}^n\binom{n}{j}a^j=(1+a)^n$} en reconnaissant un bin\^{o}me de Newton car $\ddp \sum\limits_{j=0}^n\binom{n}{j}a^j=\ddp \sum\limits_{j=0}^n\binom{n}{j}a^j 1^{n-j}$\\
+\noindent  \textbf{Calcul de $\mathbf{\ddp \sum\limits_{j=1}^{n+1}\ddp \binom{n}{j}a^j}$:}\\
+\noindent On se ram\`{e}ne \`{a} la formule du bin\^{o}me de Newton en utilisant la relation de Chasles: 
+$\ddp \sum\limits_{j=1}^{n+1}\ddp \binom{n}{j}a^j=\ddp \sum\limits_{j=0}^{n}\ddp \binom{n}{j}a^j-\binom{n}{0}a^0+\binom{n}{n+1}a^{n+1}$. Par convention, on a: $\binom{n}{n+1}=0$ et ainsi on obtient en utilisant le bin\^{o}me de Newton: \fbox{$\ddp \sum\limits_{j=1}^{n+1}\ddp \binom{n}{j}a^j=(1+a)^n-1 .$}
+\item  \textbf{Calcul de $\mathbf{\ddp \sum\limits_{i=0}^{n}\ddp \binom{n}{i}(-1)^{i}}$:}\\
+\noindent \noindent \fbox{$\ddp \sum\limits_{j=0}^n\binom{n}{j}(-1)^j=0$} gr\^ace au bin\^{o}me de Newton car $\ddp \sum\limits_{j=0}^n\binom{n}{j}(-1)^j=\ddp \sum\limits_{j=0}^n\binom{n}{j}(-1)^j 1^{n-j}=(1-1)^n$.
+\item  \textbf{Calcul de $\mathbf{\ddp \sum\limits_{i=1}^{n}\ddp \binom{n+1}{i}(-1)^{i}}$:}\\
+\noindent On se ram\`{e}ne \`{a} la formule du bin\^{o}me de Newton en utilisant la relation de Chasles: 
+$\ddp \sum\limits_{i=1}^{n}\ddp \binom{n+1}{i}(-1)^{i}=\ddp \sum\limits_{i=0}^{n+1}\ddp \binom{n+1}{i}(-1)^{i}-\ddp \binom{n+1}{0}(-1)^{0}-\ddp \binom{n+1}{n+1}(-1)^{n+1}=(1-1)^{n+1}-1-(-1)^{n+1}=-1+(-1)^{n+2}=-1+(-1)^n=(-1)^n-1.$ Ainsi on obtient que: \fbox{$\ddp \sum\limits_{i=1}^{n}\ddp \binom{n+1}{i}(-1)^{i}=(-1)^n-1$.}
+\item  \textbf{Calcul de $\mathbf{\ddp \sum\limits_{j=0}^n\ddp \binom{n}{j}  \ddp\frac{(-1)^{j-1}}{2^{j+1}}}$:}\\
+\noindent On se ram\`{e}ne \`{a} la formule du bin\^{o}me de Newton en utilisant les propri\'et\'es sur les puissances. On obtient
+$\ddp \sum\limits_{j=0}^n\ddp \binom{n}{j}  \ddp\frac{(-1)^{j-1}}{2^{j+1}}=\ddp\frac{-1}{2}\ddp \sum\limits_{j=0}^n\ddp \binom{n}{j} \left( \ddp\frac{-1}{2}\right)^j=\ddp\frac{-1}{2} \left(  1-\ddp\demi \right)^n=\fbox{$ \ddp\frac{-1}{2^{n+1}}  $.}$
+\item  \textbf{Calcul de $\mathbf{\ddp \sum\limits_{k=0}^{n-1} \ddp\frac{1}{3^k}\ddp \binom{n}{k}}$:}\\
+\noindent $\ddp \sum\limits_{k=0}^{n-1} \ddp\frac{1}{3^k}\binom{n}{k}=\ddp \sum\limits_{k=0}^{n-1}\binom{n}{k}\left( \ddp\frac{1}{3}\right)^k1^{n-k}$. Afin de pouvoir utiliser la formule du bin\^{o}me de Newton, on utilise la relation de Chasles pour obtenir:
+$\ddp \sum\limits_{k=0}^{n-1} \ddp\frac{1}{3^k}\binom{n}{k}=\ddp \sum\limits_{k=0}^{n}\binom{n}{k}\left( \ddp\frac{1}{3}\right)^k1^{n-k}-\binom{n}{n}\left( \ddp\frac{1}{3}\right)^n=\left( 1+\ddp\frac{1}{3} \right)^n- \ddp\frac{1}{3^n}=\left(\ddp\frac{4}{3} \right)^n- \ddp\frac{1}{3^n}=\fbox{$\ddp\frac{4^n-1}{3^n}.$}$
+\end{enumerate}
+\end{correction}
+
+%------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%-------------------------------------------------
+\begin{exercice} \; \textbf{Coefficients binomiaux} \\
+Calculer les sommes suivantes: 
+\begin{enumerate}
+\item $S_1 = \ddp \sum\limits_{j=0}^n j\ddp \binom{n}{j}$
+\item $T = \ddp \sum\limits_{k=1}^n k(k-1)\ddp \binom{n}{k}$, puis $S_2 = \ddp \sum\limits_{k=1}^n k^2\ddp \binom{n}{k}$ (on pourra \'ecrire que $k^2=k(k-1)+k$).
+\item $S_3= \ddp \sum\limits_{i=0}^n \ddp\frac{1}{i+1}\ddp \binom{n}{i}$.
+\end{enumerate}
+\end{exercice}
+%------------------------------------------------
+
+
+
+%-------------------------------------------------
+\begin{correction}   \;
+\begin{enumerate}
+\item \textbf{Calcul de $\mathbf{S_1=\ddp \sum\limits_{j=0}^n j\ddp \binom{n}{j}}$:}\\
+\noindent On peut d\'ej\`{a} remarquer que: $\ddp S_1= \sum\limits_{j=0}^n j\binom{n}{j}=0\times \binom{n}{0}+\ddp \sum\limits_{j=1}^n j\binom{n}{j}=\ddp \sum\limits_{j=1}^n j\binom{n}{j}$. \\
+Ici on ne sait pas calculer la somme sans transformation car il y a le $j$. On utilise d'abord une propri\'et\'e des coefficients binomiaux, et on obtient: 
+$$S_1=\ddp \sum\limits_{j=0}^n j\ddp \binom{n}{j}=\ddp \sum\limits_{j=1}^n n\binom{n-1}{j-1}=n\ddp \sum\limits_{j=1}^n \binom{n-1}{j-1}$$ 
+car $n$ est alors ind\'ependant de l'indice de sommation donc on peut le sortir de la somme. Pour se ramener \`{a} du bin\^{o}me de Newton, on commence par poser le changement de variable: $i=j-1$ et on obtient $\ddp S_1=\sum\limits_{j=0}^n j\binom{n}{j}=n \ddp \sum\limits_{i=0}^{n-1} \binom{n-1}{i}$ (c'est ici qu'il est mieux d'\^{e}tre pass\'e au d\'ebut d'une somme allant de 0 \`{a} $n$ \`{a} une somme allant de 1 \`{a} $n$ car sinon on aurait un indice commencant \`{a} -1. Si on n'a pas chang\'e la somme au d\'ebut, une autre m\'ethode est alors de faire ici une relation de Chasles afin d'isoler l'indice -1). On reconna\^{i}t alors un bin\^{o}me de Newton et on obtient \fbox{$S_1=\ddp \sum\limits_{j=0}^n j\binom{n}{j}=n2^{n-1}$.}
+\item   \textbf{Calcul de $\mathbf{T=\ddp \sum\limits_{k=1}^n k(k-1)\ddp \binom{n}{k}}$:}\\
+\noindent Il s'agit ici d'appliquer deux fois de suite la propri\'et\'e sur les coefficients binomiaux : $T=n\ddp \sum\limits_{k=2}^{n} (k-1)\binom{n-1}{k-1}$ en reprenant les calculs faits au-dessus. On pourra aussi remarquer que la somme $T$ peut \^{e}tre commenc\'ee \`{a} 2. Puis en r\'eappliquant la propri\'et\'e sur les coefficients binomiaux : $(k-1)\binom{n-1}{k-1}=(n-1)\binom{n-2}{k-2}$, on obtient que: $T=n(n-1)\ddp \sum\limits_{k=2}^{n} \binom{n-2}{k-2}$. On effectue alors le changement de variable $j=k-2$ et on obtient $T=n(n-1)\ddp \sum\limits_{j=0}^{n-2} \binom{n-2}{j}$. Donc en utilisant le bin\^{o}me de Newton, on a: \fbox{$T=n(n-1)2^{n-2}$.}\\
+\noindent \textbf{Calcul de $S_2=\mathbf{\ddp \sum\limits_{k=1}^n k^2\ddp \binom{n}{k}}$:}\\
+\noindent Comme $k^2=k(k-1)+k$ et par lin\'earit\'e de la somme, on obtient que: $S_2=\ddp \sum\limits_{k=1}^{n} k^2\binom{n}{k}=\ddp \sum\limits_{k=1}^{n} k(k-1)\binom{n}{k}+\ddp \sum\limits_{k=1}^{n} k\binom{n}{k}=\ddp \sum\limits_{k=2}^{n} k(k-1)\binom{n}{k}+\ddp \sum\limits_{k=1}^{n} k\binom{n}{k}=T+S_1=\fbox{$n(n+1)2^{n-2}$.}$
+\item  \textbf{Calcul de $\mathbf{\ddp S_3=\sum\limits_{i=0}^n \ddp\frac{1}{i+1}\ddp \binom{n}{i}}$:}\\
+\noindent L\`{a} encorrectione, il faut commencer par utiliser la propri\'et\'e sur les coefficients binomiaux. 
+Comme $\ddp (i+1)\binom{n+1}{i+1}=(n+1)\binom{n}{i}$, on obtient que: $\ddp\frac{1}{i+1}\binom{n}{i}= \ddp\frac{1}{n+1}\binom{n+1}{i+1}$. Ainsi, la somme devient: 
+$S_3=\ddp \sum\limits_{i=0}^n \ddp\frac{1}{i+1}\ddp \binom{n}{i}=\ddp \sum\limits_{i=0}^n \ddp\frac{1}{n+1}\binom{n+1}{i+1}= \ddp\frac{1}{n+1} \ddp \sum\limits_{i=0}^n \binom{n+1}{i+1}$ car $\ddp\frac{1}{n+1} $ ne d\'epend pas de l'indice de sommation $i$. On fait le changement d'indice $j=i+1$ et on utilise aussi la relation de Chasles pour faire appara\^{i}tre le bin\^{o}me de Newton. On obtient $S_3=\ddp \sum\limits_{i=0}^n \ddp\frac{1}{i+1}\ddp \binom{n}{i}= \ddp\frac{1}{n+1} \ddp \sum\limits_{j=1}^{n+1} \binom{n+1}{j}= \ddp\frac{1}{n+1} \left\lbrack \ddp \sum\limits_{j=0}^{n+1} \binom{n+1}{j}- \binom{n+1}{0} \right\rbrack$. Ainsi, on obtient 
+\fbox{$\ddp S_3= \sum\limits_{i=0}^n \ddp\frac{1}{i+1}\ddp \binom{n}{i}= \ddp\frac{1}{n+1} \left\lbrack 2^{n+1}-1 \right\rbrack$.}
+\end{enumerate}
+\end{correction}
+%------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%-------------------------------------------------
+\begin{exercice} \; \textbf{Sommes t\'elescopiques}
+\begin{enumerate}
+\item Soit $x_0,x_1,\dots,x_n$ des nombres r\'eels avec $n\in\N$. Calculer : \; $\ddp \sum\limits_{i=0}^{n} (x_{i+1}-x_i) $ \; et \; $\ddp \sum\limits_{i=1}^{n} (x_{i+1}-x_{i-1})$.
+\item Calculer : $\ddp \sum\limits_{k=3}^{n} \ln{\left\lbrack  \ddp\frac{k^2}{(k+1)(k-2)} \right\rbrack}$
+\end{enumerate}
+\end{exercice}
+%\newpage
+
+\begin{correction}   \;
+\begin{enumerate}
+\item D\`{e}s que l'on a une soustraction entre deux sommes de m\^{e}me type avec juste un d\'ecalage d'indice, il faut reconna\^{i}tre une somme t\'elescopique et savoir la calculer. Le calcul utilise un ou plusieurs changements d'indice puis la relation de Chasles.
+\begin{itemize}
+\item[$\bullet$] \textbf{Calcul de $\mathbf{S=\ddp \sum\limits_{i=0}^{n} (x_{i+1}-x_i)}$:}\\
+\noindent $S=\ddp \sum\limits_{i=0}^{n} (x_{i+1}-x_i)=\ddp \sum\limits_{i=0}^{n} x_{i+1}-\ddp \sum\limits_{i=0}^{n} x_i $ par lin\'earit\'e. On pose alors le changement d'indice: $j=i+1$ dans la premi\`{e}re somme et on obtient: $S=\ddp \sum\limits_{j=1}^{n+1} x_{j}-\ddp \sum\limits_{i=0}^{n} x_i $. Comme l'indice de sommation est muet, on a: $S=\ddp \sum\limits_{i=1}^{n+1} x_{i}-\ddp \sum\limits_{i=0}^{n} x_i$. La relation de Chasles donne: $S=\ddp \sum\limits_{i=1}^{n} x_{i}+x_{n+1}-\ddp \sum\limits_{i=1}^{n} x_i-x_0=\fbox{$x_{n+1}-x_0$.}$
+\item[$\bullet$] \textbf{Calcul de $S^{\prime}=\mathbf{\ddp \sum\limits_{i=1}^{n} (x_{i+1}-x_{i-1})}$:}\\
+\noindent $S^{\prime}=\ddp \sum\limits_{i=1}^{n} (x_{i+1}-x_{i-1})=\ddp \sum\limits_{i=1}^{n} x_{i+1}-\ddp \sum\limits_{i=1}^{n} x_{i-1} $ par lin\'earit\'e. On pose alors le changement d'indice: $j=i+1$ dans la premi\`{e}re somme et le changement $k=i-1$ dans la deuxi\`{e}me somme et on obtient: $S^{\prime}=\ddp \sum\limits_{j=2}^{n+1} x_{j}-\ddp \sum\limits_{k=0}^{n-1} x_k $. Comme l'indice de sommation est muet, on a: $S^{\prime}=\ddp \sum\limits_{i=2}^{n+1} x_{i}-\ddp \sum\limits_{i=0}^{n-1} x_i$. La relation de Chasles donne: $S^{\prime}=\ddp \sum\limits_{i=2}^{n-1} x_{i}+x_{n}+x_{n+1}-\ddp \sum\limits_{i=2}^{n-1} x_i-x_0-x_1= \fbox{$ x_{n+1}+x_n-x_0-x_1$.}$
+\end{itemize}
+%\item Il s'agit ici de faire appara\^{i}tre une somme t\'elescopique puis d'appliquer la m\'ethode pr\'ec\'edente.
+%\item \textbf{Calcul de $\mathbf{S=\ddp \sum\limits_{k=1}^{n} \ddp\frac{1}{k(k+1)}}$: }
+%\begin{itemize}
+%\item[$\bullet$]  Classiquement pour ce type de somme, on commence par montrer qu'il existe deux r\'eels $a$ et $b$ tels que pour tout $k\in\N^{\star}$: $\ddp\frac{1}{k(k+1)}=\ddp\frac{a}{k}+\ddp\frac{b}{k+1}$. En mettant au m\^{e}me d\'enominateur, on obtient que: $\forall k\in\N^{\star},\quad \ddp\frac{1}{k(k+1)}=\ddp\frac{  (a+b)k+a }{k(k+1)}.$
+%Cette relation doit \^{e}tre vraie pour tout $k\in\N^{\star}$ donc, par identification, on obtient que: $\left\lbrace \begin{array}{lll}  a+b&=&0\vsec\\ a&=&1  \end{array}\right.$ donc $a=1$ et $b=-1$. Ainsi, on obtient, par lin\'earit\'e, que: $S=\ddp \sum\limits_{k=1}^{n}  \ddp\frac{1}{k}-\ddp \sum\limits_{k=1}^{n} \ddp\frac{1}{k+1}.$
+%\item[$\bullet$] Il s'agit alors bien d'une somme t\'elescopique. On pose le changement d'indice: $j=k+1$ dans la deuxi\`{e}me somme et on obtient: $S=\ddp \sum\limits_{k=1}^{n}  \ddp\frac{1}{k}-\ddp \sum\limits_{j=2}^{n+1} \ddp\frac{1}{j}=\ddp \sum\limits_{k=1}^{n}  \ddp\frac{1}{k}-\ddp \sum\limits_{k=2}^{n+1} \ddp\frac{1}{k}=\fbox{$1-\ddp\frac{1}{n+1}$}$ en utilisation le fait que l'indice de sommation est muet et la relation de Chasles.
+%\end{itemize}
+%\item \textbf{Calcul de $\mathbf{S=\ddp \sum\limits_{k=1}^{n} \ln{\left\lbrack  \ddp\frac{k}{k+1} \right\rbrack}}$:}
+%\begin{itemize}
+%\item[$\bullet$]  On transforme cette somme en utilisant les propri\'et\'es du logarithme n\'ep\'erien et on obtient: $\ln{\left(  \ddp\frac{k}{k+1}\right)}=\ln{(k)}-\ln{(k+1)}.$
+%\item[$\bullet$]  Ainsi transform\'ee, la somme $S$ est bien de type t\'elescopique car on a bien une soustraction de 2 sommes de m\^{e}me type avec juste un d\'ecalage d'indice. En effet, par lin\'earit\'e, on obtient:
+%$S=\ddp \sum\limits_{k=1}^{n} \ln{(k)}-\ddp \sum\limits_{k=1}^{n} \ln{(k+1)}.$ On pose le changement d'indice $j=k+1$ dans la deuxi\`{e}me somme et on obtient $S=\ddp \sum\limits_{k=1}^{n} \ln{(k)}-\ddp \sum\limits_{j=2}^{n+1} \ln{(j)}=\ln{(1)}-\ln{(n+1)}=\fbox{$-\ln{(n+1)}$.}$
+%\end{itemize}
+\item \textbf{Calcul de $\mathbf{S=\ddp \sum\limits_{k=3}^{n} \ln{\left\lbrack  \ddp\frac{k^2}{(k+1)(k-2)} \right\rbrack}}$:}\\ 
+On transforme cette somme en utilisant les propri\'et\'es du logarithme n\'ep\'erien et on obtient: $\ln{\left(  \ddp\frac{k^2}{(k+1)(k-2)}\right)}=2\ln{(k)}-\ln{(k+1)}-\ln{(k-2)}.$\\
+Ainsi transform\'ee, la somme $S$ est bien de type t\'elescopique car on a bien une soustraction de 3 sommes de m\^{e}me type avec juste des d\'ecalages d'indice. En effet, par lin\'earit\'e, on obtient:
+$S=2\ddp \sum\limits_{k=3}^{n} \ln{(k)}-\ddp \sum\limits_{k=3}^{n} \ln{(k+1)}-\ddp \sum\limits_{k=3}^{n} \ln{(k-2)}.$ On pose le changement d'indice $j=k+1$ dans la deuxi\`{e}me somme et le changement $i=k-2$ dans la troisi\`{e}me somme et on obtient 
+$$\begin{array}{lll}
+S&=&2\ddp \sum\limits_{k=3}^{n} \ln{(k)}-\ddp \sum\limits_{j=4}^{n+1} \ln{(j)}-\ddp \sum\limits_{j=1}^{n-2} \ln{(j)}\vsec\\
+&=& 2\ln{(3)}+2\ln{(n-1)}+2\ln{(n)}-\ln{(n-1)}-\ln{(n)}-\ln{(n+1)}-\ln{(1)}-\ln{(2)}-\ln{(3)}\vsec\\
+&=& \fbox{$\ln{\left( \ddp\frac{ 3n(n-1) }{ 2(n+1) }  \right)}$.}\end{array}$$
+\end{enumerate}
+\end{correction}
+%------------------------------------------------
+%-------------------------------------------------
+
+
+
+
+%------------------------------------------------
+%-------------------------------------------------
+\begin{exercice}  \; \textbf{Sommes t\'elescopiques}
+\begin{enumerate}
+\item D\'eterminer $(a,b)\in\bR^2$ tels que $\forall k\in\N^{\star}, \ \ddp\frac{1}{(k+1)(k+2)}=\ddp\frac{a}{k+1}+\ddp\frac{b}{k+2}$. En d\'eduire : $\ddp \sum\limits_{k=1}^n \ddp\frac{1}{(k+1)(k+2)} $. 
+\item D\'eterminer trois r\'eels $a$, $b$ et $c$ tels que : $\forall k\in\N^{\star},\ \ddp\frac{k-1}{k(k+1)(k+3)}=\ddp\frac{a}{k}+\ddp\frac{b}{k+1}+\ddp\frac{c}{k+3}.$ En d\'eduire la valeur de $\ddp \sum\limits_{k=1}^{n}  \ddp\frac{k-1}{k(k+1)(k+3)}$.
+\item D\'eterminer trois r\'eels $a$, $b$ et $c$ tels que : $\forall k\in\N^{\star},\ \ddp\frac{1}{k(k+1)(k+2)}=\ddp\frac{a}{k}+\ddp\frac{b}{k+1}+\ddp\frac{c}{k+2}.$ En d\'eduire la valeur de $\ddp \sum\limits_{k=1}^{n}  \ddp\frac{1}{k(k+1)(k+2)}$.\\
+Retrouver ce r\'esultat par r\'ecurrence : montrer que $\forall n\geq 1$: $\ddp \sum\limits_{k=1}^{n} \ddp\frac{1}{k(k+1)(k+2)}=\ddp\frac{n(n+3)}{4(n+1)(n+2)}$.
+\end{enumerate}
+\end{exercice}
+%\newpage
+%------------------------------------------------
+%-------------------------------------------------
+
+
+\begin{correction}   \;
+\begin{enumerate}
+\item \textbf{Calcul de $\mathbf{S=\ddp \sum\limits_{k=1}^{n}   \ddp\frac{1}{(k+1)(k+2)}}$:}
+\begin{itemize}
+\item[$\bullet$] On commence par montrer qu'il existe deux r\'eels $a$ et $b$ tels que pour tout $k\in\N^{\star}$: $\ddp\frac{1}{(k+1)(k+2)}=\ddp\frac{a}{k+1}+\ddp\frac{b}{k+2}$. En mettant au m\^{e}me d\'enominateur, on obtient que: $\forall k\in\N^{\star},\quad \ddp\frac{1}{(k+1)(k+2)}=\ddp\frac{  (a+b)k+2a+b }{(k+1)(k+2)}.$
+Cette relation doit \^{e}tre vraie pour tout $k\in\N^{\star}$ donc, par identification, on obtient que: $\left\lbrace \begin{array}{lll}  a+b&=&0\vsec\\ 2a+b&=&1  \end{array}\right.$ donc $a=1$ et $b=-1$. Ainsi, on obtient, par lin\'earit\'e, que: $S=\ddp \sum\limits_{k=1}^{n}  \ddp\frac{1}{k+1}-\ddp \sum\limits_{k=1}^{n} \ddp\frac{1}{k+2}.$
+\item[$\bullet$] Il s'agit alors bien d'une somme t\'elescopique. On pose le changement d'indice: $j=k+1$ dans la premi\`{e}re somme et le changement d'indice: $i=k+2$ dans la deuxi\`{e}me somme et on obtient: $S=\ddp \sum\limits_{j=2}^{n+1}  \ddp\frac{1}{j}-\ddp \sum\limits_{i=3}^{n+2} \ddp\frac{1}{i}=\ddp \sum\limits_{k=2}^{n+1}  \ddp\frac{1}{k}-\ddp \sum\limits_{k=3}^{n+2} \ddp\frac{1}{k}=\fbox{$\ddp\demi-\ddp\frac{1}{n+2}$}$ en utilisation le fait que l'indice de sommation est muet et la relation de Chasles.
+\end{itemize}
+\item
+\begin{itemize}
+\item[$\bullet$] On cherche \`{a} d\'eterminer trois r\'eels $a$, $b$ et $c$ tels que $\forall k\in\N^{\star},\quad \ddp\frac{k-1}{k(k+1)(k+3)}=\ddp\frac{a}{k}+\ddp\frac{b}{k+1}+\ddp\frac{c}{k+3}.$ On met sur le m\^{e}me d\'enominateur puis on identifie car la relation doit \^{e}tre vraie pour tout $k\in\N^{\star}$. On obtient:  $\forall k\in\N^{\star},\quad \ddp\frac{k-1}{k(k+1)(k+3)}=\ddp\frac{ k^2(a+b+c)+k(4a+3b+c)+3a  }{k(k+1)(k+3)}$. Ainsi, par identification, on doit r\'esoudre le syst\`{e}me suivant: 
+$\left\lbrace\begin{array}{lll} a+b+c&=&0\vsec\\ 4a+3b+c&=& 1\vsec\\ 3a&=&-1\end{array}\right.$. La r\'esolution du syst\`{e}me donne: \fbox{$a=-\ddp\frac{1}{3},\ b=1\ \hbox{et}\ c=-\ddp\frac{2}{3}$.}
+\item[$\bullet$] En d\'eduire la valeur de $S=\ddp \sum\limits_{k=1}^{n}  \ddp\frac{k-1}{k(k+1)(k+3)}$. On obtient donc par lin\'earit\'e:
+$S=-\ddp\frac{1}{3} \ddp \sum\limits_{k=1}^{n}  \ddp\frac{1}{k}+\ddp \sum\limits_{k=1}^{n}  \ddp\frac{1}{k+1}-\ddp\frac{2}{3}\ddp \sum\limits_{k=1}^{n}  \ddp\frac{1}{k+3}.$ On pose les changements de variable suivant: $j=k+1$ et $i=k+3$ et on obtient: 
+$S=-\ddp\frac{1}{3} \ddp \sum\limits_{k=1}^{n}  \ddp\frac{1}{k}+\ddp \sum\limits_{j=2}^{n+1}  \ddp\frac{1}{j}-\ddp\frac{2}{3}\ddp \sum\limits_{i=4}^{n+3}  \ddp\frac{1}{i}=-\ddp\frac{1}{3} \ddp \sum\limits_{k=1}^{n}  \ddp\frac{1}{k}+\ddp \sum\limits_{k=2}^{n+1}  \ddp\frac{1}{k}-\ddp\frac{2}{3}\ddp \sum\limits_{k=4}^{n+3}  \ddp\frac{1}{k}$ car l'indice de sommation est muet. D'apr\`{e}s la relation de Chasles, on obtient: $S=-\ddp\frac{1}{3}  \left( 1+\ddp\frac{1}{2}+\ddp\frac{1}{3} \right)+\ddp\frac{1}{2}+\ddp\frac{1}{3}+\ddp\frac{1}{n+1}-\ddp\frac{2}{3}\left( \ddp\frac{1}{n+1}+\ddp\frac{1}{n+2}+\ddp\frac{1}{n+3}\right)=\fbox{$\ddp\frac{2}{9}+\ddp\frac{1}{3}\left( \ddp\frac{1}{n+1}-\ddp\frac{2}{n+2}-\ddp\frac{2}{n+3}\right)$.}$
+\end{itemize}
+\item  \textbf{Calcul de $\mathbf{\ddp \sum\limits_{k=1}^{n}  \ddp\frac{1}{k(k+1)(k+2)}}$:}\\
+\begin{itemize}
+\item[$\star$] M\'ethode 1 : calcul direct.
+\begin{itemize}
+\item[$\bullet$] On commence par montrer qu'il existe trois r\'eels $a,\ b$ et $c$ tels que pour tout $k\in\N^{\star}$: $\ddp\frac{1}{k(k+1)(k+2)}=\ddp\frac{a}{k}+\ddp\frac{b}{k+1}+\ddp\frac{c}{k+2}$. En mettant au m\^{e}me d\'enominateur, on obtient que: $\forall k\in\N^{\star},\quad \ddp\frac{1}{k(k+1)(k+2)}=\ddp\frac{  (a+b+c)k^2+(3a+2b+c)k+2a }{k(k+1)(k+2)}.$
+Cette relation doit \^{e}tre vraie pour tout $k\in\N^{\star}$ donc, par identification, on obtient que: $\left\lbrace \begin{array}{lll}  a+b+c&=&0\vsec\\ 3a+2b+c&=&0\vsec\\ 2a&=&1  \end{array}\right.$ donc $a=c=\ddp\demi$ et $b=-1$. Ainsi, on obtient, par lin\'earit\'e, que: $\ddp \sum\limits_{k=1}^{n}  \ddp\frac{1}{k(k+1)(k+2)}=\ddp\demi\ddp \sum\limits_{k=1}^{n}  \ddp\frac{1}{k}-\ddp \sum\limits_{k=1}^{n} \ddp\frac{1}{k+1}+\ddp\demi\ddp \sum\limits_{k=1}^{n}  \ddp\frac{1}{k+2}.$
+\item[$\bullet$]  Il s'agit alors bien d'une somme t\'elescopique. On pose le changement d'indice: $j=k+1$ dans la deuxi\`{e}me somme et le changement d'indice: $i=k+2$ dans la troisi\`{e}me somme et on obtient:
+$$
+\begin{array}{lll}
+\ddp \sum\limits_{k=1}^{n}  \ddp\frac{1}{k(k+1)(k+2)}
+&=&\ddp\demi\ddp \sum\limits_{k=1}^{n}  \ddp\frac{1}{k}-\ddp \sum\limits_{j=2}^{n+1}  \ddp\frac{1}{j}+\ddp\demi\ddp \sum\limits_{i=3}^{n+2} \ddp\frac{1}{i}=\ddp\demi\ddp \sum\limits_{k=1}^{n}  \ddp\frac{1}{k}-\ddp \sum\limits_{k=2}^{n+1}  \ddp\frac{1}{k}+\ddp\demi\ddp \sum\limits_{k=3}^{n+2} \ddp\frac{1}{k}\vsec\\
+&=&
+\ddp\demi\left(  1+\ddp\demi \right)-\left(  1+\ddp\frac{1}{n+1} \right)+\ddp\demi\left( \ddp\frac{1}{n+1} +\ddp\frac{1}{n+2}    \right)
+=\fbox{$\ddp\frac{n(n+3)}{4(n+1)(n+2)}$}\end{array}$$ en utilisation le fait que l'indice de sommation est muet, la relation de Chasles et en mettant tout au m\^{e}me d\'enominateur.
+\end{itemize}
+
+\item[$\star$] M\'ethode 2 : par r\'ecurrence.
+\begin{itemize}
+\item[$\bullet$] On montre par r\'ecurrence sur $n\in\N^{\star}$ la propri\'et\'e 
+$$\mathcal{P}(n):\  \ddp \sum\limits_{k=1}^{n} \ddp\frac{1}{k(k+1)(k+2)}=\ddp\frac{n(n+3)}{4(n+1)(n+2)} .$$
+\item[$\bullet$] Initialisation: pour $n=1$:
+\begin{itemize}
+\item[$\star$] D'un c\^{o}t\'e, on a: $\ddp \sum\limits_{k=1}^{1} \ddp\frac{1}{k(k+1)(k+2)}=\ddp\frac{1}{1(1+1)(1+2)}=\ddp\frac{1}{6}$.
+\item[$\star$] De l'autre c\^{o}t\'e, on a: $\ddp\frac{n(n+3)}{4(n+1)(n+2)}=\ddp\frac{1(1+3)}{4(1+1)(1+2)}=\ddp\frac{4}{4\times 6}=\ddp\frac{1}{6}$.
+\end{itemize}
+Donc $\mathcal{P}(1)$ est vraie.
+\item[$\bullet$] H\'er\'edit\'e: soit $n\in\N^{\star}$ fix\'e. On suppose la propri\'et\'e vraie au rang $n$, montrons qu'elle est vraie au rang $n+1$.\\
+\noindent $\ddp \sum\limits_{k=1}^{n+1} \ddp\frac{1}{k(k+1)(k+2)}=\ddp \sum\limits_{k=1}^{n} \ddp\frac{1}{k(k+1)(k+2)}+\ddp\frac{1}{(n+1)(n+2)(n+3)}$ d'apr\`{e}s la relation de Chasles. Puis par hypoth\`{e}se de r\'ecurrence, on obtient que:
+$\ddp \sum\limits_{k=1}^{n+1} \ddp\frac{1}{k(k+1)(k+2)}=\ddp\frac{n(n+3)}{4(n+1)(n+2)} +\ddp\frac{1}{(n+1)(n+2)(n+3)}=
+\ddp\frac{n^3+6n^2+9n+4}{4(n+1)(n+2)(n+3)}$ en mettant au m\^{e}me d\'enominateur. Pour le num\'erateur on remarque que -1 est racine \'evidente et ainsi en factorisant par $n+1$ on obtient par identification des coefficients que: 
+$n^3+6n^2+9n+4=(n+1)(n^2+5n+4)$. Puis le calcul du discriminant donne que $n^3+6n^2+9n+4=(n+1)(n^2+5n+4)=(n+1)(n+1)(n+4)$. Ainsi on obtient que: $\ddp \sum\limits_{k=1}^{n+1} \ddp\frac{1}{k(k+1)(k+2)}=\ddp\frac{(n+1)(n+4)}{4(n+2)(n+3)}$. Donc $\mathcal{P}(n+1)$ est vraie.  
+\item[$\bullet$] Conclusion: il r\'esulte du principe de r\'ecurrence que pour tout $n\in\N^{\star}$: $\ddp \sum\limits_{k=1}^{n} \ddp\frac{1}{k(k+1)(k+2)}=\ddp\frac{n(n+3)}{4(n+1)(n+2)}$.
+\end{itemize}
+\end{itemize}
+\end{enumerate}
+\end{correction}
+
+
+
+
+
+%------------------------------------------------
+%-------------------------------------------------
+\begin{exercice}  \;  \textbf{Sommes et d\'erivation:} 
+Soit $n\in\N^{\star}$ et $S=\ddp \sum\limits_{k=1}^n k\ddp \binom{n}{k}$. %Calculons $S$ en utilisant une m\'ethode par d\'erivation terme \`a terme.
+%\begin{enumerate}
+% \item M\'ethode 1: Avec la formule des chefs.\\
+%\noindent Calculer $S$ directement en utilisant une propri\'et\'e des coefficients bin\^omiaux. \\
+%\noindent De la m\^eme fa\c{c}on, calculer alors $T=\ddp \sum\limits_{k=1}^n k(k-1)\ddp \binom{n}{k}$ puis $\ddp \sum\limits_{k=1}^n k^2\ddp \binom{n}{k}$ (on pourra \'ecrire que $k^2=k(k-1)+k$).
+%\item M\'ethode 2: En d\'erivant.
+\begin{enumerate}
+\item
+On pose, pour tout $x$ dans $\bR$, $f(x)=\ddp \sum\limits_{k=0}^n \ddp \binom{n}{k}x^k$. Calculer $f(x)$.
+\item 
+En d\'eduire, pour tout $x$ dans $\bR$, la valeur de $g(x)=\ddp \sum\limits_{k=1}^n k\ddp \binom{n}{k}x^{k-1}$, puis en d\'eduire $S$.
+\end{enumerate}
+%\end{enumerate}
+\end{exercice}
+%------------------------------------------------
+
+
+%------------------------------------------------
+%-------------------------------------------------
+
+%------------------------------------------------
+%-------------------------------------------------
+\begin{correction} \;
+La d\'erivation d'une somme finie est une m\'ethode tr\`{e}s classique qui permet d'obtenir plein de nouvelles sommes. Il s'agit juste d'utiliser le fait que $(f+g)^{\prime}=f^{\prime}+g^{\prime}$ et ainsi la d\'eriv\'ee d'une somme est \'egale \`{a} la somme des d\'eriv\'ees.
+\begin{enumerate}
+\item D'apr\`{e}s le bin\^{o}me de Newton, on sait que: \fbox{$f(x)=(1+x)^n$.}
+\item La fonction $f$ est ainsi d\'erivable sur $\R$ comme compos\'ee de fonctions d\'erivables. La fonction $f$ est d\'efinie par deux expressions diff\'erentes que l'on peut d\'eriver:
+\begin{itemize}
+\item[$\bullet$] D'un c\^{o}t\'e, la fonction $f$ vaut: $f(x)=(1+x)^n$. Ainsi, en d\'erivant, on obtient que: \begin{center}
+\fbox{$\forall x\in\R,\ f^{\prime}(x)=n(1+x)^{n-1}$.}
+\end{center}
+\item[$\bullet$] De l'autre c\^{o}t\'e, la fonction $f$ vaut $f(x)=\ddp \sum\limits_{k=0}^{n} \binom{n}{k}x^k=1+nx+\dots+nx^{n-1}+x^n=1+\ddp \sum\limits_{k=1}^{n} \binom{n}{k}x^k$. La d\'eriv\'ee d'une somme \'etant \'egale \`{a} la somme des d\'eriv\'ees, on obtient que: \begin{center}
+\fbox{$\forall x\in\R,\ f^{\prime}(x)=0+\ddp \sum\limits_{k=1}^{n} k\binom{n}{k}x^{k-1}$}
+\end{center} 
+\vsec
+car le premier terme pour $k=0$ est constant donc sa d\'eriv\'ee est nulle. 
+
+\vsec
+%ATTENTION, la somme commence bien \`{a} $k=1$ car le terme pour $k=0$ dans $f(x)$ est le terme constant $1$ qui est nul lorsqu'on d\'erive.
+\end{itemize}
+On obtient donc que: \fbox{$\forall x\in\R,\ g(x)=\ddp \sum\limits_{k=1}^{n} k\binom{n}{k}x^{k-1}=n(1+x)^{n-1}$.}
+\item Il s'agit de remarquer que $S=g(1)=f^{\prime}(1)$ et ainsi, on obtient que: \fbox{$S=n2^{n-1}$.} On retrouve bien le m\^{e}me r\'esultat.
+\end{enumerate}
+%\end{enumerate}
+\end{correction}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%-------------------------------------------------
+\begin{exercice}  \; \textbf{Sommes et d\'erivation:} Soit $n\in\N^{\star}$. Pour tout $x\in\bR\setminus\lbrace 1\rbrace$, on pose $f(x)=\ddp \sum\limits_{k=0}^n x^k$.
+\begin{enumerate}
+\item Calculer $f(x)$.
+\item En d\'erivant, calculer $\ddp \sum\limits_{k=1}^n kx^{k-1}$, et en d\'eduire $\ddp \sum\limits_{k=1}^n kx^k$.
+\item Calculer de la m\^eme fa\c con : $\ddp \sum\limits_{k=2}^n k(k-1)x^{k-2}$.
+\end{enumerate}
+
+\end{exercice}
+%------------------------------------------------
+
+%------------------------------------------------
+%-------------------------------------------------
+\begin{correction}  \; Il s'agit ici du m\^{e}me type de m\'ethode que pour l'exercice pr\'ec\'edent sauf que cette fois ci, on l'applique \`{a} la somme des termes d'une suite g\'eom\'etrique et plus au bin\^{o}me de Newton.
+\begin{enumerate}
+\item On reconna\^{i}t la somme des termes d'une suite g\'eom\'etrique et ainsi, on obtient, comme $x\not= 1$:\\
+\noindent  \fbox{$\forall x\in\R\setminus\lbrace 1\rbrace,\ f(x)=\ddp\frac{1-x^{n+1}}{1-x}$.}
+\item La fonction $f$ est d\'erivable sur $\R\setminus\lbrace 1\rbrace$ comme produit, somme et quotient dont le d\'enominateur ne s'annule pas de fonctions d\'erivables. 
+\begin{itemize}
+\item[$\bullet$] D'un c\^{o}t\'e, la fonction $f$ vaut: $f(x)=\ddp\frac{1-x^{n+1}}{1-x}$. Ainsi, en d\'erivant, on obtient que:\\
+\noindent \fbox{$\forall x\in\R\setminus\lbrace 1 \rbrace,\ f^{\prime}(x)=\ddp\frac{  1+nx^{n+1} -(n+1)x^n }{(1-x)^2}$.}
+\item[$\bullet$] De l'autre c\^{o}t\'e, la fonction $f$ vaut $f(x)=\ddp \sum\limits_{k=0}^{n} x^k=1+\ddp \sum\limits_{k=1}^{n} x^k$. La d\'eriv\'ee d'une somme \'etant \'egale \`{a} la somme des d\'eriv\'ees, on obtient que:\\
+\noindent \fbox{$\forall x\in\R\setminus\lbrace 1 \rbrace,\  f^{\prime}(x)=\ddp \sum\limits_{k=1}^{n} k x^{k-1}$.} \\
+\noindent \warning La somme commence bien \`{a} $k=1$ car le terme pour $k=0$ dans $f(x)$ est le terme constant $1$ qui est nul lorsqu'on d\'erive.
+\end{itemize} 
+On obtient donc que: \fbox{$\forall x\in\R\setminus\lbrace 1\rbrace,\ \ddp \sum\limits_{k=1}^{n} k x^{k-1}=\ddp\frac{  1+nx^{n+1} -(n+1)x^n }{(1-x)^2}$.}\\
+On a : $\ddp \sum\limits_{k=1}^{n} k x^{k}=\ddp \sum\limits_{k=1}^{n} k x\times x^{k-1}=x\ddp \sum\limits_{k=1}^{n} k x^{k-1}$. D'apr\`{e}s la question pr\'ec\'edente, on obtient donc:\begin{center}
+ \fbox{$\forall x\in\R\setminus\lbrace 1\rbrace,\ \ddp \sum\limits_{k=1}^{n} k x^{k}=x\times \ddp\frac{  1+nx^{n+1} -(n+1)x^n }{(1-x)^2}$.}
+\end{center}
+\item Il faut ici remarquer que la somme correctionrespond \`{a} d\'eriver deux fois la somme $f(x)=\ddp \sum\limits_{k=0}^{n} x^k=1+x+\ddp \sum\limits_{k=2}^{n} x^k$. La fonction $f$ est bien deux fois d\'erivables comme fonction polynomiale.
+Et en d\'erivant deux fois, on obtient bien: $\forall x\in\R\setminus\lbrace 1\rbrace,\ f^{\prime\prime}(x)=\ddp \sum\limits_{k=2}^{n} k(k-1)x^{k-2}$. Cette somme commence bien \`{a} $k=2$ car quand on d\'erive deux fois les termes $1$ et $x$, ils deviennent nuls. En d\'erivant deux fois l'autre expression de $f$, on obtient la valeur de la somme:\\ 
+\vsec
+ \begin{center}
+\fbox{$\forall x\in\R\setminus\lbrace 1\rbrace,\ \ddp \sum\limits_{k=2}^{n} k(k-1)x^{k-2}=\ddp\frac{  2-n(n+1)x^{n-1} +2(n^2-1)x^n-n(n-1)x^{n+1}    }{(1-x)^3}$. }
+\end{center}
+\end{enumerate}
+\end{correction}
+%------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+%-------------------------------------------------
+\begin{exercice}   \; \textbf{Sommes d'indices pairs et impairs}\\
+\noindent Soit $n$ un entier naturel non nul. On d\'efinit les sommes suivantes: $S_n=\ddp \sum\limits_{k=0}^{n} \binom{2n}{2k}\quad \hbox{et}\quad T_n=\ddp \sum\limits_{k=0}^{n-1} \binom{2n}{2k+1}.$
+\begin{enumerate}
+\item Montrer que $S_n+T_n=2^{2n}$ et $S_n-T_n=0$.
+\item En d\'eduire une expression de $S_n$ et de $T_n$ en fonction de $n$.
+\end{enumerate} 
+\end{exercice}
+%------------------------------------------------
+
+%-------------------------------------------------
+\begin{correction}   
+\begin{enumerate}
+\item 
+\begin{itemize}
+\item[$\bullet$] \textbf{Calcul de $\mathbf{S_n+T_n}$:}\\
+\noindent Si on ne voit pas comment d\'ebuter, on commence par \'ecrire la somme $S_n+T_n$ sous forme d\'evelopp\'ee. On obtient alors que: $S_n+T_n=\ddp \sum\limits_{k=0}^{2n} \binom{2n}{k}$ car on se rend compte en \'ecrivant les sommes sous forme d\'evelopp\'ees que l'on obtient au final la somme de tous les coefficients binomiaux: $S_n$ correctionrespond en effet \`{a} la somme des coefficients binomiaux $\binom{2n}{k}$ avec $k$ pair et $T_n$ correctionrespond \`{a} la somme des coefficients binomiaux $\binom{2n}{k}$ avec $k$ impair donc en sommant les deux on a bien la somme de tous les coefficients binomiaux pour $k$ allant de 0 \`{a} $2n$. Ainsi, d'apr\`{e}s le bin\^{o}me de Newton, on obtient que: \fbox{$S_n+T_n=2^{2n}=4^n$.}
+\item[$\bullet$] \textbf{Calcul de $\mathbf{S_n-T_n}$:}\\
+\noindent De m\^{e}me, on peut commencer par \'ecrire la somme $S_n-T_n$ sous forme d\'evelopp\'ee. On obtient alors que: $S_n-T_n=\ddp \sum\limits_{k=0}^{2n} \binom{2n}{k}(-1)^k$ car on se rend compte en \'ecrivant les sommes sous forme d\'evelopp\'ees que l'on obtient au final la somme de tous les coefficients binomiaux coefficient\'es par 1 ou par -1: les coefficients binomiaux $\binom{2n}{k}$ avec $k$ pair sont coefficient\'e par 1 et les coefficients binomiaux $\binom{2n}{k}$ avec $k$ impair sont coefficient\'e par -1. Ainsi cela revient bien \`{a} sommer tous les nombres $\binom{2n}{k}(-1)^k$ pour $k$ allant de 0 \`{a} 
+$2n$. 
+Ainsi, d'apr\`{e}s le bin\^{o}me de Newton, on obtient que: \fbox{$S_n+T_n=(1-1)^n=0$. }
+\end{itemize}
+%\begin{itemize}
+%\item[$\bullet$] On montre par r\'ecurrence sur $n\in\N^{\star}$ la propri\'et\'e 
+%$$\mathcal{P}(n):\quad S_n+T_n=2^{2n}\quad \hbox{et}\quad S_n-T_n=0.$$
+%\item[$\bullet$] Initialisation: pour $n=1$:
+%\begin{itemize}
+%\item[$\star$] $S_1+T_1=\ddp \sum\limits_{k=0}^{1} \binom{2}{2k}+\ddp \sum\limits_{k=0}^{0} \binom{2}{2k+1}=\binom{2}{0}+\binom{2}{2}+\binom{2}{1}=1+1+2=4$. Or $2^{2}=4$ donc $S_1+T_1=2^{2}$.
+%\item[$\star$] $S_1-T_1=\ddp \sum\limits_{k=0}^{1} \binom{2}{2k}-\ddp \sum\limits_{k=0}^{0} \binom{2}{2k+1}=\binom{2}{0}+\binom{2}{2}-\binom{2}{1}=1+1-2=0$.
+%\end{itemize}
+%Ainsi $\mathcal{P}(1)$ est vraie.
+%\item[$\bullet$] H\'er\'edit\'e: soit $n\in\N^{\star}$ fix\'e, on suppose la propri\'et\'e vraie \`{a} l'ordre $n$, montrons qu'elle est vraie \`{a} l'ordre $n+1$.
+%\begin{itemize}
+%\item[$\star$] $S_{n+1}+T_{n+1}=\ddp \sum\limits_{k=0}^{n+1} \binom{2(n+1)}{2k}+\ddp \sum\limits_{k=0}^{n} \binom{2(n+1)}{2k+1}=\ddp \sum\limits_{k=0}^{n} \binom{2n+2}{2k}+\ddp \sum\limits_{k=0}^{n} \binom{2(n+1)}{2k+1}$
+%\item[$\star$]
+%\end{itemize}
+
+%\item[$\bullet$]
+%\end{itemize}
+\item Il s'agit alors juste de r\'esoudre le syst\`{e}me $\left\lbrace \begin{array}{lll}  S_n+T_n&=&2^{2n}\vsec \\ S_n-T_n&=& 0. \end{array}\right.$. On obtient alors: $2S_n=2^{2n}$  donc $S_n= 2^{2n-1}$ et $T_n=S_n=2^{2n-1}$.
+\end{enumerate}
+\end{correction}
+
+%-------------------------------------------------
+%\vspace{1cm} 
+
+
+%------------------------------------------------
+%-------------------------------------------------
+%---------------------------------------------------
+%-------------------------------------------------
+%-------------------------------------------------
+%--------------------------------------------------
+%----------------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------
+
+%------------------------------------------------
+%-------------------------------------------------
+%\vspace{1cm} 
+%\newpage
+
+%------------------------------------------------
+%-------------------------------------------------
+%---------------------------------------------------
+%-------------------------------------------------
+%-------------------------------------------------
+%--------------------------------------------------
+%----------------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------
+%\section{Calculs de produits}
+\vspace{0.2cm}
+
+%------------------------------------------------
+%-------------------------------------------------
+\begin{exercice}  \; 
+Soit $(n,p,i)\in\N^2$ non nuls. Calculer les produits suivants:
+\begin{enumerate}
+\begin{minipage}[t]{0.3\textwidth}
+\item $\ddp \prod\limits_{k=1}^n k$ \; et \; $\ddp \prod\limits_{k=i}^{i+n} k$
+%\item $\ddp \prod\limits_{k=i}^{i+n} k$
+%\item $\ddp \prod\limits_{k=1}^n (3k+1)$
+\item $\ddp \prod\limits_{k=1}^n \exp{\left(\ddp\frac{k}{n}\right)}$ 
+\item $\ddp \prod\limits_{k=1}^n \frac{2k}{2k+1}$ 
+\end{minipage}
+\begin{minipage}[t]{0.6\textwidth}
+\item $\ddp \prod\limits_{k=1}^n (4k-2)$ 
+\item $\ddp \prod\limits_{k=2}^n \left(  1-\ddp\frac{1}{k^2} \right)$
+\item $\ddp \prod\limits_{k=0}^{p-1} \ddp\frac{n-k}{p-k}$. On exprimera le r\'esultat \`{a} l'aide de factorielles.
+\end{minipage}
+\end{enumerate}
+\end{exercice}
+%------------------------------------------------
+%-------------------------------------------------
+
+%------------------------------------------------
+%-------------------------------------------------
+\begin{correction} \; 
+%Avec la seule m\'ethode est de les \'ecrire sous forme d\'evelopp\'ee avec les ....
+\begin{enumerate}
+\item \textbf{Calcul de $\mathbf{\ddp \prod\limits_{k=1}^n k}$} $ =\ddp 1\times 2\times 3\times \dots\times (n-1)\times n=\fbox{$n!$}$\\
+\noindent \textbf{Calcul de $\mathbf{\ddp \prod\limits_{k=i}^{i+n} k}$:}
+$$\begin{array}{lll}
+\ddp \prod\limits_{k=i}^{i+n} k&=&i\times (i+1)\times (i+2)\times \dots\times  (i+n)\vsec\\
+&=&\ddp\frac{\left\lbrack1\times 2\times 3\times \dots\times (i-1)\right\rbrack\times\left\lbrack i\times (i+1)\times (i+2)\times \dots\times  (i+n)\right\rbrack}{\left\lbrack1\times 2\times 3\times \dots\times (i-1)\right\rbrack}\vsec\\
+&=& \ddp\frac{1\times 2\times 3\times \dots\times (i-1)\times i\times (i+1)\times (i+2)\times \dots\times  (i+n)}{1\times 2\times 3\times \dots\times (i-1)} =\fbox{$\ddp\frac{(i+n)!}{(i-1)!}$.}\end{array}$$
+%\item  \textbf{Calcul de $\mathbf{\ddp \prod\limits_{k=1}^n (3k+1)}$:} \`{A} ne pas faire.
+%---------
+\item  \textbf{Calcul de $\mathbf{\ddp \prod\limits_{k=1}^n \exp{\left(\ddp\frac{k}{n}\right)}}$:}\\
+\noindent $\ddp \prod\limits_{k=1}^n \exp{\left(\ddp\frac{k}{n}\right)}=
+e^{\frac{1}{n}}\times e^{\frac{2}{n}}\times e^{\frac{3}{n}}\times \dots e^{\frac{n-1}{n}}\times e^{\frac{n}{n}}
+=e^{\frac{1+2+3+\dots+(n-1)+n}{n}}=
+e^{\tiny{ \ddp \sum\limits_{\tiny{k=1}}^n \frac{k}{n}}}=e^{\tiny{  \frac{1}{n} \ddp \sum\limits_{k=1}^n k  }}=\fbox{$e^{\tiny{  \frac{n+1}{2}}}$. }$
+%---------
+\item  \textbf{Calcul de $\mathbf{\ddp \prod\limits_{k=1}^n \frac{2k}{2k+1}}:$} \\
+$$\begin{array}{lll}
+\ddp \prod\limits_{k=1}^n \frac{2k}{2k+1} &= & \ddp  \frac{2n \times (2n-2) \times \ldots \times 4\times 2}{(2n+1) \times (2n-1) \times \ldots \times 3 \times 1} \;= \; \frac{(2n \times (2n-2) \times \ldots \times 4\times 2)^2}{(2n+1) \times 2n \times \ldots \times 3\times 2 \times 1} \vsec\\
+& =&\ddp  \frac{(2^n n \times (n-1) \times \ldots \times 2 \times 1))^2}{(2n+1)!} \; = \; \fbox{$\ddp \frac{2^{2n} (n!)^2}{(2n+1)!}$}
+\end{array}$$
+%---------
+\item  \textbf{Calcul de $\mathbf{\ddp \prod\limits_{k=1}^n (4k-2)}:$} \\
+$$\begin{array}{lll}
+\hspace*{-1cm}\ddp \prod\limits_{k=1}^n (4k-2) &= & \ddp \prod\limits_{k=1}^n 2(2k-1) \; = \; 2^n \times  (2n-1)\times(2n-3) \times \ldots \times 3\times1 \vsec\\
+& = & \ddp \frac{2^n \times2n \times (2n-1) \times (2n-2) \times \ldots \times 3 \times 2 \times 1}{2n \times (2n-2) \times \ldots \times 4 \times 2} \;= \;  \frac{2^n \times (2n)!}{2^n\times n \times (n-1) \times \ldots \times 2 \times 1} \; = \; \fbox{$\ddp \frac{(2n)!}{n!}$}
+\end{array}$$
+%---------
+\item  \textbf{Calcul de $\mathbf{\ddp \prod\limits_{k=2}^n \left(  1-\ddp\frac{1}{k^2} \right)}$:}\\
+\noindent $\ddp \prod\limits_{k=2}^n \left(  1-\ddp\frac{1}{k^2} \right)=\ddp \prod\limits_{k=2}^n \left(  \ddp\frac{k^2-1}{k^2} \right)=\ddp\frac{ \ddp \prod\limits_{k=2}^n (k^2-1)  }{\ddp \prod\limits_{k=2}^n k^2}=\ddp\frac{\ddp \prod\limits_{k=2}^n (k-1)}{\ddp \prod\limits_{k=2}^n k }\times \ddp\frac{\ddp \prod\limits_{k=2}^n (k+1)}{\ddp \prod\limits_{k=2}^n k }=\ddp\frac{\ddp \prod\limits_{k=1}^{n-1} k}{\ddp \prod\limits_{k=2}^n k }\times \ddp\frac{\ddp \prod\limits_{k=3}^{n+1} k}{\ddp \prod\limits_{k=2}^n k }=\fbox{$\ddp\frac{n+1}{2n}$.}$
+%---------
+\item  \textbf{Calcul de $\mathbf{\ddp \prod\limits_{k=0}^{p-1} \ddp\frac{n-k}{p-k}}$:}\\
+\noindent 
+$\ddp \prod\limits_{k=0}^{p-1} \ddp\frac{n-k}{p-k}=\ddp\frac{ \ddp \prod\limits_{k=0}^{p-1} (n-k)  }{\ddp \prod\limits_{k=0}^{p-1} (p-k)}
+=\ddp\frac{n(n-1)(n-2)\times \dots \times (n-p+1)}{p(p-1)(p-2)\times \dots \times 2\times 1}=
+\ddp\frac{n(n-1)(n-2)\times \dots \times (n-p+1)}{p!}.$ \\
+On essaye alors d'\'ecrire le num\'erateur avec des factorielles. On obtient :
+$n(n-1)(n-2)\times \dots \times (n-p+1)=\ddp\frac{ \left\lbrack n(n-1)(n-2)\times \dots \times (n-p+1) \right\rbrack \times \lbrack     (n-p)\times \dots \times 2\times 1\rbrack}{(n-p)\times \dots \times 2\times 1}=\ddp\frac{n!}{(n-p)!}$. Ainsi on obtient au final que: 
+$\ddp \prod\limits_{k=0}^{p-1} \ddp\frac{n-k}{p-k}=\fbox{$\ddp\frac{n!}{p!(n-p)!}=\binom{n}{p}$.}$
+\end{enumerate}
+\end{correction}
+%------------------------------------------------
+
+
+
+%------------------------------------------------
+%-------------------------------------------------
+%\begin{exercice}
+%Soit $n\in\N^{\star}$. Calculer $\ddp \sum\limits_{k=1}^n \ln{\left( 1+\ddp\frac{1}{k}  \right)}$.
+%\end{exercice}
+%------------------------------------------------
+%-------------------------------------------------
+\begin{exercice} \; 
+Soit $n\in\N^{\star}$. Calculer $\ddp \sum\limits_{k=1}^n \ln{\left( \ddp\frac{k}{2}  \right)}$.
+\end{exercice}
+%------------------------------------------------
+
+%-------------------------------------------------
+\begin{correction}  \; 
+On cherche \`{a} calculer $S=\ddp \sum\limits_{k=1}^n \ln{\left( \ddp\frac{k}{2}  \right)}$.  D'apr\`{e}s les propri\'et\'es du logarithme n\'ep\'erien, on a: 
+$$S=\ln{\left( \ddp \prod\limits_{k=1}^n \frac{k}{2} \right)} = \ln{\left( \ddp \frac{\prod\limits_{k=1}^n k}{\prod\limits_{k=1}^n 2}  \right)} =  \ln{\left( \ddp \frac{n!}{2^n}\right)}.$$
+Ainsi on obtient que: \fbox{$S=\ddp \ln{\left( \ddp \frac{n!}{2^n}\right)}$.}
+\end{correction}
+
+
+
+
+%-------------------------------------------------
+
+%\section{Calculs de sommes doubles}
+\vspace{0.2cm}
+
+%------------------------------------------------
+%-------------------------------------------------
+\begin{exercice}  \; 
+Dans cet exercice, $n, m$ et $p$ sont deux entiers naturels non nuls et $x$ un nombre complexe. Calculer les sommes doubles suivantes:
+\begin{enumerate}
+\begin{minipage}[t]{0.3\textwidth}
+\item $\ddp \sum\limits_{p=0}^{n} \ddp \sum\limits_{q=0}^{m} p(q^2+1)$
+\item $\ddp \sum\limits_{i=1}^n\ddp \sum\limits_{j=1}^n 1$ \; et \; $\ddp \sum\limits_{i=1}^n\ddp \sum\limits_{j=1}^i 1$
+\item $\ddp \sum\limits_{i=1}^n\ddp \sum\limits_{j=1}^n i2^j$
+\end{minipage}
+\begin{minipage}[t]{0.3\textwidth}
+%\item $\ddp \sum\limits_{i=1}^n\ddp \sum\limits_{j=1}^n \ddp\frac{i^2}{j}$
+\item $\ddp \sum\limits_{k=0}^n\ddp \sum\limits_{l=k}^n \ddp\frac{k}{l+1}$
+%\item $\ddp \sum\limits_{j=0}^n\ddp \sum\limits_{i=j}^{j+p} (i-j)^2$
+%\item $\ddp \sum\limits_{i=1}^n\ddp \sum\limits_{j=1}^i 1$
+\item  $\ddp \sum\limits_{i=1}^n\ddp \sum\limits_{j=1}^i x^j$
+\item  $\ddp \sum\limits_{k=0}^{n^2}\ddp \sum\limits_{i=k}^{k+2} ki^2$
+\end{minipage}
+\begin{minipage}[t]{0.3\textwidth}
+\item  $\ddp \sum\limits_{j=1}^n\ddp \sum\limits_{i=0}^j \ddp\frac{ x^{i} }{  x^j }$
+\item  $\ddp \sum\limits_{i=1}^n\ddp \sum\limits_{j=i}^n \binom{j}{i}$
+\end{minipage}
+ \end{enumerate}
+\end{exercice}
+
+%-------------------------------------------------
+\begin{correction}  \; 
+\begin{enumerate}
+\item \textbf{Calcul de $\mathbf{\ddp \sum\limits_{p=0}^{n} \ddp \sum\limits_{q=0}^{m} p(q^2+1)}$:}
+$$\begin{array}{lll} \ddp \sum\limits_{p=0}^{n} \ddp \sum\limits_{q=0}^{m} p(q^2+1)&=&\ddp \sum\limits_{p=0}^{n} \left\lbrack p\ddp \sum\limits_{q=0}^{m} q^2+p\ddp \sum\limits_{q=0}^{m} 1    \right\rbrack\vsec\\
+&=& \ddp \sum\limits_{p=0}^{n} \left\lbrack p\ddp\frac{m(m+1)(2m+1)}{6}+p(m+1)    \right\rbrack
+=\ddp\frac{m(m+1)(2m+1)}{6}\ddp \sum\limits_{p=0}^{n} p+(m+1)\ddp \sum\limits_{p=0}^{n} p\vsec\\
+&=&  \fbox{$\ddp\frac{m(m+1)(2m+1)}{6}\ddp\frac{n(n+1)}{2}+(m+1)\ddp\frac{n(n+1)}{2}.$}\end{array}$$
+%--------
+\item  \textbf{Calcul de $\mathbf{\ddp \sum\limits_{i=1}^n\ddp \sum\limits_{j=1}^n 1}$ et de $\mathbf{\ddp \sum\limits_{i=1}^n\ddp \sum\limits_{j=1}^i 1}$:}\\
+\noindent $\ddp \sum\limits_{i=1}^n\ddp \sum\limits_{j=1}^n 1=\ddp \sum\limits_{i=1}^n\left\lbrack \ddp \sum\limits_{j=1}^n 1   \right\rbrack= \ddp \sum\limits_{i=1}^n\left\lbrack n \right\rbrack=n\ddp \sum\limits_{i=1}^n 1=\fbox{$n^2$.}$\vsec\\
+\noindent $\ddp \sum\limits_{i=1}^n\ddp \sum\limits_{j=1}^i 1=\ddp \sum\limits_{i=1}^n\left\lbrack \ddp \sum\limits_{j=1}^i 1\right\rbrack=\ddp \sum\limits_{i=1}^n\left\lbrack i \right\rbrack=\ddp \sum\limits_{i=1}^n i=\fbox{$\ddp\frac{n(n+1)}{2}$.}$
+%--------
+\item  \textbf{Calcul de $\mathbf{\ddp \sum\limits_{i=1}^n\ddp \sum\limits_{j=1}^n i2^j}$:}\\
+\noindent $\ddp \sum\limits_{i=1}^n\ddp \sum\limits_{j=1}^n i2^j=\ddp \sum\limits_{i=1}^n\left\lbrack \ddp \sum\limits_{j=1}^n i2^j \right\rbrack=\ddp \sum\limits_{i=1}^n  \left\lbrack i\ddp \sum\limits_{j=1}^n 2^j \right\rbrack
+ =\ddp \sum\limits_{i=1}^n \left\lbrack i\times 2\ddp\frac{1-2^n}{1-2} \right\rbrack =2(2^n-1) \ddp \sum\limits_{i=1}^n i=\fbox{$(2^n-1)n(n+1) $.}$
+ %--------
+\item  \textbf{Calcul de $\mathbf{\ddp \sum\limits_{k=0}^n\ddp \sum\limits_{l=k}^n \ddp\frac{k}{l+1}}$:}\\
+\noindent On commence par essayer de calculer la somme la plus int\'erieure. On n'y arrive pas car on ne conna\^{i}t pas la somme des inverses. Ainsi on va donc commencer par inverser le sens des symboles sommes. On a :
+$$\ddp \sum\limits_{k=0}^n\ddp \sum\limits_{l=k}^n \ddp\frac{k}{l+1} \; = \; \sum_{0\leq k \leq l \leq n} \ddp\frac{k}{l+1}  \; = \;  \ddp \sum\limits_{l=0}^n\ddp \sum\limits_{k=0}^l \ddp\frac{k}{l+1}$$
+On peut \'egalement d\'etailler les calculs : $\left\lbrace \begin{array}{lllll}
+0 & \leq & k & \leq & n\\
+k & \leq & l & \leq & n
+\end{array}\right.
+\Longleftrightarrow
+\left\lbrace \begin{array}{lllll}
+0 & \leq &l & \leq & n\\
+0 & \leq & k & \leq & l.
+\end{array}\right.
+$
+Ainsi on obtient que: $$\begin{array}{lll}
+\ddp \sum\limits_{l=0}^n\ddp \sum\limits_{k=0}^l \ddp\frac{k}{l+1}&=& \ddp \sum\limits_{l=0}^n\left\lbrack \ddp\frac{1}{l+1}
+ \ddp \sum\limits_{k=0}^l k\right\rbrack
+=  \ddp \sum\limits_{l=0}^n\left\lbrack   \ddp\frac{1}{l+1}  \times \ddp\frac{l(l+1)}{2} \right\rbrack
+=\ddp\demi  \ddp \sum\limits_{l=0}^n l=\fbox{ $\ddp\frac{n(n+1)}{4}$.}
+\end{array}$$
+%--------
+%\item  \textbf{Calcul de $\mathbf{\ddp \sum\limits_{j=0}^n\ddp \sum\limits_{i=j}^{j+p} (i-j)^2}$:}\\
+%\noindent \`{A} ne pas faire, calculs horribles!
+%\item  \textbf{Calcul de $\mathbf{\ddp \sum\limits_{i=1}^n\ddp \sum\limits_{j=1}^i 1}$:}\\
+%\noindent $\ddp \sum\limits_{i=1}^n\ddp \sum\limits_{j=1}^i 1=\ddp \sum\limits_{i=1}^n\left\lbrack \ddp \sum\limits_{j=1}^i 1\right\rbrack=\ddp \sum\limits_{i=1}^n\left\lbrack i \right\rbrack=\ddp \sum\limits_{i=1}^n i=\fbox{$\ddp\frac{n(n+1)}{2}$.}$
+%--------
+\item  \textbf{Calcul de $\mathbf{\ddp \sum\limits_{i=1}^n\ddp \sum\limits_{j=1}^i x^j}$:} 
+\begin{itemize}
+\item[$\bullet$] Si $x=1$, on a : $\ddp \sum\limits_{i=1}^n\ddp \sum\limits_{j=1}^i x^j = \ddp \sum\limits_{i=1}^n\ddp \sum\limits_{j=1}^i 1 = \ddp \sum\limits_{i=1}^n i = \frac{n(n+1)}{2}.$ 
+\item[$\bullet$] Si $x\not= 1$:
+\noindent  $\ddp \sum\limits_{i=1}^n\ddp \sum\limits_{j=1}^i x^j=\ddp \sum\limits_{i=1}^n\left\lbrack \ddp \sum\limits_{j=1}^i x^j \right\rbrack=\ddp \sum\limits_{i=1}^n\left\lbrack x\ddp\frac{1-x^{i}  }{1-x} \right\rbrack
+= \ddp\frac{x}{1-x}  \ddp \sum\limits_{i=1}^n (1-x^{i}) =\ddp\frac{x}{1-x}  \left\lbrack \ddp \sum\limits_{i=1}^n  1 -  \ddp \sum\limits_{i=1}^n  x^i   \right\rbrack$. \\
+Ainsi on obtient que: \fbox{$\ddp \sum\limits_{i=1}^n\ddp \sum\limits_{j=1}^i x^j= \ddp\frac{x}{1-x}  \left\lbrack  n-x\ddp\frac{1-x^n}{1-x}    \right\rbrack $.}
+\end{itemize}
+%----
+\item  \textbf{Calcul de $\mathbf{\ddp \sum\limits_{k=0}^{n^2}\ddp \sum\limits_{i=k}^{k+2} ki^2}$:}
+$$\begin{array}{lll}
+\ddp \sum\limits_{k=0}^{n^2}\ddp \sum\limits_{i=k}^{k+2} ki^2 &=& \ddp \sum\limits_{k=0}^{n^2} \left\lbrack k \ddp \sum\limits_{i=k}^{k+2} i^2 \right\rbrack
+= \ddp \sum\limits_{k=0}^{n^2} \left\lbrack k \left(  k^2+(k+1)^2+(k+2)^2  \right) \right\rbrack
+=\ddp \sum\limits_{k=0}^{n^2}  k (3k^2+6k+5)\vsec\\
+&=& 3\ddp \sum\limits_{k=0}^{n^2} k^3  +6\ddp \sum\limits_{k=0}^{n^2} k^2+5\ddp \sum\limits_{k=0}^{n^2} k
+=\fbox{$3\left(  \ddp\frac{ n^2(n^2+1) }{ 2 }  \right)^2+n^2(n^2+1)(2n^2+1)+5\ddp\frac{n^2(n^2+1)}{2} $.}\end{array}$$
+%----
+\item  \textbf{Calcul de $\mathbf{\ddp \sum\limits_{j=1}^n\ddp \sum\limits_{i=0}^j \ddp\frac{ x^{i} }{  x^j }}$:}
+\begin{itemize}
+\item[$\bullet$] Si $x=1$, on a : $\ddp \sum\limits_{j=1}^n\ddp \sum\limits_{i=0}^j \ddp\frac{ x^{i} }{  x^j } = \sum\limits_{j=1}^n\ddp \sum\limits_{i=0}^j 1 = \sum\limits_{j=1}^n j = \frac{n(n+1)}{2}.$ 
+\item[$\bullet$] Si $x\not= 1$ :
+\noindent $\ddp \sum\limits_{j=1}^n\ddp \sum\limits_{i=0}^j \ddp\frac{ x^{i} }{  x^j }=\ddp \sum\limits_{j=1}^n\left\lbrack x^{-j} \ddp \sum\limits_{i=0}^j x^{i}  \right\rbrack=
+\ddp \sum\limits_{j=1}^n\left\lbrack x^{-j}  \ddp\frac{1-x^{j+1}}{1-x}  \right\rbrack= \ddp\frac{1}{1-x}\ddp \sum\limits_{j=1}^n \left\lbrack \left( \ddp\frac{1}{x}\right)^j-x  \right\rbrack$
+\begin{center}
+\fbox{$\ddp \sum\limits_{j=1}^n\ddp \sum\limits_{i=0}^j \ddp\frac{ x^{i} }{  x^j } =  \ddp\frac{1}{1-x}  \left\lbrack \ddp\frac{1-\left( \frac{1}{x}\right)^n}{x-1}-xn   \right\rbrack.$}
+\end{center}
+
+\end{itemize}
+%--------
+\item  \textbf{Calcul de $\mathbf{\ddp \sum\limits_{i=1}^n\ddp \sum\limits_{j=i}^n \binom{j}{i}}$:}\\
+\noindent On commence par essayer de calculer la somme la plus int\'erieure. On n'y arrive pas. Ainsi on va donc commencer par inverser le sens des symboles sommes. On a :
+$$\sum\limits_{i=1}^n\ddp \sum\limits_{j=i}^n \binom{j}{i} \;=\; \sum\limits_{1\leq i \leq j \leq n} \binom{j}{i} \;=\;\ddp \sum\limits_{j=1}^n\ddp \sum\limits_{i=1}^j \binom{j}{i}$$
+On peut \'egalement d\'etailler les calculs :
+$\left\lbrace \begin{array}{lllll}
+1 & \leq & i & \leq & n\\
+i & \leq & j & \leq & n
+\end{array}\right.
+\Longleftrightarrow
+\left\lbrace \begin{array}{lllll}
+1 & \leq &j & \leq & n\\
+1 & \leq & i & \leq & j.
+\end{array}\right.
+$
+Ainsi on obtient que: 
+$\ddp \sum\limits_{j=1}^n\ddp \sum\limits_{i=1}^j \binom{j}{i}=
+\ddp \sum\limits_{j=1}^n \left\lbrack  \ddp \sum\limits_{i=1}^j \binom{j}{i}  \right\rbrack=
+\ddp \sum\limits_{j=1}^n \left\lbrack 2^j-1 \right\rbrack=\fbox{$2(2^n-1)-n.$}
+$
+\end{enumerate}
+\end{correction}
+
+
+% \section{Récurrences}
+% \begin{exercice}
+
+% Comparer (avec une inégalité large) pour tout $n\in \N$, les nombres $n$ et $ 3^n$. (Prouver cette inégalité) 
+% \end{exercice}
+% \begin{correction}
+
+
+
+% On  va montrer par récurrence que $\mathcal{P}(n) : n\leq 3^n$ pour tout $n\in \N$. 
+
+
+
+% \textbf{Initialisation:}  Pour $n=0$, on a bien $0\leq 3^0=1$. La propriété $\cP$ est donc vraie au rang $0$. 
+
+%  \textbf{H\'er\'edit\'e:}\\
+% Soit $n\geq 0$ fix\'e. On suppose la propri\'et\'e vraie \`a l'ordre $n$. Montrons qu'alors $\mathcal{P}(n+1)$ est vraie.\\
+
+% On a par hypothèse de récurrence: 
+% \begin{equation*}
+% n+1\leq 3^n +1 \\
+% \end{equation*}
+% Or  pour tout $n\in \N$ , $1 \leq 2\times 3^n$ donc 
+% $$3^n+1 \leq 3 \times 3^n =3^{n+1}$$
+
+% La propriété $\cP$ est donc vraie au rang $n+1$.
+
+% \textbf{Conclusion:}\\
+% Il r\'esulte du principe de r\'ecurrence que pour tout $ n\geq 0$:
+% \begin{center}
+% \fbox{$\mathcal{P}(n):n\leq 3^n$}
+% \end{center}
+% \end{correction}
+% \begin{correction}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% \begin{exercice}
+% On considère la suite $\suite{u}$ définie par $u_0=1$, $u_1= 3$  et pour tout $n\in \N$:
+% $$u_{n+2} =3u_{n+1} -2u_n$$
+% \begin{enumerate}
+% \item Enoncer l'inégalité triangulaire.
+% \item Montrer que  : $\forall n\in \N,\, |u_n| \leq 4^n$. (On pourra faire apparaitre une hypothèse de récurrence sur $u_n$ et $u_{n+1}$.)
+% \end{enumerate}
+% \end{exercice}
+% \vspace{1cm}
+
+
+
+
+% \begin{enumerate}
+% \item Cf cours $\forall x, y \in \R^2$:
+% $$|x+y|\leq |x|+|y|.$$
+% \item On  va montrer par récurrence que $\mathcal{P}(n) : |u_n| \leq 4^n$  et $|u_{n+1}| \leq 4^{n+1}$. 
+
+
+
+% \textbf{Initialisation:}  Pour $n=0$, on a $|u_0| = 1\leq 4^0=1$ et $|u_1|=3 \leq 4^1$. 
+% La propriété est vraie au rang $0$. 
+ 
+%  \textbf{H\'er\'edit\'e:}\\
+% Soit $n\geq 0$ fix\'e. On suppose la propri\'et\'e vraie \`a l'ordre $n$. Montrons qu'alors $\mathcal{P}(n+1)  :$ \og  $|u_{n+1}| \leq 4^{n+1}$  et $|u_{n+2}| \leq 4^{n+2}$ \fg{}  est vraie.\\
+
+% $u_{n+1}\leq 4^{n+1}$ par hypothèse de récurrence. Il suffit donc de montrer que $|u_{n+2}| \leq 4^{n+2}$. On a 
+% \begin{align*}
+% |u_{n+2}|&= |3u_{n+1} -2u_n| \quad \text{ par définition de $\suite{u}$}\\
+% 				&= |3u_{n+1}|+|2u_n| \quad \text{ par l'inégalité triangulaire}\\
+% 								&\leq  3*4^{n+1}+2*4^n \quad \text{ par hypothèse de récurrence}\\
+% 								&\leq  4^{n}(3*4+2) \\
+% 								&\leq  4^{n}(14) \\
+% 								&\leq  4^{n}(4^2) \\								
+% 								&\leq  4^{n+2} \\																
+% \end{align*}
+
+% La propriété $\cP$ est donc vraie au rang $n+1$.
+
+% \textbf{Conclusion:}\\
+% Il r\'esulte du principe de r\'ecurrence que pour tout $ n\geq 0$:
+% \begin{center}
+% \fbox{$\mathcal{P}(n): |u_n| \leq 4^n$ }
+% \end{center}
+
+
+
+
+% \end{enumerate}
+
+
+
+
+% \end{correction}
+
+
+
+
+
+
+
+\section*{Type DS}
+
+\begin{exercice}
+%\paragraph{Exercice 1 : Suite de Fibonacci}
+Soit $\suite{F}$ la suite définie par $F_0 =0, \, F_1=1 $ \text{ et pour tout $n \geq 0 $ \,} 
+$$ F_{n+2} = F_{n+1} +F_n.$$
+
+\begin{enumerate}
+\item Montrer que pour tout $n\in \N$ on a : $\ddp \sum_{k=0}^n F_{2k+1} =F_{2n+2}$
+et $\ddp \sum_{k=0}^n F_{2k} =F_{2n+1}-1$.
+\item Montrer que pout tout $n\in \N$ on a $\ddp \sum_{k=0}^n F_{k}^2 =F_nF_{n+1}$.
+\item \begin{enumerate}
+\item On note $\varphi = \frac{1+\sqrt{5}}{2}$ et $\psi=\frac{1-\sqrt{5}}{2}$. Montrer que 
+$\varphi^2 =\varphi+1$ et $\psi^2 =\psi+1$.
+\item Montrer que l'expression explicite de $F_n$ st donnée par $F_n =\frac{1}{\sqrt{5}}(\varphi^n-\psi^n)$.
+\item En déduire que $\ddp \lim_{n\tv \infty} \frac{F_{n+1}}{F_n}=\varphi.$
+\end{enumerate}
+\end{enumerate}
+
+\end{exercice}
+
+
+\begin{correction}
+\begin{enumerate}
+\item Nous allons montrer ces propriétés par récurrence sur l'entier $n\in \N$. 
+Soit $\cP(n)$ la prorpriété définie pour tout $n\in\N$ par:
+$$\cP(n) := \text{ \og }\ddp  \sum_{k=0}^n F_{2k+1} =F_{2n+2} \text{ 
+et } \ddp \sum_{k=0}^n F_{2k} =F_{2n+1}-1 \text{ \fg }.$$
+Montrons  $\cP(0)$. Vérifions la première égalité : 
+$$\sum_{k=0}^0 F_{2k+1} =F_{0+1}=F_1=1$$
+et 
+$$F_2 =F_1+F_0 =1$$
+Donc la première égalité est vraie au rang $0$. 
+
+Vérifions la sedonde égalité : 
+$$\sum_{k=0}^0 F_{2k} =F_{0}=0$$
+et 
+$$F_{2*0+1}-1 =F_1-1=0$$
+Donc la seconde égalité est vraie au rang $0$. 
+Ainsi $\cP(0)$ est vraie. 
+
+
+ \textbf{H\'er\'edit\'e:}\\
+Soit $n\geq 0$ fix\'e. On suppose la propri\'et\'e vraie \`a l'ordre $n$. Montrons qu'alors $\mathcal{P}(n+1)$ est vraie.\\
+
+Considérons la première égalité de $\cP(n+1)$. Son membre de gauche vaut : 
+\begin{equation*}
+ \sum_{k=0}^{n+1} F_{2k+1}=  \sum_{k=0}^n F_{2k+1} +F_{2n+3}
+\end{equation*}
+Par hypothèse de récurrence on a $ \ddp \sum_{k=0}^n F_{2k+1} = F_{2n+2}$, donc 
+\begin{align*}
+ \sum_{k=0}^{n+1} F_{2k+1} & =F_{2n+2}+F_{2n+3}.\\
+								& = F_{2n+4}.\quad \text{ d'après la définition de $\suite{F}$}\\
+								& = F_{2(n+1)+2}.\\
+\end{align*}
+La première égalité est donc héréditaire. 
+
+
+Considérons la sedonde égalité de $\cP(n+1)$. Son membre de gauche vaut : 
+\begin{equation*}
+ \sum_{k=0}^{n+1} F_{2k}=  \sum_{k=0}^n F_{2k} +F_{2n+2}
+\end{equation*}
+Par hypothèse de récurrence on a $ \ddp \sum_{k=0}^n F_{2k} = F_{2n+1}-1$, donc 
+\begin{align*}
+ \sum_{k=0}^{n+1} F_{2k} & =F_{2n+1}-1+F_{2n+2}.\\
+								& = F_{2n+3}-1.\quad \text{ d'après la définition de $\suite{F}$}\\
+								& = F_{2(n+1)+1}-1.\\
+\end{align*}
+La seconde égalité est donc héréditaire. Finalement la propriété $\cP(n+1)$ est vraie. 
+
+
+\textbf{Conclusion:}\\
+Il r\'esulte du principe de r\'ecurrence que pour tout $ n\geq 0$:
+\begin{center}
+\fbox{$\ddp \sum_{k=0}^n F_{2k+1} =F_{2n+2} \text{ 
+et } \ddp \sum_{k=0}^n F_{2k} =F_{2n+1}-1 $}
+\end{center}
+
+
+\item On  va montrer par récurrence que $\mathcal{P}(n) :\ddp \sum_{k=0}^n F_{k}^2 =F_{n}F_{n+1}$. 
+
+
+
+\textbf{Initialisation:}  Pour $n=0$, on a $\sum_{k=0}^0 F_{k}^2 = F_0^2=0$ et $F_0F_1=0$. 
+La propriété est donc vraie au rang $0$. 
+ 
+ \textbf{H\'er\'edit\'e:}\\
+Soit $n\geq 0$ fix\'e. On suppose la propri\'et\'e vraie \`a l'ordre $n$. 
+
+On a $\ddp \sum_{k=0}^{n+1} F_{k}^2 =\sum_{k=0}^{n} F_{k}^2 +F_{n+1}^2$
+Par hypothèse de récurrence on a $\sum_{k=0}^{n} F_{k}^2 = F_n F_{n+1}$ donc : 
+\begin{align*}
+ \sum_{k=0}^{n+1} F_{k}^2 &=  F_n F_{n+1} +F_{n+1}^2\\
+				&= F_{n+1} (F_n +F_{n+1}) \\
+				&=   F_{n+1}F_{n+2}  \quad \text{ par définition de $\suite{F}$ }													
+\end{align*}
+
+La propriété $\cP$ est donc vraie au rang $n+1$.
+
+\textbf{Conclusion:}\\
+Il r\'esulte du principe de r\'ecurrence que pour tout $ n\geq 0$:
+\begin{center}
+\fbox{$\mathcal{P}(n): \ddp \sum_{k=0}^n F_{k}^2 =F_{n}F_{n+1}$}
+\end{center}
+
+\item Le polynôme du second degrès $X^2-X-1$ a pour discriminant $\Delta =1+4=5$ les racines sont donc 
+$\varphi = \frac{1+\sqrt{5}}{2}$ et $\psi=\frac{1-\sqrt{5}}{2}$. 
+En particulier, ces nombres vérifient : $\varphi^2 -\varphi -1 =0$ et $\psi^2 -\psi-1=0$, c'est-à-dire 
+
+\begin{center}
+\fbox{$\varphi^2 =\varphi+1$ et $\psi^2 =\psi+1$.}
+\end{center}
+
+
+
+
+
+\item  Notons  :$u_n =\frac{1}{\sqrt{5}}(\varphi^n-\psi^n)$ 
+On a 
+$$u_0= \frac{1}{\sqrt{5}}(\varphi^0-\psi^0)=0$$
+$$u_1= \frac{1}{\sqrt{5}}(\varphi^1-\psi^1)=1$$
+et pour tout $n\in\N$ on a 
+\begin{align*}
+u_{n+2} &= \frac{1}{\sqrt{5}}(\varphi^{n+2}-\psi^{n+2}) \\
+			&= \frac{1}{\sqrt{5}}(\varphi^n (\varphi^2)-\psi^n (\psi^2) ) \\
+			&= \frac{1}{\sqrt{5}}(\varphi^n (\varphi +1)-\psi^n (\psi +1)  ) \quad \text{ D'après la question précédente} \\			
+			&= \frac{1}{\sqrt{5}}(\varphi^{n+1} +\varphi^n-\psi^{n+1} -\psi^n   ) \\
+			&= \frac{1}{\sqrt{5}}(\varphi^{n+1} -\psi^{n+1}) +  \frac{1}{\sqrt{5}} \varphi^n-\psi^n   ) \\
+			&=u_{n+1}+u_n
+\end{align*}
+Donc $u_n$ satisfait aussi la relation de récrurrence. 
+Ainsi  pour tout $n\in \N$, $u_n=F_n= \frac{1}{\sqrt{5}}(\varphi^n-\psi^n)$. 
+
+
+\item D'après la question précédente on a pour tout $n\in \N$: 
+$$\frac{F_{n+1}}{F_n} =  \frac{\varphi^{n+1}-\psi^{n+1}}{\varphi^n-\psi^n}$$
+Donc,
+\begin{align*}
+\frac{F_{n+1}}{F_n} &=\varphi \frac{\varphi^{n}\left(1-\frac{\psi^{n+1}}{\varphi^{n+1}}\right)}{\varphi^n\left(1-\frac{\psi^n}{\varphi^n}\right)}\\
+&=\varphi \frac{1-\left(\frac{\psi}{\varphi}\right)^{n+1}}{1-\left(\frac{\psi}{\varphi}\right)^n}
+\end{align*}
+
+
+Remarquons que $|\varphi| >|\psi|$ en particulier $|\frac{\psi}{\varphi}|<1$ et donc 
+$$\lim_{n\tv \infty} \left(\frac{\psi}{\varphi}\right)^{n+1} =0.$$
+Finalemetn 
+\begin{center}
+\fbox{$ \lim_{n\tv \infty} \frac{F_{n+1}}{F_n} =\varphi$.} 
+\end{center}
+
+\end{enumerate}
+
+\end{correction}
+
+%%%%%
+%%%%%
+%%%%%
+%%%%%
+%%%%%
+%%%%%
+%%%%%
+
+\vspace{0.5cm}
+\begin{exercice}
+Dans cet exercice, on considère une suite quelconque de nombres réels $\suite{a}$, et on pose pour tout $n\in \N$:
+$$b_n =\sum_{k=0}^n \binom{n}{k} a_k.$$
+\begin{center}
+\textbf{Partie I : Quelques exemples}
+\end{center}
+\begin{enumerate}
+\item Calculer $b_n$ pour tout $n \in \N$ lorsque la suite $\suite{a}$ est la suite constante égale à $1$.
+\item Calculer $b_n$ pour tout $n \in \N$ lorsque la suite $\suite{a}$ est définie par $a_n=\exp(n)$. 
+
+\item 
+\begin{enumerate}
+\item Démontrer que, pour tout $(n\geq 1,n\geq k\geq 1)$, $$k\binom{n}{k}=n \binom{n-1}{k-1}.$$
+\item En déduire que : $\forall n \in \N, \ddp \sum_{k=0}^n \binom{n}{k} k = n2^{n-1}$.
+\item Calculer la valeur de $b_n$, pour tout $n \in \N$ lorsque la suite $\suite{a}$ est définie par $a_n=\frac{1}{n+1}$. 
+\end{enumerate}
+\end{enumerate}
+\begin{center}
+\textbf{Partie II : Formule d'inversion }
+\end{center}
+Le  but de cette partie est de montrer que la suite $\suite{a}$ s'exprime en fonction de la suite $\suite{b}$. 
+\begin{enumerate}
+\item Montrer que pour tout $(k, n , p ) \in \N^3,$ tel que $k\leq p \leq n$ on  a:
+$$\binom{n+1}{p}\binom{p}{k}=\binom{n+1}{k}\binom{n+1-k}{p-k}.$$
+\item Montrer que, pour tout $(k,n) \in \N^2$, tel que $k\leq n$ on  a :
+$$\sum_{i=0}^{n-k} (-1)^i  \binom{n+1-k}{i}=(-1)^{n-k}.$$ 
+\item  Montrer que pour tout $n\in \N$ on a $$\sum_{p=0}^{n}\sum_{k=0}^p  \binom{n+1}{k}\binom{n+1-k}{p-k} (-1)^{p-k}  b_k	 = \sum_{k=0}^{n} (-1)^{n-k}  \binom{n+1}{k} b_k $$
+\item Donner, pour tout $n\in \N$, l'expression de $a_{n+1}$ en fonction de $b_{n+1}$ et de $a_0, ..., a_n$. 
+\item Prouver, par récurrence forte sur $n$ que :
+$$\forall n \in \N, a_n =\sum_{k=0}^n (-1)^{n-k} \binom{n}{k} b_k.$$
+\item En utilisant le résultat précédent montrer que pour tout $n\in \N$:
+$$\sum_{k=0}^{n}   \binom{n}{k}k2^k(-1)^{n-k}=2n.$$ 
+\end{enumerate}
+
+
+
+
+\end{exercice}
+
+\begin{correction}
+\begin{center}
+\textbf{Partie I : Quelques exemples}
+\end{center}
+\begin{enumerate}
+\item Pour $a_n=1$, $b_n=\sum_{k=0}^n \binom{n}{k}  =2^n$.
+\item  Pour $a_n=exp(n)$, $b_n=\sum_{k=0}^n \binom{n}{k}e^k  =(1+e^1)^n$.
+\item
+\begin{enumerate}
+\item  $$k\binom{n}{k}= k \frac{n! }{k! (n-k)!} = \frac{n! }{(k-1)! (n-k)!}  = n \frac{(n-1)! }{(k-1)! ((n-1)-(k-1))!}=  n\binom{n-1}{k-1}$$
+\item
+Comme le premier terme est nul  $\sum_{k=0}^n \binom{n}{k} k = \sum_{k=1}^n n\binom{n-1}{k-1}$
+Et d'après la question précédente on a donc $ \sum_{k=0}^n \binom{n}{k} k= n  \sum_{k=1}^n \binom{n-1}{k-1}$
+Or en faisant un changement de variable on obtient $\sum_{k=1}^n \binom{n-1}{k-1}= \sum_{k=0}^{n-1} \binom{n-1}{k}$. 
+Donc $$ \sum_{k=0}^n \binom{n}{k} k = n 2^{n-1}$$
+
+\item 
+D'après la question 3a) on a $ (k+1)\binom{n+1}{k+1} = (n+1)\binom{n}{k}$. Donc 
+$$\frac{1}{n+1}\binom{n+1}{k+1} =\frac{1}{k+1}\binom{n}{k}$$
+
+Ainsi $$\sum_{k=0}^n \binom{n}{k} \frac{1}{k+1} = \sum_{k=0}^{n} \frac{1}{n+1}\binom{n+1}{k+1}$$
+On fait un changement de variable $k+1=j$ on obtient 
+\begin{align*}
+\sum_{k=0}^n \binom{n}{k} \frac{1}{k+1} &=  \sum_{j=1}^{n+1} \frac{1}{n+1}\binom{n+1}{j}\\
+															&=  \frac{1}{n+1} \left( \sum_{j=0}^{n+1} \binom{n+1}{j} -1\right)\\
+															&= \frac{1}{n+1} \left( 2^{n+1}-1\right)
+\end{align*}
+\end{enumerate}
+\end{enumerate}
+
+
+
+\begin{center}
+\textbf{Partie II : Formule d'inversion }
+\end{center}
+\begin{enumerate}
+\item C'est l'exercice 2 du DM 4.
+\item 
+$$\sum_{i=0}^{n-k} (-1)^i  \binom{n+1-k}{i}= \sum_{i=0}^{n-k+1} (-1)^i  \binom{n+1-k}{i} -(-1)^{n-k+1} $$ 
+Et d'après le BdN : 
+$$ \sum_{i=0}^{n-k+1} (-1)^i  \binom{n+1-k}{i} =(1-1)^{n-k} =0$$ 
+et 
+$$-(-1)^{n-k+1} =(-1)^{n-k}$$
+Ce qui donne le résultat. 
+\item $b_{n+1} = \ddp \sum_{k=0}^{n+1} \binom{n+1}{k} a_k =\ddp  \sum_{k=0}^{n} \binom{n+1}{k} a_k   +a_{n+1}$. Donc
+$$a_{n+1} = b_{n+1}-\sum_{k=0}^{n} \binom{n+1}{k} a_k$$
+\item Soit $P(n)$ la propriété : " $\forall p \leq n \, a_p =\ddp \sum_{k=0}^p (-1)^{p-k} \binom{p}{k} b_p.$"\\
+
+Montrons $P(0) : " \forall j \leq 0 \, a_j =\ddp \sum_{k=0}^j (-1)^{j-k} \binom{j}{k} b_k.$" Il suffit  de vérifier $a_0 = \ddp \sum_{k=0}^0 (-1)^{0-k} \binom{0}{k} b_k.$
+
+Et on a  $\ddp \sum_{k=0}^0 (-1)^{0-k} \binom{0}{k} b_k. = b_0$ 
+Par ailleurs, par définition $b_0 =  \ddp  \sum_{k=0}^{0} \binom{0}{k} a_k =a_0$. Ainsi $P(0)$ est vraie.  
+
+\underline{Hérédité}
+
+
+On suppose que $P$ est vraie pour un certain entier naturel $n$ fixé. Montrons $P(n+1)$. 
+Pour cela il suffit de vérifier que 
+$$a_{n+1} =\sum_{k=0}^{n+1} (-1)^{n+1-k} \binom{n+1}{k} b_k$$
+Or on a vu que  
+$$a_{n+1}=b_{n+1}-\sum_{p=0}^{n} \binom{n+1}{p}  a_p$$ 
+et en utilisant l'hypothése de récurrence on obtient 
+\begin{align*}
+\sum_{p=0}^{n} \binom{n+1}{p} a_p &=\sum_{p=0}^{n} \binom{n+1}{p} \sum_{k=0}^p (-1)^{p-k} \binom{p}{k} b_k\\
+												&=\sum_{p=0}^{n}\sum_{k=0}^p  \binom{n+1}{p} \binom{p}{k} (-1)^{p-k}  b_k\\
+												&=\sum_{p=0}^{n}\sum_{k=0}^p  \binom{n+1}{k}\binom{n+1-k}{p-k} (-1)^{p-k}  b_k												
+\end{align*}
+D'après la question  II . 1. 
+
+
+On échange les deux symboles sommes on obtient : 
+\begin{align*}
+\sum_{p=0}^{n}\sum_{k=0}^p  \binom{n+1}{k}\binom{n+1-k}{p-k} (-1)^{p-k}  b_k		&=
+\sum_{k=0}^{n}\sum_{p=k}^n  \binom{n+1}{k}\binom{n+1-k}{p-k} (-1)^{p-k}  b_k	\\
+&=\sum_{k=0}^{n}   \binom{n+1}{k} b_k \sum_{p=k}^n \binom{n+1-k}{p-k} (-1)^{p-k}  	\\
+&= \sum_{k=0}^{n}   \binom{n+1}{k} b_k \sum_{i=0}^{n-k} \binom{n+1-k}{i} (-1)^{i}  	
+\end{align*}
+En faisant le cahngement d'indice $p-k=i$. 
+
+On obtient finalement  en utilisant la question  II. 2.
+\begin{align*}
+\sum_{p=0}^{n} \binom{n+1}{p} a_p &=\sum_{k=0}^{n}   \binom{n+1}{k} b_k (-1)^{n-k}
+\end{align*}
+On conclut en remarquant que $b_{n+1} 	= 	 \binom{n+1}{n+1} b_{n+1} (-1)^{n+1-(n+1)}$
+et ainsi 
+$$a_{n+1}= 	 (-1)^{n+1-(n+1)}  \binom{n+1}{n+1} b_{n+1} + \sum_{k=0}^{n}  (-1)^{n+1-k} \binom{n+1}{k} b_k = \sum_{k=0}^{n+1}  (-1)^{n+1-k} \binom{n+1}{k} b_k $$
+									
+											 
+
+\item On a vu dans la partie I que pour $a_n=n$ on a
+$b_n=n2^{n-1}$. Donc en appliquant le résultat précédent on a 
+$$ \sum_{k=0}^{n}   \binom{n}{k}k2^{k-1}(-1)^{n-k} = n$$ 
+Ce qui donne finalement 
+$$ \sum_{k=0}^{n}   \binom{n}{k}k2^k(-1)^{n-k} =  2 \sum_{k=0}^{n}   \binom{n}{k}k2^{k-1}(-1)^{n-k}= 2 n$$
+\end{enumerate}
+
+
+\end{correction}
+
+
+
+
+
+
+
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+
+
+
+%\subsection{Somme double $\max$ + info}
+
+\begin{exercice}
+\begin{enumerate}
+\item Montrer par récurrence que pour tout $n\in \N$, 
+$$ \sum_{k=1}^n  k^2= \frac{n(n+1)(2n+1)}{6}$$
+
+\item Soit $i\in \N$ et $n\in \N$ tel que $i\leq n$. Caculer en fonction de $i$ et $n$ :
+$$\sum_{j=i+1}^n j$$
+
+\item 
+On rappelle que l'on note $\max(i,j) =  \left\{
+    \begin{array}{ll}
+       i & \text{si\, } i \geq j \\
+        j & \mbox{sinon.}
+    \end{array}
+\right.
+$
+Montrer que pour tout $n\in \N$, $$\ddp \sum_{i=1}^n \sum_{j=1}^n \max(i,j)  = \sum_{i=1}^n \frac{n^2+i^2 +n-i}{2}$$ 
+\item En déduire que 
+$$\ddp\sum_{i=1}^n \sum_{j=1}^n  \max(i,j) = \left(   \frac{n(n+1)(4n-1)}{6} \right)	 $$
+
+\item On note $$S_k =  \sum_{i,j\in \intent{1,1000}} \max(i^k,j^k).$$ 
+\begin{enumerate}
+\item Rappeler ce que renvoie l'instruction Python $\texttt{range(a,b)}$ avec deux entiers $a,b\in \N$ tel que $a\leq b$.
+\item Ecrire un script Python qui demande à l'utilsateur la valeur de $k$, calcul $S_k$ et affiche le résultat. 
+\end{enumerate}
+\end{enumerate}
+\end{exercice}
+
+
+
+\begin{correction}
+Pour $n=0 $ on a d'une part $\sum_{k=1}^0 k^2 =0$ et 
+$\frac{0*1*(2*0+1)}{6}=0$ la propriété est vraie au rang 0
+
+Montrons l'hérédité de la formule et supposons qu'il existe $n\in \N$ tel que $ \sum_{k=1}^n  k^2= \frac{n(n+1)(2n+1)}{6}$
+On a 
+$$\sum_{k=1}^{n+1} k^2 =\sum_{k=1}^{n} k^2 +  (n+1)^2$$
+et donc par hypothèse : 
+\begin{align*}
+\sum_{k=1}^{n+1} k^2 &=\frac{n(n+1)(2n+1)}{6} +  (n+1)^2\\
+									&= \frac{(n+1) [ n(2n+1) +6(n+1)}{(n+1)^2}\\
+									&= \frac{(n+1) [ 2n^2+ +7n+6)}{(n+1)^2}		\\												&= \frac{(n+1) [ (2n+3)(n+2)}{(n+1)^2}				\\											&= \frac{(n+1) ((n+1)+1) (2(n+1)+1)}{(n+1)^2}			
+\end{align*}
+La formule est  bien héréditaire elle est donc vraie pour tout $n\in \N$. 
+
+
+
+D'après le cours :
+$\ddp \sum_{j=i+1}^n j = \frac{(n+i+1)(n-i)}{2}$
+\begin{align*}
+\sum_{i,j \in \intent{1,n}} \max(i,j) &= \sum_{i=1}^n \sum_{j=1}^n\max(i,j)\\
+												&= \sum_{i=1}^n \sum_{j=1}^i\max(i,j) + \sum_{i=1}^n \sum_{j=i+1}^n\max(i,j)\\
+												&= \sum_{i=1}^n \sum_{j=1}^i i  + \sum_{i=1}^n \sum_{j=i+1}^n j\\
+													&= \sum_{i=1}^n i^2+ \sum_{i=1}^n \frac{(n+i+1)(n-i)}{2} \\
+													&= \sum_{i=1}^n i^2 + \frac{n^2-i^2 +n-i}{2}\\		
+													&= \sum_{i=1}^n \frac{n^2+i^2 +n-i}{2}\\	
+\end{align*}
+\begin{align*}
+\sum_{i,j \in \intent{1,n}} \max(i,j)	&= \frac{1}{2} \left( n (n^2+n) + \sum_{i=1}^n i^2  -  \sum_{i=1}^n i\right)\\
+													&= \frac{1}{2} \left(  n^2 (n+1) +  \frac{n(n+1)(2n+1)}{6} -   \frac{n(n+1)}{2}\right)\\
+													&=\frac{1}{2} \left(   \frac{n(n+1)(6n +(2n+1) -3 }{6} \right)\\
+													&=\frac{1}{2} \left(   \frac{n(n+1)(8n-2)}{6} \right)\\		
+													&= \left(   \frac{n(n+1)(4n-1)}{6} \right)											
+\end{align*}
+
+\texttt{range(a,b)} renvoie la suite d'entiers de $a$ à $b-1$. 
+
+
+\begin{lstlisting}
+k = int(input ('quelle est la valeur de k ? ))
+S=0
+for i in range(1,1001):  #on fait une boucle for pour obtenir la somme sur i 
+  for j in range(1,1001):  #et une deuxieme pour la somme sur j
+    if i<=j:
+      S=S+j**k
+    else:
+      S=S+i**k
+print(S)
+\end{lstlisting}
+
+
+\end{correction}
+
+
+
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------------
+
+
+
+
+
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+
+
+\end{document}

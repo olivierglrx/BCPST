@@ -1,0 +1,907 @@
+\documentclass[a4paper, 11pt]{article}
+\input{macro/package.tex}
+\input{macro/environement}
+\input{macro/header.tex}
+\input{macro/newcommand.tex}
+\geometry{hmargin=2.0cm, vmargin=2.5cm}
+
+\begin{document}
+\tableofcontents
+ \title{Chapitre 17 : Développements limités} 
+
+\noindent On s'int\'eresse ici \`a la possibilit\'e d'approcher localement une fonction $f$ par une fonction polyn\^ome, c'est-\`a-dire de pouvoir dire qu'au voisinage d'un point une fonction $f$ se comporte comme un polyn\^ome.\\
+
+\noindent On fait d\'ej\`{a} cela lorsque l'on calcule la tangente \`{a} une courbe en un point ou lorsque l'on recherche d'\'eventuelles asymptotes horizontales ou obliques. En effet, la tangente \`a une courbe en un point d'abscisse $x_0$ est un polyn\^ome de degr\'e un et correspond en fait \`{a} une approximation d'ordre un de la fonction associ\'ee au voisinage du point d'abscisse $x_0$. De m\^{e}me, une asymptote oblique est un polyn\^ome de degr\'e un et correspond cette fois-ci \`{a} une approximation d'ordre un de la fonction associ\'ee au voisinage de l'infini. Pour avoir des approximations plus pr\'ecises, il faut augmenter le degr\'e du polyn\^ome.\\
+ 
+ \noindent Dans tout le chapitre $f$ d\'esigne une fonction num\'erique d\'efinie sur $\mathcal{D}_f\subset \R$.
+
+
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\section{D\'eveloppement limit\'e en 0: d\'efinition et premi\`{e}res propri\'et\'es}
+
+\subsection{Négligeabilité}
+
+\begin{defi}\hspace*{0cm}
+\begin{itemize}
+\item[$\bullet$] Soit $f$ une fonction d\'efinie au voisinage de 0, et soit $n \in \Z$. On dit que $f$ est n\'egligeable par rapport \`a la fonction $x \mapsto x^n$ au voisinage de $0$ si et seulement si : \vsec\hspace{0.5cm}\\ \phantom{} \dotfill\vsec\\ 
+On note alors $f(x) = \dotfill$ ou lorsqu'il n'y a pas d'ambiguit\'e : $f(x) = \dotfill$.\vsec
+\item[$\bullet$] Soit $f$ une fonction d\'efinie au voisinage de $\pm \infty$, et soit $n \in \Z$. On dit que $f$ est n\'egligeable par rapport \`a la fonction $x \mapsto x^n$ au voisinage de $\pm \infty$ si et seulement si :\vsec\\ \phantom{}\dotfill\vsec\\
+On note alors $f(x) = \dotfill$ ou lorsqu'il n'y a pas d'ambiguit\'e : $f(x) = \dotfill$.\vsec
+\end{itemize}
+\end{defi}
+ 
+
+\paragraph{Definition équivalente} \phantom{}$f(x)=g(x)+o(x^n)$
+ $$\lim_{x\tv 0} \frac{f(x)-g(x)}{x^n}=0$$
+\begin{exemple}
+Montrer que : $ (1-\cos x) \sin x = o(x^2)$ au voisinage de $0$.
+
+
+
+\begin{rem}
+Cette notation se g\'en\'eralise : si $f$ et $g$ sont d\'efinies au voisinage de 0, et ne s'annulent pas au voisinage de $0$, on a $f=o(g)$ si et seulement si : \dotfill \vsec\\
+\end{rem}
+
+
+
+\end{exemple}
+
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\subsection{D\'efinition}
+
+
+
+
+
+
+%\begin{rem}
+%Op\'erations sur les $o()$.
+%\begin{itemize}
+%\item[$\bullet$] $\forall \lambda \in \R^\star$, $o(\lambda x^n) = $ \ldots \ldots \ldots \ldots \ldots 
+%\item[$\bullet$] $\forall k \in \Z$, $x^k o(x^n)= $ \ldots \ldots \ldots \ldots \ldots \; et $\ddp \frac{o(x^n)}{x^k} = $ \ldots \ldots \ldots \ldots \ldots 
+%\item[$\bullet$] si $n \leq p$,  $o(x^n)+o(x^p) = $ \ldots \ldots \ldots \ldots \ldots 
+%\end{itemize} 
+%\end{rem}
+
+
+
+\vspace{0.4cm}
+
+ {\noindent  
+
+\begin{defi} 
+Soit $f$ une fonction d\'efinie au voisinage de 0. Soit $n$ un entier naturel.\\
+\noindent On dit que la fonction $f$ admet un DL d'ordre $n$ au voisinage de 0, not\'e $DL_n(0)$, si:\vsec\\
+\phantom{ } \dotfill\vsec\\
+\phantom{ } \dotfill \vsec
+\begin{itemize}
+\item[$\bullet$] Le terme $a_0+a_1 x+a_2x^2+\dots +a_nx^n=\sum\limits_{k=0}^n a_k x^k$ est appel\'e \dotfill.
+\item[$\bullet$]  Le terme $o(x^n)$ est appel\'e \dotfill.\vsec
+\end{itemize}
+\end{defi}
+ 
+}
+
+\begin{rems}
+\begin{itemize}
+\item[$\bullet$] DL d'ordre 0, 1 et 2 au voisinage de 0:
+\begin{itemize}
+\item[$\star$] $f$ admet un $DL_0(0)$ $\Longleftrightarrow$ \dotfill.\vsec
+\item[$\star$] $f$ admet un $DL_1(0)$ $\Longleftrightarrow$ \dotfill.\\
+\noindent On parle alors souvent d'approximation affine.\vsec
+\item[$\star$] $f$ admet un $DL_2(0)$ $\Longleftrightarrow$ \dotfill.\\
+\noindent On parle alors parfois d'approximation quadratique.\vsec
+\end{itemize}
+\item[$\bullet$] On a : $x^{\alpha}\underset{0}{=} o(x^{\beta})\Longleftrightarrow \dotfill$.\vsec\\
+\noindent Or  un DL en $0$ est d'autant plus pr\'ecis que le reste $o(x^n)$ est n\'egligeable quand $x$ tend vers 0. Ainsi un DL est d'autant plus pr\'ecis que \dotfill.
+\end{itemize}
+\end{rems}
+
+
+
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\subsection{Premiers exemples}
+
+\subsubsection{DL et  \'equivalents usuels}
+
+\begin{itemize}
+\item[$\bullet$] $DL_1(0)$ de la fonction exponentielle:
+\begin{itemize}
+\item[$\star$] Rappel de l'\'equivalent usuel en 0: \dotfill \phantom{\hspace{6cm} }
+\item[$\star$] En d\'eduire que $e^x\underset{0}{=} 1+x+o(x)$:\\
+
+
+\end{itemize}
+\item[$\bullet$] $DL_2(0)$ de la fonction cosinus:
+\begin{itemize}
+\item[$\star$] Rappel de l'\'equivalent usuel en 0: \dotfill \phantom{\hspace{6cm} }
+\item[$\star$] En d\'eduire que $\cos{(x)}\underset{0}{=} 1-\ddp\frac{x^2}{2}+o(x^2)$:\\
+
+
+\end{itemize}
+\item[$\bullet$] $DL_1(0)$ de la fonction $x\mapsto (1+x)^{\alpha}$:
+\begin{itemize}
+\item[$\star$] Rappel de l'\'equivalent usuel en 0: \dotfill \phantom{\hspace{6cm} }
+\item[$\star$] En d\'eduire que $(1+x)^{\alpha}\underset{0}{=} 1+\alpha x+o(x)$:\\
+
+
+\end{itemize}
+\end{itemize}
+
+\subsubsection{Polyn\^{o}mes}
+Les polynomes sont déjà sous forme de DL, le terme d'erreur est nul dès que l'on fait un DL à un ordre supérieur au degré. 
+\begin{itemize}
+\item[$\bullet$] \'Etude sur un cas particulier: soit $P=2X+X^2-6X^3$ un polyn\^{o}me de degr\'e 3.
+\begin{itemize}
+\item[$\star$] $DL_2(0)$ de $P$: $P(x)\underset{0}{=}\dotfill$\vsec
+\item[$\star$] $DL_3(0)$ de $P$: $P(x)\underset{0}{=}\dotfill$\vsec
+\item[$\star$] $DL_5(0)$ de $P$: $P(x)\underset{0}{=}\dotfill$\vsec
+\end{itemize}
+\item[$\bullet$] \'Etude du cas g\'en\'eral: soit $P$ un polyn\^{o}me de degr\'e $n$: $P=a_0+a_1x+a_2x^2+\dots+a_nx^n$ avec $a_n\not= 0$.\vsec
+\begin{itemize}
+\item[$\star$] $DL_p(0)$ de $P$ avec $p<n$:
+\item[$\star$] $DL_n(0)$ de $P$:
+\item[$\star$]  $DL_p(0)$ de $P$ avec $p>n :$
+\end{itemize}
+\end{itemize}
+\vspace{0.3cm}
+
+
+\subsubsection{Série géométrique}
+
+
+\begin{prop} 
+Les fonctions $x\mapsto \ddp\frac{1}{1+x}$ et $x\mapsto \ddp\frac{1}{1-x}$ admettent un DL en 0 \`a tout ordre. Pour tout $n\in\N$, on a:
+\begin{itemize}
+\item[$\bullet$] $\ddp\frac{1}{1-x}\underset{0}{=}1+x+x^2+x^3+\dots+x^n+o(x^n)\underset{0}{=}\sum\limits_{k=0}^n x^k+o(x^n).$
+\item[$\bullet$]  $\ddp\frac{1}{1+x}\underset{0}{=}1-x+x^2-x^3+\dots+(-1)^nx^n+o(x^n)\underset{0}{=}\sum\limits_{k=0}^n (-1)^kx^k+o(x^n).$
+\end{itemize}
+\end{prop}
+ 
+
+
+
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\subsection{Premi\`{e}res propri\'et\'es}
+
+
+\begin{prop} 
+Si $f$ poss\`ede un DL d'ordre $n$ en 0, alors il est unique.
+\end{prop}
+ 
+
+
+\begin{corollaire} 
+Soit $f$ une fonction admettant au voisinage de $0$ un DL d'ordre $n$ : $f(x)\underset{0}{=}\ddp\sum\limits_{k=0}^n a_kx^k+\circ(x^n).$\vsec
+\begin{itemize}
+ \item[$\bullet$] Si $f$ est paire alors la partie régulière est paire.
+\item[$\bullet$]  Si $f$ est impaire alors  la partie régulière est impaire.
+\end{itemize}
+\end{corollaire}
+ 
+
+
+
+
+{\footnotesize \begin{exercice} Soit $f$ une fonction qui admet au voisinage de $0$ le $DL_5(0)$ suivant: $f(x)\underset{0}{=} 3-x+\ddp\frac{x^2}{5}-2x^3-\ddp\frac{x^4}{6}-x^5+o(x^5)$. Admet-elle un $DL_3(0)$ et si oui, que vaut-il ? M\^{e}me question avec $DL_0(0)$. 
+\end{exercice}
+
+\begin{prop} 
+
+Si $f$ admet un DL d'un ordre $n$ donn\'e au voisinage de 0, alors $f$ admet des DL pour tous les ordres inférieurs à $n$.
+
+Plus pr\'ecisemment, si $f$ admet le $DL_n(0)$ suivant: $f(x)\underset{0}{=}\ddp\sum\limits_{k=0}^n a_kx^k+o(x^n).$ Alors, pour tout $p\leq n$,  $f$ admet un DL d'ordre $p$ en $0$ et  
+$$f(x)\underset{0}{=}\ddp\sum\limits_{k=0}^p a_kx^k+o(x^p).$$
+
+
+\end{prop}
+ 
+
+
+
+%--------------------------------------------------
+%------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\section{M\'ethodes pour obtenir des DL}
+
+\subsection{Dérivée d'ordre supérieure}
+
+
+\begin{defi}
+Soit $I$ un intervalle de $\R$ et $f: I\rightarrow \R$.
+\begin{itemize}
+\item[$\bullet$] On note $f^{(0)}=f$ (d\'eriv\'ee d'ordre 0 de $f$). 
+%\item[$\bullet$] Si $f$ est d\'erivable sur $I$, on note $f^{(1)}=f^{\prime}$.
+\item[$\bullet$] Les d\'eriv\'ees successives de $f$ sont alors d\'efinies par r\'ecurrence.\\
+\noindent La fonction $f$ est $n+1$ fois d\'erivable sur $I$ si \vsec
+\begin{itemize}
+\item[$\star$]  \dotfill \vsec
+\item[$\star$] \dotfill \vsec
+\end{itemize}
+Dans ce cas, on note \dotfill \vsec
+\end{itemize}
+\end{defi}
+ 
+
+\warning  Ne pas confondre $f^{(k)}$ la dérivée $k$-iéme (ou d'ordre $k$ ) et $f^k$. Cette dernière notation peut avoir deux sens  selon le  contexte ! 
+
+$f^k$ peut désigner la puissance $k$-ième c'est-à-dire : 
+$f^k=f\times f \times \cdots \times f$ $k$ fois. Mais ....
+
+$f^k$  peut désigner parfois la composée $k$-ième, c'est-à-dire
+$f^k=f\circ f \circ \cdots\circ f$ $k$ fois. 
+
+Souvent quand on parle de fonctions réelles et qu'on utilise $f^k$ on parle de la puissance $k$-ième. En revanche quand on parle d'application linéaire (cf chapitre suivant) quand on utilise $f^k$ on parle systèmatiquement de la composé $k$-ième. 
+
+
+\begin{exercice} 
+Calculer la d\'eriv\'ee premi\`ere, seconde, troisi\`eme et quatri\`eme du cosinus et de l'exponentielle.
+\end{exercice}
+ {\noindent  
+
+\begin{defi} Fonctions de classe $C^n$ et $C^{\infty}$:
+\begin{itemize}
+\item[$\bullet$]  On dit que $f$ est de classe $\mathcal{C}^n$ sur $I$ si  \vsec
+\begin{itemize}
+\item[$\star$] \dotfill\vsec
+\item[$\star$] \dotfill\vsec
+\end{itemize}
+On note alors \dotfill l'ensemble des fonctions de classe $\mathcal{C}^n$ sur $I$.\vsec
+\item[$\bullet$] $\mathcal{C}^0(I)$ est l'ensemble des fonctions \dotfill \vsec
+\item[$\bullet$] $\mathcal{C}^1(I)$ est l'ensemble des fonctions \dotfill \vsec
+\item[$\bullet$] On dit que $f$ est de classe $\mathcal{C}^{\infty}$ sur $I$ \dotfill\vsec\\
+\noindent  On note \dotfill l'ensemble des fonctions de classe $\mathcal{C}^{\infty}$ sur $I$. \vsec
+\end{itemize}
+\end{defi}
+ }
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\subsection{Formule de Taylor-Young}
+
+
+
+ {\noindent  
+
+\begin{theorem} 
+Si $f$ est une fonction de classe $\mathcal{C}^n$ sur un intervalle $I$ contenant 0.\\
+Alors la fonction $f$ admet un DL d'ordre $n$ en 0 donn\'e par:
+ $$
+f(x)  \underset{0}{=} \sum_{k=0}^n f^{(k)}(0)\frac{x^k}{k!} +o(x^n) 
+$$
+\end{theorem}
+ 
+}
+
+ 
+\begin{rems}
+\begin{itemize}
+\item[$\bullet$] Ce th\'eor\`eme assure que toute fonction de classe $\mathcal{C}^n$ au voisinage de 0 admet un DL d'ordre $n$ au voisinage de 0 et la formule de Taylor-Young permet de calculer ce DL d\`es lors que l'on sait calculer les d\'eriv\'ees successives de la fonction $f$ en 0. Cela va ainsi nous permettre de calculer tous les DL des fonctions usuelles.\\
+\item[$\bullet$]  \warning  Il n'y a pas \'equivalence: une fonction peut tr\`es bien admettre un DL \`a l'ordre $n$ en 0 et ne pas admettre de d\'eriv\'ees d'ordre $k$ en 0 pour $2\leq k\leq n$.
+\begin{exemple}
+Soit la fonction $f$ d\'efinie sur $\R$ par $f(x)=x^3\sin{\left(  \ddp\frac{1}{x}\right)}\ \hbox{si}\ x\not= 0\ \hbox{et}\ f(0)=0.$
+\begin{itemize}
+\item[$\bullet$] Montrer qu'elle admet bien un $DL_2(0)$ qui vaut: $f(x)\underset{0}{=} o(x^2)$:
+\item[$\bullet$] Montrer que la fonction $f$ est continue et d\'erivable en 0.
+
+\item[$\bullet$] Montrer que pour autant $f^{\prime\prime}(0)$ n'existe pas, \`{a} savoir la fonction $f$ n'est pas deux fois d\'erivable en 0.
+\end{itemize}
+\end{exemple}
+\end{itemize}
+\end{rems}\vsec
+
+
+\subsubsection{DL des fonctions usuelles}
+
+ \textbf{\large{La fonction exponentielle:}}\vsec
+ \begin{itemize}
+ \item[$\bullet$] Existence d'un DL:\dotfill
+ \item[$\bullet$] Calcul des d\'eriv\'ees $k$-i\`{e}me en 0: \dotfill 
+ \item[$\bullet$] Obtention du DL: \vsec\\
+
+
+
+\begin{center}
+\begin{dboxminipage}{0.5\textwidth}
+$$\exp(x) \underset{0}{=} 1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\cdots +\frac{x^n}{n!} +o(x^n)
+$$
+\end{dboxminipage}
+\end{center}
+
+\begin{center}
+\begin{dboxminipage}{0.5\textwidth}
+$$\exp(x) \underset{0}{=} \sum_{k=0}^n \frac{x^k}{k!}+o(x^n)
+$$
+\end{dboxminipage}
+\end{center}
+
+
+
+
+ \end{itemize}
+ \vsec
+ 
+\textbf{\large{La fonction cosinus:}}\vsec
+ \begin{itemize}
+ \item[$\bullet$] Existence d'un DL:\dotfill
+ \item[$\bullet$] Calcul des d\'eriv\'ees $k$-i\`{e}me en 0: \dotfill 
+ \item[$\bullet$] Obtention du DL: \vsec\\
+%\phantom{ } \dotfill \vsec\\
+%\phantom{ } \dotfill \vsec\\
+\begin{center}
+\begin{dboxminipage}{0.5\textwidth}
+$$\cos(x) \underset{0}{=} 1 -\frac{x^2}{2!}+\frac{x^4}{4!}+\cdots +(-1)^n \frac{x^{2n}}{(2n)!} +o(x^{2n})
+$$
+\end{dboxminipage}
+\end{center}
+
+\begin{center}
+\begin{dboxminipage}{0.5\textwidth}
+$$\cos(x) \underset{0}{=} \sum_{k=0}^n(-1)^k \frac{x^{2k}}{(2k)!}+o(x^{2n})
+$$
+\end{dboxminipage}
+\end{center}
+ \end{itemize}
+Ici on a écrit les DL d'ordre $2n$ et non $n$ car il est beaucoup plus simple à écrire sous forme de somme. Mais évidemment si on souhaite le DL d'ordre $4$ il suffit de prendre $n=2$ \\
+ 
+\textbf{\large{La fonction sinus:}}\vsec
+ \begin{itemize}
+ \item[$\bullet$] Existence d'un DL:\dotfill
+ \item[$\bullet$] Calcul des d\'eriv\'ees $k$-i\`{e}me en 0: \dotfill 
+ \item[$\bullet$] Obtention du DL: \vsec\\
+%\phantom{ } \dotfill \vsec\\
+%\phantom{ } \dotfill \vsec\\
+
+ \end{itemize}
+ 
+ 
+\begin{center}
+\begin{dboxminipage}{0.5\textwidth}
+$$\sin(x) \underset{0}{=} x -\frac{x^3}{3!}-\frac{x^5}{5!}+\cdots +(-1)^n \frac{x^{2n+1}}{(2n+1)!} +o(x^{2n+1})
+$$
+\end{dboxminipage}
+\end{center}
+
+\begin{center}
+\begin{dboxminipage}{0.5\textwidth}
+$$\sin(x) \underset{0}{=} \sum_{k=0}^n(-1)^k \frac{x^{2k+1}}{(2k+1)!}+o(x^{2n+1})
+$$
+\end{dboxminipage}
+\end{center} 
+Ici on a écrit les DL d'ordre $2+1n$ et non $n$ car il est beaucoup plus simple à écrire sous forme de somme. Mais évidemment si on souhaite le DL d'ordre $3$ il suffit de prendre $n=1$ \\
+
+ \textbf{\large{La fonction puissance: $f(x) = (1+x)^\alpha$, avec $\alpha \in \R\backslash\N$}}\vsec
+ \begin{itemize}
+ \item[$\bullet$] Existence d'un DL:\dotfill
+ \item[$\bullet$] Calcul des d\'eriv\'ees $k$-i\`{e}me en 0: \dotfill 
+ \item[$\bullet$] Obtention du DL:\vsec\\
+%\phantom{ } \dotfill \\
+
+ \end{itemize}
+
+\begin{center}
+\begin{dboxminipage}{0.5\textwidth}
+$$(1+x)^\alpha \underset{0}{=} 1+\alpha x +\alpha(\alpha-1) \frac{x^2}{2!} +\alpha (\alpha -1)(\alpha -2)\frac{x^3}{3!} +\cdots + \prod_{k=0}^{n-1} (\alpha-k) \frac{x^n}{n!}+o(x^n)
+$$
+\end{dboxminipage}
+\end{center}
+On n'utilisera que très rarement ce DL dans un autre cadre que $\alpha =-1$ ou $\alpha =\frac{1}{2}$. Dans ce dernier cas, on n'utilisera que très rarement la formule générale au delà de l'ordre $2$. 
+
+
+% 
+\noindent En particulier, on retrouve bien les DL en 0 des fonctions $x\mapsto \ddp\frac{1}{1+x}$ et $x\mapsto \ddp\frac{1}{1-x}$:%\dotfill\vsec\\
+%\phantom{ } \dotfill \vsec\\
+%\phantom{ } \dotfill \vsec
+
+
+
+\begin{rem}
+\noindent La formule de Taylor-Young permet d'affirmer l'existence d'un DL \`a l'ordre $n$ si la fonction $f$ est de classe $\mathcal{C}^n$ au voisinage de 0. Mais le calcul des d\'eriv\'ees successives d'une fonction s'av\`ere souvent difficile. Ainsi, en pratique, la formule de Taylor-Young sert assez peu, on l'utilise presque exclusivement pour obtenir le DL des fonctions usuelles vues ci-dessus. En pratique, on obtient plut\^ot les DL comme primitives, sommes, produit, quotient, compos\'ee des DL des fonctions usuelles.
+\end{rem}
+
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\subsection{Int\'egration des DL}
+
+
+
+ {\noindent  
+
+\begin{prop} 
+\noindent Soit $I$ un intervalle contenant 0 et $f: I\rightarrow \R$ une fonction continue sur $I$ et poss\'edant un DL \`a l'ordre $n$ au voisinage de 0: $f(x)\underset{0}{=}\ddp\sum\limits_{k=0}^n a_kx^k+o(x^n)$.\\%=$\dotfill\\
+\noindent Alors si $F$ est une primitive de $f$ sur $I$, $F$ poss\`ede un DL \`a l'ordre $n+1$ au voisinage de 0 donn\'e par:\vsec\\
+$$F(x)\underset{0}{=} F(0) + \sum_{k=0}^n a_k \frac{1}{k+1}
+x^{k+1}$$
+
+Le DL de $F$ s'obtient simplement en int\'egrant terme \`a terme celui de $f$.
+\end{prop}
+ 
+}
+\vspace{0.3cm}
+
+\warning  On ne peut pas d\'eriver terme \`a terme un DL, seule l'int\'egration d'un DL est permise.\\
+Contre-exemple : $f(x) =x^3\sin(\frac{1}{x^2})$
+
+En revanche si la fonction est de classe $\cC^\infty$ cela ne pose pas de problème, grâce à la formule de Taylor-Young
+
+
+ \warning  Ne pas oublier le terme $F(0)$.
+
+
+\noindent\ {Applications: DL des fonctions usuelles}\\
+\begin{enumerate}
+\item \textbf{\large{La fonction logarithme n\'ep\'erien:}}\vsec
+
+\begin{dboxminipage}{0.7 \textwidth}
+
+\begin{itemize}
+\item[$\bullet$] $\ln{(1+x)}\underset{0}{=} $\vsec
+\item[$\bullet$] $\ln{(1-x)}\underset{0}{=} $
+\end{itemize}
+\end{dboxminipage}
+
+
+
+
+\item \textbf{\large{La fonction arctangente:}}\vsec
+ 
+\begin{dboxminipage}{0.7 \textwidth}
+
+$\arctan(x)\underset{0}{=} $
+\end{dboxminipage}
+
+
+
+\end{enumerate} 
+ 
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\subsection{Op\'erations algébrique sur les DL}
+
+\subsubsection{Somme et multiplication par un scalaire}
+C'est là que l'on gagne par rapport à un simple équivalent. On peut additioner des DL. 
+\begin{prop} 
+Soient $f$ et $g$ deux fonctions d\'efinies sur un m\^eme intervalle $I\subset \R$ et admettant un DL en 0 d'ordre $n$ de partie r\'eguli\`ere $P$ et $Q$ respectivement. Soit $\lambda\in \R$. Alors:\vsec\\
+\noindent $\bullet$ $f+g$\dotfill\vsec\\
+$\bullet$ $\lambda f$ \dotfill\vsec
+\end{prop}
+ 
+
+
+{\footnotesize \begin{exercice} Calculer les DL suivants: $DL_4(0)$ de $f(x)=\sin{x}+2\cos{x}$ et $DL_5(0)$ de $f(x)=-3e^x+2\ln{(1+x)}$.
+\end{exercice}
+}
+
+\noindent \warning  PROBL\`{E}ME D'ORDRE: La somme d'un DL d'ordre 3 et d'un DL d'ordre 4 par exemple donne un DL d'ordre \ldots\ldots. Plus g\'en\'eralement, la somme de deux DL d'ordre diff\'erents ne donne qu'un DL \`{a} l'ordre minimum.
+Calculer par exemple, la somme du $DL_4(0)$ de sinus et du $DL_2(0)$ de $x\mapsto \sqrt{1+x}$:
+
+
+
+
+\subsubsection{Produit}
+ {\noindent  
+
+\begin{prop} 
+Soient $f$ et $g$ deux fonctions d\'efinies sur un m\^eme intervalle $I\subset \R$ et admettant un DL en 0 d'ordre $n$ de partie r\'eguli\`ere $P$ et $Q$ respectivement. Alors:\\
+\noindent  $fg$ \dotfill\vsec\\
+\phantom{ } \dotfill\vsec
+\end{prop}
+ 
+}
+
+{\footnotesize \begin{exercice} Calculer les DL suivants: $DL_2(0)$ de $x\mapsto e^x\cos{x}$ et $DL_3(0)$ de $x\mapsto \ddp\frac{\cos{x}}{1-x}$.
+\end{exercice}
+}
+
+\noindent \warning  PROBL\`{E}ME D'ORDRE: Comme pour la somme de deux DL, le produit de deux DL d'ordre diff\'erents ne donne en g\'en\'eral qu'un DL \`a l'ordre minimum. Par exemple le produit d'un $\mathrm{DL}_2(0)$ et d'un $\mathrm{DL}_3(0)$ ne donne pas un $\mathrm{DL}_3(0)$, ni un $\mathrm{DL}_6(0)$ mais un $\mathrm{DL}_2(0)$.
+Lorsque l'on cherche un DL \`a l'ordre $n$ d'une fonction qui peut \^etre vue comme produit de fonctions usuelles, il faut donc \'ecrire le DL de chaque fonction usuelle \`a l'ordre $n$.\vsec\vsec
+
+
+
+\subsubsection{Composition}
+ {\noindent  
+
+\begin{prop} 
+Soit $f:\ \mathcal{D}_f\rightarrow \R$ une fonction admettant un DL en 0 d'ordre $n$ et v\'erifiant $\mathbf{f(0)=0}$. Soit $g:\ \mathcal{D}_g\rightarrow \R$ une fonction admettant en 0 un DL d'ordre $n$. On suppose que $f\left( \mathcal{D}_f\right)\subset\mathcal{D}_g$. On note $P$ et $Q$ les parties r\'eguli\`eres respectivement de $f$ et de $g$. Alors:\\
+\noindent $g\circ f$ \dotfill\vsec\\
+\phantom{ } \dotfill\vsec
+\end{prop}
+ 
+}
+
+{\footnotesize \begin{exercice} Calculer les DL suivants:
+\begin{itemize}
+\item[$\bullet$] Cas 1: cas o\`{u} $f(0)=0$:\\
+\noindent $DL_2(0)$ de la fonction $x\mapsto e^{x+x^2}$, $DL_4(0)$ de la fonction $x\mapsto e^{\sin{x}}$ et $DL_6(0)$ de la fonction $x\mapsto \ln{(1+\sin{(x^2)})}$.
+\item[$\bullet$] Cas 2: cas o\`{u} $f(0)\not=0$: S'y ramener:\\
+\noindent $DL_4(0)$ de la fonction $x\mapsto e^{\cos{x}}$, $DL_4(0)$ de la fonction $x\mapsto \ln{(2+\sin{(x)})}$ et $DL_6(0)$ de la fonction $x\mapsto \sin{\left(  x+\ddp\frac{\pi}{6}\right)}$.
+\end{itemize}
+\end{exercice}
+}
+
+%
+% {\noindent  
+%
+%\begin{prop} 
+%Soient $f$ et $g$ deux fonctions d\'efinies sur un m\^eme intervalle $I\subset \R$ et admettant un DL en 0 d'ordre $n$ de partie r\'eguli\`ere $P$ et $Q$ respectivement. On suppose de plus que $g(0)\not= 0$. Alors:\\
+%\noindent $\bullet$ $\ddp\frac{1}{g}$\dotfill \phantom{\hspace{10cm} }\\
+%$\bullet$ $\ddp\frac{f}{g}$ \dotfill \phantom{\hspace{10cm} }\vsec\\
+%M\'ethode pour obtenir le DL d'un quotient:\dotfill\vsec\\
+%\end{prop}
+% 
+%}
+
+
+\vsec\vsec
+
+
+\begin{dboxminipage}{0.9 \textwidth}
+
+\noindent M\'ethodes pour obtenir un DL en 0 \`a l'ordre $n$ :
+
+ 
+\begin{itemize} 
+\item[$\bullet$] On \'ecrit tous les DL usuels en 0 \`a l'ordre $n$ qui vont intervenir.
+\item[$\bullet$] On utilise alors les op\'erations sur les DL de m\^eme ordre:
+\begin{itemize} 
+\item[$\star$] on peut ajouter deux DL de m\^eme ordre en additionnant les parties r\'eguli\`eres. 
+\item[$\star$] on peut multiplier deux DL de m\^eme ordre:\\
+on multiplie les parties r\'eguli\`eres en ne gardant que les termes de degr\'e inf\'erieur ou \'egal \`a $n$.
+\item[$\star$] on peut composer deux DL de m\^eme ordre:\\
+on compose les parties r\'eguli\`eres en ne gardant que les termes de degr\'e inf\'erieur ou \'egal \`a $n$.
+\item[$\star$] on peut int\'egrer un DL: \\
+\noindent on int\`egre la partie r\'eguli\`ere en faisant attention de ne pas oublier la valeur en 0 de la primitive\\
+\noindent on int\`egre aussi le $o()$: $o(x^n)$ devient $o(x^{n+1})$.
+ \item[$\star$] tout d\'enominateur doit \^etre remont\'e au num\'erateur en utilisant une puissance n\'egative
+\end{itemize}
+\end{itemize}
+\end{dboxminipage}
+
+\begin{rem}
+\warning  V\'erifier que le terme $f$ que l'on compose par $g$ dans $g\circ f$ tend bien vers 0. Sinon, il faut s'y ramener en s'inspirant des exemples suivants: on suppose que $y$ tend bien vers 0, on a: \\
+\begin{itemize} 
+\item[$\rightsquigarrow$] $e^{1+y}=e\times e^y$         \\
+ \item[$\rightsquigarrow$] $\ln{(2+y)}=\ln{\left(2\left( 1+\ddp\frac{y}{2}      \right)\right)}=\ln{2}+\ln{\left( 1+\ddp\frac{y}{2}      \right)}$ et $\lim\limits_{y\to 0}\ddp\frac{y}{2}=0$        \\
+ \item[$\rightsquigarrow$] $ \ddp\frac{1}{\sqrt{4+y}}=\ddp\frac{1}{\sqrt{4}\ddp\sqrt{1+\ddp\frac{y}{4}}}=\ddp\demi\left( 1+ \ddp\frac{y}{4}\right)^{-\demi}$ et $\lim\limits_{y\to 0}\ddp\frac{y}{4}=0$        \\
+\item[$\rightsquigarrow$] $\sin{\left( y+\ddp\frac{\pi}{3} \right)}=\cos{y}\sin{\left( \ddp\frac{\pi}{3}\right)}+\sin{y} \cos{\left( \ddp\frac{\pi}{3}\right)}= \ddp\frac{\sqrt{3}}{2}\cos{y}+\ddp\demi\sin{y}$         \\
+\item[$\rightsquigarrow$]  $\cos{\left( y+\ddp\frac{\pi}{3} \right)}=\cos{y}\cos{\left( \ddp\frac{\pi}{3}\right)}-\sin{y} \sin{\left( \ddp\frac{\pi}{3}\right)}= \ddp\frac{1}{2}\cos{y}-\ddp\frac{\sqrt{3}}{2}\sin{y}$          \\
+\end{itemize}
+\end{rem}
+
+\begin{rem}
+\warning 
+il est important que les DL soient au m\^eme ordre. \\
+\noindent Ainsi, le produit d'un $\mathrm{DL}_2(0)$ et d'un $\mathrm{DL}_3(0)$ ne donne pas un $\mathrm{DL}_3(0)$, ni un $\mathrm{DL}_6(0)$ mais un $\mathrm{DL}_2(0)$.\\
+\end{rem}
+
+
+ \subsubsection{Quotient}
+
+\noindent \warning  Tout d\'enominateur doit \^{e}tre remont\'e au num\'erateur en utilisant le DL de $x \mapsto \ddp\frac{1}{1+x}$ ou de $x \mapsto (1+x)^\alpha$ avec $\alpha <0$.
+
+
+{\footnotesize \begin{exercice} Calculer les DL suivants: $DL_2(0)$ de la fonction $x\mapsto \ddp\frac{1}{2+x}$, $DL_3(0)$ de $x\mapsto \ddp\frac{1}{e^x+\cos{x}}$, $DL_5(0)$ de $x\mapsto \tan{x}$ et $DL_1(0)$ de $x\mapsto \ddp\frac{\ln{(1+x)}}{e^x-1}$.
+\end{exercice}
+}
+
+%--------------------------------------------------
+%------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%\section{G\'en\'eralisation: D\'eveloppement limit\'e en $x_0$ et en l'infini}
+
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+
+
+
+%--------------------------------------------------
+%------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\section{Utilisation des d\'eveloppements limit\'es}
+
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\subsection{Calculs de limites et d'\'equivalents}
+
+\noindent Les DL permettent de calculer les limites d'expressions comportant une forme ind\'etermin\'ee lorsque les \'equivalents ne suffisent pas ou ne peuvent pas \^etre utilis\'es (lorsque l'expression comporte par exemple des sommes ou des compos\'ees). Ils permettent m\^eme d'obtenir l'\'equivalent.\\
+
+\begin{dboxminipage}{0.9 \textwidth}
+\begin{itemize}
+\item[$\bullet$] La fonction est \'equivalente en $x_0$ au terme de plus bas degr\'e NON NUL de la partie r\'eguli\`ere du DL en $x_0$.
+\item[$\bullet$] La limite en $x_0$ s'en d\'eduit alors automatiquement.
+\item[$\bullet$] M\'ethode: Calculer le DL en $x_0$ suffisamment loin pour obtenir un terme non nul.
+\end{itemize}
+
+\end{dboxminipage}
+\\\\
+
+\noindent Toute la difficult\'e est de savoir \`a quel ordre on doit effectuer le DL afin d'obtenir un terme non nul: il faut ainsi aller suffisamment loin pour que le DL permette de conclure, mais pas trop loin pour \'eviter de longs calculs inutiles. L'intuition se forge avec l'exp\'erience: il faut se lancer et rectifier le tir si besoin.
+
+
+{\footnotesize \begin{exercice} R\'epondre aux questions en calculant des DL:
+\begin{enumerate}
+
+\item Limite en 0 de $\ddp\frac{e^{\sin{x}} -e^{\tan{x}}  }{x-\sin{x}}$.
+\item Limite en 0 de la fonction $g(x)=\ddp\frac{\sin{x}-e^x+1}{\ln{(1+x)}-x}$.
+\item Limite en 1 de la fonction $x\mapsto f(x)=\ddp\frac{e^{x^2+x} -e^{2x}  }{\cos{(\frac{\pi}{2} x)}}$.
+ 
+
+\item \'Equivalent en 0 de $f(x)=(1+x)^{\frac{\ln{x}}{x}}-x$.
+\item Limite quand $x$ tend vers $+\infty$ de $f(x)=\left( x\sin{\ddp\frac{1}{x}} \right)^{x^2}$
+ 
+\end{enumerate}
+\end{exercice}
+}
+
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%\subsection{Utilisation de la formule de Taylor-Young}
+%
+%
+%\noindent On donne une derni\`ere application des DL et plus pr\'ecisement de la formule de Taylor-Young.
+%
+%
+%\begin{itemize}
+%\item[$\bullet$] Si on a trouv\'e le DL d'une fonction \`a l'ordre $n$ au voisinage de $x_0$:\vsec\\
+%\phantom{ \hspace{0cm}} \dotfill.\vsec
+%
+%\item[$\bullet$] Si on sait de plus que cette fonction est de classe $\mathcal{C}^n$ au voisinage de $x_0$, alors la formule de Taylor-Young s'applique et on obtient ainsi:\vsec\\
+%\noindent \phantom{ \hspace{0.1cm}}\dotfill\vsec
+%\end{itemize}
+%
+%\noindent En utilisant l'unicit\'e du DL, on en d\'eduit alors la valeur des d\'eriv\'ees $k$-i\`emes de $f$ en $x_0$:\vsec\\
+%\noindent \phantom{ \hspace{0.1cm}}\dotfill
+%
+%{\footnotesize \begin{exercice} 
+%\'Etude en 2 de la fonction $x\mapsto (x-1)\ln{x}$: calculer $f^{(k)}(1)$ pour tout $k\in\intent{ 0,4}$ en utilisant un $DL_4(1)$.\end{exercice}}
+
+
+\subsection{D\'eveloppement limit\'e en $x_0$}
+
+
+
+\noindent On peut d\'efinir de m\^eme un $DL$ en un point fini autre que $0$.\vsec
+
+\noindent  {\noindent  
+
+\begin{defi} 
+Soit $f$ une fonction d\'efinie au voisinage de $x_0\in\R$. Soit $n$ un entier naturel.\\
+\noindent On dit que la fonction $f$ admet un DL d'ordre $n$ au voisinage de $x_0$, not\'e $DL_n(x_0)$, si:\vsec\\
+\phantom{ } \dotfill\vsec\\
+\phantom{ } \dotfill \vsec
+\begin{itemize}
+\item[$\bullet$] Le terme $a_0+a_1 (x-x_0)+a_2(x-x_0)^2+\dots +a_n(x-x_0)^n$ est appel\'e \dotfill.\vsec
+\item[$\bullet$]  Le terme $o((x-x_0)^n)$ est appel\'e \dotfill.\vsec
+\end{itemize}
+\end{defi}
+ 
+}\vsec
+
+ \noindent Tout ce qui a \'et\'e dit sur les DL au voisinage de 0 s'appliquent pour les DL au voisinage de $x_0\in\R$: unicit\'e, troncature,\ldots. En particulier la formule de Taylor-Young est vrai aussi au point $x_0$:\\
+
+ {\noindent  
+
+\begin{theorem}
+Soit $f$ une fonction de classe $\mathcal{C}^n$ sur un intervalle $I$ et soit $x_0$ un \'el\'ement de $I$.\\
+Alors la fonction $f$ admet un DL d'ordre $n$ en $x_0$ donn\'e par:\vsec\\
+\noindent $\begin{array}{rcl}
+f(x) & \underset{x_0}{=} & \dotfill\vsec\\
+& \underset{x_0}{=} & \vsec
+\end{array}$
+\end{theorem}
+ 
+}\vsec
+
+\vspace*{0.4cm}
+
+\begin{dboxminipage}{0.9 \textwidth}
+\noindent La seule m\'ethode est de se ramener en 0 en posant un changement de variable.\\
+\noindent M\'ethode pour obtenir un DL en $x_0\in\R^{\star}$ \`a l'ordre $n$ :\\
+
+
+ 
+\begin{itemize}
+\item[$\bullet$] On pose le changement de variable: $X=x-x_0\Leftrightarrow x=X+x_0$ et ainsi $\lim\limits_{x\to x_0} X=0$.
+\item[$\bullet$] On remplace tous les $x$ par des $X+x_0$ pour obtenir une expression ne contenant que $X$.
+\item[$\bullet$] On calcule le DL \`a l'ordre $n$ en 0 par rapport \`a la variable $X$.
+\item[$\bullet$] On remplace alors tous les $X$ par $x-x_0$ SANS DEVELOPPER.
+\end{itemize}
+\end{dboxminipage}
+
+
+ 
+
+
+
+{\footnotesize \begin{exercice} Calculer les DL suivants: $DL_2(2)$ de la fonction $x\mapsto \ln{(x)}$, $DL_3\left( \ddp\frac{\pi}{4} \right)$ de $x\mapsto \ddp\frac{\sin{x}}{\sqrt{x}}$ et $DL_4(2)$ de $x\mapsto (x-2)\ln{(x-1)}$.
+\end{exercice}
+}
+
+
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\subsection{D\'eveloppement limit\'e ou d\'eveloppement asymptotique en $\pm\infty$}\begin{dboxminipage}{0.9 \textwidth}
+
+\noindent La seule m\'ethode est de se ramener en 0 en posant un changement de variable.\\
+\noindent M\'ethode pour obtenir un DL en $\pm \infty$ \`a l'ordre $n$ :\\
+
+\begin{itemize}
+\item[$\bullet$] On pose le changement de variable: $X=\frac{1}{x}\Leftrightarrow x=\frac{1}{X}$ et ainsi $\lim\limits_{x\to \pm \infty} X=0$.
+\item[$\bullet$] On remplace tous les $x$ par des $\frac{1}{X}$ pour obtenir une expression ne contenant que $X$.
+\item[$\bullet$] On calcule le DL \`a l'ordre $n$ en 0 par rapport \`a la variable $X$.
+\item[$\bullet$] On remplace alors tous les $X$ par $\frac{1}{x}$.
+\end{itemize}
+
+\end{dboxminipage}
+
+
+{\footnotesize \begin{exercice} \'Etudes de fonctions en $+\infty$: 
+\begin{itemize}
+\item[$\bullet$] Donner le d\'eveloppement asymptotique d'ordre $2$ au voisinage de $+\infty$ de $f$ d\'efinie par $f(x)=\ddp\frac{x+1}{x-1}$.
+\item[$\bullet$] Donner le d\'eveloppement asymptotique d'ordre $2$ au voisinage de $+\infty$ de $g$ d\'efinie par $g(x)=xe^{\frac{2}{x}}$ en $+\infty$:
+\end{itemize}
+\end{exercice}
+}
+
+
+%
+%
+%
+%
+%\section{DL d'une fonction de plusieurs variables}
+%
+%%-----------------------------------
+%%{D\'eveloppement limit\'e au voisinage d'un point}\\
+%%-----------------------------------
+%
+%\flushleft  {\noindent  
+%
+%\begin{theorem}
+%Soit $f$ une fonction r\'eelle de deux variables r\'eelles de classe $\mathcal{C}^1$ sur $\mathcal{D} = \mathcal{D}_1 \times \mathcal{D}_2$, et soit $(x_0,y_0) \in \mathcal{D}$. On peut alors exprimer les petites variations de $f$ autour de $(x_0,y_0)$ gr\^ace aux d\'eriv\'ees partielles de $f$ en $(x_0,y_0)$ de la fa\c con suivante :
+%$$f(x,y) \underset{(x_0,y_0)}{=} f(x_0,y_0) + (x-x_0) \frac{\partial f}{\partial x} (x_0,y_0) + (y-y_0) \frac{\partial f}{\partial y} (x_0,y_0) + o\left(\sqrt{(x-x_0)^2+(y-y_0)^2} \right).$$
+%On dit que $f$ admet \dotfill\vsec
+%\end{theorem}
+% 
+%}
+%
+%\begin{rem}
+%En utilisant la d\'efinition du gradient, on obtient : 
+%$$f(x,y) \underset{(x_0,y_0)}{=} \hspace*{12cm}$$
+%\end{rem}
+%
+%\noindent Ce th\'eor\`eme permet d'estimer l'allure de $f$ au voisinage de $(x_0,y_0)$. En particulier, on constate que si la fonction est de classe $\mathcal{C}^1$ au voisinage de $(x_0,y_0)$, la surface repr\'esentative de $f$ peut \^etre approch\'ee par la surface repr\'esentative de la fonction :
+%$$(x,y) \mapsto f(x_0,y_0) +  (x-x_0) \frac{\partial f}{\partial x} (x_0,y_0) + (y-y_0) \frac{\partial f}{\partial y} (x_0,y_0).$$ 
+%
+
+
+
+
+
+
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\subsection{Applicaiton des cacluls de limites}
+
+Savoir calculer des limites permet de connaitre beaucoup de choses sur les fonctions, mais ce n'est pas propre à l'étude des DL, mais au calcul de limite. 
+\subsubsection{\'Etude locale en un point fini: tangente}
+\setlength\fboxrule{1pt}
+\noindent  { 
+
+\begin{itemize}
+\item[$\bullet$] Le d\'eveloppement limit\'e \`a l'ordre 1 au voisinage de $x_0$ donne
+l'\'equation de la tangente \`a la courbe au point d'abscisse $x_0$.
+\item[$\bullet$] Le terme non nul suivant dans le DL donne
+la position de la tangente par rapport \`a la courbe LOCALEMENT au voisinage de $x_0$.
+\end{itemize}
+ }
+\setlength\fboxrule{0.5pt}
+
+{\footnotesize \begin{exercice} 
+\begin{enumerate}
+\item Soit la fonction $f$ d\'efinie par: $f(x)=\left\lbrace\begin{array}{cl}
+ \ddp\frac{x+1}{2(x-1)}\ln{(x)} & \hbox{si}\ x\in \; \rbrack 0,+\infty\lbrack\setminus\lbrace 1\rbrace\vsec\\
+ 1 & \hbox{si}\ x=1.
+ \end{array}\right.$\\
+\'Etudier la continuit\'e et la d\'erivabilit\'e de $f$ en 1. D\'eterminer l'\'equation de la tangente \`a la courbe au point d'abscisse 1 ainsi que la position de la courbe par rapport \`a cette tangente localement au voisinage de 1.\vsec
+\item  M\^{e}mes questions avec la fonction $f$ d\'efinie par:\
+\noindent $f(x)=\left\lbrace\begin{array}{cl}
+ \ddp\frac{x}{\ln{(1+x)}} & \hbox{si}\ x\in \; \rbrack -1,+\infty\lbrack\setminus\lbrace 0\rbrace\vsec\\
+ 1 & \hbox{si}\ x=0.
+ \end{array}\right.$
+\end{enumerate}
+\end{exercice}}
+
+
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\subsubsection{\'Etude locale en $\pm\infty$: asymptote}
+
+
+\setlength\fboxrule{1pt}
+\noindent  { 
+
+Un d\'eveloppement limit\'e ou un d\'eveloppement asymptotique de $f$ au voisinage de $\pm\infty$ permet 
+de pr\'eciser le comportement de $f$ en l'infini et notamment d'\'etudier: 
+\begin{itemize}
+\item[$\bullet$] l'existence d'\'eventuelles asymptotes \`a la courbe de $f$  
+\item[$\bullet$] la position relative de ses asymptotes par rapport \`a la courbe LOCALEMENT au voisinage de l'infini.
+\end{itemize}
+ }
+\setlength\fboxrule{0.5pt}
+
+
+{\footnotesize \begin{exercice} \'Etudier les branches infinies des fonctions suivantes ainsi que la position relative de leur courbe par rapport aux \'eventuelles branches infinies localement au voisinage de $\pm\infty$: $f(x)=\sqrt{1+x+x^2}$ et $g(x)=\ddp\sqrt{\ddp\frac{x^4}{1+x^2}}$.
+\end{exercice}}
+
+ 
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\subsubsection{\'Etude de la continuit\'e ou de la d\'erivabilit\'e d'une fonction en un point}
+
+\begin{itemize}
+\item[\Large{\ding{182}}] \textbf{DL d'ordre 0 au voisinage de $x_0$:}
+
+
+\noindent  {
+
+\begin{prop}
+Soit $f$ une fonction qui admet un DL d'ordre 0 en $x_0$: $f(x)\underset{x_0}{=} a_0+o(1)$.\\
+$\bullet$ Si $f$ n'est pas d\'efinie en $x_0$, alors \dotfill.\vsec\\
+$\bullet$ Si $f$ est bien d\'efinie en $x_0$, alors: \dotfill \vsec
+\end{prop}
+ }
+
+
+\item[\Large{\ding{183}}] \textbf{DL d'ordre 1 au voisinage de $x_0$:}\\
+\noindent On se place maintenant dans le cas o\`{u} $f$ est bien continue en $x_0$ avec $a_0=f(x_0)$.\vsec
+
+\noindent  {
+ 
+\begin{prop}
+\vsec
+$f$ admet un $DL_1(x_0)$ $\Longleftrightarrow$ \dotfill\vsec\\
+\noindent  Dans ce cas, on a: $f(x) \underset{x_0}{=} a_0+a_1(x-x_0)+o(x-x_0)\quad\hbox{avec}\quad \left\lbrace\begin{array}{l} f(x_0)=\vsec \\ f^{\prime}(x_0)=\end{array}\right.$
+\end{prop}
+ }
+
+
+
+{\footnotesize \begin{exercice} Soit une fonction $f$ d\'efinie sur $\R^+$ par: $f(x)=\ddp\frac{\ln{(1+x)}-x}{x}$ pour tout $x\in\R^{+\star}$ et $f(0)=0$. D\'emontrer que la fonction $f$ est continue et d\'erivable sur $\R^+$. 
+ \end{exercice}}
+\vspace{0.3cm}
+
+\item[\Large{\ding{184}}] \textbf{DL d'ordre sup\'erieur au voisinage de $x_0$:}\\
+\noindent \warning  FAUX pour les ordres sup\'erieurs. Par exemple, l'existence d'un $DL_2(0)$ pour $f$ ne garantie pas l'existence de $f^{\prime\prime}(0)$. On a vu comme contre-exemple la fonction d\'efinie par $f(x)=x^3\sin{\left(  \ddp\frac{1}{x}\right)}\ \hbox{si}\ x\not= 0\ \hbox{et}\ f(0)=0.$ L'\'equivalence exprim\'ee ci-dessus n'est vraie que pour les ordres 0 et 1.
+
+\end{itemize}
+
+
+
+\end{document}

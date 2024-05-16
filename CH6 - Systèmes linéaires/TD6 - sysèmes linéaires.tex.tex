@@ -1,0 +1,1205 @@
+\documentclass[a4paper, 11pt,reqno]{article}
+\input{macro/package.tex}
+\input{macro/environement}
+\input{macro/header.tex}
+\input{macro/newcommand.tex}
+\geometry{hmargin=1.0cm, vmargin=2.5cm}
+
+
+\newcommand{\type}{TD }
+\excludecomment{correction}
+%\renewcommand{\type}{Correction TD }
+
+
+\begin{document}
+
+\title{\type 6 : Systèmes linéaires}
+
+
+ % debut
+ %------------------------------------------------
+
+
+\vspace{0.2cm}
+
+
+
+\section*{Entraînements}
+%------------------------------------------------
+%----------------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------
+\noindent \subsection*{Syst\`{e}mes lin\'eaires sans param\`{e}tre}
+\vspace{0.2cm}
+
+
+%--------------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------------
+
+%------------------------------------------------------------------
+\begin{exercice}  \;
+D\'eterminer le rang et r\'esoudre les syst\`emes lin\'eaires d'inconnues r\'eelles suivants:
+\begin{enumerate}
+\begin{minipage}[t]{0.4\textwidth}
+ \item 
+$\left\lbrace\begin{array}{rcrcrcr}
+3x &- &y &+ & z & = &5\\
+2x &+ &y &- & z & = &1\\
+x &- &y &+ & z & = &2\\
+4x &+ &y &+ & z & = &3\\
+\end{array}\right.$
+\vsec
+%---
+\item 
+$\left\lbrace\begin{array}{rcrcrcrcr}
+x & +&2y&+&3z&-&2t&=&6\\
+2x & -&y&-&2z&-&3t&=&8\\
+3x & +&2y&-&z&+&2t&=&4\\
+2x & -&3y&+&2z&+&t&=&-8
+\end{array}\right.$
+\vsec
+%---
+\item 
+$\left\lbrace\begin{array}{rcrcrcr}
+2x &+ &y &+ & z & = &1\\
+x &- &y &- & z & = &2\\
+4x &- &y &- & z & = &3\\
+\end{array}\right.$
+\vsec
+%---
+\item 
+$\left\lbrace\begin{array}{rcrcrcrcr}
+x &+ &y &+ & z &-& t& = &1\\
+x &- &y &- & z &+& t& = &2\\
+x &- &y &- & z &-& t& = &3\\
+\end{array}\right.$
+\vsec
+%---
+\item 
+$\left\lbrace\begin{array}{rcrcrcr}
+3x &- &y &+ & z & = &5\\
+x &+ &y &- & z & = &-2\\
+-x &+ &2y &+ & z & = &3\\
+\end{array}\right.$
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+%---
+\item  
+$\left\lbrace\begin{array}{rcrcrcrcrcr}
+x_1 &+ &2x_2 &- & x_3 &+& 3x_4& & & = &0\\
+ & & x_2 &+ &x_3 &- & 2x_4 &+& 2x_5& = &0\\
+2x_1 &+ &x_2 &- & 5x_3  & & &-& 4x_5& = &0\\
+\end{array}\right.$
+\vsec
+%---
+\item
+$\left\lbrace\begin{array}{rcrcrcrcr}
+x &+ &2y &+ & 3z &+& 2t& = &1\\
+x &+ &3y &+ & 3z &+& t& = &0\\
+\end{array}\right.$
+\vsec
+%---
+\item
+$\left\lbrace\begin{array}{rcrcrcr}
+5a &+ &b &+ & 2c & = &13\\
+4a &+ &2b &+ & c & = &11\\
+a &- &b &+ & c & = &2\\
+3a &+ &b &+ & c & = &8\\
+\end{array}\right.$
+\vsec
+%---
+\item
+$\left\lbrace\begin{array}{rcrcrcrcrcr}
+3x & + & 2y & + & z & - & u & - & v &  =&0\\ 
+x & - & y & - & z & - & u & + & 2v & = &0\\
+-x & + & 2y & + & 3z & + & u & - & v &= &0.
+\end{array}\right.$
+\vsec
+%---
+\item
+$\left\lbrace\begin{array}{rcrcrcrcr}
+x & - &2y & + &3z & - &4t & =& 4\\
+ & & y & - & z & + &t & = & -3\\
+x & + &3y & & &- &3t & = & 1\\
+x & + &2y & + &z & -& 4t & = & 4
+\end{array}\right.$
+\end{minipage}
+\end{enumerate}
+\end{exercice}
+
+% 
+\vspace{0.5cm}
+
+\begin{correction}   \;
+\begin{enumerate}
+ \item 
+ On applique la m\'ethode du pivot de Gauss :
+ $$\begin{array}{rcl}
+\left\lbrace\begin{array}{rcrcrcr}
+3x &- &y &+ & z & = &5\\
+2x &+ &y &- & z & = &1\\
+x &- &y &+ & z & = &2\\
+4x &+ &y &+ & z & = &3\\
+\end{array}\right.
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rcrcrcrl}
+-y &+ &3x &+ & z & = &5\\
+ y &+ &2x &- & z & = &1\\
+-y &+ &x &+ & z & = &2\\
+y&+ &4x &+ & z & = &3
+\end{array}\right.\vsec\\
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rcrcrcrl}
+-y &+ &3x &+ & z & = &5\\
+  & &5x &&  & = &6& \mathbf{L_2 \leftarrow L_1+L_2}\\
+& -&2x & &  & = &-3& \mathbf{L_3 \leftarrow L_3-L_1}\\
+& &7x &+ & 2z & = &8& \mathbf{L_4 \leftarrow L_4+L_1}
+\end{array}\right.\vsec\\
+ & \Leftrightarrow &
+\left\lbrace\begin{array}{rcrcrcrl}
+-y &+ &3x &+ & z & = &5\\
+  & &5x &&  & = &6\\
+& & & & 0 & = &-3& \mathbf{L_3 \leftarrow 5L_3+2L_2}\\
+& &7x &+ & 2z & = &8
+\end{array}\right.
+\end{array}
+$$
+Le syst\`eme est \'echelonn\'e de rang 3. La troisi\`eme \'equation est impossible, donc le syst\`eme est incompatible : $\fbox{$ \mathcal{S}=\emptyset $}$
+%----
+\item On obtient :
+$$\begin{array}{rcl}
+\left\lbrace\begin{array}{rcrcrcrcr}
+x & +&2y&+&3z&-&2t&=&6\\
+2x & -&y&-&2z&-&3t&=&8\\
+3x & +&2y&-&z&+&2t&=&4\\
+2x & -&3y&+&2z&+&t&=&-8
+\end{array}\right.
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rcrcrcrcrl}
+x & +&2y&+&3z&-&2t&=&6&\\
+ & -& 5y&-&8z&+&t&=&-4& \mathbf{L_2 \leftarrow L_2-2L_1}\\
+ & -& 4y&-&10z&+&8t&=&-14& \mathbf{L_3 \leftarrow L_3-3L_1}\\
+ & -& 7y&-&4z&+&5t&=&-20& \mathbf{L_4 \leftarrow L_4-2L_1}\\
+\end{array}\right.\vsec\\
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rcrcrcrcrl}
+x &-&2t& +&2y&+&3z&=&6\\
+ &&   t & -&5y&-&8z&=&-4& \\
+ && 8t & -& 4y&-&10z&=&-14\\
+ && 5t & - &7y&-&4z& =&-20
+\end{array}\right.\vsec\\
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rcrcrcrcrl}
+x &-&2t& +&2y&+&3z&=&6\\
+ &&   t & -&5y&-&8z&=&-4& \\
+ &&  & & 36y&+&54z&=&18& \mathbf{L_3 \leftarrow L_3-8L_2}\\
+ &&  & &18y&+&36z& =&0& \mathbf{L_4 \leftarrow L_4-5L_2}\\
+\end{array}\right.\vsec\\
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rcrcrcrcrl}
+x &-&2t& +&2y&+&3z&=&6\\
+ &&   t & -&5y&-&8z&=&-4& \\
+ &&  & & 36y&+&54z&=&18&\\
+ &&  & &&&18z& =&-18& \mathbf{L_4 \leftarrow 2L_4-L_3}
+\end{array}\right.\vsec\\
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rcr}
+x & = & 1\\
+t & = & -2\\
+y & = & 2\\
+z&  =&-1
+\end{array}\right.
+\end{array}$$
+Le rang est 4. L'ensemble des solutions est donn\'e par \fbox{$ \mathcal{S}=\left\lbrace \left(1,2,-2,-1\right)  \right\rbrace $}. C'est un point de $\R^4$.
+
+%\left\lbrace\begin{array}{rcrcrcr}
+%2x &+ &y &- & z & = &1\\
+%3x &+ &3y &- & z & = &2\\
+%2x &+ &4y& &&= &2
+%\end{array}\right.
+%& \Leftrightarrow &
+%\left\lbrace\begin{array}{rcrcrcr}
+%-z &+ &y &+ & 2x & = &1\\
+%-z &+ &3y &+ & 3x & = &2\\
+% & &4y&+&2x& = &2
+%\end{array}\right.\vsec\\
+%& \Leftrightarrow &
+%\left\lbrace\begin{array}{rcrcrcrl}
+%-z &+ &y &+ & 2x & = &1\\
+%&&2y&+ & x & = &1 &  \mathbf{L_2 \leftarrow L_2-L_1}\\
+% & &4y&+&2x& = &2
+%\end{array}\right.\vsec\\
+%& \Leftrightarrow &
+%\left\lbrace\begin{array}{rcrcrcrl}
+%\fbox{$-z$} &+ &y &+ & 2x & = &1\\
+%&&\fbox{$2y$}  &+ & x & = &1 \\
+% & &&&0 & = &0 &  \mathbf{L_3 \leftarrow L_3-2L_2}
+%\end{array}\right.\vsec\\
+%\end{array}$$
+% Le rang est 2. On choisit $z$ et $y$ comme inconnues principales, et $x$ comme inconnue secondaire.
+% $$\begin{array}{rcl}
+% S_2 & \Leftrightarrow &
+%\left\lbrace\begin{array}{rcl}
+% z& = &y+2x-1 \; = \; \ddp \frac{1-x}{2}+2x-1 \; = \;\frac{3}{2} x -\frac{1}{2} \\
+%y & = &\ddp \frac{1-x}{2}
+%\end{array}\right.
+%\end{array}$$
+%L'ensemble des solutions est donn\'e par \fbox{$ \mathcal{S}=\left\lbrace \left(x, \ddp\frac{1-x}{2}, \ddp\frac{3x-1}{2}\right),\ x\in\R  \right\rbrace $} $\ddp =\left\lbrace \left(0,\frac{1}{2},-\frac{1}{2}\right)+  x\left(1,-\frac{1}{2},\frac{3}{2}\right),\ x\in\R  \right\rbrace $.
+%Cet ensemble est donc une droite de $\R^3$, passant par le point de coordonn\'ees $\ddp\left(0,\frac{1}{2},-\frac{1}{2}\right)$ et de vecteur directeur $\ddp\left(1,-\frac{1}{2},\frac{3}{2}\right)$.
+%----
+\item On applique la m\'ethode du pivot de Gauss :
+$$\begin{array}{rcl}
+\left\lbrace\begin{array}{rcrcrcr}
+2x &+ &y &+ & z & = &1\\
+x &- &y &- & z & = &2\\
+4x &- &y &- & z & = &3\\
+\end{array}\right.
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rcrcrcrl}
+y &+ &z &+ & 2x & = &1\\
+-y &- &z &+& x & = &2\\
+-y &- &z &+ & 4x & = &3\\
+\end{array}\right.\vsec\\
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rcrcrcrl}
+y &+ &z &+ & 2x & = &1\\
+ && && 3x & = &3 & \mathbf{L_2 \leftarrow L_2+L_1}\\
+ & & & & 6x & = &4 & \mathbf{L_3 \leftarrow L_3+L_1}\\
+\end{array}\right.\vsec\\
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rcrcrcrl}
+y &+ &z &+ & 2x & = &1\\
+ && && 3x & = &3 \\
+ & & & & 0 & = &-2 & \mathbf{L_3 \leftarrow L_3-2L_2}\\
+\end{array}\right.
+\end{array}$$
+Le syst\`eme est \'echelonn\'e de rang 2 et $\fbox{$ \mathcal{S}=\emptyset $}$.
+%----
+\item On applique la m\'ethode du pivot de Gauss :
+$$\begin{array}{rcl}
+\left\lbrace\begin{array}{rcrcrcrcr}
+x &+ &y &+ & z &-& t& = &1\\
+x &- &y &- & z &+& t& = &2\\
+x &- &y &- & z &-& t& = &3\\
+\end{array}\right.
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rcrcrcrcrl}
+x &+ &y &+ & z &-& t& = &1\\
+ &- &2y &- &2 z &+& 2t& = &1 & \mathbf{L_2 \leftarrow L_2-L_1}\\
+ & -&2y &- &2 z && & = &2 & \mathbf{L_3 \leftarrow L_3-L_1}\\
+\end{array}\right.
+\end{array}$$
+Le syst\`eme est \'echelonn\'e, de rang 3. On choisit $x,y,t$ comme variables principales, et on fait passer $t$ au second membre :
+$$\begin{array}{rcl}
+(S_4)
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rcrcrcrcrl}
+x &+ &y  &-& t& = &1-z\\
+ &- &2y &+& 2t& = &1+2z \\
+ & &y  && & = &-1-z \\
+\end{array}\right.\vsec\\
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rcrcrcrcrl}
+x & = &\ddp\frac{3}{2}\vsec \\
+t& = & \ddp-\frac{1}{2}\\
+y  & = &-1-z \\
+\end{array}\right.
+\end{array}$$
+On a donc : \fbox{$ \mathcal{S}=\left\lbrace \left( \ddp\frac{3}{2},-1-z,z,-\ddp\demi  \right),\ z\in\R  \right\rbrace $} $\ddp = \left\lbrace \left( \ddp\frac{3}{2},-1,0,-\ddp\demi  \right)+ z\left( \ddp0,-1,1,0 \right),\ z\in\R  \right\rbrace $. On obtient une droite de $\R^4$ passant par $ \left( \ddp\frac{3}{2},-1,0,-\ddp\demi  \right)$ et de vecteur directeur $\ddp \left( \ddp0,-1,1,0 \right)$.
+%----
+\item On applique la m\'ethode du pivot de Gauss :
+$$\begin{array}{rcl}
+\left\lbrace\begin{array}{rcrcrcr}
+3x &- &y &+ & z & = &5\\
+x &+ &y &- & z & = &-2\\
+-x &+ &2y &+ & z & = &3\\
+\end{array}\right.
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rcrcrcr}
+z &- &y &+ & 3x & = &5\\
+-z &+ &y &+& x & = &-2\\
+z &+ &2y &-& x & = &3\\
+\end{array}\right.\vsec\\
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rcrcrcrl}
+z &- &y &+ & 3x & = &5\\
+ & & && 4x & = &3& \mathbf{L_2 \leftarrow L_2+L_1}\\
+& &3y &-& 4x & = &-2& \mathbf{L_3 \leftarrow L_3-L_1}\\
+\end{array}\right.
+\end{array}$$
+Le rang est \'echelonn\'e et de rang 3. On obtient en remontant les \'equations : $\fbox{$ \mathcal{S}=\left\lbrace  \left( \ddp\frac{3}{4},\ddp\frac{1}{3},\ddp\frac{37}{12}  \right) \right\rbrace $}$.
+%----
+\item  On applique la m\'ethode du pivot de Gauss :
+$$\hspace*{-1.75cm}\begin{array}{rcl}
+\left\lbrace\begin{array}{rcrcrcrcrcr}
+x_1 &+ &2x_2 &- & x_3 &+& 3x_4& & & = &0\\
+ & & x_2 &+ &x_3 &- & 2x_4 &+& 2x_5& = &0\\
+2x_1 &+ &x_2 &- & 5x_3  & & &-& 4x_5& = &0\\
+\end{array}\right.
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rcrcrcrcrcrl}
+x_1 &+ &2x_2 &- & x_3 &+& 3x_4& & & = &0\\
+ & & x_2 &+ &x_3 &- & 2x_4 &+& 2x_5& = &0\\
+&-&3x_2 &- & 3x_3  &- & 6x_4&-& 4x_5& = &0& \mathbf{L_3-2L_1}\\
+\end{array}\right.\vsec\\
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rcrcrcrcrcrl}
+x_1 &+ &2x_2 &- & x_3 &+& 3x_4& & & = &0\\
+ & & x_2 &+ &x_3 &- & 2x_4 &+& 2x_5& = &0\\
+&&&& &- & 12x_4&+& 2x_5& = &0& \mathbf{L_3+3L_2}\\
+\end{array}\right.
+\end{array}$$
+Le syst\`eme est \'echelonn\'e et le rang est 3. On choisit $x_1,x_2,x_4$ comme inconnues principales, et on passe $x_3, x_5$ au second membre. On obtient :
+$$\begin{array}{rcl}
+(S_6)
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rcrcrcrcrcrl}
+x_1 &+ &2x_2 &+ & 3x_4 & = &x_3\\
+ & & x_2 &- &2x_4 & = &-x_3 -2x_5\\
+&&&& x_4  & = &\ddp \frac{x_5}{6}\\
+\end{array}\right.\vsec\\
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rcrcrcrcrcrl}
+x_1 & = &\ddp 3x_3+\ddp\frac{17}{6}x_5\vsec\\
+x_2 & = &\ddp -x_3-\ddp\frac{5}{3}x_5 \vsec\\
+x_3  & = &\ddp \frac{x_5}{6}\\
+\end{array}\right.
+\end{array}$$
+ et $\fbox{$ \mathcal{S}=\left\lbrace \left( 3x_3+\ddp\frac{17}{6}x_5, -x_3-\ddp\frac{5}{3}x_5,x_3,\ddp\frac{1}{6}x_5,x_5  \right),\ (x_3,x_5)\in\R^2  \right\rbrace $}$.
+%----
+\item On applique la m\'ethode du pivot de Gauss :
+$$\begin{array}{rcl}
+\left\lbrace\begin{array}{rcrcrcrcr}
+x &+ &2y &+ & 3z &+& 2t& = &1\\
+x &+ &3y &+ & 3z &+& t& = &0
+\end{array}\right.
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rcrcrcrcrl}
+x &+ &2y &+ & 3z &+& 2t& = &1\\
+ & &y & &  &-& t& = &-1& \mathbf{L_2 \leftarrow L_2-L_1}
+\end{array}\right.
+\end{array}$$
+Le syst\`eme est \'echelonn\'e est le rang est 2 On choisit $x$ et $y$ comme variables principales, et on fait passer $z,t$ au second membre. On obtient :
+$$\begin{array}{rcl}
+(S_7)
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rcrcrcrcrl}
+x & = &3-3z-4t\\
+y  & = &t-1
+\end{array}\right.
+\end{array}$$
+Ainsi, $\fbox{$ \mathcal{S}=\left\lbrace \left( 3-3z-4t,t-1,z,t  \right),\ (z,t)\in\R^2  \right\rbrace $}$.
+ %----
+\item On applique la m\'ethode du pivot de Gauss :
+$$\begin{array}{rcl}
+\left\lbrace\begin{array}{rcrcrcr}
+5a &+ &b &+ & 2c & = &13\\
+4a &+ &2b &+ & c & = &11\\
+a &- &b &+ & c & = &2\\
+3a &+ &b &+ & c & = &8\\
+\end{array}\right.
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rcrcrcr}
+ b &+ & 2c & + & 5a & = &13\\
+ 2b &+ & c & + & 4a & = &11\\
+- b &+ & c & + & a= &2\\
+ b &+ & c & + & 3a &  = &8\\
+\end{array}\right.\vsec\\
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rcrcrcrl}
+ b &+ & 2c & + & 5a & = &13 \\
+&-& 3c & - & 6a & = &-15 &\mathbf{L_2 \leftarrow L_2-2L_1}\\
+ & & 3c & + & 6a & = &15 &\mathbf{L_3 \leftarrow L_3+L_1}\\
+  &-& c & - & 2a &  = &-5 &\mathbf{L_4 \leftarrow L_4-L_1}\\
+\end{array}\right.\vsec\\
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rcrcrcrl}
+ b &+ & 2c & + & 5a & = &13 \\
+   && c & + & 2a &  = &5 
+\end{array}\right.
+\end{array}$$
+Le syst\`eme est \'echelonn\'e et le rang est 2. On choisit $b$ et $c$ comme inconnues principale, et on fait passer $a$ au second membre. On obtient :
+$$\begin{array}{rcl}
+(S_8) 
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rcrcrcrl}
+ b & = &3-a \\
+ c &  = &5 -2a
+\end{array}\right.
+\end{array}$$
+Ainsi : \fbox{$ \mathcal{S}=\left\lbrace \left(a,3-a,5-2a   \right),\ a\in\R  \right\rbrace $} $= \left\lbrace (0,3,5) +a \left(1,-1,-2   \right),\ a\in\R  \right\rbrace $.
+Cet ensemble est une droite de $\R^3$, passant par le point de coordonn\'ees $\ddp\left(0,3,5\right)$ et de vecteur directeur $\ddp\left(1,-1,-2\right)$.
+%----
+\item On applique la m\'ethode du pivot de Gauss :
+$$\hspace*{-1cm}\begin{array}{rcl}
+\left\lbrace\begin{array}{rcrcrcrcrcr}
+3x & + & 2y & + & z & - & u & - & v &  =&0\\ 
+x & - & y & - & z & - & u & + & 2v & = &0\\
+-x & + & 2y & + & 3z & + & u & - & v &= &0
+\end{array}\right.
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rcrcrcrcrcr}
+-x & + & 2y & + & 3z & + & u & - & v &= &0\\
+3x & + & 2y & + & z & - & u & - & v &  =&0\\ 
+x & - & y & - & z & - & u & + & 2v & = &0
+\end{array}\right.\vsec\\
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rcrcrcrcrcrl}
+-x & + & 2y & + & 3z & + & u & - & v &= &0\\
+ & & 8y & + & 10z & + & 2u & - & 4v &  =&0&\mathbf{L_2+3L_1}\\ 
+& & y & +& 2z &  &  & + & v & = &0&\mathbf{L_3+L_1}
+\end{array}\right.
+\end{array}$$
+$$\begin{array}{rcl}
+(S_9)
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rcrcrcrcrcrl}
+-x & + & 2y & + & 3z & + & u & - & v &= &0\\
+& & y & +& 2z &  &  & + & v & = &0\\
+ & & 4y & + & 5z & + & u & - & 2v &  =&0 
+\end{array}\right.\vsec\\
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rcrcrcrcrcrl}
+-x & + & 2y & + & 3z & + & u & - & v &= &0\\
+& & y & +& 2z &  &  & + & v & = &0\\
+ & &  & - & 3z & + & u & - & 6v &  =&0 &\mathbf{L_3-4L_2}
+\end{array}\right.
+\end{array}$$
+Le syst\`eme est \'echelonn\'e et le rang est 3. On choisit $x,y,z$ comme inconnues principales, et on met $u,v$ au second membre. On obtient :
+$$\begin{array}{rcl}
+(S_9)
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rcrcrcrcrcrl}
+x &= &-v-\ddp\frac{1}{3}u\vsec\\
+y & = &3v-\ddp\frac{2}{3}u\vsec\\
+z &  =&\ddp\frac{u}{3}-2v
+\end{array}\right.
+\end{array}$$
+Ainsi, $\fbox{$ \mathcal{S}=\left\lbrace  \left(-v-\ddp\frac{1}{3}u,3v-\ddp\frac{2}{3}u,\ddp\frac{u}{3}-2v,u,v    \right),\ (u,v)\in\R^2 \right\rbrace $}$
+%----
+\item On applique la m\'ethode du pivot de Gauss :
+$$\begin{array}{rcl}
+\left\lbrace\begin{array}{rcrcrcrcr}
+x & - &2y & + &3z & - &4t & =& 4\\
+ & & y & - & z & + &t & = & -3\\
+x & + &3y & & &- &3t & = & 1\\
+x & + &2y & + &z & -& 4t & = & 4
+\end{array}\right.
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rcrcrcrcrl}
+x & - &2y & + &3z & - &4t & =& 4\\
+ & & y & - & z & + &t & = & -3\\
+ &  &5y & -& 3z &+&t & = & -3&\mathbf{L_3 \leftarrow L_3-L_1}\\
+ &  &4y & - &2z & &  & = & 0&\mathbf{L_4 \leftarrow L_4-L_1}
+\end{array}\right.\vsec\\
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rcrcrcrcrl}
+x & - &2y & + &3z & - &4t & =& 4\\
+ & & y & - & z & + &t & = & -3\\
+ &  &4y & -& 2z && & = & 0&\mathbf{L_3 \leftarrow L_3-L_2}\\
+ &  &4y & - &2z & &  & = & 0
+\end{array}\right.\vsec\\
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rcrcrcrcrl}
+x & - &2y & + &3z & - &4t & =& 4\\
+ & & y & - & z & + &t & = & -3\\
+ &  &4y & -& 2z && & = & 0
+\end{array}\right.
+\end{array}$$
+Le syst\`eme est \'echelonn\'e et le rang est 3. On choisit $x,z,t$ comme inconnues principales, et on met $y$ au second membre. On obtient :
+$$\begin{array}{rcl}
+(S_{10})
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rcrcrcrcrl}
+x &  =& -8\\
+t & = & y-3\\
+z & = & 2y
+\end{array}\right.
+\end{array}$$
+Ainsi, $\fbox{$ \mathcal{S}=\left\lbrace  \left(-8,y,2y,y-3   \right),\ y\in\R \right\rbrace $}$.
+\end{enumerate}
+\end{correction}
+
+% 
+%------------------------
+
+
+
+%------------------------------------------------
+%----------------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------
+\noindent  \subsection*{Syst\`{e}mes lin\'eaires avec param\`{e}tre}
+\vspace{0.2cm}
+
+
+
+%--------------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------------
+
+
+
+%--------------------------------------------------------------------------------------
+\begin{exercice}  \;
+Discuter les solutions dans $\R$ des syst\`emes suivants en fonction des param\`etres $m\in \R$ ou $r\in \R$ :
+\begin{enumerate}
+\begin{minipage}[t]{0.4\textwidth}
+\item
+$\left\lbrace\begin{array}{rcrcrcr}
+mx &+ & y &+ & z & = & X\\
+x &+ & my &+ & z & = & Y\\
+x &+ & y &+ & mz & = & Z\\
+\end{array}\right.$  
+\vsec
+\item 
+$\left\lbrace\begin{array}{rcrcr}
+(m+1)x & + & my & = & 2m\\
+mx & + & (m+1)y & = & 1\\
+\end{array}\right.$   
+\vsec
+\item 
+$\left\lbrace\begin{array}{rcrcrcr}
+x &- & my &+ & m^2z & = & 2m\\
+mx &- & m^2y &+ & mz & = & 2m\\
+mx &+ & y &- & m^2z & = & 1-m\\
+\end{array}\right.$    
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\item 
+$\left\lbrace\begin{array}{rcrcr}
+(m-1)x & - & my & = & m\\
+(m+1)x & + & (m+1)y & = & m^2-1\\
+\end{array}\right.$   
+\vsec 
+\item 
+$\left\lbrace\begin{array}{rcrcr}
+x & + & my & = & m^2\\
+mx & + & y & = & m^2\\
+\end{array}\right.$    
+\vsec
+\item 
+$\left\lbrace\begin{array}{rcrcr}
+y & + & z & = & rx\\
+x & + & z & = & ry\\
+x & + & y & = & rz\\
+\end{array}\right.$ 
+\end{minipage}  
+\end{enumerate}
+\end{exercice}
+
+\begin{correction}   \;
+Discuter les solutions dans $\R$ des syst\`emes suivants en fonction des param\`etres indiqu\'es:
+\begin{enumerate}
+\item
+$\left\lbrace\begin{array}{rrrrrrr}
+mx &+ & y &+ & z & = & X\vsec\\
+x &+ & my &+ & z & = & Y\vsec\\
+x &+ & y &+ & mz & = & Z\vsec\\
+\end{array}\right.$  $(m\in\R)$\\
+On applique la m\'ethode du pivot de Gauss, en faisant attention d'\'echanger les lignes pour avoir au maximum des pivots ind\'ependants de $m$ :
+$$\begin{array}{rcl}
+\mathcal{S} 
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rrrrrrr}
+x &+ & y &+ & mz & = & Z\vsec\\
+x &+ & my &+ & z & = & Y\vsec\\
+mx &+ & y &+ & z & = & X
+\end{array}\right.\vsec\\
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rrrrrrrr}
+x &+ & y &+ & mz & = & Z\vsec\\
+&& (m-1)y &+ & (1-m)z & = & Y-Z & \mathbf{L_2 \leftarrow L_2-L_1}\vsec\\
+ & & (1-m)y &+ & (1-m^2)z & = & X-mZ &  \mathbf{L_3 \leftarrow L_3-mL_1}
+\end{array}\right.\vsec\\
+& \Leftrightarrow &
+\left\lbrace\begin{array}{rrrrrrrr}
+x &+ & y &+ & mz & = & Z\vsec\\
+&& (m-1)y &+ & (1-m)z & = & Y-Z\vsec\\
+ & & & & (2-m-m^2)z & = & X-mZ +Y-Z&  \mathbf{L_3 \leftarrow L_3+L_2}
+\end{array}\right.\vsec\\
+\end{array}$$
+\noindent 
+On a un syst\`eme \'echelonn\'e. On fait des cas sur les pivots : $m-1 \not=0 \Leftrightarrow m\not=1$, et $2-m-m^2\not=0 \Leftrightarrow m\not\in \{1,-2\}$. 
+\begin{itemize}
+\item[$\bullet$] Si $m\not= 1$ et $m\not= -2$, alors le syst\`eme est de rang $3$, et on obtient, en remontant les \'equations :
+$$\fbox{$\ddp \mathcal{S}_{m\not \in \{1,-2\}}=\left\lbrace  \left( \ddp\frac{ Z+Y-(1+m)X   }{(1-m)(2+m)}, \ddp\frac{Z-(1+m)Y+X }{(1-m)(2+m)},  \ddp\frac{X+Y-(m+1)Z}{(1-m)(2+m)}    \right)  \right\rbrace.$}$$
+\item[$\bullet$] Si $m=1$, on obtient le syst\`eme suivant :
+$$\left\lbrace\begin{array}{rrrrrrr}
+x &+ & y &+ & z & = & Z\vsec\\
+&&&+ & 0 & = & Y-Z\vsec\\
+ & & & & 0 & = & X +Y-2Z
+ \end{array}\right.$$
+Le syst\`eme est de rang $1$, et on a deux \'equations de compatibilit\'e : $0=Y-Z$ et $0=X+Y-2Z$.
+\begin{itemize}
+\item[$\star$] Si $X=Y=Z$, les deux \'equations sont v\'erifi\'ees et on a 
+$$\fbox{$\ddp \mathcal{S}_{m=1}=\left\lbrace \left( -y-z+Z,y,z \right),\ (y,z)\in\R^2   \right\rbrace.$}$$
+\item[$\star$]  Si $X\not= Y$ ou $X\not=Z$, alors
+$$\fbox{$\ddp\mathcal{S}_{m=1}=\emptyset.$}$$
+\end{itemize}
+\item[$\bullet$] Si $m=-2$, on obtient le syst\`eme suivant :
+$$\left\lbrace\begin{array}{rrrrrrr}
+x &+ & y &-& 2z & = & Z\vsec\\
+&& -3y &+ & 3z & = & Y-Z\vsec\\
+ & & & & 0 & = & X +Y+Z
+\end{array}\right.$$
+Le syst\`eme est de rang $2$, et on a une \'equation de compatibilit\'e : $0=X+Y+Z$.
+\begin{itemize}
+\item[$\star$] Si $X+Y+Z=0$, on a :
+$$\fbox{$\ddp\mathcal{S}_{m=-2}=\left\lbrace  \left( z+\ddp\frac{Y+2Z}{3}, z+\ddp\frac{Z-Y}{3},z \right),\ z\in\R  \right\rbrace$}.$$
+\item[$\star$] Si $X+Y+Z\not=0$, alors  
+$$\fbox{$\ddp\mathcal{S}_{m=-2}=\emptyset.$}$$
+\end{itemize}
+\end{itemize}
+%----------------
+ 
+\item 
+$\left\lbrace\begin{array}{rrrrrrr}
+(m+1)x & + & my & = & 2m\vsec\\
+mx & + & (m+1)y & = & 1\vsec\\
+\end{array}\right.$   $(m\in\R)$\\
+\noindent  On r\'esout ce syst\`eme lin\'eaire de deux \'equations \`a deux inconnues. Ici, tous les coefficients d\'ependent de $m$ : on est oblig\'es de faire des cas sur $m$ d\`es le d\'epart.
+\begin{itemize}
+\item[$\bullet$] Si $m \not=1$, on peut prendre la premi\`ere ligne comme ligne pivot, et on obtient :
+$$\hspace*{-1cm}(S)\left\lbrace \begin{array}{rrrrrrr}
+(m+1)x&+&my&=&2m\vsec\\
+mx&+& (m+1)y &=& 1                
+               \end{array}\right.
+\Leftrightarrow 
+\left\lbrace \begin{array}{rrrrrrr}
+(m+1)x&+&my&=& 2m\vsec\\
+        &-&(2m+1)y &=& 2m^2-m-1&\mathbf{(m+1)L_2-mL_2}
+               \end{array}\right.$$
+Le syst\`eme est \'echelonn\'e. On refait des cas sur $m$ pour que les pivots soient non nuls.
+\begin{itemize}
+\item[$\star$] Si $\ddp m\not=-\frac{1}{2}$ : on obtient alors le syst\`eme suivant, en remarquant que $2m^2-m-1=(m-1)(2m+1)$ :
+$$(S)\Leftrightarrow \left\lbrace \begin{array}{rrrrrrr}
+(m+1)x&+&my&=&2m\vsec\\
+&& y &=& 1-m.                
+               \end{array}\right.$$
+Ainsi, si $m\not= -1$ et si $m\not= -\ddp\demi$, le syst\`eme est de rang $2$ et est donc un syst\`eme de Cramer, avec : 
+$$\fbox{$\mathcal{S}_{m\not \in \{-1,-\frac{1}{2}\}}=\left\lbrace \left( m, 1-m  \right)  \right\rbrace.$}$$
+\item[$\star$] Si $m=-\ddp\demi$:\\
+\noindent On obtient alors :
+$$\left\lbrace\begin{array}{rrrrrrr}
+\ddp\demi x&-&\ddp\demi y&=& -1\vsec\\
+        &&0 &=& 0.
+\end{array}\right.$$
+On obtient un syst\`eme \'echelonn\'e de deux inconnues et dont le rang est 1. Il admet ainsi une infinit\'e de solutions. On choisit $x$ comme inconnue principale  et $y$ comme inconnue secondaire et on obtient
+$$\fbox{$\mathcal{S}_{m=-\demi}=\left\lbrace (-2+y,y),\ y\in\R  \right\rbrace.$}$$
+\end{itemize}
+\item[$\bullet$] Si $m=-1$, on obtient en rempla\c cant dans le syst\`eme de d\'epart :
+$$
+\left\lbrace\begin{array}{rrrrrrr}
+& - & y & = & -2\vsec\\
+-x &  &  & = & 1\vsec\\
+\end{array}\right.
+$$
+Ainsi, on a : \fbox{$\mathcal{S}_{m=1}=\lbrace (-1,2)\rbrace$.}
+\end{itemize}
+%----------------
+\item 
+$\left\lbrace\begin{array}{rrrrrrr}
+x &- & my &+ & m^2z & = & 2m\vsec\\
+mx &- & m^2y &+ & mz & = & 2m\vsec\\
+mx &+ & y &- & m^2z & = & 1-m\vsec\\
+\end{array}\right.$    $(m\in\R)$\\
+\noindent On commence par r\'esoudre le syst\`eme en \'eliminant les cas o\`u le pivot est nul.
+$$(S)\left\lbrace\begin{array}{rrrrrrr}
+x&-&my&+&m^2z&=&2m\vsec\\
+mx&-&m^2y&+&mz&=&2m\vsec\\
+mx&+&y&-&m^2z&=&1-m
+\end{array}\right.
+\Leftrightarrow (S^{\prime})
+\left\lbrace\begin{array}{rrrrrrr}
+x&-&my&+&m^2z&=&2m\vsec\\
+&& &+&m(1-m^2)z&=&2m(1-m)\vsec\\
+&&(1+m^2)y&-&m^2(1+m)z&=&1-m-2m^2.
+\end{array}\right.
+$$
+On r\'eecrit le syst\`eme $(S^{\prime})$ en le mettant sous forme triangulaire et on obtient le syst\`eme \'equivalent suivant
+$$(S^{\prime\prime}) : \left\lbrace\begin{array}{rrrrrrr}
+x&-&my&+&m^2z&=&2m\vsec\\
+&&(1+m^2)y&-&m^2(1+m)z&=&1-m-2m^2\vsec\\
+&& &&m(1-m^2)z&=&2m(1-m).
+\end{array}\right.
+$$
+\begin{itemize}
+ \item[$\bullet$] Si $m\not= -1$, $m\not= 0$ et $m\not= 1$, on obtient un syst\`eme de Cramer (de rang 3) que l'on r\'esout en remontant les calculs et on obtient:
+$$\fbox{$\mathcal{S}_{m\not \in \{-1,0,1\}}=\left\lbrace  \left( \ddp\frac{m(m^2+3)}{(1+m)(1+m^2)},  \ddp\frac{1-m}{1+m^2}  ,\ddp\frac{2}{1+m}     \right) \right\rbrace.$}$$
+\item[$\bullet$] Si $m=-1$r, on reprend le syst\`eme $(S^{\prime\prime})$ (on reprend au niveau o\`u on a d\^u faire l'hypoth\`ese de non \'egalit\'e) et on obtient :
+$$\left\lbrace\begin{array}{lllllll}
+x&+&y&+&z&=&-2\vsec\\
+&&2y&&&=&0\vsec\\
+&& &&0&=&-4.
+\end{array}\right.$$
+La derni\`ere \'equation n'a pas de solution, donc on a : \fbox{$\mathcal{S}_{m=-1}=\emptyset.$}
+\item[$\bullet$]  Si $m=0$, on obtient :
+$$\left\lbrace\begin{array}{lllllll}
+x&&&&&=&0\vsec\\
+&&y&&&=&1\vsec\\
+&& &&0&=&0.
+\end{array}\right.
+$$
+Le syst\`eme est de rang $2$, et a pour solutions : \fbox{$\mathcal{S}_{m=0}=\lbrace (0,1,z),\ z\in\R \rbrace.$}
+\item[$\bullet$]  Si $m=1$, on obtient :
+$$\left\lbrace\begin{array}{rrrrrrr}
+x&-&y&+&z&=&2\vsec\\
+&&2y&-&2z&=&-2\vsec\\
+&& &&0&=&0.
+\end{array}\right.
+\Leftrightarrow
+\left\lbrace\begin{array}{rrrrrrr}
+x&=&2-z-1+z\vsec\\
+y&=&-1+z
+\end{array}\right.
+$$
+Le syst\`eme est de rang $2$, et a pour solutions : \fbox{$S_{m=1}=\lbrace (1,-1+z,z),\ z\in\R  \rbrace.$}
+\end{itemize}
+%----------------
+\vsec
+\item 
+$\left\lbrace\begin{array}{lllll}
+(m-1)x & - & my & = & m\vsec\\
+(m+1)x & + & (m+1)y & = & m^2-1\vsec\\
+\end{array}\right.$    $(m\in\R)$\vsec\\
+Je ne donne ici que le r\'esultat :\vsec
+\begin{itemize}
+\item[$\bullet$]   Si $m\not= -1$ et $m\not= \ddp\demi$, alors \fbox{$\mathcal{S}_{m\not\in \{-1,\demi\}}=\left\lbrace \left( \ddp\frac{m^2}{2m-1}, \ddp\frac{m^2-3m+1}{2m-1}   \right) \right\rbrace$.}
+\item[$\bullet$]  Si $\mathbf{m=\ddp\demi}$, alors \fbox{$\mathcal{S}_{m=\demi}=\emptyset$.}
+\item[$\bullet$]  Si $\mathbf{m=-1}$, alors \fbox{$\mathcal{S}_{m=-1}=\lbrace (x, -1+2x),\ x\in \R \rbrace$.}
+\end{itemize}
+%----------------
+\vsec
+\item 
+$\mathbf{\left\lbrace\begin{array}{lllll}
+x & + & my & = & m^2\vsec\\
+mx & + & y & = & m^2\vsec\\
+\end{array}\right.}$    $(m\in\R)$\vsec\\
+Je ne donne ici que le r\'esultat :\vsec
+\begin{itemize}
+\item[$\bullet$] Si $m\not= 1$ et $\mathbf{m\not= -1}$, le syst\`eme est alors un syst\`eme de Cramer et  \fbox{$\mathcal{S}_{m\not\in \{1,-1\}}=\left\lbrace \left( \ddp\frac{m^2}{1+m},\ddp\frac{m^2}{1+m}  \right) \right\rbrace$.}
+\item[$\bullet$] Si $m=1$, alors  \fbox{$\mathcal{S}_{m=1}=\lbrace (x,1-x),\ x\in\R  \rbrace$.}
+\item[$\bullet$] Si $m=-1$, alors  \fbox{$\mathcal{S}_{m=-1}=\emptyset$.}
+\end{itemize}
+%----------------
+\vsec
+\item 
+$\left\lbrace\begin{array}{lllll}
+y & + & z & = & rx\vsec\\
+x & + & z & = & ry\vsec\\
+x & + & y & = & rz\vsec\\
+\end{array}\right.$    $(r\in\R)$\\
+Attention qu'ici, il faut absolument repasser les $x$, $y$, $z$ \`a gauche du syst\`eme :
+$$\begin{array}{rcl}
+\left\lbrace\begin{array}{lllll}
+y & + & z & = & rx\vsec\\
+x & + & z & = & ry\vsec\\
+x & + & y & = & rz\vsec\\
+\end{array}\right.
+& \Leftrightarrow & 
+\left\lbrace\begin{array}{lllllll}
+-rx & +& y & + & z & = &0\vsec\\
+x & -& ry & + & z & = &0\vsec\\
+x & + & y & - & rz&  = &0\vsec\\
+\end{array}\right.\vsec\\
+& \Leftrightarrow & 
+\left\lbrace\begin{array}{rrrrrrr}
+x & + & y & - & rz&  = &0\vsec\\
+x & -& ry & + & z & = &0\vsec\\
+-rx & +& y & + & z & = &0
+\end{array}\right.\vsec\\
+& \Leftrightarrow & 
+\left\lbrace\begin{array}{rrrrrrrl}
+x & + & y & - & rz&  = &0\vsec\\
+& & (-r-1)y & + &(1+r) z & = &0 & \mathbf{L_2 \leftarrow L_2-L_1}\vsec\\
+ & & (1+r)y & + & (1-r^2)z & = &0 & \mathbf{L_3 \leftarrow L_3+rL_1}
+\end{array}\right.\vsec\\
+& \Leftrightarrow & 
+\left\lbrace\begin{array}{rrrrrrrr}
+x & -& rz & + & y&  = &0\vsec\\
+& & (1+r) z  & + & (-r-1)y& = &0 \vsec\\
+ & & (1-r^2)z & + &  (1+r)y& = &0 
+\end{array}\right.\vsec\\
+& \Leftrightarrow & 
+\left\lbrace\begin{array}{rrrrrrrr}
+x & -& rz & + & y&  = &0\vsec\\
+& & (1+r) z  & + & (-r-1)y& = &0 \vsec\\
+ & &  &  &  (-r^2+r+2)y& = &0 & \mathbf{L_3 \leftarrow L_3-(1-r)rL_2}
+\end{array}\right.
+\end{array}$$
+On fait des cas sur $r$ :
+\begin{itemize}
+\item[$\bullet$] Si $r\not= -1$ et $r\not= 2$, alors  on a un syst\`eme de rang $3$, qui a donc une unique solution. Or le syst\`eme est homog\`ene, donc : \fbox{$\mathcal{S}_{r\not\in \{-1,2\}}=\lbrace (0,0,0) \rbrace$.}
+\item[$\bullet$] Si $r=2$, alors on obtient :
+$$(S) \Leftrightarrow 
+\left\lbrace\begin{array}{rrrrrrrr}
+x & -& 2z & + & y&  = &0\vsec\\
+& & 3 z  & - & 3y& = &0 \vsec\\
+ & &  &  &  0& = &0 &
+ \end{array}\right.$$
+ Le syst\`eme est de rang $2$, et les solutions sont donn\'ees par : \fbox{$\mathcal{S}_{r=2}=\lbrace (z,z,z),\ z\in\R  \rbrace$.}
+\item[$\bullet$] Si $r=-1$, alors on obtient :
+$$(S) \Leftrightarrow 
+\left\lbrace\begin{array}{rrrrrrrr}
+x & -& z & + & y&  = &0\vsec\\
+& &   &  & 0& = &0 \vsec\\
+ & &  &  &  0& = &0 & \mathbf{L_3 \leftarrow L_3-(1-r)rL_2}
+\end{array}\right.$$
+Le syst\`eme est de rang $1$ et les solutions sont donn\'ees par : \fbox{$\mathcal{S}_{r=-1}=\lbrace (-y-z,y,z),\ (y,z)\in\R^2  \rbrace$.}
+\end{itemize}
+\end{enumerate}
+\end{correction}
+
+
+\vspace{0.5cm}
+ 
+%------------------------------------------------
+%----------------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------
+\noindent  \subsection*{Divers}
+\vspace{0.2cm}
+
+
+%------------------------------------
+\begin{exercice}  \;
+Soit la fonction $f$ d\'efinie par: 
+$$f : \left( \begin{array}{llll}
+\R^{2} & \rightarrow & \R^2\vsec\\
+(x,y) & \mapsto & (3x+2y, 5x+3y). 
+ \end{array}\right.
+$$
+Montrer que pour tout $(X,Y) \in \R^2$, il existe un unique $(x,y) \in \R^2$ tel que $f(x,y) = (X,Y)$ et donner l'expression de $x$ et $y$ en fonction de $X$ et $Y$.\vsec\\
+\textit{Remarque : on dit que $f$ est bijective. La fonction qui \`a $(X,Y)$ associe l'expression trouv\'ee pour $(x,y)$ est appel\'ee bijection r\'eciproque de $f$ et est not\'ee $f^{-1}$. On peut v\'erifier que $f^{-1}(f(x,y)) = (x,y)$ et que $f(f^{-1}(X,Y)) = (X,Y)$}.
+%Montrer que $f$ est bijective et d\'eterminer l'expression de sa r\'eciproque.
+\end{exercice}
+\begin{correction}   \;
+\textbf{Soit la fonction $f$ d\'efinie par: }
+$$\mathbf{f : \left( \begin{array}{llll}
+\R^{2} & \rightarrow & \R^2\vsec\\
+(x,y) & \mapsto & (3x+2y, 5x+3y). 
+ \end{array}\right.}
+$$
+\textbf{Montrer que pour tout $(X,Y) \in \R^2$, il existe un unique $(x,y) \in \R^2$ tel que $f(x,y) = (X,Y)$ et donner l'expression de $x$ et $y$ en fonction de $X$ et $Y$.}\\
+Soit $(X,Y)\in\R^2$ fix\'e. On cherche s'il existe un unique couple $(x,y)\in\R^2$ tel que $f(x,y)=(X,Y)$.
+On r\'esout ainsi :
+$$\left\lbrace \begin{array}{lllll}
+3x&+&2y&=&X\vsec\\
+5x&+&3y&=&Y
+\end{array}\right.
+\Leftrightarrow 
+\left\lbrace \begin{array}{llllll}
+3x&+&2y&=&X\vsec\\
+&&y&=&5X-3Y & \mathbf{5L_1-3L_2}
+\end{array}\right.
+\Leftrightarrow 
+\left\lbrace  \begin{array}{lll}
+x&=& -3X+2Y\vsec\\
+y&=& 5X-3Y.
+\end{array}\right.$$
+Ainsi, on a montr\'e que pour tout $(X,Y) \in \R^2$ il existe un unique $(x,y) \in \R^2$ tel que $(X,Y)=f(x,y)$ : $f$ est donc bijective. De plus, on a $f(x,y) = (X,Y) \Leftrightarrow (x,y) = (-3X+2Y,5X-3Y)$ donc la bijection r\'eciproque est donn\'ee par :  
+$$\fbox{$f^{-1}:  \left(\begin{array}{ccl}
+\R^2 & \rightarrow & \R^2\vsec\\
+ (X,Y) & \mapsto & (-3X+2Y, 5X-3Y).
+  \end{array}\right.$}$$
+\end{correction}
+
+
+
+
+
+%------------------------------------------
+%-----------------------------------------
+\begin{exercice}  \;
+\'Equilibrer la r\'eaction chimique suivante:
+$$H_2SO_3 + HBrO_3\rightarrow H_2SO_4 +Br_2 +H_2O         .$$
+\end{exercice}
+\begin{correction}   \;
+\textbf{\'Equilibrer la r\'eaction chimique suivante:}
+$$\mathbf{H_2SO_3 + HBrO_3\rightarrow H_2SO_4 +Br_2 +H_2O.}$$
+On note $x$ le nombre de mol\'ecules de $H_2SO_3$, $y$ celui de $HBrO_3$, $z$ celui de $H_2SO_4$, $t$ celui de $Br_2$ et $u$ celui de $H_2O$. Afin d'\'equilibrer la r\'eaction chimique suivante, on doit r\'esoudre le syst\`eme lin\'eaire suivant
+$$\left\lbrace\begin{array}{lllllllllll}
+x & & &- & z &&&&&=&0\vsec\\
+2x& +& y&-&2z&-&2u &&&=&0\vsec\\
+3x&+ &3y & -& 4z& -& u &&&=&0\vsec\\
+&&y&&&&&-&2t&=&0.
+\end{array}\right.$$
+On peut mettre ce syst\`eme sous la forme \'echelonn\'ee suivante
+$$\left\lbrace\begin{array}{lllllllllll}
+x &- & z& &  &&&&&=&0\vsec\\
+& -& z&-&u&+&3y &&&=&0\vsec\\
+& & & -& 2u& +& y &&&=&0\vsec\\
+&&&&&&y&-&2t&=&0.
+\end{array}\right.$$
+C'est un syst\`eme \'echelonn\'e de rang 4 avec 5 inconnues, il y a donc une infinit\'e de solutions. Les inconnues principales sont ici $x,\ y,\ z,\ u$ et l'inconnue secondaire est $t$. En r\'esolvant ce syst\`eme de bas en haut, on obtient la solution suivante
+$$\fbox{$\mathcal{S}=\lbrace (5t,2t,5t,t,t),\ t\in\R \rbrace.$}$$
+En prenant par exemple $t=1$ et en remettant dans la r\'eaction chimique, on trouve la r\'eaction  chimique \'equilibr\'ee suivante
+$$\fbox{$5H_2SO_3 +2HBrO_3\rightarrow 5H_2SO_4+Br_2+H_20.$}$$
+\end{correction}
+%-----------------------------
+%-----------------------------------------------------
+%-------------------------------------------------------
+\begin{exercice}   \;
+La somme des carr\'es.
+\begin{enumerate}
+ \item 
+Trouver un polyn\^ome de degr\'e 3 tel que 
+$P(X+1)-P(X)=X^2.$
+\item 
+Retrouver alors l'expression de $S_n=\ddp \sum\limits_{k=1}^n k^2$.
+\end{enumerate}
+\end{exercice}
+\begin{correction}    \; 
+La somme des carr\'es.
+\begin{enumerate}
+ \item \textbf{Trouver un polyn\^ome de degr\'e 3 tel que $\mathbf{P(X+1)-P(X)=X^2}$:}\\
+\noindent Un polyn\^ome de degr\'e 3 s'\'ecrit sous la forme g\'en\'erale suivante:
+$$P(X)=aX^3+bX^2+cX+d$$
+avec $(a,b,c,d)\in\R^4$.
+D\'eterminons les coefficients $(a,b,c,d)\in\R^4$ pour que $P$ v\'erifie la condition voulue:
+$$\begin{array}{lll}
+P(X+1)-P(X)=X^2&\Leftrightarrow & a(X+1)^3+b(X+1)^2+c(X+1)+d-aX^3-bX^2-cX-d=X^2\vsec\\
+&\Leftrightarrow & 3aX^2+3aX+a+2bX+b+c=X^2.\end{array}$$
+En identifiant les coefficients, on obtient le syst\`eme lin\'eaire suivant, que l'on peut mettre directement sous la forme \'echelonn\'ee suivante:
+$$\left\lbrace\begin{array}{lllllll}
+c&+&b&+& a&=&0\vsec\\
+  & &2b&+&3a&=&0\vsec\\
+  &  &  & &3a&=&1.
+\end{array}\right.$$
+La r\'esolution donne: \fbox{$\mathcal{S}=\left\lbrace \left(\ddp\frac{1}{3}, -\ddp\demi,\ddp\frac{1}{6}, d\right),\ d\in\R \right\rbrace$.}
+Il n'y a aucune condition sur $d$, on peut par exemple prendre $d=0$. Ainsi, le polyn\^ome suivant convient
+$$\fbox{$P(X)=\ddp\frac{1}{3}X^3-\ddp\demi X^2+\ddp\frac{1}{6} X.$}$$
+\item \textbf{Retrouver alors l'expression de $\mathbf{S_n=\sum\limits_{k=1}^n k^2}$:}\\
+\noindent Soit $n\in\N^{\star}$ fix\'e. On calcule $S_n$ en utilisant le polyn\^ome $P$ trouv\'e \`a la question pr\'ec\'edente et en prenant $X=k$:
+$$\begin{array}{lll}
+S_n&=& \sum\limits_{k=1}^n P(k+1)-\sum\limits_{k=1}^n P(k)\vsec\\
+&=& \sum\limits_{k=2}^{n+1} P(k)-\sum\limits_{k=1}^n P(k)\vsec\\
+&=& P(n+1)-P(1)\vsec\\
+&=& \ddp\frac{2(n+1)^3-3(n+1)^2+(n+1)-2+3-1      }{6}\vsec\\
+&=& \ddp\frac{n+1}{6}\left( 2n^2+4n+2-3n-3+1 \right)\vsec\\
+&=& \fbox{$\ddp\frac{n(n+1)(2n+1)}{6}.$}
+\end{array}$$
+On retrouve bien la formule connue.
+\end{enumerate}
+\end{correction}
+
+%-----------------------------------------------------
+%-------------------------------------------------------
+\begin{exercice}  \;
+On consid\`ere les points $A=(1,2,-1)$ et $B=(-2,4,0)$.
+\begin{enumerate}
+\item D\'eterminer une repr\'esentation param\'etrique et une repr\'esentation cart\'esienne de $(AB)$.
+\item En fonction de $m \in \R$, d\'eterminer l'intersection de $(AB)$ avec la droite $\mathcal{D}_m$ repr\'esent\'ee param\'etriquement par 
+$$ \left\{ \begin{array}{l}
+	x = s+3 \\
+	y= -2s+2 \\
+	z = 2s+m
+\end{array}\right. ; \quad s\in \R .$$
+\end{enumerate}
+\end{exercice}
+\begin{correction}   \;
+\textbf{On consid\`ere les points $A=(1,2,-1)$ et $B=(-2,4,0)$.}
+\begin{enumerate}
+\item \textbf{D\'eterminer une repr\'esentation param\'etrique et une repr\'esentation cart\'esienne de $(AB)$.}\\
+La droite $(AB)$ passe par le point $A=(1,2,-1)$ et est dirig\'ee par le vecteur $\overrightarrow{AB}(-3,2,1)$. \\
+On en d\'eduit une \'equation param\'etrique de $(AB)$ :
+$$ \left\{ \begin{array}{l}
+	x = 1-3\lambda \\
+	y= 2+2\lambda \\
+	z = -1+\lambda
+\end{array}\right. ; \quad \lambda\in \R .$$
+Trouvons une \'equation cart\'esienne de $(AB)$ :\\
+Soit $M(x,y,z)$ un point de l'espace. Soit $\lambda \in \R$. On r\'esout :
+$$ \begin{cases} 1-3\lambda = x \\ 2+2\lambda = y \\ -1+\lambda = z\end{cases} 
+\Leftrightarrow
+\begin{cases} \lambda = z+1 \\ 2\lambda = y-2 \\ -3\lambda = x-1 \end{cases}
+\Leftrightarrow
+ \begin{cases} \lambda = z+1 \\ 0 = y-2z-4\\ 0 = x+3z+2\end{cases} $$
+On en d\'eduit :
+$$  M \in (AB)\iff \left(\exists \lambda \in \R \text{ tel que } \begin{cases} x = 1-3\lambda \\
+	y= 2+2\lambda \\
+	z = -1+\lambda\end{cases}\right) \iff \begin{cases} y-2z-4 = 0 \\ x+3z+2 = 0\end{cases} $$
+Donc $(AB)$ a pour \'equation cart\'esienne :
+$$ \begin{cases} y-2z-4 = 0 \\ x+3z+2 = 0\end{cases} $$
+\item \textbf{En fonction de $m \in \R$, d\'eterminer l'intersection de $(AB)$ avec la droite $\mathcal{D}_m$.}\\
+Premi\`ere remarque : $\overrightarrow{AB}(-3,2,1)$ est un vecteur directeur de $(AB)$, et $\vec{u}(1,-2,2)$ est un vecteur directeur de $\mathcal{D}_m$ (quel que soit le r\'eel $m$).\\
+Ces deux vecteurs ne sont pas colin\'eaires, donc $(AB)$ et $\mathcal{D}_m$ ne sont pas parall\`eles. On en d\'eduit :\\
+$\bullet$ soit $(AB)$ et $\mathcal{D}_m$ sont s\'ecantes, et leur intersection sera r\'eduite \`a un point ;\\
+$\bullet$ soit $(AB)$ et $\mathcal{D}_m$ sont non coplanaires, et leur intersection sera vide.\\
+Lorsque $m$ varie, la direction de la droite $\mathcal{D}_m$ ne change pas, mais cette droite ``glisse'' le long de l'axe $(Oz)$, puisqu'elle passe par le point $E_m(3,2,m)$.\\
+Comme l'axe $(Oz)$ n'est pas parall\`ele \`a $(AB)$, on s'attend \`a ce que, pour une valeur de $m$ donn\'ee, la droite $\mathcal{D}_m$ coupe $(AB)$, et que pour toutes les autres, $\mathcal{D}_m$ et $(AB)$ soient non coplanaires.\\
+
+Passons \`a pr\'esent aux calculs :\\
+Soit $m \in \R$. Pour trouver ${\cal D}_m \cap (AB)$, prenons un point de ${\cal D}_m$ et regardons \`a quelle condition il appartient \`a $(AB)$.\\
+Soit $M(x,y,z)$ un point de ${\cal D}_m$ : $\exists s \in \R$ tel que $\begin{cases} x = s+3 \\ y= -2s+2 \\ z = 2s+m\end{cases}$. On r\'esout :
+$$ M \in (AB) \iff \begin{cases} y-2z-4 = 0 \\ x+3z+2 = 0 \end{cases} \iff \begin{cases} -2s+2-2(2s+m)-4 = 0 \\ s+3+3(2s+m)+2 = 0 \end{cases} \iff \begin{cases} -6s-2m-2 = 0 \\ 7s+3m+5= 0 \end{cases}$$
+On a donc :
+$$ M \in (AB)
+\Leftrightarrow 
+\begin{cases} 3s+m = -1 \\ 7s+3m= -5 \end{cases} 
+\Leftrightarrow
+\begin{cases} 3s+m = -1 \\ 2m= -8 \quad \mathbf{L_2\leftarrow 3L_2-7L_1}\end{cases} 
+\Leftrightarrow
+\begin{cases} s=1 \\ m= -4 \end{cases}$$
+Conclusion :\\
+$\bullet$ Si $m=-4$, alors $M \in (AB) \iff s=1 \iff \begin{cases} x=4\\y=0\\z=-2\end{cases}$, donc l'unique point d'intersection de ${\cal D}_m$ avec $(AB)$ est $M_0(4,0,-2)$.\\
+$\bullet$ Si $m\neq -4$, alors l'\'equation $M \in (AB)$ n'a pas de solution lorsque $M$ est un point de ${\cal D}_m$, donc l'intersection de ${\cal D}_m$ avec $(AB)$ est vide.
+\end{enumerate}
+\end{correction}
+
+%--------------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------------
+\section*{Type DS}
+
+
+
+\begin{exercice}
+Soit $\lambda \in \R$. On considère le système suivant 
+$$(S_\lambda)\quad  \left\{ \begin{array}{ccc}
+2x +2y & =& \lambda x\\
+x +3y  & =& \lambda y 
+\end{array}\right. $$
+
+\begin{enumerate}
+\item Déterminer $\Sigma$ l'ensemble des réels $\lambda$ pour lequel ce système \underline{n'est pas} de Cramer. 
+\item Pour $\lambda \in \Sigma$, résoudre $S_\lambda$
+\item Quelle est la solution si $\lambda \notin \Sigma$. 
+\end{enumerate}
+\end{exercice}
+
+\begin{correction}
+\begin{enumerate}
+\item  On met le système sous forme échelonné
+$$(S_\lambda)\equivaut  \left\{ \begin{array}{ccc}
+(2-\lambda)x +2y & =& 0\\
+x +(3-\lambda)y  & =& 0
+\end{array}\right.
+\equivaut 
+\left\{ \begin{array}{ccc}
+x +(3-\lambda)y  & =& 0\\
+(2-\lambda)x +2y & =& 0
+\end{array}\right.
+\equivaut 
+\left\{ \begin{array}{rcc}
+x +(3-\lambda)y  & =& 0\\
++2y -  (3-\lambda) (2-\lambda) y& =& 0
+\end{array}\right.
+ $$
+ D'où 
+ 
+ $$(S_\lambda)\equivaut  \left\{ \begin{array}{rcc}
+x +(3-\lambda)y  & =& 0\\
+  (-\lambda^2 +5\lambda -4) y& =& 0
+\end{array}\right.$$
+ 
+Le système n'est pas de Cramer si  $ (\lambda^2 +5\lambda -4) =0$, soit 
+\conclusion{$\Sigma =\{ 1, 4\}$}
+\item \begin{itemize}
+\item $\underline{\lambda=1}$
+On obtient $S_1 \equivaut x+ 2y =0$
+\conclusion{$\cS_1 =\{ (-2y, y) | y \in \R\}$}
+
+\item $\underline{\lambda=4}$
+On obtient $S_4 \equivaut x-y =0$
+\conclusion{$\cS_4 =\{ (x, x) | x \in \R\}$}
+\end{itemize}
+
+\item Si $\lambda$ n'est pas dans $ \Sigma$, le système est de Cramer, il admet donc une unique solution. Comme $(0,0)$ est solution, c'est la seule. 
+\conclusion{$\cS_\lambda =\{ (0,0)\}$}
+\end{enumerate}
+\end{correction}
+
+
+
+
+
+
+
+
+%--------------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------------
+
+
+\begin{exercice}
+Soit $\lambda \in \R$. On considère le système suivant 
+$$(S_\lambda)\quad  \left\{ \begin{array}{ccccc}
+2x &+y& & =& \lambda x\\
+ &y & & =& \lambda y \\
+ -x&-y&+z&=&\lambda z
+\end{array}\right. $$
+
+\begin{enumerate}
+\item Mettre le système sous forme échelonné. 
+\item En donner le rang en fonction de $\lambda$. 
+\item Déterminer $\Sigma$ l'ensemble des réels $\lambda$ pour lequel ce système \underline{n'est pas} de Cramer. 
+\item Pour $\lambda \in \Sigma$, résoudre $S_\lambda$
+\item Quelle est la solution si $\lambda \notin \Sigma$ ? 
+\end{enumerate}
+\end{exercice}
+
+\begin{correction}
+\begin{enumerate}
+\item En échangeant les lignes et les colonnes on peut voir que le système est déjà échelonné ! 
+
+$$(S_\lambda)\equivaut  \left\{ \begin{array}{ccccc}
+(2-\lambda)x &+y& & =&0 \\
+ &(1-\lambda)y & & =& 0 \\
+ -x&-y&+(1-\lambda)z&=&0
+\end{array}\right. $$
+
+$L_3\leftarrow L_1, L_2 \leftarrow _3, L_1\leftarrow L_2$
+$$
+(S_\lambda)\equivaut  \left\{ \begin{array}{ccccc}
+ -x&-y&+(1-\lambda)z&=&0\\
+(2-\lambda)x &+y& & =&0 \\
+ &(1-\lambda)y & & =& 0 
+\end{array}\right.$$
+$ C_3\leftarrow C_1, C_2 \leftarrow C_3, C_1\leftarrow C_2$
+$$
+\equivaut \left\{ \begin{array}{ccccc}
+ (1-\lambda)z&-x&-y&=&0\\
+ &(2-\lambda)x&+y & =&0 \\
+ &  & (1-\lambda)y& =& 0 
+\end{array}\right.$$
+
+
+\item Si $(2-\lambda)\neq 0$ et $(1-\lambda)\neq 0$ c'est-à-dire si $\lambda \notin\{ 1,2\}$ 
+\conclusion{ Le système est triangulaire de rang $3$. }
+
+Si  $(2-\lambda)= 0$,  c'est-à-dire si $\lambda=2$ on a:
+$$S_2\equivaut  \left\{ \begin{array}{ccccc}
+ -z&-x&-y&=&0\\
+ & &+y & =&0 \\
+ &  & -y& =& 0 
+\end{array}\right.$$
+$$S_2\equivaut  \left\{ \begin{array}{ccccc}
+ -z&-x&-y&=&0\\
+ & &+y & =&0 
+\end{array}\right.$$
+\conclusion{Le système est de rang 2. }
+
+Si  $(1-\lambda)= 0$,  c'est-à-dire si $\lambda=1$ on a:
+$$S_1\equivaut  \left\{ \begin{array}{ccccc}
+ &-x&-y&=&0\\
+ & x&+y & =&0 \\
+ &  &0 & =& 0 
+\end{array}\right.$$
+$$S_1\equivaut  \left\{ \begin{array}{ccccc}
+ &-x&-y&=&0
+\end{array}\right.$$
+\conclusion{Le système est de rang 1. }
+
+
+\item Le système n'est pas de Cramer, si $\lambda\in \{1,2\}$.
+
+Si $\lambda=1$ les solutions sont données par 
+\conclusion{$S_1=\{ (-y, y, z)\, | (y,z)\in \R^2\}$}
+
+Si $\lambda=2$ les solutions sont données par 
+\conclusion{$S_2=\{ (-z, 0, z)\, | z\in \R^2\}$}
+
+\item Si $\lambda\notin \Sigma$, le système est de Cramer, il admet une unique solution. Or il est homogène donc, $(0,0,0)$ est solution, c'est donc la seule :
+\conclusion{ $S=\{ (0,0,0)\}$}
+\end{enumerate}
+\end{correction}
+
+
+
+\end{document}

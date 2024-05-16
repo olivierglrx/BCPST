@@ -1,0 +1,192 @@
+\documentclass[a4paper, 11pt]{article}
+\input{macro/package.tex}
+\input{macro/environement}
+\input{macro/header.tex}
+\input{macro/newcommand.tex}
+\geometry{hmargin=1.5cm, vmargin=1.5cm}
+
+
+
+
+\begin{document}
+
+
+
+
+\title{CH 1 - Etude de fonctions}
+\vspace{1cm}
+\begin{defi}
+Soit $f$ une fonction. On dit qu'elle est définie sur un ensemble $D$ si pour tout $x$ de $D$ on peut associer une valeur à $f(x)$. 
+\end{defi}
+
+
+\begin{defi}
+On dit qu'une fonction $f$ est croissante (respectivement décroissante) sur un intervalle $I$ si pour tout $x,y\in I$, 
+$$x\leq y \implique f(x)\leq f(y) \quad \text{ resp. $f(x) \geq f(y)$} $$
+\end{defi}
+
+%\subsection{Représentations graphiques et domaine d'étude}
+\begin{defi}
+Soit $f$ une fonction définie sur $D\subset \R$. On appelle courbe représentative de $f$ (ou graphe), la courbe du plan notée $\cC_f$ et définie par :
+$$ \cC_f = \{ (x,f(x)) \in \R^2 \, |\, x\in D\}.$$
+\end{defi}
+
+\vspace{1cm}
+\section{Dérivation}
+
+
+	\begin{defi} D\'erivabilit\'e d'une fonction en un point:\\
+		\noindent Soient $f: I\rightarrow \R$ et $x_0\in I$. \vsec
+		\begin{itemize}
+			\item[$\bullet$] On dit que $f$ est d\'erivable en $x_0$ si 
+   $x\mapsto \frac{f(x)-f(x_0)}{x-x_0}$ admet une limite quand $x$ tends vers $x_0$
+			\item[$\bullet$] Si cette limite existe, elle est not\'ee $f'(x_0)$ et est appel\'ee le nombre d\'eriv\'ee de $f$ en $x_0$:
+$$ \lim_{x\tv x_0} \frac{f(x)-f(x_0)}{x-x_0} = f'(x_0).$$
+\end{itemize}
+	\end{defi}
+ 
+
+\begin{prop} Soient $u$ et $v$ deux fonctions d\'erivables sur $I$.
+\begin{itemize}
+\item[$\star$] La somme $u+v$ est d\'erivable sur $I$ et $$(u+v)'=u' +v' $$
+
+\item[$\star$] Le produit $uv$ est d\'erivable sur $I$ et $$(uv)'=u'v +uv'$$
+
+\item[$\star$] Si $v$ ne s'annule pas sur $I$, alors le quotient de $u$ par $v$ est d\'erivable sur $I$ et $$\left(\dfrac{u}{v}\right)'=\frac{u'v-v'u}{v^2}$$
+
+\item[$\star$] En particulier si $v$ ne s'annule pas sur $I$, alors l'inverse de $v$ est d\'erivable sur $I$ et $$\left(\dfrac{1}{v}\right)^{\prime}=\frac{-v'}{v^2}$$
+
+\end{itemize}
+\end{prop}
+
+
+\begin{prop} \underline{Si  $f$ est d\'erivable} alors
+\begin{itemize}
+\item[$\bullet$] $f$ est croissante sur $I$ $\Longleftrightarrow$ $\forall x\in I,\ f'(x)\geqslant 0$.
+\item[$\bullet$] $f$ est d\'ecroissante sur $I$ $\Longleftrightarrow$ $\forall x\in I,\ f'(x)\leqslant 0$.
+\item[$\bullet$] $f$ est constante sur $I$ $\Longleftrightarrow$ $\forall x\in I,\ f'(x)= 0$.
+\end{itemize}
+\end{prop}
+
+
+
+\begin{prop} Tangente:\\
+\noindent Si la fonction $f$ est d\'erivable en $x_0$ alors la courbe $\mathcal{C}_f$ admet au point d'abscisse $x_0$ une tangente qui a pour \'equation: 
+$$ y- f(x_0) = f'(x_0)(x-x_0)$$
+\end{prop}
+
+
+
+\begin{rem}
+La connaissance de la tangente $T$ \`a $\mathcal{C}_f$ permet de tracer la courbe au voisinage du point $M$ d'abscisse $x_0$. Pour un trac\'e encore plus pr\'ecis, on \'etudie souvent la position de la courbe par rapport \`a la tangente, \`a savoir le signe de $f(x)-y=f(x)-f(x_0)-f^{\prime}(x_0)(x-x_0)$.
+\end{rem}
+
+
+\section{Composition}
+
+\begin{defi}
+Soit $E$,  $F$ et $G$ trois ensembles. Soit $f : E\tv F$ et $g : F \tv G$ deux fonctions, alors on définit 
+$g\circ f$, dite composée de  $f$ et $g$, et prononcée  "g rond f". C'est la fonction 
+de $E$ vers $G$ qui vérifie pour tout $x\in E$ :
+$$g\circ f (x) = g(f(x))$$
+\end{defi}
+
+$\warning$ L'ordre est important !  Avec les notations de la définition, on ne pourrait pas considérer $f\circ g$ en effet $g$ 'mange' un élément de $F$ et renvoie un élément de $G$ mais alors $f(g(x))$ n'a pas de sens, car $f$ 'mange' un élément de $E$ et non de $G$. Quand bien même les deux ont du sens, les fonctions $f\circ g$ et $g\circ f$ ne sont généralement pas égale comme le montre l'exemple suivant. 
+ $\warning$
+ 
+ \begin{exemples}
+     \item $f(x)=x+1$ et $g(x)=x^2$ On a $$f\circ g(x)= x^2+1 \quadet g\circ f (x) = (x+1)^2=x^2+2x+1$$
+ \end{exemples}
+ 
+ 
+\begin{prop}
+Soit $I$,  $J$ et $K$ trois intervalles de $\R$ . Soit $f : I\tv J$ et $g : J \tv K$ deux fonctions dérivables. Alors $ g\circ f$ est dérivable et pour tout $x\in I$:
+$$(g\circ f)'(x) = f'(x) \times g'\circ f (x) = f'(x)  g'(f (x) )$$
+\end{prop} 
+ 
+
+\begin{exemples} D\'eriv\'ees des compos\'ees de r\'ef\'erence : soit $u$ une fonction d\'erivable sur $I$ et $n\in\N^{\star}$. 
+\begin{itemize}
+\item[$\bullet$] La fonction $u^n$ est d\'erivable sur $I$ et $$(u^n)'=n u' u^{n-1}$$
+%\item[$\bullet$] Si $\forall x \in I, u(x)\neq 0$ alors la fonction $\ddp\frac{1}{u^n}$ est d\'erivable sur $I$ et $$\ddp \left(\frac{1}{u^n}\right)'=\frac{-n u' u^{n-1}}{u^{2n}}=\frac{n u' }{u^{n+1}} $$ \\
+\item[$\bullet$] Si $\forall x \in I, u(x)>0 $ alors $\sqrt{u}$ est d\'erivable sur $I$ et $$(\sqrt{u})'=\frac{u'}{2\sqrt{u}} $$ 
+\item[$\bullet$] Si $\forall x \in I,  u(x)>0 $ alors la fonction $\ln{{u}}$ est d\'erivable sur $I$ et $$(\ln u)'= \frac{u'}{u}$$ 
+\item[$\bullet$] La fonction $e^{u}$ est d\'erivable sur $I$ et $$(e^u)'=u' \times e^u$$ 
+% \item[$\bullet$] La fonction $\cos{(u)}$ est d\'erivable sur $I$ et $$(\cos (u))'=-u' \sin(u)$$
+% \item[$\bullet$] La fonction $\sin{(u)}$ est d\'erivable sur $I$ et $$(\sin(u))'=u' \cos(u)$$ 
+% \item[$\bullet$] Si $\forall x \in I, u(x)\not\equiv \frac{\pi}{2} [\pi]$ alors la fonction $\tan{{u}}$ est d\'erivable sur $I$ et $$(\tan u)'= u' \frac{1}{\cos^2(u)}$$
+\end{itemize}
+\end{exemples}
+\vspace{-1cm}
+\section{Limites}
+
+Pour l'instant vous devez connaître les limites suivantes : 
+\begin{itemize}
+    \item[$\bullet$]$ \ddp \lim_{x\tv +\infty} \exp(x) = +\infty\quadet \lim_{x\tv -\infty} \exp(x) = 0$ 
+    \item[$\bullet$]$ \ddp \lim_{x\tv +\infty} \ln(x) = +\infty\quadet \lim_{x\tv0} \ln(x) = -\infty$
+     \item[$\bullet$]$ \ddp\lim_{x\tv +\infty} x^n= +\infty\quadet \lim_{x\tv -\infty} x^n = \pm \infty \quad ( \text{en fonction de la parité de $n$})$
+\item[$\bullet$]$ \ddp\lim_{x\tv +\infty} \sqrt{x}= +\infty \quadet  \ddp\lim_{x\tv +\infty} \frac{1}{x}=0$
+      \item[$\bullet$]$ \ddp\lim_{x\tv 0^+} \frac{1}{x}=+\infty \quadet  \ddp\lim_{x\tv 0^-} \frac{1}{x}=-\infty$
+            
+\end{itemize}
+
+
+\begin{prop}
+Soient $I$ et $J$ deux intervalles de $\R$, $f: I\rightarrow \R$ et $g: J\rightarrow \R$. Soient $x_0$ un \'el\'ement de $I$ ou une borne (finie ou infinie) de $I$, $y_0$ un \'el\'ement de $J$ ou une borne (finie ou infinie) de $J$ et $\ell\in\R\cup\lbrace -\infty,+\infty\rbrace$. Alors 
+$$\left\lbrace \begin{array}{lll}
+\lim\limits_{x\to x_0} f(x)&=&y_0 \vsec\\
+\lim\limits_{y\to y_0} g(y)&=&\ell
+\end{array}\right. \quad 
+\Longrightarrow \quad \lim\limits_{x\to x_0} g\circ f(x)=\ell.$$
+\end{prop}
+
+
+\begin{theorem} Th\'eor\`eme des croissances compar\'ees. Pour tous r\'eels $a>0$ et $b>0$, on a: 
+\begin{itemize}
+\item[$\bullet$] $\lim\limits_{x\to +\infty}\ddp\frac{(\ln{x})^b}{x^a}= 0$ \hspace{3cm}et \quad $\lim\limits_{x\to 0^+}x^a(\ln{x})^b= 0$\vsec
+\item[$\bullet$]  $\lim\limits_{x\to +\infty} \ddp \frac{x^{a}}{e^{bx}} = 0$ \hspace{3.2cm}et \quad $\lim\limits_{x\to -\infty} \ddp x^a e^{bx} = 0$\vsec
+\end{itemize}
+\end{theorem}
+
+\begin{proof}
+Remarquez tout d'abord que l'on peut se ramener à $a=b=1$.
+    \begin{itemize}
+        \item[$\bullet$] Considérer $f(x) = \frac{\ln(x)}{\sqrt{x}}$ pour montrer que $\lim\limits_{x\to +\infty}\ddp\frac{\ln{x}}{x}= 0$ et changement de variable $y=\frac{1}{x}$
+
+         \item[$\bullet$] Changement de variable $y=e^x$ puis $y=-x$
+    \end{itemize}
+\end{proof}
+
+\begin{prop} Taux d'accroissements en 0
+\begin{itemize}
+\begin{minipage}{0.4\textwidth}
+   \item[$\bullet$] $\ddp\lim_{x\tv0} \frac{\sin(x)}{x}= 1$ 
+\item[$\bullet$] $\ddp\lim_{x\tv0} \frac{\ln(x+1)}{x}= 1$ 
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\item[$\bullet$] $\ddp\lim_{x\tv0} \frac{\exp(x)-1}{x}= 1$
+\item[$\bullet$] $\ddp\lim_{x\tv0} \frac{(1+x)^{\alpha}-1 }{x}= 1$
+\end{minipage}
+
+\end{itemize}
+\end{prop}
+\begin{proof}
+    Considérer la bonne fonction 
+\end{proof}
+
+\begin{prop}
+$\lim_{x\tv0} \ddp\frac{\cos(x)-1}{x^2}= \frac{-1}{2}$    
+\end{prop}
+    \begin{proof}
+        Changement de variable $x=2y$ puis manipulation algébrique sur $\cos$ 
+    \end{proof}
+\section{Théorème des valeurs intermédiaires}
+
+\begin{theorem} Soit $f$ une fonction continue sur un intervalle $[a,b]$.\\
+Alors pour tout $y$ compris entre $f(a)$ et $f(b)$, il existe $c \in [a,b]$ tel que $y=f(c)$.\vsec
+
+ Si de plus la fonction est strictement monotone alors le réel $c$ est unique
+\end{theorem}
+
+
+\end{document}

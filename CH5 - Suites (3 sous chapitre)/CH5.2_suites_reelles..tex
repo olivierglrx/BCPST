@@ -1,0 +1,404 @@
+\documentclass[a4paper, 11pt]{article}
+\input{macro/package.tex}
+\input{macro/environement}
+\input{macro/header.tex}
+\input{macro/newcommand.tex}
+\geometry{hmargin=2.0cm, vmargin=3.5cm}
+
+\author{Olivier Glorieux}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+
+\begin{document}
+
+
+\tableofcontents
+\title{Chapitre 5.2 - Suites réelles }
+
+
+
+
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+
+\section{Principales propri\'et\'es sur les suites}
+
+
+
+
+\begin{defi} D\'efinition d'une suite:
+\begin{itemize}
+\item[$\bullet$] Une suite r\'eelle $u$ est une application de $\N$ dans $\R$  (ou $\bC$).
+\item[$\bullet$] Pour d\'esigner les valeurs prises par la suite, on note $u_n$ \`a la place de $u(n)$.
+\item[$\bullet$] Pour d\'esigner la suite globale, on \'ecrit $\suite{u}$ : c'est la suite de terme g\'en\'eral $u_n$.
+\end{itemize}
+\end{defi}
+
+
+
+\begin{rem}
+Certaines suites ne sont d\'efinies qu'\`a partir d'un certain rang. \\
+Exemple: \dotfill \\
+ Plus g\'en\'eralement, on note \dotfill la suite de terme g\'en\'eral $u_n$ d\'efinie \`a partir du rang  $n_0$.
+\end{rem}
+
+\warning \,Ne pas confondre \dotfill
+
+\vspace{0.4cm}
+
+%-----------------------------------------------------------
+%-----------------------------------
+\paragraph{Repr\'esentation graphique d'une suite}\vspace{0.3cm}
+
+ On peut repr\'esenter graphiquement une suite r\'eelle en portant en abscisse les entiers naturels et en ordonn\'ees les valeurs correspondantes de la suite. On obtient ainsi une succession de points qui d\'ecrivent l'\'evolution de la suite.
+
+\begin{exemple}
+Repr\'esenter graphiquement la suite $(u_n)_{n\geq 1}$ de terme g\'en\'eral $u_n=\ddp \frac{1}{n}$. 
+\end{exemple}
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\subsection{Suites major\'ees, minor\'ees, born\'ees}
+
+%-----------------------------------------------------------
+%-----------------------------------
+%\subsubsection{D\'efinitions}%\vspace{0.3cm}
+
+
+\begin{defi} Soit $\suite{u}$ une suite r\'eelle. 
+\begin{itemize}
+\item[$\bullet$] La suite $\suite{u}$ est major\'ee si \dotfill \vspace{0.3cm}
+\item[$\bullet$] La suite $\suite{u}$ est minor\'ee si \dotfill \vspace{0.3cm}
+\item[$\bullet$] La suite $\suite{u}$ est born\'ee si \dotfill
+\end{itemize}
+\end{defi}
+
+
+
+{\footnotesize 
+\begin{exercice}
+\begin{itemize}
+\item[$\bullet$] La suite $\suite{u}$ n'est pas major\'ee si \dotfill \vspace{0.3cm}
+\item[$\bullet$] La suite $\suite{u}$ n'est pas minor\'ee si \dotfill \vspace{0.3cm}
+\item[$\bullet$] La suite $\suite{u}$ n'est pas born\'ee si \dotfill
+\end{itemize}
+\end{exercice}}
+
+{\footnotesize 
+\begin{exercice}
+\begin{enumerate}
+\item Soit la suite $\suite{u}$ d\'efinie par $\ddp u_n=\frac{1}{n^2+2}$. Montrer que la suite $\suite{u}$ est born\'ee.%major\'ee par $\ddp\frac{1}{2}$.
+%\item[$\bullet$] Soit $x\in\bR^{+\star}$. Soit la suite $(u_n)_{n\geq 1}$ d\'efinie par: pour tout $n\in\N^{\star}$: $u_n=\ddp\frac{1}{n^2}\sum\limits_{k=1}^n E(kx)$. Montrer que la suite $(u_n)_{n\geq 1}$ est major\'ee par $x$.
+\item Soit la suite $(u_n)_{n\geq 1}$ d\'efinie par $u_n=\ddp\frac{1}{n^2}\sum\limits_{k=1}^n \ddp\frac{1}{k}$. Montrer que la suite $(u_n)_{n\geq 1}$ est born\'ee par $0$ et 1.
+\item Soit la suite $(u_n)_{n\geq 1}$ d\'efinie par $u_n=\sum\limits_{k=n+1}^{2n+1} \ddp\frac{1}{k}$. Montrer que la suite $(u_n)_{n\geq 1}$ est minor\'ee par $\ln{2}$. On pourra utiliser apr\`{e}s l'avoir d\'emontr\'ee l'in\'egalit\'e suivante: $\forall x>-1, \ \ln{(1+x)}\leq x$.
+\end{enumerate}
+\end{exercice}}
+
+
+\paragraph{Cas particulier des suites d\'efinies explicitement  $u_n = f(n)$}
+
+ L'\'etude de la fonction $f$ sur $\bR^+$ permet d'obtenir les propri\'et\'es de la suite $\suite{u}$. \vspace{0.3cm}\\
+
+
+
+\begin{prop} Majoration, minoration.
+\begin{itemize}
+\item[$\bullet$] Si la fonction $f$ est major\'ee sur $\bR^+$, alors la suite $\suite{u}$ est majorée
+\item[$\bullet$] Si la fonction $f$ est minor\'ee sur $\bR^+$, alors la suite $\suite{u}$ est minorée
+\item[$\bullet$] Si la fonction $f$ est born\'ee sur $\bR^+$, alors la suite $\suite{u}$ est bornée. 
+\end{itemize}
+\end{prop}
+
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\subsection{Suites croissantes, d\'ecroissantes, monotones}
+
+
+%-----------------------------------------------------------
+%-----------------------------------
+%\subsubsection{D\'efinitions}\vspace{0.3cm}
+
+\begin{defi} Soit $\suite{u}$ une suite r\'eelle. 
+\begin{itemize}
+\item[$\bullet$] La suite $\suite{u}$ est croissante si \dotfill \vspace{0.3cm}
+\item[$\bullet$] La suite $\suite{u}$ est strictement croissante si \dotfill \vspace{0.3cm}
+\item[$\bullet$] La suite $\suite{u}$ est d\'ecroissante si \dotfill \vspace{0.3cm}
+\item[$\bullet$] La suite $\suite{u}$ est strictement d\'ecroissante si \dotfill \vspace{0.3cm}
+\item[$\bullet$] La suite $\suite{u}$ est monotone si \dotfill \vspace{0.3cm}
+%\item[$\bullet$] La suite $\suite{u}$ est strictement monotone si \dotfill \vspace{0.3cm}
+\item[$\bullet$] La suite $\suite{u}$ est constante si \dotfill \vspace{0.3cm}
+\item[$\bullet$] La suite $\suite{u}$ est stationnaire si \dotfill \vspace{0.3cm}
+\end{itemize}
+\end{defi}
+
+\warning \,Il existe plein de suites qui ne sont \dotfill \\
+ Exemple: \dotfill
+
+\vspace{0.4cm}
+%-----------------------------------------------------------
+%-----------------------------------
+\subsubsection{M\'ethodes}%\vspace{0.3cm}
+
+\begin{enumerate}
+\item[\ding{182}] {\textbf{\'Etude du signe de $\mathbf{u_{n+1}-u_n}$:}}\\
+\begin{itemize}
+\item[$\bullet$] Si pour tout $n\in\N$: $u_{n+1}-u_n\geq 0$ alors la suite $\suite{u}$ \dotfill\vspace{0.3cm}
+\item[$\bullet$] Si pour tout $n\in\N$: $u_{n+1}-u_n\leq 0$ alors la suite $\suite{u}$ \dotfill \vspace{0.3cm}
+\end{itemize}
+
+On utilise cette m\'ethode lorsque la suite est d\'efinie plut\^ot comme \dotfill
+
+{\footnotesize 
+\begin{exercice}
+\'Etudier la monotonie des deux suites suivantes:
+\begin{enumerate}
+\item La suite $\suite{u}$ d\'efinie par: pour tout $n\in\N$: $u_n=n^2-2n$.
+\item La suite $(S_n)_{n\geq 1}$ d\'efinie par: pour tout $n\in\N^\star$: $S_n=\sum\limits_{k=1}^n \ddp\frac{1}{k}$.
+\end{enumerate}
+\end{exercice}}
+
+
+%\vspace{0.3cm}
+\item[\ding{183}] {\textbf{ Comparaison de $\mathbf{u_{n+1}/u_n}$ avec $1$ si les termes de la suite sont strictement positifs:}}\\
+\begin{itemize}
+\item[$\bullet$] Si pour tout $n\in\N$: $\ddp\frac{u_{n+1}}{u_n}\geq 1$ alors la suite $\suite{u}$ \dotfill\vspace{0.3cm}
+\item[$\bullet$] Si pour tout $n\in\N$: $\ddp\frac{u_{n+1}}{u_n}\leq 1$ alors la suite $\suite{u}$ \dotfill \vspace{0.3cm}
+\end{itemize}
+
+On utilise cette m\'ethode lorsque la suite est d\'efinie plut\^ot comme \dotfill
+
+{\footnotesize 
+\begin{exercice}
+\'Etudier la monotonie des deux suites suivantes:
+\begin{enumerate}
+\item La suite $\suite{u}$ d\'efinie par: pour tout $n\in\N$: $u_n=\ddp\frac{n^2}{n!}$.
+\item La suite $(P_n)_{n\geq 1}$ d\'efinie par: pour tout $n\in\N^\star$: $P_n=\prod\limits_{k=1}^n \ddp\frac{1}{k^2}$.
+\end{enumerate}
+\end{exercice}}
+
+\end{enumerate}
+
+
+%-----------------------------------------------------------
+%----------------------------------------------------------
+
+
+{\footnotesize 
+\begin{exercice}
+\begin{itemize}
+\item[$\bullet$] Soit la suite $\suite{u}$ d\'efinie par: pour tout $n\in\N$: $u_n=2+3^{-n}$. Montrer que la suite $\suite{u}$ est major\'ee par $3$.
+\item[$\bullet$] Soit la suite $\suite{u}$ d\'efinie par: pour tout $n\in\N$: $u_n=e^{-1-n}$. Montrer que la suite $\suite{u}$ est major\'ee par $\ddp\frac{1}{e}$.
+\end{itemize}
+\end{exercice}}
+\vspace{0.3cm}
+
+
+
+\begin{exercice}
+Soit $f$ une définie sur $\R_+$ et $\suite{u}$ la suite dérfinie par $u_n=f(n)$. Montrer que 
+\begin{itemize}
+\item[$\bullet$] Si la fonction $f$ est croissante sur $\bR^+$, alors la suite $\suite{u}$ est croissante.
+\item[$\bullet$] Si la fonction $f$ est d\'ecroissante sur $\bR^+$, alors la suite $\suite{u}$ décroissante.
+\end{itemize}
+\end{exercice}
+
+
+
+
+
+{\footnotesize 
+\begin{exercice}
+\'Etudier la monotonie de la suite $\suite{u}$ d\'efinie par: pour tout $n\in\N$: $u_n=e^{-n}$.
+\end{exercice}}
+\section{Limites}
+
+\subsection{Suites monotones}
+Ce th\'eor\`eme est  vraiment tr\`{e}s important, on l'utilise tr\`{e}s souvent.
+
+
+\begin{theorem} Th\'eor\`{e}me sur les suites monotones
+\begin{enumerate}
+ \item Soit $\suite{u}$ une suite croissante.
+ \begin{itemize}
+\item[$\bullet$] Si la suite $\suite{u}$ est major\'ee, alors elle converge vers une limite finie
+
+\item[$\bullet$] Si la suite $\suite{u}$ n'est pas major\'ee, alors elle diverge vers $+\infty$
+\end{itemize}
+\item Soit $\suite{u}$ une suite d\'ecroissante.
+ \begin{itemize}
+\item[$\bullet$] Si la suite $\suite{u}$ est minor\'ee, alors elle converge vers une limite finie
+\item[$\bullet$] Si la suite $\suite{u}$ n'est pas minor\'ee, alors elle diverge vers $-\infty$ \vspace{0.3cm}
+\end{itemize}
+\end{enumerate}
+
+
+
+\end{theorem}
+
+
+
+
+
+{\footnotesize 
+\begin{exercice} On d\'efinit la suite $(S_n)_{n\in\N^{\star}}$ par $S_n=\sum\limits_{k=1}^n \ddp\frac{1}{k+n}$. Montrer que la suite est born\'ee par $\ddp\demi$ et 1. \'Etudier sa monotonie, puis conclure sur sa convergence.
+%\begin{itemize}
+%\item[$\bullet$] Montrer que la suite est born\'ee par $\ddp\demi$ et 1.
+%\item[$\bullet$] \'Etudier la monotonie de la suite.
+%\item[$\bullet$] \'Etudier la convergence de la suite. 
+%\end{itemize}
+\end{exercice}}
+{\footnotesize 
+\begin{exercice}
+\'Etudier l'\'eventuelle convergence des deux suites implicites \'etudi\'ees au d\'ebut de ce cours. 
+\end{exercice}}
+
+
+
+%-----------------------------------------------------------
+%----------------------------------------------------------
+
+\subsection{Encadrement}
+
+ {\textbf{Th\'eor\`{e}me des gendarmes pour montrer une convergence et obtenir la valeur de la limite:}}\\
+
+{  
+
+\begin{theorem} Th\'eor\`{e}me des gendarmes:\\
+ Soient trois suites $\suite{u}$, $\suite{v}$ et $\suite{w}$ qui v\'erifient les hypoth\`eses suivantes:\vspace{0.3cm}
+\begin{itemize}
+\item[$\bullet$]
+\`a partir d'un certain rang: $u_n\leq v_n\leq w_n$
+\item[$\bullet$] $u_n \tv \ell $ et $w_n\tv \ell$
+\end{itemize}
+Alors la suite $\suite{v}$ converge et $\lim_{n\tv \infty} v_n=\ell$. 
+\end{theorem}
+
+}
+
+\begin{exemple} \'Etudier le comportement de la suite $\left(  \ddp\frac{\sin{n}}{n} \right)_{n\in\N^{\star}}$:
+
+
+\end{exemple}
+
+\begin{cor}
+On a l'encadrement suivant :
+$$\forall x\in\R\, |\sin(x)|\leq 1$$
+Donc pour tout $n\in \N$:
+$$\frac{-1}{n}\leq \frac{\sin(n)}{n}\leq \frac{1}{n}$$
+Comme 
+$\frac{1}{n}\tv 0$, $$\lim_{n\tv \infty} \frac{\sin(n)}{n}=0$$
+
+\end{cor}
+
+
+{\footnotesize 
+\begin{exercice} 
+\begin{enumerate}
+\item Soit la suite $(u_n)_{n\geq 1}$ d\'efinie par: pour tout $n\in\N^{\star}$: $u_n=\ddp\frac{\lfloor nx \rfloor}{n}$. \'Etudier la convergence de cette suite.
+\item Soit la suite $(u_n)_{n\geq 1}$ d\'efinie par: pour tout $n\in\N^{\star}$: $u_n=\ddp\frac{1}{n^2}\sum\limits_{k=1}^n \ddp\frac{1}{k}$. Montrer que la suite $(u_n)_{n\geq 1}$ converge vers 0.
+%\item Soit la suite $(S_n)_{n\geq 1}$ d\'efinie par: pour tout $n\in\N^{\star}$: $S_n=\sum\limits_{k=1}^n \ddp\frac{n}{n^2+k}$. Montrer que la suite $(S_n)_{n\geq 1}$ converge vers 1.
+\end{enumerate}
+\end{exercice}}
+%{\footnotesize 
+%\begin{exercice}
+%Soit la suite $(P_n)_{n\geq 1}$ d\'efinie par: pour tout $n\in\N^{\star}$: $P_n=\prod\limits_{k=1}^n \left(1+\ddp\frac{k}{n^2}\right)$. 
+%\begin{enumerate}
+%\item Montrer que pour tout $x>0$: $x-\ddp\frac{x^2}{2}<\ln{(1+x)}<x$.
+%\item \'Etudier l'\'eventuelle convergence de la suite $(P_n)_{n\geq 1}$.
+%\end{enumerate}
+%\end{exercice}}
+
+\vspace{0.4cm}
+\subsection{Passage à la limite}
+\begin{theorem}
+    Soit $f$ une fonction réelle et $\suite{u}$ une suite. 
+    Si $\lim_{n\tv +\infty} u_n = a$  et  $\lim_{x\tv a} f(x) = \ell$ alors
+    $$\lim_{n\tv +\infty} f(u_n) = \ell$$
+    \end{theorem}
+
+
+\begin{theorem}
+    Soit $\suite{u}$ et $\suite{v}$ deux suites.  
+    Si $\forall n \in \N u_n\leq v_n$, 
+    $\lim_{n\tv +\infty} u_n = \ell $ et  $\lim_{n\tv +\infty} v_n = \ell' $ alors 
+    $$\ell \leq \ell' $$
+    \end{theorem}
+
+
+
+
+\subsection{Suites adjacentes}
+
+\begin{defi} D\'efinition de deux suites adjacentes: \\
+ Soient deux suites $\suite{u}$ et $\suite{v}$. On dit qu'elles sont adjacentes si \vspace{0.3cm}
+\begin{itemize}
+\item[$\bullet$]$\suite{u}$ est croissante et $\suite{v}$ est décroissante (ou inversement) 
+\item[$\bullet$] $(u_n -v_n )\tv 0$
+%\item[$\bullet$] \dotfill  \vspace{0.3cm}
+\end{itemize}
+\end{defi}
+
+
+\begin{theorem} 
+Soient deux suites $\suite{u}$ et $\suite{v}$ adjacentes. 
+
+Alors les suites convergent et ont même limite. 
+
+\end{theorem}
+
+
+{\footnotesize 
+\begin{exercice} 
+Pour tout $n\in\N$, on pose: $u_n=\sum\limits_{k=0}^n \ddp\frac{1}{k!}$ et $v_n=u_n+\ddp\frac{1}{nn!}.$
+Montrer que ces deux suites convergent vers la m\^{e}me limite.
+\end{exercice}}
+\begin{cor}
+$\suite{u}$ est une somme de termes positifs, elle est donc croissante. 
+
+Pour l'étude de la monotonie de $\suite{v}$, calculons $v_{n+1}-v_n$:
+\begin{align*}
+v_{n+1}-v_n&= u_{n+1}-u_n + \frac{1}{(n+1) (n+1)! } - \frac{1}{(n) (n)! } \\
+				&= \frac{1}{(n+1)!} + \frac{n}{n(n+1) (n+1)! } - \frac{(n+1)(n+1)}{n (n+1) (n+1)!}\\
+				&= \frac{n(n+1) + n - (n+1)^2}{n(n+1)(n+1)!}\\
+				&= \frac{ -1 }{n(n+1)(n+1)!}
+				&<0
+\end{align*}
+Donc $\suite{v}$ est décroissante. 
+
+Enfin 
+$$v_n-u_n = \frac{1}{n n! }\tv 0$$
+Donc les deux suites $\suite{u}$ et $\suite{v}$ sont adjacentes. D'après le théorème, elles convergent et ont même limite. 
+
+
+
+\end{cor}
+
+\subsection{Croissances comparées}
+
+
+\begin{theorem} Croissances compar\'ees:\\
+Soient $\alpha>0$, $\beta>0$ et $\gamma>0$. On a  :
+\begin{itemize}
+\begin{minipage}[t]{0.45\textwidth}
+\item[$\bullet$] $\lim\limits_{n\to +\infty} \ddp \frac{(\ln n)^\alpha}{n^\beta} =  0 $\vspace{0.3cm}
+\item[$\bullet$]  $\lim\limits_{n\to +\infty} \ddp \frac{n^\beta}{e^{n \gamma}} =  0$ \vspace{0.3cm}
+\end{minipage} 
+\quad
+\begin{minipage}[t]{0.45\textwidth}
+\item[$\bullet$]  $\lim\limits_{n\to +\infty} \ddp \frac{e^{n \gamma}}{n!} =  0$\vspace{0.3cm}
+\item[$\bullet$]  $\lim\limits_{n\to +\infty} \ddp \frac{n!}{n^n} =  0 $\vspace{0.3cm}
+\end{minipage}
+\end{itemize}
+On peut retenir sous forme r\'esum\'ee qu'en $+\infty$:
+$$(\ln{n})^{\alpha} <<n^{\beta}<<e^{n\gamma}<<n!<<n^n.$$
+\end{theorem}
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,435 @@
+\documentclass[a4paper, 11pt]{article}
+\input{macro/package.tex}
+\input{macro/environement}
+\input{macro/header.tex}
+\input{macro/newcommand.tex}
+\geometry{hmargin=1.0cm, vmargin=1.5cm}
+
+\newcommand{\type}{TD }
+\excludecomment{correction}
+%\newcommand{\type}{Correction TD }
+
+
+\begin{document}
+\title{\type -  : Dénombrement}
+\section*{Entraînements}
+\vspace{0.2cm}
+
+%-------------------------------------------------------
+%-----------------------------------------------------
+
+%-------------------------------------------------------
+%-----------------------------------------------------
+\begin{exercice}  \;
+	On veut distribuer 7 prospectus dans 10 bo\^ites aux lettres nominatives. De combien de fa\c{c}ons peut-on le faire si
+	\begin{enumerate}
+		\item on met au plus un prospectus dans chaque bo\^ite aux lettres et les prospectus sont identiques ?
+		\item on met au plus un prospectus dans chaque bo\^ite aux lettres et les prospectus sont tous diff\'erents ?
+		\item on met un nombre quelconque de prospectus dans chaque bo\^ite aux lettres et les prospectus sont tous diff\'erents ?
+		\item on met un nombre quelconque de prospectus dans chaque bo\^ite aux lettres et les prospectus sont identiques ?
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \; \textbf{Rangement de billes dans des bo\^ites:} \\
+	\noindent Exercice tr\`es classique qui correspond \`a la r\'epartition de billes dans des bo\^ites distinctes selon que les billes sont diff\'erentes ou non et que les bo\^ites peuvent contenir plusieurs billes ou non.
+	\begin{enumerate}
+		\item Comme les prospectus sont tous identiques, l'ordre dans lequel on les distribue dans les bo\^ites n'intervient pas. De plus, comme les bo\^ites
+		      ne peuvent pas contenir plus d'un prospectus, il n'y a pas de r\'ep\'etition possible. Ainsi, on est dans un cas o\`u l'on doit choisir les 7 bo\^ites aux lettres qui vont contenir un prospectus parmi 10 bo\^ites aux lettres, ce choix se faisant sans ordre et sans r\'ep\'etition. Il y a donc $\ddp \binom{10}{7}$ fa\c{c}ons de le faire.
+		\item Ici les prospectus sont tous diff\'erents et on peut par exemple imaginer qu'ils sont empil\'es selon un certain ordre (prospectus alimentaire puis  bancaire...). Ici, lorsque vous allez choisir les bo\^ites aux lettres dans lesquelles vous allez mettre vos prospectus, l'ordre dans lequel vous choisissez vos bo\^ites \`a lettre intervient car tous les prospectus sont diff\'erents. Cela ne va donc pas donner le m\^eme r\'esultat si vous choisissez d'abord la bo\^ite aux lettres num\'ero 3 (qui re\c{c}oit donc le prospectus alimentaire) puis la bo\^ite aux lettres num\'ero 6 (qui re\c{c}oit donc le prospectus bancaire) ou si vous choisissez d'abord la bo\^ite aux lettres num\'ero 6 (qui re\c{c}oit donc le prospectus alimentaire) puis la bo\^ite aux lettres num\'ero 3 (qui re\c{c}oit donc le prospectus bancaire). De plus, comme chaque bo\^ite ne peut pas en recevoir plus d'un, il n'y a pas de r\'ep\'etition possible. Il s'agit donc de choisir $7$ bo\^ites aux lettres parmi 10 en tenant compte de l'ordre et pas de r\'epetition. On a donc $\ddp \frac{10!}{(10-7)!} = \frac{10!}{3!}$ fa\c{c}ons de faire (ou alors 10 choix pour la premi\`ere bo\^ite aux lettres choisie, puis 9 choix pour la seconde bo\^ite aux lettres choisie...).
+		\item Ici, il s'agit de choisir 7 bo\^ites aux lettres parmi 10 avec cette fois-ci \`a la fois de l'ordre mais aussi des r\'ep\'etitions car on peut mettre plusieurs prospectus dans chaque bo\^ite aux lettres. On est dans le cas o\`u il y a \`a la fois de l'ordre et des r\'ep\'etitions. Le nombre de fa\c{c}ons de faire correspond aux nombres de $7-$uplet d'\'el\'ements pris parmis 10 avec r\'ep\'etitions possibles. Il y a donc $10^7$ fa\c{c}ons de faire. Une autre fa\c{c}on de voir les choses est la suivante: on a 10 choix possibles pour le premier prospectus, 10 choix possibles pour le deuxi\`eme prospectus... et 10 choix pour le 7-i\`eme prospectus. Ainsi, on a bien $10^7$ fa\c{c}ons de faire.
+		\item L\`a, on est dans un cas o\`u il n'y a pas d'ordre: en effet, les prospectus \'etant tous identiques, l'ordre dans lequel on les distribue n'intervient pas. Par contre il y a de la r\'ep\'etition car plusieurs prospectus peuvent \^etre mis dans la m\^eme bo\^ite aux lettres. Ici, la seule fa\c{c}on de faire est de consid\'erer les 7 prospectus et de rajouter les 9 s\'eparations entre les 10 bo\^ites aux lettres. On a donc en tout 16 emplacements possibles et il faut choisir la place des 9 s\'eparations parmi ces 16 places, sans ordre (les s\'eparations sont identiques) et sans r\'ep\'etition (un seul objet par emplacement). On obtient ainsi $\ddp \binom{16}{9}$ fa\c{c}ons de faire.
+	\end{enumerate}
+\end{correction}
+%-------------------------------------------------------
+%-----------------------------------------------------
+\begin{exercice}  \;
+	Un sac contient 5 jetons blancs et 8 jetons noirs. On suppose que les jetons sont discernables (num\'erot\'es par exemple) et on effectue un tirage de 6 jetons de ce sac.
+	\begin{enumerate}
+		\item On suppose que les jetons sont tir\'es successivement en remettant \`a chaque fois le jeton tir\'e.
+		      \begin{enumerate}
+			      \item Donner le nombre de r\'esultats possibles.
+			      \item Combien de ces r\'esultats am\`enent
+			            \begin{enumerate}
+				            \item exactement 1 jeton noir ?
+				            \item au moins 1 jeton noir ?
+				            \item au plus un jeton noir ?
+				            \item 2 fois plus de jetons noirs que de jetons blancs ?
+			            \end{enumerate}
+		      \end{enumerate}
+		\item M\^emes questions en supposant que les jetons sont tir\'es successivement sans remise.
+		\item M\^emes questions en supposant que les jetons sont tir\'es simultan\'ement.
+	\end{enumerate}
+\end{exercice}
+%--------------------------------------------------
+\begin{correction}  \; \textbf{Tirage de jetons dans une urne}
+	\begin{enumerate}
+		\item On est dans un cas o\`u l'ordre et la r\'ep\'etition interviennent puisque les jetons sont tir\'es successivement et avec remise.
+		      \begin{enumerate}
+			      \item A chaque tirage, on a 13 choix: 13 choix pour le premier tirage, 13 choix pour le second... Ainsi, on obtient $13^6$ r\'esultats possibles.
+			      \item
+			            \begin{enumerate}
+				            \item Pour obtenir exactement un jeton noir, on doit: choisir \`a quel tirage on va tirer le jeton noir: il y a 6 choix possibles. Ensuite pour chaque choix de num\'ero de tirage, on a: 8 choix possibles de jetons noirs et pour les 5 autres tirages, on a 5 possibilit\'es \`a chaque fois (5 jetons blancs). Ainsi, on obtient: $6\times 8\times 5^5$ r\'esultats possibles.
+				            \item On passe \`a l'ensemble compl\'ementaire. Si on note $A$ l'ensemble des tirages avec au moins un jeton noir et $E$ l'ensemble des tirages possibles, on a: $\card (A)=\card (E)-\card (\overline{A})$. Et $\overline{A}$ est l'ensemble des tirages sans aucun jeton noir. On a donc $\card (\overline{A})=5^6$: \`a chaque tirage, on a 5 choix de jetons (les 5 jetons blancs) et il y a 6 tirages ordonn\'es. Ainsi, on obtient $\card (A)=13^6-5^6$.
+				            \item On note $A$ l'ensemble des tirages avec au plus un jeton noir. C'est l'union disjointe de $B$ l'ensemble des tirages avec exactement aucun jeton noir et de $C$ l'ensemble des tirages avec exactement un jeton noir. Or on a d\'ej\`a vu que: $\card (B)=5^6$ et $\card C=6\times 8\times 5^5$. Ainsi, on obtient que: $\card (A)=\card (B)+\card (C)= 5^6 + 6\times 8\times 5^5$.
+				            \item Pour avoir 2 fois plus de jetons noirs que de blancs avec 6 tirages, la seule solution est de tirer 2 jetons blancs et 4 jetons noirs. On commence par fixer la place des 2 jetons blancs parmi les 6 tirages: $\ddp \binom{6}{2}$. Les jetons noirs \'etant alors plac\'es dans les places restantes. Puis il y a $5^2$ choix pour les jetons blancs et $8^4$ choix possibles pour les jetons noirs. On obtient au final $\ddp \binom{6}{2}\times 5^2\times 8^4$ r\'esultats possibles.
+			            \end{enumerate}
+		      \end{enumerate}
+		\item On est dans un cas o\`u l'ordre intervient mais o\`u il n'y a pas r\'ep\'etition puisque les jetons sont tir\'es successivement et sans remise.
+		      \begin{enumerate}
+			      \item Il s'agit donc ici de choisir 6 jetons parmi 13 jetons avec ordre et sans remise, on obtient donc des $6$ listes sans r\'ep\'etition, soit $\ddp \frac{13!}{(13-6)!} = \frac{13!}{7!}$. Une autre fa\c{c}on de le voir est de dire: pour le premier tirage, j'ai 13 choix, pour le deuxi\`eme tirage, j'ai 12 choix... et pour le dernier tirage, j'ai 8 choix. Ainsi, on a: $13\times 12\times 11\times 10\times 9\times 8=\ddp\frac{13!}{7!}$ r\'esultats possibles.
+			      \item
+			            \begin{enumerate}
+				            \item Pour obtenir exactement un jeton noir, on doit: choisir \`a quel tirage on va tirer le jeton noir: il y a 6 choix possibles. Ensuite pour chaque choix de num\'ero de tirage, on a: 8 choix possibles de jetons noirs et pour les 5 autres tirages, on doit choisir 5 jetons parmi 5 sans remise mais avec ordre: $5\times 4\times 3\times 2\times 1=5!$. Ainsi, on obtient: $6\times 8\times 5!$ r\'esultats possibles.
+				            \item On passe \`a l'ensemble compl\'ementaire. Si on note $A$ l'ensemble des tirages avec au moins un jeton noir et $E$ l'ensemble des tirages possibles, on a: $\card (A)=\card (E)-\card (\overline{A})$. Et $\overline{A}$ est l'ensemble des tirages sans aucun jeton noir. On a donc $\card (\overline{A})=0$. En effet, comme il n'y a pas de remise et que l'on fait 6 tirages alors qu'il n'y a que 5 jetons blancs, il n'y a aucun tirage sans jeton noir. Ainsi, on obtient $\card (A)=\card (E)=\ddp\frac{13!}{7!}$.
+				            \item On note $A$ l'ensemble des tirages avec au plus un jeton noir. C'est l'union disjointe de $B$ l'ensemble des tirages avec exactement aucun jeton noir et de $C$ l'ensemble des tirages avec exactement un jeton noir. Or on a d\'ej\`a vu que: $\card (B)=0$ et $\card C=6\times 8\times 5!$. Ainsi, on obtient que: $\card (A)=\card (C)= 6\times 8\times 5!$.
+				            \item Pour avoir 2 fois plus de jetons noirs que de blancs avec 6 tirages, la seule solution est de tirer 2 jetons blancs et 4 jetons noirs. On commence par fixer la place des 2 jetons blancs parmi les 6 tirages: $\ddp \binom{6}{2}$. Les jetons noirs \'etant plac\'es dans les places restantes. Puis il y a $5\times 4$ choix pour les jetons blancs et $8\times 7\times 6\times 5$ choix possibles pour les jetons noirs. On obtient au final $\ddp \binom{6}{2}\times 5\times 4 \times 8\times 7\times 6\times 5$ r\'esultats possibles.
+			            \end{enumerate}
+		      \end{enumerate}
+		\item On est alors dans un cas o\`u il n'y a ni ordre ni r\'ep\'etition car les jetons sont tir\'es simultan\'ement.
+		      \begin{enumerate}
+			      \item Il s'agit donc de choisir 6 jetons parmi 13 jetons sans ordre et sans r\'ep\'etition. On obtient donc $\ddp \binom{13}{6}$ r\'esultats possibles.
+			      \item
+			            \begin{enumerate}
+				            \item On doit choisir 1 jeton noir parmi les 8 et 5 jetons blancs parmi les 5. En fait la poign\'ee de jetons que vous devez obtenir doit contenir les 5 jetons blancs et un jeton noir. On a donc $8$ r\'esultats possibles ce qui est bien \'egal \`a $\ddp \binom{8}{1}\times \ddp \binom{5}{5}$.
+				            \item On passe \`a l'ensemble compl\'ementaire. Si on note $A$ l'ensemble des tirages avec au moins un jeton noir et $E$ l'ensemble des tirages possibles, on a: $\card (A)=\card (E)-\card (\overline{A})$. Et $\overline{A}$ est l'ensemble des tirages sans aucun jeton noir.  On a donc $\card (\overline{A})=0$. En effet, comme il n'y a pas de remise et que l'on tire 6 jetons alors qu'il n'y a que 5 jetons blancs, il n'y a aucun tirage sans jeton noir. Ainsi, on obtient $\card (A)=\card (E)=\ddp \binom{13}{6}$.
+				            \item On note $A$ l'ensemble des tirages avec au plus un jeton noir. C'est l'union disjointe de $B$ l'ensemble des tirages avec exactement aucun jeton noir et de $C$ l'ensemble des tirages avec exactement un jeton noir. Or on a d\'ej\`a vu que: $\card (B)=0$ et $\card C=8$. Ainsi, on obtient que: $\card (A)=\card (C)= 8$.
+				            \item Pour avoir 2 fois plus de jetons noirs que de blancs avec 6 tirages, la seule solution est de tirer 2 jetons blancs et 4 jetons noirs. On obtient donc $\ddp \binom{5}{2} \times \ddp \binom{8}{4}$ r\'esultats possibles.
+			            \end{enumerate}
+		      \end{enumerate}
+	\end{enumerate}
+\end{correction}
+%-------------------------------------------------------
+%-----------------------------------------------------
+\begin{exercice}   \;
+	Un gardien de zoo donne \`a manger \`a ses 13 singes.
+	\begin{enumerate}
+		\item Il distribue 8 fruits diff\'erents (une pomme, une banane, ...). Combien y-a-t-il de distributions possibles
+		      \begin{enumerate}
+			      \item s'il donne au plus un fruit \`a chaque singe ?
+			      \item si chaque singe peut recevoir de 0 \`a 8 fruits ?
+		      \end{enumerate}
+		\item M\^emes questions si les 8 fruits sont 8 pommes golden identiques.
+	\end{enumerate}
+\end{exercice}
+%--------------------------------------------------
+\begin{correction}  \; \textbf{Rangement de billes dans des bo\^ites:}\\
+	\noindent On est dans le cas classique o\`u il faut r\'epartir 8 objets (diff\'erents ou distincts) parmi 13 singes distincts (ou bo\^ites), chaque singe pouvant en avoir soit 0 ou 1 ou plusieurs.
+	\begin{enumerate}
+		\item
+		      \begin{enumerate}
+			      \item Les fruits sont diff\'erents donc le choix de nos singes se fait avec ordre. Et il n'y a pas de r\'ep\'etitions possibles dans le choix des singes car chaque singe peut recevoir au plus un fruit. On doit donc compter le nombre de $8$-listes parmi les 13 singes, donc il y a $\ddp \frac{13!}{(13-8)!} = \frac{13!}{5!}$ distributions possibles.
+			            %----
+			      \item Les fruits sont diff\'erents donc le choix de nos singes se fait avec ordre. Et il y a des r\'ep\'etitions possibles dans le choix des singes car chaque singe peut recevoir 0, 1 ou plusieurs fruits. On doit donc compter le nombre de $8$-listes avec r\'ep\'etition parmi les 13 singes, donc il y a $13^8$ distributions possibles.\\
+			            On peut aussi refaire le raisonnement : j'ai 13 choix pour la banane, 13 choix pour la pomme, 13 choix pour la poire...en tout, j'ai donc $13^8$ distributions possibles.
+		      \end{enumerate}
+		\item
+		      \begin{enumerate}
+			      \item Les fruits sont tous identiques donc le choix de nos singes se fait sans ordre. Et il n'y a pas de r\'ep\'etitions possibles dans le choix des singes car chaque singe peut recevoir au plus un fruit. On doit compter le nombre de combinaisons de $8$ singes parmi $13$, donc il y a $\ddp \binom{13}{8}$ distributions possibles.
+			      \item Les fruits sont tous identiques donc le choix de nos singes se fait sans ordre. Et il y a des r\'ep\'etitions possibles dans le choix des singes car chaque singe peut recevoir 0, 1 ou plusieurs fruits. On est dans le cadre du choix de 8 singes parmi les 13 singes et ce choix se fait sans ordre et avec r\'ep\'etition. La seule mani\`ere de mod\'eliser cela est de rajouter \`a nos 8 fruits identiques $12$ s\'eparations entre les singes. On a donc en tout $20$ emplacements diff\'erents possibles et il faut choisir la place des 12 s\'eparations parmi ces 20 places disponibles sans ordre (les s\'eparations sont identiques) et sans r\'ep\'etition (un seul objet par s\'eparation). On a donc $\ddp \binom{20}{12}$ distributions possibles.
+		      \end{enumerate}
+	\end{enumerate}
+\end{correction}
+%-------------------------------------------------------
+%-----------------------------------------------------
+
+%-------------------------------------------------------
+%-----------------------------------------------------
+%\begin{exercice}  \;
+%Le bureau d'une association de 10 personnes, dont 6 femmes, est constitu\'e d'un pr\'esident, d'un tr\'esorier et d'un secr\'etaire. Le cumul de fonction est exclu.
+%\begin{enumerate}
+% \item D\'eterminer le nombre de bureaux possibles.
+%\item Combien de bureaux peut-on former sachant que le pr\'esident est un homme et le secr\'etaire une femme ?
+%\item Combien de bureaux exclusivement f\'eminins peut-on former ?
+%\item Combien de bureaux peut-on former o\`u les hommes et les femmes sont pr\'esents ?
+%\item Combien de bureaux peut-on former sachant que Mme X refuse de si\'eger avec Mr Y ?
+%\end{enumerate}
+%\end{exercice}
+%NOMBRES LETTRES
+%\begin{correction}   \; \textbf{Probl\`eme d'\'election}
+%\begin{enumerate}
+% \item Il y a de l'ordre (on veut en effet savoir qui est pr\'esident, qui est secr\'etaire et qui est tr\'esorier) et pas de r\'ep\'etition possible (car il n'y a pas de cumul possible) donc un r\'esultat est une 3-liste sans r\'ep\'etition parmi les 10 personnes. 
+%Ainsi, il y a $\ddp \frac{10!}{(10-3)!} = 10\times 9 \times 8$ bureaux possibles. Ou on peut aussi le voir en disant qu'il y a 10 choix pour le pr\'esident et \`a chaque choix de pr\'esident, il y a 9 choix pour la secr\'etaire... On retrouve ainsi $10\times 9\times 8$.
+%\item C'est la m\^eme id\'ee que la question pr\'ec\'edente: il y a 4 choix possibles pour le pr\'esident et \`a chaque choix fait, il y a 6 choix possibles pour la secr\'etaire et lorsque ces deux choix sont faits, il y a 8 choix possibles pour le tr\'esorier. Pour ces deux questions, on peut mod\'eliser les choix par un arbre. Au final, il y a $4\times 6\times 8$ bureaux diff\'erents.
+%\item M\^eme id\'ee: $\ddp \frac{6!}{(6-3)!}=6\times 5\times 4$.
+%\item Pour que les hommes et les femmes soient pr\'esents, on a deux choix possibles: soit le bureau est constitu\'e de deux hommes et une femme, soit de deux femmes et un homme. Si on note $A$ l'ensemble des bureaux avec deux hommes et une femme et $B$ l'ensemble des bureaux avec deux femmes et un homme alors ces deux ensembles sont disjoints et: $E=A\cup B$ avec $E$ l'ensemble des bureaux o\`u les hommes et les femmes sont pr\'esents. Comme les deux ensembles sont disjoints, on a: $\card E=\card A+\card B$. De plus, $\card A=\ddp \binom{3}{1}\times 6\times 4\times 3$: je fais le choix de la fonction de la femme donc $\ddp \binom{3}{1}=3$ possibilit\'es puis j'ai 6 choix de femmes diff\'erents possibles pour la fonction choisie. Ensuite je fais le choix des 2 hommes. Le m\^eme raisonnement donne $\card B=\ddp \binom{3}{1}\times 4\times 6\times 5$. Ainsi on obtient que $\card E= \ddp \binom{3}{1}\times 6\times 4\times 3+ \ddp \binom{3}{1}\times 4\times 6\times 5$.
+%\item Soit $F$ l'ensemble des bureaux que l'on peut former sachant que Mme X refuse de si\`eger avec M.Y On a: $E=A\cup B\cup C$ avec $A$ ensemble des bureaux o\`u Mme X si\`ege et M.Y ne si\`ege pas, $B$ ensemble des bureaux o\`u M.Y si\`ege et pas Mme X et $C$ l'ensemble des bureuax o\`u aucun des deux ne si\`ege. Ces trois ensembles sont disjoints et on obtient donc: $\card E=\card A+\card B+\card C=3\times 8\times 7+ 3\times 8\times 7+8\times 7\times 6$. Le 3 s'explique car il faut faire le choix de la fonction de Mme X ou de M.Y selon les cas.
+%\end{enumerate}
+%\end{correction}
+%%---------------------------------------------------
+%-------------------------------------------------------
+\begin{exercice}  \;
+	A l'entr\'ee d'un immeuble, on dispose d'un clavier \`a 12 touches: 3 lettres A, B et C et les 9 chiffres autres que 0. Le code d'ouverture de la porte est compos\'e d'une lettre suivie de 3 chiffres.
+	\begin{enumerate}
+		\item Combien existe-t-il de codes diff\'erents ?
+		\item Combien existe-t-il de codes
+		      \begin{enumerate}
+			      \item pour lesquels les 3 chiffres sont distincts ?
+			      \item comportant au moins une fois le chiffre 7 ?
+			      \item pour lesquels tous les chiffres sont pairs ?
+			      \item   \; pour lesquels les 3 chiffres sont dans l'ordre strictement croissant ?
+		      \end{enumerate}
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \; \textbf{Codes:}
+	\begin{enumerate}
+		\item Ici, l'ordre intervient et des r\'ep\'etitions sont possibles. Ainsi, on obtient 3 choix pour la lettre et pour chaque lettre choisie, on
+		      obtient ensuite une 3-liste prise parmi les 9 chiffres. Ainsi le nombre de codes diff\'erents est: $3\times 9^3$.
+		\item
+		      \begin{enumerate}
+			      \item Ici l'ordre intervient toujours mais il n'y a pas de r\'ep\'etition possible car les 3 chiffres doivent \^etre distincts. On compte donc le nombre de $3$-listes sans r\'ep\'etition parmi les $9$ chiffres, et on obtient $3\times (9\times 8\times 7)$ codes diff\'erents lorsque les trois chiffres sont distincts.
+			      \item On note $A$ l'ensemble des codes contenant au moins le chiffre 7. On a: $\card(A)=3\times 9^3-\card(\overline{A})$. Et ici, $\overline{A}$ est l'ensemble des codes ne contenant pas le chiffre 7. Ainsi, on a: $\card(\overline{A})=3\times 8^3$ et
+			            $$\card(A)=3\times 9^3-3\times 8^3.$$
+			      \item Tous les chiffres doivent \^etre pairs donc il s'agit de ne prendre que les chiffres 2, 4, 6 et 8. Ainsi, on obtient, comme il y a toujours de l'ordre et des r\'ep\'etitions possibles: $3\times 4^3$.
+			      \item  \;
+			            %On a vu en cours que 3 chiffres dans l'ordre strictement croissant peut \^etre mod\'elis\'e par les sous-ensembles \`a trois \'el\'ements. En effet, il y a une bijection entre un sous-ensemble de 3 chiffres et 3 chiffres dans l'ordre strictement croissant. En effet, dans les sous-ensembles, il n'y a pas de r\'ep\'etition (ce qui assure le strictement) et comme il n'y a pas d'ordre qui intervient, il suffit de les classer par ordre strictement croissant. On obtient ainsi: $3\times \ddp \binom{9}{3}$.
+			            On cherche le nombre de fa\c cons de choisir 3 chiffres parmi 9 :
+			            \begin{itemize}
+				            \item[$\bullet$] sans ordre, puisqu'une fois les nombres choisis, l'ordre est impos\'e : les chiffres doivent \^etre entr\'es dans l'ordre croissant (donc que l'on choisisse $1,2$ puis $3$ ou $3$, $2$, puis $1$, cela revient au m\^eme, dans tous les cas on rentrera $1$, $2$, $3$ pour le code),
+				            \item[$\bullet$] sans r\'ep\'etition, car comme l'ordre doit \^etre strict, les nombres doivent distincts.
+			            \end{itemize}
+			            On cherche donc le nombre de combinaisons de $3$ \'el\'ements parmi $9$, on obtient donc $\ddp \binom{9}{3}$ possibilit\'es pour les chiffres. En ajoutant les $3$ choix possibles pour les lettres, on a donc $3\times \ddp \binom{9}{3}$ possibilit\'es.
+		      \end{enumerate}
+	\end{enumerate}
+\end{correction}
+
+%-----------------------------------------------------------------------------------------------
+\begin{exercice}  \;
+	Un jeu de cartes non truqu\'e comporte 52 cartes. Une main est constitu\'ee de 8 cartes.
+	\begin{enumerate}
+		\item Quel est le nombre de mains possibles ?
+		\item Quel est le nombre de mains possibles avec au moins un as ?
+		\item Quel est le nombre de mains possibles avec au moins un coeur ou une dame ?
+		\item Quel est le nombre de mains possibles avec exactement un as et exactement un coeur ?
+		\item Quel est le nombre de mains possibles comportant des cartes d'exactement 2 couleurs ?
+		\item  Quel est le nombre de mains possibles comportant deux couleurs au plus ?
+		\item Quel est le nombre de mains possibles avec 8 cartes dont les rangs se suivent ?
+	\end{enumerate}
+\end{exercice}
+
+\begin{correction}  \; \textbf{Jeu de cartes:}
+	\begin{enumerate}
+		\item On est dans un cas o\`u il n'y a pas d'ordre ni de r\'ep\'etition. Il s'agit donc de choisir 8 cartes parmi 52 sans ordre ni r\'ep\'etition.
+		      On obtient donc $\ddp \binom{52}{8}$ mains diff\'erentes.
+		\item Une solution est de passer par le compl\'ementaire. Si on pose $A:$ ensemble des mains possibles avec au moins un as et $E:$ ensemble des mains possibles. On obtient: $\card (A)=\card (E)-\card (\overline{A})$. De plus, on a: $\overline{A}:$ ensemble des mains possibles sans aucun as et ainsi il s'agit de choisir 8 cartes non plus parmi 52 mais parmi 48 car on enl\`eve les 4 as. On obtient ainsi: $\card (A)=\ddp \binom{52}{8}-\binom{48}{8}$.
+		\item L\`a encore on peut passer par l'ensemble compl\'ementaire. Si on pose $B:$ ensemble des mains possibles avec au moins (un coeur ou une dame) et $E:$ ensemble des mains possibles. On obtient: $\card (B)=\card (E)-\card (\overline{B})$. De plus, on a: $\overline{B}:$ ensemble des mains possibles sans coeur et sans dame et ainsi il s'agit de choisir 8 cartes non plus parmi 52 mais parmi 36 car on enl\`eve les 13 coeurs et les 3 dames restantes. On obtient ainsi: $\card (A)=\ddp \binom{52}{8}-\binom{36}{8}$.
+		\item Il faut faire attention \`a l'as de coeur. On note $C:$ l'ensemble des mains possibles avec exactement un as et exactement un coeur mais sans l'as de coeur, $D$ l'ensemble des mains possibles avec l'as de coeur et aucun coeur et as pour les autres cartes et $E$ l'ensemble des mains possibles avec exactement un as et un coeur. On a bien $E=C\cup D$ et les deux ensembles $C$ et $D$ sont bien disjoints. Ainsi, on obtient $\card (E)=\card (C)+\card (D)$. Le cardinal de $C$ s'obtient en choisisant une carte parmi les 3 as ne contenant pas l'as de coeur, une carte parmi les 12 cartes de coeur sans l'as de coeur et les 6 cartes restantes parmi les 36 cartes restantes n'\'etant ni des coeur ni des as. On a donc: $\card (C)=\ddp \binom{3}{1}\binom{12}{1}\binom{36}{6}$. Pour $D$, il faut prendre l'as de coeur, soit une seule possibilit\'e, puis il faut prendre les 7 cartes restantes parmi les $36$ autres cartes n'\'etant ni des coeurs ni des as. On obtient ainsi $\card (D)=1\times \ddp \binom{36}{7}$. Ainsi, on a:
+		      $\card (E)=\ddp\binom{3}{1}\binom{12}{1}\binom{36}{6} + \binom{36}{7}$.
+		\item On commence par faire le choix de la couleur, on a donc 2 choix parmi 4 sans ordre et sans r\'ep\'etition: $\ddp \binom{4}{2}$. Une fois le choix de la couleur fait, il faut prendre nos 8 cartes parmi les cartes de ces deux couleurs \`a savoir on doit prendre 8 cartes parmi les 26 cartes des deux couleurs choisies. On a compt\'e en trop le cas o\`u nos 8 cartes \'etaient en fait toutes prises de la m\^eme couleur. Il faut donc retirer \`a $\ddp \binom{26}{8}$ le nombre de possibilit\'es que l'on a d'avoir pris en fait 8 cartes de la m\^eme couleur, \`a savoir: $2\times\ddp \binom{13}{8}$. On le compte 2 fois car il y a deux couleurs. Finalement, on obtient: $\ddp \binom{4}{2}\left\lbrack \ddp \binom{26}{8}-2\ddp \binom{13}{8}   \right\rbrack$.
+		\item On veut choisir au plus deux couleurs, c'est-\`a-dire exactement une ou bien exactement deux. On a calcul\'e le nombre de tirages avec exactement deux couleurs \`a la question pr\'ec\'edente. De plus, pour choisir des cartes d'une seule couleur, on a $4$ choix pour la couleur, puis $\ddp \binom{13}{8}$ possibilit\'es pour les tirages. Comme les tirages d'une couleur et de deux couleurs sont disjoints, le cardinal de l'union des deux ensembles est la somme des cardinaux, et on en d\'eduit que l'on a $\ddp \binom{4}{2}\left\lbrack \ddp \binom{26}{8}-2\ddp \binom{13}{8}   \right\rbrack + 4 \binom{13}{8}$ possibilit\'es.
+		\item On commence par faire le choix de la plus petite carte: on a 6 choix pour la valeur de la plus petite carte: du 2 au 7. Une fois ce choix fait, cela d\'etermine le choix des 8 autres valeurs puisque les valeurs doivent se suivrent strictement. Par exemple, si la plus petite carte est un 4 ensuite on doit avoir un 5,6,7,8,9,10,Valet. Puis, comme il y a 4 couleurs par valeur, on obtient finalement: $\ddp \binom{6}{1}\times 4^{8}$.
+	\end{enumerate}
+\end{correction}
+%-------------------------------------------------------
+%-----------------------------------------------------
+\begin{exercice}  \;
+	Une urne contient 5 paires de chaussures noires, 3 paires de chaussures marrons et 2 paires de chaussures blanches. On tire deux chaussures au hasard.
+	\begin{enumerate}
+		\item Combien y-a-t-il de tirages possibles ?
+		\item Combien y-a-t-il de tirages o\`u l'on obtient deux chaussures de m\^eme couleur ?
+		\item Combien de tirages am\`enent un pied gauche et un pied droit ?
+		\item Combien de tirages am\`enent une chaussure droite et une chaussure gauche de m\^eme couleur ?
+	\end{enumerate}
+\end{exercice}
+%---------------------------------------------------
+%--------------------------------------------------
+\begin{correction}  \; \textbf{Paires de chaussures:}
+	\begin{enumerate}
+		\item Il y a 20 chaussures en tout (on consid\`ere que toutes les chaussures sont distinctes m\^eme les chaussures de la m\^eme couleur) et on en prend 2. Il n'y a pas d'ordre ni de r\'ep\'etition et on a: $\ddp \binom{20}{2}$ tirages possibles.
+		\item Si on note $E$ l'ensemble des tirages o\`u l'on obtient deux chaussures de la m\^eme couleur, on a:\\
+		      \noindent  $E=E_N\cup E_M\cup E_B$ avec $E_N$ ensemble des tirages avec 2 chaussures de la couleur noire et pareil pour $E_M$ et $E_B$. Comme il y a respectivement 10 chaussures noires, 6 chaussures marrons et 4 chaussures blanches et que ces trois ensembles $E_N$, $E_M$ et $E_B$ sont des ensembles disjoints, on obtient
+		      $$\card(E)=\card (E_N)+\card(E_M)+\card(E_B)=\ddp \binom{10}{2}+\ddp \binom{6}{2}+\ddp \binom{4}{2}.$$
+		\item On fait le choix d'une chaussure de pied droit par exemple et \`a chaque choix fait, on fait le choix d'une chaussure de pied gauche. On obtient alors: $\ddp \binom{10}{1}\ddp \binom{10}{1}=10\times 10=100$.
+		\item Si on note $A$ l'ensemble des tirages o\`u l'on obtient deux chaussures de la m\^eme couleur avec une chaussure droite et une chaussure gauche, on a: $A=A_N\cup A_M\cup A_B$ avec $A_N$ ensemble des tirages avec 2 chaussures de la couleur noire avec une chaussure droite et une chaussure gauche et pareil pour $A_M$ et $A_B$. Ainsi, on obtient
+		      $$\card(A)=\card (A_N)+\card(A_M)+\card(A_B)=5\times 5+3\times 3+2\times 2.$$
+	\end{enumerate}
+\end{correction}
+%-------------------------------------------------------
+%-----------------------------------------------------
+
+%-------------------------------------------------------
+%-----------------------------------------------------
+
+%-------------------------------------------------------
+%-----------------------------------------------------
+
+%-------------------------------------------------------
+%-----------------------------------------------------
+%\begin{exercice}
+%Soit $(n,p)\in (\N^{\star})^2$. Combien y a-t-il de fa\c{c}ons de placer $p$ billes identiques dans $n$ bo\^ites num\'erot\'ees, sachant quer chaque bo\^ite peut contenir un nombre quelconque de billes.
+%\end{exercice}
+%-------------------------------------------------------
+%-----------------------------------------------------
+
+
+%---------------------------------------------------
+%-------------------------------------------------
+%-------------------------------------------------
+%--------------------------------------------------
+%----------------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------
+\section*{Formules d\'emontr\'ees \`a l'aide du d\'enombrement}
+\vspace{0.2cm}
+
+%-----------------------------------------------------
+%-----------------------------------------------------
+\begin{exercice}  \;
+	On consid\`ere un quadrillage $\N^2$ du quart de plan des points \`a coordonn\'ees positives. On appelle chemin croissant tout parcours suivant le quadrillage en utilisant des d\'eplacements vers le haut ou vers la droite.
+	\begin{enumerate}
+		\item Combien y-a-t-il de chemins croissants de longueur $n\in\N$ ? Combien de points distincts permettent-ils d'atteindre ?
+		\item Soit $(m,n)\in\N^{2}$ fix\'e.
+		      \begin{enumerate}
+			      \item Combien de chemins croissants permettent de relier $A\left(\begin{array}{c} 0\\0 \end{array}\right)$ et $B\left(\begin{array}{c} m\\n\end{array}\right)$ ?
+			      \item Soit $p\in\N$ tel que $0\leq p\leq m+n$. Pour tout $k\in\lbrace 0,\dots,p\rbrace$, d\'enombrer le nombre de chemins reliant $A$ et $B$ et passant par $C_k\left(\begin{array}{c} k\\p-k \end{array}\right)$. En d\'eduire la formule de Vandermonde.
+		      \end{enumerate}
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \; \textbf{Chemins le long d'un quadrillage}
+	\begin{enumerate}
+		\item Vous pouvez commencer par faire un exemple avec par exemple $n=5$ pour comprendre comment cela fonctionne.
+		      \begin{itemize}
+			      \item[$\bullet$] A chaque d\'eplacement, il y a deux choix possibles: soit vers la droite, soit vers le haut. Ainsi, un chemin croissant est
+				      une succession de d\'eplacements de type $d$ (vers la droite) et de type $h$ (vers le haut). L'ordre intervient car le chemin n'est pas le m\^eme si on a commenc\'e par se d\'eplacer vers la droite puis vers le haut ou si on a fait l'inverse. De plus, il y a r\'ep\'etition possible car on peut bien entendu se d\'eplacer plusieurs fois vers le haut et plusieurs fois vers la droite. Ainsi, un chemin croissant de longueur $n$ est un $n$-uplet d'\'el\'ements $h$ ou $d$. Il y en a $2^n$ choix possibles.
+			      \item[$\bullet$] Au bout de $n$ d\'eplacements, on atteint un point de la forme $(k,p)$ avec $k+p=n$, soit $p=n-k$. Ainsi les points atteints sont les points $(k,n-k)$, avec $k \in \{0, \ldots, n\}$, qui correspondent \`a la diagonale du carr\'e $n\times n$. Il y a donc $n+1$ points distincts.
+		      \end{itemize}
+		\item
+		      \begin{enumerate}
+			      \item Pour relier $A$ et $B$, il suffit de faire successivement $m$ d\'eplacements vers la droite et $n$ d\'eplacements vers le haut et ceci dans n'importe quel ordre. On a donc $m+n$ d\'eplacements \`a faire au total. On commence par choisir le nombre de fa\c con de placer les $m$ d\'eplacements vers la droite : on doit choisir $m$ d\'eplacements parmi $n+m$, sans ordre et sans r\'ep\'etition, soit $\ddp\binom{n+m}{m}$. Il n'y a ensuite plus le choix pour les autres d\'eplacements, qui sont n\'ecessairement des d\'eplacements vers le haut. On obtient donc : $\ddp\binom{m+n}{m}$ chemins croissants permettent de relier $A$ et $B$.\\
+			            %\noindent Une g\'en\'eralisation facile permet de voir que le nombre de chemins permettant de relier $C(a,b)$ \`a $D(m,n)$ est 
+			            %$\ddp\frac{\left( m-a+n-b \right)!}{(m-a)!(n-b)!}=\binom{m-a+n-b}{m-a}$ si $a\leq m$ et $b\leq n$. 
+			      \item Comme dans la question pr\'ec\'edente, pour relier $A$ et $C_k$, il suffit de faire successivement $k$ d\'eplacements vers la droite et $p-k$ d\'eplacements vers le haut, soit $p-k+k=p$ d\'eplacements au total. Avec le m\^eme raisonnement, on obtient donc $\ddp \binom{p}{k}$ chemins possibles de $A$ jusqu'\`a $C_k$.\\
+			            Puis pour relier $C_k$ et $B$, il suffit de faire successivement $m-k$ d\'eplacements vers la droite et $n-(p-k)$ d\'eplacements vers le haut, soit $m-k+n-(p-k)=m+n-p$ d\'eplacements au total. On obtient donc $\ddp \binom{m+n-p}{m-k}$ chemins possibles de $C_k$ \`a $B$ (on remarque que ce nombre de chemins est bien nul d\`es que $k>m$ o\`u que $p-k>n$).\\
+			            Ces choix sont successifs, on a donc $\ddp \binom{p}{k} \times \binom{m+n-p}{m-k}$ chemins possibles pour aller de $A$ \`a $B$ en passant par $C_k$.\\
+			            On veut en d\'eduire une autre formule pour le nombre de chemins de $A$ \`a $B$. Pour aller de $A$ \`a $B$, au bout de $p$ d\'eplacements, on est forc\'ement sur un point de la forme $(k, p-k)$, avec $k\in \{0, \ldots, p\}$. Il suffit donc de sommer ces diff\'erentes possibilit\'es, et on obtient $\ddp \sum_{k=0}^p \binom{p}{k} \binom{m+n-p}{m-k}$ Sachant que les termes de la somme sont nuls d\`es que $k>m$, et en identifiant avec le r\'esultat trouv\'e \`a la question pr\'ec\'edente, on a donc :
+			            $$\sum_{k=0}^m \binom{p}{k} \binom{m+n-p}{m-k} = \binom{m+n}{m}.$$
+			            Pour retrouver la formule de Vandermonde, il suffit de faire un changement dans le nom des variables, et poser $M=m+n-p$, $N=p$ et $R=m$. On obtient alors
+			            $$\sum_{k=0}^R \binom{N}{k} \binom{M}{R-k} = \binom{M+N}{R},$$
+			            ce qui est bien la formule voulue.
+		      \end{enumerate}
+	\end{enumerate}
+\end{correction}
+%-----------------
+%-----------------------------------------------------
+%-----------------------------------------------------
+\begin{exercice}  \;
+	Soient $p,\ q$ et $r$ trois entiers naturels tels que $p+q+r\geq 1$.
+	\begin{enumerate}
+		\item Combien de mots de $p+q+r$ lettres peut-on former en utilisant $p$ fois la m\^eme lettre $A$, $q$ fois la lettre $B$ et $r$ fois la lettre $C$ ?
+		      V\'erifier le r\'esultat avec $p=q=r=1$.
+		\item D\'emontrer la formule: $\ddp (a+b+c)^n=\sum\limits_{p=0}^{n}\sum\limits_{q=0}^{n-p}\binom{n}{p}\binom{n-p}{q}a^p b^q c^{n-p-q}.$
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \; \textbf{Formule du multin\^ome (deuxi\`eme question plus dure)}
+	\begin{enumerate}
+		\item On raisonne ici comme pour les anagrammes. On obtient donc $\ddp\frac{(p+q+r)!}{p!q!r!}$ mots diff\'erents.
+		\item Calcul de $(a+b+c)^n$:\\
+		      \noindent Le terme g\'en\'eral est de la forme $a^{p} b^{q} c^{r}$ avec $p+q+r=n$. De plus, un tel terme va appara\^itre lorsque l'on d\'eveloppe compl\'etement $(a+b+c)^n$ autant de fois que l'on peut former de mots de $n$ lettres en utilisant $p$ fois la lettre $a$, $q$ fois la lettre $b$ et $r$ fois la lettre $c$. Ainsi, le terme $a^{p} b^{q} c^{r}$ devra \^etre somm\'e $\ddp\frac{(p+q+r)!}{p!q!r!}$ fois. On obtient ainsi que
+		      $$(a+b+c)^n =\sum\limits_{p=0}^n \sum\limits_{q=0}^{n-p} \ddp\frac{(p+q+r)!}{p!q!r!} a^p b^q c^r.$$
+		      En effet, on commence par choisir $p$ variant de $0$ \`a $n$, puis il faut choisir $q$ variant de $0$ \`a $n-p$ et enfin pour $r$, on est oblig\'e de prendre $r=n-p-q$.\\
+		      De plus, comme $r=n-p-q$, on a :
+		      $$\ddp\frac{(p+q+r)!}{p!q!r!}= \ddp\frac{n!}{p!q!(n-p-q)!}\qquad \hbox{et}\qquad \ddp \binom{n}{p}\ddp \binom{n-p}{q}=\ddp\frac{n!}{p!(n-p)!}\times\ddp\frac{(n-p)!}{q!(n-p-q)!} = \ddp\frac{n!}{p!q!(n-p-q)!}.$$
+		      On a donc : $\ddp\frac{(p+q+r)!}{p!q!r!}= \binom{n}{p}\ddp \binom{n-p}{q}$. En rempla\c cant dans la somme, on obtient bien le r\'esultat voulu, \`a savoir :
+		      $$\fbox{$\ddp  (a+b+c)^n =\sum\limits_{p=0}^n \sum\limits_{q=0}^{n-p} \binom{n}{p}\ddp \binom{n-p}{q} a^pb^q c^{n-p-q}$}.$$
+	\end{enumerate}
+\end{correction}
+% TIRAGES PLUS DURS
+%-------------------------------------------------------
+%-----------------------------------------------------
+%\begin{exercice}
+%Soit $n\in\N^{\star}$. On note $E=\lbrace a_1,a_2,\dots, a_n\rbrace$ un ensemble de cardinal $n$. On d\'esigne par $\mathcal{B}$ l'ensemble des bijections de $E$ dans $E$. Pour $i\in\lbrace 1,\dots,n\rbrace$, on note $B_i=\left\lbrace f\in\mathcal{B},\ f(a_i)=a_i\right\rbrace$.
+%\begin{enumerate}
+% \item Calculer $\card(B_1)$.
+%\item Pour tout $k\in\lbrace 1,\dots,n\rbrace$, calculer $\card\left( B_1\cap B_2\cap\dots\cap B_k \right)$.
+%\item En d\'eduire $\card\left( \bigcup\limits_{i=1}^{n} B_i \right)$.
+%\item On appelle d\'erangement de $E$ toute bijection sans point fixe, et on note $D_n$ l'ensemble des d\'erangements de $E$. Montrer que
+%$$\card\left( D_n \right)=n!\sum\limits_{k=0}^{n}  \ddp\frac{(-1)^k}{k!}   .$$
+%\end{enumerate}
+%\end{exercice}
+%-------------------------------------------------------
+%-----------------------------------------------------
+
+%-----------------
+%-------------------------------------------------------
+%-----------------------------------------------------
+
+%--------------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------------
+
+%------------------------------------------------------------------
+%--------------------------------------
+
+\section*{Type DS}
+\begin{exercice}   \;
+	Une urne contient 5 boules blanches et 8 boules noires. On suppose que les boules sont discernables et on effectue un tirage de 6 boules de cette urne successivement et avec remise.
+	\begin{enumerate}
+		\item Donner le nombre de r\'esultats possibles.
+		\item Combien de ces r\'esultats am\`enent
+		      \begin{enumerate}
+			      \item 5 boules blanches puis une boule noire dans cet ordre ?
+			      \item exactement une boule noire ?
+			      \item au moins une boule noire ?
+			      \item plus de boules noires que de boules blanches ?
+		      \end{enumerate}
+	\end{enumerate}
+\end{exercice}
+%---------------------------------------------------
+%--------------------------------------------------
+\begin{correction}   \;  \textbf{Tirage de boules dans une urne}\\
+	\begin{enumerate}
+		\item  On est dans un cas o\`u il y a ordre et r\'ep\'etition. Un r\'esultat est un 6-uplet de boules pris dans un ensemble de 13 boules. On a donc
+		      13 choix pour le premier tirage, 13 choix pour le second tirage... et ainsi on obtient $13^6$ r\'esultats possibles.
+		\item
+		      \begin{enumerate}
+			      \item On a 5 choix possibles pour le premier tirage, 5 choix possibles pour le second tirage,..., puis 5 choix possibles pour le cinqui\`eme tirage et 8 choix possibles pour le dernier tirage. Au final, on obtient $5^5\times 8$ r\'esultats possibles.
+			      \item Pour obtenir exactement une boule noire, on doit: choisir \`a quel tirage on va tirer la boule noire: il y a 6 choix possibles. Ensuite pour chaque choix de num\'ero de tirage, on a: 8 choix possibles de boules noires et pour les 5 autres tirages, on a 5 possibilit\'es \`a chaque fois (5 boules blanches). Ainsi, on obtient: $6\times 8\times 5^5$ r\'esultats possibles.
+			      \item On passe \`a l'ensemble compl\'ementaire. Si on note $A$ l'ensemble des tirages avec au moins une boule noire et $E$ l'ensemble des tirages possibles, on a: $\card (A)=\card (E)-\card (\overline{A})$. Et $\overline{A}$ est l'ensemble des tirages sans aucune boule noire. On a donc $\card (\overline{A})=5^6$: \`a chaque tirage, on a 5 choix de boules (les 5 boules blanches) et il y a 6 tirages ordonn\'es. Ainsi, on obtient $\card (A)=13^6-5^6$.
+			      \item On consid\`ere que l'on veut strictement plus de boules noires que blanches. C'est donc la r\'eunion disjointe de 0 boule blanche et 6 boules noires ou 1 boule blanche et 5 boules noires ou 2 boules blanches et 4 boules noires. On obtient ainsi: $8^6+ 6\times 5\times 8^5 + \ddp \binom{6}{2}\times 5^2 \times 8^4$.
+		      \end{enumerate}
+	\end{enumerate}
+\end{correction}
+%------------------------
+
+\begin{exercice}  \;
+	Soient $n,\ p$ et $q$ trois entiers naturels. Le but de l'exercice est de d\'emontrer la formule suivante:
+	$$\sum\limits_{k=p}^{2p} \binom{k}{p}2^{2p-k}=2^{2p}.$$
+	Soit $\mathcal{M}$ l'ensemble des mots de $p+q+1$ lettres prises dans l'ensemble $\lbrace A,B\rbrace$.
+	\begin{enumerate}
+		\item Calculer $\card\left( \mathcal{M}\right)$.
+		\item On note $\mathcal{N}$ l'ensemble des \'el\'ements de $\mathcal{M}$ contenant au moins $p+1$ fois la lettre A. Etant donn\'e un entier $k\in\lbrace 1,\dots,q+1\rbrace$, on note $\mathcal{N}_k$ l'ensemble des \'el\'ements de $\mathcal{N}$ dont le $p+1$-i\`eme A se trouve en $p+k$-i\`eme position. D\'eterminer $\card\left( \mathcal{N}_k\right)$. En d\'eduire $\card{\left( \mathcal{N}\right)}$ sous forme d'une somme.
+		\item On note $\mathcal{R}$ l'ensemble des \'el\'ements de $\mathcal{M}$ contenant au moins $q+1$ fois la lettre B. D\'eterminer $\card\left(\mathcal{R} \right)$.
+		\item En d\'eduire la formule : $\sum\limits_{k=0}^q \binom{p+k}{p} 2^{q-k}+\sum\limits_{k=0}^p \binom{q+k}{q} 2^{p-k}=2^{p+q+1}.$
+		\item Conclure.
+	\end{enumerate}
+\end{exercice}
+\begin{correction}  \; \textbf{D\'emonstration d'une formule par le d\'enombrement}
+	\begin{enumerate}
+		\item Il s'agit ici de d\'enombrer le nombre de mots form\'es avec des A et des B. L'ordre intervient donc et il y a r\'ep\'etitions possibles:
+		      on peut prendre plusieurs fois la lettre A et plusieurs fois la lettre B. Un tel mot est donc une $(p+q+1)$-liste de deux lettres et on obtient ainsi
+		      $$\card (\mathcal{M})=2^{p+q+1}.$$
+		\item
+		      \begin{itemize}
+			      \item[$\bullet$] On veut que le $p+1$-i\`eme A se trouve en $p+k$-i\`eme position. Cela signifie que les $p+k-1$ premi\`eres lettres comporte
+				      $p$ lettres A. Pour les $p+k-1$ premi\`eres lettres, il y a donc autant de possibilit\'es que de fa\c{c}ons de placer ces $p$ lettres A parmi les $p+k-1$ lettres: on a donc $\ddp \binom{p+k-1}{p}$ choix possibles. Ensuite la $p+k$-i\`eme lettre est un A et il y a donc une seule possibilit\'e. Puis, pour les $q-k+1$ lettres restantes, il n'y a pas de restriction: on a donc $2^{q-k+1}$ possibilit\'es. Au final, on obtient
+				      $$\card (\mathcal{N}_k)= \ddp \binom{p+k-1}{p}2^{q-k+1}.$$
+			      \item[$\bullet$]  Il est cair que $\left( \mathcal{N}_1,\dots \mathcal{N}_{q+1} \right)$ est un syst\`eme complet de $\mathcal{N}$ puisque le $p+1$-i\`eme A se trouve entre la position $p+1$ et la position $p+q+1$ et les $\mathcal{N}_i$ sont bien 2 \`a 2 disjoints. Par cons\'equent, on a
+				      $$\card (\mathcal{N})=\sum\limits_{k=1}^{q+1}\card(\mathcal{N}_k)=\sum\limits_{k=1}^{q+1} \ddp \binom{p+k-1}{p}2^{q-k+1}.$$
+		      \end{itemize}
+		\item En utilisant un raisonnement similaire pour $\mathcal{R}$ (le $q+1$-i\`eme B pouvant se trouver entre la position $q+1$ et la position $p+q+1$), on obtient, en rempla\c{c}ant simplement $p$ par $q$ dans la formule pr\'ec\'edente,
+		      $$\card (\mathcal{R})=\sum\limits_{k=1}^{p+1}\card(\mathcal{R}_k)=\sum\limits_{k=1}^{p+1} \ddp \binom{q+k-1}{q}2^{p-k+1}.$$
+		\item Comme un mot de $\mathcal{M}$ comporte $p+q+1$ lettres, il comporte n\'ecessairement ou bien au moins $p+1$ lettres A, ou bien au moins $q+1$ lettres B, ce qui s'\'ecrit $\mathcal{M}=\mathcal{N}\cup\mathcal{R}$. Ensuite, $\mathcal{N}\cap \mathcal{R}$ d\'esigne l'ensemble des mots de $\mathcal{M}$ comportant au moins $p+1$ lettres $A$ et $q+1$ lettres $B$, ce qui n'est pas possible car un mot de $\mathcal{M}$ a $p+q+1$ lettres seulement. Ainsi, $\mathcal{N}\cap\mathcal{R}=\emptyset$. Par cons\'equent
+		      $$\begin{array}{lll}
+				      \card (\mathcal{M}) & = & \card (\mathcal{N})+\card (\mathcal{R})\vsec                                                                       \\
+				                          & = & \sum\limits_{k=1}^{p+1} \ddp \binom{p+k-1}{p}2^{q-k+1}+\sum\limits_{k=1}^{q+1} \ddp \binom{q+k-1}{q}2^{p-k+1}\vsec \\
+				                          & = & \sum\limits_{k=0}^{p} \ddp \binom{p+k}{p}2^{q-k}+\sum\limits_{k=0}^{q} \ddp \binom{q+k}{q}2^{p-k}\vsec             \\
+			      \end{array}
+		      $$
+		      en posant $k^{\prime}=k-1$ dans les deux sommes. En utilisant alors la question 1, on obtient
+		      $$\sum\limits_{k=0}^{p} \ddp \binom{p+k}{p}2^{q-k}+\sum\limits_{k=0}^{q} \ddp \binom{q+k}{q}2^{p-k}=2^{p+q+1} .$$
+		\item On applique alors la formule pr\'ec\'edente pour $p=q$ et cela nous donne
+		      $$ \sum\limits_{k=0}^{p} \ddp \binom{p+k}{p}2^{p-k}+\sum\limits_{k=0}^{p} \ddp \binom{p+k}{p}2^{p-k}=2^{2p+1}  .$$
+		      On divise alors par $2$ de chaque c\^ot\'e et on obtient
+		      $$\sum\limits_{k=0}^{p} \ddp \binom{p+k}{p}2^{p-k}=2^{2p}.$$
+		      Si on pose alors $k^{\prime}= p+k$, on a:
+		      $$\sum\limits_{k=0}^{p} \ddp \binom{p+k}{p}2^{p-k}=\sum\limits_{k=p}^{2p} \ddp \binom{k}{p}2^{2p-k}=2^{2p}.$$
+		      On obtient bien la formule voulue.
+	\end{enumerate}
+\end{correction}
+\end{document}

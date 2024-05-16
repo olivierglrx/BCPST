@@ -1,0 +1,1623 @@
+\documentclass[a4paper, 11pt]{article}
+\input{macro/package.tex}
+\input{macro/environement}
+\input{macro/header.tex}
+\input{macro/newcommand.tex}
+\geometry{hmargin=2.0cm, vmargin=2.5cm}
+
+
+
+
+\begin{document}
+\tableofcontents
+
+\title{ CH 8 :  Vocabulaire des Applications}
+% debut
+%------------------------------------------------
+
+
+%------------------------------------------------
+%-------------------------------------------------
+%-------------------------------------------------
+%--------------------------------------------------
+%------------------------------------------------
+\section{Applications d'un ensemble dans un autre}
+
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\subsection{D\'efinitions et exemples}
+
+
+
+
+
+\begin{defi} Soient $E$ et $F$ deux ensembles.
+	\begin{itemize}
+		\item[$\bullet$] Une application (ou fonction) de $E$ dans $F$ est un proc\'ed\'e qui associe à tout élément de $E$ un unique élément de $F$.
+		\item[$\bullet$] $E$ est appelé domaine de définition de $f$, ou ensemble de départ.
+		\item[$\bullet$] $F$ est  l'ensemble d'arrivée de $f$
+		\item[$\bullet$] $y=f(x)$ est l'image de $x$ par $f$.
+		\item[$\bullet$] $x$ est  un antécédent de $y$ par $f$.
+			%\item[$\bullet$] On note $f: \begin{array}{lll}
+			%E & \rightarrow & F\vsec\\
+			%x&\mapsto & f(x)
+			%\end{array}$ ou $f: x\mapsto f(x)$ s'il n'y a pas d'ambigu\"it\'e sur les ensembles.
+	\end{itemize}
+\end{defi}
+
+
+
+
+\textbf{Notations}: On note $f: \left| \begin{array}{lll}
+		E & \rightarrow & F\vsec \\
+		x & \mapsto     & f(x)
+	\end{array} \right.$ ou $f: x\mapsto f(x)$ s'il n'y a pas d'ambigu\"it\'e sur les ensembles.
+
+
+
+
+\begin{rems}
+	\begin{itemize}
+		\item[$\bullet$]  \warning  Ne pas confondre $f$ : la fonction, la "machine" qui fait passer de $x$ à $f(x)$
+			\hspace*{2.8cm} et $f(x)$:  l'élement de l'espace d'arrivée.
+
+			C'est comme confondre des carottes rapées et le mixeur qui a été utilisé pour les raper.
+
+	\end{itemize}
+\end{rems}
+
+
+{\footnotesize
+\begin{exercice}
+	\begin{enumerate}
+		\item Soit $f: \left| \begin{array}{lll} \R & \rightarrow & \R     \\
+             x        & \mapsto     & x^2 +2\end{array} \right.$. Donner l'image de 4 par $f$. Donner s'ils existent les ant\'ec\'edents de $11, 0$ et $5$ par $f$.
+		\item Soit $g: \left| \begin{array}{lll} \Z & \rightarrow & \N    \\
+             n        & \mapsto     & n^2+2\end{array} \right.$. Donner l'image de 4 par $g$. Donner s'ils existent les ant\'ec\'edents de $11, 0$ et $5$ par $g$.
+
+		\item Soit $F: \left| \begin{array}{lll} \R^2 & \rightarrow & \R^3            \\
+             (x,y)      & \mapsto     & (2x+y,x-y,x+2y)\end{array} \right.$. Donner l'image de $(1,2)$ par $F$. Donner s'ils existent les ant\'ec\'edents de $(1,2,3)$ et $(2,1,1)$
+	\end{enumerate}
+\end{exercice}}
+
+
+%
+
+\paragraph{Exemples usuels}
+
+\begin{enumerate}
+	\item[\ding{182}] \textbf{L'identit\'e:}\\
+		\noindent Soit $E$ un ensemble. On d\'efinit la fonction identit\'e de $E$ not\'ee $\hbox{Id}_E$ par:
+
+	\item[\ding{183}] \textbf{La fonction caract\'eristique ou fonction indicatrice d'un ensemble:}\\
+		\noindent Soit $E$ un ensemble et $A$ un sous ensemble de $E$. On d\'efinit la fonction caract\'eristique de $A$ ou fonction indicatrice de $A$ par
+		$$\chi_A: \left| \begin{array}{lll} E & \rightarrow & \{0,1\}                         \\
+             x       & \mapsto     & \left\{ \begin{array}{ll}
+				                                             1 & \text{ si $x\in A$} \\
+				                                             0 & \text{ sinon}
+			                                             \end{array}		\right.\end{array} \right. $$
+	\item[\ding{184}] \textbf{Les fonctions num\'eriques:}\\
+		\noindent Exemples: (ne pas oublier les ensembles de départ et d'arrivée)
+		$f(x) = \exp(x)$
+
+
+
+	\item[\ding{185}] \textbf{Les suites}
+
+		Ce sont  les fonctions de $\N$ dans $\R$
+
+
+	\item[\ding{186}] \textbf{Exemples de fonctions d'une variable complexe et/ou \`{a} valeurs complexes}
+		\begin{itemize}
+			\item[$\bullet$] $\theta\mapsto e^{i\theta}$
+			\item[$\bullet$] $z\mapsto \frac{z-i}{z+2}$
+			\item[$\bullet$]  $z \mapsto |z|$
+		\end{itemize}
+		\vsec
+
+
+	\item[\ding{187}] \textbf{Exemples de fonctions \`{a} plusieurs variables}
+		\begin{itemize}
+			\item[$\bullet$]  $(x,y) \mapsto (2x+y, x-y)$
+			\item[$\bullet$]  $(x,y) \mapsto (exp(x)+\frac{y}{\cos(x)}, 1)$
+		\end{itemize}
+
+\end{enumerate}
+
+
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%\subsection{\'Egalit\'e entre applications}
+
+\noindent  {\noindent
+
+	\begin{defi} Deux applications $f$ et $g$ sont \'egales si
+		\begin{itemize}
+			\item[$\bullet$]  Elles ont même ensemble de départ (E) et d'arrivée (F).
+			\item[$\bullet$]  Et pour tout $x\in E$, $f(x)=g(x)$
+				%\item[$\bullet$] \dotfill \vsec
+		\end{itemize}
+	\end{defi}
+
+}
+
+\begin{rem}
+	\warning  Les domaines de d\'epart et d'arriv\'ee sont  importants !
+\end{rem}
+\vsec
+%
+%\noindent  {\noindent  
+%
+%\begin{defi} Soient $E$ et $F$ deux ensembles, et $f: E\rightarrow F$. 
+%\begin{itemize}
+%\item[$\bullet$] Soit $E_1$ un sous-ensemble de $E$. On appelle restriction de $f$ \`a $E_1$ l'application :
+%$$f_{E_1} : \left|\begin{array}{r}
+%\hspace*{3cm}\vsec\\
+%\vsec
+%\end{array}\right.$$
+%\item[$\bullet$] Soit $E_2$ un ensemble contenant $E$. On appelle prolongement de $f$ \`a $E_2$ toute application :
+%$h : \left|\begin{array}{rcl}
+%E_2 & \to & F\\
+%x & \mapsto & h(x)
+%\end{array}\right.$ telle que $\forall x \in E$, \dotfill
+%\end{itemize}
+%\end{defi}
+% 
+%}
+%
+%
+%
+%\begin{rem}
+%\warning  La restriction de $f$ \`a un sous-ensemble est unique, mais on peut trouver beaucoup de prolongements \`a une application si on n'impose pas de contrainte !
+%\end{rem}
+%
+%
+%{\footnotesize 
+%\begin{exercice}
+%Soit $f : \left|\begin{array}{rcl}
+%\R^+ & \to & \R\\
+%x & \mapsto & x^2
+%\end{array}\right.$. Donner la restriction de $f$ \`a $[0,1]$, ainsi que deux prolongements de $f$ sur $\R$.
+%\end{exercice}
+%}
+%On verra plus tard le prolongement par continuité, lui est unique. 
+
+%-----------------------------------------------------------
+%----------------------------------------------------------
+
+
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\subsection{Image directe }
+
+
+\begin{defi}
+	Soit $f$ une application de $E$ dans $F$ et  $A$ un sous-ensemble de $E$.\\
+	On appelle image directe de $A$ par $f$:
+	$$f(A)=\{ f(x)| x\in A\}$$
+	Ainsi on a toujours $f(A)\subset F$
+\end{defi}
+
+Avec des quantificateurs :
+$y\in f(A)\Longleftrightarrow  \exists x\in A \, f(x)=y$
+
+
+
+
+
+\begin{exemples}
+	$$\exp{(\R)}=\hspace{2cm} \cos{\left( \left\lbrack 0,\ddp\frac{\pi}{2}\right\rbrack \right)}=\hspace{2cm} \tan{\left( \left\rbrack -\ddp\frac{\pi}{2} \ddp\frac{\pi}{2}\right\lbrack \right)}=\hspace{2cm} \ln{\left( \rbrack 0,1\rbrack \right)}=\hspace{2cm}$$
+\end{exemples}
+
+
+%
+%
+%\noindent\ {D\'efinition de l'image r\'eciproque}\\
+%
+%\noindent 
+%\noindent  {\noindent  
+%
+%\begin{defi}
+%Soit $f$ une application de $E$ dans $F$.\\
+%\noindent Soit $B$ un sous-ensemble de $F$.\\
+%\noindent On appelle image r\'eciproque de $B$ par $f$:
+%$$f^{-1}(B)=\hspace{12cm}$$
+%Ainsi on a toujours $f^{-1}(B)\subset \dots$
+%\end{defi}
+% 
+%}
+%$x\in f^{-1}(B)\Longleftrightarrow f(x)\in B $
+% 
+%
+%
+%
+%\begin{exemples}
+%$$\exp^{-1}{(\R^-)}=\hspace{2cm} \cos^{-1}{\left| \lbrack -1,1\rbrack \right)}=\hspace{2cm} \tan^{-1}{\left| \R^+ \right)}=\hspace{4cm} \ln^{-1}{\left| \rbrack 0,1\rbrack \right)}=\hspace{2cm}$$
+%\end{exemples}
+%
+% \noindent \warning  L'\'ecriture $f^{-1}(B)$ est abusive!!! Elle n'implique pas du tout \dotfill
+%
+%{\footnotesize 
+%\begin{exercice}
+%\begin{enumerate}
+%\item Soit $f: \N\rightarrow \N$ d\'efinie par $n\mapsto 2n$. Calculer $f(A)$ et $f^{-1}(B)$ avec $A=\lbrace 1,2,4,10\rbrace$ et $B=\lbrace 0,1,2,3\rbrace$.
+%\item Soit $g: \R\rightarrow \R$ la fonction carr\'ee. Calculer $g^{-1}(\R^-)$, $g^{-1}(\R^{-\star})$, $g^{-1}(\lbrack 1,4\rbrack)$, $g^{-1}(\lbrack -1,4\rbrack)$.%, $g(\lbrack 1,2\rbrack)$ et $g(\lbrack 4,8\rbrack)$.
+%\end{enumerate}
+%\end{exercice}}
+%{\footnotesize 
+%\begin{exercice}
+%Soit $f$ une application de $E$ dans $F$ et $B$ un sous-ensemble de $F$. Montrer que $f\left| f^{-1}(B)\right)\subset B$.
+%\end{exercice}}
+
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%\subsection{Compatibilit\'e avec l'inclusion, l'union et l'intersection }
+
+
+
+\begin{prop}
+	Soit $f$ une application de $E$ dans $F$. Soient $A$, $B$ sous-ensembles de $E$.% et $C$, $D$ sous ensembles de $F$.\vsec\\
+
+	\begin{minipage}{0.4\textwidth}
+		\begin{itemize}
+			\item[$\bullet$] Si $A\subset B$ alors  $f(A)\subset f(B)$
+			\item[$\bullet$] $f(A\cup B)= f(A) \cup f(B)$
+			\item[$\bullet$] $f(A\cap B)\cup f(A) \cap f(B)$
+		\end{itemize}
+	\end{minipage}
+	%\begin{minipage}{0.3\textwidth}
+	%\begin{itemize}
+	%\item[$\bullet$] Si $C\subset D$ alors  \vsec
+	%\item[$\bullet$] $f^{-1}(C\cup D)=$ \vsec
+	%\item[$\bullet$] $f^{-1}(C\cap D)=$ \vsec
+	%\end{itemize}
+	%\end{minipage}
+
+\end{prop}
+
+\begin{exemples}
+	Calculer
+	$$ \ddp \cos{\left( \left\lbrack 0, \ddp\frac{\pi}{2}\right\rbrack \right)} \cap
+		\cos{\left( \left\lbrack  \frac{-\pi}{2},0 \right\rbrack \right)}
+	$$
+
+	puis
+
+	$$ \cos{\left( \left\lbrack 0,\ddp\frac{\pi}{2}\right\rbrack \cap
+			\left\lbrack \frac{-\pi}{2},\ddp 0 \right\rbrack \right)}
+	$$
+\end{exemples}
+
+
+
+\begin{exemple}
+	\begin{itemize}
+		\item Soit la fonction $f$ d\'efinie par $f(x)=\ddp\frac{3x}{1-x^2}$. Calculer  $f(\rbrack -1,1\lbrack)$ et $f(\rbrack -2,0\rbrack\setminus\lbrace -1\rbrace)$.%, puis $f^{-1}(\lbrack 0,1\rbrack)$ et $f^{-1}(\R^+)$. 
+
+		      %\item Soit $f: z\in\bC\mapsto |z|\in\R$. Calculer $f^{-1}(\lbrace 1\rbrace)$.
+		      %\item Soit $g: z\in\bC^*\mapsto \arg{(z)}\in\R$. Calculer $g(\R^{\star})$, $g(i\R^{\star})$, $g(\R^{-\star})$ et $g(i\R^{+\star})$. 
+		      %\item Soit $h: z\in\bC\setminus\lbrace 1\rbrace\mapsto \ddp\frac{z+1}{z-1}\in\bC$. Montrer que $h(\mathbb{U}\setminus\lbrace 1\rbrace)\subset i\R$.
+
+	\end{itemize}
+\end{exemple}
+
+
+\subsection{Composition des applications}
+
+\noindent  {\noindent
+
+	\begin{defi} Soient $E,\ F$ et $G$ trois ensembles, $f: E\rightarrow F$ et $g: F\rightarrow G$.
+		\begin{itemize}
+			\item[$\bullet$] On appelle application compos\'ee de $f$ par $g$ not\'ee $g\circ f$ l'application d\'efinie par
+				$$g\circ f:  \left| \begin{array}{lll} E & \rightarrow & G       \\
+             x       & \mapsto     & g(f(x))\end{array} \right.$$
+			\item[$\bullet$] Cela correspond au diagramme suivant:
+				\begin{center}
+					\includegraphics[scale=0.5]{Compo.jpg}
+				\end{center}
+
+		\end{itemize}
+	\end{defi}
+
+}
+
+
+
+\begin{exemples}
+	Calculer pour chacun des cas suivants et lorsque cela a un sens $f\circ g$ et $g\circ f$.
+	\begin{enumerate}
+		\item On consid\`ere les deux applications $f:
+			      \left|\begin{array}{lll}
+				      \R & \rightarrow & \R\vsec \\
+				      x  & \mapsto     & x^2-1
+			      \end{array} \right. $ et $g:
+			      \left|\begin{array}{lll}
+				      \R & \rightarrow & \R\vsec   \\
+				      x  & \mapsto     & \ddp x-2.
+			      \end{array} \right.$
+
+		\item On consid\`ere les deux applications $f:
+			      \left|\begin{array}{lll}
+				      \R & \rightarrow & \R^{+}\vsec \\
+				      x  & \mapsto     & x^2
+			      \end{array} \right. $ et $g:
+			      \left|\begin{array}{lll}
+				      \R^+ & \rightarrow & \R\vsec        \\
+				      x    & \mapsto     & \ddp \sqrt{x}.
+			      \end{array}\right.$
+
+		\item On consid\`ere les deux applications $f:
+			      \left|\begin{array}{lll}
+				      ]0,+\infty[ & \rightarrow & \R\vsec \\
+				      x           & \mapsto     & \ln x
+			      \end{array} \right. $ et $g:
+			      \left|\begin{array}{lll}
+				      \R & \rightarrow & \R^{-}\vsec \\
+				      x  & \mapsto     & \ddp -x^2.
+			      \end{array} \right.$
+
+	\end{enumerate}
+\end{exemples}
+%\begin{rems}
+%\begin{itemize}
+%\item[$\bullet$] \noindent \warning  \dotfill
+%\item[$\bullet$] \noindent \warning  \dotfill
+%\end{itemize}
+%\end{rems}
+
+
+
+
+
+
+
+
+% 
+%------------------------------------------------
+%-------------------------------------------------
+%-------------------------------------------------
+%--------------------------------------------------
+%------------------------------------------------
+\section{Applications injectives}
+
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%\subsection{Applications injectives: d\'efinition et propri\'et\'es}
+\subsection{D\'efinition et exemples}
+
+%\noindent\ {D\'efinition et exemples}\\
+
+\noindent  {\noindent
+
+	\begin{defi} Soient $E,\ F$ deux ensembles et $f: E\rightarrow F$ une application.\\
+		\noindent On dit que $f$ est injective de $E$ dans $F$ ou que $f$ est une injection de $E$ dans $F$ si chaque élément image a au plus un antécédent.
+	\end{defi}
+
+}
+
+
+
+\begin{exemple}
+	Parmi les dessins suivants, lequel repr\'esente une fonction injective ? \\
+
+\end{exemple}
+
+Avec des quantificateurs :
+%$$ \forall y \in F, Card(f^{-1}(\{ y\} ) \leq 1$$
+$$\forall x, y \in E^2, f(x)= f(y) \implique x= y$$
+$$\forall x, y \in E^2, x\neq y \implique f(x)\neq f(y)$$
+
+
+
+
+
+\begin{exercice}
+	Soit $f: A\rightarrow B$ et $g: B\rightarrow C$. Montrer que $g\circ f$ injective $\Rightarrow$ $f$ injective.
+\end{exercice}
+
+\begin{exercice}
+	Montrer que l'application $z \in \bC \mapsto \overline{z} \in \bC$ est injective.
+\end{exercice}
+
+
+
+\begin{exercice}
+	\'Etudier l'injectivit\'e des fonctions suivantes:
+	\begin{enumerate}
+
+		\item $x\in\R\mapsto |x|\in\R$
+		\item $z\in\bC\mapsto |z|\in\R^+$.
+		      %\item[$\bullet$] $z\in\bC\mapsto \overline{z}\in\bC$.
+
+
+		      %\item[$\bullet$] $x\in\R\mapsto x^2\in\R$
+		\item  $z\in\bC\mapsto \Re{(z)}\in\R$.
+		\item $\theta \in\R\mapsto e^{i\theta} \in\bC$.
+
+	\end{enumerate}
+\end{exercice}
+
+
+
+
+
+\begin{rem}
+	Pour les fonctions num\'eriques, l'injectivit\'e s'observe graphiquement en balayant le plan par une droite horizontale qui doit rencontrer au plus une fois le graphe de la fonction.\\
+	\noindent Exemples :
+
+\end{rem}
+
+
+\subsection{Cas particulier des fonctions num\'eriques}
+
+\noindent Si $f:I\to \R$ avec $I \subset \R$, on peut utiliser la propri\'et\'e suivante :\\
+
+
+\begin{prop} Soient $I\subset \R$ et $f: I\rightarrow \R$ une application.\vsec\\
+	Si $f$ est strictement monotone sur $I$ alors  $f$ est injective sur $I$.
+\end{prop}
+
+
+
+
+\begin{rem} Lien avec la composition d'\'egalit\'es par une fonction:
+	\begin{itemize}
+		\item[$\bullet$] $a=b\Longrightarrow f(a)=f(b)$ est toujours vrai.
+			%\item[$\bullet$] \dotfill
+		\item[$\bullet$] $a=b \Longleftrightarrow f(a)=f(b)$ seulement quand $f$ est injective.
+	\end{itemize}
+\end{rem}
+
+
+
+
+
+M\'ethode : toujours commencer par \'etudier la fonction et faire son tableau de variation. Cela permet:
+\begin{itemize}
+	\item[$\bullet$] De prouver directement l'injectivit\'e l\`{a} o\`{u} elle est strictement monotone.
+	\item[$\bullet$] De donner une id\'ee du contre-exemple l\`{a} o\`{u} elle n'est pas injective.\vsec
+\end{itemize}
+
+\setlength\fboxrule{0.5pt}
+
+{\footnotesize
+	\begin{exercice}
+		\'Etudier l'injectivit\'e des fonctions $f: x \mapsto \ddp\frac{e^x-1}{e^x+1}$ et $g:x\mapsto \ddp\frac{x^2}{1+x}$.
+	\end{exercice}}
+
+
+
+
+% 
+
+\begin{rem}
+	Le caract\`{e}re injectif d'une fonction est li\'e \`{a} son ensemble de d\'epart. Ainsi si $f$ n'est pas injective, il est possible de restreindre $f$ sur un ensemble de d\'epart plus petit pour obtenir une injection.\\
+	\noindent Exemple : trouver un intervalle $I$ tel que la fonction $f : \left| \begin{array}{ccl}
+			I & \rightarrow & \R^+ \\
+			x & \mapsto     & x^2
+		\end{array} \right.$ soit injective.
+
+\end{rem}
+
+%
+
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%\subsection{Caract\'erisations}
+%%\noindent\ {Caract\'erisations}\\
+%
+%%\noindent \textbf{\large{\ding{182}}} \underline{\textbf{\large{ Avec la d\'efinition.}}}
+%\noindent\ {Avec la d\'efinition}\\
+%%
+%
+%\noindent  {\noindent  
+%
+%\begin{prop} Soient $E,\ F$ deux ensembles et $f: E\rightarrow F$ une application.\vsec\\
+%$f$ est injective de $E$ dans $F$ $\Longleftrightarrow$\dotfill\vsec
+%\end{prop}
+% 
+%}
+%\vsec
+%
+%\noindent M\'ethode :\\
+%\noindent 
+%
+%\begin{itemize}
+%\item[$\bullet$] \dotfill\vsec
+%\item[] \dotfill\vsec
+%\item[] 
+%\item[$\bullet$] \dotfill\vsec
+%%\item[] \dotfill\vsec
+%\end{itemize}
+% 
+%\quad
+%%\hspace{0.5cm}
+%
+%\setlength\fboxrule{1pt}
+%\noindent  {
+%
+%Soit $(x_1,x_2)\in E^2$ tel que $f(x_1)=f(x_2)$. \\
+%\phantom{\hspace{0cm}}\dotfill \\
+%\phantom{\hspace{0cm}}\dotfill \\
+%\phantom{\hspace{0cm}}\dotfill \\
+%Donc $x_1=x_2$.\\
+%Conclusion: $f$ est injective de $E$ dans $F$.\\
+% }
+%\setlength\fboxrule{0.5pt}
+% 
+%
+%{\footnotesize 
+%-}
+%
+%
+%
+%
+%%\noindent \textbf{\large{\ding{183}}} \underline{\textbf{\large{Par la contrapos\'ee de la d\'efinition.}}}
+%%
+%\noindent\ {Par la contrapos\'ee de la d\'efinition}\\
+%
+%\noindent  {\noindent  
+%
+%\begin{prop} Soient $E,\ F$ deux ensembles et $f: E\rightarrow F$ une application.\vsec\\
+%$f$ est injective de $E$ dans $F$ $\Longleftrightarrow$\dotfill\vsec
+%\end{prop}
+% 
+%}
+%\vsec
+%
+%\noindent M\'ethode :\\
+%\noindent 
+%%
+%\begin{itemize}
+%\item[$\bullet$] \dotfill\vsec
+%\item[] \dotfill\vsec
+%\item[] 
+%\item[$\bullet$] \dotfill\vsec
+%\item[] \dotfill\vsec
+%\end{itemize}
+% 
+%\quad
+%%\hspace{0.5cm}
+%
+%\setlength\fboxrule{1pt}
+%\noindent  {
+%
+%Soit $(x_1,x_2)\in E^2$ tel que $x_1\not= x_2$. \\
+%\phantom{\hspace{0cm}}\dotfill \\
+%\phantom{\hspace{0cm}}\dotfill \\
+%\phantom{\hspace{0cm}}\dotfill \\
+%Donc $f(x_1)\not=f(x_2)$.\\
+%Conclusion: $f$ est injective de $E$ dans $F$.\\
+% }
+%\setlength\fboxrule{0.5pt}
+% 
+%
+%{\footnotesize 
+%\begin{exercice}
+%Montrer que l'application $z \in \bC \mapsto \overline{z} \in \bC$ est injective.
+%\end{exercice}}
+%
+
+
+
+%\noindent \textbf{\large{\ding{184}}} \underline{\textbf{\large{Pour montrer que $f$ n'est pas injective.}}}
+%%
+%\noindent\ {Pour montrer que $f$ n'est pas injective}\\
+%
+%\noindent En niant la d\'efinition, on obtient la m\'ethode pour montrer qu'une application $f$ n'est pas injective de $E$ dans $F$:\\
+%
+%\noindent  {\noindent  
+%
+%\begin{prop} Soient $E,\ F$ deux ensembles et $f: E\rightarrow F$ une application.\vsec\\
+%$f$ n'est pas injective de $E$ dans $F$ $\Longleftrightarrow$ \dotfill\vsec
+%\end{prop}
+% 
+%}
+
+
+
+
+
+
+
+%\noindent \textbf{\large{\ding{184}}} \underline{\textbf{\large{Cas particulier des fonctions strictement monotones.}}}
+%
+\noindent
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%\subsection{M\'ethodes pour montrer qu'une application est injective}
+%
+%
+%\noindent\ {M\'ethodes dans le cas g\'en\'eral}\\
+%
+%\begin{enumerate}
+%\item[\textbf{\large{\ding{182}}}] \underline{\textbf{\large{ M\'ethode 1: par la d\'efinition:}}}\\
+%
+%\noindent C'est la m\'ethode la plus courante pour r\'esoudre des exercices (hors exercices avec des fonctions num\'eriques).\\
+%
+%\noindent 
+%
+%\begin{itemize}
+%\item[$\bullet$] \dotfill\vsec
+%\item[] \dotfill\vsec
+%\item[] 
+%\item[$\bullet$] \dotfill\vsec
+%\item[] \dotfill\vsec
+%\end{itemize}
+% 
+%\quad
+%%\hspace{0.5cm}
+%
+%\setlength\fboxrule{1pt}
+%\noindent  {
+%
+%Soit $(x_1,x_2)\in E^2$ tel que $f(x_1)=f(x_2)$. \\
+%\phantom{\hspace{0cm}}\dotfill \\
+%\phantom{\hspace{0cm}}\dotfill \\
+%\phantom{\hspace{0cm}}\dotfill \\
+%Donc $x_1=x_2$.\\
+%Conclusion: $f$ est injective de $E$ dans $F$.\\
+% }
+%\setlength\fboxrule{0.5pt}
+% 
+%
+%{\footnotesize 
+%\begin{exercice}
+%Soit $f: A\rightarrow B$ et $g: B\rightarrow C$. Montrer que $g\circ f$ injective $\Rightarrow$ $f$ injective.
+%\end{exercice}}
+%
+%
+%\item[\textbf{\large{\ding{183}}}] \underline{\textbf{\large{ M\'ethode 2: par la contrapos\'ee:}}}\\
+%
+%\noindent On l'utilise moins.
+%
+%\noindent 
+%
+%\begin{itemize}
+%\item[$\bullet$] \dotfill\vsec
+%\item[] \dotfill\vsec
+%\item[] 
+%\item[$\bullet$] \dotfill\vsec
+%\item[] \dotfill\vsec
+%\end{itemize}
+% 
+%\quad
+%%\hspace{0.5cm}
+%
+%\setlength\fboxrule{1pt}
+%\noindent  {
+%
+%Soit $(x_1,x_2)\in E^2$ tel que $x_1\not= x_2$. \\
+%\phantom{\hspace{0cm}}\dotfill \\
+%\phantom{\hspace{0cm}}\dotfill \\
+%\phantom{\hspace{0cm}}\dotfill \\
+%Donc $f(x_1)\not=f(x_2)$.\\
+%Conclusion: $f$ est injective de $E$ dans $F$.\\
+% }
+%\setlength\fboxrule{0.5pt}
+% 
+%
+%% 
+%\item[\textbf{\large{\ding{184}}}] \underline{\textbf{\large{ M\'ethode 3: en trouvant un contre-exemple pour montrer la non injectivit\'e:}}}\\
+%
+%\setlength\fboxrule{1pt}
+%\noindent  {
+%
+%Trouver deux \'el\'ements $(x_1,x_2)\in E^2$ tels que:
+%\begin{itemize}
+%\item[$\bullet$] \dotfill 
+%\item[$\bullet$] ET \dotfill
+%\end{itemize}
+%Conclusion: $f$ n'est pas injective de $E$ dans $F$.\\
+% }
+%\setlength\fboxrule{0.5pt}
+%
+%{\footnotesize 
+%\begin{exercice}
+%Montrer que les deux applications suivantes ne sont pas injectives: $f : \theta\in\R\mapsto e^{i\theta}\in\bC$ et $g: z\in\bC\mapsto \im{(z)}\in\R$.
+%\end{exercice}}
+%
+%\end{enumerate}
+%
+%
+%\noindent\ {Cas particulier des fonctions num\'eriques: M\'ethodes}\\
+%
+%\setlength\fboxrule{1pt}
+%\noindent  {
+%
+%Toujours commencer par \'etudier la fonction et faire son tableau de variation.\\
+%Cela permet:
+%\begin{itemize}
+%\item[$\bullet$] De prouver directement l'injectivit\'e l\`{a} o\`{u} elle est strictement monotone.
+%\item[$\bullet$] De donner une id\'ee du contre-exemple l\`{a} o\`{u} elle n'est pas injective.\vsec
+%\end{itemize}
+% }
+%\setlength\fboxrule{0.5pt}
+%
+%{\footnotesize 
+%\begin{exercice} 
+%\'Etudier l'injectivit\'e des applications $f: x\in\R\mapsto \sin{(x)}+2x\in\R$, $g: x\in\R^{+\star}\mapsto \ddp\frac{\sqrt{x}}{x}\in\R$ et $h : x \in \R \backslash \{3\} \mapsto \ddp\frac{2x^2}{x-3} \in \R$.
+%\end{exercice}}
+%
+%
+% 
+%------------------------------------------------
+%-------------------------------------------------
+%-------------------------------------------------
+%--------------------------------------------------
+%------------------------------------------------
+\section{Applications surjectives}
+
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\subsection{D\'efinition et exemples}
+
+
+\begin{defi} Soient $E,\ F$ deux ensembles et $f: E\rightarrow F$ une application.
+	On dit que $f$ est surjective de $E$ dans $F$ ou que $f$ est une surjection de $E$ dans $F$ si
+\end{defi}
+
+Avec des quantificateurs :
+%$$ \forall y \in F, Card(f^{-1}(\{ y\} ) \geq 1$$
+$$\forall  y \in F, \, \exists x\in E, \,  y=f(x)$$
+
+
+
+
+\begin{exemple}
+	Parmi les dessins suivants, lequel repr\'esente une fonction surjective ?
+
+\end{exemple}
+
+
+
+
+\begin{rem}
+	Le caract\`{e}re surjectif d'une fonction est ainsi li\'e \`{a} son ensemble d'arriv\'ee. Ainsi si $f$ n'est pas surjective, il est possible de restreindre l'ensemble d'arriv\'ee pour obtenir une application surjective.\\
+	Exemple :
+\end{rem}
+
+
+
+\begin{exercice}
+	Soit $f: A\rightarrow B$ et $g: B\rightarrow C$. Montrer que $g\circ f$ surjective $\Rightarrow$ $g$ surjective.
+\end{exercice}
+
+\begin{exercice}
+	\'Etudier la surjectivit\'e des fonctions suivantes:
+	\begin{enumerate}
+
+		\item $x\in\R\mapsto \cos x \in\R$.
+		\item $x\in\R\mapsto x^2+4x\in\R$.
+
+
+		\item $\theta\in\R\mapsto e^{i\theta}\in\bC$.
+		\item $z\in\bC\mapsto |z|\in\R$.
+
+	\end{enumerate}
+\end{exercice}
+
+
+
+\subsection{Cas des fonctions num\'eriques}
+
+\begin{rem}
+	Pour les fonctions num\'eriques, la surjectivit\'e s'observe graphiquement en balayant le plan par une droite horizontale qui doit rencontrer \dotfill le graphe de la fonction.\\
+	\noindent Exemples:%\dotfill
+
+
+
+\end{rem}
+
+
+\noindent On peut alors utiliser le th\'eor\`eme des valeurs interm\'ediaires.\\
+
+\noindent  {\noindent
+
+	\begin{prop} Soit $f$ une fonction \dotfill sur un intervalle $[a,b]$.\\
+		Alors pour tout $y$ compris entre $f(a)$ et $f(b)$, il existe $c \in [a,b]$ tel que $y=f(c)$.
+	\end{prop}
+
+}\vsec
+
+\noindent Il est possible de g\'en\'eraliser avec des intervalles ouverts ou semi-ouverts, en utilisant les limites.
+
+	{\footnotesize
+		\begin{exercice}
+			Soit la fonction d\'efinie par $f(x)=\ddp\frac{x^3}{x^2+1}$. Montrer que $f$ est surjective de $\R$ dans $\R$.
+		\end{exercice}}
+
+
+
+
+
+\subsection{Lorsque l'on conna\^it l'expression de $f$}
+
+\noindent Dans le cas d'exercices plus concrets dans lesquels l'expression de la fonction est connue, on peut raisonner par analyse-synth\`ese en r\'esolvant l'\'equation $f(x)=y$.\\
+
+\begin{itemize}
+	\item[$\bullet$] \textbf{Analyse :} Soit $y\in F$. On r\'esout l'\'equation $f(x)=y$ d'inconnue $x \in E$.
+	\item[$\bullet$] \textbf{Synth\`{e}se:} deux cas sont possibles.
+		\begin{itemize}
+			\item[$\star$] Si pour tout $y \in F$, l'\'equation $f(x)=y$ admet au moins une solution $x$ dans $E$, alors $f$ est surjective de $E$ dans $F$.
+			\item[$\star$] S'il existe au moins un $y \in F$ tel que l'\'equation $f(x)=y$ n'admet pas de solution $x$ dans $E$, alors $f$ n'est pas surjective de $E$ dans $F$.
+		\end{itemize}
+\end{itemize}
+
+
+
+
+\begin{exercice}
+	On consid\`ere la fonction $f$ d\'efinie sur $\bC$ par $f(z)=\exp(z)$. Montrer que $f$ est surjective de $\bC$ dans $\bC^\star$.
+\end{exercice}
+
+\begin{exercice}
+	On consid\`ere la fonction $f$ d\'efinie sur $\bC$ par $f(z)=\frac{2z+i}{z-i}$. Montrer que $f$ est surjective de $D_f$ dans $\bC\setminus\{2\}$.
+\end{exercice}
+
+
+%{\footnotesize 
+%\begin{exercice}
+%Soit la fonction d\'efinie par $f(x)=\ddp\frac{2x+1}{x-1}$. Montrer que $f$ est surjective de $\R\setminus\lbrace 1\rbrace$ dans $\R\setminus\lbrace 2\rbrace$.
+%\end{exercice}}
+%
+%\noindent \warning  Dans tous les cas, lorsque l'on doit \'etudier la surjectivit\'e d'une fonction num\'erique dont on conna\^{i}t l'expression, on commence toujours par \'etudier la fonction et tracer son tableau de variation. Cela donne une id\'ee du r\'esultat que l'on doit montrer.\\
+
+
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\section{Applications bijectives}
+
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\subsection{D\'efinition et exemples}
+
+%\noindent\ {D\'efinition et exemples}\\
+
+
+
+\begin{defi} Soient $E,\ F$ deux ensembles et $f: E\rightarrow F$ une application.
+	\begin{itemize}
+		\item[$\bullet$] On dit que $f$ est bijective de $E$ dans $F$ ou que $f$ est une bijection de $E$ dans $F$ si $f$ est bijective et injective.
+	\end{itemize}
+\end{defi}
+
+
+Avec des quantificateurs :
+%$$ \forall y \in F, Card(f^{-1}(\{ y\} ) = 1$$
+$$\forall  y \in F, \, \exists ! x\in E, \,  y=f(x)$$
+
+
+
+
+
+\begin{rems}
+	\begin{itemize}
+		\item[$\bullet$] Le caract\`{e}re bijectif d'une application est ainsi li\'e \`{a} son ensemble de d\'epart et d'arriv\'ee. Ainsi si $f$ n'est pas bijective, il est possible de restreindre les ensemble de d\'epart et d'arriv\'ee pour obtenir une application bijective.
+		\item[$\bullet$] \noindent \warning  Que ce soit pour l'injectivit\'e, la surjectivit\'e ou la bijectivit\'e d'une application, il est indispensable de toujours bien pr\'eciser \dotfill
+	\end{itemize}
+\end{rems}
+
+%
+
+%\noindent\ {Caract\'erisation des applications bijectives et application r\'eciproque}\\
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\subsection{Application r\'eciproque}
+
+
+\noindent  {\noindent
+
+	\begin{prop} Soient $E,\ F$ deux ensembles et $f: E\rightarrow F$ une application.\\
+		L'application $f$ est bijective de $E$ dans $F $ s'il existe une application $g$ de $F$ dans $E$ telle que l'on ait
+		$$\hspace{8cm}$$
+		L'application $g$ est alors not\'ee \ldots \ldots\ et est appel\'ee \dotfill \vsec
+	\end{prop}
+
+}
+
+
+
+\noindent  {\noindent
+
+	\begin{prop}
+		Si $f$ est une application bijective de $E$ dans $F$ alors:
+		\begin{itemize}
+			\item[$\bullet$] $f^{-1}: $\dotfill \vsec
+			\item[$\bullet$] $\forall x\in E,\ \forall y\in F:$\dotfill \vsec
+		\end{itemize}
+	\end{prop}
+
+}
+
+
+
+\noindent  {\noindent
+
+	\begin{prop}
+		Soient $E,\ F$ et $G$ trois ensembles. Soient $f$ une application bijective de $E$ dans $F$ et $g$ une application bijective de $F$ dans $G$. Alors:\vsec
+		\begin{itemize}
+			\item[$\bullet$] \dotfill \vsec
+			\item[$\bullet$] \dotfill \vsec
+		\end{itemize}
+	\end{prop}
+
+}
+
+
+\begin{proof}
+
+\end{proof}
+
+\begin{exemple}
+	Montrer que l'application $h : \left| \begin{array}{ccc}
+			\R^+ & \to     & [1,+\infty[\vsec \\
+			x    & \mapsto & e^{\sqrt{x}}
+		\end{array}\right.$ est bijective et calculer $h^{-1}$.
+
+\end{exemple}
+
+
+
+%% 
+%
+%\noindent\ {Cas particulier des fonctions num\'eriques: th\'eor\`{e}me de la bijection}\\
+%
+%\noindent  {\noindent  
+%
+%\begin{theorem} Soit $f: I\subset \R\rightarrow \R$ une fonction num\'erique, $I=\lbrack a,b\lbrack$ (par exemple).\\
+%\noindent SI\vsec
+%\begin{itemize} 
+%\item[$\bullet$] \dotfill \vsec
+%\item[$\bullet$] \dotfill \vsec
+%\item[$\bullet$] \begin{itemize}
+%\item[$\star$] $f(a)=\dots$
+%\item[$\star$] $\lim\limits_{x\to b^-}f(x)=\dots$\vsec
+%\end{itemize}
+%\end{itemize}
+%ALORS \vsec
+%\begin{itemize} 
+%\item[$\bullet$] \dotfill \vsec
+%\item[$\bullet$] \dotfill \vsec
+%\end{itemize}
+%\end{theorem}
+% 
+%}
+%
+%{\footnotesize 
+%\begin{exercice}
+%\'Etudier la bijectivit\'e des applications suivantes: $f: x\mapsto x^2+2x-3$ et $g: x\mapsto \ddp\frac{x+1}{x-1}$.
+%\end{exercice}}
+%
+% 
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\subsection{Caract\'erisations}
+
+%\ {M\'ethodes pour les autres exercices}\\
+
+%\item[\textbf{\large{\ding{182}}}] \underline{\textbf{\large{ M\'ethode 1: en montrant qu'elle est injective et surjective:}}}\vsec
+\paragraph{Montrer que $f$ est injective et surjective}
+
+
+Voir les m\'ethodes pour montrer qu'une fonction est injective et surjective.
+
+
+
+%\item[\textbf{\large{\ding{183}}}] \underline{\textbf{\large{ M\'ethode 2: par la caract\'erisation (rare):}}}\vsec
+\paragraph{Utiliser la caract\'erisation de l'application r\'eciproque (rare)}
+
+
+Trouver une application $g$ v\'erifiant $f\circ g=Id$ et $g\circ f=Id$.
+
+%\item[\textbf{\large{\ding{184}}}] \underline{\textbf{\large{ M\'ethode pour montrer une non bijectivit\'e:}}}\vsec
+
+% 
+%
+%
+% Voir les m\'ethodes pour montrer qu'une application est non injective ou non surjective.
+
+
+
+\paragraph{Par analyse-synth\`ese}
+
+Lorsque l'on conna\^it l'expression de $f$, on peut raisonner par analyse-synth\`ese en r\'esolvant $f(x)=y$. Il faut y penser en particulier lorsque l'on vous demande l'expression de la bijection r\'eciproque.\\
+
+\setlength\fboxrule{1pt}
+{
+
+\begin{itemize}
+	\item[$\bullet$] Soit $y\in F$. On r\'esout l'\'equation $f(x)=y$ d'inconnue $x \in E$.
+	\item[$\bullet$] \textbf{Synth\`{e}se:} deux cas sont possibles.
+		\begin{itemize}
+			\item[$\star$] Si pour tout $y \in F$, l'\'equation $f(x)=y$ admet une UNIQUE solution $x$ dans $E$, alors $f$ est bijective de $E$ dans $F$.\\
+				On obtient alors l'expression de l'application r\'eciproque :  $f^{-1}:  \left| \begin{array}{ccc}
+						F & \rightarrow & E\vsec \\
+						y & \mapsto     & g(y)
+					\end{array}\right.$, o\`u $g(y)$ est l'unique solution dans $E$ de $f(x)=y$.
+			\item[$\star$] S'il existe au moins un $y \in F$ tel que l'\'equation $f(x)=y$ admette $0$ ou au moins $2$ solutions dans $E$, alors $f$ n'est pas bijective de $E$ dans $F$.
+		\end{itemize}
+\end{itemize}
+
+\begin{exercice}
+	\'Etudier la bijectivit\'e de la fonction $f$ d\'efinie par $f(x)=1+\ddp\frac{1}{x}$ et calculer l'expression de $f^{-1}$ lorsqu'elle existe.
+\end{exercice}
+
+
+
+\paragraph{Montrer que $f$ n'est pas bijective}
+%
+%
+%
+$f$ non bijective de $E$ dans $F$ $\Leftrightarrow$ \dotfill
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\subsection{Cas particulier des fonctions num\'eriques}
+
+
+\begin{rem}
+	Pour les fonctions num\'eriques, la bijectivit\'e s'observe graphiquement en balayant le plan par une droite horizontale qui doit rencontrer \dotfill le graphe de la fonction.\\
+	\noindent Exemples:
+
+
+
+\end{rem}
+
+\ {Th\'eor\`eme de la bijection}\\
+
+{
+
+\begin{theorem} Soit $f: [a,b] \rightarrow \R$ une fonction num\'erique v\'erifiant :
+	\begin{itemize}
+		\item[$\bullet$] \dotfill \vsec
+		\item[$\bullet$] \dotfill \vsec
+	\end{itemize}
+	Alors \dotfill \vsec
+\end{theorem}
+
+}
+\vsec
+
+On peut g\'en\'eraliser \`a des intervalles ouverts ou semi-ouverts en utilisant les limites.\\
+Y penser lorsque l'on demande uniquement de montrer que la fonction est bijective (utiliser directement la m\'ethode par analyse-synth\`ese si l'\'enonc\'e demande aussi l'expression de $f^{-1}$).
+
+%% M\'ethode:\\
+%
+%\hspace{-1.2cm} 
+%\setlength\fboxrule{1pt}
+%  {
+%
+%\begin{itemize}
+%\item[$\bullet$] \textbf{On montre que $f$ est continue sur $I$:}\\
+%En g\'en\'eral comme somme, produit, compos\'ee... de fonctions.
+%\item[$\bullet$] \textbf{On montre que $f$ est strictement monotone sur $I$:}\\
+%En g\'en\'eral en \'etudiant ses variations \`a l'aide de la d\'eriv\'ee.
+%\item[$\bullet$] \textbf{On calcule les limites ou valeurs de $f$ aux bornes de $I$}.
+%\item[$\bullet$] \textbf{On cite le th\'eor\`eme et on conclut}:\\
+%D'apr\`{e}s le th\'eor\`{e}me de la bijection, $f$ est bijective de $I$ sur $f(I)$.
+%\end{itemize}
+% }
+%\setlength\fboxrule{0.5pt}
+% 
+%\quad
+%
+%\setlength\fboxrule{1pt}
+%  {
+%
+%Y penser lorsque:\vsec
+%\begin{itemize}
+%\item[$\bullet$] \dotfill\vsec
+%\item[$\bullet$] \dotfill\vsec
+%\item[$\bullet$] \dotfill\vsec
+%\end{itemize}
+% }
+%\setlength\fboxrule{0.5pt}
+% 
+%
+
+
+\begin{exercice}
+	\'Etudier la bijectivit\'e de $x\mapsto 1+\ddp\frac{1}{x}$.
+\end{exercice}
+
+
+\begin{exercice}
+	\'Etudier la bijectivit\'e des applications suivantes: $f: x\mapsto \ddp\frac{x+1}{x-1}$ et $g: x\mapsto x^2+2x-3$.
+\end{exercice}
+
+
+
+
+\subsection{\'Etude de la fonction r\'eciproque}
+
+{
+
+	\begin{prop}[Graphe d'une fonction r\'eciproque] \quad\\
+		Si $f$ est bijective de $I$ sur $J$, alors  $\mathcal{C}_f$ et $\mathcal{C}_{f^{-1}}$ sont \dotfill%est monotone de m\^eme sens sur $J$.
+	\end{prop}
+}
+
+\begin{exemple}
+	Tracer les graphes des fonctions cube et racine cubique.
+
+\end{exemple}
+
+
+
+{
+
+\begin{prop}[Monotonie d'une fonction r\'eciproque] \quad\\
+	Si $f$ est bijective et monotone de $I$ sur $J$, alors $f^{-1}$ \dotfill%est monotone de m\^eme sens sur $J$.
+\end{prop}
+}
+
+
+{\footnotesize
+\begin{exercice} Calculer les variations et \'etudier la bijectivit\'e de la fonction $f: x\mapsto x^2-x\ln{x}-1$ de $\R^{+\star}$ sur un intervalle \`{a} d\'eterminer. En d\'eduire les variations de $f^{-1}$.
+\end{exercice}}
+
+
+
+{
+
+\begin{theorem}[Th\'eor\`{e}me de d\'erivabilit\'e d'une fonction r\'eciproque] \quad \\
+	Soit $f: I\rightarrow J$ une fonction bijective, et $f^{-1}: J\rightarrow I$ sa fonction r\'eciproque. Soit $x_0 \in I$ tel que :
+	\begin{itemize}
+		\item[$\bullet$] \dotfill%$f$ est d\'erivable en $x$
+		\item[$\bullet$] \dotfill%$f'(x)\not= 0$
+	\end{itemize}
+	Alors $f^{-1}$ est d\'erivable en $y_0=f(x_0)$ et $(f^{-1})'(y_0) =$ \vsec\vsec\vsec
+	%\begin{enumerate}
+	%\item[\ding{182}] \underline{Formulation 1:}\\
+	% \begin{tabular}{ll} SI: & $\star$ $f$ est d\'erivable en $x_0$\\
+	%& $\star$ $f'(x_0)\not= 0$\end{tabular}\\
+	% ALORS: $f^{-1}$ est d\'erivable en $y_0=f(x_0)$ et: $ \left| f^{-1} \right)^{\prime}(y_0)=\ddp\frac{1}{f^{\prime}\left| f^{-1}(y_0)\right)}=\ddp\frac{1}{f^{\prime}\left| x_0\right)}$.
+	%\item[\ding{183}] \underline{Formulation 2:}\\
+	% \begin{tabular}{ll} SI: & $\star$ $f$ est d\'erivable sur $I$\\
+	%& $\star$ $\forall x\in I,\ f'(x)\not= 0$: la d\'eriv\'ee de $f$ ne s'annule pas sur $I$\end{tabular}\\
+	% ALORS: $f^{-1}$ est d\'erivable sur $J$ et: $\forall y\in J,\ \left| f^{-1} \right)^{\prime}(y)=\ddp\frac{1}{f^{\prime}\left| f^{-1}(y)\right)}$.
+	%\end{enumerate}
+\end{theorem}
+}
+
+
+
+
+\setlength\fboxrule{1pt}
+
+
+\textbf{M\'ethode pour \'etudier la d\'erivabilit\'e d'une r\'eciproque:}
+\begin{itemize}
+	\item[$\bullet$]  Justifier que $f$ est d\'erivable sur $I$ et calculer sa d\'eriv\'ee.
+		%\item[$\bullet$] on calcule la d\'eriv\'ee $f^{\prime}$ de $f$.
+	\item[$\bullet$] D\'eterminer tous les points $x_0$ o\`u $f^{\prime}$ s'annule, et calculer les $y_0=f(x_0)$ correspondants.
+		%\item[$\bullet$] on calcule tous les $y_0=f(x_0)$ correspondant.
+	\item[$\bullet$] On sait alors d'apr\`{e}s le th\'eor\`{e}me de d\'erivabilit\'e d'une r\'eciproque que:
+		\begin{itemize}
+			\item[$\star$] $f^{-1}$ est d\'erivable sur l'intervalle $J$ priv\'e de tous les points $y_0$ calcul\'es ci-dessus.
+			\item[$\star$] Et pour tout $y\not= y_0$, on a: $(f^{-1})^{\prime}(y)=\ddp\frac{1}{f^{\prime}(f^{-1}(y))}$.
+		\end{itemize}
+\end{itemize}
+
+\setlength\fboxrule{0.5pt}
+
+%
+
+{\footnotesize
+	\begin{exercice}
+		\'Etudier la d\'erivabilit\'e et calculer la d\'eriv\'ee de la fonction racine cubique.
+	\end{exercice}}
+
+
+%\ {M\'ethodes pour les exercices concrets}\\
+%
+% Il s'agit de deux m\'ethodes tr\`{e}s classiques, \`{a} conna\^{i}tre absolument et qu'on utilise d\`{e}s que l'on conna\^{i}t l'expression de l'application $f$.\vsec
+%
+%\begin{enumerate}
+%\item[\textbf{\large{\ding{182}}}] \underline{\textbf{\large{ M\'ethode 1: par le th\'eor\`{e}me de la bijection:}}}\\
+%
+%
+%\hspace{-1.7cm} 
+%\setlength\fboxrule{1pt}
+%  {
+%
+%\begin{itemize}
+%\item[$\bullet$] \textbf{On montre que $f$ est continue sur $I$:}\\
+%En g\'en\'eral comme somme, produit, compos\'ee... de fonctions continues.
+%\item[$\bullet$] \textbf{On montre que $f$ est strictement monotone sur $I$:}\\
+%En g\'en\'eral en \'etudiant ses variations \`a l'aide de la d\'eriv\'ee.
+%\item[$\bullet$] \textbf{On calcule les limites ou valeurs de $f$ aux bornes de $I$}.
+%\item[$\bullet$] \textbf{On cite le th\'eor\`eme et on conclut}:\\
+%Donc d'apr\`{e}s le th\'eor\`{e}me de la bijection, $f$ est bijective de $I$ sur $f(I)$.
+%\end{itemize}
+% }
+%\setlength\fboxrule{0.5pt}
+% 
+%\quad
+%
+%\setlength\fboxrule{1pt}
+%  {
+%
+%Y PENSER lorsque:\vsec
+%\begin{itemize}
+%\item[$\bullet$] \dotfill\vsec
+%\item[$\bullet$] \dotfill\vsec
+%\item[$\bullet$] \dotfill\vsec
+%\end{itemize}
+% }
+%\setlength\fboxrule{0.5pt}
+% 
+%
+%
+%{\footnotesize 
+%\begin{exercice}
+%\'Etudier la bijectivit\'e de $x\mapsto 1+\ddp\frac{1}{x}$.
+%\end{exercice}}
+%
+%% 
+%
+%\item[\textbf{\large{\ding{183}}}] \underline{\textbf{\large{ M\'ethode 2: par analyse-synth\`{e}se:}}}\\
+%
+%
+%\hspace{-1.7cm} 
+%\setlength\fboxrule{1pt}
+%  {
+%
+%\begin{itemize}
+%\item[$\bullet$] Soit $y\in F$.
+%\item[$\bullet$] \textbf{Analyse:} On suppose qu'il existe $x\in E$ tel que $y=f(x)$.
+%$$\begin{array}{lll}
+%y=f(x) & \Longleftrightarrow & \dotfill\\
+%& \Longleftrightarrow & \dotfill\\
+%& \Longleftrightarrow & x=\phantom{\hspace{5cm}}
+%\end{array}$$
+%OBJECTIF: Trouver l'ensemble $B\subset F$, ensemble des r\'eels $y$ pour lesquels l'\'equation admet une UNIQUE solution $x$ DANS $E$.\\
+%Cette solution $x\in E$ s'exprime alors en fonction de $y$ sous la forme $x=g(y)$.\\
+%\item[$\bullet$] \textbf{Synth\`{e}se:} Soit $y\in B$. On pose $x=\dotfill$  \phantom{\hspace{2cm}}\\
+% On a bien:
+%\begin{itemize}
+%\item[$\star$]  $x$ existe car...
+%\item[$\star$] $x\in E$ car ...
+%\item[$\star$] $y=f(x)$ avec $x$ unique d'apr\`{e}s l'analyse..
+%\end{itemize}
+%Ainsi il existe bien un unique $x\in E$ tel que $y=f(x)$.\\
+%\item[$\bullet$] \textbf{Conclusion:} $f$ est bijective de $E$ dans $B$.\vsec\\
+%On obtient alors l'expression de l'application r\'eciproque $f^{-1}:  B\rightarrow E$ qui v\'erifie: $ y  \mapsto  g(y)$.\vsec
+%\end{itemize}
+% }
+%\setlength\fboxrule{0.5pt}
+% 
+%\quad
+%
+%
+%\setlength\fboxrule{1pt}
+%  {
+%
+%Y PENSER lorsque:\vsec
+%\begin{itemize}
+%\item[$\bullet$] \dotfill\vsec
+%\item[$\bullet$] \dotfill\vsec
+%\item[$\bullet$] \dotfill\vsec
+%\end{itemize}
+% }
+%\setlength\fboxrule{0.5pt}
+% 
+%
+%{\footnotesize 
+%\begin{exercice}
+%\'Etudier la bijectivit\'e de $x\mapsto 1+\ddp\frac{1}{x}$ et lorsqu'elle est bijective, donner l'expression de $f^{-1}$.
+%\end{exercice}}
+%
+%
+%\end{enumerate}
+%
+%% 
+%\ {M\'ethodes pour les autres exercices}\\
+%
+%
+%\begin{enumerate}
+%\item[\textbf{\large{\ding{182}}}] \underline{\textbf{\large{ M\'ethode 1: en montrant qu'elle est injective et surjective:}}}\vsec
+%
+% Voir les m\'ethodes pour montrer qu'une fonction est injective et surjective.\vsec
+%
+%\item[\textbf{\large{\ding{183}}}] \underline{\textbf{\large{ M\'ethode 2: par la caract\'erisation (rare):}}}\vsec
+%
+%\setlength\fboxrule{1pt}
+%  {
+%
+%Trouver une application $g$ v\'erifiant $f\circ g=Id$ et $g\circ f=Id$.
+% }
+%\setlength\fboxrule{0.5pt}
+%\vsec
+%
+%\item[\textbf{\large{\ding{184}}}] \underline{\textbf{\large{ M\'ethode pour montrer une non bijectivit\'e:}}}\vsec
+%
+%\setlength\fboxrule{1pt}
+%  {
+%
+%$f$ NON bijective de $E$ dans $F$ $\Leftrightarrow$ \dotfill
+% }
+%\setlength\fboxrule{0.5pt}\vsec
+%
+% Voir les m\'ethodes pour montrer qu'une application est non injective ou non surjective.
+%
+%
+%\end{enumerate}
+%------------------------------------------------
+%-------------------------------------------------
+%-------------------------------------------------
+%--------------------------------------------------
+%------------------------------------------------
+%\section{Images directes et r\'eciproques}
+%
+%%-----------------------------------------------------------
+%%----------------------------------------------------------
+%\subsection{D\'efinitions et exemples}
+%
+%\ {D\'efinition de l'image directe}\\
+%
+%
+%  {  
+%
+%\begin{defi}
+%Soit $f$ une application de $E$ dans $F$.\\
+% Soit $A$ un sous-ensemble de $E$.\\
+% On appelle image directe de $A$ par $f$:
+%$$f(A)=\hspace{12cm}$$
+%Ainsi on a toujours $f(A)\subset \dots$
+%\end{defi}
+% 
+%}
+% 
+%
+%\setlength\fboxrule{1pt}
+%
+%
+%  {
+%
+%$y\in f(A)\Longleftrightarrow $
+% }
+%\setlength\fboxrule{0.5pt}\vsec
+% 
+%
+%
+%
+%\begin{exemples}
+%$$\exp{(\R)}=\hspace{2cm}, \cos{\left| \left\lbrack 0,\ddp\frac{\pi}{2}\right\rbrack \right)}=\hspace{2cm}, \tan{\left| \left\rbrack -\ddp\frac{\pi}{2},\ddp\frac{\pi}{2}\right\lbrack \right)}=\hspace{2cm}, \ln{\left| \rbrack 0,1\rbrack \right)}=\hspace{2cm}$$
+%\end{exemples}
+%
+%
+%
+%
+%\ {D\'efinition de l'image r\'eciproque}\\
+%
+%
+%  {  
+%
+%\begin{defi}
+%Soit $f$ une application de $E$ dans $F$.\\
+% Soit $B$ un sous-ensemble de $F$.\\
+% On appelle image r\'eciproque de $B$ par $f$:
+%$$f^{-1}(B)=\hspace{12cm}$$
+%Ainsi on a toujours $f^{-1}(B)\subset \dots$
+%\end{defi}
+% 
+%}
+% 
+%
+%\setlength\fboxrule{1pt}
+%
+%
+%  {
+%
+%$x\in f^{-1}(B)\Longleftrightarrow $
+% }
+%\setlength\fboxrule{0.5pt}\vsec
+% 
+%
+%
+%
+%\begin{exemples}
+%$$\exp^{-1}{(\R^-)}=\hspace{2cm}, \cos^{-1}{\left| \lbrack -1,1\rbrack \right)}=\hspace{2cm}, \tan^{-1}{\left| \R^+ \right)}=\hspace{4cm}, \ln^{-1}{\left| \rbrack 0,1\rbrack \right)}=\hspace{2cm}$$
+%\end{exemples}
+%
+%  \warning  L'\'ecriture $f^{-1}(B)$ est abusive!!! Elle n'implique pas du tout \dotfill
+%
+%{\footnotesize 
+%\begin{exercice}
+%\begin{enumerate}
+%\item Soit $f: \N\rightarrow \N$ d\'efinie par $n\mapsto 2n$. Calculer $f(A)$ et $f^{-1}(B)$ avec $A=\lbrace 1,2,4,10\rbrace$ et $B=\lbrace 0,1,2,3\rbrace$.
+%\item Soit $g: \R\rightarrow \R$ la fonction carr\'ee. Calculer $g^{-1}(\R^-)$, $g^{-1}(\R^{-\star})$, $g^{-1}(\lbrack 1,4\rbrack)$, $g^{-1}(\lbrack -1,4\rbrack)$, $g(\lbrack 1,2\rbrack)$ et $g(\lbrack 4,8\rbrack)$.
+%\end{enumerate}
+%\end{exercice}}
+%{\footnotesize 
+%\begin{exercice}
+%Soit $f$ une application de $E$ dans $F$ et $B$ un sous-ensemble de $F$. Montrer que $f\left| f^{-1}(B)\right)\subset B$.
+%\end{exercice}}
+%
+%%-----------------------------------------------------------
+%%----------------------------------------------------------
+%\subsection{Compatibilit\'e avec l'inclusion, l'union et l'intersection }
+%
+%  {  
+%
+%\begin{prop}
+%Soit $f$ une application de $E$ dans $F$.\\
+% Soient $A$, $B$ sous-ensembles de $E$ et $C$, $D$ sous ensembles de $F$.
+%
+%
+%\begin{itemize}
+%\item[$\bullet$] Si $A\subset B$ alors  \vsec
+%\item[$\bullet$] $f(A\cup B)=$ \vsec
+%\item[$\bullet$] $f(A\cap B)$ \vsec
+%\end{itemize}
+% 
+%\qquad \quad
+%
+%\begin{itemize}
+%\item[$\bullet$] Si $C\subset D$ alors  \vsec
+%\item[$\bullet$] $f^{-1}(C\cup D)=$ \vsec
+%\item[$\bullet$] $f^{-1}(C\cap D)=$ \vsec
+%\end{itemize}
+% 
+%\end{prop}
+% 
+%}
+%
+%\begin{proof}
+%
+%
+%\end{proof}
+%
+%%-----------------------------------------------------------
+%%----------------------------------------------------------
+%\subsection{M\'ethodes pour d\'eterminer une image directe et une image r\'eciproque}
+%
+%
+%\ {M\'ethodes avec les fonctions num\'eriques}\vsec\\
+%
+%\hspace{-1cm} 
+%\setlength\fboxrule{1pt}
+%  {
+%
+%\begin{itemize}
+%\item[$\bullet$] M\'ethode 1 pour calculer une image directe:\\
+%Th\'eor\`{e}me de la bijection.\\
+%Parfois on a aussi besoin de $f(A\cup B)=f(A)\cup f(B)$.
+%\item[$\bullet$] M\'ethode 2 pour calculer une image directe $f(A)$:\\
+%Par la d\'efinition.
+%\begin{itemize}
+%\item[$\star$] \'Ecrire que $x\in A$.
+%\item[$\star$] \'Ecrire des in\'egalit\'es successives afin obtenir $y=f(x)$.
+%\end{itemize}
+%\end{itemize}
+% }
+%\setlength\fboxrule{0.5pt}\vsec
+% 
+%\qquad \quad
+%
+%\setlength\fboxrule{1pt}
+%
+%
+%
+%  {
+%
+%Image r\'eciproque = r\'esolutions d'in\'equations.
+% }
+%\setlength\fboxrule{0.5pt}\vsec
+% 
+%
+%{\footnotesize 
+%\begin{exercice}
+%Soit la fonction $f$ d\'efinie par $f(x)=\ddp\frac{3x}{1-x^2}$. Calculer $f^{-1}(\lbrack 0,1\rbrack)$, $f^{-1}(\R^+)$ puis $f(\rbrack -1,1\lbrack)$, $f(\rbrack 1,+\infty\lbrack)$ et $f(\rbrack -2,0\rbrack\setminus\lbrace -1\rbrace)$. 
+%\end{exercice}}
+%
+%
+%
+%\ {M\'ethodes dans le cas g\'en\'eral: par la d\'efinition}\vsec\\
+%
+%
+%\setlength\fboxrule{1pt}
+%  {
+%
+%Pour l'image directe, utiliser:
+%$$y\in f(A) \Leftrightarrow \hspace{3cm}$$
+% }
+%\setlength\fboxrule{0.5pt}\vsec
+% 
+%\qquad \quad
+%
+%\setlength\fboxrule{1pt}
+%  {
+%
+%Pour l'image r\'eciproque, utiliser:
+%$$x\in f^{-1}(B) \Leftrightarrow \hspace{3cm}$$
+% }
+%\setlength\fboxrule{0.5pt}\vsec
+% 
+%
+%{\footnotesize 
+%\begin{exercice}
+%Finir de d\'emontrer les propri\'et\'es de compatibilit\'e avec l'inclusion, l'union et l'intersection.
+%\end{exercice}}
+%{\footnotesize 
+%\begin{exercice}
+%\begin{itemize}
+%\item[$\bullet$] Soit $f: z\in\bC\mapsto |z|\in\R$. Calculer $f^{-1}(\lbrace 1\rbrace)$.
+%\item[$\bullet$] Soit $g: z\in\bC^*\mapsto \arg{(z)}\in\R$. Calculer $g(\R^{\star})$, $g(i\R^{\star})$, $g(\R^{-\star})$ et $g(i\R^{+\star})$. 
+%\item[$\bullet$] Soit $h: z\in\bC\setminus\lbrace 1\rbrace\mapsto \ddp\frac{z+1}{z-1}\in\bC$. Montrer que $h(\mathbb{U}\setminus\lbrace 1\rbrace)\subset i\R$.
+%\end{itemize}
+%\end{exercice}}
+%
+%
+
+%%------------------------------------------------
+%%-------------------------------------------------
+%%-------------------------------------------------
+%%--------------------------------------------------
+%%------------------------------------------------
+%\section{Restriction, prolongement, stabilit\'e et point fixe}
+
+%%-----------------------------------------------------------
+%%----------------------------------------------------------
+%\subsection{}
+
+
+
+
+\begin{exemple} Fonctions usuelles :\\
+
+	\renewcommand{\arraystretch}{3.2}
+	%\setlength{\tabcolsep}{1cm}
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		Fonction                                                                        & Injective ? & Surjective ? & Bijective ? \\
+		\hline
+		sinus $: \R \to \R$                                                             &             &              &             \\
+		\hline
+		cosinus $: \R \to \R$                                                           &             &              &             \\
+		\hline
+		tangente $: \R\backslash \left\{ \frac{\pi}{2} + k\pi, k \in \Z\right\} \to \R$ &             &              &             \\
+		\hline
+		exponentielle $: \R \to \R$                                                     &             &              &             \\
+		\hline
+		logarithme $: \; ]0,+\infty[ \to \R$                                            &             &              &             \\
+		\hline
+		carr\'ee $: \R \to \R$                                                          &             &              &             \\
+		\hline
+		cube $: \R \to \R$                                                              &             &              &             \\
+		\hline
+		racine carr\'ee $: \R^+ \to \R$                                                 &             &              &             \\
+		\hline
+		inverse $: \R^\star \to \R$                                                     &             &              &             \\
+		\hline
+		valeur absolue $: \R \to \R$                                                    &             &              &             \\
+		\hline
+	\end{tabular}
+	%\begin{enumerate}
+	%\item Parmi les dessins suivants, lequel repr\'esente une fonction injective ? \\
+	%
+	%\item Exemples avec les fonctions usuelles:
+	%\begin{itemize}
+	%\item[$\bullet$] Fonction sinus: \dotfill\vsec
+	%\item[$\bullet$] Fonction cosinus: \dotfill\vsec
+	%\item[$\bullet$] Fonction tangente: \dotfill\vsec
+	%\item[$\bullet$] Fonction exponentielle: \dotfill\vsec
+	%\item[$\bullet$] Fonction logarithme: \dotfill\vsec
+	%\item[$\bullet$] Fonction carr\'ee: \dotfill\vsec
+	%\item[$\bullet$] Fonction cube: \dotfill\vsec
+	%\item[$\bullet$] Fonction racine carr\'ee: \dotfill\vsec
+	%\item[$\bullet$] Fonction inverse: \dotfill\vsec
+	%\item[$\bullet$] Fonction valeur absolue: \dotfill\vsec
+	%\end{itemize}
+	%\end{enumerate}
+	\label{ex:fct_usuelles}
+\end{exemple}
+
+
+
+
+
+\end{document}

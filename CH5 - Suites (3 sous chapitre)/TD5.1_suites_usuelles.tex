@@ -1,0 +1,315 @@
+\documentclass[a4paper, 11pt]{article}
+\input{macro/package.tex}
+\input{macro/environement}
+\input{macro/header.tex}
+\input{macro/newcommand.tex}
+\geometry{hmargin=2.0cm, vmargin=3.5cm}
+
+\author{Olivier Glorieux}
+
+
+\newcommand{\type}{TD }
+\excludecomment{correction}
+%\renewcommand{\type}{Correction TD }
+
+\begin{document}
+\title{\type  5.1 - Suites usuelles}
+
+%----------------------s---------------------------
+\section*{Entraînements}
+
+%--------------------------------------------------------------
+\begin{exercice} \;
+%\begin{enumerate}
+%\item
+Calculer le terme g\'en\'eral, \'etudier la convergence, et calculer la somme des termes $S=\ddp \sum\limits_{k=0}^n u_k$ pour les suites $\suiteu$ d\'efinies par $u_0=2$ et pour tout $n\in\N$:\\
+\begin{enumerate}
+\begin{minipage}[t]{0.3\textwidth}
+\item 
+$u_{n+1}=u_n+3$
+\item $u_{n+1}=u_n+\ddp\demi$  
+\item  
+$u_{n+1}=u_n-5$
+\end{minipage}
+\begin{minipage}[t]{0.3\textwidth}
+\item
+$u_{n+1}=3u_n$ 
+\item
+$u_{n+1}=\ddp\frac{u_n}{2}$   
+\item  
+$u_{n+1}=-5u_n$ 
+\end{minipage}
+\begin{minipage}[t]{0.3\textwidth}
+\item
+$u_{n+1}=3u_n+3$  
+\item
+$u_{n+1}=-\ddp\frac{u_n}{2}+\ddp\frac{1}{3}$   
+\item  
+$u_{n+1}=-u_n  -4$ 
+\end{minipage}
+%\item 
+%Dans chacun des cas ci-dessus, \'etudier la convergence de la suite $\suiteu$.
+%\item 
+%Dans chacun des cas ci-dessus, calculer $S=\ddp \sum\limits_{k=0}^n u_k$.
+\end{enumerate}
+\end{exercice}
+
+%----------------------------------------------------
+\begin{correction}  \;
+\begin{enumerate}
+ \item 
+\begin{itemize}
+ \item[$\bullet$] C'est une suite arithm\'etique de raison 3 et de premier terme 2, ainsi
+$$\forall n\in\N,\quad u_n=2+3n.$$
+\item[$\bullet$]  Elle diverge vers $+\infty$.
+\item[$\bullet$]  $S=2(n+1)+3\sum\limits_{k=0}^n k=2(n+1)+3\ddp\frac{n(n+1)}{2}$.
+\end{itemize}
+%---------------
+\item 
+\begin{itemize}
+ \item[$\bullet$] C'est une suite arithm\'etique de raison $\ddp\demi$ et de premier terme 2, ainsi
+$$\forall n\in\N,\quad u_n=2+\ddp\frac{n}{2}.$$
+\item[$\bullet$]  Elle diverge vers $+\infty$.
+\item[$\bullet$]  $S=2(n+1)+\ddp\demi\sum\limits_{k=0}^n k=2(n+1)+\ddp\frac{n(n+1)}{4}$.
+\end{itemize}
+%---------------
+\item 
+\begin{itemize}
+ \item[$\bullet$] C'est une suite arithm\'etique de raison $-5$ et de premier terme 2, ainsi
+$$\forall n\in\N,\quad u_n=2-5n.$$
+\item[$\bullet$]  Elle diverge vers $-\infty$.
+\item[$\bullet$]  $S=2(n+1)-5\sum\limits_{k=0}^n k=2(n+1)-5\ddp\frac{n(n+1)}{2}$.
+\end{itemize}
+%---------------
+\item 
+\begin{itemize}
+ \item[$\bullet$] C'est une suite g\'eom\'etrique de raison $3$ et de premier terme $2$, ainsi
+$$\forall n\in\N,\quad u_n=23^n.$$
+\item[$\bullet$]  Comme $3>1$, la suite diverge vers $+\infty$.
+\item[$\bullet$]  $S=2\sum\limits_{k=0}^n 3^k=3^{n+1}-1$.
+\end{itemize}
+%---------------
+\item 
+\begin{itemize}
+ \item[$\bullet$] C'est une suite g\'eom\'etrique de raison $\ddp\demi$ et de premier terme $2$, ainsi
+$$\forall n\in\N,\quad u_n=2\left(\ddp\demi \right)^n.$$
+\item[$\bullet$]  Comme $-1<\ddp\demi<1$, la suite converge vers $0$.
+\item[$\bullet$]  $S=2\sum\limits_{k=0}^n \left( \ddp\demi\right)^k=4\left( 1-\left(\ddp\demi \right)^{n+1} \right)$.
+\end{itemize}
+%---------------
+\item 
+\begin{itemize}
+ \item[$\bullet$] C'est une suite g\'eom\'etrique de raison $-5$ et de premier terme $2$, ainsi
+$$\forall n\in\N,\quad u_n=2(-5)^n.$$
+\item[$\bullet$]  Comme $-5<-1$, la suite n'admet pas de limite, elle est divergente de deuxi\`eme esp\`ece.
+\item[$\bullet$]  $S=2\sum\limits_{k=0}^n (-5)^k=\ddp\frac{1}{3}\left( 1-(-5)^{n+1} \right)$.
+\end{itemize}
+%---------------
+\item 
+\begin{itemize}
+ \item[$\bullet$] C'est une suite arithm\'etico-g\'eom\'etrique. On applique la m\'ethode vue en cours pour trouver l'expression 
+de $u_n$ en fonction de $n$. On obtient: $\forall n\in\N,\quad u_n=\ddp\frac{7}{2}\times 3^n-\ddp\frac{3}{2}$.
+\item[$\bullet$]  Comme $3>1$, elle diverge vers $+\infty$.
+\item[$\bullet$]  $S=\ddp\frac{7}{4}\left( 3^{n+1}-1 \right)-\ddp\frac{3(n+1)}{2}$.
+\end{itemize}
+%---------------
+\item 
+\begin{itemize}
+ \item[$\bullet$] C'est une suite arithm\'etico-g\'eom\'etrique. On applique la m\'ethode vue en cours pour trouver l'expression 
+de $u_n$ en fonction de $n$. On obtient: $\forall n\in\N,\quad u_n=\ddp\frac{16}{9}\left( -\ddp\demi\right)^n+\ddp\frac{2}{9}$.
+\item[$\bullet$]  Comme $-1<-\ddp\demi<1$, elle converge vers $\ddp\frac{2}{9}$.
+\item[$\bullet$]  $S=\ddp\frac{32}{27}\left(1- \left(-\ddp\demi\right)^{n+1} \right)+\ddp\frac{2(n+1)}{9}$.
+\end{itemize}
+%---------------
+\item 
+\begin{itemize}
+ \item[$\bullet$] C'est une suite arithm\'etico-g\'eom\'etrique. On applique la m\'ethode vue en cours pour trouver l'expression 
+de $u_n$ en fonction de $n$. On obtient: $\forall n\in\N,\quad u_n=4(-1)^n-2$.
+\item[$\bullet$]  Elle n'admet pas de limite, elle est divergente de deuxi\`eme esp\`ece. 
+\item[$\bullet$]  $S=2\left(1- \left(-1\right)^{n+1} \right)-2(n+1)$.
+\end{itemize}
+%---------------
+\end{enumerate}
+\end{correction}
+
+
+
+\vspace{0.5cm}
+
+
+
+
+
+%-----------------------------------------------------------------
+\begin{exercice} \;
+D\'eterminer en fonction de $n$, le terme $u_n$ des suites qui v\'erifient 
+\begin{enumerate}
+ \item 
+$u_0=1,\ u_1=2,\ \forall n\in\N^{\star},\ u_{n+1}=2u_n+3u_{n-1}$.
+\item 
+$u_0=1,\ u_1=0,\ \forall n\in\N,\ u_{n+2}=4u_{n+1}-4u_{n}$.
+%\item $u_0=1,\ u_1=1,\ \forall n\in\N,\ u_{n+2}=u_{n+1}-u_{n}$.
+%\item $u_0=0,\ \forall n\in\N,\ u_{n+2}-2u_{n+1}+5u_{n}=0$.
+\item 
+$u_0=2,\ u_1=-3,\ \forall n\in\N,\ u_{n+2}=-8u_{n+1}-16u_{n}$.
+\item 
+$u_1=1,\ u_2=1,\ \forall n\geq 3,\ u_{n}=u_{n-1}+u_{n-2}$.
+\item 
+$u_0=1,\ u_1=2,\ \forall n\in\N,\ u_{n+2}=-4u_{n}$.
+\end{enumerate}
+\end{exercice}
+
+%----------------------------------------------------
+
+\begin{correction} \;
+Toutes ces suites sont des suites lin\'eaires r\'ecurrentes d'ordre deux, on les r\'esout en \'etudiant l'\'equation caract\'eristique. Je ne donne ici que le r\'esultat.
+\begin{enumerate}
+ \item $\forall n\in\N,\quad u_n=\ddp\frac{1}{4}\left( 3^{n+1}+(-1)^n \right)$
+\item $\forall n\in\N,\quad u_n=(1-n) 2^n  $
+%\item $\forall n\in\N,\quad u_n=\cos{\left( \ddp\frac{n\pi}{3} \right)}+\ddp\frac{1}{\sqrt{3}}\sin{\left( \ddp\frac{n\pi}{3} \right)}  $
+%\item A ne pas faire.
+\item $\forall n\in\N,\quad u_n=\left(2-\ddp\frac{5}{4}n\right)(-4)^{n}  $
+\item Suite de Fibonacci, $\ddp \forall n\in\N,\quad u_n=\frac{1}{\sqrt{5}}\left(\frac{1+\sqrt{5}}{2}\right)^n-\frac{1}{\sqrt{5}}\left(\frac{1-\sqrt{5}}{2}\right)^n$.
+\item $\forall n\in\N,\quad u_n=2^n\left( \cos{\left( \ddp\frac{n\pi}{2} \right)}+\sin{\left( \ddp\frac{n\pi}{2} \right)}  \right) $.
+\end{enumerate}
+\end{correction}
+
+
+
+
+
+
+
+
+%----------------------------------------------------------------
+\vspace{0.4cm}
+%-----------------------------------------------------------------
+\begin{exercice} \;
+Pour ces suites d\'efinies par r\'ecurrence, calculer le terme g\'en\'eral en fonction de $n$:
+\begin{enumerate}
+%\item $u_0\in\R\ \hbox{et}\ \forall n\in\N,\ u_{n+1}=u_n^2$
+\item 
+$u_1=1\ \hbox{et}\ \forall n\in\N^{\star},\ u_{n+1}=\ddp\frac{3(n+1)}{2n}u_n$
+\item 
+$u_0=2\ \hbox{et}\ \forall n\in\N,\ u_{n+1}=2u_n^3$
+\end{enumerate}
+\end{exercice}
+
+%----------------------------------------------------
+\begin{correction} \;
+Pour toutes ces suites, on conjecture le r\'esultat en it\'erant la relation de r\'ecurrence puis on le d\'emontre rigoureusement par r\'ecurrence. Je ne fais pas ici la r\'ecurrence mais elle doit \^etre pr\'esente dans toute copie. Je ne donne ici que le r\'esultat, \`a savoir $u_n$ en fonction de $n$.
+\begin{enumerate}
+% \item $\forall n\in\N,\quad u_n=u_0^{2^n}$. 
+\item $\forall n\in\N,\quad u_n=\ddp\frac{3^{n-1}}{2^{n-1}}nu_1=\ddp\frac{3^{n-1} }{2^{n-1}}n.$
+\item M\'ethode 1 : on conjecture que $\forall n\in\N,\,u_n=2\times 2^3\times 2^{3^2}\times\dots\times 2^{3^{n-1}} u_0^{3^n}=2^{\sum\limits_{k=0}^{n} 3^k } = 2^{\frac{3^{n+1}-1}{2}}$ et on fait une r\'ecurrence.\\
+M\'ethode 2 : on pose $u_n = 2^{v_n}$, et on essaye de calculer la suite $\suitev$. On a $u_0=2=2^1$, donc $v_0=1$. De plus, on a :
+$$u_{n+1} =2(u_n)^3 \; \Leftrightarrow \;  2^{v_{n+1}} =  2\times (2^{v_n})^3 \; \Leftrightarrow \; 2^{v_{n+1}} =  2^{3v_n+1} \; \Leftrightarrow \; v_{n+1} = 3v_{n}+1.$$
+On en d\'eduit que $\suitev$ est une suite arithm\'etico-g\'eom\'etrique. La m\'ethode habituelle donne ensuite $v_n=\ddp\frac{3}{2}\times\frac{3^{n}}{2}-\frac{1}{2}$, soit $u_n= 2^{\frac{3^{n+1}-1}{2}}$.
+\end{enumerate}
+\end{correction}
+
+
+
+\section*{Type DS}
+
+\begin{exercice} \;
+On d\'efinit deux suites $(u_n)_{n\in\N}$ et $(v_n)_{n\in\N}$ par $u_0=0\quad v_0=1$
+$$\forall n\in\N,\ u_{n+1}=2u_n-4v_n\quadet  v_{n+1}=u_n+4v_n.$$
+\begin{enumerate}
+    \item INFO Ecrire une fonction Python qui prend en argument un entier $n$ et retourne les valeurs de $u_n$ et $v_n$.
+    \item Montrer que pour tout $n\in \N$ 
+    $$u_{n+2} = 6u_{n+1}-12u_n$$
+    \item Déterminer les solutions de $x^2-6x+12=0$ et les mettre sous formes exponentielles. 
+    \item En déduire la valeur de $u_n$ en fonction de $n$.
+\end{enumerate}
+
+\end{exercice}
+
+\begin{correction}
+    \begin{enumerate}
+    \item 
+\begin{lstlisting}
+    def suite(n):
+        u,v=0,1
+        for i in range(n):
+            u,v=2*u-4*v, u+4*v
+        return(u,v)
+\end{lstlisting}
+    
+
+    
+   \item Avec la definition de $\suiteu$ et $\suitev$ on obtient bien l'égalité demandée :
+         \begin{align*}
+            u_{n+2}&= 2u_{n+1} -4v_{n+1}\\
+            &= 2u_{n+1} -4(u_n+4v_n)\\
+            &=2u_{n+1} -4u_n +4*(-4v_n)\\
+            &=2u_{n+1} -4u_n +4*(u_{n+1}-2u_n)\\
+            &=6u_{n+1} -12u_n
+        \end{align*}
+\item Le discriminant de $X^2-6X+12$ est 
+$\Delta= 36-48=-12$, le polynôme admet donc deux racines complexes conjuguées
+$$r_1 = \frac{6-i\sqrt{12}}{2} \quadet r_2 = \frac{6+i\sqrt{12}}{2} $$
+qui se simplient en 
+$$r_1 = 3-i\sqrt{3} \quadet r_2 = 3+i\sqrt{3}$$
+Leur module vaut $\sqrt{12}=2\sqrt{3}$ et on a donc 
+\begin{align*}
+r_1 &=2\sqrt{3}\left(\frac{3-i\sqrt{3}}{2\sqrt{3}} \right)    \\
+    &= 2\sqrt{3}\left(\frac{\sqrt{3}-i}{2} \right) \\
+    &=2\sqrt{3}e^{-i\pi/6}
+\end{align*}
+et donc 
+\conclusion{$r_1=2\sqrt{3}e^{-i\pi/6} \quadet r_2=2\sqrt{3}e^{i\pi/6}$}
+
+\item 
+
+On reconnaît une suite récurrente linéaire d'ordre $2$
+
+Le cours nous dit qu'il existe $(A,B)\in \R^2$ tel que pour tout $n$ on a :
+$$u_n = A(2\sqrt{3})^n\cos(\frac{\pi n}{6}) +B(2\sqrt{3})^n\sin(\frac{\pi n}{6})$$
+Il suffit maintenant de déterminer $A$ et $B$ à l'aide des valeurs de $u_0$ et $u_1$. $u_0$ est donné dans l'énoncé et $u_1$ se calcule facilement avec la relation définissant $u_n$:
+$$u_1 = 2u_0 -4v_0= -4$$
+
+On obtient alors le système : 
+$$\left\{
+\begin{array}{ccc}
+    A &=&u_0  \\
+    A(2\sqrt{3})\cos(\frac{\pi }{6}) +B(2\sqrt{3})\sin(\frac{\pi }{6})&=&u_1
+\end{array}
+\right. 
+\equivaut 
+\left\{
+\begin{array}{ccc}
+    A &=&0 \\
+    B\sqrt{3} &=&-4
+\end{array}
+\right. 
+\equivaut 
+\left\{
+\begin{array}{ccc}
+    A &=&0  \\
+    B  &=&\frac{-4\sqrt{3}}{3}
+\end{array}
+\right. 
+$$
+\conclusion{$ u_ n  = \frac{-4\sqrt{3}}{3}(2\sqrt{3})^n\sin(\frac{\pi n}{6})  $}
+
+
+
+
+        
+    \end{enumerate}
+\end{correction}
+
+
+
+\vspace{0.4cm}
+
+%------------------------------------------------
+%----------------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------
+
+
+
+
+
+\end{document}

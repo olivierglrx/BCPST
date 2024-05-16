@@ -1,0 +1,800 @@
+\documentclass[a4paper, 11pt]{article}
+\input{macro/package.tex}
+\input{macro/environement}
+\input{macro/header.tex}
+\input{macro/newcommand.tex}
+\geometry{hmargin=2.0cm, vmargin=3.5cm}
+
+
+
+
+\begin{document}
+\tableofcontents
+\title{CH6 : Systèmes linéaires }
+
+
+
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\section{G\'en\'eralit\'es: notations, d\'efinitions}
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\subsection{D\'efinitions: syst\`{e}mes lin\'eaires}
+
+%------------------------------------------------------------------------------------
+%\noindent\subsubsection{Syst\`eme lin\'eaire de $n$ \'equations \`a $p$ inconnues}
+
+{\noindent  
+
+\begin{defi} 
+On appelle syst\`eme lin\'eaire de $n$ \'equations \`a $p$ inconnues tout syst\`eme de la forme 
+$$
+(\mathcal{S})
+\left\lbrace\begin{array}{lllllllll}
+a_{11}x_1 & + & a_{12}x_2 & + & \dots & + & a_{1p}x_p & = & b_1\vsec\\
+a_{21}x_1 & + & a_{22}x_2 & + & \dots & + & a_{2p}x_p & = & b_2\vsec\\
+          &   &            &   &      &    &          & \vdots &   \vsec\\
+a_{n1}x_1 & + & a_{n2}x_2 & + & \dots & + & a_{np}x_p & = & b_n.\vsec\\
+\end{array}\right.$$
+\begin{itemize}
+\item[$\bullet$] $(x_1,\dots,x_p)\in\R^p$ : les inconnues du syst\`{e}me
+\item[$\bullet$] $(a_{ij})_{1\leq i\leq n,\ 1\leq j\leq p}$ : les coefficients du syst\`eme
+\item[$\bullet$] $(b_i)_{1\leq i\leq n}$ : les seconds membres du syst\`eme
+\item[$\bullet$] $\mathcal{L}_i$: $a_{i1}x_1+a_{i2}x_2+\dots+a_{ip}x_p=b_i$ : = la i-\`eme \'equation du syst\`eme  = la i-\`eme ligne du syst\`eme.
+\end{itemize}
+\end{defi}
+
+}
+
+\begin{exemples} 
+\begin{itemize}
+\item[$\bullet$] $(\mathcal{S}_1)\left\lbrace\begin{array}{rcrcr}
+2x & + & 3y & = & 4\\
+-x & + &  y  & = &1
+\end{array}\right.$ est un syst\`{e}me lin\'eaire \dotfill \vsec
+\item[$\bullet$] $(\mathcal{S}_2)\left\lbrace\begin{array}{rcrcrcr}
+x&+&3y&-&z&=&6\\
+ & &y&+&6z&=&1
+\end{array}\right.$ est un syst\`{e}me lin\'eaire \dotfill
+\item[$\bullet$] $(\mathcal{S}_3)\left\lbrace\begin{array}{rcrcrcr}
+x&+&3y&-&z&=&6
+\end{array}\right.$ est un syst\`{e}me lin\'eaire \dotfill
+\item[$\bullet$] $(\mathcal{S}_4)\left\lbrace\begin{array}{rcrcrcr}
+x&+&3y&-&z&=&6\\
+  & &&&0&=&0\\
+\end{array}\right.$ est un syst\`{e}me lin\'eaire \dotfill
+\item[$\bullet$] $(\mathcal{S}_5)\left\lbrace\begin{array}{rcrcr}
+x&+&3y&=&1\\
+x&+&3y&=&-1\\
+\end{array}\right.$ est un syst\`{e}me lin\'eaire \dotfill
+\end{itemize}
+\end{exemples}
+
+\vspace{0.4cm}
+
+%------------------------------------------------------------------------------------
+%\noindent\subsubsection{Syst\`eme lin\'eaire homog\`{e}ne}
+
+{\noindent  
+
+\begin{defi}
+\begin{itemize}
+\item[$\bullet$] Si le second membre d'un syst\`eme lin\'eaire de $n$ \'equations \`a $p$ inconnues est nul, c'est-\`a-dire si:\\ 
+\noindent $\forall i\in\intent{ 1,n},\ b_i=0,$
+le syst\`eme est dit  \underline{homog\`ene.}
+\item[$\bullet$] On appelle syst\`eme homog\`ene associ\'e \`a $(\mathcal{S})$ le syst\`eme $(\mathcal{S}_0)$ obtenu en rempla\c{c}ant le second membre du syst\`eme lin\'eaire $(\mathcal{S})$ par un second membre nul:
+$$(\mathcal{S})
+\left\lbrace\begin{array}{lllllllll}
+a_{11}x_1 & + & a_{12}x_2 & + & \dots & + & a_{1p}x_p & = & b_1\vsec\\
+a_{21}x_1 & + & a_{22}x_2 & + & \dots & + & a_{2p}x_p & = & b_2\vsec\\
+          &   &            &   &      &    &          & \vdots &   \vsec\\
+a_{n1}x_1 & + & a_{n2}x_2 & + & \dots & + & a_{np}x_p & = & b_n.\vsec\\
+\end{array}\right.
+$$
+$$
+\mapsto
+(\mathcal{S}_0)
+\left\lbrace\begin{array}{lllllllll}
+a_{11}x_1 & + & a_{12}x_2 & + & \dots & + & a_{1p}x_p & = & 0\vsec\\
+a_{21}x_1 & + & a_{22}x_2 & + & \dots & + & a_{2p}x_p & = & 0\vsec\\
+          &   &            &   &      &    &          & \vdots &   \vsec\\
+a_{n1}x_1 & + & a_{n2}x_2 & + & \dots & + & a_{np}x_p & = & 0.\vsec\\
+\end{array}\right.
+$$
+
+\end{itemize}
+\end{defi}
+
+}
+
+
+\begin{exemples} Donner les syst\`{e}mes lin\'eaires homog\`{e}nes associ\'es \`{a} $(\mathcal{S}_1)$ et $(\mathcal{S}_2)$: 
+\begin{itemize}
+
+\item[$\bullet$] $(\mathcal{S}_{1,0})\left\lbrace\begin{array}{rcrcr}
+2x & + & 3y & = & 0\\
+-x & + &  y  & = &0
+\end{array}\right.$ 
+\item[$\bullet$] $(\mathcal{S}_{2,0})\left\lbrace\begin{array}{rcrcrcr}
+x&+&3y&-&z&=&0\\
+ & &y&+&6z&=&0
+\end{array}\right.$ 
+
+\end{itemize}
+\end{exemples}
+
+
+
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\subsection{Ensemble solution d'un syst\`eme lin\'eaire}
+
+%------------------------------------------------------------------------------------
+%\noindent\subsubsection{Solution d'un syst\`{e}me lin\'eaire}
+
+\vspace{0.4cm}
+
+{\noindent  
+
+\begin{defi} Ensemble solution: 
+\begin{itemize}
+\item[$\bullet$] Une solution d'un syst\`eme lin\'eaire de $n$ \'equations \`a $p$ inconnues $(\mathcal{S})$ est un $p$-uplet (un élément de $\R^p$, bref $p$ réels) qui vérifient toutes les équations.
+\item[$\bullet$] 
+R\'esoudre $(\mathcal{S})$, c'est d\'eterminer l'ensemble des solutions.
+\end{itemize}
+\end{defi}
+
+}
+
+
+\begin{exemples} 
+\begin{itemize}
+\item[$\bullet$] Un syst\`eme lin\'eaire \underline{homog\`ene} de $n$ \'equation \`a $p$ inconnues a toujours au moins une solution: $(0,0,\cdots,0)$
+\item[$\bullet$] R\'esoudre les syst\`emes lin\'eaires $(\mathcal{S}_1)$ et $(\mathcal{S}_2)$.
+\end{itemize}
+\end{exemples}
+
+\vspace{0.4cm}
+
+%------------------------------------------------------------------------------------
+%\noindent\subsubsection{Syst\`{e}mes lin\'eaires compatibles}
+
+\vspace{0.4cm}
+
+{\noindent  
+
+\begin{defi} 
+Un syst\`eme lin\'eaire est dit compatible si il admet au moins une solution.
+\noindent Sinon, il est dit incompatible.
+\end{defi}
+
+}
+\begin{defi} 
+Un syst\`eme de Cramer est un syst\`eme lin\'eaire admettant une unique solution. 
+\end{defi}
+
+
+\begin{exemples} 
+\begin{itemize}
+\item[$\bullet$] Les systèmes homogènes sont compatibles. 
+\item[$\bullet$] $(\mathcal{S}_1)$ et $(\mathcal{S}_2)$ sont \dotfill
+\item[$\bullet$] Le syst\`{e}me $(\mathcal{S}_3)\left\lbrace\begin{array}{rcrcrcr}
+x & + & y & + & z &= & 1\\
+x & + &  2y  &+ & z & = &2\\
+  &   &     y &   &  & = &5
+\end{array}\right.$ est-il compatible ?
+\dotfill
+\end{itemize}
+\end{exemples}
+
+
+\vspace{0.4cm}
+
+%------------------------------------------------------------------------------------
+%\noindent\subsubsection{Syst\`{e}mes lin\'eaires \'equivalents}
+
+\vspace{0.4cm}
+
+{\noindent  
+
+\begin{defi} 
+Deux syst\`emes lin\'eaires sont dits \'equivalents  si ils ont même ensemble de solutions. 
+\end{defi}
+
+}
+
+\begin{rem}
+%\vspace*{3cm}
+Si on r\'esout un syst\`eme d'\'equations par implications successives, il faut alors v\'erifier que les solutions candidates trouv\'ees sont bien solutions du syst\`eme. En effet, dans un raisonnement par implication, des solutions parasites peuvent appara\^itre. Les solutions obtenues ne sont que des solutions \'eventuelles. Il faut donc alors toujours v\'erifier si les solutions trouv\'ees sont bien solutions du syst\`eme de d\'epart.\\
+En cons\'equence, on cherchera plut\^ot \`a raisonner par \'equivalence et \`a transformer un syst\`eme en un syst\`eme \'equivalent. Ainsi, aucune v\'erification ne sera \`a faire, les deux syst\`emes ayant le m\^eme ensemble de solutions. On verra tout \`a l'heure quelles sont les op\'erations qui transforment un syst\`eme en un syst\`eme \'equivalent. 
+\end{rem}
+
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%\subsection{Syst\`eme de Cramer}
+
+
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\section{Cas particuliers importants: les syst\`{e}mes \'echelonn\'es}
+
+\noindent Les syst\`{e}mes \'echelonn\'es sont des syst\`{e}mes lin\'eaires que l'on sait r\'esoudre facilement.\\
+\noindent La partie 3 pr\'esentera alors une m\'ethode qui permet de ramener tout syst\`{e}me \`{a} un syst\`{e}me \'echelonn\'e.
+
+
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\subsection{Syst\`emes lin\'eaires triangulaires - \'echelonn\'es}
+
+Ce sont des syst\`{e}mes \'echelonn\'es particuliers.\\
+
+\vspace{0.3cm}
+
+
+{\noindent  
+
+\begin{defi} 
+Un syst\`eme lin\'eaire est dit triangulaire s'il est de la forme :
+%\begin{itemize}
+% \item[$\bullet$]
+%Il a le m\^eme nombre d'inconnues que d'\'equations: $n=p$.
+%\item[$\bullet$] 
+%Pour tout $i\in\intent{ 2,n}$, \`a la ligne $\mathcal{L}_i$, les inconnues $x_1,\dots,x_{i-1}$ ont un coefficient nul.
+%\end{itemize}
+%Ce syst\`eme est donc de la forme
+$$\left\lbrace\begin{array}{lllllllllll}
+%\begin{array}{|c|}\hline a_{11}x_1\\ \hline\end{array} & + & a_{12}x_2 
+\fbox{$a_{11}$} \, x_1 & + & a_{12}x_2 
+& + & \dots &+&\dots &+&a_{1n}x_n &=&b_1\vsec\\
+ &  & \fbox{$a_{22}$} \,  x_2 & + 
+& \dots &+&\dots &+&a_{2n}x_n &=&b_2\vsec\\
+ &  &  & \ddots &  && && &=&\vdots\vsec\\
+ &  & &  & \fbox{$a_{ii}$} \, x_i &+&\dots &+&a_{in}x_n &=&b_i\vsec\\
+ &  &  &  &  &\ddots&&& &&\vdots\vsec\\
+ &  &  &  &  && &&\fbox{$a_{nn}$} \, x_n &=&b_n\vsec\\
+\end{array}\right.
+$$
+Les coefficients encadr\'es doivent \^etre NON NULS et sont appel\'es les $\dotfill$.
+\end{defi}
+
+}
+
+\begin{exemple} R\'esoudre le syst\`{e}me suivant: $(\mathcal{S}_4)\left\lbrace\begin{array}{lllllllll}
+x &+ & 2y &+&3z&+&4t&=&1\\
+ & & y &+&2z&+&3t&=&2\\
+ & &  &&z&+&2t&=&3\\
+ & & &&&&t&=&4\\
+\end{array}\right.$
+\end{exemple}
+
+\vspace{0.5cm}
+
+\setlength\fboxrule{1pt}
+\noindent {
+
+\textbf{M\'ethode:}
+Calculer la solution de proche en proche en remontant de la derni\`ere ligne \`a la premi\`ere.
+}
+\setlength\fboxrule{0.5pt}
+
+
+%%------------------------------------------------------------------------------------
+%\noindent\subsubsection{R\'esolution: Ensemble solution}
+%
+%
+%\flushleft {\noindent  
+%
+%\begin{prop}
+%Un syst\`eme lin\'eaire triangulaire admet une unique solution. C'est le n-uplet $(x_1,\dots,x_n)\in\R^n$ d\'efini de proche en proche \`a partir de la derni\`ere ligne
+%par
+%$$\left\lbrace\begin{array}{lll}
+%x_n & = & \dotfill \vsec\\
+%x_{n-1} & = & \dotfill \vsec\\
+% & \vdots  & \phantom{ \hspace{8cm}} \vsec\\
+%x_2 & = &  \dotfill \vsec\\
+%x_1 & = & \dotfill \vsec\\
+%\end{array}\right.
+%$$
+%Ce syst\`eme est donc en particulier un syst\`eme de Cramer.
+%\end{prop}
+%
+%}
+%
+%
+%
+%\noindent \warning Ne pas retenir la formule des solutions, elle se retrouve toute seule.
+
+%
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%\subsection{Syst\`emes lin\'eaires \'echelonn\'es}
+
+%------------------------------------------------------------------------------------
+%\noindent\subsubsection{D\'efinition}
+
+%\vspace{0.4cm}
+
+{\noindent  
+
+\begin{defi} 
+On dit qu'un syst\`eme lin\'eaire de $n$ \'equations \`a $p$ inconnues est un syst\`eme \'echelonn\'e s'il est de la forme :
+v\'erifie les deux conditions suivantes:
+\begin{itemize}
+ \item[$\bullet$]
+Lorsque les coefficients de $x_1,\dots, x_k$ sont nuls sur la ligne $i$, alors les coefficients de 
+$x_1,\dots,x_k,x_{k+1}$ sont nuls sur la ligne $i+1$. Chaque ligne contient au moins une inconnue de moins que la pr\'ec\'edente de fa\c{c}on cons\'ecutive \`a compter du premier.
+\item[$\bullet$] 
+Lorsque le membre de gauche de la $i$-\`eme ligne est nul, alors c'est le cas de toutes les lignes suivantes.
+\end{itemize}
+On est ainsi dans une situation de type:
+$$
+\left\lbrace\begin{array}{lllllllllllllllll}
+\fbox{$a_{11}$} \, x_1 & + & \ldots & + & a_{1j} x_j &+ & \dots & + & a_{1j_r}x_{j_r} &  + & \dots & + & a_{1p}x_p & = & b_1\vsec\\
+ & & & & \fbox{$a_{2j}$} \, x_j & + & \dots & + & a_{2j_r}x_{j_r} & + & \dots & + & a_{2p}x_p & = & b_2\vsec\\
+&&&&&&&& &&&&  \vdots &  &\vdots\vsec\\
+&&&&&&&& \fbox{$a_{rj_r}$} \, x_{j_r} & + & \dots & + & a_{rp}x_p & = & b_r\vsec\\
+&&&&&&&&&&&& 0 &= &b_{r+1}\vsec\\
+&&&&&&&&&&&& \vdots &= &\vdots\vsec\\
+&&&&&&&&&&&& 0 &= &b_{n}\vsec\\
+\end{array}\right.
+$$
+Les coefficients encadr\'es doivent \^etre NON NULS et sont appel\'es les pivots.\\
+\noindent D'une ligne \`a l'autre, il y a au moins une inconnue de moins de fa\c{c}on cons\'ecutive puis \'eventuellement des lignes triviales sans inconnues.
+\end{defi}
+
+}
+
+Quitte à réordonner les inconnues ($x_i \leftrightarrow x_j$) un système échelonné est de la forme : 
+$$
+\left\lbrace\begin{array}{lllllllllllllll}
+\fbox{$a_{11}$} \, x_1 &  + & a_{12} x_2 &+ & \dots & + & a_{1r}x_{r} &  + & \dots & + & a_{1p}x_p & = & b_1\vsec\\
+  & & \fbox{$a_{22}$} \, x_2 & + & \dots & + & a_{2r}x_{r} & + & \dots & + & a_{2p}x_p & = & b_2\vsec\\
+&&&&&& &&&&  \vdots &  &\vdots\vsec\\
+&&&&&& \fbox{$a_{rr}$} \, x_{r} & + & \dots & + & a_{rp}x_p & = & b_r\vsec\\
+&&&&&&&&&& 0 &= &b_{r+1}\vsec\\
+&&&&&&&&&& \vdots &= &\vdots\vsec\\
+&&&&&&&&&& 0 &= &b_{n}\vsec\\
+\end{array}\right.
+$$
+
+
+\begin{exemples} 
+%\begin{itemize}
+%\item[$\bullet$] Le syst\`{e}me $(\mathcal{S}_5)
+%\left\lbrace\begin{array}{lllll}
+%x &+ & y &= &1\\
+% & & y &= &0\\
+%x &+ & z &= &2\vsec\\
+%\end{array}\right.$ est-il \'echelonn\'e ?
+%\item[$\bullet$] Donner trois exemples de syst\`{e}mes \'echelonn\'es.
+%\vspace*{2cm}
+%\end{itemize}
+\end{exemples}
+
+\vspace{0.6cm}
+
+
+%------------------------------------------------------------------------------------
+\noindent\subsection{Rang d'un syst\`eme lin\'eaire \'echelonn\'e}
+
+
+\noindent C'est une notion tr\`es importante qui intervient dans de nombreux chapitres.\vsec\\
+
+
+
+{\noindent  
+
+\begin{defi} 
+On appelle rang d'un syst\`eme lin\'eaire \'echelonn\'e, le nombre d'équations non triviales. C'est-à-dire l'entier $r$ dans la définition précédente. 
+\end{defi}
+
+}
+
+\begin{exemples} 
+Donner les rangs des syst\`{e}mes $(\mathcal{S}_4)$ et des trois exemples donn\'es ci-dessus.
+\end{exemples}
+
+\begin{rem}
+Le rang est inf\'erieur ou \'egal  au  nombre d'inconnues
+\end{rem}
+
+
+\begin{prop}
+Deux systèmes linéaires équivalents ont même rang. 
+\end{prop}
+
+\vspace{0.5cm}
+
+%------------------------------------------------------------------------------------
+%\noindent\subsection{R\'esolution: ensemble solution}
+
+\vspace{0.2cm}
+
+{\noindent  
+
+\begin{prop} 
+Soit $(\mathcal{S})$ un syst\`eme \textbf{\underline{\'echelonn\'e}} de $n$ \'equations \`a $p$ inconnues et soit $r$ son rang.
+\begin{enumerate}
+ \item 
+Si $(\mathcal{S})$ comporte au moins une \'equation de type $0=b_k$ avec $b_k\not= 0$ : \dotfill\\
+ alors le syst\`eme $(\mathcal{S})$ n'a pas de solution, il est incompatible.
+\vsec\dotfill
+\item 
+Si $(\mathcal{S})$ ne comporte pas d'\'equation de type $0=b_k$ avec $b_k\not= 0$ (mais il peut comporter des \'equations de type 0=0), alors le syst\`eme $(\mathcal{S})$ a des solutions, il est compatible. Plus pr\'ecisemment,
+\begin{enumerate}
+\item 
+Si {$r=p$}, alors le syst\`eme $(\mathcal{S})$ a une unique solution qui s'obtient en \'eliminant les \'equations $0=0$ et en d\'eterminant la valeur de chaque inconnue par une lecture de bas en haut. En particulier tout syst\`eme \'echelonn\'e avec $n=p=r$ est de Cramer.
+\item 
+Si {$r<p$}, alors le syst\`eme $(\mathcal{S})$ a une  infinité de solutions.
+\begin{itemize}
+ \item[$\bullet$]
+Les inconnues $x_1,\dots,x_r$ correspondant aux pivots sont appel\'ees inconnues principales. 
+\item[$\bullet$]  
+Les $p-r$ autres inconnues $x_{r+1},\dots, x_p$ sont appel\'ees inconnues secondaires et vont jouer le r\^ole de param\`etres.
+\item[$\bullet$]  
+On passe en second membre les $p-r$ inconnues secondaires qui deviennent des param\`etres. On obtient un syst\`eme triangulaire que l'on sait r\'esoudre. L'ensemble des solutions est ainsi param\'etr\'e par les $p-r$ inconnues secondaires. On dit qu'il y a $p-r$ degrés de liberté (on dira de dimension $(p-r)$ un peu plus tard) 
+\end{itemize}
+\end{enumerate}
+\end{enumerate}
+\end{prop}
+
+}
+
+\vspace{0.3cm}
+
+\setlength\fboxrule{1pt}
+\noindent {
+
+\textbf{M\'ethode:}
+\begin{itemize}
+\item[$\bullet$] Reconna\^itre un syst\`{e}me lin\'eaire \'echelonn\'e \`{a} $n$ \'equations et $n$ inconnues.
+\item[$\bullet$] Calculer le rang.
+\item[$\bullet$] Identifier les inconnues principales et des inconnues secondaires.
+\item[$\bullet$] Les inconnues secondaires passent au second membre et jouent alors le r\^ole de param\`etre.
+\item[$\bullet$] R\'esoudre le syst\`{e}me en remontant les calculs.
+\end{itemize}
+}
+\setlength\fboxrule{0.5pt}
+
+\begin{exemples} 
+\begin{itemize}
+\item[$\bullet$] R\'esoudre le syst\`{e}me $(\mathcal{S}_4)$.
+\item[$\bullet$]R\'esoudre les syst\`{e}mes lin\'eaires suivants:\\
+$(\mathcal{S}_5)
+\left\lbrace\begin{array}{rcrcrcrcrcr}
+x&+&y&+&z&+&t&+&w&=&1\\
+&&y&&&+&t&&&=&2\\
+&&&&2z&&&+&3w&=&6\\
+\end{array}\right.$ \quad et \quad  
+$(\mathcal{S}_6)
+\left\lbrace\begin{array}{rcrcrcr}
+x&+&y&-&2z&=&\alpha\\
+&&3y&-&4z&=&\beta\\
+&&&&5z&=&\gamma\\
+\end{array}\right.$ \\
+\vspace*{0.5cm}
+$(\mathcal{S}_7)
+\left\lbrace\begin{array}{rcrcrcrcrcr}
+x&+&y&+&z&+&t&+&w&=&1\\
+&&&&z&-&t&&&=&6\\
+&&&&&&2t&+&w&=&8\\
+&&&&&&&&0&=&0\\
+&&&&&&&&0&=&9\\
+\end{array}\right.$ \quad et \quad  
+$(\mathcal{S}_8)
+\left\lbrace\begin{array}{rcrcrcrcrcr}
+a &- &b&+&2c&-&3d&+&e&=&0\\
+ & &2b&+&4c&+&d&-&5e&=&3\\
+ & &&&&&2d&+&3e&=&-1\\
+\end{array}\right.$
+\end{itemize}
+\end{exemples}
+
+
+
+
+%\vspace*{0.5cm}
+
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\section{M\'ethode du pivot de Gauss}
+
+
+\noindent Nous savons donc r\'esoudre les syst\`emes lin\'eaires \'echelonn\'es. Nous allons maintenant \'etablir que tout syst\`eme lin\'eaire peut \^etre mis sous la forme d'un syst\`eme \'echelonn\'e qui lui est \'EQUIVALENT par une succession de transformations \'el\'ementaires sur les lignes et les colonnes.
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-------------------------------------------------------------------------------
+\subsection{Op\'erations \'el\'ementaires sur les lignes et les colonnes}
+
+
+{\noindent  
+
+\begin{prop} 
+Un syst\`eme $(\mathcal{S}_1)$ est transform\'e en un syst\`eme $(\mathcal{S}_2)$ qui lui est \'EQUIVALENT si:
+\begin{itemize}
+ \item[$\bullet$]
+on \'echange la colonne $i$ avec la colonne $j$: $C_i\leftrightarrow C_j$.
+\item[$\bullet$]  
+on \'echange la ligne $i$ avec la ligne $j$: $L_i\leftrightarrow L_j.$\\
+\vsec
+
+\vsec
+\item[$\bullet$] 
+on multiplie la ligne $i$ par un scalaire $\alpha$ NON NUL:
+$$L_i\leftarrow \alpha L_i,\ \alpha\not= 0.$$
+\item[$\bullet$]  
+on remplace la ligne d'indice $i$ par la somme de la ligne $i$ et de $\beta$ fois la ligne $j$:
+$$ L_i\leftarrow L_i+\beta L_j.$$
+
+\item[$\bullet$]   On supprime une ligne triviale $0=0$. 
+\quad
+
+\vspace{0.01cm}
+
+%\rule{0.5mm}{3.5cm} \rule{0.5mm}{3.5cm}
+%
+%\vspace{1cm}
+%$\Longrightarrow$ $\left\lbrace\begin{array}{l} L_i\leftarrow \alpha L_i+\beta L_j\vsec\\
+% \begin{array}{|c|}\hline \alpha\not= 0\\ \hline\end{array} \end{array}\right.$
+
+\end{itemize}
+\end{prop}
+
+}
+
+
+\begin{rem}
+\begin{enumerate}
+ \item Importance de ne proc\'eder que par \'EQUIVALENCES. Ainsi, les seules op\'erations \`a effectuer sur un syst\`eme sont les op\'erations ci-dessus.
+\item 
+On peut appliquer une combinaison \`a plusieurs lignes en m\^eme temps si on choisit une ligne pivot (par exemple $L_1$) qui n'est pas modifi\'ee et que toutes les combinaisons se font \`a partir de cette ligne:
+$$\left\lbrace\begin{array}{lll}
+L_1 &  &\vsec\\
+L_2 &\leftarrow & \alpha_2 L_2+\beta_2 L_1 \quad (\alpha_2 \not=0)\vsec\\
+%L_3 &\leftarrow & L_3+\lambda_3 L_1\vsec\\
+\vdots  &&\vsec\\
+L_n &\leftarrow &\alpha_n L_n+\beta_n L_1 \quad (\alpha_n \not=0).\vsec\\ 
+\end{array}\right.
+$$
+\end{enumerate}
+\end{rem}
+
+\begin{exemple} 
+R\'esoudre le syst\`eme suivant: $(\mathcal{S}_{9}) :
+\left\lbrace\begin{array}{rcrcrcr}
+x&+&y&+&z&=&-1\\
+x&-&2y&-&z&=&4\\
+-x&+&5y&+&2z&=&1\\
+\end{array}\right.$
+\end{exemple}
+
+
+\paragraph{Syst\`emes lin\'eaires \`a param\`etres}
+
+\vspace{0.3cm}
+
+\setlength\fboxrule{1pt}
+\noindent {
+
+\textbf{M\'ethode:} Faire des cas selon les opérations élémentaires effectuées
+\begin{itemize}
+\item[$\bullet$] Ne pas confondre $L_i\leftarrow 0 L_j$ où l'on transforme une ligne non nulle, en ligne $0=0$... Evidemment ca va changer l'ensemble des solutions et 
+ $L_i\leftarrow L_i+0L_j$ où l'on change $L_i$ en .... $L_i$. Ici rien ne change, c'est le même système. 
+\item[$\bullet$] R\'esoudre le syst\`eme \`a part pour les valeurs particuli\`eres des param\`etres pour lesquelles les pivots s'annulaient. 
+\end{itemize}
+}
+
+%\begin{exemple} 
+%R\'esoudre le syst\`eme suivant en fonction des valeurs du param\`etre $m\in\R$: 
+%
+%%\item[$\bullet$] R\'esoudre le syst\`{e}me lin\'eaire suivant en discutant selon la valeur de $a\in\R$:
+%%$(\mathcal{S}_{13}):
+%%\left\lbrace\begin{array}{rcrcrcr}
+%%(4-a)x & + & 4y & - & 4z & = & 0\\
+%%-x & + & (5-a)y & - & 3z & = & 0\\
+%%  x & + & 7y & -     & (5+a)z & = & 0\\
+%%\end{array}\right.$
+%%\end{itemize}
+%\end{exemple}
+
+
+\begin{exercice}
+Résoudre 
+ $$(\mathcal{S}_{10}):\left\{ 
+\begin{array}{cc}
+x+2y&=1\\
+\lambda x+y&=0
+\end{array}
+\right.\quadet 
+(\mathcal{S}_{11}):\left\lbrace\begin{array}{rcrcr}
+(m+1)x & + & my & = & 2m\\
+mx & + & (m-1)y & = & 1\\
+\end{array}\right.
+$$
+
+$$(\mathcal{S}_{12}):
+\left\lbrace\begin{array}{rcrcrcr}
+-(2+m)x & - & 2y & + & z & = & 0\\
+-2x & + & (1-m)y & - & 2z & = & 0\\
+  x & - & 2y & -     & (2+m)z & = & 0\\
+\end{array}\right.$$
+\end{exercice}
+
+
+
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-------------------------------------------------------------------------------
+\subsection{Algorithme du pivot de Gauss}
+
+%La m\'ethode que l'on vient d'employer pour r\'esoudre le syst\`eme lin\'eaire pr\'ec\'edent correspond en fait \`a un algorithme g\'en\'eral de r\'esolution de syst\`eme lin\'eaire qui permet de r\'esoudre tous les syst\`emes lin\'eaires de fa\c{c}on syst\'ematique: c'est l'algorithme du pivot de Gauss.\\
+%Cette m\'ethode permet de transformer un syst\`eme donn\'e en un syst\`eme \'echelonn\'e \'equivalent et ce gr\^ace aux op\'erations \'el\'ementaires.\\
+
+
+
+%
+
+%------------------------------------------------------------------------------------
+%\noindent\subsubsection{Description de l'algorithme du pivot de Gauss}
+
+\vspace{0.3cm}
+
+\setlength\fboxrule{1pt}
+\noindent {
+
+\textbf{M\'ethode:}
+\begin{itemize}
+\item[$\bullet$] \`{A} chaque \'etape, on choisit une ligne pivot et un pivot. On fait tous les calculs par rapport \`a cette ligne pivot.
+\item[$\bullet$] On utilise alors les op\'erations \'el\'ementaires sur les lignes:
+\begin{itemize}
+\item[$\star$] La ligne pivot n'est pas modifi\'ee.
+\item[$\star$] Toutes les op\'erations \'el\'ementaires se font \`{a} partir de cette ligne.
+\item[$\star$] Choix des op\'erations:  \'elimination d'une m\^{e}me inconnue dans toutes les lignes sauf la ligne pivot.
+\end{itemize}
+\item[$\bullet$] On transforme ainsi notre syst\`eme lin\'eaire de d\'epart en un syst\`eme lin\'eaire \'echelonn\'e \'equivalent.
+\end{itemize}
+}
+\setlength\fboxrule{0.5pt}
+\vsec
+
+%
+%\begin{exemple} 
+%R\'esoudre le syst\`eme suivant: 
+%$(\mathcal{S}_{11}):
+%\left\lbrace\begin{array}{rcrcrcrcr}
+%3x&+&6y&+&8z&+&12t&=&7\\
+% x&+&2y&+&2z&+&3t&=&2\\
+%2x&+&4y&+&2z&+&  t&=&4\\
+%4x&+&8y&+&10z&+&15t&=&9\\
+%\end{array}\right.$
+%\end{exemple}
+
+
+\begin{exemples}
+R\'esoudre les syst\`{e}mes lin\'eaires suivants:\\
+
+\begin{itemize}
+%\item[$\bullet$] $(\mathcal{S}_{10}):\left\lbrace\begin{array}{rcrcrcr}
+%2x&+&3y&-&5z&=&-4\\
+%-x&+&2y&+&4z&=&5\\
+%x&+&5y&-&z&=&1\\
+%\end{array}\right.$
+%\vsec
+\item[$\bullet$] $(\mathcal{S}_{10}):\left\lbrace\begin{array}{rcrcrcr}
+2x&-&y&-&z&=&0\\
+3x&+&y&+&3z&=&1\\
+\end{array}\right.$
+\end{itemize}
+
+
+\begin{itemize}
+\item[$\bullet$] $(\mathcal{S}_{11}):
+\left\lbrace\begin{array}{rcrcrcr}
+2x &+ &y &- & z & = &1\\
+3x &+ &3y &- & z & = &2\\
+2x &+ &4y& &&= &2
+\end{array}\right.$
+%\vsec
+%\item[$\bullet$] $(\mathcal{S}_{13}):\left\lbrace\begin{array}{rcrcr}
+%x&+&y&=&0\\
+%2x&-&3y&=&-1\\
+%-x&+&4y&=&2\\
+%\end{array}\right.$
+\end{itemize}
+
+\end{exemples}
+
+\begin{rems}
+\begin{enumerate}
+ \item 
+\noindent \warning \`{A} chaque \'etape, le pivot doit \^etre \dotfill \phantom{\hspace{5cm}}\\
+\noindent Attention aux syst\`emes dont les coefficients d\'ependent d'un ou plusieurs param\`etres (voir plus loin).
+\item 
+On a int\'er\^et \`a choisir un pivot le plus simple possible, le mieux \'etant 1 ou -1. Ainsi, il est parfois int\'eressant d'\'echanger des lignes ou des inconnues pour faire appara\^itre un pivot plus simple.
+\end{enumerate}
+\end{rems}
+
+\vspace{0.4cm}
+
+%------------------------------------------------------------------------------------
+%\noindent\subsubsection{Cons\'equence: solution d'un syst\`{e}me lin\'eaire}
+
+
+{\noindent  
+
+\begin{theorem}% Ensemble solution d'un syst\`{e}me lin\'eaire:
+%\begin{itemize}
+ Tout syst\`eme lin\'eaire est \'equivalent \`a un syst\`eme \'echelonn\'e de m\^eme taille.
+%\item[$\bullet$]
+%Ainsi, un syst\`eme lin\'eaire a \dotfill
+%\end{itemize}
+\end{theorem}
+}
+
+
+\vspace{0.5cm}
+
+%------------------------------------------------------------------------------------
+%\noindent\subsubsection{Cons\'equence: rang d'un syst\`{e}me lin\'eaire}
+
+{\noindent  
+
+\begin{defi}% Rang:\\
+\noindent On appelle rang d'un syst\`eme lin\'eaire, \'echelonn\'e ou pas, le rang d'un système linéaire échelonné qui lui est équivalent. 
+\end{defi}
+}
+
+\begin{rem}
+Pour un m\^eme syst\`eme lin\'eaire, selon les choix faits lors de l'algorithme du pivot de Gauss, on peut obtenir des syst\`emes \'echelonn\'es diff\'erents. Ces syst\`emes \'echelonn\'es sont tous \'equivalents puisqu'ils sont \'equivalents \`a un m\^eme syst\`eme. Pour autant, il est parfois difficile de s'en rendre compte au premier coup d'oeil. Il existe n\'eanmoins une caract\'eristique commune \`a tous ces syst\`emes qui est justement leur rang. %Tous les syst\`emes \'echelonn\'es qui sont \'equivalents ont le m\^eme rang.
+\end{rem}
+
+%Le rang d'un syst\`eme est donc le nombre d'\'equations pertinentes pour r\'esoudre le syst\`eme. On calcule le rang en effectuant l'algorithme du pivot de Gauss sur le syst\`eme jusqu'au bout, jusqu'\`a obtenir un syst\`eme \'echelonn\'e \'equivalent.\\
+
+
+\begin{exemples} 
+Donner le rang des syst\`{e}mes lin\'eaires $\mathcal{S}_{9}$ \`a $\mathcal{S}_{11}$.
+\end{exemples}
+
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%---------------------------------------------------
+
+\end{document}

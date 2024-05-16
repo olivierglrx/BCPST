@@ -1,0 +1,536 @@
+\documentclass[a4paper, 11pt,reqno]{article}
+\input{macro/package.tex}
+\input{macro/environement}
+\input{macro/header.tex}
+\input{macro/newcommand.tex}
+\geometry{hmargin=1.0cm, vmargin=2.5cm}
+
+
+\newcommand{\type}{TD }
+\excludecomment{correction}
+%\renewcommand{\type}{Correction TD }
+
+
+\begin{document}
+
+\title{\type 7 : Équations différentielles à coefficients constants}
+
+
+\section*{Entraînements}
+
+\begin{exercice}  \;
+  R\'esoudre les \'equations diff\'erentielles suivantes, puis déterminer l'unique solution vérifiant $y(0)=1$
+  \begin{enumerate}
+    \begin{minipage}[c]{0.45\linewidth}
+      \item $y^{\prime}-2y=x+x^2$
+      \item$3y^{\prime}-2y=x$
+
+    \end{minipage}
+    \begin{minipage}[c]{0.45\linewidth}
+      \item $y^{\prime}=y +1$
+      \item $y^{\prime}=-y+e^x$
+    \end{minipage}
+  \end{enumerate}
+\end{exercice}
+
+\begin{correction}
+  \begin{enumerate}
+    %-----
+    \item \textbf{$\mathbf{y^{\prime}-2y=x+x^2}$ sur $\R$} :\\
+          \begin{itemize}
+            \item[$\bullet$] On reconna\^{i}t une \'equation diff\'erentielle lin\'eaire du premier ordre \`{a} coefficients  constants.
+            \item[$\bullet$] R\'esolution de l'\'equation homog\`{e}ne associ\'ee: $y^{\prime}-2y=0$:\\
+                  \begin{itemize}
+                    \item[$\star$] La fonction $a: x\mapsto a(x)=-2$ est continue sur $\R$ donc il existe une primitive $A$ de $a$ sur $\R$ et pour tout $x\in\R$, $A(x)=-2x$.
+                    \item[$\star$] La solution g\'en\'erale de l'\'equation homog\`{e}ne associ\'ee est alors: $y_h(x) = Ce^{2x}$ avec $C\in\R$ constante.
+                  \end{itemize}
+            \item[$\bullet$] Recherche d'une solution particuli\`{e}re de l'\'equation avec second membre: $y^{\prime}-2y=x+x^2$:\\
+                  \noindent Comme la fonction $a$ est constante et que le second membre est de type polyn\^{o}me, on peut chercher cette solution sous la forme: $y_p(x)= ax^2+bx+c$ avec $(a,b,c)\in\R^3$. On obtient ainsi pour tout $x\in\R$ que: $-2ax^2+(-2b+2a)x+b-2c=x+x^2$. Par identification des coefficients, on obtient:
+                  $\left\lbrace \begin{array}{lll}  -2a&=&1\vsec\\ -2b+2a&=&1\vsec\\ b-2x&=&0\end{array} \right.$. Ainsi, on obtient que: $y_p(x)= -\ddp\demi x^2-x-\ddp\demi$.
+            \item[$\bullet$] Conclusion: la solution g\'en\'erale de l'\'equation diff\'erentielle avec second membre est alors: \fbox{$y(x)=Ce^{2x} -\ddp\demi x^2-x-\ddp\demi$} avec $C\in\R$ constante.
+          \end{itemize}
+          %-----
+
+
+    \item \textbf{$3\mathbf{y^{\prime}-2y=x}$ sur $\R$} :\\
+          \begin{itemize}
+            \item[$\bullet$] On reconna\^{i}t une \'equation diff\'erentielle lin\'eaire du premier ordre \`{a} coefficients  constants.
+            \item[$\bullet$] R\'esolution de l'\'equation homog\`{e}ne associ\'ee: $3y^{\prime}-2y=0 \equivaut y^{\prime}-\frac{2}{3}y=0 $:\\
+                  \begin{itemize}
+                    \item[$\star$] La fonction $a: x\mapsto a(x)=-\frac{2}{3}$ est continue sur $\R$ donc il existe une primitive $A$ de $a$ sur $\R$ et pour tout $x\in\R$, $A(x)=-\frac{2}{3}x$.
+                    \item[$\star$] La solution g\'en\'erale de l'\'equation homog\`{e}ne associ\'ee est alors: $y_h(x) = Ce^{\frac{2}{3}x}$ avec $C\in\R$ constante.
+                  \end{itemize}
+            \item[$\bullet$] Recherche d'une solution particuli\`{e}re de l'\'equation avec second membre: $y^{\prime}-\frac{2}{3}y=\frac{1}{3}x$:\\
+                  \noindent Comme la fonction $a$ est constante et que le second membre est de type polyn\^{o}me, on peut chercher cette solution sous la forme: $y_p(x)= ax+b$ avec $(a,b)\in\R^2$. On obtient ainsi pour tout $x\in\R$ que: $a-\frac{2}{3}(ax+b) =x$. Par identification des coefficients, on obtient:
+                  $\left\lbrace \begin{array}{lll}  -\frac{2}{3}a&=&1\vsec\\ a-\frac{2}{3}b&=&0\vsec\\ \end{array} \right.$. Ainsi, on obtient que: $y_p(x)= -\ddp\frac{3}{2}x-\frac{9}{4}$.
+            \item[$\bullet$] Conclusion: la solution g\'en\'erale de l'\'equation diff\'erentielle avec second membre est alors: \fbox{$y(x)=Ce^{\frac{2}{3}x} -\ddp\frac{3}{2}x-\frac{9}{4}$} avec $C\in\R$ constante.
+          \end{itemize}
+          %-----
+
+
+    \item \textbf{$\mathbf{y^{\prime}=y+1}$ sur $\R$} :\\
+          \begin{itemize}
+            \item[$\bullet$] On reconna\^{i}t une \'equation diff\'erentielle lin\'eaire du premier ordre \`{a} coefficients  constants.
+            \item[$\bullet$] R\'esolution de l'\'equation homog\`{e}ne associ\'ee: $y^{\prime}-y=0 $:\\
+                  \begin{itemize}
+
+                    \item[$\star$] La solution g\'en\'erale de l'\'equation homog\`{e}ne associ\'ee est alors: $y_h(x) = Ce^{x}$ avec $C\in\R$ constante.
+                  \end{itemize}
+            \item[$\bullet$] Recherche d'une solution particuli\`{e}re de l'\'equation avec second membre: $y^{\prime}-y=1$:\\
+                  \noindent On cherche $y_p$ sous forme constante on trouve $y_p(x)= -1$.
+            \item[$\bullet$] Conclusion: la solution g\'en\'erale de l'\'equation diff\'erentielle avec second membre est alors: \fbox{$y(x)=Ce^{x}-1$} avec $C\in\R$ constante.
+          \end{itemize}
+
+          %------
+    \item \textbf{$\mathbf{y^{\prime}=-y+e^x}$ sur $\R$} :\\
+          \begin{itemize}
+            \item[$\bullet$] On reconna\^{i}t une \'equation diff\'erentielle lin\'eaire du premier ordre \`{a} coefficients  constants.
+            \item[$\bullet$] R\'esolution de l'\'equation homog\`{e}ne associ\'ee: $y^{\prime}+y=0 $:\\
+                  \begin{itemize}
+
+                    \item[$\star$] La solution g\'en\'erale de l'\'equation homog\`{e}ne associ\'ee est alors: $y_h(x) = Ce^{-x}$ avec $C\in\R$ constante.
+                  \end{itemize}
+            \item[$\bullet$] Recherche d'une solution particuli\`{e}re de l'\'equation avec second membre: $y^{\prime}+y=e^x$:\\
+                  \noindent On cherche $y_p$ sous forme $ae^x$ avec $a\in \R$ on trouve $y_p(x)= \frac{1}{2}e^x$.
+            \item[$\bullet$] Conclusion: la solution g\'en\'erale de l'\'equation diff\'erentielle avec second membre est alors: \fbox{$y(x)=Ce^{-x}+\frac{1}{2}e^x$} avec $C\in\R$ constante.
+          \end{itemize}
+  \end{enumerate}
+\end{correction}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%-----------------------------------------------
+%------------------------------------------------
+
+
+
+
+%--------------------------------------------------
+%------------------------------------------------
+%--------------------------------------------------
+%------------------------------------------------
+%----------------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------------
+%-----------------------------------------------
+%------------------------------------------------
+%-----------------------------------------------
+\begin{exercice}  \;
+  R\'esoudre les \'equations diff\'erentielles suivantes
+  \begin{enumerate}
+    \begin{minipage}[c]{0.45\linewidth}
+      \item $y^{\prime\prime}+4y^{\prime}+4y=x^2e^x$
+      \item $y^{\prime\prime}+4y^{\prime}+4y=x^2e^{-2x}$
+      \item $y^{\prime\prime}+4y^{\prime}+4y=\sin{x}e^{-2x}$
+      \item $y^{\prime\prime}-6y^{\prime}+9y=e^x$
+      \item $y^{\prime\prime}-2y^{\prime}+2y=x^2+x$
+      \item $2y^{\prime\prime}-y^{\prime}-y=e^x+e^{-x}$
+    \end{minipage}
+    \begin{minipage}[c]{0.45\linewidth}
+      \item $y^{\prime\prime}-2y^{\prime}+3y=\cos{x}$
+      \item $4y^{\prime\prime}+4y^{\prime}+y=x+x^2+3\sin{x}+e^{3x}+xe^{-\frac{x}{2}}$
+      \item $y^{\prime\prime}-my+y=0$ avec $m\in\R$
+      \item $y^{\prime\prime}+y=x^2\cos{x}$
+      \item $y^{\prime\prime}+y=\cos{x}+\sin{(2x)}$
+    \end{minipage}
+  \end{enumerate}
+\end{exercice}
+\begin{correction}  \;
+  R\'esoudre les \'equations diff\'erentielles suivantes
+  \begin{enumerate}
+    %-----
+    \item  $\mathbf{y^{\prime\prime}+4y^{\prime}+4y=x^2e^x}$ :\\
+          \begin{itemize}
+            \item[$\star$] On reconna\^{i}t une \'equation diff\'erentielle du second ordre \`{a} coefficients constants.
+            \item[$\star$] R\'esolution de l'\'equation homog\`{e}ne associ\'ee: $y^{\prime\prime}+4y^{\prime}+4y=0$\\
+                  \noindent L'\'equation caract\'eristique associ\'ee est: $r^2+4r+4=0$ dont le discriminant est $\Delta=0$ et la solution est $r_0=-2$. Ainsi la solution g\'en\'erale de l'\'equation homog\`{e}ne est: $y_h(x)= (A +B x)e^{-2x}$ avec $(A,B)\in\R^2$ constantes.
+            \item[$\star$] Recherche d'une solution particuli\`{e}re de l'\'equation avec second membre $y^{\prime\prime}+4y^{\prime}+4y=x^2e^x$:\\
+                  \noindent Le second membre est de la forme $P(x) e^{mx}$ avec $m=1$ non racine de l'\'equation caract\'eristique. On cherche alors $y_1$ sous la forme $y_p(x)=(ax^2+bx+c)e^{x}$ avec $(a,b,c)\in\R^3$. On a alors :
+                  $$y'_p(x) = (2ax+b+ax^2+bx+c)e^x = (ax^2+(2a+b)x+b+c)e^x,$$
+                  puis on en d\'eduit :
+                  $$y''_p(x)=(2ax+2a+b+ax^2+(2a+b)x+b+c)e^x = (ax^2+(4a+b)x+2a+2b+c)e^x.$$
+                  Or on sait que $y''_p(x) + 4y'_p(x) + 4y_p(x) = x^2e^x$, donc on obtient :
+                  $$(ax^2+(4a+b)x+2a+2b+c + 4(ax^2+(2a+b)x+b+c) +4(ax^2+bx+c))e^x = x^2e^x.$$
+                  En divisant par $e^x$, et en identifiant les coefficients du polyn\^{o}me, on obtient : $a=\ddp\frac{1}{9}$, $b=-\ddp\frac{4}{27}$ et $c=-\ddp\frac{2}{27}$. Ainsi une solution particuli\`{e}re de l'\'equation est: $y_p(x)= \left( \ddp\frac{x^2}{9}-\ddp\frac{4x}{27}-\ddp\frac{2}{27}\right) e^x$.
+            \item[$\star$] Conclusion: la solution g\'en\'erale de l'\'equation diff\'erentielle avec second membre est alors: \fbox{$y(x)=  (A +B x)e^{-2x}+\left( \ddp\frac{x^2}{9}-\ddp\frac{4x}{27}-\ddp\frac{2}{27}\right) e^x$} avec $(A,B)\in\R^2$ constantes.
+          \end{itemize}
+          %-----
+    \item $\mathbf{y^{\prime\prime}+4y^{\prime}+4y=x^2e^{-2x}}$ :\\
+          On a d\'ej\`a r\'esolu l'\'equation homog\`ene associ\'ee.\\
+          Le second membre est cette fois de la forme $P(x) e^{mx}$ avec $m=-2$ racine double de l'\'equation caract\'eristique. On cherche donc une solution particuli\`ere sous  la forme $y_p(x)=x^2(ax^2+bx+c)e^{-2x}$ avec $(a,b,c)\in\R^3$. On obtient par identification : $a=\ddp \frac{1}{12}$, $b=0$ et $c=0$.\\
+          La solution g\'en\'erale est alors: \fbox{$y(x) = \left(A +B x + \ddp \frac{1}{12}x^2 \right)e^{-2x}$} avec $(A,B)\in\R^2$ constantes.
+    \item $\mathbf{y^{\prime\prime}+4y^{\prime}+4y=\sin(x) \, e^{-2x}}$ :\\
+          On a d\'ej\`a r\'esolu l'\'equation homog\`ene associ\'ee.\\
+          Le second membre est cette fois de la forme
+          $$f(x)=\sin (x) \, e^{-2x} = \frac{e^{ix}-e^{-ix}}{2} \, e^{-2x} = \frac{1}{2} e^{(-2+i)x} - \frac{1}{2} e^{-(2+i)x}.$$
+          On utilise alors le principe de superposition : on cherche tout d'abord une solution particuli\`ere pour l'\'equation $y^{\prime\prime}+4y^{\prime}+4y=\ddp \frac{1}{2} e^{(-2+i)x}$. Comme $-2+i$ n'est pas solution de l'\'equation carcat\'eristique, on la cherche sous la forme $y_1(x) = a e^{(-2+i)x}$. Par identification, on trouve $A = -\ddp \frac{1}{2}$.\\
+          On cherche ensuite une solution particuli\`ere pour l'\'equation $y^{\prime\prime}+4y^{\prime}+4y=\ddp -\frac{1}{2} e^{-(2+i)x}$. On la cherche sous la forme $y_2(x) = b e^{-(2+i)x}$. Par identification, on trouve $b = \ddp \ddp \frac{1}{2}$.\\
+          La solution g\'en\'erale est alors $y=y_h+y_1+y_2$, soit : $y(x) = \ddp  \left(A +B x \right)e^{-2x} - \frac{1}{2} e^{(-2+i)x} + \ddp \frac{1}{2} e^{-(2+i)x}$ avec $(A,B)\in\R^2$ constantes. On simplifie pour retrouver une solution r\'eelle, et on obtient \fbox{$y(x)=\ddp  \left(A +B x -\sin x\right)e^{-2x}$}.
+          %-----
+    \item $\mathbf{y^{\prime\prime}-6y^{\prime}+9y=e^x}$ :\\
+          La solution g\'en\'erale  est \fbox{$y(x) =\ddp (A +B x)e^{3x}  + \ddp \frac{1}{4}e^x$} avec $(A,B)\in\R^2$.
+          %-----
+    \item $\mathbf{y^{\prime\prime}-2y^{\prime}+2y=x^2+x}$ :\\
+          \begin{itemize}
+            \item[$\star$] On reconna\^{i}t une \'equation diff\'erentielle du second ordre \`{a} coefficients constants.
+            \item[$\star$] R\'esolution de l'\'equation homog\`ene associ\'ee : $y^{\prime\prime}-2y^{\prime}+2y=0$.\\
+                  L'\'equation caract\'eristique associ\'ee est: $r^2-2r+2=0$ dont le discriminant est $\Delta=-4$ et les deux solutions complexes conjugu\'ees sont $r_1=1+i$ et $r_2=1-i$. Ainsi la solution g\'en\'erale de l'\'equation homog\`{e}ne est: $y_h(x)= (A \cos{(x)}+B \sin{(x)})e^x$ avec $(A,B)\in\R^2$ constantes.
+            \item[$\star$] Recherche d'une solution particuli\`ere : on a cherche une solution sous la forme d'un polyn\^ome de degr\'e $2$, soit $y_p(x) = a x^2 +bx+c$. Par identification, on obtient $a=\ddp \frac{1}{2}, b= \frac{3}{2}, c=1$.
+            \item[$\star$] Conclusion : la solution g\'en\'erale est \fbox{$y(x) = \ddp  (A \cos{(x)}+B \sin{(x)})e^x + \ddp \frac{1}{2}x^2 + \frac{3}{2}x + 1$}, avec $(A,B)\in\R^2$.
+          \end{itemize}
+          %-----
+    \item $\mathbf{2y^{\prime\prime}-y^{\prime}-y=e^x+e^{-x}}$ :\\
+          La solution g\'en\'erale est \fbox{$y(x) = \ddp A e^x +B e^{-\frac{x}{2}}  + \ddp \frac{1}{2}x e^x + \frac{1}{2} e^{-x}$}, avec $(A,B)\in\R^2$.
+          %-----
+    \item $\mathbf{y^{\prime\prime}-2y^{\prime}+3y=\cos{x}}$ :\\
+          La solution g\'en\'erale est \fbox{$y(x) = \ddp (A \cos (\sqrt{2} x) +B \sin (\sqrt{2} x))e^{x}  + \ddp \frac{1}{4}\cos x - \frac{1}{4} \sin x$}, avec $(A,B)\in\R^2$.
+          %-----
+    \item $\mathbf{4y^{\prime\prime}+4y^{\prime}+y=x+x^2+3\sin{x}+e^{3x}+xe^{-\frac{x}{2}}}$ :\\
+          La solution g\'en\'erale est  \vsec\\
+          \fbox{$y(x)=\ddp (A +B x)e^{-\frac{x}{2}}  + x^2-7x + 20 - \ddp \frac{12}{25}\cos x - \frac{9}{25} \sin x +\frac{1}{49} e^{3x} + \frac{1}{24} x^3 e^{-\frac{x}{2}}$}, avec $(A,B)\in\R^2$.
+          %-----
+    \item \textbf{$\mathbf{y^{\prime\prime}-my+y=0}$ avec $\mathbf{m\in\R}$} :\\
+          La solution g\'en\'erale est \fbox{$y(x) =\ddp (A +B x)e^{3x}  + \ddp \frac{1}{4}e^x$}, avec $(A,B)\in\R^2$.
+          %-----
+    \item $\mathbf{y^{\prime\prime}+y=x^2\cos{x}}$ :\\
+          La solution g\'en\'erale est \fbox{$y(x) =\ddp (A +B x)e^{3x}  + \ddp \frac{1}{4}e^x$}, avec $(A,B)\in\R^2$.
+          %-----
+    \item $\mathbf{y^{\prime\prime}+y=\cos{x}+\sin{(2x)}}$ :\\
+          La solution g\'en\'erale est \fbox{$y(x) =\ddp (A +B x)e^{3x}  + \ddp \frac{1}{4}e^x$}, avec $(A,B)\in\R^2$.
+  \end{enumerate}
+\end{correction}
+
+
+
+
+
+%------------------------------------------------
+%-----------------------------------------------
+\begin{exercice}  \;
+  R\'esoudre les \'equations diff\'erentielles suivantes, puis d\'eterminer l'unique solution v\'erifiant $y(0)=0$ et $y'(0)=1$.
+  \begin{enumerate}
+    \begin{minipage}[t]{0.45\textwidth}
+      \item $y''+8y'+15y=5$
+      \item $4y''-4y'+y=4$
+    \end{minipage}
+    \noindent \begin{minipage}[t]{0.45\textwidth}
+      \item $y''-2y'+5y=5$
+      \item $y''-2y'=2$
+    \end{minipage}
+  \end{enumerate}
+\end{exercice}
+\begin{correction}  \;
+  \textbf{R\'esoudre les \'equations diff\'erentielles suivantes, puis d\'eterminer l'unique solution v\'erifiant $y(0)=0$ et $y'(0)=1$.}
+  \begin{enumerate}
+    %----------------
+    \item $\mathbf{y''+8y'+15y=5}$\\
+          On doit r\'esoudre une \'equation diff\'erentielle lin\'eaire, du second ordre, \`a coefficients constants.
+          \begin{itemize}
+            \item[$\bullet$] \'Equation homog\`ene associ\'ee : $ y''+8y'+15y= 0$. On \'etudie l'\'equation caract\'eristique associ\'ee : $r^2 + 8r+15=0$. Ses solutions sont r\'eelles distinctes, donn\'ees par $r_1=-5$ et $r_2=-3$. Les solutions sont donc donn\'ees par $y_h(t) = A e^{-5t} + B e^{-3t}$, avec $(A,B) \in \R^2$.
+            \item[$\bullet$] Solution particuli\`ere constante : $y_p(t) = \alpha$. On a alors $y'_p(t) = y_p''(t) = 0$, donc on doit avoir $0 +15 \alpha = 5$, soit $\alpha = \ddp \frac{1}{3}$.
+          \end{itemize}
+          On en d\'eduit que l'ensemble des solutions est \fbox{$S=\{y : t\mapsto  A e^{-5t} + B e^{-3t} +\ddp \frac{1}{3}$}, avec $(A,B) \in \R^2\}$.\\
+          On \'etudie \`a pr\'esent les conditions initiales. On a $y(0) = 0$, soit $A+B+\ddp \frac{1}{3}=0$. De plus, on doit avoir $y'(0)=0$. Or on a : $q'(t) = - 5 A  e^{-5t} - 3 B e^{-3t}$, donc $q'(0) = -5A-3B = 1$. On doit donc r\'esoudre :
+          $$\left\{ \begin{array}{rcr}
+              A+B     & = & -\ddp \frac{1}{3} \vsec \\
+              -5A -3B & = & 1
+            \end{array} \right. \; \Leftrightarrow \left\{ \begin{array}{rcr}
+              A & = & 0 \vsec           \\
+              B & = & -\ddp \frac{1}{3}
+            \end{array} \right. $$
+          La solution est donc donn\'ee par  \fbox{$y(t) =\ddp \frac{1}{3}(1- e^{-3t} )$}.
+          %----------------
+    \item $\mathbf{4y''-4y'+y=4}$\\
+          On doit r\'esoudre une \'equation diff\'erentielle lin\'eaire, du second ordre, \`a coefficients constants.
+          \begin{itemize}
+            \item[$\bullet$] \'Equation homog\`ene associ\'ee : $ 4y''-4y'+y= 0$. On \'etudie l'\'equation caract\'eristique associ\'ee : $4r^2 -4r+1=0$. Cette \'equation admet une solution double, donn\'ee par $r=\ddp \frac{1}{2}$. Les solutions sont donc donn\'ees par $y_h(t) = A e^{\frac{t}{2}} + B t e^{\frac{t}{2}}$, avec $(A,B) \in \R^2$.
+            \item[$\bullet$] Solution particuli\`ere constante : $y_p(t) = \alpha$. On a alors $y'_p(t) = y_p''(t) = 0$, donc on doit avoir $0 + \alpha = 4$, soit $\alpha = 4$.
+          \end{itemize}
+          On en d\'eduit que l'ensemble des solutions est \fbox{$S = \{ y: t \mapsto A e^{\frac{t}{2}} + B t e^{\frac{t}{2}} + 4$}, avec $(A,B) \in \R^2\}$.\\
+          On \'etudie \`a pr\'esent les conditions initiales. On a $y(0) = 0$, soit $A=0$. De plus, on doit avoir $y'(0)=0$. Or on a : $y'(t) = \ddp \frac{A}{2} e^{\frac{t}{2}}  + B e^{\frac{t}{2}} + \frac{B}{2} t e^{\frac{t}{2}}$, donc $y'(0) = \ddp \frac{A+B}{2} = 1$, soit $B=2$. La solution est donc donn\'ee par  \fbox{$y(t) =\ddp 2 t e^{\frac{t}{2}} + 4$}.
+          %----------------
+          %\newpage
+    \item $\mathbf{y''-2y'+5y=5}$\\
+          On doit r\'esoudre une \'equation diff\'erentielle lin\'eaire, du second ordre, \`a coefficients constants.
+          \begin{itemize}
+            \item[$\bullet$] \'Equation homog\`ene associ\'ee : $ y''-2y'+5y= 0$. On \'etudie l'\'equation caract\'eristique associ\'ee : $r^2 -2r+5=0$. Ses solutions sont r\'eelles distinctes, donn\'ees par $r_1=-5$ et $r_2=-3$. Les solutions sont donc donn\'ees par $y_h(t) = A e^{-5t} + B e^{-3t}$, avec $(A,B) \in \R^2$.
+            \item[$\bullet$] Solution particuli\`ere constante : $y_p(t) = \alpha$. On a alors $y'_p(t) = y_p''(t) = 0$, donc on doit avoir $0 +5 \alpha = 5$, soit $\alpha = 1$.
+          \end{itemize}
+          On en d\'eduit que l'ensemble des solutions est \fbox{$S = \{ y: t \mapsto e^{t} (A\cos(2t)+ B \sin(2t))+1$}, avec $(A,B) \in \R^2$.\\
+          On \'etudie \`a pr\'esent les conditions initiales. On a $y(0) = 0$, soit $A+1=0$, donc $A=-1$. De plus, on doit avoir $y'(0)=0$. Or on a : $y'(t) = e^{t} (A\cos(2t)+ B \sin(2t)) + e^{t} (-2A\sin(2t)+2B \cos(2t))$, donc $y'(0) = A+2B = 1$. On en d\'eduit $B=\ddp \frac{1-A}{2} =1$.
+          La solution est donc donn\'ee par  \fbox{$y(t) =\ddp e^{t} (-\cos(2t)+\sin(2t))+1$}.
+          %----------------
+    \item $\mathbf{y''-2y'=2}$\\
+          On doit r\'esoudre une \'equation diff\'erentielle lin\'eaire, du second ordre, \`a coefficients constants. Cependant, ici le coefficient du terme $y$ est nul : on se ram\`ene \`a une \'equation du premier ordre, en $z=y'$.\\
+          On commence donc par r\'esoudre l'\'equation $z'-2z=2$. La solution de l'\'equation homog\`ene associ\'ee sont de la forme $z_h(t) = Ce^{2t}$, avec $C\in \R$. On cherche une solution particuli\`ere constante : $z_p(t) = \alpha$. On obtient $\alpha = -1$. Les solutions g\'en\'erales sont donc de la forme $z(t) = Ce^{2t}-1$, avec $C \in \R$.\\
+          Revenons \`a pr\'esent \`a $y$ : on a $y'=z$, donc $y$ est une primitive de $z$. On en d\'eduit que $y$ s'\'ecrit sous la forme : \fbox{$y(t) = \ddp \frac{C}{2} e^{2t} - t + K$}, o\`u $(C,K) \in \R^2$.\\
+          On utilise les conditions initiales pour d\'eterminer $C$ et $K$ : on a $y(0)=0$, soit $\ddp \frac{C}{2} +K = 0$. De plus, on a $y'(t) = C e^{2t} -1$, donc $y'(0)=1$ donne $C-1 = 1$, soit $C=2$. En revenant \`a l'\'equation $\ddp \frac{C}{2} +K = 0$, on obtient alors $K = -1$. On a donc finalement \fbox{$y(t) = \ddp e^{2t} - t -1$}.
+  \end{enumerate}
+\end{correction}
+
+
+
+\begin{exercice}  \;
+  On consid\`ere un param\`etre r\'eel $m$. R\'esoudre l'\'equation diff\'erentielle suivante en discutant selon les valeurs de $m$:
+  $$y^{\prime\prime}-(m+1)y^{\prime}+my=e^x-x-1.$$
+\end{exercice}
+
+
+
+%-----------------------------------------------
+\begin{correction}  \;
+  \textbf{On consid\`ere un param\`etre r\'eel $m$. R\'esoudre l'\'equation diff\'erentielle suivante en discutant selon les valeurs de $m$: $y^{\prime\prime}-(m+1)y^{\prime}+my=e^x-x-1.$}\\
+  \begin{itemize}
+    \item[$\bullet$] On reconna\^{i}t une \'equation diff\'erentielle du second ordre \`{a} coefficients constants.
+    \item[$\bullet$] R\'esolution de l'\'equation homog\`{e}ne associ\'ee: $y^{\prime\prime}-(m+1)y^{\prime}+my=0$\\
+          \noindent L'\'equation caract\'eristique associ\'ee est: $r^2-(m+1)r+m=0$ dont le discriminant est $\Delta=(m+1)^2-4m=(m-1)^2$. Il faut donc distinguer deux cas :
+          \begin{itemize}
+            \item[$\star$] Cas 1 : si $m\not=1$. Alors on a $\Delta > 0$, donc l'\'equation caract\'eristique poss\`ede deux solutions r\'eelles distinctes, qui sont $\ddp \frac{m+1-|m-1|}{2}$ et $\ddp \frac{m+1+|m-1|}{2}$, soit $r_1=1$ et $r_2=m$. Ainsi la solution g\'en\'erale de l'\'equation homog\`{e}ne est: $y_h(x) = Ae^x + Be^{mx}$ avec $(A,B)\in\R^2$ constantes.
+            \item[$\star$] Cas 2 : si $m=1$. Alors on a $\Delta = 0$, donc l'\'equation caract\'eristique poss\`ede une solution r\'eelle double, qui est $r_0=1$. Ainsi la solution g\'en\'erale de l'\'equation homog\`{e}ne est: $y_h(x) = (A+Bx)e^x$ avec $(A,B)\in\R^2$ constantes.
+          \end{itemize}
+    \item[$\bullet$] Recherche d'une solution particuli\`{e}re de l'\'equation avec second membre $y^{\prime\prime}-(m+1)y^{\prime}+my=e^x$: on doit \`a nouveau faire deux cas, selon la valeur de $m$.
+          \begin{itemize}
+            \item[$\star$] Cas 1 : si $m\not=1$. Le second membre est de la forme $e^{x}$ avec $1$ racine simple de l'\'equation caract\'eristique. On cherche alors $y_1$ sous la forme $y_1(x)=a x e^{x}$ avec $a \in \R$. En rempla\c cant dans l'\'equation, on obtient : $a=\ddp\frac{1}{1-m}$. Ainsi une solution particuli\`{e}re de l'\'equation est: $\ddp y_1(x)= \frac{1}{1-m} x e^x$.
+            \item[$\star$] Cas 2 : si $m=1$. Le second membre est de la forme $e^{x}$ avec $1$ racine double de l'\'equation caract\'eristique. On cherche alors $y_1$ sous la forme $y_1(x)=a x^2 e^{x}$ avec $a \in \R$. En rempla\c cant dans l'\'equation, on obtient : $a=\ddp\frac{1}{2}$. Ainsi une solution particuli\`{e}re de l'\'equation est: $y_1(x)= \ddp \frac{1}{2} x^2 e^x$.
+          \end{itemize}
+    \item[$\bullet$] Recherche d'une solution particuli\`{e}re de l'\'equation avec second membre $y^{\prime\prime}-(m+1)y^{\prime}+my=x+1$. Il faut distinguer le cas o\`u le coefficient du $y$ vaut $0$.
+          \begin{itemize}
+            \item[$\star$] Cas 1 : si $m\not=0$. Le second membre est un polyn\^ome de degr\'e 1, on cherche alors $y_2$ sous la forme $y_2(x)=ax+b$ avec $(a,b)\in\R^2$. En rempla\c cant dans l'\'equation, on obtient : $a=\ddp \frac{1}{m}$ et $b=\ddp \frac{2m+1}{m^2}$.  Ainsi une solution particuli\`{e}re de l'\'equation est: $y_2(x)= \ddp\frac{1}{m} x + \frac{2m+1}{m^2}$.
+            \item[$\star$] Cas 2 : si $m=0$. On doit alors r\'esoudre $y''-y'=x+1$. On a une \'equation diff\'erentielle d'ordre $1$ en $y'$. On cherche donc une solution particuli\`ere pour $y'$ de la forme $y'_2(x) = ax+b$  avec $(a,b)\in\R^2$. En rempla\c cant dans l'\'equation, on obtient : $a=-1$ et $b=2$. On a donc $y'_2(x) = -x+2$, et on peut choisir comme solution particuli\`ere $y_2(x) = -\ddp\frac{x^2}{2}+2x$.
+          \end{itemize}
+    \item[$\bullet$] Conclusion: on utilise le principe de supersposition pour dire que la solution g\'en\'erale de l\'equation s'\'ecrit $y=y_h + y_1 + y_2$. Selon les cas, on obtient donc :
+          \begin{itemize}
+            \item[$\star$] Cas 1 : si $m\not\in \{0,1\}$.  \fbox{$y(x) = Ae^x + Be^{mx} +\ddp \frac{1}{1-m} x e^x -  \ddp\frac{1}{m} x - \frac{2m+1}{m^2}$} avec $(A,B)\in\R^2$ constantes.
+            \item[$\star$] Cas 2 : si $m=1$. \fbox{$y(x) =\ddp (A+Bx)e^x  +  \frac{1}{2} x^2 e^x -  x -3$} avec $(A,B)\in\R^2$ constantes.
+            \item[$\star$] Cas 3 : si $m=0$. \fbox{$y(x) =\ddp Ae^x + B  +  x e^x +\frac{x^2}{2} -2x$} avec $(A,B)\in\R^2$ constantes.
+          \end{itemize}
+  \end{itemize}
+
+\end{correction}
+%------------------------------------------------
+%-----------------------------------------------
+\begin{exercice}  \;
+  R\'esoudre les probl\`emes de Cauchy suivants:
+  \begin{enumerate}
+    \item $y^{\prime\prime}-4y^{\prime}+5y=e^x$ avec $y(0)=1$ et $y^{\prime}(0)=0$
+    \item $y^{\prime\prime}-4y^{\prime}+5y=e^{2x}$ avec $y(0)=0$ et $y^{\prime}(0)=1$
+  \end{enumerate}
+\end{exercice}
+
+%------------------------------------------------
+%-----------------------------------------------
+\begin{correction}  \;
+  \textbf{R\'esoudre les probl\`emes de Cauchy suivants:}
+  \begin{enumerate}
+    \item \textbf{$\mathbf{y^{\prime\prime}-4y^{\prime}+5y=e^x}$ avec $y(0)=1$ et $y^{\prime}(0)=0$.}\\
+          \begin{itemize}
+            \item[$\star$] On reconna\^{i}t une \'equation diff\'erentielle du second ordre \`{a} coefficients constants.
+            \item[$\star$] R\'esolution de l'\'equation homog\`{e}ne associ\'ee: $y^{\prime\prime}-4y^{\prime}+5y=0$\\
+                  \noindent L'\'equation caract\'eristique associ\'ee est: $r^2-4r+5=0$ dont le discriminant est $\Delta=-4<0$. L'\'equation caract\'eristique a donc deux solutions complexes conjugu\'ees $r_1=2+i$ et $r_2=2-i$. Ainsi la solution g\'en\'erale de l'\'equation homog\`{e}ne est: $y_h(x) = e^{2x}(A \cos(x) + B \sin(x))$ avec $(A,B)\in\R^2$ constantes.
+            \item[$\star$] Recherche d'une solution particuli\`{e}re de l'\'equation avec second membre $y^{\prime\prime}-4y^{\prime}+5y=e^x$:\\
+                  \noindent Le second membre est de la forme $e^{mx}$ avec $m=1$ et $i\times 1$ non racine de l'\'equation caract\'eristique. On cherche alors $y_1$ sous la forme $y_1(x)=a e^{x}$ avec $a \in \R$. En rempla\c cant dans l'\'equation, on obtient : $a=\ddp \frac{1}{2}$. Ainsi une solution particuli\`{e}re de l'\'equation est: $y_p(x)= \ddp \frac{1}{2} e^x$.
+            \item[$\star$] La solution g\'en\'erale de l'\'equation est alors: $y_(x) = e^{2x}(A \cos(x) + B \sin(x)) + \ddp \frac{1}{2} e^x$ avec $(A,B)\in\R^2$.
+            \item[$\star$] Conditions initiales. On a $y(0)=1$ et $y'(0)=0$. Or on sait que $y(0)=A+\ddp\frac{1}{2}$, et d'autre part, on a $y'(x)=e^{2x}(2A \cos(x) + 2B \sin(x)-A\sin x +B \cos x) +\ddp \frac{1}{2}e^x$. On en d\'eduit que $y'(0)=2A+B+\ddp \frac{1}{2}$. On doit donc r\'esoudre :
+                  $$\left\{ \begin{array}{rcl}
+                      A+\ddp\frac{1}{2}     & = & 1\vsec \\
+                      2A+B+\ddp \frac{1}{2} & = & 0
+                    \end{array} \right. \; \Leftrightarrow \;
+                    \left\{ \begin{array}{rcl}
+                      A & = & \ddp \frac{1}{2} \vsec \\
+                      B & = & \ddp -\frac{3}{2}
+                    \end{array} \right.$$
+                  Ainsi, l'unique solution v\?erifiant les conditions initiales donn\'ees est
+
+                  \fbox{$y(x) = \ddp \frac{e^{2x}}{2} ( \cos(x) -3 \sin(x)) + \ddp \frac{1}{2} e^x$}.
+          \end{itemize}
+          %------
+    \item \textbf{$\mathbf{y^{\prime\prime}-4y^{\prime}+5y=e^{2x}}$ avec $y(0)=0$ et $y^{\prime}(0)=1$.}\\
+          \begin{itemize}
+            \item[$\star$] On reconna\^{i}t une \'equation diff\'erentielle du second ordre \`{a} coefficients constants.
+            \item[$\star$] R\'esolution de l'\'equation homog\`{e}ne associ\'ee: $y^{\prime\prime}-4y^{\prime}+5y=0$. D'apr\`es les calcules pr\'ec\'edents, la solution g\'en\'erale de l'\'equation homog\`{e}ne est: $y_h(x) = e^{2x}(A \cos(x) + B \sin(x))$ avec $(A,B)\in\R^2$ constantes.
+            \item[$\star$] Recherche d'une solution particuli\`{e}re de l'\'equation avec second membre $y^{\prime\prime}-4y^{\prime}+5y=e^{2x}$:\\
+                  \noindent Le second membre est de la forme $e^{mx}$ avec $m=2$ et $i\times 2$ non racine de l'\'equation caract\'eristique. On cherche alors $y_1$ sous la forme $y_1(x)=a e^{2 x}$ avec $a \in \R$. En rempla\c cant dans l'\'equation, on obtient : $a=1$. Ainsi une solution particuli\`{e}re de l'\'equation est: $y_p(x)=e^x$.
+            \item[$\star$] La solution g\'en\'erale de l'\'equation est alors: $y_(x) = e^{2x}(A \cos(x) + B \sin(x)+1)$ avec $(A,B)\in\R^2$.
+            \item[$\star$] Conditions initiales. On a $y(0)=0$ et $y'(0)=1$. Or on sait que $y(0)=A+1$, et d'autre part, on a $y'(x)=e^{2x}(2A \cos(x) + 2B \sin(x) + 2 -A\sin x +B \cos x)$. On en d\'eduit que $y'(0)=2A+2+B$. On doit donc r\'esoudre :
+                  $$\left\{ \begin{array}{rcl}
+                      A+1    & = & 0\vsec \\
+                      2A+B+2 & = & 1
+                    \end{array} \right. \; \Leftrightarrow \;
+                    \left\{ \begin{array}{rcl}
+                      A & = & -1 \vsec \\
+                      B & = & 1
+                    \end{array} \right.$$
+                  Ainsi, l'unique solution v\?erifiant les conditions initiales donn\'ees est
+
+                  \fbox{$y(x) = \ddp e^{2x} ( -\cos(x) + \sin(x) +1)$}.
+          \end{itemize}
+  \end{enumerate}
+\end{correction}
+%------------------------------------------------
+%-------------------------------------------------
+%debut
+\vspace{0.5cm}
+\section*{Type DS}
+
+\begin{exercice}  \; \textbf{Cin\'etique chimique}\\
+  On consid\`ere la r\'eaction chimique d'\'equation bilan : $2N_2O_5 \rightarrow 4 NO_2 + O_2$. Cette r\'eaction a une cin\'etique d'ordre $1$, c'est-\`a-dire que la vitesse de disparition du pentaoxyde de diazote, d\'efinie par $v = \ddp - \frac{1}{2} \frac{d [N_2O_5]}{dt}$ v\'erifie l'\'equation : $v = k [N_2O_5].$\\
+  En posant $y(t) = [N_2O_5](t)$, et en notant $c_0=y(0)$, donner l'expression exacte de la vitesse de disparition du pentaoxyde de diazote, et tracer sa courbe. %En d\'eduire le temps de demi-r\'eaction.
+
+\end{exercice}
+
+\begin{correction}  \; \textbf{Cin\'etique chimique}\\
+  \textbf{On consid\`ere la r\'eaction chimique d'\'equation bilan : $2N_2O_5 \rightarrow 4 NO_2 + O_2$. Cette r\'eaction a une cin\'etique d'ordre $1$, c'est-\`a-dire que la vitesse de disparition du pentaoxyde de diazote, d\'efinie par $v = \ddp - \frac{1}{2} \frac{d [N_2O_5]}{dt}$ v\'erifie l'\'equation : $v = k [N_2O_5].$\\
+  En posant $y(t) = [N_2O_5](t)$, et en notant $c_0=y(0)$, donner l'expression exacte de la vitesse de disparition du pentaoxyde de diazote, et tracer sa courbe.}\\ %En d\'eduire le temps de demi-r\'eaction.
+  On doit r\'esoudre l'\'equation diff\'erentielle : $-\ddp \frac{1}{2} y' =  ky$, c'est-\`a-dire $y'+2 k y = 0$. C'est une \'equation diff\'erentielle lin\'eaire, du premier ordre, \`a coefficients constants et homog\`ene. On conna\^it donc l'ensemble des solutions :
+  $$S= \{ y : t \mapsto C e^{-2kt}, \textmd{ avec }C \in \R\}.$$
+  De plus, on a $y(0) = c_0$, donc $C e^{-2k\times 0} = c_0$, soit $C=c_0$. On en d\'eduit que $y$ a pour expression \fbox{$y(t) = c_0 e^{-2kt}$}.
+  \begin{center}
+
+    \hspace*{0.5cm} \begin{minipage}[c]{0.95\linewidth}
+      Pour tracer la courbe, il suffit d'\'etudier les variations de la fonctions $y$, en supposant que $k$ et $c_0$ sont des constantes strictement positives.\\
+      On peut calculer la constante de temps caract\'eristique de la r\'eaction en calculant le point d'intersection entre la tangente \`a l'origine et l'axe des abscisses. Ce temps est ici $\ddp t_c = \frac{1}{2k}$.
+    \end{minipage}
+  \end{center}
+
+\end{correction}
+
+
+
+
+
+
+
+
+\begin{exercice}  \; \textbf{Loi de Fick}\\
+  Une cellule est plong\'ee dans une solution de potassium de concentration $c_p$. On note $c(t)$ la concentration de potassium dans la cellule \`a l'instant $t$, et on suppose que $c(0)=0$. D'apr\`es la loi de Fick, la vitesse de variation de la concentration de potassium dans la cellule est proportionnelle au gradient de concentration $c_p-c(t)$, c'est-\`a-dire qu'il existe une constante $\tau$ homog\`ene \`a un temps telle que
+  $$c'(t) = \frac{c_p-c(t)}{\tau}.$$
+  D\'eterminer $c(t)$ et tracer le graphe de $c$.
+\end{exercice}
+
+
+\begin{correction}  \; \textbf{Loi de Fick}\\
+  \textbf{Une cellule est plong\'ee dans une solution de potassium de concentration $c_p$. On note $c(t)$ la concentration de potassium dans la cellule \`a l'instant $t$, et on suppose que $c(0)=0$. D'apr\`es la loi de Fick, la vitesse de variation de la concentration de potassium dans la cellule est proportionnelle au gradient de concentration $c_p-c(t)$, c'est-\`a-dire qu'il existe une constante $\tau$ homog\`ene \`a un temps telle que
+    $$\mathbf{c'(t) = \frac{c_p-c(t)}{\tau}.}$$
+    D\'eterminer $c(t)$ et tracer le graphe de $c$.}\\
+  On doit r\'esoudre l'\'equation diff\'erentielle : $c' +\ddp \frac{1}{\tau} c = \frac{1}{\tau} c_p$. C'est une \'equation diff\'erentielle lin\'eaire, du premier ordre, \`a coefficients constants. \\
+  \begin{itemize}
+    \item[$\bullet$] On commence par \'etudier l'\'equation homog\`ene associ\'ee : $c' +\ddp \frac{1}{\tau} c =0$. L'ensemble des solutions est $S_h = \{c_h : t \mapsto C e^{-\frac{t}{\tau}}$, avec $C\in \R\}$.
+    \item[$\bullet$] On cherche une solution particuli\`ere constante : $f(t) = \alpha$. On a alors $f'(t) = 0$, donc on doit avoir $0 +\ddp \frac{1}{\tau} \alpha = \frac{1}{\tau} c_p$, soit $\alpha = c_p$.
+  \end{itemize}
+  On en d\'eduit que l'ensemble des solutions est $S=\{c : t\mapsto C e^{-\frac{t}{\tau}} + c_p, C \in \R\}$. Comme de plus on a $c(0) = 0$, on a $C + c_p = 0$, soit $C=-c_p$. Finalement, la solution est donn\'ee par \fbox{$c(t) = c_p\left(1-e^{-\frac{t}{\tau}}\right)$}.
+  \begin{center}
+
+    \hspace*{0.5cm} \begin{minipage}[c]{0.95\linewidth}
+      Pour tracer la courbe, il suffit d'\'etudier les variations de la fonctions $c$, en supposant que $\tau$ et $c_p$ sont des constantes strictement positives.\\
+      On constate que la concentration tend vers $c_p$ : les concentrations en potassium s'\'equilibrent entre le milieu ext\'erieur et la cellule.
+    \end{minipage}
+  \end{center}
+
+
+\end{correction}
+
+\begin{exercice}  \; \textbf{Datation au carbone $14$.}\\
+  La vitesse de d\'esint\'egration du carbone $14$ est proportionnelle \`a sa quantit\'e pr\'esente dans le mat\'eriau consid\'er\'e. Ainsi, si on note $y(t)$ le nombre d'atomes de carbone $14$ pr\'esents dans un \'echantillon de mati\`ere organique \`a l'ann\'ee $t$, $y$ v\'erifie l'\'equation diff\'erentielle
+  $$y'(t) = -k y(t),$$
+  o\`u $k=1.238 \times 10^{-4} \textmd{an}^{-1}$ est la constante de d\'esint\'egration du carbone $14$.
+  \begin{enumerate}
+    \item Calculer l'expression explicite de $y(t)$ en fonction du nombre $N_0$ d'atomes de carbone $14$ \`a l'instant $t=0$.
+    \item On appelle demi-vie d'un \'el\'ement radioactif le temps au bout duquel la moiti\'e de ses atomes se sont d\'esint\'egr\'es. D\'eterminer la demi-vie du carbone $14$.
+    \item Lors de fouilles, on a d\'ecouvert un fragment d'os dont la teneur en carbone $14$ vaut $70\%$ de celle d'un os actuel de m\^eme masse. Estimer l'\^age de ces fragments.
+  \end{enumerate}
+\end{exercice}
+
+
+\begin{correction} \; \textbf{Datation au carbone $14$.}\\
+  \textbf{La vitesse de d\'esint\'egration du carbone $14$ est proportionnelle \`a sa quantit\'e pr\'esente dans le mat\'eriau consid\'er\'e. Ainsi, si on note $y(t)$ le nombre d'atomes de carbone $14$ pr\'esents dans un \'echantillon de mati\`ere organique \`a l'ann\'ee $t$, $y$ v\'erifie l'\'equation diff\'erentielle}
+  $$\mathbf{y'(t) = -k y(t),}$$
+  \textbf{o\`u $k=1.238 \times 10^{-4} \textmd{an}^{-1}$ est la constante de d\'esint\'egration du carbone $14$.}
+  \begin{enumerate}
+    \item \textbf{Calculer l'expression explicite de $y(t)$ en fonction du nombre $N_0$ d'atomes de carbone $14$ \`a l'instant $t=0$.}\\
+          On doit r\'esoudre l'\'equation diff\'erentielle $y'+ky = 0$.  C'est une \'equation diff\'erentielle lin\'eaire, du premier ordre, \`a coefficients constants et homog\`ene. On conna\^it donc l'ensemble des solutions :
+          $$S=\{ y: t \mapsto C e^{-kt}, \textmd{ avec }C \in \R\}.$$
+          De plus, on a $y(0) = N_0$, donc $C e^{-k\times 0} = N_0$, soit $C=N_0$. On en d\'eduit que $y$ a pour expression \fbox{$y(t) = N_0 e^{-kt}$}.
+    \item \textbf{On appelle demi-vie d'un \'el\'ement radioactif le temps au bout duquel la moiti\'e de ses atomes se sont d\'esint\'egr\'es. D\'eterminer la demi-vie du carbone $14$.}\\
+          On cherche $t_{0.5}$ tel que :
+          $$y(t_{0.5}) = \ddp \frac{1}{2} N_0 \; \Leftrightarrow \; N_0 e^{-kt_{0.5}} = \frac{1}{2} N_0 \; \Leftrightarrow \; e^{-kt_{0.5}} = \frac{1}{2} \; \Leftrightarrow \; -kt_{0.5} = \ln\left(\frac{1}{2}\right)$$
+          par stricte croissance de la fonction logarithme. On en d\'eduit \fbox{$t_{0.5} = \ddp \frac{\ln 2}{k}$}. L'application num\'erique donne $t_{0.5} \simeq 5599$ ans.
+    \item \textbf{Lors de fouilles, on a d\'ecouvert un fragment d'os dont la teneur en carbone $14$ vaut $70\%$ de celle d'un os actuel de m\^eme masse. Estimer l'\^age de ces fragments.}\\
+          On cherche $t_1$ tel que :
+          $$y(t_{1}) = \ddp 0.7 N_0 \; \Leftrightarrow \; N_0 e^{-kt_{1}} = 0.7 N_0 \; \Leftrightarrow \; e^{-kt_{1}} = 0.7 \; \Leftrightarrow \; -kt_{1} = \ln(0.7)$$
+          par stricte croissance de la fonction logarithme. On en d\'eduit \fbox{$t_{1} = \ddp - \frac{\ln 0.7}{k}$}. L'application num\'erique donne comme estimation $t_{1} \simeq 2881$ ans pour ces fragments.
+  \end{enumerate}
+\end{correction}
+
+
+
+
+%------------------------------------------------
+%----------------------------------------------------------------------------------------------
+
+
+
+\begin{exercice}  \;
+  \begin{enumerate}
+    \item \textbf{Circuit RC}\\
+          On place en s\'erie un condensateur de capacit\'e $C$ et une r\'esistance $R$, aliment\'es par un g\'en\'erateur de force \'electromotrice $V$. La charge $q(t)$ du condensateur v\'erifie alors l'\'equation
+          $$q'(t) + \frac{1}{RC} q(t) = \frac{V}{R}.$$
+          Calculer l'expression explicite de $q$, sachant que la charge initiale est nulle, et tracer le graphe de $q$.
+    \item \textbf{Circuit LC}\\
+          On place en s\'erie un condensateur de capacit\'e $C$ et une bobine d'inductance $L$, aliment\'es par un g\'en\'erateur de force \'electromotrice $V$. La charge $q(t)$ du condensateur v\'erifie alors l'\'equation
+          $$q''(t) + \frac{1}{LC} q(t) = \frac{V}{L}.$$
+          Calculer l'expression explicite de $q$, sachant que la charge initiale est nulle et que $q'(0)=0$, et tracer le graphe de $q$.
+  \end{enumerate}
+\end{exercice}
+\begin{correction}
+  \begin{enumerate}
+    \item \textbf{Circuit RC}\\
+          \textbf{On place en s\'erie un condensateur de capacit\'e $C$ et une r\'esistance $R$, aliment\'es par un g\'en\'erateur de force \'electromotrice $V$. La charge $q(t)$ du condensateur v\'erifie alors l'\'equation}
+          $$\mathbf{q'(t) + \frac{1}{RC} q(t) = \frac{V}{R}.}$$
+          \textbf{Calculer l'expression explicite de $q$, sachant que la charge initiale est nulle, et tracer le graphe de $q$.} On doit r\'esoudre une \'equation diff\'erentielle lin\'eaire, du premier ordre, \`a coefficients constants.
+          \begin{itemize}
+            \item[$\bullet$] On commence par \'etudier l'\'equation homog\`ene associ\'ee : $\ddp q' + \frac{1}{RC} q = 0$. L'ensemble des solutions est : $S_h = \{ q_h: t \mapsto  K e^{-\frac{t}{RC}}$, avec $K \in \R\}$.
+            \item[$\bullet$] On cherche une solution particuli\`ere constante : $q_p(t) = \alpha$. On a alors $q_p'(t) = 0$, donc on doit avoir $0 +\ddp \frac{1}{RC} \alpha = \frac{V}{R}$, soit $\alpha = VC$.
+          \end{itemize}
+          On en d\'eduit que l'ensemble des solutions est $S = \{q : t\mapsto  K e^{-\frac{t}{RC}}+ VC, K \in \R\}$. Comme de plus on a $q(0) = 0$, on a $K + VC = 0$, soit $K=-VC$. Finalement, la solution est donn\'ee par \fbox{$q(t) = VC \left(1-e^{-\frac{t}{RC}}\right)$}.
+          \begin{center}
+
+            \hspace*{0.5cm} \begin{minipage}[c]{0.95\linewidth}
+              On constate que la charge tend vers $VC$. On peut trouver le temps caract\'eristique du circuit en calculant le point d'intersection entre la tangente \`a l'origine et l'asymptote $y=VC$. Ce temps est ici $t_c = RC$.
+            \end{minipage}
+          \end{center}
+    \item \textbf{Circuit LC}\\
+          \textbf{On place en s\'erie un condensateur de capacit\'e $C$ et une bobine d'inductance $L$, aliment\'es par un g\'en\'erateur de force \'electromotrice $V$. La charge $q(t)$ du condensateur v\'erifie alors l'\'equation}
+          $$\mathbf{q''(t) + \frac{1}{LC} q(t) = \frac{V}{L}.}$$
+          \textbf{Calculer l'expression explicite de $q$, sachant que la charge initiale est nulle et que $q'(0)=0$, et tracer le graphe de $q$.}\\
+          On doit r\'esoudre une \'equation diff\'erentielle lin\'eaire, du second ordre, \`a coefficients constants. \\
+          \begin{itemize}
+            \item[$\bullet$] On commence par \'etudier l'\'equation homog\`ene associ\'ee : $\ddp q'' + \frac{1}{LC} q = 0$. On \'etudie l'\'equation caract\'eristique associ\'ee : $r^2 + \ddp \frac{1}{LC}=0$. Ses solutions sont complexes conjugu\'ees, donn\'ees par $r_1= i\omega$ et $r_2=-i\omega$ avec  $\omega=\ddp \frac{1}{\sqrt{LC}}$. L'ensemble des solutions est $ S_h = \{ q_h : t \mapsto A \cos(\omega t) + B \sin(\omega t)$, avec $(A,B) \in \R^2\}$.
+            \item[$\bullet$] On cherche une solution particuli\`ere constante : $q_p(t) = \alpha$. On a alors $q_p''(t) = 0$, donc on doit avoir $0 +\ddp \frac{1}{LC} \alpha = \frac{V}{L}$, soit $\alpha = VC$.
+          \end{itemize}
+          On en d\'eduit que l'ensemble des solutions est $S=\{q : t \mapsto  A \cos(\omega t) + B \sin(\omega t) + VC, (A,B) \in \R^2\}$. On \'etudie \`a pr\'esent les conditions initiales. On a $q(0) = A+VC = 0$, soit $A= -VC$. De plus, on doit avoir $q'(0)=0$. On calcule la d\'eriv\'ee de $q$ : $q'(t) = - A \omega \sin(\omega t) + B \omega \cos(\omega t)$, donc $q'(0) = B = 0$. On a donc finalement : \fbox{$q(t) = VC \left(1- \cos(\omega t)\right)$}.
+          \begin{center}
+            \begin{minipage}[c]{0.45\linewidth}
+
+            \end{minipage}
+            \hspace*{0.5cm} \begin{minipage}[c]{0.45\linewidth}
+              On constate que la charge oscille entre 0 et $2VC$. La p\'eriode de charge est donn\'ee par $T = \ddp \frac{2\pi}{\omega} = \ddp  2\pi \sqrt{LC}$.
+            \end{minipage}
+          \end{center}
+  \end{enumerate}
+\end{correction}
+
+\end{document}

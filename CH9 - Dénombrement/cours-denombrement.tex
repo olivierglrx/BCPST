@@ -1,0 +1,588 @@
+\documentclass[a4paper, 11pt]{article}
+\input{macro/package.tex}
+\input{macro/environement}
+\input{macro/header.tex}
+\input{macro/newcommand.tex}
+\geometry{hmargin=2.0cm, vmargin=3.5cm}
+
+%Section
+\pretocmd{\section}{%
+  \ifnum\value{section}=0 \else\clearpage\fi
+}{}{}
+
+
+
+\begin{document}
+   
+ \title{Chapitre 12 : Dénombrement} 
+ % debut
+ %------------------------------------------------
+\vspace{0.5cm}
+
+
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+
+
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\section{Cardinal d'un ensemble fini}
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\subsection{D\'efinition}
+
+ 
+
+\begin{defi} 
+\begin{itemize}
+\item[$\bullet$] Soit $E$ un ensemble fini comportant $n$ éléments. 
+On dit alors que $E$ est de cardinal $n$ et on note $\Card(E)=n$.
+\item[$\bullet$] L'ensemble vide est un ensemble fini et son cardinal est $\Card(\emptyset)=0$.
+\item[$\bullet$] Un singleton est un ensemble $E$ vérifiant  $\Card(E)=1$.
+\end{itemize}
+\end{defi}
+ 
+ \warning Ne pas confondre le nombre d'éléments et la "dimension" des objets à l'intérieur de l'ensemble. 
+ 
+ ex $E= \{ (1,2,3), (3,4,0)\}$ est un ensemble à \underline{2} éléments : 
+ \begin{enumerate}
+ \item $(1,2,3)$
+ \item $(3,4,0)$ 
+ \end{enumerate}
+ Chaque élément est une liste contenant 3 nombres. \warning
+
+\begin{exemple}
+OG n'a r\'eussi \`a corriger que le quart de la moiti\'e de son paquet de $48$ copies. Quel est le cardinal de l'ensemble des copies restantes ?
+\end{exemple}
+
+
+
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\subsection{Cardinal d'une union}
+
+
+
+
+\begin{prop} 
+Deux ensembles $A$ et $B$ sont disjoints  lorsque $A\cap B=\emptyset$
+On a alors : $$\Card(A\cup B) =\Card(A)+\Card(B)$$
+\end{prop}
+
+
+
+\noindent {\footnotesize \begin{exercice} 
+On tire une carte d'un jeu de 32 cartes. Quel est le nombre $N$ de possibilit\'es d'obtenir un 7 ou une figure ?
+\end{exercice}
+}
+
+
+
+\begin{prop} 
+Des ensembles finis $A_1,\ A_2,\dots,A_n$ sont deux \`{a} deux disjoints lorsque 
+$$\forall i,j \in \intent{1,n}\, i\neq j \implique A_i \cap A_j =\emptyset$$
+On a alors : 
+
+$$\Card(A_1 \cup \cdots \cup A_n)  =\sum_{k=1}^n \Card(A_i)$$
+\end{prop}
+ 
+
+
+
+\noindent \warning  Ne pas confondre des ensembles deux \`{a} deux disjoints et l'intersection de tous les ensembles est vide.\\
+
+
+ 
+
+
+
+\begin{prop} 
+Soient $A$ et $B$ deux ensembles finis alors
+$$\Card(A\cup B) =\Card(A) +\Card(B)- \Card(A\cap B)$$
+
+\end{prop}
+ 
+
+
+
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\subsection{Cardinal d'un compl\'ementaire}
+
+\begin{prop} 
+Soit $A$ un sous ensemble d'un ensemble fini $E$.\\
+\noindent On note $\overline{A}$ son compl\'ementaire dans $E$. Alors:
+
+$$\Card(\bar{A}) =\Card(E) -\Card(A)$$
+\end{prop}
+
+\begin{rem}
+Penser au compl\'ementaire d\`es que il y a: "au moins" dans l'énoncé. 
+\end{rem}
+
+
+ {\footnotesize \begin{exercice} 
+Dans un centre de vacances, il y a 50 personnes plus ou moins sportives et de nombreuses activit\'es leur sont propos\'ees : 15 personnes font du tennis, 20 de la piscine, 30 du volley-ball, 10 du tennis de table, 5 du cheval et 4 restent allong\'ees au bord de la piscine toute la journ\'ee. Combien de personnes pratiquent au moins un sport ?
+\end{exercice}
+}
+
+
+ 
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\subsection{Cardinal d'un produit cart\'esien}
+
+
+\begin{defi} Rappels sur le produit cart\'esien:
+\begin{itemize}
+\item[$\bullet$] Soient $A$ et $B$ deux ensembles. On note:
+$$A\times B=\{ (a,b)\,|\,  a\in A, b\in B\}$$
+et on a 
+$$Card(A\times B) = \Card(A)\times \Card(B)$$
+\item[$\bullet$] Soit $E$ un ensemble, on note:
+ $$E^p=\{ (e_1,e_2,\dots, e_p)\,|\,  e_i\in E \}$$
+ et on a 
+ $$\Card(E^p) = \Card(E)^p$$
+\end{itemize} 
+\end{defi}
+
+
+
+
+
+
+\noindent \begin{exemple} 
+Calcul du cardinal de $A\times B$ avec $A=\lbrace  2,6,8\rbrace$ et $B=\lbrace1,3,5,6,8\rbrace$:\\
+
+\end{exemple}
+
+\noindent {\footnotesize \begin{exercice} 
+On tire successivement 2 cartes d'un jeu de 32 cartes.
+\begin{enumerate}
+\item Quel est le nombre $N$ de possibilit\'es d'obtenir un roi suivi d'une dame ? 
+\item On tire maintenant successivement 4 cartes du m\^eme jeu. Quel est le nombre $M$ de possibilit\'es d'obtenir dans l'ordre un as, un roi, une dame, et un valet ? 
+\end{enumerate}
+\end{exercice}
+}
+
+\vspace*{0.2cm}
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\subsection{Cardinal de l'ensemble des parties d'un ensemble}
+
+\begin{defi} Soit $E$ un ensemble.
+\begin{itemize}
+\item[$\bullet$] On note $\mathcal{P}(E)$ l'ensemble des parties de $E$ 
+On  a $$\Card(P(E)) = 2^{\Card(E)}$$
+\end{itemize}
+\end{defi}
+ 
+
+%\begin{exemples}
+%\begin{itemize}
+%\item[$\bullet$] Si $E=\lbrace a,b,c\rbrace$ alors $\mathcal{P}(E)=$\dotfill \vsec
+%\item[$\bullet$] Si $E=\lbrace a\rbrace$ alors $\mathcal{P}(E)=$\dotfill \vsec
+%\end{itemize}
+%\end{exemples}
+
+
+%
+%\begin{prop} Soit $E$ un ensemble fini, alors:  
+%$$\Card (\mathcal{P}(E)) =2^{\Card(E)}$$
+%\end{prop}
+
+
+
+\begin{exemple}
+Calculer le nombre de parties des ensembles pr\'ec\'edents.
+\end{exemple}
+
+
+\subsection{Cardinal et applications}
+
+\begin{prop}
+Soient $E$ et $F$ deux ensembles finis. 
+\begin{itemize}
+\item Il existe une injection entre $E$ et $F$ ssi $\Card(E) \leq \Card(F)$
+\item Il existe une surjection entre $E$ et $F$ ssi $\Card(E) \geq \Card(F)$
+\item Il existe une bijection entre $E$ et $F$ ssi $\Card(E) = \Card(F)$
+
+\end{itemize}
+
+\end{prop}
+ 
+
+
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\section{Choix de $p$ objets parmi $n$}
+
+\noindent La plupart des exercices de d\'enombrement peuvent se ramener au cas de tirages de $p$ \'el\'ements parmi les $n$ \'el\'ements d'un ensemble $E$. Il y a alors essentiellement quatre fa\c{c}ons diff\'erentes de tirer $p$ \'el\'ements parmi $n$:
+\begin{itemize}
+\item[$\bullet$] Avec ordre et r\'ep\'etition ($n^p$) (Nombre de  codes secrets de carte bleue)
+\item[$\bullet$] Avec ordre et sans r\'ep\'etition, ($\frac{n!}{(n-p)!}$) (Nombre de possiblités au tiercé) 
+\item[$\bullet$] Sans ordre et sans r\'ep\'etition, ($\binom{n}{p}$) (nombre de possibilités au loto)
+\item[$\bullet$] Sans ordre et avec r\'ep\'etition. (plus rare et compliqué) 
+\end{itemize}
+
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\subsection{Choix successifs}
+
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\subsubsection{Listes avec r\'ep\'etitions \'eventuelles (avec ordre et r\'ep\'etition)}
+
+ {\noindent 
+
+\begin{defi} 
+Soit $E$ un ensemble de cardinal fini $n$. \vsec\\
+Une $p$-liste de $E$ est un élément de $E^p$
+\end{defi}
+ }\vsec
+
+\begin{exemple}
+Soit $E=\lbrace 0,2,4,6,8,10,12\rbrace$. \\
+Donner une $2$-liste de $E$ : \dotfill et une $5$-liste de $E$ :\dotfill
+\end{exemple}
+
+\begin{rem}
+\noindent \warning  Ne pas confondre $p$-liste avec ensemble \`a $p$ \'el\'ements. Dans une $p$-liste, l'ordre est important et si on change l'ordre, on change la $p$-liste. Dans un ensemble \`a $p$ \'el\'ements, l'ordre n'intervient pas et l'ensemble est toujours le m\^eme lorsque l'on intervertit des \'el\'ements.\\
+Exemple avec les points de coordonn\'ees $(2,3)$ et $(3,2)$ :
+
+\end{rem}
+
+
+
+
+\begin{prop} Avec ordre et r\'ep\'etition:\\
+Le nombre de fa\c{c}ons de choisir $p$ objets pris parmi $n$ objets distincts avec r\'ep\'etition possible et avec ordre est $n^p$ c'est-\`a-dire $\Card(E^p)$
+\end{prop}
+
+
+
+
+\noindent \begin{exemples} 
+\begin{itemize}
+\item[$\bullet$] \textbf{Exemple fondamental: Tirage successif avec remise}\\
+\noindent Soient une urne contenant $n$ boules diff\'erentes et un entier $p$. On tire successivement $p$ boules dans l'urne, on note le num\'ero de la boule tir\'ee \`a chaque fois et l'on remet la boule dans l'urne. Le nombre de r\'esultats possibles d'un tel tirage est \dotfill\vsec
+\item[$\bullet$] Nombre de fa\c{c}ons de ranger 2 chemises de couleurs diff\'erentes dans 3 tiroirs discernables : \dotfill\vsec
+%Plus g\'en\'eralement quel est le nombre de r\'epartitions possibles de $p$ chemises de couleurs diff\'erentes dans $n$ tiroirs discernables: \dotfill \vsec\\
+\item[$\bullet$] Nombre de mots de 5 lettres \'ecrits avec les lettres A,B,C,D,E et F : \dotfill \vsec
+\item[$\bullet$] Nombre de r\'epartitions possibles de $5$ billes diff\'erentes dans $10$ bo\^{i}tes distinctes avec 0, 1 ou plusieurs billes par bo\^{i}te : \dotfill \vsec
+% \dotfill
+\end{itemize}
+\end{exemples}
+
+ 
+
+
+
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\subsubsection{Listes sans r\'ep\'etition (avec ordre et sans r\'ep\'etition)}
+
+
+\begin{defi} 
+Soit $E$ un ensemble de cardinal fini $n$.\\
+Une $p$-liste de $E$ sans r\'ep\'etition (ou arrangement de $p$ \'el\'ements de $E$) est 
+\end{defi}
+
+\begin{exemple} 
+Soit $E=\lbrace 0,2,4,6,8,10,12\rbrace$. \\
+Donner une $5$-liste sans r\'ep\'etition de $E$ : \dotfill 
+\end{exemple}
+
+\begin{rem}
+Pour qu'il n'y ait pas de r\'ep\'etition, il faut n\'ecessairement que l'on ait \dotfill
+\end{rem}
+
+
+
+\begin{prop} Avec ordre et sans r\'ep\'etition:\\
+Le nombre de fa\c{c}ons de choisir $p$ objets pris parmi $n$ objets distincts sans r\'ep\'etition possible et avec ordre est \dotfill \\
+c'est-\`a-dire :\vsec\vsec%\ldots \ldots \ldots \ldots \vsec
+\end{prop}
+
+\begin{rem}
+On utilise parfois la notation $\mathcal{A}_n^p$ (pour ``arrangement'') pour d\'esigner le nombre de $p$-listes sans r\'ep\'etition d'un ensemble \`a $n$ \'el\'ements. Ainsi, on a $\mathcal{A}_n^p =$ \dotfill\\
+Par convention, on pose $\mathcal{A}_n^0 = 1$ et $\mathcal{A}_n^p=0$ si $p>n$.
+\end{rem}
+
+\noindent  \begin{exemples} 
+\begin{itemize}
+\item[$\bullet$] \textbf{Exemple fondamental: Tirage successif sans remise}\\
+\noindent Soient une urne contexnant $n$ boules diff\'erentes et un entier $p$. On tire successivement et sans remise $p$ boules dans l'urne. Le nombre de r\'esultats possibles d'un tel tirage est \dotfill\vsec
+\item[$\bullet$] Nombre de r\'epartitions possibles de $5$ billes diff\'erentes dans $10$ bo\^{i}tes distinctes avec au plus une bille par bo\^{i}te : \dotfill\vsec
+\item[$\bullet$] Nombre de paris possibles au tierc\'e dans une course o\`u 15 chevaux sont en comp\'etition : \dotfill\vsec
+\item[$\bullet$] Nombre de mots de 3 lettres distinctes avec les lettres A,B,C et D : \dotfill
+\end{itemize}
+\end{exemples}\vsec
+
+
+
+\begin{defi}  
+Soit $E$ un ensemble fini \`a $n$ \'el\'ements. \\
+\noindent On appelle permutation de $E$ \dotfill
+\end{defi}
+ 
+
+\begin{exemple}
+Soit $E=\lbrace 0,2,4,6,8,10,12\rbrace$. \\
+Donner un exemple de permutation de $E$ : \dotfill\\
+Doner un exemple de $7$-liste de $E$ qui n'est pas une permutation : \dotfill
+\end{exemple}
+
+ 
+
+
+\begin{prop}
+Soit $E$ un ensemble fini de cardinal $n$. 
+Le nombre de permutations de $E$ est \dotfill \vsec
+\end{prop}
+ 
+
+
+\noindent {\footnotesize \begin{exercice} 
+Nombre de permutations de $\intent{ 1,3}$ ? de $\intent{ 1,6}$ ? \dotfill.
+\end{exercice}
+}
+%
+%
+%\vspace*{0.5cm}
+%
+%\noindent\ {Exemple : Anagrammes}\\
+%
+% {\noindent 
+%
+%\begin{defi} 
+%On appelle anagramme d'un mot \dotfill\vsec
+%\end{defi}
+% }\vsec
+%
+%
+%\begin{exemple}
+%Exemples d'anagramme du mot BCPST: \dotfill
+%\end{exemple}\vsec
+%
+%
+%\noindent \textbf{Calcul du nombre d'anagramme d'un mot:}
+%
+%\noindent \begin{itemize}
+% \item[$\bullet$] Le cas de $k$ lettres distinctes: quel est le nombre d'anagrammes du mot cheval ?\\
+%\vspace*{1cm}
+%\item[$\bullet$] Le cas de lettres r\'ep\'et\'ees: quel est le nombre d'anagrammes du mot mouton ?\\
+%\vspace*{3cm}
+%\end{itemize}
+%
+%{\footnotesize\begin{exercice}
+%Quel est le nombre d'anagrammes du mot mississippi ?
+%\end{exercice}}
+
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\subsection{Choix simultan\'es}
+
+
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\subsubsection{Combinaisons (sans ordre et sans r\'ep\'etition)}
+
+
+
+\begin{defi}  
+Soient $E$ un ensemble fini de cardinal $n$.\\
+\noindent  On appelle combinaison de $p$ \'el\'ements pris parmi $n$ \'el\'ements de $E$ \dotfill \\
+\noindent \phantom{ \hspace{-0.1cm}}\dotfill \vsec
+\end{defi}
+ 
+
+
+
+\begin{exemple} 
+Soit $E=\lbrace 0,2,4,6,8,10,12\rbrace$. \\
+Donner une combinaison \`a $5$ \'el\'ements de $E$ : \dotfill 
+\end{exemple}
+
+
+\begin{rem}
+On doit n\'ecessairement avoir \dotfill
+\end{rem}
+
+
+
+
+\begin{prop} Sans ordre et sans r\'ep\'etition :\\
+Le nombre de fa\c{c}ons de choisir $p$ objets pris parmi $n$ objets distincts sans r\'ep\'etition possible et sans ordre est \dotfill\\
+c'est-\`a-dire :\vsec\vsec
+\end{prop}
+
+
+
+
+
+\noindent  \begin{exemples} 
+\begin{itemize}
+\item[$\bullet$] \textbf{Exemple fondamental: Tirage simultan\'e non ordonn\'e}\\
+\noindent Soient une urne contenant $n$ boules diff\'erentes et un entier $p$. On tire simultan\'ement $p$ boules. Le nombre de r\'esultats possibles d'un tel tirage est \dotfill\vsec
+\item[$\bullet$] Nombre de r\'epartitions possibles de $5$ billes identiques dans $10$ bo\^{i}tes distinctes avec au plus une bille par bo\^{i}te : \dotfill\vsec
+\end{itemize}
+\end{exemples}
+
+
+{\footnotesize\begin{exercice}
+Jeu de cartes: on distribue 5 cartes d'un jeu de 32 cartes \`a un joueur, celui-ci dispose donc d'une main de 5 cartes.
+\begin{enumerate}
+\item D\'eterminer le nombre de mains possibles.
+\item D\'eterminer le nombre de mains contenant exactement 2 coeurs.
+\item D\'eterminer le nombre de mains contenant exactement 2 cartes de pique, 2 cartes de coeur et 1 carte de carreau.
+\end{enumerate}
+\end{exercice}}
+
+{\footnotesize\begin{exercice}
+Formule des "chefs" : un s\'electionneur de foot doit choisir $k$ joueurs parmi $n$ candidats, et d\'esigner un capitaine parmi les joueurs. En comptant de deux fa\c cons diff\'erentes le nombre de possibilit\'es, red\'emontrer la formule des "chefs".
+\end{exercice}}
+
+
+\vspace*{0.2cm}
+
+
+
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\subsubsection{Choix sans ordre et avec r\'ep\'etition}
+
+\noindent Ce cas l\`{a} est plus rare mais il appara\^{i}t parfois. On verra quelques exemples en TD.
+
+\begin{exemple}  On consid\`ere $5$ boules indiscernables que l'on veut placer dans $3$ tiroirs distincts, chaque tiroir pouvant contenir de 0 \`a $5$ boules. Donner le nombre de r\'epartitions possibles.\\
+\vspace*{5cm}
+\end{exemple}
+
+
+
+ 
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+%\section{Cardinal et application}
+%
+%\noindent Dans toute cette partie, on consid\`{e}re deux ensembles finis $E$ et $F$ de cardinal respectivement $p$ et $n$.
+%
+%
+%%----------------------------------------------------------
+%%-----------------------------------------------------------
+%%----------------------------------------------------------
+%%----------------------------------------------------------
+%%-----------------------------------------------------------
+%%----------------------------------------------------------
+%\subsection{Injectivit\'e, surjectivit\'e, bijectivit\'e et d\'enombrement}
+%
+%
+% {\noindent  
+%
+%\begin{prop}  \hspace*{0.5cm}
+%\begin{itemize}
+%\item[$\bullet$] Il existe une injection de $E$ dans $F$ si et seulement si \dotfill\vsec
+%\item[$\bullet$] Il existe une surjection de $E$ dans $F$ si et seulement si \dotfill\vsec
+%\item[$\bullet$] Il existe une bijection de $E$ dans $F$ si et seulement si \dotfill\vsec
+%\end{itemize}
+%\end{prop}
+% 
+%}\vsec
+%
+%\begin{proof} 
+%\vspace*{10cm}
+%\end{proof}
+%
+%
+%%----------------------------------------------------------
+%%-----------------------------------------------------------
+%%----------------------------------------------------------
+%%----------------------------------------------------------
+%%-----------------------------------------------------------
+%%----------------------------------------------------------
+%\subsection{Nombre d'applications de $E$ dans $F$}
+%
+% {\noindent  
+%
+%\begin{prop}  Le nombre d'applications de $E$ dans $F$ est:\vsec
+%\end{prop}
+% 
+%}\vsec
+%
+%\begin{proof} 
+%\vspace*{7cm}
+%\end{proof}
+%
+%
+%
+%%----------------------------------------------------------
+%%-----------------------------------------------------------
+%%----------------------------------------------------------
+%\subsection{Nombre d'injections de $E$ dans $F$}
+%
+%
+% {\noindent  
+%
+%\begin{prop} On suppose $p\leq n$.\\
+%Le nombre d'applications injectives de $E$ dans $F$ est: \vsec
+%\end{prop}
+% 
+%}\vsec
+%
+%\begin{proof} 
+%\vspace*{5cm}
+%\end{proof}
+%
+%
+%%
+%%----------------------------------------------------------
+%%-----------------------------------------------------------
+%%----------------------------------------------------------
+%\subsection{Nombre de bijections de $E$ dans $F$}
+%
+%
+% {\noindent  
+%
+%\begin{prop}  
+%Soient $E$ et $F$ deux ensembles finis non vides ayant le m\^{e}me cardinal $n$.\\
+%\noindent Alors le nombre d'applications bijectives de $E$ dans $F$ est:\vsec
+%\end{prop}
+% 
+%}\vsec
+%
+%\begin{proof} 
+%\vspace*{4cm}
+%\end{proof}
+%
+
+
+
+\end{document}

@@ -1,0 +1,232 @@
+\documentclass[a4paper, 11pt]{article}
+\input{macro/package.tex}
+\input{macro/environement}
+\input{macro/header.tex}
+\input{macro/newcommand.tex}
+\geometry{hmargin=2.0cm, vmargin=1.5cm}
+
+\author{Olivier Glorieux}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+
+\begin{document}
+
+
+% \tableofcontents
+\title{Chapitre 5.1 - Suites réelles 4 exemples}
+
+
+\section{Suite arithm\'etique}
+
+%-----------------------------------------------------------
+%-----------------------------------
+%\subsubsection{D\'efinition par r\'ecurrence:}
+
+\begin{defi} D\'efinition d'une suite arithm\'etique:\\
+Une suite $(u_n)_{n\geq 0}$ est dite arithm\'etique de raison $r$ si pour tout $n\in \N$:
+$$ u_{n+1}=.....................$$
+\end{defi}
+
+
+
+%-----------------------------------------------------------
+%-----------------------------------
+%\subsubsection{Expression explicite:}
+{  
+
+\begin{prop} Soit $\suite{u}$ une suite arithm\'etique de raison $r$ et de premier terme $u_0$.\vspace{0.3cm}
+\begin{itemize}
+\item[$\bullet$] Expression explicite : $u_n =..................$ 
+\item[$\bullet$] Limite : $\lim\limits_{n\to +\infty} u_n = \left\{ \begin{array}{c} \vspace*{2cm} \end{array} \right.$
+\item[$\bullet$] Somme des termes : $\ddp \sum\limits_{k=0}^n u_k = $
+\end{itemize}
+\end{prop}
+
+}
+
+% \begin{rem}
+% Une suite $(u_n)_{n\geq p}$ est arithm\'etique de raison $r$ et de premier terme $u_{p}$ si\dotfill\\
+% On a alors $u_n = \dotfill$ et $\ddp \sum_{k=p}^n u_k = \dotfill$.\\
+% \end{rem}
+
+%-----------------------------------------------------------
+%-----------------------------------
+%-----------------------------------------------------------
+%----------------------------------------------------------
+\section{Suite g\'eom\'etrique}
+
+%-----------------------------------------------------------
+%-----------------------------------
+%\subsubsection{D\'efinition par r\'ecurrence:}\vspace{0.3cm}
+
+{  
+
+\begin{defi} D\'efinition d'une suite g\'eom\'etrique:
+Une suite $(u_n)_{n\geq 0}$ est dite g\'eom\'etrique de raison $q$
+$$ u_{n+1}=.....................$$
+\end{defi}
+
+}\vspace{0.3cm}
+
+{  
+
+\begin{prop} Soit $\suite{u}$ une suite g\'eom\'etrique de raison $q$ et de premier terme $u_0$.\vspace{0.3cm}
+\begin{itemize}
+\item[$\bullet$] Expression explicite : $u_n =$ 
+\item[$\bullet$] Limite (pour $u_0>0$) : $\lim\limits_{n\to +\infty} u_n = \left\{ \begin{array}{c} \vspace*{3cm} \end{array} \right.$
+\item[$\bullet$] Somme des termes : $\ddp \sum\limits_{k=0}^n u_k =  \left\{ \begin{array}{c} \vspace*{2cm} \end{array} \right.$
+\end{itemize}
+\end{prop}
+
+}
+
+
+% \begin{rem}
+% Une suite $(u_n)_{n\geq p}$ est g\'eom\'etrique de raison $q$ et de premier terme $u_{p}$ si\dotfill\\
+% On a alors $u_n = \dotfill$ et $\ddp \sum_{k=p}^n u_k = \dotfill$.
+% \end{rem}
+
+%-----------------------------------------------------------
+\newpage
+%----------------------------------------------------------
+\section{Suite arithm\'etico-g\'eom\'etrique}
+
+%-----------------------------------------------------------
+%-----------------------------------
+
+{  
+
+\begin{defi} Soit $\suite{u}$ une suite r\'eelle. On dit qu'elle est arithm\'etico-g\'eom\'etrique s'il existe deux r\'eels $a$ et $b$ ($a\not=1$ et $b\not=0$ sinon on est dans les deux cas pr\'ec\'edents) tels que pour tout $n\in\N$
+$$ u_{n+1}=.....................$$
+\vspace{0.1cm}
+\end{defi}
+
+}\vspace{0.3cm}
+
+
+%-----------------------------------------------------------
+%-----------------------------------
+%\subsection{Expression explicite: M\'ethode}\vspace{0.3cm}
+
+\setlength\fboxrule{1pt}
+ {
+\begin{minipage}[t]{0.9\textwidth}
+\begin{itemize}
+\item[$\bullet$] \'Etude d'une suite auxiliaire $\suite{v}$ d\'efinie par: $\forall n\in\N,\ v_n=u_n-\alpha$.
+\begin{itemize}
+\item[$\star$]Chercher $\alpha$  tel que la suite $\suite{v}$ soit g\'eom\'etrique de raison $a$.
+\item[$\star$] En d\'eduire son expression explicite de $v_n$
+\end{itemize}
+\item[$\bullet$] Expression explicite de $\suite{u}$ en utilisant: $\forall n\in\N,\ u_n=v_n+\alpha$. 
+\end{itemize}
+\end{minipage}}
+\setlength\fboxrule{0.5pt}
+\begin{rem}
+\warning \, Les r\'eels $a$ et $b$ ne doivent pas d\'ependre de $n$. La suite $u_{n+1}= nu_n+3$ n'est pas arithmético-géométrique. La méthode présentée ensuite ne fonctionne pas. 
+\end{rem}
+
+\vspace{0.3cm}
+\begin{exemple}
+Soit $\suite{u}$ la suite d\'efinie par: $u_0=2$ et pour tout $n\in\N$: $u_{n+1}=3u_n+4$. Calculer $u_n$.
+
+
+
+\begin{enumerate}
+\item \textbf{Chercher $\alpha$  tel que la suite $\suite{v}$ soit g\'eom\'etrique de raison $a$.}
+\vspace*{9cm}
+
+
+\item \textbf{Expression de  $\mathbf{\suite{v}}$}
+\vspace*{3cm}
+
+\item \textbf{Retour à la suite $\mathbf{\suite{u}}$}
+\vspace*{3cm}
+
+\end{enumerate}
+\end{exemple}
+
+% {\footnotesize 
+% \begin{exercice} 
+% On d\'efinit la suite $\suite{u}$ par: $u_0=4$ et pour tout $n\in\N$: $u_{n+1}=-\ddp\demi u_n+1$. Donner son expression explicite, sa limite et la somme $\ddp \sum_{k=0}^n u_k$.
+% %\begin{enumerate}
+% %\item On d\'efinit la suite $\suite{u}$ par: $u_0=4$ et pour tout $n\in\N$: $u_{n+1}=-\ddp\demi u_n+1$. Donner son expression explicite, sa limite et la somme de ses $n$ premiers termes.
+% %\item On d\'efinit la suite $\suite{u}$ par: $u_0=0$ et pour tout $n\in\N$: $u_{n+1}=\ddp\frac{8}{9}u_n+\ddp\frac{1}{9}$. Donner son expression explicite, sa limite et la somme de ses $n$ premiers termes.
+% %\end{enumerate}
+% \end{exercice}}
+
+
+
+% {\footnotesize 
+% \begin{exercice} 
+% Trouver le terme g\'en\'eral des suites d\'efinies par $u_{n+1} = n u_n, u_{n+1}= \ddp \frac{2}{n} u_n$, et $u_{n+1}=u_n^2$.
+% \end{exercice}}
+
+%-----------------------------------------------------------
+\newpage
+%----------------------------------------------------------
+\section{Suite r\'ecurrente lin\'eaire d'ordre deux}
+
+%-----------------------------------------------------------
+%-----------------------------------
+
+
+\begin{defi} 
+Soient $(a,b)\in\bR^2$ avec $b\not=0$. On appelle suite r\'ecurrente lin\'eaire d'ordre deux toute suite $\suite{u}$ v\'erifiant la relation de r\'ecurrence tels que pour tout $n\in\N$
+$$ u_{n+2}=......................................$$
+avec deux conditions initiales donn\'ees ($u_0$ et $u_1$).
+\end{defi}
+
+%-----------------------------------------------------------
+%-----------------------------------
+
+\setlength\fboxrule{1pt}
+
+\begin{itemize}
+\item[$\bullet$] R\'esolution de l'\'equation caract\'eristique associ\'ee \`{a} la suite:
+$$(E)\quad..................................$$
+\item[$\bullet$] Expression explicite de la suite selon le signe du discriminant de l'\'equation caract\'eristique:
+\begin{itemize}
+\item[$\star$] Si $\Delta>0$: $(E)$ a deux solutions r\'eelles distinctes $r_1$ et $r_2$, et l'expression explicite de la suite est :
+
+\framebox(400,40){$ \exists (\alpha,\beta)\in\bR^2,\forall n\in\N, u_n=\hspace{9cm}$ }
+
+\vspace{0.1cm}
+
+\item[$\star$] Si $\Delta=0$, $(E)$ a une solution r\'eelle double $r_0$, et l'expression explicite de la suite est :
+
+\framebox(400,40){$ \exists (\alpha,\beta)\in\bR^2,\forall n\in\N, u_n=\hspace{9cm}$ }
+\vspace{0.1cm}
+\item[$\star$] Si $\Delta<0$:  $(E)$ a deux solutions complexes conjugu\'ees que l'on \'ecrit sous forme exponentielle $\rho e^{i\theta}$ et $\rho e^{-i\theta}$ (avec $\rho>0$ et $\theta\in\bR$). L'expression explicite de la suite est alors:
+
+\framebox(400,40){$ \exists (\alpha,\beta)\in\bR^2,\forall n\in\N, u_n=\hspace{9cm}$ }
+\vspace{0.1cm}
+\end{itemize}
+\item[$\bullet$] Calcul des constantes $\alpha$ et $\beta$ \`{a} l'aide des valeurs des conditions initiales $u_0$ et $u_1$ en r\'esolvant un syst\`eme lin\'eaire. 
+\end{itemize}
+
+
+
+
+\begin{exemple}
+\'Etudier la suite $\suite{u}$ d\'efinie par: $u_0=1$ et $u_1=2$ et $\forall n\in\N,  u_{n+2}=-2u_{n+1}+3u_n$.
+
+\begin{enumerate}
+\item \textbf{Résolution de l'équation caractéristique}
+\vspace*{4cm}
+
+
+\item \textbf{Expression explicite de $\suite{u}$ avec constantes à déterminer }
+\vspace*{3cm}
+
+\item \textbf{Calcul des constantes}
+\vspace*{7cm}
+
+\end{enumerate}
+\end{exemple}
+
+
+
+
+
+
+
+\end{document}

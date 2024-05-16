@@ -1,0 +1,61 @@
+\documentclass[a4paper, 11pt]{article}
+\input{macro/package.tex}
+\input{macro/environement}
+\input{macro/header.tex}
+\input{macro/newcommand.tex}
+\geometry{hmargin=2.0cm, vmargin=1.5cm}
+
+
+
+
+\begin{document}
+
+
+
+\title{Fractions, racines, puissances}
+
+
+
+
+\begin{prop}
+Soit $(a,b,c,d)\in (\R^*)^3$.On a
+$$\frac{a+c}{b}=\frac{a}{b}+ \frac{c}{b}
+$$
+$$\frac{a}{b}+\frac{c}{d}=\frac{ad+bc}{bd}$$
+$$c\frac{a}{b}=\frac{ac}{b}  $$
+
+$$\frac{ca}{cb}=\frac{c}{c}\frac{a}{b}  =\frac{a}{b}$$
+
+$$\frac{\frac{a}{b}}{c} = \frac{a}{bc} \quadet \frac{a}{\frac{b}{c}} = \frac{ac}{b}$$
+ $$\frac{\frac{a}{b}}{\frac{c}{d}} = \frac{ad}{bc}$$
+
+ $$\frac{a\frac{1}{c}}{b\frac{1}{c}} =\frac{\frac{a}{c}}{\frac{b}{c}} =\frac{a}{b}$$
+ 
+\end{prop}
+
+\warning $\frac{a}{b+c }\neq \frac{a}{b}+\frac{a}{c}$....  très faux...
+
+\begin{prop} \label{prop-regle de calcul puissance}
+Pour tout $(x,y) \in \R^2$, non nuls si besoin, pour tout $n,m\in \Z$ on a :
+\begin{itemize}
+\item[$\bullet$] $(xy)^n =x^n y^n$
+\item[$\bullet$] $x^{n} \times x^m = x^{n+m}$ \; et \; $\ddp \frac{x^n}{x^m} =x^{n-m}$
+\item[$\bullet$] $ (x^n)^m = x^{nm}$
+\end{itemize}
+\end{prop}
+
+
+\begin{prop}
+Soit $(a,b)\in \R^+$:
+$$\sqrt{ab} =\sqrt{a}\sqrt{b}$$
+$$\sqrt{\frac{a}{b}} =\frac{\sqrt{a}}{\sqrt{b}}$$
+
+
+$$\sqrt{a^2} =|a| \text{ Donc vaut $a$ si $a>0$} $$
+
+
+\end{prop}
+
+\warning $\sqrt{a+b} \ne \sqrt{a}+\sqrt{b} $....  Très faux !!
+
+\end{document}
